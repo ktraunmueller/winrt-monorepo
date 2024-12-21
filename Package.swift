@@ -6,16 +6,22 @@ import PackageDescription
 let package = Package(
     name: "WinUI",
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "WinUI",
-            type: .dynamic,
-            targets: ["WinUI"])
+            name: "WinUI", type: .dynamic, targets: ["WinUI"])
+    ],
+    dependencies: [
+        .package(path: "../UWP"),
+        .package(path: "../WinAppSDK"),
+        .package(path: "../WindowsFoundation")
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "WinUI")
-    ]
+            name: "WinUI",
+            dependencies: [
+                .product(name: "UWP", package: "UWP"),
+                .product(name: "WinAppSDK", package: "WinAppSDK"),
+                .product(name: "WindowsFoundation", package: "WindowsFoundation")
+            ])
+    ],
+    swiftLanguageModes: [.v5]
 )
