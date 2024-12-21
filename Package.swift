@@ -18,5 +18,6 @@ let package = Package(
             linkerSettings: [
                 .unsafeFlags(["-nostartfiles"]),
             ])
-    ]
+    ],
+    swiftLanguageModes: [.v5]
 )
