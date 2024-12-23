@@ -10,6 +10,7 @@ let package = Package(
             name: "WinUI", type: .dynamic, targets: ["WinUI"])
     ],
     dependencies: [
+        .package(path: "../CWinRT"),
         .package(path: "../UWP"),
         .package(path: "../WinAppSDK"),
         .package(path: "../WindowsFoundation")
@@ -18,6 +19,7 @@ let package = Package(
         .target(
             name: "WinUI",
             dependencies: [
+                .product(name: "CWinRT", package: "CWinRT"),
                 .product(name: "UWP", package: "UWP"),
                 .product(name: "WinAppSDK", package: "WinAppSDK"),
                 .product(name: "WindowsFoundation", package: "WindowsFoundation")
