@@ -27,15 +27,15 @@ public class WindowsAppRuntimeInitializer {
     // TODO: Figure out how to properly link against delayimp.lib so that we can delay load the bootstrap dll.
     private typealias pfnMddBootstrapInitialize2 = @convention(c) (UInt32, PCWSTR?, PACKAGE_VERSION, MddBootstrapInitializeOptions) -> HRESULT
     private typealias pfnMddBootstrapShutdown = @convention(c) () -> Void
-    private let bootsrapperDll = LoadLibraryA("swift-windowsappsdk_CWinAppSDK.resources\\Microsoft.WindowsAppRuntime.Bootstrap.dll")
+    private let bootstrapperDll = LoadLibraryA("WinAppSDK_CWinAppSDK.resources\\Microsoft.WindowsAppRuntime.Bootstrap.dll")
 
     private lazy var Initialize: pfnMddBootstrapInitialize2 = {
-        let pfn = GetProcAddress(bootsrapperDll, "MddBootstrapInitialize2")
+        let pfn = GetProcAddress(bootstrapperDll, "MddBootstrapInitialize2")
         return unsafeBitCast(pfn, to: pfnMddBootstrapInitialize2.self)
     }()
 
     private lazy var Shutdown: pfnMddBootstrapShutdown = {
-        let pfn = GetProcAddress(bootsrapperDll, "MddBootstrapShutdown")
+        let pfn = GetProcAddress(bootstrapperDll, "MddBootstrapShutdown")
         return unsafeBitCast(pfn, to: pfnMddBootstrapShutdown.self)
     }()
 
@@ -73,6 +73,6 @@ public class WindowsAppRuntimeInitializer {
         if !processHasIdentity() {
             Shutdown()
         }
-        FreeLibrary(bootsrapperDll)
+        FreeLibrary(bootstrapperDll)
     }
 }
