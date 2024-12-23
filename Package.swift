@@ -10,12 +10,14 @@ let package = Package(
             name: "UWP", type: .dynamic, targets: ["UWP"]),
     ],
     dependencies: [
+        .package(path: "../CWinRT"),
         .package(path: "../WindowsFoundation")
     ],
     targets: [
         .target(
             name: "UWP",
             dependencies: [
+                .product(name: "CWinRT", package: "CWinRT"),
                 .product(name: "WindowsFoundation", package: "WindowsFoundation")
             ])
     ],
