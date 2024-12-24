@@ -4,21 +4,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "UWP",
+    name: "swift-uwp",
     products: [
         .library(
             name: "UWP", type: .dynamic, targets: ["UWP"]),
     ],
     dependencies: [
-        .package(path: "../CWinRT"),
-        .package(path: "../WindowsFoundation")
+        .package(path: "../swift-cwinrt"),
+        .package(path: "../swift-windowsfoundation")
     ],
     targets: [
         .target(
             name: "UWP",
             dependencies: [
-                .product(name: "CWinRT", package: "CWinRT"),
-                .product(name: "WindowsFoundation", package: "WindowsFoundation")
+                .product(name: "CWinRT", package: "swift-cwinrt"),
+                .product(name: "WindowsFoundation", package: "swift-windowsfoundation")
             ])
     ],
     swiftLanguageModes: [.v5]
