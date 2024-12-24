@@ -1,23 +1,29 @@
-//----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation.  All rights reserved.
-//----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
 #endif
 
-#include <winrt/Microsoft.UI.h>
+#include <winerror.h>
+#include <Microsoft.UI.h>
 
+#ifdef BUILD_WINDOWS
 namespace ABI::Microsoft::UI 
 {
-    using WindowId = winrt::Microsoft::UI::WindowId;
-    using DisplayId = winrt::Microsoft::UI::DisplayId;
-    using IconId = winrt::Microsoft::UI::IconId;
+    using WindowId = ::Microsoft::UI::WindowId; 
+    using DisplayId = ::Microsoft::UI::DisplayId;
+    using IconId = ::Microsoft::UI::IconId;
 }
+#endif
 
 
-namespace winrt::Microsoft::UI 
-{
+#ifndef BUILD_WINDOWS
+namespace ABI {
+#endif
+namespace Microsoft {
+namespace UI {
 
 typedef HRESULT (STDAPICALLTYPE *PfnGetWindowIdFromWindow)(_In_ HWND hwnd, _Out_ ABI::Microsoft::UI::WindowId* windowId);
 typedef HRESULT (STDAPICALLTYPE *PfnGetWindowFromWindowId)(_In_ ABI::Microsoft::UI::WindowId windowId, _Out_ HWND* hwnd);
@@ -42,11 +48,10 @@ typedef struct _InteropImpl
 __declspec(selectany) InteropImpl s_impl { nullptr };
 __declspec(selectany) HMODULE s_module { nullptr };
 
-
 // Load the FrameworkUdk library if needed and store pointers to the handle conversion functions.
 // We need this approach because third-party apps cannot link to the FrameworkUdk directly.
 // Note that in unpackaged apps this will only work after a call to MddBootstrapInitialize().
-static void EnsureInteropImplLoaded()
+static HRESULT EnsureInteropImplLoaded()
 {
     if (s_module == nullptr)
     {
@@ -66,13 +71,15 @@ static void EnsureInteropImplLoaded()
             *reinterpret_cast<FARPROC*>(&s_impl.pfnGetIconIdFromIcon) = ::GetProcAddress(hmod, "Windowing_GetIconIdFromIcon");
             *reinterpret_cast<FARPROC*>(&s_impl.pfnGetIconFromIconId) = ::GetProcAddress(hmod, "Windowing_GetIconFromIconId");
 
-            winrt::check_bool(
-                (s_impl.pfnGetWindowIdFromWindow != nullptr) &&
-                (s_impl.pfnGetWindowFromWindowId != nullptr) &&
-                (s_impl.pfnGetDisplayIdFromMonitor != nullptr) &&
-                (s_impl.pfnGetMonitorFromDisplayId != nullptr) &&
-                (s_impl.pfnGetIconIdFromIcon != nullptr) &&
-                (s_impl.pfnGetIconFromIconId != nullptr));
+            if ((s_impl.pfnGetWindowIdFromWindow == nullptr) ||
+                (s_impl.pfnGetWindowFromWindowId == nullptr) ||
+                (s_impl.pfnGetDisplayIdFromMonitor == nullptr) ||
+                (s_impl.pfnGetMonitorFromDisplayId == nullptr) ||
+                (s_impl.pfnGetIconIdFromIcon == nullptr) ||
+                (s_impl.pfnGetIconFromIconId == nullptr))
+                {
+                    return HRESULT_FROM_WIN32(::GetLastError());
+                }
 
             // Store our HMODULE if none has been set so far
             ::InterlockedCompareExchangePointer(reinterpret_cast<volatile PVOID*>(&s_module), hmod, nullptr);
@@ -83,69 +90,85 @@ static void EnsureInteropImplLoaded()
         }
     }
 
-    winrt::check_bool(s_module != nullptr);
+    return (s_module != nullptr) ? S_OK : HRESULT_FROM_WIN32(::GetLastError());
 }
 
 
-static winrt::Microsoft::UI::WindowId GetWindowIdFromWindow(_In_ const HWND& hwnd) 
+static HRESULT GetWindowFromWindowId(_In_ ::ABI::Microsoft::UI::WindowId windowId, _Out_ HWND* hwnd) noexcept
 {
-    ::ABI::Microsoft::UI::WindowId abiWindowId = {};
-    EnsureInteropImplLoaded();
-    winrt::check_hresult(s_impl.pfnGetWindowIdFromWindow(hwnd, &abiWindowId));
-    winrt::Microsoft::UI::WindowId winrtWindowId { abiWindowId.Value };
-    return winrtWindowId;
+    HRESULT hr = EnsureInteropImplLoaded();
+    if (SUCCEEDED(hr))
+    {
+        hr = s_impl.pfnGetWindowFromWindowId(windowId, hwnd);
+    }
+
+    return hr;
 }
 
 
-static HWND GetWindowFromWindowId(_In_ const winrt::Microsoft::UI::WindowId& windowId) 
+static HRESULT GetWindowIdFromWindow(_In_ HWND hwnd, _Out_ ::ABI::Microsoft::UI::WindowId* windowId) noexcept
 {
-    HWND hwnd = nullptr;
-    EnsureInteropImplLoaded();
-    ::ABI::Microsoft::UI::WindowId abiWindowId { windowId.Value };
-    winrt::check_hresult(s_impl.pfnGetWindowFromWindowId(abiWindowId, &hwnd));
-    return hwnd;
+    HRESULT hr = EnsureInteropImplLoaded();
+    if (SUCCEEDED(hr))
+    {
+        hr = s_impl.pfnGetWindowIdFromWindow(hwnd, windowId);
+    }
+
+    return hr;
 }
 
 
-static winrt::Microsoft::UI::DisplayId GetDisplayIdFromMonitor(_In_ const HMONITOR& hmonitor) 
+static HRESULT GetMonitorFromDisplayId(_In_ ::ABI::Microsoft::UI::DisplayId displayId, _Out_ HMONITOR* hmonitor) noexcept
 {
-    ::ABI::Microsoft::UI::DisplayId abiDisplayId = {};
-    EnsureInteropImplLoaded();
-    winrt::check_hresult(s_impl.pfnGetDisplayIdFromMonitor(hmonitor, &abiDisplayId));
-    winrt::Microsoft::UI::DisplayId winrtDisplayId { abiDisplayId.Value };
-    return winrtDisplayId;
+    HRESULT hr = EnsureInteropImplLoaded();
+    if (SUCCEEDED(hr))
+    {
+        hr = s_impl.pfnGetMonitorFromDisplayId(displayId, hmonitor);
+    }
+
+    return hr;
 }
 
 
-static HMONITOR GetMonitorFromDisplayId(_In_ const winrt::Microsoft::UI::DisplayId& displayId) 
+static HRESULT GetDisplayIdFromMonitor(_In_ HMONITOR hmonitor, _Out_ ::ABI::Microsoft::UI::DisplayId* displayId) noexcept
 {
-    HMONITOR hmonitor = nullptr;
-    EnsureInteropImplLoaded();
-    ::ABI::Microsoft::UI::DisplayId abiDisplayId { displayId.Value };
-    winrt::check_hresult(s_impl.pfnGetMonitorFromDisplayId(abiDisplayId, &hmonitor));
-    return hmonitor;
+    HRESULT hr = EnsureInteropImplLoaded();
+    if (SUCCEEDED(hr))
+    {
+        hr = s_impl.pfnGetDisplayIdFromMonitor(hmonitor, displayId);
+    }
+
+    return hr;
 }
 
 
-static winrt::Microsoft::UI::IconId GetIconIdFromIcon(_In_ const HICON& hicon) 
+static HRESULT GetIconFromIconId(_In_ ::ABI::Microsoft::UI::IconId iconId, _Out_ HICON* hicon) noexcept
 {
-    ::ABI::Microsoft::UI::IconId abiIconId = {};
-    EnsureInteropImplLoaded();
-    winrt::check_hresult(s_impl.pfnGetIconIdFromIcon(hicon, &abiIconId));
-    winrt::Microsoft::UI::IconId winrtIconId { abiIconId.Value };
-    return winrtIconId;
+    HRESULT hr = EnsureInteropImplLoaded();
+    if (SUCCEEDED(hr))
+    {
+        hr = s_impl.pfnGetIconFromIconId(iconId, hicon);
+    }
+
+    return hr;
 }
 
 
-static HICON GetIconFromIconId(_In_ const winrt::Microsoft::UI::IconId& iconId) 
+static HRESULT GetIconIdFromIcon(_In_ HICON hicon, _Out_ ::ABI::Microsoft::UI::IconId* iconId) noexcept
 {
-    HICON hicon = nullptr;
-    EnsureInteropImplLoaded();
-    ::ABI::Microsoft::UI::IconId abiIconId { iconId.Value };
-    winrt::check_hresult(s_impl.pfnGetIconFromIconId(abiIconId, &hicon));
-    return hicon;
+    HRESULT hr = EnsureInteropImplLoaded();
+    if (SUCCEEDED(hr))
+    {
+        hr = s_impl.pfnGetIconIdFromIcon(hicon, iconId);
+    }
+
+    return hr;
 }
 
 #pragma warning(pop)
 
-} // namespace winrt::Microsoft::UI
+} // namespace UI
+} // namespace Microsoft
+#ifndef BUILD_WINDOWS
+} // namespace ABI 
+#endif

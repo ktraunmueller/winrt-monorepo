@@ -1,12 +1,9 @@
 {
   "swift-winrt": "0.5.0",
-  "projects": [
-    "WinAppSDK",
-    "CWinAppSDK"
-  ],
+  "project": "WinAppSDK",
   "package": {
     "id": "Microsoft.WindowsAppSDK",
-    "version": "1.5.240607001"
+    "version": "1.5.241107002"
   },
   "dependencies": [
     {

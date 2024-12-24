@@ -11,23 +11,23 @@ let linkerSettings: [LinkerSetting] = [
 ]
 
 let package = Package(
-    name: "WinAppSDK",
+    name: "swift-windowsappsdk",
     products: [
         .library(name: "WinAppSDK", type: .dynamic, targets: ["WinAppSDK"]),
         .library(name: "CWinAppSDK", targets: ["CWinAppSDK"]),
     ],
     dependencies: [
-        .package(path: "../CWinRT"),
-        .package(path: "../UWP"),
-        .package(path: "../WindowsFoundation"),
+        .package(path: "../swift-cwinrt"),
+        .package(path: "../swift-uwp"),
+        .package(path: "../swift-windowsfoundation")
     ],
     targets: [
         .target(
             name: "WinAppSDK",
             dependencies: [
-                .product(name: "CWinRT", package: "CWinRT"),
-                .product(name: "UWP", package: "UWP"),
-                .product(name: "WindowsFoundation", package: "WindowsFoundation"),
+                .product(name: "CWinRT", package: "swift-cwinrt"),
+                .product(name: "UWP", package: "swift-uwp"),
+                .product(name: "WindowsFoundation", package: "swift-windowsfoundation"),
                 "CWinAppSDK"
             ]
         ),

@@ -8,7 +8,9 @@
 
 #include <sdkddkver.h>
 
-namespace winrt {
+#ifndef BUILD_WINDOWS
+namespace ABI {
+#endif
 namespace Microsoft {
 namespace UI {
 namespace Input {
@@ -30,7 +32,6 @@ DECLARE_INTERFACE_IID_(IInputPreTranslateKeyboardSourceInterop, IUnknown, "C3244
         _In_ IInputPreTranslateKeyboardSourceHandler* handler
         ) PURE;
 };
-
 
 DECLARE_INTERFACE_IID_(IInputPreTranslateKeyboardSourceHandler, IUnknown, "9A4B69AA-E3BE-4590-95F5-3AAA7B12B260")
 {
@@ -60,4 +61,7 @@ DECLARE_INTERFACE_IID_(IInputPreTranslateKeyboardSourceHandler, IUnknown, "9A4B6
 } // namespace Input
 } // namespace UI
 } // namespace Microsoft
-} // namespace winrt
+
+#ifndef BUILD_WINDOWS
+} // namespace ABI
+#endif

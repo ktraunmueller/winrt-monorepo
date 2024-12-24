@@ -10,7 +10,7 @@ FARPROC WINAPI delayHook(unsigned dliNotify, PDelayLoadInfo pdli)
         case dliFailLoadLib :
             printf("dliFailLoadLib: %s\n", pdli->szDll);
             if (strcmp(pdli->szDll, "Microsoft.WindowsAppRuntime.Boostrap.dll") == 0) {
-                return (FARPROC)LoadLibraryW(L"WinAppSDK_CWinAppSDK.resources\\Microsoft.WindowsAppRuntime.Bootstrap.dll");
+                return (FARPROC)LoadLibraryW(L"swift-windowsappsdk_CWinAppSDK.resources\\Microsoft.WindowsAppRuntime.Bootstrap.dll");
             }
             break;
 

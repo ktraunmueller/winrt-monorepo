@@ -8,13 +8,20 @@
 
 #include <sdkddkver.h>
 
-namespace winrt {
-namespace Microsoft {
+#ifndef BUILD_WINDOWS
+namespace ABI {
+#endif
+namespace Microsoft{
 namespace UI {
 namespace Input {
 
-#undef INTERFACE
-#define INTERFACE IInputCursorStaticsInterop
+// Ever wondered what all of the macros do for these manual COM-style interface definitions? I 
+// know I did! And Raymond Chen has the answers: https://devblogs.microsoft.com/oldnewthing/20041005-00/?p=37653
+// 
+// Since we don't support C code calling these interfaces, we've opted to forego a few of the usual
+// requirements. Specifically, we don't use "#undef INTERFACE / #define INTERFACE", we don't use the
+// BEGIN and END macros, we don't use the THIS or THIS_ macros, and we don't repeat the base class 
+// members.
 
 DECLARE_INTERFACE_IID_(IInputCursorStaticsInterop, IInspectable, "ac6f5065-90c4-46ce-beb7-05e138e54117")
 {
@@ -24,7 +31,10 @@ DECLARE_INTERFACE_IID_(IInputCursorStaticsInterop, IInspectable, "ac6f5065-90c4-
     ) PURE;
 };
 
-} // namespace Input
+} // namepsace Input
 } // namespace UI
 } // namespace Microsoft
-} // namespace winrt
+
+#ifndef BUILD_WINDOWS
+} // namespace ABI
+#endif
