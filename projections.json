@@ -3,15 +3,18 @@
   "project": "WindowsFoundation",
   "package": {
     "id": "Microsoft.WindowsAppSDK",
-    "version": "1.5.240607001"
+    "version": "1.5.241107002"
   },
   "dependencies": [
-    { "id": "Microsoft.Windows.SDK.Contracts", "version": "10.0.18362.2005" }
+    {
+      "id": "Microsoft.Windows.SDK.Contracts",
+      "version": "10.0.18362.2005"
+    }
   ],
   "include": [
     "Windows.Foundation.Collections",
     "Windows.Foundation.Numerics",
-    "Windows.Foundation" 
+    "Windows.Foundation"
   ],
   "exclude": [
     "Windows.Foundation.PropertyValue"

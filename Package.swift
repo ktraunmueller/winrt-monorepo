@@ -4,19 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "WindowsFoundation",
+    name: "swift-windowsfoundation",
     products: [
         .library(
             name: "WindowsFoundation", type: .dynamic, targets: ["WindowsFoundation"]),
     ],
     dependencies: [
-        .package(path: "../CWinRT"),
+        .package(path: "../swift-cwinrt")
     ],
     targets: [
         .target(
             name: "WindowsFoundation",
              dependencies: [
-                .product(name: "CWinRT", package: "CWinRT"),
+                .product(name: "CWinRT", package: "swift-cwinrt"),
             ])
     ],
     swiftLanguageModes: [.v5]
