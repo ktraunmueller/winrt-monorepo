@@ -4,25 +4,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "WinUI",
+    name: "swift-winui",
     products: [
         .library(
             name: "WinUI", type: .dynamic, targets: ["WinUI"])
     ],
     dependencies: [
-        .package(path: "../CWinRT"),
-        .package(path: "../UWP"),
-        .package(path: "../WinAppSDK"),
-        .package(path: "../WindowsFoundation")
+        .package(path: "../swift-cwinrt"),
+        .package(path: "../swift-uwp"),
+        .package(path: "../swift-windowsappsdk"),
+        .package(path: "../swift-windowsfoundation")
     ],
     targets: [
         .target(
             name: "WinUI",
             dependencies: [
-                .product(name: "CWinRT", package: "CWinRT"),
-                .product(name: "UWP", package: "UWP"),
-                .product(name: "WinAppSDK", package: "WinAppSDK"),
-                .product(name: "WindowsFoundation", package: "WindowsFoundation")
+                .product(name: "CWinRT", package: "swift-cwinrt"),
+                .product(name: "UWP", package: "swift-uwp"),
+                .product(name: "WinAppSDK", package: "swift-windowsappsdk"),
+                .product(name: "WindowsFoundation", package: "swift-windowsfoundation")
             ])
     ],
     swiftLanguageModes: [.v5]
