@@ -10,8 +10,8 @@ let package = Package(
             name: "UWP", type: .dynamic, targets: ["UWP"]),
     ],
     dependencies: [
-        .package(path: "../swift-cwinrt"),
-        .package(path: "../swift-windowsfoundation")
+        .package(url: "https://github.com/ktraunmueller/swift-cwinrt", branch: "main"),
+        .package(url: "https://github.com/ktraunmueller/swift-windowsfoundation", branch: "main")
     ],
     targets: [
         .target(
