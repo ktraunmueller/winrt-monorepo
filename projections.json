@@ -12,6 +12,8 @@
     }
   ],
   "include": [
+    "Microsoft.UI.ColorHelper",
+    "Microsoft.UI.Colors",
     "Microsoft.UI.Xaml.Application",
     "Microsoft.UI.Xaml.Automation.AutomationProperties",
     "Microsoft.UI.Xaml.Controls.BitmapIcon",
@@ -109,5 +111,6 @@
     "Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider",
     "Microsoft.UI.Xaml.Controls.NavigationView"
   ],
-  "exclude": []
+  "exclude": [
+  ]
 }
