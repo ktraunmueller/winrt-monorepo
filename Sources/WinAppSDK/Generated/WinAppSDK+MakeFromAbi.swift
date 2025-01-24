@@ -84,14 +84,6 @@ fileprivate func makeIResourceManagerFrom(abi: WindowsFoundation.IInspectable) -
     return __IMPL_Microsoft_Windows_ApplicationModel_Resources.IResourceManagerBridge.from(abi: RawPointer(swiftAbi))!
 }
 
-fileprivate func makeColorHelperFrom(abi: WindowsFoundation.IInspectable) -> Any {
-    return ColorHelper(fromAbi: abi)
-}
-
-fileprivate func makeColorsFrom(abi: WindowsFoundation.IInspectable) -> Any {
-    return Colors(fromAbi: abi)
-}
-
 fileprivate func makeAmbientLightFrom(abi: WindowsFoundation.IInspectable) -> Any {
     return AmbientLight(fromAbi: abi)
 }
@@ -892,8 +884,6 @@ public class __MakeFromAbi: MakeFromAbi {
             case "IPointerPointTransform": return makeIPointerPointTransformFrom(abi: abi)
             case "IResourceContext": return makeIResourceContextFrom(abi: abi)
             case "IResourceManager": return makeIResourceManagerFrom(abi: abi)
-            case "ColorHelper": return makeColorHelperFrom(abi: abi)
-            case "Colors": return makeColorsFrom(abi: abi)
             case "AmbientLight": return makeAmbientLightFrom(abi: abi)
             case "AnimationController": return makeAnimationControllerFrom(abi: abi)
             case "AnimationPropertyInfo": return makeAnimationPropertyInfoFrom(abi: abi)

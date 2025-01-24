@@ -26,9 +26,8 @@
     "Microsoft.UI.Windowing.OverlappedPresenter",
     "Microsoft.Windows.ApplicationModel.Resources.ResourceManager",
     "Microsoft.Windows.AppLifecycle.ActivationRegistrationManager",
-    "Microsoft.Windows.AppLifecycle.AppInstance",
-    "Microsoft.UI.ColorHelper",
-    "Microsoft.UI.Colors"
+    "Microsoft.Windows.AppLifecycle.AppInstance"
   ],
-  "exclude": []
+  "exclude": [
+  ]
 }
