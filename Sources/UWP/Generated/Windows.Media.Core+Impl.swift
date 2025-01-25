@@ -115,55 +115,6 @@ public enum __IMPL_Windows_Media_Core {
 
     }
 
-    public enum IMediaStreamDescriptor2Bridge : AbiInterfaceBridge {
-        public typealias CABI = __x_ABI_CWindows_CMedia_CCore_CIMediaStreamDescriptor2
-        public typealias SwiftABI = __ABI_Windows_Media_Core.IMediaStreamDescriptor2
-        public typealias SwiftProjection = AnyIMediaStreamDescriptor2
-        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
-            guard let abi = abi else { return nil }
-            return IMediaStreamDescriptor2Impl(abi)
-        }
-
-        public static func makeAbi() -> CABI {
-            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Media_Core.IMediaStreamDescriptor2VTable) { $0 }
-            return .init(lpVtbl: vtblPtr)
-        }
-    }
-
-    fileprivate class IMediaStreamDescriptor2Impl: IMediaStreamDescriptor2, WinRTAbiImpl {
-        fileprivate typealias Bridge = IMediaStreamDescriptor2Bridge
-        fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
-            _default = Bridge.SwiftABI(fromAbi)
-        }
-
-        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.core.imediastreamdescriptor2.label)
-        fileprivate var label : String {
-            get { try! _default.get_LabelImpl() }
-            set { try! _default.put_LabelImpl(newValue) }
-        }
-
-        private lazy var _IMediaStreamDescriptor: __ABI_Windows_Media_Core.IMediaStreamDescriptor! = getInterfaceForCaching()
-        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.core.imediastreamdescriptor2.isselected)
-        fileprivate var isSelected : Bool {
-            get { try! _IMediaStreamDescriptor.get_IsSelectedImpl() }
-        }
-
-        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.core.imediastreamdescriptor2.language)
-        fileprivate var language : String {
-            get { try! _IMediaStreamDescriptor.get_LanguageImpl() }
-            set { try! _IMediaStreamDescriptor.put_LanguageImpl(newValue) }
-        }
-
-        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.core.imediastreamdescriptor2.name)
-        fileprivate var name : String {
-            get { try! _IMediaStreamDescriptor.get_NameImpl() }
-            set { try! _IMediaStreamDescriptor.put_NameImpl(newValue) }
-        }
-
-    }
-
     public enum IMediaTrackBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CMedia_CCore_CIMediaTrack
         public typealias SwiftABI = __ABI_Windows_Media_Core.IMediaTrack

@@ -4,22 +4,6 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
-private var IID___x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor: WindowsFoundation.IID {
-    .init(Data1: 0x1E3692E4, Data2: 0x4027, Data3: 0x4847, Data4: ( 0xA7,0x0B,0xDF,0x1D,0x9A,0x2A,0x7B,0x04 ))// 1E3692E4-4027-4847-A70B-DF1D9A2A7B04
-}
-
-private var IID___x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor2: WindowsFoundation.IID {
-    .init(Data1: 0x2E68F1F6, Data2: 0xA448, Data3: 0x497B, Data4: ( 0x88,0x40,0x85,0x08,0x26,0x65,0xAC,0xF9 ))// 2E68F1F6-A448-497B-8840-85082665ACF9
-}
-
-private var IID___x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor3: WindowsFoundation.IID {
-    .init(Data1: 0x4D220DA1, Data2: 0x8E83, Data3: 0x44EF, Data4: ( 0x89,0x73,0x2F,0x63,0xE9,0x93,0xF3,0x6B ))// 4D220DA1-8E83-44EF-8973-2F63E993F36B
-}
-
-private var IID___x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptorFactory: WindowsFoundation.IID {
-    .init(Data1: 0x4A86CE9E, Data2: 0x4CB1, Data3: 0x4380, Data4: ( 0x8E,0x0C,0x83,0x50,0x4B,0x7F,0x5B,0xF3 ))// 4A86CE9E-4CB1-4380-8E0C-83504B7F5BF3
-}
-
 private var IID___x_ABI_CWindows_CMedia_CCore_CIAudioTrack: WindowsFoundation.IID {
     .init(Data1: 0xF23B6E77, Data2: 0x3EF7, Data3: 0x40DE, Data4: ( 0xB9,0x43,0x06,0x8B,0x13,0x21,0x70,0x1D ))// F23B6E77-3EF7-40DE-B943-068B1321701D
 }
@@ -106,10 +90,6 @@ private var IID___x_ABI_CWindows_CMedia_CCore_CIMediaSourceStatics4: WindowsFoun
 
 private var IID___x_ABI_CWindows_CMedia_CCore_CIMediaStreamDescriptor: WindowsFoundation.IID {
     .init(Data1: 0x80F16E6E, Data2: 0x92F7, Data3: 0x451E, Data4: ( 0x97,0xD2,0xAF,0xD8,0x07,0x42,0xDA,0x70 ))// 80F16E6E-92F7-451E-97D2-AFD80742DA70
-}
-
-private var IID___x_ABI_CWindows_CMedia_CCore_CIMediaStreamDescriptor2: WindowsFoundation.IID {
-    .init(Data1: 0x5073010F, Data2: 0xE8B2, Data3: 0x4071, Data4: ( 0xB0,0x0B,0xEB,0xF3,0x37,0xA7,0x6B,0x58 ))// 5073010F-E8B2-4071-B00B-EBF337A76B58
 }
 
 private var IID___x_ABI_CWindows_CMedia_CCore_CIMediaStreamSample: WindowsFoundation.IID {
@@ -228,14 +208,6 @@ private var IID___x_ABI_CWindows_CMedia_CCore_CISingleSelectMediaTrackList: Wind
     .init(Data1: 0x77206F1F, Data2: 0xC34F, Data3: 0x494F, Data4: ( 0x80,0x77,0x2B,0xAD,0x9F,0xF4,0xEC,0xF1 ))// 77206F1F-C34F-494F-8077-2BAD9FF4ECF1
 }
 
-private var IID___x_ABI_CWindows_CMedia_CCore_CITimedMetadataStreamDescriptor: WindowsFoundation.IID {
-    .init(Data1: 0x133336BF, Data2: 0x296A, Data3: 0x463E, Data4: ( 0x9F,0xF9,0x01,0xCD,0x25,0x69,0x14,0x08 ))// 133336BF-296A-463E-9FF9-01CD25691408
-}
-
-private var IID___x_ABI_CWindows_CMedia_CCore_CITimedMetadataStreamDescriptorFactory: WindowsFoundation.IID {
-    .init(Data1: 0xC027DE30, Data2: 0x7362, Data3: 0x4FF9, Data4: ( 0x98,0xB1,0x2D,0xFD,0x0B,0x8D,0x1C,0xAE ))// C027DE30-7362-4FF9-98B1-2DFD0B8D1CAE
-}
-
 private var IID___x_ABI_CWindows_CMedia_CCore_CITimedMetadataTrack: WindowsFoundation.IID {
     .init(Data1: 0x9E6AED9E, Data2: 0xF67A, Data3: 0x49A9, Data4: ( 0xB3,0x30,0xCF,0x03,0xB0,0xE9,0xCF,0x07 ))// 9E6AED9E-F67A-49A9-B330-CF03B0E9CF07
 }
@@ -272,18 +244,6 @@ private var IID___x_ABI_CWindows_CMedia_CCore_CITimedTextSourceStatics2: Windows
     .init(Data1: 0xB66B7602, Data2: 0x923E, Data3: 0x43FA, Data4: ( 0x96,0x33,0x58,0x70,0x75,0x81,0x2D,0xB5 ))// B66B7602-923E-43FA-9633-587075812DB5
 }
 
-private var IID___x_ABI_CWindows_CMedia_CCore_CIVideoStreamDescriptor: WindowsFoundation.IID {
-    .init(Data1: 0x12EE0D55, Data2: 0x9C2B, Data3: 0x4440, Data4: ( 0x80,0x57,0x2C,0x7A,0x90,0xF0,0xCB,0xEC ))// 12EE0D55-9C2B-4440-8057-2C7A90F0CBEC
-}
-
-private var IID___x_ABI_CWindows_CMedia_CCore_CIVideoStreamDescriptor2: WindowsFoundation.IID {
-    .init(Data1: 0x8B306E10, Data2: 0x453E, Data3: 0x4088, Data4: ( 0x83,0x2D,0xC3,0x6F,0xA4,0xF9,0x4A,0xF3 ))// 8B306E10-453E-4088-832D-C36FA4F94AF3
-}
-
-private var IID___x_ABI_CWindows_CMedia_CCore_CIVideoStreamDescriptorFactory: WindowsFoundation.IID {
-    .init(Data1: 0x494EF6D1, Data2: 0xBB75, Data3: 0x43D2, Data4: ( 0x9E,0x5E,0x7B,0x79,0xA3,0xAF,0xCE,0xD4 ))// 494EF6D1-BB75-43D2-9E5E-7B79A3AFCED4
-}
-
 private var IID___x_ABI_CWindows_CMedia_CCore_CIVideoTrack: WindowsFoundation.IID {
     .init(Data1: 0x99F3B7F3, Data2: 0xE298, Data3: 0x4396, Data4: ( 0xBB,0x6A,0xA5,0x1B,0xE6,0xA2,0xA2,0x0A ))// 99F3B7F3-E298-4396-BB6A-A51BE6A2A20A
 }
@@ -297,87 +257,6 @@ private var IID___x_ABI_CWindows_CMedia_CCore_CIVideoTrackSupportInfo: WindowsFo
 }
 
 public enum __ABI_Windows_Media_Core {
-    public class IAudioStreamDescriptor: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor }
-
-        internal func get_EncodingPropertiesImpl() throws -> UWP.AudioEncodingProperties? {
-            let (encodingProperties) = try ComPtrs.initialize { encodingPropertiesAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EncodingProperties(pThis, &encodingPropertiesAbi))
-                }
-            }
-            return .from(abi: encodingProperties)
-        }
-
-    }
-
-    public class IAudioStreamDescriptor2: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor2 }
-
-        internal func put_LeadingEncoderPaddingImpl(_ value: UInt32?) throws {
-            let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT32Wrapper(value)
-            let _value = try! valueWrapper?.toABI { $0 }
-            _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor2.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LeadingEncoderPadding(pThis, _value))
-            }
-        }
-
-        internal func get_LeadingEncoderPaddingImpl() throws -> UInt32? {
-            let (value) = try ComPtrs.initialize { valueAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor2.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LeadingEncoderPadding(pThis, &valueAbi))
-                }
-            }
-            return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
-        }
-
-        internal func put_TrailingEncoderPaddingImpl(_ value: UInt32?) throws {
-            let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT32Wrapper(value)
-            let _value = try! valueWrapper?.toABI { $0 }
-            _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor2.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrailingEncoderPadding(pThis, _value))
-            }
-        }
-
-        internal func get_TrailingEncoderPaddingImpl() throws -> UInt32? {
-            let (value) = try ComPtrs.initialize { valueAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor2.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrailingEncoderPadding(pThis, &valueAbi))
-                }
-            }
-            return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
-        }
-
-    }
-
-    public class IAudioStreamDescriptor3: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor3 }
-
-        internal func CopyImpl() throws -> UWP.AudioStreamDescriptor? {
-            let (result) = try ComPtrs.initialize { resultAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptor3.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.Copy(pThis, &resultAbi))
-                }
-            }
-            return .from(abi: result)
-        }
-
-    }
-
-    public class IAudioStreamDescriptorFactory: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptorFactory }
-
-        internal func CreateImpl(_ encodingProperties: UWP.AudioEncodingProperties?) throws -> IAudioStreamDescriptor {
-            let (result) = try ComPtrs.initialize { resultAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIAudioStreamDescriptorFactory.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(encodingProperties), &resultAbi))
-                }
-            }
-            return IAudioStreamDescriptor(result!)
-        }
-
-    }
-
     public class IAudioTrack: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIAudioTrack }
 
@@ -1240,71 +1119,6 @@ public enum __ABI_Windows_Media_Core {
     )
 
     public typealias IMediaStreamDescriptorWrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Core.IMediaStreamDescriptorBridge>
-    public class IMediaStreamDescriptor2: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIMediaStreamDescriptor2 }
-
-        open func put_LabelImpl(_ value: String) throws {
-            let _value = try! HString(value)
-            _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIMediaStreamDescriptor2.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Label(pThis, _value.get()))
-            }
-        }
-
-        open func get_LabelImpl() throws -> String {
-            var value: HSTRING?
-            _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIMediaStreamDescriptor2.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Label(pThis, &value))
-            }
-            return .init(from: value)
-        }
-
-    }
-
-    internal static var IMediaStreamDescriptor2VTable: __x_ABI_CWindows_CMedia_CCore_CIMediaStreamDescriptor2Vtbl = .init(
-        QueryInterface: { IMediaStreamDescriptor2Wrapper.queryInterface($0, $1, $2) },
-        AddRef: { IMediaStreamDescriptor2Wrapper.addRef($0) },
-        Release: { IMediaStreamDescriptor2Wrapper.release($0) },
-        GetIids: {
-            let size = MemoryLayout<WindowsFoundation.IID>.size
-            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
-            iids[0] = IUnknown.IID
-            iids[1] = IInspectable.IID
-            iids[2] = __ABI_Windows_Media_Core.IMediaStreamDescriptor2Wrapper.IID
-            iids[3] = __ABI_Windows_Media_Core.IMediaStreamDescriptorWrapper.IID
-            $1!.pointee = 4
-            $2!.pointee = iids
-            return S_OK
-        },
-
-        GetRuntimeClassName: {
-            _ = $0
-            let hstring = try! HString("Windows.Media.Core.IMediaStreamDescriptor2").detach()
-            $1!.pointee = hstring
-            return S_OK
-        },
-
-        GetTrustLevel: {
-            _ = $0
-            $1!.pointee = TrustLevel(rawValue: 0)
-            return S_OK
-        },
-
-        put_Label: {
-            guard let __unwrapped__instance = IMediaStreamDescriptor2Wrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value: String = .init(from: $1)
-            __unwrapped__instance.label = value
-            return S_OK
-        },
-
-        get_Label: {
-            guard let __unwrapped__instance = IMediaStreamDescriptor2Wrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.label
-            $1?.initialize(to: try! HString(value).detach())
-            return S_OK
-        }
-    )
-
-    public typealias IMediaStreamDescriptor2Wrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Core.IMediaStreamDescriptor2Bridge>
     public class IMediaStreamSample: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIMediaStreamSample }
 
@@ -2589,43 +2403,6 @@ public enum __ABI_Windows_Media_Core {
     )
 
     public typealias ISingleSelectMediaTrackListWrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Core.ISingleSelectMediaTrackListBridge>
-    public class ITimedMetadataStreamDescriptor: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CITimedMetadataStreamDescriptor }
-
-        internal func get_EncodingPropertiesImpl() throws -> UWP.TimedMetadataEncodingProperties? {
-            let (value) = try ComPtrs.initialize { valueAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CITimedMetadataStreamDescriptor.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EncodingProperties(pThis, &valueAbi))
-                }
-            }
-            return .from(abi: value)
-        }
-
-        internal func CopyImpl() throws -> UWP.TimedMetadataStreamDescriptor? {
-            let (result) = try ComPtrs.initialize { resultAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CITimedMetadataStreamDescriptor.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.Copy(pThis, &resultAbi))
-                }
-            }
-            return .from(abi: result)
-        }
-
-    }
-
-    public class ITimedMetadataStreamDescriptorFactory: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CITimedMetadataStreamDescriptorFactory }
-
-        internal func CreateImpl(_ encodingProperties: UWP.TimedMetadataEncodingProperties?) throws -> IMediaStreamDescriptor {
-            let (result) = try ComPtrs.initialize { resultAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CITimedMetadataStreamDescriptorFactory.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(encodingProperties), &resultAbi))
-                }
-            }
-            return IMediaStreamDescriptor(result!)
-        }
-
-    }
-
     public class ITimedMetadataTrack: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CITimedMetadataTrack }
 
@@ -2940,48 +2717,6 @@ public enum __ABI_Windows_Media_Core {
                 }
             }
             return .from(abi: result)
-        }
-
-    }
-
-    public class IVideoStreamDescriptor: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIVideoStreamDescriptor }
-
-        internal func get_EncodingPropertiesImpl() throws -> UWP.VideoEncodingProperties? {
-            let (encodingProperties) = try ComPtrs.initialize { encodingPropertiesAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIVideoStreamDescriptor.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EncodingProperties(pThis, &encodingPropertiesAbi))
-                }
-            }
-            return .from(abi: encodingProperties)
-        }
-
-    }
-
-    public class IVideoStreamDescriptor2: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIVideoStreamDescriptor2 }
-
-        internal func CopyImpl() throws -> UWP.VideoStreamDescriptor? {
-            let (result) = try ComPtrs.initialize { resultAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIVideoStreamDescriptor2.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.Copy(pThis, &resultAbi))
-                }
-            }
-            return .from(abi: result)
-        }
-
-    }
-
-    public class IVideoStreamDescriptorFactory: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCore_CIVideoStreamDescriptorFactory }
-
-        internal func CreateImpl(_ encodingProperties: UWP.VideoEncodingProperties?) throws -> IVideoStreamDescriptor {
-            let (result) = try ComPtrs.initialize { resultAbi in
-                _ = try perform(as: __x_ABI_CWindows_CMedia_CCore_CIVideoStreamDescriptorFactory.self) { pThis in
-                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(encodingProperties), &resultAbi))
-                }
-            }
-            return IVideoStreamDescriptor(result!)
         }
 
     }

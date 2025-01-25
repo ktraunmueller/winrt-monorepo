@@ -64,10 +64,6 @@ private var IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingSettings: 
     .init(Data1: 0x482CB27C, Data2: 0x83BB, Data3: 0x420E, Data4: ( 0xBE,0x51,0x66,0x02,0xB2,0x22,0xDE,0x54 ))// 482CB27C-83BB-420E-BE51-6602B222DE54
 }
 
-private var IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance: WindowsFoundation.IID {
-    .init(Data1: 0xE69A12C6, Data2: 0xE627, Data3: 0x4ED8, Data4: ( 0x9B,0x6C,0x46,0x0A,0xF4,0x45,0xE5,0x6D ))// E69A12C6-E627-4ED8-9B6C-460AF445E56D
-}
-
 private var IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceUnpairingResult: WindowsFoundation.IID {
     .init(Data1: 0x66F44AD3, Data2: 0x79D9, Data3: 0x444B, Data4: ( 0x92,0xCF,0xA9,0x2E,0xF7,0x25,0x71,0xC7 ))// 66F44AD3-79D9-444B-92CF-A92EF72571C7
 }
@@ -657,110 +653,6 @@ public enum __ABI_Windows_Devices_Enumeration {
     )
 
     public typealias IDevicePairingSettingsWrapper = InterfaceWrapperBase<__IMPL_Windows_Devices_Enumeration.IDevicePairingSettingsBridge>
-    public class IDevicePickerAppearance: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance }
-
-        internal func get_TitleImpl() throws -> String {
-            var value: HSTRING?
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
-            }
-            return .init(from: value)
-        }
-
-        internal func put_TitleImpl(_ value: String) throws {
-            let _value = try! HString(value)
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Title(pThis, _value.get()))
-            }
-        }
-
-        internal func get_ForegroundColorImpl() throws -> UWP.Color {
-            var value: __x_ABI_CWindows_CUI_CColor = .init()
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForegroundColor(pThis, &value))
-            }
-            return .from(abi: value)
-        }
-
-        internal func put_ForegroundColorImpl(_ value: UWP.Color) throws {
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ForegroundColor(pThis, .from(swift: value)))
-            }
-        }
-
-        internal func get_BackgroundColorImpl() throws -> UWP.Color {
-            var value: __x_ABI_CWindows_CUI_CColor = .init()
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackgroundColor(pThis, &value))
-            }
-            return .from(abi: value)
-        }
-
-        internal func put_BackgroundColorImpl(_ value: UWP.Color) throws {
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_BackgroundColor(pThis, .from(swift: value)))
-            }
-        }
-
-        internal func get_AccentColorImpl() throws -> UWP.Color {
-            var value: __x_ABI_CWindows_CUI_CColor = .init()
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccentColor(pThis, &value))
-            }
-            return .from(abi: value)
-        }
-
-        internal func put_AccentColorImpl(_ value: UWP.Color) throws {
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AccentColor(pThis, .from(swift: value)))
-            }
-        }
-
-        internal func get_SelectedForegroundColorImpl() throws -> UWP.Color {
-            var value: __x_ABI_CWindows_CUI_CColor = .init()
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedForegroundColor(pThis, &value))
-            }
-            return .from(abi: value)
-        }
-
-        internal func put_SelectedForegroundColorImpl(_ value: UWP.Color) throws {
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedForegroundColor(pThis, .from(swift: value)))
-            }
-        }
-
-        internal func get_SelectedBackgroundColorImpl() throws -> UWP.Color {
-            var value: __x_ABI_CWindows_CUI_CColor = .init()
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedBackgroundColor(pThis, &value))
-            }
-            return .from(abi: value)
-        }
-
-        internal func put_SelectedBackgroundColorImpl(_ value: UWP.Color) throws {
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedBackgroundColor(pThis, .from(swift: value)))
-            }
-        }
-
-        internal func get_SelectedAccentColorImpl() throws -> UWP.Color {
-            var value: __x_ABI_CWindows_CUI_CColor = .init()
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedAccentColor(pThis, &value))
-            }
-            return .from(abi: value)
-        }
-
-        internal func put_SelectedAccentColorImpl(_ value: UWP.Color) throws {
-            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedAccentColor(pThis, .from(swift: value)))
-            }
-        }
-
-    }
-
     public class IDeviceUnpairingResult: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceUnpairingResult }
 
