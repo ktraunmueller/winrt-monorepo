@@ -5,6 +5,48 @@ import Foundation
 import CWinRT
 
 public enum __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum ICommandBarElementBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElement
+        public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement
+        public typealias SwiftProjection = AnyICommandBarElement
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ICommandBarElementImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml_Controls.ICommandBarElementVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ICommandBarElementImpl: ICommandBarElement, WinRTAbiImpl {
+        fileprivate typealias Bridge = ICommandBarElementBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement.dynamicoverfloworder)
+        fileprivate var dynamicOverflowOrder : Int32 {
+            get { try! _default.get_DynamicOverflowOrderImpl() }
+            set { try! _default.put_DynamicOverflowOrderImpl(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement.iscompact)
+        fileprivate var isCompact : Bool {
+            get { try! _default.get_IsCompactImpl() }
+            set { try! _default.put_IsCompactImpl(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement.isinoverflow)
+        fileprivate var isInOverflow : Bool {
+            get { try! _default.get_IsInOverflowImpl() }
+        }
+
+    }
+
     public enum IInsertionPanelBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInsertionPanel
         public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInsertionPanel

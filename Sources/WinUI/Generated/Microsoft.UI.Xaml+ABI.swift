@@ -190,6 +190,14 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkTemplateFactory: Windows
     .init(Data1: 0x616DD6DB, Data2: 0xB064, Data3: 0x561D, Data4: ( 0xB1,0x62,0x46,0xCE,0xB4,0x5D,0xC5,0x62 ))// 616DD6DB-B064-561D-B162-46CEB45DC562
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelper: WindowsFoundation.IID {
+    .init(Data1: 0x592B4FD5, Data2: 0x6564, Data3: 0x54E0, Data4: ( 0x87,0xD6,0x1C,0x41,0x93,0x9E,0xD4,0x99 ))// 592B4FD5-6564-54E0-87D6-1C41939ED499
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics: WindowsFoundation.IID {
+    .init(Data1: 0xCEA8881B, Data2: 0x4E64, Data3: 0x535D, Data4: ( 0x9F,0xCD,0xB4,0x82,0x8D,0x39,0x79,0xB0 ))// CEA8881B-4E64-535D-9FCD-B4828D3979B0
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CILaunchActivatedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xD505CEA9, Data2: 0x1BCB, Data3: 0x5B29, Data4: ( 0xA8,0xBE,0x94,0x4E,0x00,0xF0,0x6F,0x78 ))// D505CEA9-1BCB-5B29-A8BE-944E00F06F78
 }
@@ -2832,6 +2840,72 @@ public enum __ABI_Microsoft_UI_Xaml {
                 innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
             }
             return IFrameworkTemplate(value!)
+        }
+
+    }
+
+    public class IGridLengthHelper: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelper }
+
+    }
+
+    public class IGridLengthHelperStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics }
+
+        internal func get_AutoImpl() throws -> WinUI.GridLength {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CGridLength = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Auto(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        internal func FromPixelsImpl(_ pixels: Double) throws -> WinUI.GridLength {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CGridLength = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.FromPixels(pThis, pixels, &result))
+            }
+            return .from(abi: result)
+        }
+
+        internal func FromValueAndTypeImpl(_ value: Double, _ type: WinUI.GridUnitType) throws -> WinUI.GridLength {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CGridLength = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.FromValueAndType(pThis, value, type, &result))
+            }
+            return .from(abi: result)
+        }
+
+        internal func GetIsAbsoluteImpl(_ target: WinUI.GridLength) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsAbsolute(pThis, .from(swift: target), &result))
+            }
+            return .init(from: result)
+        }
+
+        internal func GetIsAutoImpl(_ target: WinUI.GridLength) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsAuto(pThis, .from(swift: target), &result))
+            }
+            return .init(from: result)
+        }
+
+        internal func GetIsStarImpl(_ target: WinUI.GridLength) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsStar(pThis, .from(swift: target), &result))
+            }
+            return .init(from: result)
+        }
+
+        internal func EqualsImpl(_ target: WinUI.GridLength, _ value: WinUI.GridLength) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Equals(pThis, .from(swift: target), .from(swift: value), &result))
+            }
+            return .init(from: result)
         }
 
     }

@@ -20,6 +20,14 @@ public typealias CharacterCasing = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CChara
 public typealias ClickMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CClickMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.comboboxselectionchangedtrigger)
 public typealias ComboBoxSelectionChangedTrigger = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CComboBoxSelectionChangedTrigger
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbardefaultlabelposition)
+public typealias CommandBarDefaultLabelPosition = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarDefaultLabelPosition
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbardynamicoverflowaction)
+public typealias CommandBarDynamicOverflowAction = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarDynamicOverflowAction
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbarlabelposition)
+public typealias CommandBarLabelPosition = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarLabelPosition
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbaroverflowbuttonvisibility)
+public typealias CommandBarOverflowButtonVisibility = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarOverflowButtonVisibility
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogbutton)
 public typealias ContentDialogButton = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CContentDialogButton
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogplacement)
@@ -100,6 +108,8 @@ public typealias SnapPointsType = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSnapPo
 public typealias SplitViewDisplayMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSplitViewDisplayMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitviewpaneplacement)
 public typealias SplitViewPanePlacement = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSplitViewPanePlacement
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbol)
+public typealias Symbol = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtipclosereason)
 public typealias TeachingTipCloseReason = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CTeachingTipCloseReason
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtipherocontentplacementmode)
@@ -340,6 +350,148 @@ open class AppBar : WinUI.ContentControl {
     deinit {
         _default = nil
         _IAppBarOverrides = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton)
+open class AppBarToggleButton : WinUI.ToggleButton, ICommandBarElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButton
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton>?) -> AppBarToggleButton? {
+        guard let abi = abi else { return nil }
+        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IAppBarToggleButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButtonFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.AppBarToggleButton"))
+
+    override public init() {
+        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IAppBarToggleButtonFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IAppBarToggleButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButtonStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.AppBarToggleButton"))
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.dynamicoverfloworderproperty)
+    public class var dynamicOverflowOrderProperty : WinUI.DependencyProperty! {
+        get { try! _IAppBarToggleButtonStatics.get_DynamicOverflowOrderPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.iconproperty)
+    public class var iconProperty : WinUI.DependencyProperty! {
+        get { try! _IAppBarToggleButtonStatics.get_IconPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.iscompactproperty)
+    public class var isCompactProperty : WinUI.DependencyProperty! {
+        get { try! _IAppBarToggleButtonStatics.get_IsCompactPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.isinoverflowproperty)
+    public class var isInOverflowProperty : WinUI.DependencyProperty! {
+        get { try! _IAppBarToggleButtonStatics.get_IsInOverflowPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.keyboardacceleratortextoverrideproperty)
+    public class var keyboardAcceleratorTextOverrideProperty : WinUI.DependencyProperty! {
+        get { try! _IAppBarToggleButtonStatics.get_KeyboardAcceleratorTextOverridePropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.labelpositionproperty)
+    public class var labelPositionProperty : WinUI.DependencyProperty! {
+        get { try! _IAppBarToggleButtonStatics.get_LabelPositionPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.labelproperty)
+    public class var labelProperty : WinUI.DependencyProperty! {
+        get { try! _IAppBarToggleButtonStatics.get_LabelPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.icon)
+    public var icon : IconElement! {
+        get { try! _default.get_IconImpl() }
+        set { try! _default.put_IconImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.keyboardacceleratortextoverride)
+    public var keyboardAcceleratorTextOverride : String {
+        get { try! _default.get_KeyboardAcceleratorTextOverrideImpl() }
+        set { try! _default.put_KeyboardAcceleratorTextOverrideImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.label)
+    public var label : String {
+        get { try! _default.get_LabelImpl() }
+        set { try! _default.put_LabelImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.labelposition)
+    public var labelPosition : CommandBarLabelPosition {
+        get { try! _default.get_LabelPositionImpl() }
+        set { try! _default.put_LabelPositionImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.templatesettings)
+    public var templateSettings : WinUI.AppBarToggleButtonTemplateSettings! {
+        get { try! _default.get_TemplateSettingsImpl() }
+    }
+
+    private lazy var _ICommandBarElement: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.dynamicoverfloworder)
+    public var dynamicOverflowOrder : Int32 {
+        get { try! _ICommandBarElement.get_DynamicOverflowOrderImpl() }
+        set { try! _ICommandBarElement.put_DynamicOverflowOrderImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.iscompact)
+    public var isCompact : Bool {
+        get { try! _ICommandBarElement.get_IsCompactImpl() }
+        set { try! _ICommandBarElement.put_IsCompactImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.isinoverflow)
+    public var isInOverflow : Bool {
+        get { try! _ICommandBarElement.get_IsInOverflowImpl() }
+    }
+
+    internal enum IToggleButtonOverrides : ComposableImpl {
+        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleButtonOverrides
+        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonOverrides
+        internal typealias Class = AppBarToggleButton
+        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
+        internal enum Default : AbiInterface {
+            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton
+            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButton
+        }
+    }
+    internal typealias Composable = IToggleButtonOverrides
+    deinit {
+        _default = nil
+        _ICommandBarElement = nil
     }
 }
 
@@ -1781,6 +1933,147 @@ public final class ComboBoxTextSubmittedEventArgs : WinRTClass {
         get { try! _default.get_TextImpl() }
     }
 
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar)
+open class CommandBar : WinUI.AppBar {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICommandBar
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar>?) -> CommandBar? {
+        guard let abi = abi else { return nil }
+        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _ICommandBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ICommandBarFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.CommandBar"))
+
+    override public init() {
+        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ICommandBarFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _ICommandBarStatics: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.CommandBar"))
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.commandbaroverflowpresenterstyleproperty)
+    public class var commandBarOverflowPresenterStyleProperty : WinUI.DependencyProperty! {
+        get { try! _ICommandBarStatics.get_CommandBarOverflowPresenterStylePropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.defaultlabelpositionproperty)
+    public class var defaultLabelPositionProperty : WinUI.DependencyProperty! {
+        get { try! _ICommandBarStatics.get_DefaultLabelPositionPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.isdynamicoverflowenabledproperty)
+    public class var isDynamicOverflowEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _ICommandBarStatics.get_IsDynamicOverflowEnabledPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.overflowbuttonvisibilityproperty)
+    public class var overflowButtonVisibilityProperty : WinUI.DependencyProperty! {
+        get { try! _ICommandBarStatics.get_OverflowButtonVisibilityPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.primarycommandsproperty)
+    public class var primaryCommandsProperty : WinUI.DependencyProperty! {
+        get { try! _ICommandBarStatics.get_PrimaryCommandsPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.secondarycommandsproperty)
+    public class var secondaryCommandsProperty : WinUI.DependencyProperty! {
+        get { try! _ICommandBarStatics.get_SecondaryCommandsPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.commandbaroverflowpresenterstyle)
+    public var commandBarOverflowPresenterStyle : WinUI.Style! {
+        get { try! _default.get_CommandBarOverflowPresenterStyleImpl() }
+        set { try! _default.put_CommandBarOverflowPresenterStyleImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.commandbartemplatesettings)
+    public var commandBarTemplateSettings : WinUI.CommandBarTemplateSettings! {
+        get { try! _default.get_CommandBarTemplateSettingsImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.defaultlabelposition)
+    public var defaultLabelPosition : CommandBarDefaultLabelPosition {
+        get { try! _default.get_DefaultLabelPositionImpl() }
+        set { try! _default.put_DefaultLabelPositionImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.isdynamicoverflowenabled)
+    public var isDynamicOverflowEnabled : Bool {
+        get { try! _default.get_IsDynamicOverflowEnabledImpl() }
+        set { try! _default.put_IsDynamicOverflowEnabledImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.overflowbuttonvisibility)
+    public var overflowButtonVisibility : CommandBarOverflowButtonVisibility {
+        get { try! _default.get_OverflowButtonVisibilityImpl() }
+        set { try! _default.put_OverflowButtonVisibilityImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.primarycommands)
+    public var primaryCommands : WindowsFoundation.AnyIObservableVector<AnyICommandBarElement?>! {
+        get { try! _default.get_PrimaryCommandsImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.secondarycommands)
+    public var secondaryCommands : WindowsFoundation.AnyIObservableVector<AnyICommandBarElement?>! {
+        get { try! _default.get_SecondaryCommandsImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.dynamicoverflowitemschanging)
+    public lazy var dynamicOverflowItemsChanging : Event<TypedEventHandler<CommandBar?, DynamicOverflowItemsChangingEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_DynamicOverflowItemsChangingImpl($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_DynamicOverflowItemsChangingImpl($0)
+       }
+      )
+    }()
+
+    internal enum IAppBarOverrides : ComposableImpl {
+        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarOverrides
+        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarOverrides
+        internal typealias Class = CommandBar
+        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
+        internal enum Default : AbiInterface {
+            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar
+            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICommandBar
+        }
+    }
+    internal typealias Composable = IAppBarOverrides
     deinit {
         _default = nil
     }
@@ -3755,6 +4048,44 @@ public final class DragItemsStartingEventArgs : WinRTClass {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dragitemsstartingeventargs.items)
     public var items : WindowsFoundation.AnyIVector<Any?>! {
         get { try! _default.get_ItemsImpl() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dynamicoverflowitemschangingeventargs)
+public final class DynamicOverflowItemsChangingEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDynamicOverflowItemsChangingEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDynamicOverflowItemsChangingEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDynamicOverflowItemsChangingEventArgs>?) -> DynamicOverflowItemsChangingEventArgs? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public init() {
+        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Controls.DynamicOverflowItemsChangingEventArgs")))
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dynamicoverflowitemschangingeventargs.action)
+    public var action : CommandBarDynamicOverflowAction {
+        get { try! _default.get_ActionImpl() }
     }
 
     deinit {
@@ -15720,6 +16051,67 @@ open class SwapChainPanel : WinUI.Grid {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbolicon)
+public final class SymbolIcon : WinUI.IconElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISymbolIcon
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon>?) -> SymbolIcon? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    public init() {
+        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Controls.SymbolIcon")))
+    }
+
+    private static let _ISymbolIconFactory: __ABI_Microsoft_UI_Xaml_Controls.ISymbolIconFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.SymbolIcon"))
+    public init(_ symbol: Symbol) {
+        super.init(fromAbi: try! Self._ISymbolIconFactory.CreateInstanceWithSymbolImpl(symbol))
+    }
+
+    private static let _ISymbolIconStatics: __ABI_Microsoft_UI_Xaml_Controls.ISymbolIconStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.SymbolIcon"))
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbolicon.symbolproperty)
+    public static var symbolProperty : WinUI.DependencyProperty! {
+        get { try! _ISymbolIconStatics.get_SymbolPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbolicon.symbol)
+    public var symbol : Symbol {
+        get { try! _default.get_SymbolImpl() }
+        set { try! _default.put_SymbolImpl(newValue) }
+    }
+
+    internal enum IFrameworkElementOverrides : ComposableImpl {
+        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
+        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
+        internal typealias Class = SymbolIcon
+        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
+        internal enum Default : AbiInterface {
+            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon
+            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISymbolIcon
+        }
+    }
+    internal typealias Composable = IFrameworkElementOverrides
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtip)
 open class TeachingTip : WinUI.ContentControl {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITeachingTip
@@ -19724,6 +20116,28 @@ public typealias SelectionChangedEventHandler = (Any?, SelectionChangedEventArgs
 public typealias SemanticZoomViewChangedEventHandler = (Any?, SemanticZoomViewChangedEventArgs?) -> ()
 public typealias TextChangedEventHandler = (Any?, TextChangedEventArgs?) -> ()
 public typealias TextControlPasteEventHandler = (Any?, TextControlPasteEventArgs?) -> ()
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement)
+public protocol ICommandBarElement : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement.dynamicoverfloworder)
+    var dynamicOverflowOrder: Int32 { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement.iscompact)
+    var isCompact: Bool { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement.isinoverflow)
+    var isInOverflow: Bool { get }
+}
+
+extension ICommandBarElement {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElementWrapper.IID:
+                let wrapper = __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElementWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyICommandBarElement = any ICommandBarElement
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iinsertionpanel)
 public protocol IInsertionPanel : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iinsertionpanel.getinsertionindexes)
@@ -19943,6 +20357,52 @@ extension WinUI.ComboBoxSelectionChangedTrigger {
     }
 }
 extension WinUI.ComboBoxSelectionChangedTrigger: @retroactive Hashable, @retroactive Codable {}
+
+extension WinUI.CommandBarDefaultLabelPosition {
+    public static var bottom : WinUI.CommandBarDefaultLabelPosition {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarDefaultLabelPosition_Bottom
+    }
+    public static var right : WinUI.CommandBarDefaultLabelPosition {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarDefaultLabelPosition_Right
+    }
+    public static var collapsed : WinUI.CommandBarDefaultLabelPosition {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarDefaultLabelPosition_Collapsed
+    }
+}
+extension WinUI.CommandBarDefaultLabelPosition: @retroactive Hashable, @retroactive Codable {}
+
+extension WinUI.CommandBarDynamicOverflowAction {
+    public static var addingToOverflow : WinUI.CommandBarDynamicOverflowAction {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarDynamicOverflowAction_AddingToOverflow
+    }
+    public static var removingFromOverflow : WinUI.CommandBarDynamicOverflowAction {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarDynamicOverflowAction_RemovingFromOverflow
+    }
+}
+extension WinUI.CommandBarDynamicOverflowAction: @retroactive Hashable, @retroactive Codable {}
+
+extension WinUI.CommandBarLabelPosition {
+    public static var `default` : WinUI.CommandBarLabelPosition {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarLabelPosition_Default
+    }
+    public static var collapsed : WinUI.CommandBarLabelPosition {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarLabelPosition_Collapsed
+    }
+}
+extension WinUI.CommandBarLabelPosition: @retroactive Hashable, @retroactive Codable {}
+
+extension WinUI.CommandBarOverflowButtonVisibility {
+    public static var auto : WinUI.CommandBarOverflowButtonVisibility {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarOverflowButtonVisibility_Auto
+    }
+    public static var visible : WinUI.CommandBarOverflowButtonVisibility {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarOverflowButtonVisibility_Visible
+    }
+    public static var collapsed : WinUI.CommandBarOverflowButtonVisibility {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarOverflowButtonVisibility_Collapsed
+    }
+}
+extension WinUI.CommandBarOverflowButtonVisibility: @retroactive Hashable, @retroactive Codable {}
 
 extension WinUI.ContentDialogButton {
     public static var none : WinUI.ContentDialogButton {
@@ -20475,6 +20935,601 @@ extension WinUI.SplitViewPanePlacement {
     }
 }
 extension WinUI.SplitViewPanePlacement: @retroactive Hashable, @retroactive Codable {}
+
+extension WinUI.Symbol {
+    public static var previous : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Previous
+    }
+    public static var next : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Next
+    }
+    public static var play : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Play
+    }
+    public static var pause : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Pause
+    }
+    public static var edit : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Edit
+    }
+    public static var save : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Save
+    }
+    public static var clear : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Clear
+    }
+    public static var delete : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Delete
+    }
+    public static var remove : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Remove
+    }
+    public static var add : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Add
+    }
+    public static var cancel : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Cancel
+    }
+    public static var accept : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Accept
+    }
+    public static var more : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_More
+    }
+    public static var redo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Redo
+    }
+    public static var undo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Undo
+    }
+    public static var home : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Home
+    }
+    public static var up : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Up
+    }
+    public static var forward : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Forward
+    }
+    public static var back : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Back
+    }
+    public static var favorite : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Favorite
+    }
+    public static var camera : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Camera
+    }
+    public static var setting : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Setting
+    }
+    public static var video : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Video
+    }
+    public static var sync : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Sync
+    }
+    public static var download : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Download
+    }
+    public static var mail : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Mail
+    }
+    public static var find : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Find
+    }
+    public static var help : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Help
+    }
+    public static var upload : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Upload
+    }
+    public static var emoji : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Emoji
+    }
+    public static var twoPage : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_TwoPage
+    }
+    public static var leaveChat : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_LeaveChat
+    }
+    public static var mailForward : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MailForward
+    }
+    public static var clock : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Clock
+    }
+    public static var send : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Send
+    }
+    public static var crop : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Crop
+    }
+    public static var rotateCamera : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_RotateCamera
+    }
+    public static var people : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_People
+    }
+    public static var openPane : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OpenPane
+    }
+    public static var closePane : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ClosePane
+    }
+    public static var world : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_World
+    }
+    public static var flag : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Flag
+    }
+    public static var previewLink : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_PreviewLink
+    }
+    public static var globe : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Globe
+    }
+    public static var trim : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Trim
+    }
+    public static var attachCamera : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AttachCamera
+    }
+    public static var zoomIn : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ZoomIn
+    }
+    public static var bookmarks : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Bookmarks
+    }
+    public static var document : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Document
+    }
+    public static var protectedDocument : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ProtectedDocument
+    }
+    public static var page : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Page
+    }
+    public static var bullets : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Bullets
+    }
+    public static var comment : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Comment
+    }
+    public static var mailFilled : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MailFilled
+    }
+    public static var contactInfo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ContactInfo
+    }
+    public static var hangUp : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_HangUp
+    }
+    public static var viewAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ViewAll
+    }
+    public static var mapPin : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MapPin
+    }
+    public static var phone : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Phone
+    }
+    public static var videoChat : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_VideoChat
+    }
+    public static var `switch` : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Switch
+    }
+    public static var contact : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Contact
+    }
+    public static var rename : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Rename
+    }
+    public static var pin : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Pin
+    }
+    public static var musicInfo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MusicInfo
+    }
+    public static var go : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Go
+    }
+    public static var keyboard : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Keyboard
+    }
+    public static var dockLeft : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DockLeft
+    }
+    public static var dockRight : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DockRight
+    }
+    public static var dockBottom : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DockBottom
+    }
+    public static var remote : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Remote
+    }
+    public static var refresh : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Refresh
+    }
+    public static var rotate : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Rotate
+    }
+    public static var shuffle : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Shuffle
+    }
+    public static var list : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_List
+    }
+    public static var shop : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Shop
+    }
+    public static var selectAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SelectAll
+    }
+    public static var orientation : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Orientation
+    }
+    public static var `import` : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Import
+    }
+    public static var importAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ImportAll
+    }
+    public static var browsePhotos : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_BrowsePhotos
+    }
+    public static var webCam : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_WebCam
+    }
+    public static var pictures : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Pictures
+    }
+    public static var saveLocal : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SaveLocal
+    }
+    public static var caption : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Caption
+    }
+    public static var stop : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Stop
+    }
+    public static var showResults : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ShowResults
+    }
+    public static var volume : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Volume
+    }
+    public static var repair : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Repair
+    }
+    public static var message : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Message
+    }
+    public static var page2 : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Page2
+    }
+    public static var calendarDay : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_CalendarDay
+    }
+    public static var calendarWeek : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_CalendarWeek
+    }
+    public static var calendar : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Calendar
+    }
+    public static var character : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Character
+    }
+    public static var mailReplyAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MailReplyAll
+    }
+    public static var read : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Read
+    }
+    public static var link : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Link
+    }
+    public static var account : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Account
+    }
+    public static var showBcc : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ShowBcc
+    }
+    public static var hideBcc : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_HideBcc
+    }
+    public static var cut : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Cut
+    }
+    public static var attach : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Attach
+    }
+    public static var paste : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Paste
+    }
+    public static var filter : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Filter
+    }
+    public static var copy : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Copy
+    }
+    public static var emoji2 : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Emoji2
+    }
+    public static var important : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Important
+    }
+    public static var mailReply : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MailReply
+    }
+    public static var slideShow : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SlideShow
+    }
+    public static var sort : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Sort
+    }
+    public static var manage : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Manage
+    }
+    public static var allApps : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AllApps
+    }
+    public static var disconnectDrive : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DisconnectDrive
+    }
+    public static var mapDrive : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MapDrive
+    }
+    public static var newWindow : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_NewWindow
+    }
+    public static var openWith : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OpenWith
+    }
+    public static var contactPresence : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ContactPresence
+    }
+    public static var priority : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Priority
+    }
+    public static var goToToday : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_GoToToday
+    }
+    public static var font : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Font
+    }
+    public static var fontColor : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FontColor
+    }
+    public static var contact2 : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Contact2
+    }
+    public static var folder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Folder
+    }
+    public static var audio : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Audio
+    }
+    public static var placeholder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Placeholder
+    }
+    public static var view : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_View
+    }
+    public static var setLockScreen : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SetLockScreen
+    }
+    public static var setTile : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SetTile
+    }
+    public static var closedCaption : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ClosedCaption
+    }
+    public static var stopSlideShow : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_StopSlideShow
+    }
+    public static var permissions : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Permissions
+    }
+    public static var highlight : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Highlight
+    }
+    public static var disableUpdates : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DisableUpdates
+    }
+    public static var unFavorite : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_UnFavorite
+    }
+    public static var unPin : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_UnPin
+    }
+    public static var openLocal : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OpenLocal
+    }
+    public static var mute : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Mute
+    }
+    public static var italic : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Italic
+    }
+    public static var underline : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Underline
+    }
+    public static var bold : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Bold
+    }
+    public static var moveToFolder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MoveToFolder
+    }
+    public static var likeDislike : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_LikeDislike
+    }
+    public static var dislike : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Dislike
+    }
+    public static var like : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Like
+    }
+    public static var alignRight : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AlignRight
+    }
+    public static var alignCenter : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AlignCenter
+    }
+    public static var alignLeft : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AlignLeft
+    }
+    public static var zoom : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Zoom
+    }
+    public static var zoomOut : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ZoomOut
+    }
+    public static var openFile : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OpenFile
+    }
+    public static var otherUser : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OtherUser
+    }
+    public static var admin : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Admin
+    }
+    public static var street : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Street
+    }
+    public static var map : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Map
+    }
+    public static var clearSelection : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ClearSelection
+    }
+    public static var fontDecrease : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FontDecrease
+    }
+    public static var fontIncrease : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FontIncrease
+    }
+    public static var fontSize : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FontSize
+    }
+    public static var cellPhone : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_CellPhone
+    }
+    public static var reShare : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ReShare
+    }
+    public static var tag : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Tag
+    }
+    public static var repeatOne : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_RepeatOne
+    }
+    public static var repeatAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_RepeatAll
+    }
+    public static var outlineStar : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OutlineStar
+    }
+    public static var solidStar : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SolidStar
+    }
+    public static var calculator : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Calculator
+    }
+    public static var directions : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Directions
+    }
+    public static var target : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Target
+    }
+    public static var library : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Library
+    }
+    public static var phoneBook : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_PhoneBook
+    }
+    public static var memo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Memo
+    }
+    public static var microphone : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Microphone
+    }
+    public static var postUpdate : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_PostUpdate
+    }
+    public static var backToWindow : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_BackToWindow
+    }
+    public static var fullScreen : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FullScreen
+    }
+    public static var newFolder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_NewFolder
+    }
+    public static var calendarReply : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_CalendarReply
+    }
+    public static var unSyncFolder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_UnSyncFolder
+    }
+    public static var reportHacked : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ReportHacked
+    }
+    public static var syncFolder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SyncFolder
+    }
+    public static var blockContact : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_BlockContact
+    }
+    public static var switchApps : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SwitchApps
+    }
+    public static var addFriend : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AddFriend
+    }
+    public static var touchPointer : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_TouchPointer
+    }
+    public static var goToStart : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_GoToStart
+    }
+    public static var zeroBars : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ZeroBars
+    }
+    public static var oneBar : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OneBar
+    }
+    public static var twoBars : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_TwoBars
+    }
+    public static var threeBars : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ThreeBars
+    }
+    public static var fourBars : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FourBars
+    }
+    public static var scan : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Scan
+    }
+    public static var preview : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Preview
+    }
+    public static var globalNavigationButton : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_GlobalNavigationButton
+    }
+    public static var share : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Share
+    }
+    public static var print : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Print
+    }
+    public static var xboxOneConsole : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_XboxOneConsole
+    }
+}
+extension WinUI.Symbol: @retroactive Hashable, @retroactive Codable {}
 
 extension WinUI.TeachingTipCloseReason {
     public static var closeButton : WinUI.TeachingTipCloseReason {

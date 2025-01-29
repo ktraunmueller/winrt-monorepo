@@ -1,8 +1,11 @@
 -output E:\sandbox\compositorapp\winrt\swift-winui\.generated
 -include Microsoft.UI.ColorHelper
 -include Microsoft.UI.Colors
+-include Microsoft.UI.Xaml.GridLengthHelper
 -include Microsoft.UI.Xaml.Application
 -include Microsoft.UI.Xaml.Automation.AutomationProperties
+-include Microsoft.UI.Xaml.Controls.AppBar
+-include Microsoft.UI.Xaml.Controls.AppBarToggleButton
 -include Microsoft.UI.Xaml.Controls.BitmapIcon
 -include Microsoft.UI.Xaml.Controls.Border
 -include Microsoft.UI.Xaml.Controls.Button
@@ -10,6 +13,7 @@
 -include Microsoft.UI.Xaml.Controls.CheckBox
 -include Microsoft.UI.Xaml.Controls.ColumnDefinition
 -include Microsoft.UI.Xaml.Controls.ComboBox
+-include Microsoft.UI.Xaml.Controls.CommandBar
 -include Microsoft.UI.Xaml.Controls.ContentDialog
 -include Microsoft.UI.Xaml.Controls.ContentPresenter
 -include Microsoft.UI.Xaml.Controls.FlipView
@@ -52,6 +56,7 @@
 -include Microsoft.UI.Xaml.Controls.StackLayout
 -include Microsoft.UI.Xaml.Controls.StackPanel
 -include Microsoft.UI.Xaml.Controls.SwapChainPanel
+-include Microsoft.UI.Xaml.Controls.SymbolIcon
 -include Microsoft.UI.Xaml.Controls.TeachingTip
 -include Microsoft.UI.Xaml.Controls.ToolTip
 -include Microsoft.UI.Xaml.Controls.ToolTipService

@@ -108,6 +108,40 @@ public final class AppBarTemplateSettings : WinUI.DependencyObject {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartogglebuttontemplatesettings)
+public final class AppBarToggleButtonTemplateSettings : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IAppBarToggleButtonTemplateSettings
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings>?) -> AppBarToggleButtonTemplateSettings? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartogglebuttontemplatesettings.keyboardacceleratortextminwidth)
+    public var keyboardAcceleratorTextMinWidth : Double {
+        get { try! _default.get_KeyboardAcceleratorTextMinWidthImpl() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase)
 open class ButtonBase : WinUI.ContentControl {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBase
@@ -280,6 +314,95 @@ public final class ComboBoxTemplateSettings : WinUI.DependencyObject {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.comboboxtemplatesettings.selecteditemdirection)
     public var selectedItemDirection : AnimationDirection {
         get { try! _default.get_SelectedItemDirectionImpl() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings)
+public final class CommandBarTemplateSettings : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ICommandBarTemplateSettings
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings>?) -> CommandBarTemplateSettings? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.contentheight)
+    public var contentHeight : Double {
+        get { try! _default.get_ContentHeightImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.effectiveoverflowbuttonvisibility)
+    public var effectiveOverflowButtonVisibility : WinUI.Visibility {
+        get { try! _default.get_EffectiveOverflowButtonVisibilityImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.negativeoverflowcontentheight)
+    public var negativeOverflowContentHeight : Double {
+        get { try! _default.get_NegativeOverflowContentHeightImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentcliprect)
+    public var overflowContentClipRect : WindowsFoundation.Rect {
+        get { try! _default.get_OverflowContentClipRectImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentcompactytranslation)
+    public var overflowContentCompactYTranslation : Double {
+        get { try! _default.get_OverflowContentCompactYTranslationImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentheight)
+    public var overflowContentHeight : Double {
+        get { try! _default.get_OverflowContentHeightImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontenthiddenytranslation)
+    public var overflowContentHiddenYTranslation : Double {
+        get { try! _default.get_OverflowContentHiddenYTranslationImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontenthorizontaloffset)
+    public var overflowContentHorizontalOffset : Double {
+        get { try! _default.get_OverflowContentHorizontalOffsetImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentmaxheight)
+    public var overflowContentMaxHeight : Double {
+        get { try! _default.get_OverflowContentMaxHeightImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentmaxwidth)
+    public var overflowContentMaxWidth : Double {
+        get { try! _default.get_OverflowContentMaxWidthImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentminwidth)
+    public var overflowContentMinWidth : Double {
+        get { try! _default.get_OverflowContentMinWidthImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentminimalytranslation)
+    public var overflowContentMinimalYTranslation : Double {
+        get { try! _default.get_OverflowContentMinimalYTranslationImpl() }
     }
 
     deinit {

@@ -26,6 +26,18 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarStatics: WindowsF
     .init(Data1: 0x0DC7172C, Data2: 0xA03D, Data3: 0x5AE4, Data4: ( 0x95,0x38,0xFF,0xD8,0x04,0x82,0x3B,0xCE ))// 0DC7172C-A03D-5AE4-9538-FFD804823BCE
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton: WindowsFoundation.IID {
+    .init(Data1: 0x9687C0B1, Data2: 0xC390, Data3: 0x59BE, Data4: ( 0xAC,0xDC,0x4F,0xC4,0x8F,0x55,0x28,0x23 ))// 9687C0B1-C390-59BE-ACDC-4FC48F552823
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonFactory: WindowsFoundation.IID {
+    .init(Data1: 0x07BFB2D6, Data2: 0x23B9, Data3: 0x57A2, Data4: ( 0x91,0x22,0x00,0x62,0x94,0xBF,0xA9,0x2F ))// 07BFB2D6-23B9-57A2-9122-006294BFA92F
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics: WindowsFoundation.IID {
+    .init(Data1: 0x70021504, Data2: 0x3FE8, Data3: 0x53BC, Data4: ( 0xAB,0xD6,0xD6,0x97,0x62,0xF4,0xBC,0x87 ))// 70021504-3FE8-53BC-ABD6-D69762F4BC87
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBox: WindowsFoundation.IID {
     .init(Data1: 0x3EEA809E, Data2: 0xB2DB, Data3: 0x521D, Data4: ( 0x97,0xDB,0xE0,0x64,0x8F,0xB5,0xD7,0x98 ))// 3EEA809E-B2DB-521D-97DB-E0648FB5D798
 }
@@ -140,6 +152,22 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxStatics: Window
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxTextSubmittedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0x0D7A9794, Data2: 0x73B5, Data3: 0x585E, Data4: ( 0xBF,0xBB,0xDE,0x6D,0xF7,0xEB,0x9F,0xCF ))// 0D7A9794-73B5-585E-BFBB-DE6DF7EB9FCF
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar: WindowsFoundation.IID {
+    .init(Data1: 0xB7CA8EE3, Data2: 0xA07A, Data3: 0x5F69, Data4: ( 0x8A,0xB8,0xBE,0x4E,0x3E,0x4C,0xF0,0xC8 ))// B7CA8EE3-A07A-5F69-8AB8-BE4E3E4CF0C8
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElement: WindowsFoundation.IID {
+    .init(Data1: 0xF8EB20B4, Data2: 0x373E, Data3: 0x5327, Data4: ( 0x99,0x42,0x66,0xA1,0xEA,0x21,0xF5,0xF9 ))// F8EB20B4-373E-5327-9942-66A1EA21F5F9
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarFactory: WindowsFoundation.IID {
+    .init(Data1: 0x8D4079C3, Data2: 0xFA0A, Data3: 0x5BB1, Data4: ( 0xB4,0x5D,0x49,0x9C,0x37,0x87,0x61,0xB4 ))// 8D4079C3-FA0A-5BB1-B45D-499C378761B4
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarStatics: WindowsFoundation.IID {
+    .init(Data1: 0x4ED65848, Data2: 0x4C67, Data3: 0x588F, Data4: ( 0x96,0x66,0x11,0xFF,0x56,0xD7,0x6F,0x02 ))// 4ED65848-4C67-588F-9666-11FF56D76F02
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContainerContentChangingEventArgs: WindowsFoundation.IID {
@@ -260,6 +288,10 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsCompletedEvent
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsStartingEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xA6938886, Data2: 0x20DF, Data3: 0x558E, Data4: ( 0xAC,0x74,0xBB,0x5B,0x7F,0x2F,0x7E,0x90 ))// A6938886-20DF-558E-AC74-BB5B7F2F7E90
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDynamicOverflowItemsChangingEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xBF64C37F, Data2: 0x6332, Data3: 0x541D, Data4: ( 0x80,0xF1,0x87,0x6C,0x5B,0xB9,0xB1,0x96 ))// BF64C37F-6332-541D-80F1-876C5BB9B196
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipView: WindowsFoundation.IID {
@@ -1262,6 +1294,18 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISwapChainPanelStatics: 
     .init(Data1: 0xD83B0621, Data2: 0xAACA, Data3: 0x534B, Data4: ( 0xAF,0xDE,0x53,0x70,0x16,0x71,0x76,0xB5 ))// D83B0621-AACA-534B-AFDE-5370167176B5
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon: WindowsFoundation.IID {
+    .init(Data1: 0xA4322906, Data2: 0x0DBE, Data3: 0x5EB7, Data4: ( 0x8B,0x64,0x3E,0x83,0x22,0x46,0xEB,0x7F ))// A4322906-0DBE-5EB7-8B64-3E832246EB7F
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconFactory: WindowsFoundation.IID {
+    .init(Data1: 0xD4430447, Data2: 0x567C, Data3: 0x5AAD, Data4: ( 0x99,0x6A,0xA5,0x47,0x77,0x4E,0x2C,0x3C ))// D4430447-567C-5AAD-996A-A547774E2C3C
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconStatics: WindowsFoundation.IID {
+    .init(Data1: 0xCCAA0C34, Data2: 0x31F2, Data3: 0x50F1, Data4: ( 0xB3,0x28,0xBE,0x6E,0xDC,0x29,0x1A,0xAA ))// CCAA0C34-31F2-50F1-B328-BE6EDC291AAA
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTip: WindowsFoundation.IID {
     .init(Data1: 0xDAEBD5F7, Data2: 0x3B47, Data3: 0x5B12, Data4: ( 0xB8,0x04,0xF4,0xE1,0x44,0x2B,0x21,0x13 ))// DAEBD5F7-3B47-5B12-B804-F4E1442B2113
 }
@@ -1859,6 +1903,165 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightDismissOverlayModeProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class IAppBarToggleButton: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton }
+
+        internal func get_LabelImpl() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Label(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        internal func put_LabelImpl(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Label(pThis, _value.get()))
+            }
+        }
+
+        internal func get_IconImpl() throws -> WinUI.IconElement? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Icon(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func put_IconImpl(_ value: WinUI.IconElement?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Icon(pThis, RawPointer(value)))
+            }
+        }
+
+        internal func get_LabelPositionImpl() throws -> WinUI.CommandBarLabelPosition {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarLabelPosition = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LabelPosition(pThis, &value))
+            }
+            return value
+        }
+
+        internal func put_LabelPositionImpl(_ value: WinUI.CommandBarLabelPosition) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LabelPosition(pThis, value))
+            }
+        }
+
+        internal func get_KeyboardAcceleratorTextOverrideImpl() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAcceleratorTextOverride(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        internal func put_KeyboardAcceleratorTextOverrideImpl(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyboardAcceleratorTextOverride(pThis, _value.get()))
+            }
+        }
+
+        internal func get_TemplateSettingsImpl() throws -> WinUI.AppBarToggleButtonTemplateSettings? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TemplateSettings(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class IAppBarToggleButtonFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonFactory }
+
+        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.AppBarToggleButton.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAppBarToggleButton {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IAppBarToggleButton(value!)
+        }
+
+    }
+
+    public class IAppBarToggleButtonStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics }
+
+        internal func get_LabelPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LabelProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_IconPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IconProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_LabelPositionPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LabelPositionProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_KeyboardAcceleratorTextOverridePropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAcceleratorTextOverrideProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_IsCompactPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCompactProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_IsInOverflowPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInOverflowProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_DynamicOverflowOrderPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DynamicOverflowOrderProperty(pThis, &valueAbi))
                 }
             }
             return .from(abi: value)
@@ -3392,6 +3595,294 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxTextSubmittedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
+        }
+
+    }
+
+    public class ICommandBar: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar }
+
+        internal func get_PrimaryCommandsImpl() throws -> WindowsFoundation.AnyIObservableVector<WinUI.AnyICommandBarElement?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrimaryCommands(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIObservableVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CICommandBarElementWrapper.unwrapFrom(abi: value)
+        }
+
+        internal func get_SecondaryCommandsImpl() throws -> WindowsFoundation.AnyIObservableVector<WinUI.AnyICommandBarElement?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SecondaryCommands(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIObservableVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CICommandBarElementWrapper.unwrapFrom(abi: value)
+        }
+
+        internal func get_CommandBarOverflowPresenterStyleImpl() throws -> WinUI.Style? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommandBarOverflowPresenterStyle(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func put_CommandBarOverflowPresenterStyleImpl(_ value: WinUI.Style?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CommandBarOverflowPresenterStyle(pThis, RawPointer(value)))
+            }
+        }
+
+        internal func get_CommandBarTemplateSettingsImpl() throws -> WinUI.CommandBarTemplateSettings? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommandBarTemplateSettings(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_DefaultLabelPositionImpl() throws -> WinUI.CommandBarDefaultLabelPosition {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarDefaultLabelPosition = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultLabelPosition(pThis, &value))
+            }
+            return value
+        }
+
+        internal func put_DefaultLabelPositionImpl(_ value: WinUI.CommandBarDefaultLabelPosition) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DefaultLabelPosition(pThis, value))
+            }
+        }
+
+        internal func get_OverflowButtonVisibilityImpl() throws -> WinUI.CommandBarOverflowButtonVisibility {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarOverflowButtonVisibility = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowButtonVisibility(pThis, &value))
+            }
+            return value
+        }
+
+        internal func put_OverflowButtonVisibilityImpl(_ value: WinUI.CommandBarOverflowButtonVisibility) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OverflowButtonVisibility(pThis, value))
+            }
+        }
+
+        internal func get_IsDynamicOverflowEnabledImpl() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDynamicOverflowEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        internal func put_IsDynamicOverflowEnabledImpl(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsDynamicOverflowEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        internal func add_DynamicOverflowItemsChangingImpl(_ handler: TypedEventHandler<WinUI.CommandBar?, WinUI.DynamicOverflowItemsChangingEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCommandBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDynamicOverflowItemsChangingEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DynamicOverflowItemsChanging(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        internal func remove_DynamicOverflowItemsChangingImpl(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DynamicOverflowItemsChanging(pThis, token))
+            }
+        }
+
+    }
+
+    public class ICommandBarElement: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElement }
+
+        open func get_IsCompactImpl() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCompact(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_IsCompactImpl(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsCompact(pThis, .init(from: value)))
+            }
+        }
+
+        open func get_IsInOverflowImpl() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInOverflow(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func get_DynamicOverflowOrderImpl() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DynamicOverflowOrder(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_DynamicOverflowOrderImpl(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DynamicOverflowOrder(pThis, value))
+            }
+        }
+
+    }
+
+    internal static var ICommandBarElementVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElementVtbl = .init(
+        QueryInterface: { ICommandBarElementWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ICommandBarElementWrapper.addRef($0) },
+        Release: { ICommandBarElementWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElementWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Microsoft.UI.Xaml.Controls.ICommandBarElement").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_IsCompact: {
+            guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.isCompact
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_IsCompact: {
+            guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.isCompact = value
+            return S_OK
+        },
+
+        get_IsInOverflow: {
+            guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.isInOverflow
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        get_DynamicOverflowOrder: {
+            guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.dynamicOverflowOrder
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_DynamicOverflowOrder: {
+            guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Int32 = $1
+            __unwrapped__instance.dynamicOverflowOrder = value
+            return S_OK
+        }
+    )
+
+    public typealias ICommandBarElementWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.ICommandBarElementBridge>
+    public class ICommandBarFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarFactory }
+
+        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.CommandBar.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICommandBar {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ICommandBar(value!)
+        }
+
+    }
+
+    public class ICommandBarStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarStatics }
+
+        internal func get_PrimaryCommandsPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrimaryCommandsProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_SecondaryCommandsPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SecondaryCommandsProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_CommandBarOverflowPresenterStylePropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommandBarOverflowPresenterStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_DefaultLabelPositionPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultLabelPositionProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_OverflowButtonVisibilityPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowButtonVisibilityProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_IsDynamicOverflowEnabledPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDynamicOverflowEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
         }
 
     }
@@ -6087,6 +6578,19 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
                 }
             }
             return .from(abi: value)
+        }
+
+    }
+
+    public class IDynamicOverflowItemsChangingEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDynamicOverflowItemsChangingEventArgs }
+
+        internal func get_ActionImpl() throws -> WinUI.CommandBarDynamicOverflowAction {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCommandBarDynamicOverflowAction = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDynamicOverflowItemsChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Action(pThis, &value))
+            }
+            return value
         }
 
     }
@@ -20601,6 +21105,53 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISwapChainPanelStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CompositionScaleYProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class ISymbolIcon: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon }
+
+        internal func get_SymbolImpl() throws -> WinUI.Symbol {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Symbol(pThis, &value))
+            }
+            return value
+        }
+
+        internal func put_SymbolImpl(_ value: WinUI.Symbol) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Symbol(pThis, value))
+            }
+        }
+
+    }
+
+    public class ISymbolIconFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconFactory }
+
+        internal func CreateInstanceWithSymbolImpl(_ symbol: WinUI.Symbol) throws -> ISymbolIcon {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithSymbol(pThis, symbol, &valueAbi))
+                }
+            }
+            return ISymbolIcon(value!)
+        }
+
+    }
+
+    public class ISymbolIconStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconStatics }
+
+        internal func get_SymbolPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SymbolProperty(pThis, &valueAbi))
                 }
             }
             return .from(abi: value)
