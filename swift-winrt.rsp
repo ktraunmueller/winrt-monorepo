@@ -44,6 +44,8 @@
 -include Windows.Media.Core
 -include Windows.Media.Render
 -include Windows.Media.Playback
+-include Windows.Storage
+-include Windows.Storage.ApplicationData
 -include Windows.Storage.Streams
 -include Windows.Storage.Pickers
 -include Windows.System.Launcher

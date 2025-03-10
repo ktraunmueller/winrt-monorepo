@@ -61,6 +61,8 @@
     "Windows.Media.Core",
     "Windows.Media.Render",
     "Windows.Media.Playback",
+    "Windows.Storage",
+    "Windows.Storage.ApplicationData",
     "Windows.Storage.Streams",
     "Windows.Storage.Pickers",
     "Windows.System.Launcher",
