@@ -4,6 +4,10 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdatacreatedisposition)
+public typealias ApplicationDataCreateDisposition = __x_ABI_CWindows_CStorage_CApplicationDataCreateDisposition
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdatalocality)
+public typealias ApplicationDataLocality = __x_ABI_CWindows_CStorage_CApplicationDataLocality
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.creationcollisionoption)
 public typealias CreationCollisionOption = __x_ABI_CWindows_CStorage_CCreationCollisionOption
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileaccessmode)
@@ -22,6 +26,276 @@ public typealias StorageLibraryChangeType = __x_ABI_CWindows_CStorage_CStorageLi
 public typealias StorageOpenOptions = __x_ABI_CWindows_CStorage_CStorageOpenOptions
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streamedfilefailuremode)
 public typealias StreamedFileFailureMode = __x_ABI_CWindows_CStorage_CStreamedFileFailureMode
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata)
+public final class ApplicationData : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_Storage.IApplicationData
+    private typealias CABI = __x_ABI_CWindows_CStorage_CIApplicationData
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIApplicationData>?) -> ApplicationData? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _IApplicationDataStatics: __ABI_Windows_Storage.IApplicationDataStatics = try! RoGetActivationFactory(HString("Windows.Storage.ApplicationData"))
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.current)
+    public static var current : ApplicationData! {
+        get { try! _IApplicationDataStatics.get_CurrentImpl() }
+    }
+
+    private static let _IApplicationDataStatics2: __ABI_Windows_Storage.IApplicationDataStatics2 = try! RoGetActivationFactory(HString("Windows.Storage.ApplicationData"))
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.getforuserasync)
+    public static func getForUserAsync(_ user: UWP.User!) -> WindowsFoundation.AnyIAsyncOperation<ApplicationData?>! {
+        return try! _IApplicationDataStatics2.GetForUserAsyncImpl(user)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.setversionasync)
+    public func setVersionAsync(_ desiredVersion: UInt32, _ handler: ApplicationDataSetVersionHandler!) throws -> WindowsFoundation.AnyIAsyncAction! {
+        try _default.SetVersionAsyncImpl(desiredVersion, handler)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.clearasync)
+    public func clearAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
+        try _default.ClearAllAsyncImpl()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.clearasync)
+    public func clearAsync(_ locality: ApplicationDataLocality) throws -> WindowsFoundation.AnyIAsyncAction! {
+        try _default.ClearAsyncImpl(locality)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.signaldatachanged)
+    public func signalDataChanged() throws {
+        try _default.SignalDataChangedImpl()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.localfolder)
+    public var localFolder : StorageFolder! {
+        get { try! _default.get_LocalFolderImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.localsettings)
+    public var localSettings : ApplicationDataContainer! {
+        get { try! _default.get_LocalSettingsImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.roamingfolder)
+    public var roamingFolder : StorageFolder! {
+        get { try! _default.get_RoamingFolderImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.roamingsettings)
+    public var roamingSettings : ApplicationDataContainer! {
+        get { try! _default.get_RoamingSettingsImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.roamingstoragequota)
+    public var roamingStorageQuota : UInt64 {
+        get { try! _default.get_RoamingStorageQuotaImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.temporaryfolder)
+    public var temporaryFolder : StorageFolder! {
+        get { try! _default.get_TemporaryFolderImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.version)
+    public var version : UInt32 {
+        get { try! _default.get_VersionImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.datachanged)
+    public lazy var dataChanged : Event<TypedEventHandler<ApplicationData?, Any?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_DataChangedImpl($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_DataChangedImpl($0)
+       }
+      )
+    }()
+
+    private lazy var _IApplicationData2: __ABI_Windows_Storage.IApplicationData2! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.localcachefolder)
+    public var localCacheFolder : StorageFolder! {
+        get { try! _IApplicationData2.get_LocalCacheFolderImpl() }
+    }
+
+    private lazy var _IApplicationData3: __ABI_Windows_Storage.IApplicationData3! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.getpublishercachefolder)
+    public func getPublisherCacheFolder(_ folderName: String) throws -> StorageFolder! {
+        try _IApplicationData3.GetPublisherCacheFolderImpl(folderName)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.clearpublishercachefolderasync)
+    public func clearPublisherCacheFolderAsync(_ folderName: String) throws -> WindowsFoundation.AnyIAsyncAction! {
+        try _IApplicationData3.ClearPublisherCacheFolderAsyncImpl(folderName)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdata.sharedlocalfolder)
+    public var sharedLocalFolder : StorageFolder! {
+        get { try! _IApplicationData3.get_SharedLocalFolderImpl() }
+    }
+
+    deinit {
+        _default = nil
+        _IApplicationData2 = nil
+        _IApplicationData3 = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdatacontainer)
+public final class ApplicationDataContainer : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_Storage.IApplicationDataContainer
+    private typealias CABI = __x_ABI_CWindows_CStorage_CIApplicationDataContainer
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIApplicationDataContainer>?) -> ApplicationDataContainer? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdatacontainer.createcontainer)
+    public func createContainer(_ name: String, _ disposition: ApplicationDataCreateDisposition) throws -> ApplicationDataContainer! {
+        try _default.CreateContainerImpl(name, disposition)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdatacontainer.deletecontainer)
+    public func deleteContainer(_ name: String) throws {
+        try _default.DeleteContainerImpl(name)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdatacontainer.containers)
+    public var containers : WindowsFoundation.AnyIMapView<String, ApplicationDataContainer?>! {
+        get { try! _default.get_ContainersImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdatacontainer.locality)
+    public var locality : ApplicationDataLocality {
+        get { try! _default.get_LocalityImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdatacontainer.name)
+    public var name : String {
+        get { try! _default.get_NameImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.applicationdatacontainer.values)
+    public var values : WindowsFoundation.AnyIPropertySet! {
+        get { try! _default.get_ValuesImpl() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.setversiondeferral)
+public final class SetVersionDeferral : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_Storage.ISetVersionDeferral
+    private typealias CABI = __x_ABI_CWindows_CStorage_CISetVersionDeferral
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CISetVersionDeferral>?) -> SetVersionDeferral? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.setversiondeferral.complete)
+    public func complete() throws {
+        try _default.CompleteImpl()
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.setversionrequest)
+public final class SetVersionRequest : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_Storage.ISetVersionRequest
+    private typealias CABI = __x_ABI_CWindows_CStorage_CISetVersionRequest
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CISetVersionRequest>?) -> SetVersionRequest? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.setversionrequest.getdeferral)
+    public func getDeferral() throws -> SetVersionDeferral! {
+        try _default.GetDeferralImpl()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.setversionrequest.currentversion)
+    public var currentVersion : UInt32 {
+        get { try! _default.get_CurrentVersionImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.setversionrequest.desiredversion)
+    public var desiredVersion : UInt32 {
+        get { try! _default.get_DesiredVersionImpl() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.storagefile)
 public final class StorageFile : WinRTClass, IStorageItem, UWP.IRandomAccessStreamReference, UWP.IInputStreamReference, IStorageFile, IStorageItemProperties, IStorageItemProperties2, IStorageItem2, IStorageItemPropertiesWithProvider, IStorageFilePropertiesWithAvailability, IStorageFile2 {
     private typealias SwiftABI = __ABI_Windows_Storage.IStorageFile
@@ -905,6 +1179,7 @@ public final class StreamedFileDataRequest : WinRTClass, WindowsFoundation.IClos
     }
 }
 
+public typealias ApplicationDataSetVersionHandler = (SetVersionRequest?) -> ()
 public typealias StreamedFileDataRequestedHandler = (StreamedFileDataRequest?) -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile)
 public protocol IStorageFile : IStorageItem, UWP.IRandomAccessStreamReference, UWP.IInputStreamReference {
@@ -1202,6 +1477,32 @@ extension IStreamedFileDataRequest {
     }
 }
 public typealias AnyIStreamedFileDataRequest = any IStreamedFileDataRequest
+
+extension UWP.ApplicationDataCreateDisposition {
+    public static var always : UWP.ApplicationDataCreateDisposition {
+        __x_ABI_CWindows_CStorage_CApplicationDataCreateDisposition_Always
+    }
+    public static var existing : UWP.ApplicationDataCreateDisposition {
+        __x_ABI_CWindows_CStorage_CApplicationDataCreateDisposition_Existing
+    }
+}
+extension UWP.ApplicationDataCreateDisposition: @retroactive Hashable, @retroactive Codable {}
+
+extension UWP.ApplicationDataLocality {
+    public static var local : UWP.ApplicationDataLocality {
+        __x_ABI_CWindows_CStorage_CApplicationDataLocality_Local
+    }
+    public static var roaming : UWP.ApplicationDataLocality {
+        __x_ABI_CWindows_CStorage_CApplicationDataLocality_Roaming
+    }
+    public static var temporary : UWP.ApplicationDataLocality {
+        __x_ABI_CWindows_CStorage_CApplicationDataLocality_Temporary
+    }
+    public static var localCache : UWP.ApplicationDataLocality {
+        __x_ABI_CWindows_CStorage_CApplicationDataLocality_LocalCache
+    }
+}
+extension UWP.ApplicationDataLocality: @retroactive Hashable, @retroactive Codable {}
 
 extension UWP.CreationCollisionOption {
     public static var generateUniqueName : UWP.CreationCollisionOption {

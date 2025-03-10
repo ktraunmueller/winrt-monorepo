@@ -12,6 +12,7 @@
 -include Windows.Graphics.Effects
 -include Windows.Graphics.Imaging
 -include Windows.Media.Playback.MediaPlayer
+-include Windows.Storage.ApplicationData
 -include Windows.Storage.Streams
 -include Windows.Storage.Pickers
 -include Windows.System.Launcher

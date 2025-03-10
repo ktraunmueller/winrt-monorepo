@@ -25,6 +25,7 @@
     "Windows.Graphics.Effects",
     "Windows.Graphics.Imaging",
     "Windows.Media.Playback.MediaPlayer",
+    "Windows.Storage.ApplicationData",
     "Windows.Storage.Streams",
     "Windows.Storage.Pickers",
     "Windows.System.Launcher",

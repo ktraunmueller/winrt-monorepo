@@ -4,6 +4,38 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+private var IID___x_ABI_CWindows_CStorage_CIApplicationData: WindowsFoundation.IID {
+    .init(Data1: 0xC3DA6FB7, Data2: 0xB744, Data3: 0x4B45, Data4: ( 0xB0,0xB8,0x22,0x3A,0x09,0x38,0xD0,0xDC ))// C3DA6FB7-B744-4B45-B0B8-223A0938D0DC
+}
+
+private var IID___x_ABI_CWindows_CStorage_CIApplicationData2: WindowsFoundation.IID {
+    .init(Data1: 0x9E65CD69, Data2: 0x0BA3, Data3: 0x4E32, Data4: ( 0xBE,0x29,0xB0,0x2D,0xE6,0x60,0x76,0x38 ))// 9E65CD69-0BA3-4E32-BE29-B02DE6607638
+}
+
+private var IID___x_ABI_CWindows_CStorage_CIApplicationData3: WindowsFoundation.IID {
+    .init(Data1: 0xDC222CF4, Data2: 0x2772, Data3: 0x4C1D, Data4: ( 0xAA,0x2C,0xC9,0xF7,0x43,0xAD,0xE8,0xD1 ))// DC222CF4-2772-4C1D-AA2C-C9F743ADE8D1
+}
+
+private var IID___x_ABI_CWindows_CStorage_CIApplicationDataContainer: WindowsFoundation.IID {
+    .init(Data1: 0xC5AEFD1E, Data2: 0xF467, Data3: 0x40BA, Data4: ( 0x85,0x66,0xAB,0x64,0x0A,0x44,0x1E,0x1D ))// C5AEFD1E-F467-40BA-8566-AB640A441E1D
+}
+
+private var IID___x_ABI_CWindows_CStorage_CIApplicationDataStatics: WindowsFoundation.IID {
+    .init(Data1: 0x5612147B, Data2: 0xE843, Data3: 0x45E3, Data4: ( 0x94,0xD8,0x06,0x16,0x9E,0x3C,0x8E,0x17 ))// 5612147B-E843-45E3-94D8-06169E3C8E17
+}
+
+private var IID___x_ABI_CWindows_CStorage_CIApplicationDataStatics2: WindowsFoundation.IID {
+    .init(Data1: 0xCD606211, Data2: 0xCF49, Data3: 0x40A4, Data4: ( 0xA4,0x7C,0xC7,0xF0,0xDB,0xBA,0x81,0x07 ))// CD606211-CF49-40A4-A47C-C7F0DBBA8107
+}
+
+private var IID___x_ABI_CWindows_CStorage_CISetVersionDeferral: WindowsFoundation.IID {
+    .init(Data1: 0x033508A2, Data2: 0x781A, Data3: 0x437A, Data4: ( 0xB0,0x78,0x3F,0x32,0xBA,0xDC,0xFE,0x47 ))// 033508A2-781A-437A-B078-3F32BADCFE47
+}
+
+private var IID___x_ABI_CWindows_CStorage_CISetVersionRequest: WindowsFoundation.IID {
+    .init(Data1: 0xB9C76B9B, Data2: 0x1056, Data3: 0x4E69, Data4: ( 0x83,0x30,0x16,0x26,0x19,0x95,0x6F,0x9B ))// B9C76B9B-1056-4E69-8330-162619956F9B
+}
+
 private var IID___x_ABI_CWindows_CStorage_CIStorageFile: WindowsFoundation.IID {
     .init(Data1: 0xFA3F6186, Data2: 0x4214, Data3: 0x428C, Data4: ( 0xA6,0x4C,0x14,0xC9,0xAC,0x73,0x15,0xEA ))// FA3F6186-4214-428C-A64C-14C9AC7315EA
 }
@@ -84,11 +116,305 @@ private var IID___x_ABI_CWindows_CStorage_CIStreamedFileDataRequest: WindowsFoun
     .init(Data1: 0x1673FCCE, Data2: 0xDABD, Data3: 0x4D50, Data4: ( 0xBE,0xEE,0x18,0x0B,0x8A,0x81,0x91,0xB6 ))// 1673FCCE-DABD-4D50-BEEE-180B8A8191B6
 }
 
+private var IID___x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler: WindowsFoundation.IID {
+    .init(Data1: 0xA05791E6, Data2: 0xCC9F, Data3: 0x4687, Data4: ( 0xAC,0xAB,0xA3,0x64,0xFD,0x78,0x54,0x63 ))// A05791E6-CC9F-4687-ACAB-A364FD785463
+}
+
 private var IID___x_ABI_CWindows_CStorage_CIStreamedFileDataRequestedHandler: WindowsFoundation.IID {
     .init(Data1: 0xFEF6A824, Data2: 0x2FE1, Data3: 0x4D07, Data4: ( 0xA3,0x5B,0xB7,0x7C,0x50,0xB5,0xF4,0xCC ))// FEF6A824-2FE1-4D07-A35B-B77C50B5F4CC
 }
 
 public enum __ABI_Windows_Storage {
+    public class IApplicationData: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIApplicationData }
+
+        internal func get_VersionImpl() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Version(pThis, &value))
+            }
+            return value
+        }
+
+        internal func SetVersionAsyncImpl(_ desiredVersion: UInt32, _ handler: UWP.ApplicationDataSetVersionHandler?) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (setVersionOperation) = try ComPtrs.initialize { setVersionOperationAbi in
+                let handlerWrapper = __ABI_Windows_Storage.ApplicationDataSetVersionHandlerWrapper(handler)
+                let _handler = try! handlerWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetVersionAsync(pThis, desiredVersion, _handler, &setVersionOperationAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: setVersionOperation)
+        }
+
+        internal func ClearAllAsyncImpl() throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (clearOperation) = try ComPtrs.initialize { clearOperationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ClearAllAsync(pThis, &clearOperationAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: clearOperation)
+        }
+
+        internal func ClearAsyncImpl(_ locality: UWP.ApplicationDataLocality) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (clearOperation) = try ComPtrs.initialize { clearOperationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ClearAsync(pThis, locality, &clearOperationAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: clearOperation)
+        }
+
+        internal func get_LocalSettingsImpl() throws -> UWP.ApplicationDataContainer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LocalSettings(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_RoamingSettingsImpl() throws -> UWP.ApplicationDataContainer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_RoamingSettings(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_LocalFolderImpl() throws -> UWP.StorageFolder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LocalFolder(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_RoamingFolderImpl() throws -> UWP.StorageFolder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_RoamingFolder(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_TemporaryFolderImpl() throws -> UWP.StorageFolder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TemporaryFolder(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func add_DataChangedImpl(_ handler: TypedEventHandler<UWP.ApplicationData?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CStorage__CApplicationData_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DataChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        internal func remove_DataChangedImpl(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DataChanged(pThis, token))
+            }
+        }
+
+        internal func SignalDataChangedImpl() throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SignalDataChanged(pThis))
+            }
+        }
+
+        internal func get_RoamingStorageQuotaImpl() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RoamingStorageQuota(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    public class IApplicationData2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIApplicationData2 }
+
+        internal func get_LocalCacheFolderImpl() throws -> UWP.StorageFolder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LocalCacheFolder(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class IApplicationData3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIApplicationData3 }
+
+        internal func GetPublisherCacheFolderImpl(_ folderName: String) throws -> UWP.StorageFolder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _folderName = try! HString(folderName)
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPublisherCacheFolder(pThis, _folderName.get(), &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func ClearPublisherCacheFolderAsyncImpl(_ folderName: String) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (clearOperation) = try ComPtrs.initialize { clearOperationAbi in
+                let _folderName = try! HString(folderName)
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ClearPublisherCacheFolderAsync(pThis, _folderName.get(), &clearOperationAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: clearOperation)
+        }
+
+        internal func get_SharedLocalFolderImpl() throws -> UWP.StorageFolder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationData3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SharedLocalFolder(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class IApplicationDataContainer: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIApplicationDataContainer }
+
+        internal func get_NameImpl() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationDataContainer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        internal func get_LocalityImpl() throws -> UWP.ApplicationDataLocality {
+            var value: __x_ABI_CWindows_CStorage_CApplicationDataLocality = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationDataContainer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Locality(pThis, &value))
+            }
+            return value
+        }
+
+        internal func get_ValuesImpl() throws -> WindowsFoundation.AnyIPropertySet? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationDataContainer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Values(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Foundation_Collections.IPropertySetWrapper.unwrapFrom(abi: value)
+        }
+
+        internal func get_ContainersImpl() throws -> WindowsFoundation.AnyIMapView<String, UWP.ApplicationDataContainer?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationDataContainer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Containers(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CStorage__CApplicationDataContainerWrapper.unwrapFrom(abi: value)
+        }
+
+        internal func CreateContainerImpl(_ name: String, _ disposition: UWP.ApplicationDataCreateDisposition) throws -> UWP.ApplicationDataContainer? {
+            let (container) = try ComPtrs.initialize { containerAbi in
+                let _name = try! HString(name)
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationDataContainer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateContainer(pThis, _name.get(), disposition, &containerAbi))
+                }
+            }
+            return .from(abi: container)
+        }
+
+        internal func DeleteContainerImpl(_ name: String) throws {
+            let _name = try! HString(name)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationDataContainer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DeleteContainer(pThis, _name.get()))
+            }
+        }
+
+    }
+
+    public class IApplicationDataStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIApplicationDataStatics }
+
+        internal func get_CurrentImpl() throws -> UWP.ApplicationData? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationDataStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class IApplicationDataStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIApplicationDataStatics2 }
+
+        internal func GetForUserAsyncImpl(_ user: UWP.User?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ApplicationData?>? {
+            let (getForUserOperation) = try ComPtrs.initialize { getForUserOperationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationDataStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetForUserAsync(pThis, RawPointer(user), &getForUserOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CApplicationDataWrapper.unwrapFrom(abi: getForUserOperation)
+        }
+
+    }
+
+    public class ISetVersionDeferral: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CISetVersionDeferral }
+
+        internal func CompleteImpl() throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CISetVersionDeferral.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
+            }
+        }
+
+    }
+
+    public class ISetVersionRequest: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CISetVersionRequest }
+
+        internal func get_CurrentVersionImpl() throws -> UInt32 {
+            var currentVersion: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CISetVersionRequest.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentVersion(pThis, &currentVersion))
+            }
+            return currentVersion
+        }
+
+        internal func get_DesiredVersionImpl() throws -> UInt32 {
+            var desiredVersion: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CISetVersionRequest.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredVersion(pThis, &desiredVersion))
+            }
+            return desiredVersion
+        }
+
+        internal func GetDeferralImpl() throws -> UWP.SetVersionDeferral? {
+            let (deferral) = try ComPtrs.initialize { deferralAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CISetVersionRequest.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &deferralAbi))
+                }
+            }
+            return .from(abi: deferral)
+        }
+
+    }
+
     public class IStorageFile: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageFile }
 
@@ -1717,6 +2043,40 @@ public enum __ABI_Windows_Storage {
 
     public typealias IStreamedFileDataRequestWrapper = InterfaceWrapperBase<__IMPL_Windows_Storage.IStreamedFileDataRequestBridge>
 }
+// MARK - ApplicationDataSetVersionHandler
+extension __ABI_Windows_Storage {
+    public class ApplicationDataSetVersionHandler: WindowsFoundation.IUnknown {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler }
+
+        open func InvokeImpl(_ setVersionRequest: UWP.SetVersionRequest?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(setVersionRequest)))
+            }
+        }
+
+    }
+
+
+    typealias ApplicationDataSetVersionHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_Storage.ApplicationDataSetVersionHandlerBridge>
+    internal static var ApplicationDataSetVersionHandlerVTable: __x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandlerVtbl = .init(
+        QueryInterface: { ApplicationDataSetVersionHandlerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ApplicationDataSetVersionHandlerWrapper.addRef($0) },
+        Release: { ApplicationDataSetVersionHandlerWrapper.release($0) },
+        Invoke: {
+            guard let __unwrapped__instance = ApplicationDataSetVersionHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let setVersionRequest: UWP.SetVersionRequest? = .from(abi: ComPtr($1))
+            __unwrapped__instance(setVersionRequest)
+            return S_OK
+        }
+    )
+}
+public extension WinRTDelegateBridge where CABI == __x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Storage.ApplicationDataSetVersionHandlerVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
 // MARK - StreamedFileDataRequestedHandler
 extension __ABI_Windows_Storage {
     public class StreamedFileDataRequestedHandler: WindowsFoundation.IUnknown {

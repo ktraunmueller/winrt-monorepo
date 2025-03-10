@@ -1624,6 +1624,22 @@ fileprivate func makeSubjectAlternativeNameInfoFrom(abi: WindowsFoundation.IInsp
     return SubjectAlternativeNameInfo(fromAbi: abi)
 }
 
+fileprivate func makeApplicationDataFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return ApplicationData(fromAbi: abi)
+}
+
+fileprivate func makeApplicationDataContainerFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return ApplicationDataContainer(fromAbi: abi)
+}
+
+fileprivate func makeSetVersionDeferralFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return SetVersionDeferral(fromAbi: abi)
+}
+
+fileprivate func makeSetVersionRequestFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return SetVersionRequest(fromAbi: abi)
+}
+
 fileprivate func makeStorageFileFrom(abi: WindowsFoundation.IInspectable) -> Any {
     return StorageFile(fromAbi: abi)
 }
@@ -2992,6 +3008,10 @@ public class __MakeFromAbi: MakeFromAbi {
             case "ChainBuildingParameters": return makeChainBuildingParametersFrom(abi: abi)
             case "ChainValidationParameters": return makeChainValidationParametersFrom(abi: abi)
             case "SubjectAlternativeNameInfo": return makeSubjectAlternativeNameInfoFrom(abi: abi)
+            case "ApplicationData": return makeApplicationDataFrom(abi: abi)
+            case "ApplicationDataContainer": return makeApplicationDataContainerFrom(abi: abi)
+            case "SetVersionDeferral": return makeSetVersionDeferralFrom(abi: abi)
+            case "SetVersionRequest": return makeSetVersionRequestFrom(abi: abi)
             case "StorageFile": return makeStorageFileFrom(abi: abi)
             case "StorageFolder": return makeStorageFolderFrom(abi: abi)
             case "StorageLibraryChange": return makeStorageLibraryChangeFrom(abi: abi)

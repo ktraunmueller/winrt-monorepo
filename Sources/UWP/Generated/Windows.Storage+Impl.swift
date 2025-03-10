@@ -767,6 +767,20 @@ public enum __IMPL_Windows_Storage {
 
     }
 
+    public class ApplicationDataSetVersionHandlerBridge : WinRTDelegateBridge {
+        public typealias Handler = ApplicationDataSetVersionHandler
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler
+        public typealias SwiftABI = __ABI_Windows_Storage.ApplicationDataSetVersionHandler
+
+        public static func from(abi: ComPtr<CABI>?) -> Handler? {
+            guard let abi = abi else { return nil }
+            let _default = SwiftABI(abi)
+            let handler: Handler = { (setVersionRequest) in
+                try! _default.InvokeImpl(setVersionRequest)
+            }
+            return handler
+        }
+    }
     public class StreamedFileDataRequestedHandlerBridge : WinRTDelegateBridge {
         public typealias Handler = StreamedFileDataRequestedHandler
         public typealias CABI = __x_ABI_CWindows_CStorage_CIStreamedFileDataRequestedHandler
