@@ -4055,6 +4055,64 @@ public final class DragItemsStartingEventArgs : WinRTClass {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dropdownbutton)
+open class DropDownButton : WinUI.Button {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDropDownButton
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton>?) -> DropDownButton? {
+        guard let abi = abi else { return nil }
+        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IDropDownButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IDropDownButtonFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.DropDownButton"))
+
+    override public init() {
+        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDropDownButtonFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        }
+    }
+
+    internal enum IContentControlOverrides : ComposableImpl {
+        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides
+        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides
+        internal typealias Class = DropDownButton
+        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
+        internal enum Default : AbiInterface {
+            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton
+            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDropDownButton
+        }
+    }
+    internal typealias Composable = IContentControlOverrides
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dynamicoverflowitemschangingeventargs)
 public final class DynamicOverflowItemsChangingEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDynamicOverflowItemsChangingEventArgs

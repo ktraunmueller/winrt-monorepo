@@ -513,6 +513,10 @@ fileprivate func makeDragItemsStartingEventArgsFrom(abi: WindowsFoundation.IInsp
     return DragItemsStartingEventArgs(fromAbi: abi)
 }
 
+fileprivate func makeDropDownButtonFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return DropDownButton(fromAbi: abi)
+}
+
 fileprivate func makeDynamicOverflowItemsChangingEventArgsFrom(abi: WindowsFoundation.IInspectable) -> Any {
     return DynamicOverflowItemsChangingEventArgs(fromAbi: abi)
 }
@@ -2166,6 +2170,7 @@ public class __MakeFromAbi: MakeFromAbi {
             case "DataTemplateSelector": return makeDataTemplateSelectorFrom(abi: abi)
             case "DragItemsCompletedEventArgs": return makeDragItemsCompletedEventArgsFrom(abi: abi)
             case "DragItemsStartingEventArgs": return makeDragItemsStartingEventArgsFrom(abi: abi)
+            case "DropDownButton": return makeDropDownButtonFrom(abi: abi)
             case "DynamicOverflowItemsChangingEventArgs": return makeDynamicOverflowItemsChangingEventArgsFrom(abi: abi)
             case "FlipView": return makeFlipViewFrom(abi: abi)
             case "FlipViewItem": return makeFlipViewItemFrom(abi: abi)

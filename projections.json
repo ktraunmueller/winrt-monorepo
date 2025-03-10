@@ -28,6 +28,7 @@
     "Microsoft.UI.Xaml.Controls.CommandBar",
     "Microsoft.UI.Xaml.Controls.ContentDialog",
     "Microsoft.UI.Xaml.Controls.ContentPresenter",
+    "Microsoft.UI.Xaml.Controls.DropDownButton", 
     "Microsoft.UI.Xaml.Controls.FlipView",
     "Microsoft.UI.Xaml.Controls.FlipViewItem",
     "Microsoft.UI.Xaml.Controls.Flyout",

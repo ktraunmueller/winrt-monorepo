@@ -290,6 +290,14 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsStartingEventA
     .init(Data1: 0xA6938886, Data2: 0x20DF, Data3: 0x558E, Data4: ( 0xAC,0x74,0xBB,0x5B,0x7F,0x2F,0x7E,0x90 ))// A6938886-20DF-558E-AC74-BB5B7F2F7E90
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton: WindowsFoundation.IID {
+    .init(Data1: 0xC1E9FA91, Data2: 0x4F95, Data3: 0x5796, Data4: ( 0x8A,0x7B,0x3B,0x75,0x94,0xA1,0x2C,0x69 ))// C1E9FA91-4F95-5796-8A7B-3B7594A12C69
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButtonFactory: WindowsFoundation.IID {
+    .init(Data1: 0x7CF3E13B, Data2: 0x668D, Data3: 0x57E7, Data4: ( 0xB5,0xD6,0xF5,0xCA,0x3D,0xBC,0x80,0xBD ))// 7CF3E13B-668D-57E7-B5D6-F5CA3DBC80BD
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDynamicOverflowItemsChangingEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xBF64C37F, Data2: 0x6332, Data3: 0x541D, Data4: ( 0x80,0xF1,0x87,0x6C,0x5B,0xB9,0xB1,0x96 ))// BF64C37F-6332-541D-80F1-876C5BB9B196
 }
@@ -6578,6 +6586,29 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
                 }
             }
             return .from(abi: value)
+        }
+
+    }
+
+    public class IDropDownButton: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton }
+
+    }
+
+    public class IDropDownButtonFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButtonFactory }
+
+        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.DropDownButton.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDropDownButton {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButtonFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IDropDownButton(value!)
         }
 
     }
