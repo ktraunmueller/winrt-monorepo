@@ -154,6 +154,11 @@ fileprivate func makeIGeometrySource2DFrom(abi: WindowsFoundation.IInspectable) 
     return __IMPL_Windows_Graphics.IGeometrySource2DBridge.from(abi: RawPointer(swiftAbi))!
 }
 
+fileprivate func makeIDirect3DDeviceFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    let swiftAbi: __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DDevice = try! abi.QueryInterface()
+    return __IMPL_Windows_Graphics_DirectX_Direct3D11.IDirect3DDeviceBridge.from(abi: RawPointer(swiftAbi))!
+}
+
 fileprivate func makeIDirect3DSurfaceFrom(abi: WindowsFoundation.IInspectable) -> Any {
     let swiftAbi: __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurface = try! abi.QueryInterface()
     return __IMPL_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceBridge.from(abi: RawPointer(swiftAbi))!
@@ -2654,6 +2659,7 @@ public class __MakeFromAbi: MakeFromAbi {
             case "IXmlText": return makeIXmlTextFrom(abi: abi)
             case "IDevicePairingSettings": return makeIDevicePairingSettingsFrom(abi: abi)
             case "IGeometrySource2D": return makeIGeometrySource2DFrom(abi: abi)
+            case "IDirect3DDevice": return makeIDirect3DDeviceFrom(abi: abi)
             case "IDirect3DSurface": return makeIDirect3DSurfaceFrom(abi: abi)
             case "IGraphicsEffect": return makeIGraphicsEffectFrom(abi: abi)
             case "IGraphicsEffectSource": return makeIGraphicsEffectSourceFrom(abi: abi)

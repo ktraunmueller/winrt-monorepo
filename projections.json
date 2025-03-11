@@ -22,6 +22,7 @@
     "Windows.Foundation.IMemoryBufferReference",
     "Windows.Foundation.IPropertyValue",
     "Windows.Graphics",
+    "Windows.Graphics.DirectX.Direct3D11",
     "Windows.Graphics.Effects",
     "Windows.Graphics.Imaging",
     "Windows.Media.Playback.MediaPlayer",

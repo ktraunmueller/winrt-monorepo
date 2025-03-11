@@ -9,6 +9,7 @@
 -include Windows.Foundation.IMemoryBufferReference
 -include Windows.Foundation.IPropertyValue
 -include Windows.Graphics
+-include Windows.Graphics.DirectX.Direct3D11
 -include Windows.Graphics.Effects
 -include Windows.Graphics.Imaging
 -include Windows.Media.Playback.MediaPlayer
