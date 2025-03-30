@@ -36,7 +36,8 @@ let package = Package(
         .target(
             name: "CWinAppSDK",
             resources: [
-                .copy("nuget/bin/Microsoft.WindowsAppRuntime.Bootstrap.dll"),
+                // TODO copy right file depending on target architecture
+                .copy("nuget/bin/x64/Microsoft.WindowsAppRuntime.Bootstrap.dll")
             ],
             linkerSettings: linkerSettings
         )
