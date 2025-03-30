@@ -1,5 +1,4 @@
 // swift-tools-version: 6.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
@@ -7,7 +6,9 @@ let package = Package(
     name: "swift-windowsfoundation",
     products: [
         .library(
-            name: "WindowsFoundation", type: .dynamic, targets: ["WindowsFoundation"]),
+            name: "WindowsFoundation", 
+            type: .dynamic, 
+            targets: ["WindowsFoundation"])
     ],
     dependencies: [
         // .package(url: "https://github.com/ktraunmueller/swift-cwinrt", branch: "main")
