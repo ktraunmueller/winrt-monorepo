@@ -3,6 +3,8 @@
 -include Microsoft.Graphics.Canvas.UI.Xaml
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\net45\Microsoft.Graphics.Canvas.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\uap10.0\Microsoft.Graphics.Canvas.winmd
+-input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.2.0\lib\net45\Microsoft.Graphics.Canvas.winmd
+-input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.2.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.MachineLearningContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.ApplicationModel.Activation.ActivatedEventsContract.winmd
@@ -132,6 +134,8 @@
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.WindowsAppSDK.1.5.241107002\lib\uap10.0.18362\Microsoft.UI.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\net45\Microsoft.Graphics.Canvas.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\uap10.0\Microsoft.Graphics.Canvas.winmd
+-input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.2.0\lib\net45\Microsoft.Graphics.Canvas.winmd
+-input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.2.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.MachineLearningContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.ApplicationModel.Activation.ActivatedEventsContract.winmd
@@ -261,6 +265,8 @@
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.WindowsAppSDK.1.5.241107002\lib\uap10.0.18362\Microsoft.UI.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\net45\Microsoft.Graphics.Canvas.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\uap10.0\Microsoft.Graphics.Canvas.winmd
+-input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.2.0\lib\net45\Microsoft.Graphics.Canvas.winmd
+-input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.2.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.MachineLearningContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.ApplicationModel.Activation.ActivatedEventsContract.winmd
@@ -390,6 +396,8 @@
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.WindowsAppSDK.1.5.241107002\lib\uap10.0.18362\Microsoft.UI.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\net45\Microsoft.Graphics.Canvas.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\uap10.0\Microsoft.Graphics.Canvas.winmd
+-input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.2.0\lib\net45\Microsoft.Graphics.Canvas.winmd
+-input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.2.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.MachineLearningContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.ApplicationModel.Activation.ActivatedEventsContract.winmd
