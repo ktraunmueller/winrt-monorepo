@@ -29,7 +29,7 @@ let package = Package(
                 .product(name: "WinUI", package: "swift-winui"),
             ],
             resources: [
-                .copy("NativeBinaries"),
+                .copy("NativeBinaries/Microsoft.Graphics.Canvas.dll"),
             ]
         ),
     ],
