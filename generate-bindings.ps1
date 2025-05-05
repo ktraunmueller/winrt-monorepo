@@ -145,9 +145,11 @@ function Copy-NativeBinaries {
     $PackageVersion = $Projections.Package.Version
 
     $PackageDir = Join-Path $PackagesDir "$Package.$PackageVersion"
-    $PackagesRuntimeDir = Join-Path $PackageDir "runtimes\win-x64\native"
+    # $PackagesRuntimeDir = Join-Path $PackageDir "runtimes\win-x64\native"
+    $PackagesRuntimeDir = Join-Path $PackageDir "runtimes\win-arm64\native"
 
     if (-not (Test-Path $PackagesRuntimeDir)) {
+        Write-Output "$PackagesRuntimeDir not found!"
         return
     }
 
