@@ -142,7 +142,7 @@ function Copy-NativeBinaries {
 
     $Projections = Get-Content -Path $PSScriptRoot\projections.json | ConvertFrom-Json
     $Package = $Projections.Package.Id
-    $PackageVersion = $Projectinos.Package.Version
+    $PackageVersion = $Projections.Package.Version
 
     $PackageDir = Join-Path $PackagesDir "$Package.$PackageVersion"
     $PackagesRuntimeDir = Join-Path $PackageDir "runtimes\win-x64\native"
