@@ -9,6 +9,8 @@
 #include "Microsoft.Graphics.Canvas.h"
 #include "Microsoft.Graphics.Canvas.UI.h"
 #include "Microsoft.UI.Composition.h"
+#include "Microsoft.UI.Dispatching.h"
+#include "Microsoft.UI.Input.h"
 #include "Microsoft.UI.Xaml.h"
 #include "Microsoft.UI.Xaml.Controls.h"
 #include "Microsoft.UI.Xaml.Media.h"
@@ -17,6 +19,36 @@
 #include "Windows.UI.h"
 
 /* Forward Declarations */
+#ifndef ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl;
+
+#endif // ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs;
+
+#endif // ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory;
+
+#endif // ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs;
+
+#endif // ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory;
+
+#endif // ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl;
@@ -86,6 +118,40 @@
     typedef interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs;
 
 #endif // ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs_FWD_DEFINED__
+
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* sender,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs_INTERFACE_DEFINED__
+    #endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
 
 #if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs_INTERFACE_DEFINED__
@@ -247,6 +313,102 @@
     
     #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasVirtualImageSource___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasRegionsInvalidatedEventArgs_INTERFACE_DEFINED__
     
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* sender,
+        IInspectable* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* sender,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* sender,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs_INTERFACE_DEFINED__
+    
 typedef enum __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode;
 
 #ifndef ____x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice_FWD_DEFINED__
@@ -279,6 +441,8 @@ typedef enum __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode __x_ABI_CMicr
 
 #endif // ____x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreatorWithDpi_FWD_DEFINED__
 
+typedef struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation;
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CComposition_CIAnimationObject_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CComposition_CIAnimationObject_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationObject __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationObject;
@@ -296,6 +460,20 @@ typedef enum __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode __x_ABI_CMicr
     typedef interface __x_ABI_CMicrosoft_CUI_CComposition_CIVisualElement2 __x_ABI_CMicrosoft_CUI_CComposition_CIVisualElement2;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandler_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandler_FWD_DEFINED__
+typedef interface __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandler __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandler;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandler_FWD_DEFINED__
+
+    #ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource_FWD_DEFINED__
+
+typedef enum __x_ABI_CMicrosoft_CUI_CInput_CInputPointerSourceDeviceKinds __x_ABI_CMicrosoft_CUI_CInput_CInputPointerSourceDeviceKinds;
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControl_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControl_FWD_DEFINED__
@@ -399,14 +577,262 @@ typedef enum __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode __x_ABI_CMicr
 
 #endif // ____x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSource_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
+    typedef interface __x_ABI_CWindows_CFoundation_CIAsyncAction __x_ABI_CWindows_CFoundation_CIAsyncAction;
+
+#endif // ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
+
 typedef struct __x_ABI_CWindows_CFoundation_CRect __x_ABI_CWindows_CFoundation_CRect;
 
 typedef struct __x_ABI_CWindows_CFoundation_CSize __x_ABI_CWindows_CFoundation_CSize;
+
+typedef struct __x_ABI_CWindows_CFoundation_CTimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan;
 
 typedef struct __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize;
 
 typedef struct __x_ABI_CWindows_CUI_CColor __x_ABI_CWindows_CUI_CColor;
 
+#if !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControlVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* add_CreateResources)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs* value,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_CreateResources)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_Update)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs* value,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_Update)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_Draw)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs* value,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_Draw)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_GameLoopStarting)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable* value,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_GameLoopStarting)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_GameLoopStopped)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable* value,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_GameLoopStopped)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* get_ReadyToDraw)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_IsFixedTimeStep)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_IsFixedTimeStep)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_TargetElapsedTime)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        struct __x_ABI_CWindows_CFoundation_CTimeSpan value);
+    HRESULT (STDMETHODCALLTYPE* get_TargetElapsedTime)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        struct __x_ABI_CWindows_CFoundation_CTimeSpan* value);
+    HRESULT (STDMETHODCALLTYPE* put_Paused)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_Paused)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_ClearColor)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        struct __x_ABI_CWindows_CUI_CColor value);
+    HRESULT (STDMETHODCALLTYPE* get_ClearColor)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        struct __x_ABI_CWindows_CUI_CColor* value);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        struct __x_ABI_CWindows_CFoundation_CSize* value);
+    HRESULT (STDMETHODCALLTYPE* Invalidate)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This);
+    HRESULT (STDMETHODCALLTYPE* ResetElapsedTime)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This);
+    HRESULT (STDMETHODCALLTYPE* CreateCoreIndependentInputSource)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        enum __x_ABI_CMicrosoft_CUI_CInput_CInputPointerSourceDeviceKinds deviceTypes,
+        __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource** returnValue);
+    HRESULT (STDMETHODCALLTYPE* RemoveFromVisualTree)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This);
+    HRESULT (STDMETHODCALLTYPE* get_HasGameLoopThreadAccess)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* RunOnGameLoopThreadAsync)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandler* agileCallback,
+        __x_ABI_CWindows_CFoundation_CIAsyncAction** asyncAction);
+    HRESULT (STDMETHODCALLTYPE* get_UseSharedDevice)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_UseSharedDevice)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_ForceSoftwareRenderer)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_ForceSoftwareRenderer)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_CustomDevice)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice** value);
+    HRESULT (STDMETHODCALLTYPE* put_CustomDevice)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice* value);
+    HRESULT (STDMETHODCALLTYPE* get_DpiScale)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        FLOAT* value);
+    HRESULT (STDMETHODCALLTYPE* put_DpiScale)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl* This,
+        FLOAT ratio);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControlVtbl;
+
+    interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControlVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl;
+#endif /* !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_DrawingSession)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession** value);
+    HRESULT (STDMETHODCALLTYPE* get_Timing)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs* This,
+        struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsVtbl;
+
+    interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs;
+#endif /* !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactoryVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* Create)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession* canvasDrawingSession,
+        struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation timingInformation,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs** animatedControlDrawEventArgs);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactoryVtbl;
+
+    interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactoryVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory;
+#endif /* !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Timing)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs* This,
+        struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsVtbl;
+
+    interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs;
+#endif /* !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactoryVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* Create)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory* This,
+        struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation timingInformation,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs** updateEventArgs);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactoryVtbl;
+
+    interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactoryVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory;
+#endif /* !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControlVtbl

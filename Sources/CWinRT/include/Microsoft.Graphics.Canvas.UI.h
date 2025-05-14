@@ -30,6 +30,8 @@
 
 #endif // ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
 
+typedef struct __x_ABI_CWindows_CFoundation_CTimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan;
+
 typedef enum __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason;
 
 enum __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason
@@ -37,6 +39,14 @@ enum __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason_FirstTime = 0,
     __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason_NewDevice = 1,
     __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason_DpiChanged = 2,
+};
+
+struct __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation
+    {
+        INT64 UpdateCount;
+    struct __x_ABI_CWindows_CFoundation_CTimeSpan TotalTime;
+    struct __x_ABI_CWindows_CFoundation_CTimeSpan ElapsedTime;
+    boolean IsRunningSlowly;
 };
 
 #if !defined(____x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs_INTERFACE_DEFINED__)
