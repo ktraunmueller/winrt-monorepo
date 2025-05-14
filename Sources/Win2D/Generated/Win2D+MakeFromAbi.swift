@@ -49,6 +49,11 @@ fileprivate func makeICanvasTextRendererFrom(abi: WindowsFoundation.IInspectable
     return __IMPL_Microsoft_Graphics_Canvas_Text.ICanvasTextRendererBridge.from(abi: RawPointer(swiftAbi))!
 }
 
+fileprivate func makeICanvasAnimatedControlFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    let swiftAbi: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControl = try! abi.QueryInterface()
+    return __IMPL_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlBridge.from(abi: RawPointer(swiftAbi))!
+}
+
 fileprivate func makeCanvasActiveLayerFrom(abi: WindowsFoundation.IInspectable) -> Any {
     return CanvasActiveLayer(fromAbi: abi)
 }
@@ -141,6 +146,10 @@ fileprivate func makeCanvasFontFaceFrom(abi: WindowsFoundation.IInspectable) -> 
     return CanvasFontFace(fromAbi: abi)
 }
 
+fileprivate func makeCanvasFontSetFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return CanvasFontSet(fromAbi: abi)
+}
+
 fileprivate func makeCanvasTextFormatFrom(abi: WindowsFoundation.IInspectable) -> Any {
     return CanvasTextFormat(fromAbi: abi)
 }
@@ -159,6 +168,18 @@ fileprivate func makeCanvasTypographyFrom(abi: WindowsFoundation.IInspectable) -
 
 fileprivate func makeCanvasCreateResourcesEventArgsFrom(abi: WindowsFoundation.IInspectable) -> Any {
     return CanvasCreateResourcesEventArgs(fromAbi: abi)
+}
+
+fileprivate func makeCanvasAnimatedControlFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return CanvasAnimatedControl(fromAbi: abi)
+}
+
+fileprivate func makeCanvasAnimatedDrawEventArgsFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return CanvasAnimatedDrawEventArgs(fromAbi: abi)
+}
+
+fileprivate func makeCanvasAnimatedUpdateEventArgsFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return CanvasAnimatedUpdateEventArgs(fromAbi: abi)
 }
 
 fileprivate func makeCanvasControlFrom(abi: WindowsFoundation.IInspectable) -> Any {
@@ -202,6 +223,7 @@ public class __MakeFromAbi: MakeFromAbi {
             case "ICanvasSvgElement": return makeICanvasSvgElementFrom(abi: abi)
             case "ICanvasTextInlineObject": return makeICanvasTextInlineObjectFrom(abi: abi)
             case "ICanvasTextRenderer": return makeICanvasTextRendererFrom(abi: abi)
+            case "ICanvasAnimatedControl": return makeICanvasAnimatedControlFrom(abi: abi)
             case "CanvasActiveLayer": return makeCanvasActiveLayerFrom(abi: abi)
             case "CanvasBitmap": return makeCanvasBitmapFrom(abi: abi)
             case "CanvasCommandList": return makeCanvasCommandListFrom(abi: abi)
@@ -225,11 +247,15 @@ public class __MakeFromAbi: MakeFromAbi {
             case "CanvasSvgStrokeDashArrayAttribute": return makeCanvasSvgStrokeDashArrayAttributeFrom(abi: abi)
             case "CanvasSvgTextElement": return makeCanvasSvgTextElementFrom(abi: abi)
             case "CanvasFontFace": return makeCanvasFontFaceFrom(abi: abi)
+            case "CanvasFontSet": return makeCanvasFontSetFrom(abi: abi)
             case "CanvasTextFormat": return makeCanvasTextFormatFrom(abi: abi)
             case "CanvasTextLayout": return makeCanvasTextLayoutFrom(abi: abi)
             case "CanvasTextRenderingParameters": return makeCanvasTextRenderingParametersFrom(abi: abi)
             case "CanvasTypography": return makeCanvasTypographyFrom(abi: abi)
             case "CanvasCreateResourcesEventArgs": return makeCanvasCreateResourcesEventArgsFrom(abi: abi)
+            case "CanvasAnimatedControl": return makeCanvasAnimatedControlFrom(abi: abi)
+            case "CanvasAnimatedDrawEventArgs": return makeCanvasAnimatedDrawEventArgsFrom(abi: abi)
+            case "CanvasAnimatedUpdateEventArgs": return makeCanvasAnimatedUpdateEventArgsFrom(abi: abi)
             case "CanvasControl": return makeCanvasControlFrom(abi: abi)
             case "CanvasDrawEventArgs": return makeCanvasDrawEventArgsFrom(abi: abi)
             case "CanvasImageSource": return makeCanvasImageSourceFrom(abi: abi)

@@ -2,9 +2,30 @@
 // swiftlint:disable all
 import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import UWP
+@_spi(WinRTInternal) @_spi(WinRTImplements) import WinAppSDK
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WinUI
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl: WindowsFoundation.IID {
+    .init(Data1: 0x9BD47D0D, Data2: 0xD57D, Data3: 0x43B7, Data4: ( 0x82,0xCB,0x48,0x9C,0xC5,0x66,0xE8,0x87 ))// 9BD47D0D-D57D-43B7-82CB-489CC566E887
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xBC01FF4D, Data2: 0xFF6C, Data3: 0x4D4D, Data4: ( 0xA9,0xE9,0x8E,0xEB,0x21,0x39,0xF2,0x3F ))// BC01FF4D-FF6C-4D4D-A9E9-8EEB2139F23F
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory: WindowsFoundation.IID {
+    .init(Data1: 0xC0C8FDAC, Data2: 0x0DFC, Data3: 0x4E18, Data4: ( 0xA6,0xE9,0x9E,0xF7,0xDC,0x82,0xBC,0xC2 ))// C0C8FDAC-0DFC-4E18-A6E9-9EF7DC82BCC2
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xA96B2B2A, Data2: 0x0C6E, Data3: 0x4AA8, Data4: ( 0x92,0x5B,0x71,0x37,0x26,0x3B,0x4E,0x44 ))// A96B2B2A-0C6E-4AA8-925B-7137263B4E44
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory: WindowsFoundation.IID {
+    .init(Data1: 0x766F4867, Data2: 0xB22A, Data3: 0x464B, Data4: ( 0x89,0xB1,0x0D,0xA6,0xAB,0x62,0xBE,0x68 ))// 766F4867-B22A-464B-89B1-0DA6AB62BE68
+}
 
 private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl: WindowsFoundation.IID {
     .init(Data1: 0xF006E06D, Data2: 0x79DB, Data3: 0x484F, Data4: ( 0xB8,0x98,0x47,0x9C,0xF0,0x69,0xC0,0xF5 ))// F006E06D-79DB-484F-B898-479CF069C0F5
@@ -47,6 +68,616 @@ private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualIm
 }
 
 public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
+    public class ICanvasAnimatedControl: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl }
+
+        open func add_CreateResourcesImpl(_ value: TypedEventHandler<Win2D.CanvasAnimatedControl?, Win2D.CanvasCreateResourcesEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CreateResources(pThis, _value, &token))
+            }
+            return token
+        }
+
+        open func remove_CreateResourcesImpl(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CreateResources(pThis, token))
+            }
+        }
+
+        open func add_UpdateImpl(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Win2D.CanvasAnimatedUpdateEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Update(pThis, _value, &token))
+            }
+            return token
+        }
+
+        open func remove_UpdateImpl(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Update(pThis, token))
+            }
+        }
+
+        open func add_DrawImpl(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Win2D.CanvasAnimatedDrawEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Draw(pThis, _value, &token))
+            }
+            return token
+        }
+
+        open func remove_DrawImpl(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Draw(pThis, token))
+            }
+        }
+
+        open func add_GameLoopStartingImpl(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_GameLoopStarting(pThis, _value, &token))
+            }
+            return token
+        }
+
+        open func remove_GameLoopStartingImpl(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_GameLoopStarting(pThis, token))
+            }
+        }
+
+        open func add_GameLoopStoppedImpl(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_GameLoopStopped(pThis, _value, &token))
+            }
+            return token
+        }
+
+        open func remove_GameLoopStoppedImpl(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_GameLoopStopped(pThis, token))
+            }
+        }
+
+        open func get_ReadyToDrawImpl() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReadyToDraw(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_IsFixedTimeStepImpl(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsFixedTimeStep(pThis, .init(from: value)))
+            }
+        }
+
+        open func get_IsFixedTimeStepImpl() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFixedTimeStep(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_TargetElapsedTimeImpl(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetElapsedTime(pThis, .from(swift: value)))
+            }
+        }
+
+        open func get_TargetElapsedTimeImpl() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetElapsedTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        open func put_PausedImpl(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Paused(pThis, .init(from: value)))
+            }
+        }
+
+        open func get_PausedImpl() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Paused(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_ClearColorImpl(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClearColor(pThis, .from(swift: value)))
+            }
+        }
+
+        open func get_ClearColorImpl() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClearColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        open func get_SizeImpl() throws -> WindowsFoundation.Size {
+            var value: __x_ABI_CWindows_CFoundation_CSize = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        open func InvalidateImpl() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invalidate(pThis))
+            }
+        }
+
+        open func ResetElapsedTimeImpl() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ResetElapsedTime(pThis))
+            }
+        }
+
+        open func CreateCoreIndependentInputSourceImpl(_ deviceTypes: WinAppSDK.InputPointerSourceDeviceKinds) throws -> WinAppSDK.InputPointerSource? {
+            let (returnValue) = try ComPtrs.initialize { returnValueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCoreIndependentInputSource(pThis, deviceTypes, &returnValueAbi))
+                }
+            }
+            return .from(abi: returnValue)
+        }
+
+        open func RemoveFromVisualTreeImpl() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveFromVisualTree(pThis))
+            }
+        }
+
+        open func get_HasGameLoopThreadAccessImpl() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasGameLoopThreadAccess(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func RunOnGameLoopThreadAsyncImpl(_ agileCallback: WinAppSDK.DispatcherQueueHandler?) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
+                let agileCallbackWrapper = __ABI_Microsoft_UI_Dispatching.DispatcherQueueHandlerWrapper(agileCallback)
+                let _agileCallback = try! agileCallbackWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RunOnGameLoopThreadAsync(pThis, _agileCallback, &asyncActionAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncAction)
+        }
+
+        open func get_UseSharedDeviceImpl() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UseSharedDevice(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_UseSharedDeviceImpl(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_UseSharedDevice(pThis, .init(from: value)))
+            }
+        }
+
+        open func get_ForceSoftwareRendererImpl() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForceSoftwareRenderer(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_ForceSoftwareRendererImpl(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ForceSoftwareRenderer(pThis, .init(from: value)))
+            }
+        }
+
+        open func get_CustomDeviceImpl() throws -> Win2D.CanvasDevice? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomDevice(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        open func put_CustomDeviceImpl(_ value: Win2D.CanvasDevice?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CustomDevice(pThis, RawPointer(value)))
+            }
+        }
+
+        open func get_DpiScaleImpl() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DpiScale(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_DpiScaleImpl(_ ratio: Float) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DpiScale(pThis, ratio))
+            }
+        }
+
+    }
+
+    internal static var ICanvasAnimatedControlVTable: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControlVtbl = .init(
+        QueryInterface: { ICanvasAnimatedControlWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ICanvasAnimatedControlWrapper.addRef($0) },
+        Release: { ICanvasAnimatedControlWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 5).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlWrapper.IID
+            iids[3] = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper.IID
+            iids[4] = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper.IID
+            $1!.pointee = 5
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        add_CreateResources: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            guard let value = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+            let token = __unwrapped__instance.createResources.addHandler(value)
+            $2?.initialize(to: .from(swift: token))
+            return S_OK
+        },
+
+        remove_CreateResources: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let token: EventRegistrationToken = $1
+            __unwrapped__instance.createResources.removeHandler(token)
+            return S_OK
+        },
+
+        add_Update: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            guard let value = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+            let token = __unwrapped__instance.update.addHandler(value)
+            $2?.initialize(to: .from(swift: token))
+            return S_OK
+        },
+
+        remove_Update: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let token: EventRegistrationToken = $1
+            __unwrapped__instance.update.removeHandler(token)
+            return S_OK
+        },
+
+        add_Draw: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            guard let value = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+            let token = __unwrapped__instance.draw.addHandler(value)
+            $2?.initialize(to: .from(swift: token))
+            return S_OK
+        },
+
+        remove_Draw: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let token: EventRegistrationToken = $1
+            __unwrapped__instance.draw.removeHandler(token)
+            return S_OK
+        },
+
+        add_GameLoopStarting: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            guard let value = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+            let token = __unwrapped__instance.gameLoopStarting.addHandler(value)
+            $2?.initialize(to: .from(swift: token))
+            return S_OK
+        },
+
+        remove_GameLoopStarting: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let token: EventRegistrationToken = $1
+            __unwrapped__instance.gameLoopStarting.removeHandler(token)
+            return S_OK
+        },
+
+        add_GameLoopStopped: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            guard let value = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+            let token = __unwrapped__instance.gameLoopStopped.addHandler(value)
+            $2?.initialize(to: .from(swift: token))
+            return S_OK
+        },
+
+        remove_GameLoopStopped: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let token: EventRegistrationToken = $1
+            __unwrapped__instance.gameLoopStopped.removeHandler(token)
+            return S_OK
+        },
+
+        get_ReadyToDraw: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.readyToDraw
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_IsFixedTimeStep: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.isFixedTimeStep = value
+            return S_OK
+        },
+
+        get_IsFixedTimeStep: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.isFixedTimeStep
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_TargetElapsedTime: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: WindowsFoundation.TimeSpan = .from(abi: $1)
+            __unwrapped__instance.targetElapsedTime = value
+            return S_OK
+        },
+
+        get_TargetElapsedTime: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.targetElapsedTime
+            $1?.initialize(to: .from(swift: value))
+            return S_OK
+        },
+
+        put_Paused: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.paused = value
+            return S_OK
+        },
+
+        get_Paused: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.paused
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_ClearColor: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.Color = .from(abi: $1)
+            __unwrapped__instance.clearColor = value
+            return S_OK
+        },
+
+        get_ClearColor: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.clearColor
+            $1?.initialize(to: .from(swift: value))
+            return S_OK
+        },
+
+        get_Size: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.size
+            $1?.initialize(to: .from(swift: value))
+            return S_OK
+        },
+
+        Invalidate: {
+            do {
+                guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.invalidate()
+                return S_OK
+            } catch { return failWith(err: E_FAIL) } 
+        },
+
+        ResetElapsedTime: {
+            do {
+                guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.resetElapsedTime()
+                return S_OK
+            } catch { return failWith(err: E_FAIL) } 
+        },
+
+        CreateCoreIndependentInputSource: {
+            do {
+                guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let deviceTypes: WinAppSDK.InputPointerSourceDeviceKinds = $1
+                let returnValue = try __unwrapped__instance.createCoreIndependentInputSource(deviceTypes)
+                returnValue?.copyTo($2)
+                return S_OK
+            } catch { return failWith(err: E_FAIL) } 
+        },
+
+        RemoveFromVisualTree: {
+            do {
+                guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.removeFromVisualTree()
+                return S_OK
+            } catch { return failWith(err: E_FAIL) } 
+        },
+
+        get_HasGameLoopThreadAccess: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.hasGameLoopThreadAccess
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        RunOnGameLoopThreadAsync: {
+            do {
+                guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                guard let agileCallback = __ABI_Microsoft_UI_Dispatching.DispatcherQueueHandlerWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+                let asyncAction = try __unwrapped__instance.runOnGameLoopThreadAsync(agileCallback)
+                let asyncActionWrapper = __ABI_Windows_Foundation.IAsyncActionWrapper(asyncAction)
+                asyncActionWrapper?.copyTo($2)
+                return S_OK
+            } catch { return failWith(err: E_FAIL) } 
+        },
+
+        get_UseSharedDevice: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.useSharedDevice
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_UseSharedDevice: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.useSharedDevice = value
+            return S_OK
+        },
+
+        get_ForceSoftwareRenderer: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.forceSoftwareRenderer
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_ForceSoftwareRenderer: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.forceSoftwareRenderer = value
+            return S_OK
+        },
+
+        get_CustomDevice: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.customDevice
+            value?.copyTo($1)
+            return S_OK
+        },
+
+        put_CustomDevice: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Win2D.CanvasDevice? = .from(abi: ComPtr($1))
+            __unwrapped__instance.customDevice = value
+            return S_OK
+        },
+
+        get_DpiScale: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.dpiScale
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_DpiScale: {
+            guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let ratio: Float = $1
+            __unwrapped__instance.dpiScale = ratio
+            return S_OK
+        }
+    )
+
+    public typealias ICanvasAnimatedControlWrapper = InterfaceWrapperBase<__IMPL_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlBridge>
+    public class ICanvasAnimatedDrawEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs }
+
+        internal func get_DrawingSessionImpl() throws -> Win2D.CanvasDrawingSession? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DrawingSession(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_TimingImpl() throws -> Win2D.CanvasTimingInformation {
+            var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Timing(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class ICanvasAnimatedDrawEventArgsFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory }
+
+        internal func CreateImpl(_ canvasDrawingSession: Win2D.CanvasDrawingSession?, _ timingInformation: Win2D.CanvasTimingInformation) throws -> ICanvasAnimatedDrawEventArgs {
+            let (animatedControlDrawEventArgs) = try ComPtrs.initialize { animatedControlDrawEventArgsAbi in
+                let _timingInformation = __ABI_Microsoft_Graphics_Canvas_UI._ABI_CanvasTimingInformation(from: timingInformation)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(canvasDrawingSession), _timingInformation.val, &animatedControlDrawEventArgsAbi))
+                }
+            }
+            return ICanvasAnimatedDrawEventArgs(animatedControlDrawEventArgs!)
+        }
+
+    }
+
+    public class ICanvasAnimatedUpdateEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs }
+
+        internal func get_TimingImpl() throws -> Win2D.CanvasTimingInformation {
+            var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Timing(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class ICanvasAnimatedUpdateEventArgsFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory }
+
+        internal func CreateImpl(_ timingInformation: Win2D.CanvasTimingInformation) throws -> ICanvasAnimatedUpdateEventArgs {
+            let (updateEventArgs) = try ComPtrs.initialize { updateEventArgsAbi in
+                let _timingInformation = __ABI_Microsoft_Graphics_Canvas_UI._ABI_CanvasTimingInformation(from: timingInformation)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, _timingInformation.val, &updateEventArgsAbi))
+                }
+            }
+            return ICanvasAnimatedUpdateEventArgs(updateEventArgs!)
+        }
+
+    }
+
     public class ICanvasControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl }
 

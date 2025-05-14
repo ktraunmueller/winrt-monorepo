@@ -2,9 +2,317 @@
 // swiftlint:disable all
 import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import UWP
+@_spi(WinRTInternal) @_spi(WinRTImplements) import WinAppSDK
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WinUI
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol)
+public final class CanvasAnimatedControl : WinUI.UserControl, Win2D.ICanvasResourceCreator, Win2D.ICanvasResourceCreatorWithDpi, ICanvasAnimatedControl {
+    private typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControl
+    private typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl>?) -> CanvasAnimatedControl? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    override public init() {
+        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl")))
+    }
+
+    private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.device)
+    public var device : Win2D.CanvasDevice! {
+        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+    }
+
+    private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.convertpixelstodips)
+    public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.convertdipstopixels)
+    public func convertDipsToPixels(_ dips: Float, _ dpiRounding: Win2D.CanvasDpiRounding) throws -> Int32 {
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.dpi)
+    public var dpi : Float {
+        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.invalidate)
+    public func invalidate() throws {
+        try _default.InvalidateImpl()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.resetelapsedtime)
+    public func resetElapsedTime() throws {
+        try _default.ResetElapsedTimeImpl()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.createcoreindependentinputsource)
+    public func createCoreIndependentInputSource(_ deviceTypes: WinAppSDK.InputPointerSourceDeviceKinds) throws -> WinAppSDK.InputPointerSource! {
+        try _default.CreateCoreIndependentInputSourceImpl(deviceTypes)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.removefromvisualtree)
+    public func removeFromVisualTree() throws {
+        try _default.RemoveFromVisualTreeImpl()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.runongameloopthreadasync)
+    public func runOnGameLoopThreadAsync(_ agileCallback: WinAppSDK.DispatcherQueueHandler!) throws -> WindowsFoundation.AnyIAsyncAction! {
+        try _default.RunOnGameLoopThreadAsyncImpl(agileCallback)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.clearcolor)
+    public var clearColor : UWP.Color {
+        get { try! _default.get_ClearColorImpl() }
+        set { try! _default.put_ClearColorImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.customdevice)
+    public var customDevice : Win2D.CanvasDevice! {
+        get { try! _default.get_CustomDeviceImpl() }
+        set { try! _default.put_CustomDeviceImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.dpiscale)
+    public var dpiScale : Float {
+        get { try! _default.get_DpiScaleImpl() }
+        set { try! _default.put_DpiScaleImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.forcesoftwarerenderer)
+    public var forceSoftwareRenderer : Bool {
+        get { try! _default.get_ForceSoftwareRendererImpl() }
+        set { try! _default.put_ForceSoftwareRendererImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.hasgameloopthreadaccess)
+    public var hasGameLoopThreadAccess : Bool {
+        get { try! _default.get_HasGameLoopThreadAccessImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.isfixedtimestep)
+    public var isFixedTimeStep : Bool {
+        get { try! _default.get_IsFixedTimeStepImpl() }
+        set { try! _default.put_IsFixedTimeStepImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.paused)
+    public var paused : Bool {
+        get { try! _default.get_PausedImpl() }
+        set { try! _default.put_PausedImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.readytodraw)
+    public var readyToDraw : Bool {
+        get { try! _default.get_ReadyToDrawImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.size)
+    public var size : WindowsFoundation.Size {
+        get { try! _default.get_SizeImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.targetelapsedtime)
+    public var targetElapsedTime : WindowsFoundation.TimeSpan {
+        get { try! _default.get_TargetElapsedTimeImpl() }
+        set { try! _default.put_TargetElapsedTimeImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.useshareddevice)
+    public var useSharedDevice : Bool {
+        get { try! _default.get_UseSharedDeviceImpl() }
+        set { try! _default.put_UseSharedDeviceImpl(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.createresources)
+    public lazy var createResources : Event<TypedEventHandler<CanvasAnimatedControl?, CanvasCreateResourcesEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CreateResourcesImpl($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CreateResourcesImpl($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.draw)
+    public lazy var draw : Event<TypedEventHandler<ICanvasAnimatedControl?, CanvasAnimatedDrawEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_DrawImpl($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_DrawImpl($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.gameloopstarting)
+    public lazy var gameLoopStarting : Event<TypedEventHandler<ICanvasAnimatedControl?, Any?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_GameLoopStartingImpl($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_GameLoopStartingImpl($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.gameloopstopped)
+    public lazy var gameLoopStopped : Event<TypedEventHandler<ICanvasAnimatedControl?, Any?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_GameLoopStoppedImpl($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_GameLoopStoppedImpl($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.update)
+    public lazy var update : Event<TypedEventHandler<ICanvasAnimatedControl?, CanvasAnimatedUpdateEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_UpdateImpl($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_UpdateImpl($0)
+       }
+      )
+    }()
+
+    internal enum IControlOverrides : ComposableImpl {
+        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+        internal typealias Class = CanvasAnimatedControl
+        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
+        internal enum Default : AbiInterface {
+            internal typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl
+            internal typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControl
+        }
+    }
+    internal typealias Composable = IControlOverrides
+    deinit {
+        _ICanvasResourceCreator = nil
+        _ICanvasResourceCreatorWithDpi = nil
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimateddraweventargs)
+public final class CanvasAnimatedDrawEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedDrawEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs>?) -> CanvasAnimatedDrawEventArgs? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _ICanvasAnimatedDrawEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedDrawEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedDrawEventArgs"))
+    public init(_ canvasDrawingSession: Win2D.CanvasDrawingSession!, _ timingInformation: Win2D.CanvasTimingInformation) {
+        super.init(try! Self._ICanvasAnimatedDrawEventArgsFactory.CreateImpl(canvasDrawingSession, timingInformation))
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimateddraweventargs.drawingsession)
+    public var drawingSession : Win2D.CanvasDrawingSession! {
+        get { try! _default.get_DrawingSessionImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimateddraweventargs.timing)
+    public var timing : Win2D.CanvasTimingInformation {
+        get { try! _default.get_TimingImpl() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedupdateeventargs)
+public final class CanvasAnimatedUpdateEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedUpdateEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs>?) -> CanvasAnimatedUpdateEventArgs? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _ICanvasAnimatedUpdateEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedUpdateEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedUpdateEventArgs"))
+    public init(_ timingInformation: Win2D.CanvasTimingInformation) {
+        super.init(try! Self._ICanvasAnimatedUpdateEventArgsFactory.CreateImpl(timingInformation))
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedupdateeventargs.timing)
+    public var timing : Win2D.CanvasTimingInformation {
+        get { try! _default.get_TimingImpl() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol)
 public final class CanvasControl : WinUI.UserControl, Win2D.ICanvasResourceCreator, Win2D.ICanvasResourceCreatorWithDpi {
@@ -706,4 +1014,68 @@ public final class CanvasVirtualImageSource : WinRTClass, Win2D.ICanvasResourceC
         _default = nil
     }
 }
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol)
+public protocol ICanvasAnimatedControl : Win2D.ICanvasResourceCreator, Win2D.ICanvasResourceCreatorWithDpi {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.invalidate)
+    func invalidate() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.resetelapsedtime)
+    func resetElapsedTime() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.createcoreindependentinputsource)
+    func createCoreIndependentInputSource(_ deviceTypes: WinAppSDK.InputPointerSourceDeviceKinds) throws -> WinAppSDK.InputPointerSource!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.removefromvisualtree)
+    func removeFromVisualTree() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.runongameloopthreadasync)
+    func runOnGameLoopThreadAsync(_ agileCallback: WinAppSDK.DispatcherQueueHandler!) throws -> WindowsFoundation.AnyIAsyncAction!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.clearcolor)
+    var clearColor: UWP.Color { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.customdevice)
+    var customDevice: Win2D.CanvasDevice! { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.dpiscale)
+    var dpiScale: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.forcesoftwarerenderer)
+    var forceSoftwareRenderer: Bool { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.hasgameloopthreadaccess)
+    var hasGameLoopThreadAccess: Bool { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.isfixedtimestep)
+    var isFixedTimeStep: Bool { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.paused)
+    var paused: Bool { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.readytodraw)
+    var readyToDraw: Bool { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.size)
+    var size: WindowsFoundation.Size { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.targetelapsedtime)
+    var targetElapsedTime: WindowsFoundation.TimeSpan { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.useshareddevice)
+    var useSharedDevice: Bool { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.createresources)
+    var createResources: Event<TypedEventHandler<CanvasAnimatedControl?, CanvasCreateResourcesEventArgs?>> { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.draw)
+    var draw: Event<TypedEventHandler<ICanvasAnimatedControl?, CanvasAnimatedDrawEventArgs?>> { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.gameloopstarting)
+    var gameLoopStarting: Event<TypedEventHandler<ICanvasAnimatedControl?, Any?>> { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.gameloopstopped)
+    var gameLoopStopped: Event<TypedEventHandler<ICanvasAnimatedControl?, Any?>> { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.update)
+    var update: Event<TypedEventHandler<ICanvasAnimatedControl?, CanvasAnimatedUpdateEventArgs?>> { get }
+}
+
+extension ICanvasAnimatedControl {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlWrapper.IID:
+                let wrapper = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper.IID:
+                let wrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper.IID:
+                let wrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyICanvasAnimatedControl = any ICanvasAnimatedControl
 

@@ -9,6 +9,18 @@ private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace: Win
     .init(Data1: 0x5199D129, Data2: 0x4EF9, Data3: 0x4DEE, Data4: ( 0xB7,0x4C,0x4D,0xC9,0x10,0x20,0x1A,0x7F ))// 5199D129-4EF9-4DEE-B74C-4DC910201A7F
 }
 
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet: WindowsFoundation.IID {
+    .init(Data1: 0x0A5BFB92, Data2: 0x1F3C, Data3: 0x459F, Data4: ( 0x9D,0x7E,0xA6,0x28,0x9D,0xD0,0x93,0xC0 ))// 0A5BFB92-1F3C-459F-9D7E-A6289DD093C0
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetFactory: WindowsFoundation.IID {
+    .init(Data1: 0x3C9C9BDA, Data2: 0x70F9, Data3: 0x4FF9, Data4: ( 0xAA,0xB2,0x3B,0x42,0x92,0x32,0x86,0xEE ))// 3C9C9BDA-70F9-4FF9-AAB2-3B42923286EE
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetStatics: WindowsFoundation.IID {
+    .init(Data1: 0x5F4275CE, Data2: 0xBCFA, Data3: 0x48C5, Data4: ( 0x9E,0x67,0xFB,0xE9,0x86,0x6D,0x49,0x24 ))// 5F4275CE-BCFA-48C5-9E67-FBE9866D4924
+}
+
 private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat: WindowsFoundation.IID {
     .init(Data1: 0xAF61BFDC, Data2: 0xEABB, Data3: 0x4D38, Data4: ( 0xBA,0x1B,0xAF,0xB3,0x40,0x61,0x2D,0x33 ))// AF61BFDC-EABB-4D38-BA1B-AFB340612D33
 }
@@ -326,6 +338,84 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
                 try CHECKED(pThis.pointee.lpVtbl.pointee.HasCharacter(pThis, unicodeValue, &value))
             }
             return .init(from: value)
+        }
+
+    }
+
+    public class ICanvasFontSet: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet }
+
+        internal func get_FontsImpl() throws -> WindowsFoundation.AnyIVectorView<Win2D.CanvasFontFace?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Fonts(pThis, &valueAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.unwrapFrom(abi: value)
+        }
+
+        internal func TryFindFontFaceImpl(_ fontFace: Win2D.CanvasFontFace?, _ index: inout Int32) throws -> Bool {
+            var succeeded: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TryFindFontFace(pThis, RawPointer(fontFace), &index, &succeeded))
+            }
+            return .init(from: succeeded)
+        }
+
+        internal func GetMatchingFontsFromWwsFamilyImpl(_ familyName: String, _ weight: UWP.FontWeight, _ stretch: UWP.FontStretch, _ style: UWP.FontStyle) throws -> Win2D.CanvasFontSet? {
+            let (matchingFonts) = try ComPtrs.initialize { matchingFontsAbi in
+                let _familyName = try! HString(familyName)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetMatchingFontsFromWwsFamily(pThis, _familyName.get(), .from(swift: weight), stretch, style, &matchingFontsAbi))
+                }
+            }
+            return .from(abi: matchingFonts)
+        }
+
+        internal func CountFontsMatchingPropertyImpl(_ property: Win2D.CanvasFontProperty) throws -> UInt32 {
+            var count: UINT32 = 0
+            let _property = __ABI_Microsoft_Graphics_Canvas_Text._ABI_CanvasFontProperty(from: property)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CountFontsMatchingProperty(pThis, _property.val, &count))
+            }
+            return count
+        }
+
+        internal func GetPropertyValuesFromIndexImpl(_ fontIndex: UInt32, _ propertyIdentifier: Win2D.CanvasFontPropertyIdentifier) throws -> WindowsFoundation.AnyIMapView<String, String>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPropertyValuesFromIndex(pThis, fontIndex, propertyIdentifier, &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIMapView_2_HSTRING_HSTRINGWrapper.unwrapFrom(abi: values)
+        }
+
+    }
+
+    public class ICanvasFontSetFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetFactory }
+
+        internal func CreateImpl(_ uri: WindowsFoundation.Uri?) throws -> ICanvasFontSet {
+            let (fontSet) = try ComPtrs.initialize { fontSetAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(uri), &fontSetAbi))
+                }
+            }
+            return ICanvasFontSet(fontSet!)
+        }
+
+    }
+
+    public class ICanvasFontSetStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetStatics }
+
+        internal func GetSystemFontSetImpl() throws -> Win2D.CanvasFontSet? {
+            let (fontSet) = try ComPtrs.initialize { fontSetAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetSystemFontSet(pThis, &fontSetAbi))
+                }
+            }
+            return .from(abi: fontSet)
         }
 
     }
@@ -1747,6 +1837,27 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
 
     }
 
+    public class _ABI_CanvasFontProperty {
+        public var val: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontProperty = .init()
+        public init() { }
+        public init(from swift: Win2D.CanvasFontProperty) {
+            val.Identifier = swift.identifier
+            val.Value = try! HString(swift.value).detach()
+            val.Locale = try! HString(swift.locale).detach()
+        }
+
+        public func detach() -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontProperty {
+            let result = val
+            val.Value = nil
+            val.Locale = nil
+            return result
+        }
+
+        deinit {
+            WindowsDeleteString(val.Value)
+            WindowsDeleteString(val.Locale)
+        }
+    }
     public class _ABI_CanvasLineMetrics {
         public var val: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineMetrics = .init()
         public init() { }

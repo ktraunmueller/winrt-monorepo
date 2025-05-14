@@ -55,6 +55,28 @@ public final class CanvasCreateResourcesEventArgs : WinRTClass {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvastiminginformation)
+public struct CanvasTimingInformation: Hashable, Codable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvastiminginformation.updatecount)
+    public var updateCount: Int64 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvastiminginformation.totaltime)
+    public var totalTime: WindowsFoundation.TimeSpan = .init()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvastiminginformation.elapsedtime)
+    public var elapsedTime: WindowsFoundation.TimeSpan = .init()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvastiminginformation.isrunningslowly)
+    public var isRunningSlowly: Bool = false
+    public init() {}
+    public init(updateCount: Int64, totalTime: WindowsFoundation.TimeSpan, elapsedTime: WindowsFoundation.TimeSpan, isRunningSlowly: Bool) {
+        self.updateCount = updateCount
+        self.totalTime = totalTime
+        self.elapsedTime = elapsedTime
+        self.isRunningSlowly = isRunningSlowly
+    }
+    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation) -> CanvasTimingInformation {
+        .init(updateCount: abi.UpdateCount, totalTime: .from(abi: abi.TotalTime), elapsedTime: .from(abi: abi.ElapsedTime), isRunningSlowly: .init(from: abi.IsRunningSlowly))
+    }
+}
+
 extension Win2D.CanvasCreateResourcesReason {
     public static var firstTime : Win2D.CanvasCreateResourcesReason {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason_FirstTime

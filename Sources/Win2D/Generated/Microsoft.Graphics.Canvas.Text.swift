@@ -13,6 +13,8 @@ public typealias CanvasDrawTextOptions = __x_ABI_CMicrosoft_CGraphics_CCanvas_CT
 public typealias CanvasFontFileFormatType = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontFileFormatType
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontinformation)
 public typealias CanvasFontInformation = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontInformation
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontpropertyidentifier)
+public typealias CanvasFontPropertyIdentifier = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontsimulations)
 public typealias CanvasFontSimulations = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontSimulations
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphorientation)
@@ -250,6 +252,81 @@ public final class CanvasFontFace : WinRTClass, WindowsFoundation.IClosable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.weight)
     public var weight : UWP.FontWeight {
         get { try! _default.get_WeightImpl() }
+    }
+
+    deinit {
+        _IClosable = nil
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset)
+public final class CanvasFontSet : WinRTClass, WindowsFoundation.IClosable {
+    private typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasFontSet
+    private typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet>?) -> CanvasFontSet? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static let _ICanvasFontSetFactory: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasFontSetFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Text.CanvasFontSet"))
+    public init(_ uri: WindowsFoundation.Uri!) {
+        super.init(try! Self._ICanvasFontSetFactory.CreateImpl(uri))
+    }
+
+    private static let _ICanvasFontSetStatics: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasFontSetStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Text.CanvasFontSet"))
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getsystemfontset)
+    public static func getSystemFontSet() -> CanvasFontSet! {
+        return try! _ICanvasFontSetStatics.GetSystemFontSetImpl()
+    }
+
+    private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.close)
+    public func close() throws {
+        try _IClosable.CloseImpl()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.tryfindfontface)
+    public func tryFindFontFace(_ fontFace: CanvasFontFace!, _ index: inout Int32) throws -> Bool {
+        try _default.TryFindFontFaceImpl(fontFace, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getmatchingfonts)
+    public func getMatchingFonts(_ familyName: String, _ weight: UWP.FontWeight, _ stretch: UWP.FontStretch, _ style: UWP.FontStyle) throws -> CanvasFontSet! {
+        try _default.GetMatchingFontsFromWwsFamilyImpl(familyName, weight, stretch, style)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.countfontsmatchingproperty)
+    public func countFontsMatchingProperty(_ property: CanvasFontProperty) throws -> UInt32 {
+        try _default.CountFontsMatchingPropertyImpl(property)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getpropertyvalues)
+    public func getPropertyValues(_ fontIndex: UInt32, _ propertyIdentifier: CanvasFontPropertyIdentifier) throws -> WindowsFoundation.AnyIMapView<String, String>! {
+        try _default.GetPropertyValuesFromIndexImpl(fontIndex, propertyIdentifier)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.fonts)
+    public var fonts : WindowsFoundation.AnyIVectorView<CanvasFontFace?>! {
+        get { try! _default.get_FontsImpl() }
     }
 
     deinit {
@@ -1000,6 +1077,25 @@ public struct CanvasClusterMetrics: Hashable, Codable {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontproperty)
+public struct CanvasFontProperty: Hashable, Codable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontproperty.identifier)
+    public var identifier: CanvasFontPropertyIdentifier = .init(0)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontproperty.value)
+    public var value: String = ""
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontproperty.locale)
+    public var locale: String = ""
+    public init() {}
+    public init(identifier: CanvasFontPropertyIdentifier, value: String, locale: String) {
+        self.identifier = identifier
+        self.value = value
+        self.locale = locale
+    }
+    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontProperty) -> CanvasFontProperty {
+        .init(identifier: abi.Identifier, value: .init(from: abi.Value), locale: .init(from: abi.Locale))
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyph)
 public struct CanvasGlyph: Hashable, Codable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyph.index)
@@ -1334,6 +1430,52 @@ extension Win2D.CanvasFontInformation {
     }
 }
 extension Win2D.CanvasFontInformation: @retroactive Hashable, @retroactive Codable {}
+
+extension Win2D.CanvasFontPropertyIdentifier {
+    public static var none : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_None
+    }
+    public static var familyName : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_FamilyName
+    }
+    public static var preferredFamilyName : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_PreferredFamilyName
+    }
+    public static var faceName : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_FaceName
+    }
+    public static var fullName : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_FullName
+    }
+    public static var win32FamilyName : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_Win32FamilyName
+    }
+    public static var postscriptName : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_PostscriptName
+    }
+    public static var designScriptLanguageTag : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_DesignScriptLanguageTag
+    }
+    public static var supportedScriptLanguageTag : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_SupportedScriptLanguageTag
+    }
+    public static var semanticTag : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_SemanticTag
+    }
+    public static var weight : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_Weight
+    }
+    public static var stretch : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_Stretch
+    }
+    public static var style : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_Style
+    }
+    public static var total : Win2D.CanvasFontPropertyIdentifier {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_Total
+    }
+}
+extension Win2D.CanvasFontPropertyIdentifier: @retroactive Hashable, @retroactive Codable {}
 
 extension Win2D.CanvasFontSimulations {
     public static var none : Win2D.CanvasFontSimulations {

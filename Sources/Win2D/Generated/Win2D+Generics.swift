@@ -208,6 +208,93 @@ internal class __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CMicrosoft_
         return handler
     }
 }
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace: WindowsFoundation.IID {
+    .init(Data1: 0xdadc03be, Data2: 0xadec, Data3: 0x5e2b, Data4: ( 0x80,0x56,0xe6,0x20,0xeb,0xd2,0x50,0xa6 ))// dadc03be-adec-5e2b-8056-e620ebd250a6
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceVTable: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = Win2D.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Microsoft.Graphics.Canvas.Text.CanvasFontFace>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = Win2D.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper = InterfaceWrapperBase<Win2D.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceBridge>
+internal class IIterableCanvasFontFace: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace }
+
+    internal func FirstImpl() throws -> WindowsFoundation.AnyIIterator<Win2D.CanvasFontFace?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return Win2D.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace
+    internal typealias SwiftABI = IIterableCanvasFontFace
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<Win2D.CanvasFontFace?>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceImpl : IIterable, AbiInterfaceImpl {
+    typealias T = Win2D.CanvasFontFace?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<Win2D.CanvasFontFace?>? {
+        try! _default.FirstImpl()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIIterable_1_HSTRING: WindowsFoundation.IID {
     .init(Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: ( 0xb2,0xb0,0x72,0xe7,0x69,0xd1,0xcb,0x7e ))// e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
 }
@@ -464,6 +551,134 @@ fileprivate class __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING_HS
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, String>?>? {
         try! _default.FirstImpl()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace: WindowsFoundation.IID {
+    .init(Data1: 0xba9cfc0b, Data2: 0x75d0, Data3: 0x5455, Data4: ( 0x9d,0x9d,0xb8,0x8a,0x73,0xa8,0x06,0xd0 ))// ba9cfc0b-75d0-5455-9d9d-b88a73a806d0
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceVTable: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = Win2D.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Microsoft.Graphics.Canvas.Text.CanvasFontFace>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: { _, _, _, _ in return failWith(err: E_NOTIMPL) }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper = InterfaceWrapperBase<Win2D.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceBridge>
+internal class IIteratorCanvasFontFace: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace }
+
+    internal func get_CurrentImpl() throws -> Win2D.CanvasFontFace? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return .from(abi: result)
+    }
+
+    internal func get_HasCurrentImpl() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    internal func MoveNextImpl() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace
+    internal typealias SwiftABI = IIteratorCanvasFontFace
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<Win2D.CanvasFontFace?>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceImpl : IIterator, AbiInterfaceImpl {
+    typealias T = Win2D.CanvasFontFace?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNextImpl()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : Win2D.CanvasFontFace? {
+        get { try! _default.get_CurrentImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrentImpl() }
     }
 
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
@@ -1623,6 +1838,166 @@ fileprivate class __x_ABI_C__FIMap_2_HSTRING_IInspectableImpl : IMap, AbiInterfa
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace: WindowsFoundation.IID {
+    .init(Data1: 0xf90149d7, Data2: 0x8a7e, Data3: 0x5e74, Data4: ( 0xa2,0x51,0x9e,0x92,0xf5,0xa8,0x08,0x4d ))// f90149d7-8a7e-5e74-a251-9e92f5a8084d
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceVTable: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = Win2D.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.IID
+        iids[3] = Win2D.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Microsoft.Graphics.Canvas.Text.CanvasFontFace>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: Win2D.CanvasFontFace? = .from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: { _, _, _, _, _ in return failWith(err: E_NOTIMPL) }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper = InterfaceWrapperBase<Win2D.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceBridge>
+internal class IVectorViewCanvasFontFace: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace }
+
+    internal func GetAtImpl(_ index: UInt32) throws -> Win2D.CanvasFontFace? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return .from(abi: result)
+    }
+
+    internal func get_SizeImpl() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    internal func IndexOfImpl(_ value: Win2D.CanvasFontFace?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFace
+    internal typealias SwiftABI = IVectorViewCanvasFontFace
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<Win2D.CanvasFontFace?>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = Win2D.CanvasFontFace?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> Win2D.CanvasFontFace? {
+        try! _default.GetAtImpl(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: Win2D.CanvasFontFace?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOfImpl(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_SizeImpl() }
+    }
+
+    private lazy var _IIterable: IIterableCanvasFontFace! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<Win2D.CanvasFontFace?>? {
+        try! _IIterable.FirstImpl()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIVectorView_1_HSTRING: WindowsFoundation.IID {
     .init(Data1: 0x2f13c006, Data2: 0xa03a, Data3: 0x5f69, Data4: ( 0xb0,0x90,0x75,0xa4,0x3e,0x33,0x42,0x3e ))// 2f13c006-a03a-5f69-b090-75a43e33423e
 }
@@ -2562,6 +2937,55 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__C
         return handler
     }
 }
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xa29acd34, Data2: 0x5ab2, Data3: 0x50ff, Data4: ( 0xb0,0x2d,0xe6,0x73,0x71,0x95,0xde,0x24 ))// a29acd34-5ab2-50ff-b02d-e6737195de24
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper.release($0) },
+    Invoke: {
+        guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let sender: Win2D.CanvasAnimatedControl? = .from(abi: ComPtr($1))
+        let args: Win2D.CanvasCreateResourcesEventArgs? = .from(abi: ComPtr($2))
+        __unwrapped__instance(sender, args)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper = InterfaceWrapperBase<Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsBridge>
+internal class TypedEventHandlerCanvasAnimatedControl_CanvasCreateResourcesEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs }
+
+    internal func InvokeImpl(_ sender: Win2D.CanvasAnimatedControl?, _ args: Win2D.CanvasCreateResourcesEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<Win2D.CanvasAnimatedControl?, Win2D.CanvasCreateResourcesEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs
+    internal typealias SwiftABI = Win2D.TypedEventHandlerCanvasAnimatedControl_CanvasCreateResourcesEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try! _default.InvokeImpl(sender, args)
+        }
+        return handler
+    }
+}
 private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xffcd91a9, Data2: 0xb0f6, Data3: 0x5e59, Data4: ( 0xb8,0x15,0x05,0x81,0x12,0x92,0x40,0xe6 ))// ffcd91a9-b0f6-5e59-b815-0581129240e6
 }
@@ -2807,3 +3231,190 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__C
         return handler
     }
 }
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable: WindowsFoundation.IID {
+    .init(Data1: 0x17e87476, Data2: 0x4ea7, Data3: 0x5920, Data4: ( 0xa4,0x9e,0xa7,0xa9,0xe3,0x83,0xc7,0xdc ))// 17e87476-4ea7-5920-a49e-a7a9e383c7dc
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper.release($0) },
+    Invoke: {
+        guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let sender: Win2D.AnyICanvasAnimatedControl? = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlWrapper.unwrapFrom(abi: ComPtr($1))
+        let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+        __unwrapped__instance(sender, args)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper = InterfaceWrapperBase<Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableBridge>
+internal class TypedEventHandlerICanvasAnimatedControl_Any: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable }
+
+    internal func InvokeImpl(_ sender: Win2D.AnyICanvasAnimatedControl?, _ args: Any?) throws {
+        let senderWrapper = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlWrapper(sender)
+        let _sender = try! senderWrapper?.toABI { $0 }
+        let argsWrapper = __ABI_.AnyWrapper(args)
+        let _args = try! argsWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _sender, _args))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Any?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectable
+    internal typealias SwiftABI = Win2D.TypedEventHandlerICanvasAnimatedControl_Any
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try! _default.InvokeImpl(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x00ddd999, Data2: 0x594e, Data3: 0x5c0f, Data4: ( 0xb4,0xa0,0x52,0xb0,0x11,0x71,0xdc,0xd6 ))// 00ddd999-594e-5c0f-b4a0-52b01171dcd6
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsWrapper.release($0) },
+    Invoke: {
+        guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let sender: Win2D.AnyICanvasAnimatedControl? = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlWrapper.unwrapFrom(abi: ComPtr($1))
+        let args: Win2D.CanvasAnimatedDrawEventArgs? = .from(abi: ComPtr($2))
+        __unwrapped__instance(sender, args)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsWrapper = InterfaceWrapperBase<Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsBridge>
+internal class TypedEventHandlerICanvasAnimatedControl_CanvasAnimatedDrawEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs }
+
+    internal func InvokeImpl(_ sender: Win2D.AnyICanvasAnimatedControl?, _ args: Win2D.CanvasAnimatedDrawEventArgs?) throws {
+        let senderWrapper = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlWrapper(sender)
+        let _sender = try! senderWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _sender, RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Win2D.CanvasAnimatedDrawEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgs
+    internal typealias SwiftABI = Win2D.TypedEventHandlerICanvasAnimatedControl_CanvasAnimatedDrawEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try! _default.InvokeImpl(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xf3505553, Data2: 0x11e9, Data3: 0x548c, Data4: ( 0x80,0xb6,0x33,0xe5,0x6d,0x2e,0x67,0x3b ))// f3505553-11e9-548c-80b6-33e56d2e673b
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsWrapper.release($0) },
+    Invoke: {
+        guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let sender: Win2D.AnyICanvasAnimatedControl? = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlWrapper.unwrapFrom(abi: ComPtr($1))
+        let args: Win2D.CanvasAnimatedUpdateEventArgs? = .from(abi: ComPtr($2))
+        __unwrapped__instance(sender, args)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsWrapper = InterfaceWrapperBase<Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsBridge>
+internal class TypedEventHandlerICanvasAnimatedControl_CanvasAnimatedUpdateEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs }
+
+    internal func InvokeImpl(_ sender: Win2D.AnyICanvasAnimatedControl?, _ args: Win2D.CanvasAnimatedUpdateEventArgs?) throws {
+        let senderWrapper = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlWrapper(sender)
+        let _sender = try! senderWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _sender, RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Win2D.CanvasAnimatedUpdateEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgs
+    internal typealias SwiftABI = Win2D.TypedEventHandlerICanvasAnimatedControl_CanvasAnimatedUpdateEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try! _default.InvokeImpl(sender, args)
+        }
+        return handler
+    }
+}
+public extension EventSource where Handler == TypedEventHandler<CanvasAnimatedControl?, CanvasCreateResourcesEventArgs?> {
+    func invoke(_ sender: Win2D.CanvasAnimatedControl!, _ args: Win2D.CanvasCreateResourcesEventArgs!) {
+        for handler in getInvocationList() {
+            handler(sender, args)
+        }
+    }
+}
+
+public extension EventSource where Handler == TypedEventHandler<ICanvasAnimatedControl?, Any?> {
+    func invoke(_ sender: Win2D.AnyICanvasAnimatedControl!, _ args: Any!) {
+        for handler in getInvocationList() {
+            handler(sender, args)
+        }
+    }
+}
+
+public extension EventSource where Handler == TypedEventHandler<ICanvasAnimatedControl?, CanvasAnimatedDrawEventArgs?> {
+    func invoke(_ sender: Win2D.AnyICanvasAnimatedControl!, _ args: Win2D.CanvasAnimatedDrawEventArgs!) {
+        for handler in getInvocationList() {
+            handler(sender, args)
+        }
+    }
+}
+
+public extension EventSource where Handler == TypedEventHandler<ICanvasAnimatedControl?, CanvasAnimatedUpdateEventArgs?> {
+    func invoke(_ sender: Win2D.AnyICanvasAnimatedControl!, _ args: Win2D.CanvasAnimatedUpdateEventArgs!) {
+        for handler in getInvocationList() {
+            handler(sender, args)
+        }
+    }
+}
+

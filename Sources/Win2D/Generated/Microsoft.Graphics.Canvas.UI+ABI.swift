@@ -57,4 +57,22 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI {
 
     }
 
+    public class _ABI_CanvasTimingInformation {
+        public var val: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation = .init()
+        public init() { }
+        public init(from swift: Win2D.CanvasTimingInformation) {
+            val.UpdateCount = swift.updateCount
+            val.TotalTime = .from(swift: swift.totalTime)
+            val.ElapsedTime = .from(swift: swift.elapsedTime)
+            val.IsRunningSlowly = .init(from: swift.isRunningSlowly)
+        }
+
+        public func detach() -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation {
+            let result = val
+            return result
+        }
+
+        deinit {
+        }
+    }
 }
