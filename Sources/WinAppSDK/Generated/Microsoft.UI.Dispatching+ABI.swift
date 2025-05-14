@@ -369,7 +369,7 @@ extension __ABI_Microsoft_UI_Dispatching {
     }
 
 
-    typealias DispatcherQueueHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Dispatching.DispatcherQueueHandlerBridge>
+    public typealias DispatcherQueueHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Dispatching.DispatcherQueueHandlerBridge>
     internal static var DispatcherQueueHandlerVTable: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandlerVtbl = .init(
         QueryInterface: { DispatcherQueueHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { DispatcherQueueHandlerWrapper.addRef($0) },
