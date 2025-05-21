@@ -27,12 +27,6 @@ public final class DesktopAcrylicController : WinRTClass, WindowsFoundation.IClo
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController>?) -> DesktopAcrylicController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -40,94 +34,95 @@ public final class DesktopAcrylicController : WinRTClass, WindowsFoundation.IClo
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Composition.SystemBackdrops.DesktopAcrylicController")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Composition.SystemBackdrops.DesktopAcrylicController")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDesktopAcrylicControllerStatics: __ABI_Microsoft_UI_Composition_SystemBackdrops.IDesktopAcrylicControllerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.SystemBackdrops.DesktopAcrylicController"))
+    private static let _IDesktopAcrylicControllerStatics: __ABI_Microsoft_UI_Composition_SystemBackdrops.IDesktopAcrylicControllerStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.SystemBackdrops.DesktopAcrylicController")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.issupported)
-    public static func isSupported() -> Bool {
-        return try! _IDesktopAcrylicControllerStatics.IsSupportedImpl()
+    public static func isSupported() throws -> Bool {
+        return try _IDesktopAcrylicControllerStatics.IsSupported()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.fallbackcolor)
     public var fallbackColor : UWP.Color {
-        get { try! _default.get_FallbackColorImpl() }
-        set { try! _default.put_FallbackColorImpl(newValue) }
+        get { try! _default.get_FallbackColor() }
+        set { try! _default.put_FallbackColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.luminosityopacity)
     public var luminosityOpacity : Float {
-        get { try! _default.get_LuminosityOpacityImpl() }
-        set { try! _default.put_LuminosityOpacityImpl(newValue) }
+        get { try! _default.get_LuminosityOpacity() }
+        set { try! _default.put_LuminosityOpacity(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.tintcolor)
     public var tintColor : UWP.Color {
-        get { try! _default.get_TintColorImpl() }
-        set { try! _default.put_TintColorImpl(newValue) }
+        get { try! _default.get_TintColor() }
+        set { try! _default.put_TintColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.tintopacity)
     public var tintOpacity : Float {
-        get { try! _default.get_TintOpacityImpl() }
-        set { try! _default.put_TintOpacityImpl(newValue) }
+        get { try! _default.get_TintOpacity() }
+        set { try! _default.put_TintOpacity(newValue) }
     }
 
     private lazy var _IDesktopAcrylicController2: __ABI_Microsoft_UI_Composition_SystemBackdrops.IDesktopAcrylicController2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.resetproperties)
     public func resetProperties() throws {
-        try _IDesktopAcrylicController2.ResetPropertiesImpl()
+        try _IDesktopAcrylicController2.ResetProperties()
     }
 
     private lazy var _IDesktopAcrylicController3: __ABI_Microsoft_UI_Composition_SystemBackdrops.IDesktopAcrylicController3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.kind)
     public var kind : DesktopAcrylicKind {
-        get { try! _IDesktopAcrylicController3.get_KindImpl() }
-        set { try! _IDesktopAcrylicController3.put_KindImpl(newValue) }
+        get { try! _IDesktopAcrylicController3.get_Kind() }
+        set { try! _IDesktopAcrylicController3.put_Kind(newValue) }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ISystemBackdropController: __ABI_Microsoft_UI_Composition_SystemBackdrops.ISystemBackdropController! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.settarget)
     public func setTarget(_ windowId: WinAppSDK.WindowId, _ desktopWindowTarget: UWP.CompositionTarget!) throws -> Bool {
-        try _ISystemBackdropController.SetTargetWithWindowIdImpl(windowId, desktopWindowTarget)
+        try _ISystemBackdropController.SetTargetWithWindowId(windowId, desktopWindowTarget)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.settarget)
     public func setTarget(_ coreWindow: UWP.CoreWindow!, _ compositionTarget: UWP.CompositionTarget!) throws -> Bool {
-        try _ISystemBackdropController.SetTargetWithCoreWindowImpl(coreWindow, compositionTarget)
+        try _ISystemBackdropController.SetTargetWithCoreWindow(coreWindow, compositionTarget)
     }
 
     private lazy var _ISystemBackdropControllerWithTargets: __ABI_Microsoft_UI_Composition_SystemBackdrops.ISystemBackdropControllerWithTargets! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.addsystembackdroptarget)
     public func addSystemBackdropTarget(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop!) throws -> Bool {
-        try _ISystemBackdropControllerWithTargets.AddSystemBackdropTargetImpl(systemBackdropTarget)
+        try _ISystemBackdropControllerWithTargets.AddSystemBackdropTarget(systemBackdropTarget)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.removeallsystembackdroptargets)
     public func removeAllSystemBackdropTargets() throws {
-        try _ISystemBackdropControllerWithTargets.RemoveAllSystemBackdropTargetsImpl()
+        try _ISystemBackdropControllerWithTargets.RemoveAllSystemBackdropTargets()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.removesystembackdroptarget)
     public func removeSystemBackdropTarget(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop!) throws -> Bool {
-        try _ISystemBackdropControllerWithTargets.RemoveSystemBackdropTargetImpl(systemBackdropTarget)
+        try _ISystemBackdropControllerWithTargets.RemoveSystemBackdropTarget(systemBackdropTarget)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.setsystembackdropconfiguration)
     public func setSystemBackdropConfiguration(_ configuration: SystemBackdropConfiguration!) throws {
-        try _ISystemBackdropControllerWithTargets.SetSystemBackdropConfigurationImpl(configuration)
+        try _ISystemBackdropControllerWithTargets.SetSystemBackdropConfiguration(configuration)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.state)
     public var state : SystemBackdropState {
-        get { try! _ISystemBackdropControllerWithTargets.get_StateImpl() }
+        get { try! _ISystemBackdropControllerWithTargets.get_State() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.statechanged)
@@ -135,10 +130,10 @@ public final class DesktopAcrylicController : WinRTClass, WindowsFoundation.IClo
       .init(
         add: { [weak self] in
           guard let this = self?._ISystemBackdropControllerWithTargets else { return .init() }
-          return try! this.add_StateChangedImpl($0)
+          return try! this.add_StateChanged($0)
         },
         remove: { [weak self] in
-         try? self?._ISystemBackdropControllerWithTargets.remove_StateChangedImpl($0)
+         try? self?._ISystemBackdropControllerWithTargets.remove_StateChanged($0)
        }
       )
     }()
@@ -146,7 +141,7 @@ public final class DesktopAcrylicController : WinRTClass, WindowsFoundation.IClo
     private lazy var _IClosableNotifier: __ABI_Microsoft_UI.IClosableNotifier! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.isclosed)
     public var isClosed : Bool {
-        get { try! _IClosableNotifier.get_IsClosedImpl() }
+        get { try! _IClosableNotifier.get_IsClosed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.desktopacryliccontroller.closed)
@@ -154,10 +149,10 @@ public final class DesktopAcrylicController : WinRTClass, WindowsFoundation.IClo
       .init(
         add: { [weak self] in
           guard let this = self?._IClosableNotifier else { return .init() }
-          return try! this.add_ClosedImpl($0)
+          return try! this.add_Closed($0)
         },
         remove: { [weak self] in
-         try? self?._IClosableNotifier.remove_ClosedImpl($0)
+         try? self?._IClosableNotifier.remove_Closed($0)
        }
       )
     }()
@@ -167,10 +162,10 @@ public final class DesktopAcrylicController : WinRTClass, WindowsFoundation.IClo
       .init(
         add: { [weak self] in
           guard let this = self?._IClosableNotifier else { return .init() }
-          return try! this.add_FrameworkClosedImpl($0)
+          return try! this.add_FrameworkClosed($0)
         },
         remove: { [weak self] in
-         try? self?._IClosableNotifier.remove_FrameworkClosedImpl($0)
+         try? self?._IClosableNotifier.remove_FrameworkClosed($0)
        }
       )
     }()
@@ -200,12 +195,6 @@ public final class MicaController : WinRTClass, WindowsFoundation.IClosable, ISy
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController>?) -> MicaController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -213,93 +202,94 @@ public final class MicaController : WinRTClass, WindowsFoundation.IClosable, ISy
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Composition.SystemBackdrops.MicaController")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Composition.SystemBackdrops.MicaController")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IMicaControllerStatics: __ABI_Microsoft_UI_Composition_SystemBackdrops.IMicaControllerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.SystemBackdrops.MicaController"))
+    private static let _IMicaControllerStatics: __ABI_Microsoft_UI_Composition_SystemBackdrops.IMicaControllerStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.SystemBackdrops.MicaController")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.issupported)
-    public static func isSupported() -> Bool {
-        return try! _IMicaControllerStatics.IsSupportedImpl()
+    public static func isSupported() throws -> Bool {
+        return try _IMicaControllerStatics.IsSupported()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.fallbackcolor)
     public var fallbackColor : UWP.Color {
-        get { try! _default.get_FallbackColorImpl() }
-        set { try! _default.put_FallbackColorImpl(newValue) }
+        get { try! _default.get_FallbackColor() }
+        set { try! _default.put_FallbackColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.luminosityopacity)
     public var luminosityOpacity : Float {
-        get { try! _default.get_LuminosityOpacityImpl() }
-        set { try! _default.put_LuminosityOpacityImpl(newValue) }
+        get { try! _default.get_LuminosityOpacity() }
+        set { try! _default.put_LuminosityOpacity(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.tintcolor)
     public var tintColor : UWP.Color {
-        get { try! _default.get_TintColorImpl() }
-        set { try! _default.put_TintColorImpl(newValue) }
+        get { try! _default.get_TintColor() }
+        set { try! _default.put_TintColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.tintopacity)
     public var tintOpacity : Float {
-        get { try! _default.get_TintOpacityImpl() }
-        set { try! _default.put_TintOpacityImpl(newValue) }
+        get { try! _default.get_TintOpacity() }
+        set { try! _default.put_TintOpacity(newValue) }
     }
 
     private lazy var _IMicaController2: __ABI_Microsoft_UI_Composition_SystemBackdrops.IMicaController2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.resetproperties)
     public func resetProperties() throws {
-        try _IMicaController2.ResetPropertiesImpl()
+        try _IMicaController2.ResetProperties()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.kind)
     public var kind : MicaKind {
-        get { try! _IMicaController2.get_KindImpl() }
-        set { try! _IMicaController2.put_KindImpl(newValue) }
+        get { try! _IMicaController2.get_Kind() }
+        set { try! _IMicaController2.put_Kind(newValue) }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ISystemBackdropController: __ABI_Microsoft_UI_Composition_SystemBackdrops.ISystemBackdropController! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.settarget)
     public func setTarget(_ windowId: WinAppSDK.WindowId, _ desktopWindowTarget: UWP.CompositionTarget!) throws -> Bool {
-        try _ISystemBackdropController.SetTargetWithWindowIdImpl(windowId, desktopWindowTarget)
+        try _ISystemBackdropController.SetTargetWithWindowId(windowId, desktopWindowTarget)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.settarget)
     public func setTarget(_ coreWindow: UWP.CoreWindow!, _ compositionTarget: UWP.CompositionTarget!) throws -> Bool {
-        try _ISystemBackdropController.SetTargetWithCoreWindowImpl(coreWindow, compositionTarget)
+        try _ISystemBackdropController.SetTargetWithCoreWindow(coreWindow, compositionTarget)
     }
 
     private lazy var _ISystemBackdropControllerWithTargets: __ABI_Microsoft_UI_Composition_SystemBackdrops.ISystemBackdropControllerWithTargets! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.addsystembackdroptarget)
     public func addSystemBackdropTarget(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop!) throws -> Bool {
-        try _ISystemBackdropControllerWithTargets.AddSystemBackdropTargetImpl(systemBackdropTarget)
+        try _ISystemBackdropControllerWithTargets.AddSystemBackdropTarget(systemBackdropTarget)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.removeallsystembackdroptargets)
     public func removeAllSystemBackdropTargets() throws {
-        try _ISystemBackdropControllerWithTargets.RemoveAllSystemBackdropTargetsImpl()
+        try _ISystemBackdropControllerWithTargets.RemoveAllSystemBackdropTargets()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.removesystembackdroptarget)
     public func removeSystemBackdropTarget(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop!) throws -> Bool {
-        try _ISystemBackdropControllerWithTargets.RemoveSystemBackdropTargetImpl(systemBackdropTarget)
+        try _ISystemBackdropControllerWithTargets.RemoveSystemBackdropTarget(systemBackdropTarget)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.setsystembackdropconfiguration)
     public func setSystemBackdropConfiguration(_ configuration: SystemBackdropConfiguration!) throws {
-        try _ISystemBackdropControllerWithTargets.SetSystemBackdropConfigurationImpl(configuration)
+        try _ISystemBackdropControllerWithTargets.SetSystemBackdropConfiguration(configuration)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.state)
     public var state : SystemBackdropState {
-        get { try! _ISystemBackdropControllerWithTargets.get_StateImpl() }
+        get { try! _ISystemBackdropControllerWithTargets.get_State() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.statechanged)
@@ -307,10 +297,10 @@ public final class MicaController : WinRTClass, WindowsFoundation.IClosable, ISy
       .init(
         add: { [weak self] in
           guard let this = self?._ISystemBackdropControllerWithTargets else { return .init() }
-          return try! this.add_StateChangedImpl($0)
+          return try! this.add_StateChanged($0)
         },
         remove: { [weak self] in
-         try? self?._ISystemBackdropControllerWithTargets.remove_StateChangedImpl($0)
+         try? self?._ISystemBackdropControllerWithTargets.remove_StateChanged($0)
        }
       )
     }()
@@ -318,7 +308,7 @@ public final class MicaController : WinRTClass, WindowsFoundation.IClosable, ISy
     private lazy var _IClosableNotifier: __ABI_Microsoft_UI.IClosableNotifier! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.isclosed)
     public var isClosed : Bool {
-        get { try! _IClosableNotifier.get_IsClosedImpl() }
+        get { try! _IClosableNotifier.get_IsClosed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.micacontroller.closed)
@@ -326,10 +316,10 @@ public final class MicaController : WinRTClass, WindowsFoundation.IClosable, ISy
       .init(
         add: { [weak self] in
           guard let this = self?._IClosableNotifier else { return .init() }
-          return try! this.add_ClosedImpl($0)
+          return try! this.add_Closed($0)
         },
         remove: { [weak self] in
-         try? self?._IClosableNotifier.remove_ClosedImpl($0)
+         try? self?._IClosableNotifier.remove_Closed($0)
        }
       )
     }()
@@ -339,10 +329,10 @@ public final class MicaController : WinRTClass, WindowsFoundation.IClosable, ISy
       .init(
         add: { [weak self] in
           guard let this = self?._IClosableNotifier else { return .init() }
-          return try! this.add_FrameworkClosedImpl($0)
+          return try! this.add_FrameworkClosed($0)
         },
         remove: { [weak self] in
-         try? self?._IClosableNotifier.remove_FrameworkClosedImpl($0)
+         try? self?._IClosableNotifier.remove_FrameworkClosed($0)
        }
       )
     }()
@@ -371,42 +361,37 @@ public final class SystemBackdropConfiguration : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration>?) -> SystemBackdropConfiguration? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Composition.SystemBackdrops.SystemBackdropConfiguration")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Composition.SystemBackdrops.SystemBackdropConfiguration")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.systembackdropconfiguration.highcontrastbackgroundcolor)
     public var highContrastBackgroundColor : UWP.Color? {
-        get { try! _default.get_HighContrastBackgroundColorImpl() }
-        set { try! _default.put_HighContrastBackgroundColorImpl(newValue) }
+        get { try! _default.get_HighContrastBackgroundColor() }
+        set { try! _default.put_HighContrastBackgroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.systembackdropconfiguration.ishighcontrast)
     public var isHighContrast : Bool {
-        get { try! _default.get_IsHighContrastImpl() }
-        set { try! _default.put_IsHighContrastImpl(newValue) }
+        get { try! _default.get_IsHighContrast() }
+        set { try! _default.put_IsHighContrast(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.systembackdropconfiguration.isinputactive)
     public var isInputActive : Bool {
-        get { try! _default.get_IsInputActiveImpl() }
-        set { try! _default.put_IsInputActiveImpl(newValue) }
+        get { try! _default.get_IsInputActive() }
+        set { try! _default.put_IsInputActive(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.systembackdropconfiguration.theme)
     public var theme : SystemBackdropTheme {
-        get { try! _default.get_ThemeImpl() }
-        set { try! _default.put_ThemeImpl(newValue) }
+        get { try! _default.get_Theme() }
+        set { try! _default.put_Theme(newValue) }
     }
 
     deinit {
@@ -482,7 +467,7 @@ extension WinAppSDK.DesktopAcrylicKind {
         __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CDesktopAcrylicKind_Thin
     }
 }
-extension WinAppSDK.DesktopAcrylicKind: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.DesktopAcrylicKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.MicaKind {
     public static var base : WinAppSDK.MicaKind {
@@ -492,7 +477,7 @@ extension WinAppSDK.MicaKind {
         __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CMicaKind_BaseAlt
     }
 }
-extension WinAppSDK.MicaKind: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.MicaKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.SystemBackdropState {
     public static var active : WinAppSDK.SystemBackdropState {
@@ -505,7 +490,7 @@ extension WinAppSDK.SystemBackdropState {
         __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CSystemBackdropState_HighContrast
     }
 }
-extension WinAppSDK.SystemBackdropState: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.SystemBackdropState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.SystemBackdropTheme {
     public static var `default` : WinAppSDK.SystemBackdropTheme {
@@ -518,5 +503,5 @@ extension WinAppSDK.SystemBackdropTheme {
         __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CSystemBackdropTheme_Dark
     }
 }
-extension WinAppSDK.SystemBackdropTheme: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.SystemBackdropTheme: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

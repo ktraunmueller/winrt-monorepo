@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI {
     public enum IClosableNotifierBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CIClosableNotifier
@@ -30,7 +31,7 @@ public enum __IMPL_Microsoft_UI {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.iclosablenotifier.isclosed)
         fileprivate var isClosed : Bool {
-            get { try! _default.get_IsClosedImpl() }
+            get { try! _default.get_IsClosed() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.iclosablenotifier.closed)
@@ -38,10 +39,10 @@ public enum __IMPL_Microsoft_UI {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_ClosedImpl($0)
+              return try! this.add_Closed($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_ClosedImpl($0)
+             try? self?._default.remove_Closed($0)
            }
           )
         }()
@@ -51,10 +52,10 @@ public enum __IMPL_Microsoft_UI {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_FrameworkClosedImpl($0)
+              return try! this.add_FrameworkClosed($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_FrameworkClosedImpl($0)
+             try? self?._default.remove_FrameworkClosed($0)
            }
           )
         }()
@@ -70,9 +71,50 @@ public enum __IMPL_Microsoft_UI {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { () in
-                try! _default.InvokeImpl()
+                try _default.Invoke()
             }
             return handler
         }
+    }
+}
+@_spi(WinRTInternal)
+extension DisplayId: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CDisplayId
+    public static func from(abi: ABI) -> Self {
+        .init(value: abi.Value)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension IconId: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CIconId
+    public static func from(abi: ABI) -> Self {
+        .init(value: abi.Value)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension WindowId: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CWindowId
+    public static func from(abi: ABI) -> Self {
+        .init(value: abi.Value)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class IClosableNotifierMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIClosableNotifier
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI.IClosableNotifier = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI.IClosableNotifierBridge.from(abi: RawPointer(swiftAbi))!
     }
 }

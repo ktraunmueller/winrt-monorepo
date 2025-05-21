@@ -25,11 +25,25 @@ private var IID___x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstanceStatics2:
     .init(Data1: 0xFE9F1885, Data2: 0x7160, Data3: 0x5397, Data4: ( 0xBA,0x9B,0x58,0x90,0xB2,0x4F,0xDC,0x04 ))// FE9F1885-7160-5397-BA9B-5890B24FDC04
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_Windows_AppLifecycle {
     public class IActivationRegistrationManagerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIActivationRegistrationManagerStatics }
 
-        internal func RegisterForProtocolActivationImpl(_ scheme: String, _ logo: String, _ displayName: String, _ exePath: String) throws {
+        public func RegisterForFileTypeActivation(_ supportedFileTypes: [String], _ logo: String, _ displayName: String, _ supportedVerbs: [String], _ exePath: String) throws {
+            try supportedFileTypes.toABI { _supportedFileTypes in
+                let _logo = try! HString(logo)
+                let _displayName = try! HString(displayName)
+                try supportedVerbs.toABI { _supportedVerbs in
+                let _exePath = try! HString(exePath)
+                _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIActivationRegistrationManagerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RegisterForFileTypeActivation(pThis, _supportedFileTypes.count, _supportedFileTypes.start, _logo.get(), _displayName.get(), _supportedVerbs.count, _supportedVerbs.start, _exePath.get()))
+                }
+            }
+            }
+        }
+
+        public func RegisterForProtocolActivation(_ scheme: String, _ logo: String, _ displayName: String, _ exePath: String) throws {
             let _scheme = try! HString(scheme)
             let _logo = try! HString(logo)
             let _displayName = try! HString(displayName)
@@ -39,7 +53,7 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
             }
         }
 
-        internal func RegisterForStartupActivationImpl(_ taskId: String, _ exePath: String) throws {
+        public func RegisterForStartupActivation(_ taskId: String, _ exePath: String) throws {
             let _taskId = try! HString(taskId)
             let _exePath = try! HString(exePath)
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIActivationRegistrationManagerStatics.self) { pThis in
@@ -47,7 +61,16 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
             }
         }
 
-        internal func UnregisterForProtocolActivationImpl(_ scheme: String, _ exePath: String) throws {
+        public func UnregisterForFileTypeActivation(_ fileTypes: [String], _ exePath: String) throws {
+            try fileTypes.toABI { _fileTypes in
+                let _exePath = try! HString(exePath)
+                _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIActivationRegistrationManagerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.UnregisterForFileTypeActivation(pThis, _fileTypes.count, _fileTypes.start, _exePath.get()))
+                }
+            }
+        }
+
+        public func UnregisterForProtocolActivation(_ scheme: String, _ exePath: String) throws {
             let _scheme = try! HString(scheme)
             let _exePath = try! HString(exePath)
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIActivationRegistrationManagerStatics.self) { pThis in
@@ -55,7 +78,7 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
             }
         }
 
-        internal func UnregisterForStartupActivationImpl(_ taskId: String) throws {
+        public func UnregisterForStartupActivation(_ taskId: String) throws {
             let _taskId = try! HString(taskId)
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIActivationRegistrationManagerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.UnregisterForStartupActivation(pThis, _taskId.get()))
@@ -67,7 +90,7 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
     public class IAppActivationArguments: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppActivationArguments }
 
-        internal func get_KindImpl() throws -> WinAppSDK.ExtendedActivationKind {
+        public func get_Kind() throws -> WinAppSDK.ExtendedActivationKind {
             var value: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CExtendedActivationKind = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppActivationArguments.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kind(pThis, &value))
@@ -75,7 +98,7 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
             return value
         }
 
-        internal func get_DataImpl() throws -> Any? {
+        public func get_Data() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppActivationArguments.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
@@ -89,13 +112,13 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
     public class IAppInstance: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstance }
 
-        internal func UnregisterKeyImpl() throws {
+        public func UnregisterKey() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.UnregisterKey(pThis))
             }
         }
 
-        internal func RedirectActivationToAsyncImpl(_ args: WinAppSDK.AppActivationArguments?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func RedirectActivationToAsync(_ args: WinAppSDK.AppActivationArguments?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstance.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.RedirectActivationToAsync(pThis, RawPointer(args), &operationAbi))
@@ -104,16 +127,16 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetActivatedEventArgsImpl() throws -> WinAppSDK.AppActivationArguments? {
+        public func GetActivatedEventArgs() throws -> WinAppSDK.AppActivationArguments? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstance.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetActivatedEventArgs(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_AppLifecycle.AppActivationArgumentsBridge.from(abi: result)
         }
 
-        internal func add_ActivatedImpl(_ handler: EventHandler<WinAppSDK.AppActivationArguments?>?) throws -> EventRegistrationToken {
+        public func add_Activated(_ handler: EventHandler<WinAppSDK.AppActivationArguments?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CWindows__CAppLifecycle__CAppActivationArgumentsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -123,13 +146,13 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
             return token
         }
 
-        internal func remove_ActivatedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Activated(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Activated(pThis, token))
             }
         }
 
-        internal func get_KeyImpl() throws -> String {
+        public func get_Key() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Key(pThis, &value))
@@ -137,7 +160,7 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
             return .init(from: value)
         }
 
-        internal func get_IsCurrentImpl() throws -> Bool {
+        public func get_IsCurrent() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCurrent(pThis, &value))
@@ -145,7 +168,7 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
             return .init(from: value)
         }
 
-        internal func get_ProcessIdImpl() throws -> UInt32 {
+        public func get_ProcessId() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProcessId(pThis, &value))
@@ -158,16 +181,16 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
     public class IAppInstanceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstanceStatics }
 
-        internal func GetCurrentImpl() throws -> WinAppSDK.AppInstance? {
+        public func GetCurrent() throws -> WinAppSDK.AppInstance? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstanceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrent(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_AppLifecycle.AppInstanceBridge.from(abi: result)
         }
 
-        internal func GetInstancesImpl() throws -> WindowsFoundation.AnyIVector<WinAppSDK.AppInstance?>? {
+        public func GetInstances() throws -> WindowsFoundation.AnyIVector<WinAppSDK.AppInstance?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstanceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetInstances(pThis, &resultAbi))
@@ -176,14 +199,14 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
             return WinAppSDK.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CAppLifecycle__CAppInstanceWrapper.unwrapFrom(abi: result)
         }
 
-        internal func FindOrRegisterForKeyImpl(_ key: String) throws -> WinAppSDK.AppInstance? {
+        public func FindOrRegisterForKey(_ key: String) throws -> WinAppSDK.AppInstance? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _key = try! HString(key)
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstanceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindOrRegisterForKey(pThis, _key.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_AppLifecycle.AppInstanceBridge.from(abi: result)
         }
 
     }
@@ -191,7 +214,7 @@ public enum __ABI_Microsoft_Windows_AppLifecycle {
     public class IAppInstanceStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstanceStatics2 }
 
-        internal func RestartImpl(_ arguments: String) throws -> UWP.AppRestartFailureReason {
+        public func Restart(_ arguments: String) throws -> UWP.AppRestartFailureReason {
             var result: __x_ABI_CWindows_CApplicationModel_CCore_CAppRestartFailureReason = .init(0)
             let _arguments = try! HString(arguments)
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstanceStatics2.self) { pThis in

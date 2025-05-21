@@ -45,30 +45,24 @@ public final class CharacterReceivedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CICharacterReceivedEventArgs>?) -> CharacterReceivedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.characterreceivedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.characterreceivedeventargs.keycode)
     public var keyCode : UInt32 {
-        get { try! _default.get_KeyCodeImpl() }
+        get { try! _default.get_KeyCode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.characterreceivedeventargs.keystatus)
     public var keyStatus : PhysicalKeyStatus {
-        get { try! _default.get_KeyStatusImpl() }
+        get { try! _default.get_KeyStatus() }
     }
 
     deinit {
@@ -90,20 +84,14 @@ public final class ContextMenuKeyEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIContextMenuKeyEventArgs>?) -> ContextMenuKeyEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.contextmenukeyeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     deinit {
@@ -125,29 +113,23 @@ public final class CrossSlidingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CICrossSlidingEventArgs>?) -> CrossSlidingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.crossslidingeventargs.crossslidingstate)
     public var crossSlidingState : CrossSlidingState {
-        get { try! _default.get_CrossSlidingStateImpl() }
+        get { try! _default.get_CrossSlidingState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.crossslidingeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.crossslidingeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     deinit {
@@ -169,29 +151,23 @@ public final class DraggingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs>?) -> DraggingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.draggingeventargs.draggingstate)
     public var draggingState : DraggingState {
-        get { try! _default.get_DraggingStateImpl() }
+        get { try! _default.get_DraggingState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.draggingeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.draggingeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     deinit {
@@ -213,20 +189,14 @@ public final class FocusChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs>?) -> FocusChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.focuschangedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     deinit {
@@ -248,45 +218,39 @@ public final class FocusNavigationRequest : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequest>?) -> FocusNavigationRequest? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IFocusNavigationRequestStatics: __ABI_Microsoft_UI_Input.IFocusNavigationRequestStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.FocusNavigationRequest"))
+    private static let _IFocusNavigationRequestStatics: __ABI_Microsoft_UI_Input.IFocusNavigationRequestStatics = try! RoGetActivationFactory("Microsoft.UI.Input.FocusNavigationRequest")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.focusnavigationrequest.create)
-    public static func create(_ reason: FocusNavigationReason) -> FocusNavigationRequest! {
-        return try! _IFocusNavigationRequestStatics.CreateImpl(reason)
+    public static func create(_ reason: FocusNavigationReason) throws -> FocusNavigationRequest! {
+        return try _IFocusNavigationRequestStatics.Create(reason)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.focusnavigationrequest.create)
-    public static func create(_ reason: FocusNavigationReason, _ hintRect: WindowsFoundation.Rect) -> FocusNavigationRequest! {
-        return try! _IFocusNavigationRequestStatics.CreateWithHintRectImpl(reason, hintRect)
+    public static func create(_ reason: FocusNavigationReason, _ hintRect: WindowsFoundation.Rect) throws -> FocusNavigationRequest! {
+        return try _IFocusNavigationRequestStatics.CreateWithHintRect(reason, hintRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.focusnavigationrequest.create)
-    public static func create(_ reason: FocusNavigationReason, _ hintRect: WindowsFoundation.Rect, _ correlationId: Foundation.UUID) -> FocusNavigationRequest! {
-        return try! _IFocusNavigationRequestStatics.CreateWithHintRectAndIdImpl(reason, hintRect, correlationId)
+    public static func create(_ reason: FocusNavigationReason, _ hintRect: WindowsFoundation.Rect, _ correlationId: Foundation.UUID) throws -> FocusNavigationRequest! {
+        return try _IFocusNavigationRequestStatics.CreateWithHintRectAndId(reason, hintRect, correlationId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.focusnavigationrequest.correlationid)
     public var correlationId : Foundation.UUID {
-        get { try! _default.get_CorrelationIdImpl() }
+        get { try! _default.get_CorrelationId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.focusnavigationrequest.hintrect)
     public var hintRect : WindowsFoundation.Rect? {
-        get { try! _default.get_HintRectImpl() }
+        get { try! _default.get_HintRect() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.focusnavigationrequest.reason)
     public var reason : FocusNavigationReason {
-        get { try! _default.get_ReasonImpl() }
+        get { try! _default.get_Reason() }
     }
 
     deinit {
@@ -308,25 +272,19 @@ public final class FocusNavigationRequestEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestEventArgs>?) -> FocusNavigationRequestEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.focusnavigationrequesteventargs.request)
     public var request : FocusNavigationRequest! {
-        get { try! _default.get_RequestImpl() }
+        get { try! _default.get_Request() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.focusnavigationrequesteventargs.result)
     public var result : FocusNavigationResult {
-        get { try! _default.get_ResultImpl() }
-        set { try! _default.put_ResultImpl(newValue) }
+        get { try! _default.get_Result() }
+        set { try! _default.put_Result(newValue) }
     }
 
     deinit {
@@ -348,158 +306,153 @@ public final class GestureRecognizer : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer>?) -> GestureRecognizer? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Input.GestureRecognizer")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Input.GestureRecognizer")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.canbedoubletap)
     public func canBeDoubleTap(_ value: PointerPoint!) throws -> Bool {
-        try _default.CanBeDoubleTapImpl(value)
+        try _default.CanBeDoubleTap(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.completegesture)
     public func completeGesture() throws {
-        try _default.CompleteGestureImpl()
+        try _default.CompleteGesture()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.processdownevent)
     public func processDownEvent(_ value: PointerPoint!) throws {
-        try _default.ProcessDownEventImpl(value)
+        try _default.ProcessDownEvent(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.processmoveevents)
     public func processMoveEvents(_ value: WindowsFoundation.AnyIVector<PointerPoint?>!) throws {
-        try _default.ProcessMoveEventsImpl(value)
+        try _default.ProcessMoveEvents(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.processmousewheelevent)
     public func processMouseWheelEvent(_ value: PointerPoint!, _ isShiftKeyDown: Bool, _ isControlKeyDown: Bool) throws {
-        try _default.ProcessMouseWheelEventImpl(value, isShiftKeyDown, isControlKeyDown)
+        try _default.ProcessMouseWheelEvent(value, isShiftKeyDown, isControlKeyDown)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.processinertia)
     public func processInertia() throws {
-        try _default.ProcessInertiaImpl()
+        try _default.ProcessInertia()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.processupevent)
     public func processUpEvent(_ value: PointerPoint!) throws {
-        try _default.ProcessUpEventImpl(value)
+        try _default.ProcessUpEvent(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.autoprocessinertia)
     public var autoProcessInertia : Bool {
-        get { try! _default.get_AutoProcessInertiaImpl() }
-        set { try! _default.put_AutoProcessInertiaImpl(newValue) }
+        get { try! _default.get_AutoProcessInertia() }
+        set { try! _default.put_AutoProcessInertia(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.crossslideexact)
     public var crossSlideExact : Bool {
-        get { try! _default.get_CrossSlideExactImpl() }
-        set { try! _default.put_CrossSlideExactImpl(newValue) }
+        get { try! _default.get_CrossSlideExact() }
+        set { try! _default.put_CrossSlideExact(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.crossslidehorizontally)
     public var crossSlideHorizontally : Bool {
-        get { try! _default.get_CrossSlideHorizontallyImpl() }
-        set { try! _default.put_CrossSlideHorizontallyImpl(newValue) }
+        get { try! _default.get_CrossSlideHorizontally() }
+        set { try! _default.put_CrossSlideHorizontally(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.crossslidethresholds)
     public var crossSlideThresholds : CrossSlideThresholds {
-        get { try! _default.get_CrossSlideThresholdsImpl() }
-        set { try! _default.put_CrossSlideThresholdsImpl(newValue) }
+        get { try! _default.get_CrossSlideThresholds() }
+        set { try! _default.put_CrossSlideThresholds(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.gesturesettings)
     public var gestureSettings : GestureSettings {
-        get { try! _default.get_GestureSettingsImpl() }
-        set { try! _default.put_GestureSettingsImpl(newValue) }
+        get { try! _default.get_GestureSettings() }
+        set { try! _default.put_GestureSettings(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.inertiaexpansion)
     public var inertiaExpansion : Float {
-        get { try! _default.get_InertiaExpansionImpl() }
-        set { try! _default.put_InertiaExpansionImpl(newValue) }
+        get { try! _default.get_InertiaExpansion() }
+        set { try! _default.put_InertiaExpansion(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.inertiaexpansiondeceleration)
     public var inertiaExpansionDeceleration : Float {
-        get { try! _default.get_InertiaExpansionDecelerationImpl() }
-        set { try! _default.put_InertiaExpansionDecelerationImpl(newValue) }
+        get { try! _default.get_InertiaExpansionDeceleration() }
+        set { try! _default.put_InertiaExpansionDeceleration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.inertiarotationangle)
     public var inertiaRotationAngle : Float {
-        get { try! _default.get_InertiaRotationAngleImpl() }
-        set { try! _default.put_InertiaRotationAngleImpl(newValue) }
+        get { try! _default.get_InertiaRotationAngle() }
+        set { try! _default.put_InertiaRotationAngle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.inertiarotationdeceleration)
     public var inertiaRotationDeceleration : Float {
-        get { try! _default.get_InertiaRotationDecelerationImpl() }
-        set { try! _default.put_InertiaRotationDecelerationImpl(newValue) }
+        get { try! _default.get_InertiaRotationDeceleration() }
+        set { try! _default.put_InertiaRotationDeceleration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.inertiatranslationdeceleration)
     public var inertiaTranslationDeceleration : Float {
-        get { try! _default.get_InertiaTranslationDecelerationImpl() }
-        set { try! _default.put_InertiaTranslationDecelerationImpl(newValue) }
+        get { try! _default.get_InertiaTranslationDeceleration() }
+        set { try! _default.put_InertiaTranslationDeceleration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.inertiatranslationdisplacement)
     public var inertiaTranslationDisplacement : Float {
-        get { try! _default.get_InertiaTranslationDisplacementImpl() }
-        set { try! _default.put_InertiaTranslationDisplacementImpl(newValue) }
+        get { try! _default.get_InertiaTranslationDisplacement() }
+        set { try! _default.put_InertiaTranslationDisplacement(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.isactive)
     public var isActive : Bool {
-        get { try! _default.get_IsActiveImpl() }
+        get { try! _default.get_IsActive() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.isinertial)
     public var isInertial : Bool {
-        get { try! _default.get_IsInertialImpl() }
+        get { try! _default.get_IsInertial() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.manipulationexact)
     public var manipulationExact : Bool {
-        get { try! _default.get_ManipulationExactImpl() }
-        set { try! _default.put_ManipulationExactImpl(newValue) }
+        get { try! _default.get_ManipulationExact() }
+        set { try! _default.put_ManipulationExact(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.mousewheelparameters)
     public var mouseWheelParameters : MouseWheelParameters! {
-        get { try! _default.get_MouseWheelParametersImpl() }
+        get { try! _default.get_MouseWheelParameters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.pivotcenter)
     public var pivotCenter : WindowsFoundation.Point {
-        get { try! _default.get_PivotCenterImpl() }
-        set { try! _default.put_PivotCenterImpl(newValue) }
+        get { try! _default.get_PivotCenter() }
+        set { try! _default.put_PivotCenter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.pivotradius)
     public var pivotRadius : Float {
-        get { try! _default.get_PivotRadiusImpl() }
-        set { try! _default.put_PivotRadiusImpl(newValue) }
+        get { try! _default.get_PivotRadius() }
+        set { try! _default.put_PivotRadius(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.showgesturefeedback)
     public var showGestureFeedback : Bool {
-        get { try! _default.get_ShowGestureFeedbackImpl() }
-        set { try! _default.put_ShowGestureFeedbackImpl(newValue) }
+        get { try! _default.get_ShowGestureFeedback() }
+        set { try! _default.put_ShowGestureFeedback(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.gesturerecognizer.crosssliding)
@@ -507,10 +460,10 @@ public final class GestureRecognizer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CrossSlidingImpl($0)
+          return try! this.add_CrossSliding($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CrossSlidingImpl($0)
+         try? self?._default.remove_CrossSliding($0)
        }
       )
     }()
@@ -520,10 +473,10 @@ public final class GestureRecognizer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DraggingImpl($0)
+          return try! this.add_Dragging($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DraggingImpl($0)
+         try? self?._default.remove_Dragging($0)
        }
       )
     }()
@@ -533,10 +486,10 @@ public final class GestureRecognizer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_HoldingImpl($0)
+          return try! this.add_Holding($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_HoldingImpl($0)
+         try? self?._default.remove_Holding($0)
        }
       )
     }()
@@ -546,10 +499,10 @@ public final class GestureRecognizer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ManipulationCompletedImpl($0)
+          return try! this.add_ManipulationCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ManipulationCompletedImpl($0)
+         try? self?._default.remove_ManipulationCompleted($0)
        }
       )
     }()
@@ -559,10 +512,10 @@ public final class GestureRecognizer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ManipulationInertiaStartingImpl($0)
+          return try! this.add_ManipulationInertiaStarting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ManipulationInertiaStartingImpl($0)
+         try? self?._default.remove_ManipulationInertiaStarting($0)
        }
       )
     }()
@@ -572,10 +525,10 @@ public final class GestureRecognizer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ManipulationStartedImpl($0)
+          return try! this.add_ManipulationStarted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ManipulationStartedImpl($0)
+         try? self?._default.remove_ManipulationStarted($0)
        }
       )
     }()
@@ -585,10 +538,10 @@ public final class GestureRecognizer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ManipulationUpdatedImpl($0)
+          return try! this.add_ManipulationUpdated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ManipulationUpdatedImpl($0)
+         try? self?._default.remove_ManipulationUpdated($0)
        }
       )
     }()
@@ -598,10 +551,10 @@ public final class GestureRecognizer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_RightTappedImpl($0)
+          return try! this.add_RightTapped($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_RightTappedImpl($0)
+         try? self?._default.remove_RightTapped($0)
        }
       )
     }()
@@ -611,10 +564,10 @@ public final class GestureRecognizer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_TappedImpl($0)
+          return try! this.add_Tapped($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_TappedImpl($0)
+         try? self?._default.remove_Tapped($0)
        }
       )
     }()
@@ -638,29 +591,23 @@ public final class HoldingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIHoldingEventArgs>?) -> HoldingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.holdingeventargs.holdingstate)
     public var holdingState : HoldingState {
-        get { try! _default.get_HoldingStateImpl() }
+        get { try! _default.get_HoldingState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.holdingeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.holdingeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     deinit {
@@ -682,31 +629,25 @@ public final class InputActivationListener : WinAppSDK.InputObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListener>?) -> InputActivationListener? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputActivationListenerStatics: __ABI_Microsoft_UI_Input.IInputActivationListenerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputActivationListener"))
+    private static let _IInputActivationListenerStatics: __ABI_Microsoft_UI_Input.IInputActivationListenerStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputActivationListener")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputactivationlistener.getforwindowid)
-    public static func getForWindowId(_ windowId: WinAppSDK.WindowId) -> InputActivationListener! {
-        return try! _IInputActivationListenerStatics.GetForWindowIdImpl(windowId)
+    public static func getForWindowId(_ windowId: WinAppSDK.WindowId) throws -> InputActivationListener! {
+        return try _IInputActivationListenerStatics.GetForWindowId(windowId)
     }
 
-    private static let _IInputActivationListenerStatics2: __ABI_Microsoft_UI_Input.IInputActivationListenerStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputActivationListener"))
+    private static let _IInputActivationListenerStatics2: __ABI_Microsoft_UI_Input.IInputActivationListenerStatics2 = try! RoGetActivationFactory("Microsoft.UI.Input.InputActivationListener")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputactivationlistener.getforisland)
-    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) -> InputActivationListener! {
-        return try! _IInputActivationListenerStatics2.GetForIslandImpl(island)
+    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) throws -> InputActivationListener! {
+        return try _IInputActivationListenerStatics2.GetForIsland(island)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputactivationlistener.state)
     public var state : InputActivationState {
-        get { try! _default.get_StateImpl() }
+        get { try! _default.get_State() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputactivationlistener.inputactivationchanged)
@@ -714,10 +655,10 @@ public final class InputActivationListener : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_InputActivationChangedImpl($0)
+          return try! this.add_InputActivationChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_InputActivationChangedImpl($0)
+         try? self?._default.remove_InputActivationChanged($0)
        }
       )
     }()
@@ -738,12 +679,6 @@ public final class InputActivationListenerActivationChangedEventArgs : WinRTClas
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListenerActivationChangedEventArgs>?) -> InputActivationListenerActivationChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -770,12 +705,6 @@ open class InputCursor : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputCursor>?) -> InputCursor? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -791,31 +720,20 @@ open class InputCursor : WinRTClass, WindowsFoundation.IClosable {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInputCursorFactory : __ABI_Microsoft_UI_Input.IInputCursorFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputCursor"))
+    private static var _IInputCursorFactory : __ABI_Microsoft_UI_Input.IInputCursorFactory =  try! RoGetActivationFactory("Microsoft.UI.Input.InputCursor")
 
-    private static let _IInputCursorStatics: __ABI_Microsoft_UI_Input.IInputCursorStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputCursor"))
+    private static let _IInputCursorStatics: __ABI_Microsoft_UI_Input.IInputCursorStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputCursor")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputcursor.createfromcorecursor)
-    public class func createFromCoreCursor(_ cursor: UWP.CoreCursor!) -> InputCursor! {
-        return try! _IInputCursorStatics.CreateFromCoreCursorImpl(cursor)
+    public class func createFromCoreCursor(_ cursor: UWP.CoreCursor!) throws -> InputCursor! {
+        return try _IInputCursorStatics.CreateFromCoreCursor(cursor)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputcursor.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
-    internal enum IInputCursor : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = InputCursor
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputCursor
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Input.IInputCursor
-        }
-    }
-    internal typealias Composable = IInputCursor
     deinit {
         _default = nil
         _IClosable = nil
@@ -836,12 +754,6 @@ open class InputCustomCursor : WinAppSDK.InputCursor {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputCustomCursor>?) -> InputCustomCursor? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -856,19 +768,8 @@ open class InputCustomCursor : WinAppSDK.InputCursor {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInputCustomCursorFactory : __ABI_Microsoft_UI_Input.IInputCustomCursorFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputCustomCursor"))
+    private static var _IInputCustomCursorFactory : __ABI_Microsoft_UI_Input.IInputCustomCursorFactory =  try! RoGetActivationFactory("Microsoft.UI.Input.InputCustomCursor")
 
-    internal enum IInputCustomCursor : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = InputCustomCursor
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputCustomCursor
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Input.IInputCustomCursor
-        }
-    }
-    internal typealias Composable = IInputCustomCursor
     deinit {
         _default = nil
     }
@@ -888,35 +789,29 @@ public final class InputDesktopNamedResourceCursor : WinAppSDK.InputCursor {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopNamedResourceCursor>?) -> InputDesktopNamedResourceCursor? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputDesktopNamedResourceCursorStatics: __ABI_Microsoft_UI_Input.IInputDesktopNamedResourceCursorStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputDesktopNamedResourceCursor"))
+    private static let _IInputDesktopNamedResourceCursorStatics: __ABI_Microsoft_UI_Input.IInputDesktopNamedResourceCursorStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputDesktopNamedResourceCursor")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputdesktopnamedresourcecursor.create)
-    public static func create(_ resourceName: String) -> InputDesktopNamedResourceCursor! {
-        return try! _IInputDesktopNamedResourceCursorStatics.CreateImpl(resourceName)
+    public static func create(_ resourceName: String) throws -> InputDesktopNamedResourceCursor! {
+        return try _IInputDesktopNamedResourceCursorStatics.Create(resourceName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputdesktopnamedresourcecursor.createfrommodule)
-    public static func createFromModule(_ moduleName: String, _ resourceName: String) -> InputDesktopNamedResourceCursor! {
-        return try! _IInputDesktopNamedResourceCursorStatics.CreateFromModuleImpl(moduleName, resourceName)
+    public static func createFromModule(_ moduleName: String, _ resourceName: String) throws -> InputDesktopNamedResourceCursor! {
+        return try _IInputDesktopNamedResourceCursorStatics.CreateFromModule(moduleName, resourceName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputdesktopnamedresourcecursor.modulename)
     public var moduleName : String {
-        get { try! _default.get_ModuleNameImpl() }
+        get { try! _default.get_ModuleName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputdesktopnamedresourcecursor.resourcename)
     public var resourceName : String {
-        get { try! _default.get_ResourceNameImpl() }
+        get { try! _default.get_ResourceName() }
     }
 
     deinit {
@@ -938,35 +833,29 @@ public final class InputDesktopResourceCursor : WinAppSDK.InputCursor {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopResourceCursor>?) -> InputDesktopResourceCursor? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputDesktopResourceCursorStatics: __ABI_Microsoft_UI_Input.IInputDesktopResourceCursorStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputDesktopResourceCursor"))
+    private static let _IInputDesktopResourceCursorStatics: __ABI_Microsoft_UI_Input.IInputDesktopResourceCursorStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputDesktopResourceCursor")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputdesktopresourcecursor.create)
-    public static func create(_ resourceId: UInt32) -> InputDesktopResourceCursor! {
-        return try! _IInputDesktopResourceCursorStatics.CreateImpl(resourceId)
+    public static func create(_ resourceId: UInt32) throws -> InputDesktopResourceCursor! {
+        return try _IInputDesktopResourceCursorStatics.Create(resourceId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputdesktopresourcecursor.createfrommodule)
-    public static func createFromModule(_ moduleName: String, _ resourceId: UInt32) -> InputDesktopResourceCursor! {
-        return try! _IInputDesktopResourceCursorStatics.CreateFromModuleImpl(moduleName, resourceId)
+    public static func createFromModule(_ moduleName: String, _ resourceId: UInt32) throws -> InputDesktopResourceCursor! {
+        return try _IInputDesktopResourceCursorStatics.CreateFromModule(moduleName, resourceId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputdesktopresourcecursor.modulename)
     public var moduleName : String {
-        get { try! _default.get_ModuleNameImpl() }
+        get { try! _default.get_ModuleName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputdesktopresourcecursor.resourceid)
     public var resourceId : UInt32 {
-        get { try! _default.get_ResourceIdImpl() }
+        get { try! _default.get_ResourceId() }
     }
 
     deinit {
@@ -988,30 +877,24 @@ public final class InputFocusController : WinAppSDK.InputObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController>?) -> InputFocusController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputFocusControllerStatics: __ABI_Microsoft_UI_Input.IInputFocusControllerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputFocusController"))
+    private static let _IInputFocusControllerStatics: __ABI_Microsoft_UI_Input.IInputFocusControllerStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputFocusController")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocuscontroller.getforisland)
-    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) -> InputFocusController! {
-        return try! _IInputFocusControllerStatics.GetForIslandImpl(island)
+    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) throws -> InputFocusController! {
+        return try _IInputFocusControllerStatics.GetForIsland(island)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocuscontroller.trysetfocus)
     public func trySetFocus() throws -> Bool {
-        try _default.TrySetFocusImpl()
+        try _default.TrySetFocus()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocuscontroller.hasfocus)
     public var hasFocus : Bool {
-        get { try! _default.get_HasFocusImpl() }
+        get { try! _default.get_HasFocus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocuscontroller.gotfocus)
@@ -1019,10 +902,10 @@ public final class InputFocusController : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_GotFocusImpl($0)
+          return try! this.add_GotFocus($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_GotFocusImpl($0)
+         try? self?._default.remove_GotFocus($0)
        }
       )
     }()
@@ -1032,10 +915,10 @@ public final class InputFocusController : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_LostFocusImpl($0)
+          return try! this.add_LostFocus($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_LostFocusImpl($0)
+         try? self?._default.remove_LostFocus($0)
        }
       )
     }()
@@ -1043,7 +926,7 @@ public final class InputFocusController : WinAppSDK.InputObject {
     private lazy var _IInputFocusController2: __ABI_Microsoft_UI_Input.IInputFocusController2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocuscontroller.departfocus)
     public func departFocus(_ request: FocusNavigationRequest!) throws -> FocusNavigationResult {
-        try _IInputFocusController2.DepartFocusImpl(request)
+        try _IInputFocusController2.DepartFocus(request)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocuscontroller.navigatefocusrequested)
@@ -1051,10 +934,10 @@ public final class InputFocusController : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._IInputFocusController2 else { return .init() }
-          return try! this.add_NavigateFocusRequestedImpl($0)
+          return try! this.add_NavigateFocusRequested($0)
         },
         remove: { [weak self] in
-         try? self?._IInputFocusController2.remove_NavigateFocusRequestedImpl($0)
+         try? self?._IInputFocusController2.remove_NavigateFocusRequested($0)
        }
       )
     }()
@@ -1079,30 +962,24 @@ public final class InputFocusNavigationHost : WinAppSDK.InputObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHost>?) -> InputFocusNavigationHost? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputFocusNavigationHostStatics: __ABI_Microsoft_UI_Input.IInputFocusNavigationHostStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputFocusNavigationHost"))
+    private static let _IInputFocusNavigationHostStatics: __ABI_Microsoft_UI_Input.IInputFocusNavigationHostStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputFocusNavigationHost")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocusnavigationhost.getforsitebridge)
-    public static func getForSiteBridge(_ site: WinAppSDK.AnyIContentSiteBridge!) -> InputFocusNavigationHost! {
-        return try! _IInputFocusNavigationHostStatics.GetForSiteBridgeImpl(site)
+    public static func getForSiteBridge(_ site: WinAppSDK.AnyIContentSiteBridge!) throws -> InputFocusNavigationHost! {
+        return try _IInputFocusNavigationHostStatics.GetForSiteBridge(site)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocusnavigationhost.navigatefocus)
     public func navigateFocus(_ request: FocusNavigationRequest!) throws -> FocusNavigationResult {
-        try _default.NavigateFocusImpl(request)
+        try _default.NavigateFocus(request)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocusnavigationhost.containsfocus)
     public var containsFocus : Bool {
-        get { try! _default.get_ContainsFocusImpl() }
+        get { try! _default.get_ContainsFocus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputfocusnavigationhost.departfocusrequested)
@@ -1110,10 +987,10 @@ public final class InputFocusNavigationHost : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DepartFocusRequestedImpl($0)
+          return try! this.add_DepartFocusRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DepartFocusRequestedImpl($0)
+         try? self?._default.remove_DepartFocusRequested($0)
        }
       )
     }()
@@ -1137,37 +1014,31 @@ public final class InputKeyboardSource : WinAppSDK.InputObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource>?) -> InputKeyboardSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputKeyboardSourceStatics: __ABI_Microsoft_UI_Input.IInputKeyboardSourceStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputKeyboardSource"))
+    private static let _IInputKeyboardSourceStatics: __ABI_Microsoft_UI_Input.IInputKeyboardSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputKeyboardSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputkeyboardsource.getkeystateforcurrentthread)
-    public static func getKeyStateForCurrentThread(_ virtualKey: UWP.VirtualKey) -> UWP.CoreVirtualKeyStates {
-        return try! _IInputKeyboardSourceStatics.GetKeyStateForCurrentThreadImpl(virtualKey)
+    public static func getKeyStateForCurrentThread(_ virtualKey: UWP.VirtualKey) throws -> UWP.CoreVirtualKeyStates {
+        return try _IInputKeyboardSourceStatics.GetKeyStateForCurrentThread(virtualKey)
     }
 
-    private static let _IInputKeyboardSourceStatics2: __ABI_Microsoft_UI_Input.IInputKeyboardSourceStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputKeyboardSource"))
+    private static let _IInputKeyboardSourceStatics2: __ABI_Microsoft_UI_Input.IInputKeyboardSourceStatics2 = try! RoGetActivationFactory("Microsoft.UI.Input.InputKeyboardSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputkeyboardsource.getforisland)
-    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) -> InputKeyboardSource! {
-        return try! _IInputKeyboardSourceStatics2.GetForIslandImpl(island)
+    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) throws -> InputKeyboardSource! {
+        return try _IInputKeyboardSourceStatics2.GetForIsland(island)
     }
 
     private lazy var _IInputKeyboardSource2: __ABI_Microsoft_UI_Input.IInputKeyboardSource2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputkeyboardsource.getcurrentkeystate)
     public func getCurrentKeyState(_ virtualKey: UWP.VirtualKey) throws -> VirtualKeyStates {
-        try _IInputKeyboardSource2.GetCurrentKeyStateImpl(virtualKey)
+        try _IInputKeyboardSource2.GetCurrentKeyState(virtualKey)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputkeyboardsource.getkeystate)
     public func getKeyState(_ virtualKey: UWP.VirtualKey) throws -> VirtualKeyStates {
-        try _IInputKeyboardSource2.GetKeyStateImpl(virtualKey)
+        try _IInputKeyboardSource2.GetKeyState(virtualKey)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputkeyboardsource.characterreceived)
@@ -1175,10 +1046,10 @@ public final class InputKeyboardSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._IInputKeyboardSource2 else { return .init() }
-          return try! this.add_CharacterReceivedImpl($0)
+          return try! this.add_CharacterReceived($0)
         },
         remove: { [weak self] in
-         try? self?._IInputKeyboardSource2.remove_CharacterReceivedImpl($0)
+         try? self?._IInputKeyboardSource2.remove_CharacterReceived($0)
        }
       )
     }()
@@ -1188,10 +1059,10 @@ public final class InputKeyboardSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._IInputKeyboardSource2 else { return .init() }
-          return try! this.add_ContextMenuKeyImpl($0)
+          return try! this.add_ContextMenuKey($0)
         },
         remove: { [weak self] in
-         try? self?._IInputKeyboardSource2.remove_ContextMenuKeyImpl($0)
+         try? self?._IInputKeyboardSource2.remove_ContextMenuKey($0)
        }
       )
     }()
@@ -1201,10 +1072,10 @@ public final class InputKeyboardSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._IInputKeyboardSource2 else { return .init() }
-          return try! this.add_KeyDownImpl($0)
+          return try! this.add_KeyDown($0)
         },
         remove: { [weak self] in
-         try? self?._IInputKeyboardSource2.remove_KeyDownImpl($0)
+         try? self?._IInputKeyboardSource2.remove_KeyDown($0)
        }
       )
     }()
@@ -1214,10 +1085,10 @@ public final class InputKeyboardSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._IInputKeyboardSource2 else { return .init() }
-          return try! this.add_KeyUpImpl($0)
+          return try! this.add_KeyUp($0)
         },
         remove: { [weak self] in
-         try? self?._IInputKeyboardSource2.remove_KeyUpImpl($0)
+         try? self?._IInputKeyboardSource2.remove_KeyUp($0)
        }
       )
     }()
@@ -1227,10 +1098,10 @@ public final class InputKeyboardSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._IInputKeyboardSource2 else { return .init() }
-          return try! this.add_SystemKeyDownImpl($0)
+          return try! this.add_SystemKeyDown($0)
         },
         remove: { [weak self] in
-         try? self?._IInputKeyboardSource2.remove_SystemKeyDownImpl($0)
+         try? self?._IInputKeyboardSource2.remove_SystemKeyDown($0)
        }
       )
     }()
@@ -1240,10 +1111,10 @@ public final class InputKeyboardSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._IInputKeyboardSource2 else { return .init() }
-          return try! this.add_SystemKeyUpImpl($0)
+          return try! this.add_SystemKeyUp($0)
         },
         remove: { [weak self] in
-         try? self?._IInputKeyboardSource2.remove_SystemKeyUpImpl($0)
+         try? self?._IInputKeyboardSource2.remove_SystemKeyUp($0)
        }
       )
     }()
@@ -1268,20 +1139,14 @@ public final class InputLightDismissAction : WinAppSDK.InputObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissAction>?) -> InputLightDismissAction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputLightDismissActionStatics: __ABI_Microsoft_UI_Input.IInputLightDismissActionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputLightDismissAction"))
+    private static let _IInputLightDismissActionStatics: __ABI_Microsoft_UI_Input.IInputLightDismissActionStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputLightDismissAction")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputlightdismissaction.getforwindowid)
-    public static func getForWindowId(_ windowId: WinAppSDK.WindowId) -> InputLightDismissAction! {
-        return try! _IInputLightDismissActionStatics.GetForWindowIdImpl(windowId)
+    public static func getForWindowId(_ windowId: WinAppSDK.WindowId) throws -> InputLightDismissAction! {
+        return try _IInputLightDismissActionStatics.GetForWindowId(windowId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputlightdismissaction.dismissed)
@@ -1289,10 +1154,10 @@ public final class InputLightDismissAction : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DismissedImpl($0)
+          return try! this.add_Dismissed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DismissedImpl($0)
+         try? self?._default.remove_Dismissed($0)
        }
       )
     }()
@@ -1313,12 +1178,6 @@ public final class InputLightDismissEventArgs : WinRTClass {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissEventArgs>?) -> InputLightDismissEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -1345,35 +1204,39 @@ public final class InputNonClientPointerSource : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource>?) -> InputNonClientPointerSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IInputNonClientPointerSourceStatics: __ABI_Microsoft_UI_Input.IInputNonClientPointerSourceStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputNonClientPointerSource"))
+    private static let _IInputNonClientPointerSourceStatics: __ABI_Microsoft_UI_Input.IInputNonClientPointerSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputNonClientPointerSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputnonclientpointersource.getforwindowid)
-    public static func getForWindowId(_ windowId: WinAppSDK.WindowId) -> InputNonClientPointerSource! {
-        return try! _IInputNonClientPointerSourceStatics.GetForWindowIdImpl(windowId)
+    public static func getForWindowId(_ windowId: WinAppSDK.WindowId) throws -> InputNonClientPointerSource! {
+        return try _IInputNonClientPointerSourceStatics.GetForWindowId(windowId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputnonclientpointersource.clearallregionrects)
     public func clearAllRegionRects() throws {
-        try _default.ClearAllRegionRectsImpl()
+        try _default.ClearAllRegionRects()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputnonclientpointersource.clearregionrects)
     public func clearRegionRects(_ region: NonClientRegionKind) throws {
-        try _default.ClearRegionRectsImpl(region)
+        try _default.ClearRegionRects(region)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputnonclientpointersource.getregionrects)
+    public func getRegionRects(_ region: NonClientRegionKind) throws -> [UWP.RectInt32] {
+        try _default.GetRegionRects(region)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputnonclientpointersource.setregionrects)
+    public func setRegionRects(_ region: NonClientRegionKind, _ rects: [UWP.RectInt32]) throws {
+        try _default.SetRegionRects(region, rects)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputnonclientpointersource.dispatcherqueue)
     public var dispatcherQueue : WinAppSDK.DispatcherQueue! {
-        get { try! _default.get_DispatcherQueueImpl() }
+        get { try! _default.get_DispatcherQueue() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputnonclientpointersource.captiontapped)
@@ -1381,10 +1244,10 @@ public final class InputNonClientPointerSource : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CaptionTappedImpl($0)
+          return try! this.add_CaptionTapped($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CaptionTappedImpl($0)
+         try? self?._default.remove_CaptionTapped($0)
        }
       )
     }()
@@ -1394,10 +1257,10 @@ public final class InputNonClientPointerSource : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerEnteredImpl($0)
+          return try! this.add_PointerEntered($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerEnteredImpl($0)
+         try? self?._default.remove_PointerEntered($0)
        }
       )
     }()
@@ -1407,10 +1270,10 @@ public final class InputNonClientPointerSource : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerExitedImpl($0)
+          return try! this.add_PointerExited($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerExitedImpl($0)
+         try? self?._default.remove_PointerExited($0)
        }
       )
     }()
@@ -1420,10 +1283,10 @@ public final class InputNonClientPointerSource : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerMovedImpl($0)
+          return try! this.add_PointerMoved($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerMovedImpl($0)
+         try? self?._default.remove_PointerMoved($0)
        }
       )
     }()
@@ -1433,10 +1296,10 @@ public final class InputNonClientPointerSource : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerPressedImpl($0)
+          return try! this.add_PointerPressed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerPressedImpl($0)
+         try? self?._default.remove_PointerPressed($0)
        }
       )
     }()
@@ -1446,10 +1309,10 @@ public final class InputNonClientPointerSource : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerReleasedImpl($0)
+          return try! this.add_PointerReleased($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerReleasedImpl($0)
+         try? self?._default.remove_PointerReleased($0)
        }
       )
     }()
@@ -1459,10 +1322,10 @@ public final class InputNonClientPointerSource : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_RegionsChangedImpl($0)
+          return try! this.add_RegionsChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_RegionsChangedImpl($0)
+         try? self?._default.remove_RegionsChanged($0)
        }
       )
     }()
@@ -1486,12 +1349,6 @@ open class InputObject : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputObject>?) -> InputObject? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1507,24 +1364,13 @@ open class InputObject : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInputObjectFactory : __ABI_Microsoft_UI_Input.IInputObjectFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputObject"))
+    private static var _IInputObjectFactory : __ABI_Microsoft_UI_Input.IInputObjectFactory =  try! RoGetActivationFactory("Microsoft.UI.Input.InputObject")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputobject.dispatcherqueue)
     public var dispatcherQueue : WinAppSDK.DispatcherQueue! {
-        get { try! _default.get_DispatcherQueueImpl() }
+        get { try! _default.get_DispatcherQueue() }
     }
 
-    internal enum IInputObject : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = InputObject
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputObject
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Input.IInputObject
-        }
-    }
-    internal typealias Composable = IInputObject
     deinit {
         _default = nil
     }
@@ -1544,31 +1390,25 @@ public final class InputPointerSource : WinAppSDK.InputObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource>?) -> InputPointerSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputPointerSourceStatics: __ABI_Microsoft_UI_Input.IInputPointerSourceStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputPointerSource"))
+    private static let _IInputPointerSourceStatics: __ABI_Microsoft_UI_Input.IInputPointerSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputPointerSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputpointersource.getforisland)
-    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) -> InputPointerSource! {
-        return try! _IInputPointerSourceStatics.GetForIslandImpl(island)
+    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) throws -> InputPointerSource! {
+        return try _IInputPointerSourceStatics.GetForIsland(island)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputpointersource.cursor)
     public var cursor : InputCursor! {
-        get { try! _default.get_CursorImpl() }
-        set { try! _default.put_CursorImpl(newValue) }
+        get { try! _default.get_Cursor() }
+        set { try! _default.put_Cursor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputpointersource.devicekinds)
     public var deviceKinds : InputPointerSourceDeviceKinds {
-        get { try! _default.get_DeviceKindsImpl() }
+        get { try! _default.get_DeviceKinds() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputpointersource.pointercapturelost)
@@ -1576,10 +1416,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerCaptureLostImpl($0)
+          return try! this.add_PointerCaptureLost($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerCaptureLostImpl($0)
+         try? self?._default.remove_PointerCaptureLost($0)
        }
       )
     }()
@@ -1589,10 +1429,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerEnteredImpl($0)
+          return try! this.add_PointerEntered($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerEnteredImpl($0)
+         try? self?._default.remove_PointerEntered($0)
        }
       )
     }()
@@ -1602,10 +1442,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerExitedImpl($0)
+          return try! this.add_PointerExited($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerExitedImpl($0)
+         try? self?._default.remove_PointerExited($0)
        }
       )
     }()
@@ -1615,10 +1455,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerMovedImpl($0)
+          return try! this.add_PointerMoved($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerMovedImpl($0)
+         try? self?._default.remove_PointerMoved($0)
        }
       )
     }()
@@ -1628,10 +1468,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerPressedImpl($0)
+          return try! this.add_PointerPressed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerPressedImpl($0)
+         try? self?._default.remove_PointerPressed($0)
        }
       )
     }()
@@ -1641,10 +1481,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerReleasedImpl($0)
+          return try! this.add_PointerReleased($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerReleasedImpl($0)
+         try? self?._default.remove_PointerReleased($0)
        }
       )
     }()
@@ -1654,10 +1494,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerRoutedAwayImpl($0)
+          return try! this.add_PointerRoutedAway($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerRoutedAwayImpl($0)
+         try? self?._default.remove_PointerRoutedAway($0)
        }
       )
     }()
@@ -1667,10 +1507,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerRoutedReleasedImpl($0)
+          return try! this.add_PointerRoutedReleased($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerRoutedReleasedImpl($0)
+         try? self?._default.remove_PointerRoutedReleased($0)
        }
       )
     }()
@@ -1680,10 +1520,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerRoutedToImpl($0)
+          return try! this.add_PointerRoutedTo($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerRoutedToImpl($0)
+         try? self?._default.remove_PointerRoutedTo($0)
        }
       )
     }()
@@ -1693,10 +1533,10 @@ public final class InputPointerSource : WinAppSDK.InputObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerWheelChangedImpl($0)
+          return try! this.add_PointerWheelChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerWheelChangedImpl($0)
+         try? self?._default.remove_PointerWheelChanged($0)
        }
       )
     }()
@@ -1720,20 +1560,14 @@ public final class InputPreTranslateKeyboardSource : WinAppSDK.InputObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputPreTranslateKeyboardSource>?) -> InputPreTranslateKeyboardSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputPreTranslateKeyboardSourceStatics: __ABI_Microsoft_UI_Input.IInputPreTranslateKeyboardSourceStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputPreTranslateKeyboardSource"))
+    private static let _IInputPreTranslateKeyboardSourceStatics: __ABI_Microsoft_UI_Input.IInputPreTranslateKeyboardSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputPreTranslateKeyboardSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputpretranslatekeyboardsource.getforisland)
-    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) -> InputPreTranslateKeyboardSource! {
-        return try! _IInputPreTranslateKeyboardSourceStatics.GetForIslandImpl(island)
+    public static func getForIsland(_ island: WinAppSDK.ContentIsland!) throws -> InputPreTranslateKeyboardSource! {
+        return try _IInputPreTranslateKeyboardSourceStatics.GetForIsland(island)
     }
 
     deinit {
@@ -1755,25 +1589,19 @@ public final class InputSystemCursor : WinAppSDK.InputCursor {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputSystemCursor>?) -> InputSystemCursor? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInputSystemCursorStatics: __ABI_Microsoft_UI_Input.IInputSystemCursorStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.InputSystemCursor"))
+    private static let _IInputSystemCursorStatics: __ABI_Microsoft_UI_Input.IInputSystemCursorStatics = try! RoGetActivationFactory("Microsoft.UI.Input.InputSystemCursor")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputsystemcursor.create)
-    public static func create(_ type: InputSystemCursorShape) -> InputSystemCursor! {
-        return try! _IInputSystemCursorStatics.CreateImpl(type)
+    public static func create(_ type: InputSystemCursorShape) throws -> InputSystemCursor! {
+        return try _IInputSystemCursorStatics.Create(type)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputsystemcursor.cursorshape)
     public var cursorShape : InputSystemCursorShape {
-        get { try! _default.get_CursorShapeImpl() }
+        get { try! _default.get_CursorShape() }
     }
 
     deinit {
@@ -1795,35 +1623,29 @@ public final class KeyEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIKeyEventArgs>?) -> KeyEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.keyeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.keyeventargs.keystatus)
     public var keyStatus : PhysicalKeyStatus {
-        get { try! _default.get_KeyStatusImpl() }
+        get { try! _default.get_KeyStatus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.keyeventargs.timestamp)
     public var timestamp : UInt64 {
-        get { try! _default.get_TimestampImpl() }
+        get { try! _default.get_Timestamp() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.keyeventargs.virtualkey)
     public var virtualKey : UWP.VirtualKey {
-        get { try! _default.get_VirtualKeyImpl() }
+        get { try! _default.get_VirtualKey() }
     }
 
     deinit {
@@ -1845,34 +1667,28 @@ public final class ManipulationCompletedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIManipulationCompletedEventArgs>?) -> ManipulationCompletedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationcompletedeventargs.cumulative)
     public var cumulative : ManipulationDelta {
-        get { try! _default.get_CumulativeImpl() }
+        get { try! _default.get_Cumulative() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationcompletedeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationcompletedeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationcompletedeventargs.velocities)
     public var velocities : ManipulationVelocities {
-        get { try! _default.get_VelocitiesImpl() }
+        get { try! _default.get_Velocities() }
     }
 
     deinit {
@@ -1894,39 +1710,33 @@ public final class ManipulationInertiaStartingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIManipulationInertiaStartingEventArgs>?) -> ManipulationInertiaStartingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationinertiastartingeventargs.cumulative)
     public var cumulative : ManipulationDelta {
-        get { try! _default.get_CumulativeImpl() }
+        get { try! _default.get_Cumulative() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationinertiastartingeventargs.delta)
     public var delta : ManipulationDelta {
-        get { try! _default.get_DeltaImpl() }
+        get { try! _default.get_Delta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationinertiastartingeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationinertiastartingeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationinertiastartingeventargs.velocities)
     public var velocities : ManipulationVelocities {
-        get { try! _default.get_VelocitiesImpl() }
+        get { try! _default.get_Velocities() }
     }
 
     deinit {
@@ -1948,29 +1758,23 @@ public final class ManipulationStartedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIManipulationStartedEventArgs>?) -> ManipulationStartedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationstartedeventargs.cumulative)
     public var cumulative : ManipulationDelta {
-        get { try! _default.get_CumulativeImpl() }
+        get { try! _default.get_Cumulative() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationstartedeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationstartedeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     deinit {
@@ -1992,39 +1796,33 @@ public final class ManipulationUpdatedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIManipulationUpdatedEventArgs>?) -> ManipulationUpdatedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationupdatedeventargs.cumulative)
     public var cumulative : ManipulationDelta {
-        get { try! _default.get_CumulativeImpl() }
+        get { try! _default.get_Cumulative() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationupdatedeventargs.delta)
     public var delta : ManipulationDelta {
-        get { try! _default.get_DeltaImpl() }
+        get { try! _default.get_Delta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationupdatedeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationupdatedeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationupdatedeventargs.velocities)
     public var velocities : ManipulationVelocities {
-        get { try! _default.get_VelocitiesImpl() }
+        get { try! _default.get_Velocities() }
     }
 
     deinit {
@@ -2046,38 +1844,32 @@ public final class MouseWheelParameters : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters>?) -> MouseWheelParameters? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.mousewheelparameters.chartranslation)
     public var charTranslation : WindowsFoundation.Point {
-        get { try! _default.get_CharTranslationImpl() }
-        set { try! _default.put_CharTranslationImpl(newValue) }
+        get { try! _default.get_CharTranslation() }
+        set { try! _default.put_CharTranslation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.mousewheelparameters.deltarotationangle)
     public var deltaRotationAngle : Float {
-        get { try! _default.get_DeltaRotationAngleImpl() }
-        set { try! _default.put_DeltaRotationAngleImpl(newValue) }
+        get { try! _default.get_DeltaRotationAngle() }
+        set { try! _default.put_DeltaRotationAngle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.mousewheelparameters.deltascale)
     public var deltaScale : Float {
-        get { try! _default.get_DeltaScaleImpl() }
-        set { try! _default.put_DeltaScaleImpl(newValue) }
+        get { try! _default.get_DeltaScale() }
+        set { try! _default.put_DeltaScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.mousewheelparameters.pagetranslation)
     public var pageTranslation : WindowsFoundation.Point {
-        get { try! _default.get_PageTranslationImpl() }
-        set { try! _default.put_PageTranslationImpl(newValue) }
+        get { try! _default.get_PageTranslation() }
+        set { try! _default.put_PageTranslation(newValue) }
     }
 
     deinit {
@@ -2099,24 +1891,18 @@ public final class NonClientCaptionTappedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CINonClientCaptionTappedEventArgs>?) -> NonClientCaptionTappedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.nonclientcaptiontappedeventargs.point)
     public var point : WindowsFoundation.Point {
-        get { try! _default.get_PointImpl() }
+        get { try! _default.get_Point() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.nonclientcaptiontappedeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     deinit {
@@ -2138,34 +1924,28 @@ public final class NonClientPointerEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CINonClientPointerEventArgs>?) -> NonClientPointerEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.nonclientpointereventargs.ispointinregion)
     public var isPointInRegion : Bool {
-        get { try! _default.get_IsPointInRegionImpl() }
+        get { try! _default.get_IsPointInRegion() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.nonclientpointereventargs.point)
     public var point : WindowsFoundation.Point {
-        get { try! _default.get_PointImpl() }
+        get { try! _default.get_Point() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.nonclientpointereventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.nonclientpointereventargs.regionkind)
     public var regionKind : NonClientRegionKind {
-        get { try! _default.get_RegionKindImpl() }
+        get { try! _default.get_RegionKind() }
     }
 
     deinit {
@@ -2187,14 +1967,13 @@ public final class NonClientRegionsChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CINonClientRegionsChangedEventArgs>?) -> NonClientRegionsChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.nonclientregionschangedeventargs.changedregions)
+    public var changedRegions : [NonClientRegionKind] {
+        get { try! _default.get_ChangedRegions() }
     }
 
     deinit {
@@ -2216,40 +1995,34 @@ public final class PointerEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIPointerEventArgs>?) -> PointerEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointereventargs.getintermediatepoints)
     public func getIntermediatePoints() throws -> WindowsFoundation.AnyIVector<PointerPoint?>! {
-        try _default.GetIntermediatePointsImpl()
+        try _default.GetIntermediatePoints()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointereventargs.getintermediatetransformedpoints)
     public func getIntermediateTransformedPoints(_ transform: AnyIPointerPointTransform!) throws -> WindowsFoundation.AnyIVector<PointerPoint?>! {
-        try _default.GetIntermediateTransformedPointsImpl(transform)
+        try _default.GetIntermediateTransformedPoints(transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointereventargs.currentpoint)
     public var currentPoint : PointerPoint! {
-        get { try! _default.get_CurrentPointImpl() }
+        get { try! _default.get_CurrentPoint() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointereventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointereventargs.keymodifiers)
     public var keyModifiers : UWP.VirtualKeyModifiers {
-        get { try! _default.get_KeyModifiersImpl() }
+        get { try! _default.get_KeyModifiers() }
     }
 
     deinit {
@@ -2271,54 +2044,48 @@ public final class PointerPoint : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint>?) -> PointerPoint? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint.gettransformedpoint)
     public func getTransformedPoint(_ transform: AnyIPointerPointTransform!) throws -> PointerPoint! {
-        try _default.GetTransformedPointImpl(transform)
+        try _default.GetTransformedPoint(transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint.frameid)
     public var frameId : UInt32 {
-        get { try! _default.get_FrameIdImpl() }
+        get { try! _default.get_FrameId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint.isincontact)
     public var isInContact : Bool {
-        get { try! _default.get_IsInContactImpl() }
+        get { try! _default.get_IsInContact() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint.pointerid)
     public var pointerId : UInt32 {
-        get { try! _default.get_PointerIdImpl() }
+        get { try! _default.get_PointerId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint.properties)
     public var properties : PointerPointProperties! {
-        get { try! _default.get_PropertiesImpl() }
+        get { try! _default.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint.timestamp)
     public var timestamp : UInt64 {
-        get { try! _default.get_TimestampImpl() }
+        get { try! _default.get_Timestamp() }
     }
 
     deinit {
@@ -2340,119 +2107,113 @@ public final class PointerPointProperties : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties>?) -> PointerPointProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.contactrect)
     public var contactRect : WindowsFoundation.Rect {
-        get { try! _default.get_ContactRectImpl() }
+        get { try! _default.get_ContactRect() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.isbarrelbuttonpressed)
     public var isBarrelButtonPressed : Bool {
-        get { try! _default.get_IsBarrelButtonPressedImpl() }
+        get { try! _default.get_IsBarrelButtonPressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.iscanceled)
     public var isCanceled : Bool {
-        get { try! _default.get_IsCanceledImpl() }
+        get { try! _default.get_IsCanceled() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.iseraser)
     public var isEraser : Bool {
-        get { try! _default.get_IsEraserImpl() }
+        get { try! _default.get_IsEraser() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.ishorizontalmousewheel)
     public var isHorizontalMouseWheel : Bool {
-        get { try! _default.get_IsHorizontalMouseWheelImpl() }
+        get { try! _default.get_IsHorizontalMouseWheel() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.isinrange)
     public var isInRange : Bool {
-        get { try! _default.get_IsInRangeImpl() }
+        get { try! _default.get_IsInRange() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.isinverted)
     public var isInverted : Bool {
-        get { try! _default.get_IsInvertedImpl() }
+        get { try! _default.get_IsInverted() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.isleftbuttonpressed)
     public var isLeftButtonPressed : Bool {
-        get { try! _default.get_IsLeftButtonPressedImpl() }
+        get { try! _default.get_IsLeftButtonPressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.ismiddlebuttonpressed)
     public var isMiddleButtonPressed : Bool {
-        get { try! _default.get_IsMiddleButtonPressedImpl() }
+        get { try! _default.get_IsMiddleButtonPressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.isprimary)
     public var isPrimary : Bool {
-        get { try! _default.get_IsPrimaryImpl() }
+        get { try! _default.get_IsPrimary() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.isrightbuttonpressed)
     public var isRightButtonPressed : Bool {
-        get { try! _default.get_IsRightButtonPressedImpl() }
+        get { try! _default.get_IsRightButtonPressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.isxbutton1pressed)
     public var isXButton1Pressed : Bool {
-        get { try! _default.get_IsXButton1PressedImpl() }
+        get { try! _default.get_IsXButton1Pressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.isxbutton2pressed)
     public var isXButton2Pressed : Bool {
-        get { try! _default.get_IsXButton2PressedImpl() }
+        get { try! _default.get_IsXButton2Pressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.mousewheeldelta)
     public var mouseWheelDelta : Int32 {
-        get { try! _default.get_MouseWheelDeltaImpl() }
+        get { try! _default.get_MouseWheelDelta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.orientation)
     public var orientation : Float {
-        get { try! _default.get_OrientationImpl() }
+        get { try! _default.get_Orientation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.pointerupdatekind)
     public var pointerUpdateKind : PointerUpdateKind {
-        get { try! _default.get_PointerUpdateKindImpl() }
+        get { try! _default.get_PointerUpdateKind() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.pressure)
     public var pressure : Float {
-        get { try! _default.get_PressureImpl() }
+        get { try! _default.get_Pressure() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.touchconfidence)
     public var touchConfidence : Bool {
-        get { try! _default.get_TouchConfidenceImpl() }
+        get { try! _default.get_TouchConfidence() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.twist)
     public var twist : Float {
-        get { try! _default.get_TwistImpl() }
+        get { try! _default.get_Twist() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.xtilt)
     public var xtilt : Float {
-        get { try! _default.get_XTiltImpl() }
+        get { try! _default.get_XTilt() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.ytilt)
     public var ytilt : Float {
-        get { try! _default.get_YTiltImpl() }
+        get { try! _default.get_YTilt() }
     }
 
     deinit {
@@ -2474,12 +2235,6 @@ public final class PointerPredictor : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIPointerPredictor>?) -> PointerPredictor? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2487,22 +2242,27 @@ public final class PointerPredictor : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IPointerPredictorStatics: __ABI_Microsoft_UI_Input.IPointerPredictorStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Input.PointerPredictor"))
+    private static let _IPointerPredictorStatics: __ABI_Microsoft_UI_Input.IPointerPredictorStatics = try! RoGetActivationFactory("Microsoft.UI.Input.PointerPredictor")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpredictor.createforinputpointersource)
-    public static func createForInputPointerSource(_ inputPointerSource: InputPointerSource!) -> PointerPredictor! {
-        return try! _IPointerPredictorStatics.CreateForInputPointerSourceImpl(inputPointerSource)
+    public static func createForInputPointerSource(_ inputPointerSource: InputPointerSource!) throws -> PointerPredictor! {
+        return try _IPointerPredictorStatics.CreateForInputPointerSource(inputPointerSource)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpredictor.getpredictedpoints)
+    public func getPredictedPoints(_ point: PointerPoint!) throws -> [PointerPoint?] {
+        try _default.GetPredictedPoints(point)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpredictor.predictiontime)
     public var predictionTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_PredictionTimeImpl() }
-        set { try! _default.put_PredictionTimeImpl(newValue) }
+        get { try! _default.get_PredictionTime() }
+        set { try! _default.put_PredictionTime(newValue) }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpredictor.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     deinit {
@@ -2525,24 +2285,18 @@ public final class RightTappedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIRightTappedEventArgs>?) -> RightTappedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.righttappedeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.righttappedeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     deinit {
@@ -2564,29 +2318,23 @@ public final class TappedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs>?) -> TappedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.tappedeventargs.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.tappedeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.tappedeventargs.tapcount)
     public var tapCount : UInt32 {
-        get { try! _default.get_TapCountImpl() }
+        get { try! _default.get_TapCount() }
     }
 
     deinit {
@@ -2595,7 +2343,7 @@ public final class TappedEventArgs : WinRTClass {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.crossslidethresholds)
-public struct CrossSlideThresholds: Hashable, Codable {
+public struct CrossSlideThresholds: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.crossslidethresholds.selectionstart)
     public var selectionStart: Float = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.crossslidethresholds.speedbumpstart)
@@ -2611,13 +2359,10 @@ public struct CrossSlideThresholds: Hashable, Codable {
         self.speedBumpEnd = speedBumpEnd
         self.rearrangeStart = rearrangeStart
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CInput_CCrossSlideThresholds) -> CrossSlideThresholds {
-        .init(selectionStart: abi.SelectionStart, speedBumpStart: abi.SpeedBumpStart, speedBumpEnd: abi.SpeedBumpEnd, rearrangeStart: abi.RearrangeStart)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationdelta)
-public struct ManipulationDelta: Hashable, Codable {
+public struct ManipulationDelta: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationdelta.translation)
     public var translation: WindowsFoundation.Point = .init()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationdelta.scale)
@@ -2633,13 +2378,10 @@ public struct ManipulationDelta: Hashable, Codable {
         self.rotation = rotation
         self.expansion = expansion
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta) -> ManipulationDelta {
-        .init(translation: .from(abi: abi.Translation), scale: abi.Scale, rotation: abi.Rotation, expansion: abi.Expansion)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationvelocities)
-public struct ManipulationVelocities: Hashable, Codable {
+public struct ManipulationVelocities: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationvelocities.linear)
     public var linear: WindowsFoundation.Point = .init()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.manipulationvelocities.angular)
@@ -2652,13 +2394,10 @@ public struct ManipulationVelocities: Hashable, Codable {
         self.angular = angular
         self.expansion = expansion
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CInput_CManipulationVelocities) -> ManipulationVelocities {
-        .init(linear: .from(abi: abi.Linear), angular: abi.Angular, expansion: abi.Expansion)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.physicalkeystatus)
-public struct PhysicalKeyStatus: Hashable, Codable {
+public struct PhysicalKeyStatus: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.physicalkeystatus.repeatcount)
     public var repeatCount: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.physicalkeystatus.scancode)
@@ -2679,9 +2418,6 @@ public struct PhysicalKeyStatus: Hashable, Codable {
         self.isMenuKeyDown = isMenuKeyDown
         self.wasKeyDown = wasKeyDown
         self.isKeyReleased = isKeyReleased
-    }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CInput_CPhysicalKeyStatus) -> PhysicalKeyStatus {
-        .init(repeatCount: abi.RepeatCount, scanCode: abi.ScanCode, isExtendedKey: .init(from: abi.IsExtendedKey), isMenuKeyDown: .init(from: abi.IsMenuKeyDown), wasKeyDown: .init(from: abi.WasKeyDown), isKeyReleased: .init(from: abi.IsKeyReleased))
     }
 }
 
@@ -2730,7 +2466,7 @@ extension WinAppSDK.CrossSlidingState {
         __x_ABI_CMicrosoft_CUI_CInput_CCrossSlidingState_Completed
     }
 }
-extension WinAppSDK.CrossSlidingState: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CrossSlidingState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.DraggingState {
     public static var started : WinAppSDK.DraggingState {
@@ -2743,7 +2479,7 @@ extension WinAppSDK.DraggingState {
         __x_ABI_CMicrosoft_CUI_CInput_CDraggingState_Completed
     }
 }
-extension WinAppSDK.DraggingState: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.DraggingState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.FocusNavigationReason {
     public static var programmatic : WinAppSDK.FocusNavigationReason {
@@ -2771,7 +2507,7 @@ extension WinAppSDK.FocusNavigationReason {
         __x_ABI_CMicrosoft_CUI_CInput_CFocusNavigationReason_Down
     }
 }
-extension WinAppSDK.FocusNavigationReason: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.FocusNavigationReason: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.FocusNavigationResult {
     public static var notMoved : WinAppSDK.FocusNavigationResult {
@@ -2784,7 +2520,7 @@ extension WinAppSDK.FocusNavigationResult {
         __x_ABI_CMicrosoft_CUI_CInput_CFocusNavigationResult_NoFocusableElements
     }
 }
-extension WinAppSDK.FocusNavigationResult: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.FocusNavigationResult: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.GestureSettings {
     public static var none : WinAppSDK.GestureSettings {
@@ -2842,7 +2578,7 @@ extension WinAppSDK.GestureSettings {
         __x_ABI_CMicrosoft_CUI_CInput_CGestureSettings_ManipulationMultipleFingerPanning
     }
 }
-extension WinAppSDK.GestureSettings: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.GestureSettings: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.HoldingState {
     public static var started : WinAppSDK.HoldingState {
@@ -2855,7 +2591,7 @@ extension WinAppSDK.HoldingState {
         __x_ABI_CMicrosoft_CUI_CInput_CHoldingState_Canceled
     }
 }
-extension WinAppSDK.HoldingState: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.HoldingState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.InputActivationState {
     public static var none : WinAppSDK.InputActivationState {
@@ -2868,7 +2604,7 @@ extension WinAppSDK.InputActivationState {
         __x_ABI_CMicrosoft_CUI_CInput_CInputActivationState_Activated
     }
 }
-extension WinAppSDK.InputActivationState: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.InputActivationState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.InputPointerSourceDeviceKinds {
     public static var none : WinAppSDK.InputPointerSourceDeviceKinds {
@@ -2884,7 +2620,7 @@ extension WinAppSDK.InputPointerSourceDeviceKinds {
         __x_ABI_CMicrosoft_CUI_CInput_CInputPointerSourceDeviceKinds_Mouse
     }
 }
-extension WinAppSDK.InputPointerSourceDeviceKinds: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.InputPointerSourceDeviceKinds: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.InputSystemCursorShape {
     public static var arrow : WinAppSDK.InputSystemCursorShape {
@@ -2936,7 +2672,7 @@ extension WinAppSDK.InputSystemCursorShape {
         __x_ABI_CMicrosoft_CUI_CInput_CInputSystemCursorShape_AppStarting
     }
 }
-extension WinAppSDK.InputSystemCursorShape: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.InputSystemCursorShape: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.NonClientRegionKind {
     public static var close : WinAppSDK.NonClientRegionKind {
@@ -2970,7 +2706,7 @@ extension WinAppSDK.NonClientRegionKind {
         __x_ABI_CMicrosoft_CUI_CInput_CNonClientRegionKind_Passthrough
     }
 }
-extension WinAppSDK.NonClientRegionKind: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.NonClientRegionKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.PointerDeviceType {
     public static var touch : WinAppSDK.PointerDeviceType {
@@ -2986,7 +2722,7 @@ extension WinAppSDK.PointerDeviceType {
         __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType_Touchpad
     }
 }
-extension WinAppSDK.PointerDeviceType: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.PointerDeviceType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.PointerUpdateKind {
     public static var other : WinAppSDK.PointerUpdateKind {
@@ -3023,7 +2759,7 @@ extension WinAppSDK.PointerUpdateKind {
         __x_ABI_CMicrosoft_CUI_CInput_CPointerUpdateKind_XButton2Released
     }
 }
-extension WinAppSDK.PointerUpdateKind: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.PointerUpdateKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.VirtualKeyStates {
     public static var none : WinAppSDK.VirtualKeyStates {
@@ -3036,5 +2772,5 @@ extension WinAppSDK.VirtualKeyStates {
         __x_ABI_CMicrosoft_CUI_CInput_CVirtualKeyStates_Locked
     }
 }
-extension WinAppSDK.VirtualKeyStates: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.VirtualKeyStates: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

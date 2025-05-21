@@ -4,43 +4,34 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
-public typealias ClosableNotifierHandler = () -> ()
+public typealias ClosableNotifierHandler = () throws -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.displayid)
-public struct DisplayId: Hashable, Codable {
+public struct DisplayId: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.displayid.value)
     public var value: UInt64 = 0
     public init() {}
     public init(value: UInt64) {
         self.value = value
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CDisplayId) -> DisplayId {
-        .init(value: abi.Value)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.iconid)
-public struct IconId: Hashable, Codable {
+public struct IconId: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.iconid.value)
     public var value: UInt64 = 0
     public init() {}
     public init(value: UInt64) {
         self.value = value
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CIconId) -> IconId {
-        .init(value: abi.Value)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowid)
-public struct WindowId: Hashable, Codable {
+public struct WindowId: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowid.value)
     public var value: UInt64 = 0
     public init() {}
     public init(value: UInt64) {
         self.value = value
-    }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CWindowId) -> WindowId {
-        .init(value: abi.Value)
     }
 }
 
@@ -55,9 +46,9 @@ public protocol IClosableNotifier : WinRTInterface {
 }
 
 public extension EventSource where Handler == ClosableNotifierHandler {
-    func invoke() {
+    func invoke() throws {
         for handler in getInvocationList() {
-            handler()
+            try handler()
         }
     }
 }

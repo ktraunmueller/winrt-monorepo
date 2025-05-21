@@ -61,27 +61,21 @@ public final class AmbientLight : WinAppSDK.CompositionLight {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIAmbientLight>?) -> AmbientLight? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.ambientlight.color)
     public var color : UWP.Color {
-        get { try! _default.get_ColorImpl() }
-        set { try! _default.put_ColorImpl(newValue) }
+        get { try! _default.get_Color() }
+        set { try! _default.put_Color(newValue) }
     }
 
     private lazy var _IAmbientLight2: __ABI_Microsoft_UI_Composition.IAmbientLight2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.ambientlight.intensity)
     public var intensity : Float {
-        get { try! _IAmbientLight2.get_IntensityImpl() }
-        set { try! _IAmbientLight2.put_IntensityImpl(newValue) }
+        get { try! _IAmbientLight2.get_Intensity() }
+        set { try! _IAmbientLight2.put_Intensity(newValue) }
     }
 
     deinit {
@@ -104,53 +98,47 @@ public final class AnimationController : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController>?) -> AnimationController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IAnimationControllerStatics: __ABI_Microsoft_UI_Composition.IAnimationControllerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.AnimationController"))
+    private static let _IAnimationControllerStatics: __ABI_Microsoft_UI_Composition.IAnimationControllerStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.AnimationController")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationcontroller.maxplaybackrate)
     public static var maxPlaybackRate : Float {
-        get { try! _IAnimationControllerStatics.get_MaxPlaybackRateImpl() }
+        get { try! _IAnimationControllerStatics.get_MaxPlaybackRate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationcontroller.minplaybackrate)
     public static var minPlaybackRate : Float {
-        get { try! _IAnimationControllerStatics.get_MinPlaybackRateImpl() }
+        get { try! _IAnimationControllerStatics.get_MinPlaybackRate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationcontroller.pause)
     public func pause() throws {
-        try _default.PauseImpl()
+        try _default.Pause()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationcontroller.resume)
     public func resume() throws {
-        try _default.ResumeImpl()
+        try _default.Resume()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationcontroller.playbackrate)
     public var playbackRate : Float {
-        get { try! _default.get_PlaybackRateImpl() }
-        set { try! _default.put_PlaybackRateImpl(newValue) }
+        get { try! _default.get_PlaybackRate() }
+        set { try! _default.put_PlaybackRate(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationcontroller.progress)
     public var progress : Float {
-        get { try! _default.get_ProgressImpl() }
-        set { try! _default.put_ProgressImpl(newValue) }
+        get { try! _default.get_Progress() }
+        set { try! _default.put_Progress(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationcontroller.progressbehavior)
     public var progressBehavior : AnimationControllerProgressBehavior {
-        get { try! _default.get_ProgressBehaviorImpl() }
-        set { try! _default.put_ProgressBehaviorImpl(newValue) }
+        get { try! _default.get_ProgressBehavior() }
+        set { try! _default.put_ProgressBehavior(newValue) }
     }
 
     deinit {
@@ -172,31 +160,25 @@ public final class AnimationPropertyInfo : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIAnimationPropertyInfo>?) -> AnimationPropertyInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationpropertyinfo.accessmode)
     public var accessMode : AnimationPropertyAccessMode {
-        get { try! _default.get_AccessModeImpl() }
-        set { try! _default.put_AccessModeImpl(newValue) }
+        get { try! _default.get_AccessMode() }
+        set { try! _default.put_AccessMode(newValue) }
     }
 
     private lazy var _IAnimationPropertyInfo2: __ABI_Microsoft_UI_Composition.IAnimationPropertyInfo2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationpropertyinfo.getresolvedcompositionobject)
     public func getResolvedCompositionObject() throws -> CompositionObject! {
-        try _IAnimationPropertyInfo2.GetResolvedCompositionObjectImpl()
+        try _IAnimationPropertyInfo2.GetResolvedCompositionObject()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.animationpropertyinfo.getresolvedcompositionobjectproperty)
     public func getResolvedCompositionObjectProperty() throws -> String {
-        try _IAnimationPropertyInfo2.GetResolvedCompositionObjectPropertyImpl()
+        try _IAnimationPropertyInfo2.GetResolvedCompositionObjectProperty()
     }
 
     deinit {
@@ -219,24 +201,18 @@ public final class BackEasingFunction : WinAppSDK.CompositionEasingFunction {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBackEasingFunction>?) -> BackEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.backeasingfunction.amplitude)
     public var amplitude : Float {
-        get { try! _default.get_AmplitudeImpl() }
+        get { try! _default.get_Amplitude() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.backeasingfunction.mode)
     public var mode : CompositionEasingFunctionMode {
-        get { try! _default.get_ModeImpl() }
+        get { try! _default.get_Mode() }
     }
 
     deinit {
@@ -258,19 +234,13 @@ public final class BooleanKeyFrameAnimation : WinAppSDK.KeyFrameAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBooleanKeyFrameAnimation>?) -> BooleanKeyFrameAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.booleankeyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: Bool) throws {
-        try _default.InsertKeyFrameImpl(normalizedProgressKey, value)
+        try _default.InsertKeyFrame(normalizedProgressKey, value)
     }
 
     deinit {
@@ -292,29 +262,23 @@ public final class BounceEasingFunction : WinAppSDK.CompositionEasingFunction {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBounceEasingFunction>?) -> BounceEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.bounceeasingfunction.bounces)
     public var bounces : Int32 {
-        get { try! _default.get_BouncesImpl() }
+        get { try! _default.get_Bounces() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.bounceeasingfunction.bounciness)
     public var bounciness : Float {
-        get { try! _default.get_BouncinessImpl() }
+        get { try! _default.get_Bounciness() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.bounceeasingfunction.mode)
     public var mode : CompositionEasingFunctionMode {
-        get { try! _default.get_ModeImpl() }
+        get { try! _default.get_Mode() }
     }
 
     deinit {
@@ -336,26 +300,20 @@ public final class BounceScalarNaturalMotionAnimation : WinAppSDK.ScalarNaturalM
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBounceScalarNaturalMotionAnimation>?) -> BounceScalarNaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.bouncescalarnaturalmotionanimation.acceleration)
     public var acceleration : Float {
-        get { try! _default.get_AccelerationImpl() }
-        set { try! _default.put_AccelerationImpl(newValue) }
+        get { try! _default.get_Acceleration() }
+        set { try! _default.put_Acceleration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.bouncescalarnaturalmotionanimation.restitution)
     public var restitution : Float {
-        get { try! _default.get_RestitutionImpl() }
-        set { try! _default.put_RestitutionImpl(newValue) }
+        get { try! _default.get_Restitution() }
+        set { try! _default.put_Restitution(newValue) }
     }
 
     deinit {
@@ -377,26 +335,20 @@ public final class BounceVector2NaturalMotionAnimation : WinAppSDK.Vector2Natura
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector2NaturalMotionAnimation>?) -> BounceVector2NaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.bouncevector2naturalmotionanimation.acceleration)
     public var acceleration : Float {
-        get { try! _default.get_AccelerationImpl() }
-        set { try! _default.put_AccelerationImpl(newValue) }
+        get { try! _default.get_Acceleration() }
+        set { try! _default.put_Acceleration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.bouncevector2naturalmotionanimation.restitution)
     public var restitution : Float {
-        get { try! _default.get_RestitutionImpl() }
-        set { try! _default.put_RestitutionImpl(newValue) }
+        get { try! _default.get_Restitution() }
+        set { try! _default.put_Restitution(newValue) }
     }
 
     deinit {
@@ -418,26 +370,20 @@ public final class BounceVector3NaturalMotionAnimation : WinAppSDK.Vector3Natura
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector3NaturalMotionAnimation>?) -> BounceVector3NaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.bouncevector3naturalmotionanimation.acceleration)
     public var acceleration : Float {
-        get { try! _default.get_AccelerationImpl() }
-        set { try! _default.put_AccelerationImpl(newValue) }
+        get { try! _default.get_Acceleration() }
+        set { try! _default.put_Acceleration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.bouncevector3naturalmotionanimation.restitution)
     public var restitution : Float {
-        get { try! _default.get_RestitutionImpl() }
-        set { try! _default.put_RestitutionImpl(newValue) }
+        get { try! _default.get_Restitution() }
+        set { try! _default.put_Restitution(newValue) }
     }
 
     deinit {
@@ -459,19 +405,13 @@ public final class CircleEasingFunction : WinAppSDK.CompositionEasingFunction {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICircleEasingFunction>?) -> CircleEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.circleeasingfunction.mode)
     public var mode : CompositionEasingFunctionMode {
-        get { try! _default.get_ModeImpl() }
+        get { try! _default.get_Mode() }
     }
 
     deinit {
@@ -493,30 +433,24 @@ public final class ColorKeyFrameAnimation : WinAppSDK.KeyFrameAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIColorKeyFrameAnimation>?) -> ColorKeyFrameAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.colorkeyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: UWP.Color) throws {
-        try _default.InsertKeyFrameImpl(normalizedProgressKey, value)
+        try _default.InsertKeyFrame(normalizedProgressKey, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.colorkeyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: UWP.Color, _ easingFunction: CompositionEasingFunction!) throws {
-        try _default.InsertKeyFrameWithEasingFunctionImpl(normalizedProgressKey, value, easingFunction)
+        try _default.InsertKeyFrameWithEasingFunction(normalizedProgressKey, value, easingFunction)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.colorkeyframeanimation.interpolationcolorspace)
     public var interpolationColorSpace : CompositionColorSpace {
-        get { try! _default.get_InterpolationColorSpaceImpl() }
-        set { try! _default.put_InterpolationColorSpaceImpl(newValue) }
+        get { try! _default.get_InterpolationColorSpace() }
+        set { try! _default.put_InterpolationColorSpace(newValue) }
     }
 
     deinit {
@@ -538,12 +472,6 @@ open class CompositionAnimation : WinAppSDK.CompositionObject, ICompositionAnima
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation>?) -> CompositionAnimation? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -558,99 +486,88 @@ open class CompositionAnimation : WinAppSDK.CompositionObject, ICompositionAnima
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionAnimationFactory : __ABI_Microsoft_UI_Composition.ICompositionAnimationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionAnimation"))
+    private static var _ICompositionAnimationFactory : __ABI_Microsoft_UI_Composition.ICompositionAnimationFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.clearallparameters)
     public func clearAllParameters() throws {
-        try _default.ClearAllParametersImpl()
+        try _default.ClearAllParameters()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.clearparameter)
     public func clearParameter(_ key: String) throws {
-        try _default.ClearParameterImpl(key)
+        try _default.ClearParameter(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setcolorparameter)
     public func setColorParameter(_ key: String, _ value: UWP.Color) throws {
-        try _default.SetColorParameterImpl(key, value)
+        try _default.SetColorParameter(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setmatrix3x2parameter)
     public func setMatrix3x2Parameter(_ key: String, _ value: WindowsFoundation.Matrix3x2) throws {
-        try _default.SetMatrix3x2ParameterImpl(key, value)
+        try _default.SetMatrix3x2Parameter(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setmatrix4x4parameter)
     public func setMatrix4x4Parameter(_ key: String, _ value: WindowsFoundation.Matrix4x4) throws {
-        try _default.SetMatrix4x4ParameterImpl(key, value)
+        try _default.SetMatrix4x4Parameter(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setquaternionparameter)
     public func setQuaternionParameter(_ key: String, _ value: WindowsFoundation.Quaternion) throws {
-        try _default.SetQuaternionParameterImpl(key, value)
+        try _default.SetQuaternionParameter(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setreferenceparameter)
     public func setReferenceParameter(_ key: String, _ compositionObject: CompositionObject!) throws {
-        try _default.SetReferenceParameterImpl(key, compositionObject)
+        try _default.SetReferenceParameter(key, compositionObject)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setscalarparameter)
     public func setScalarParameter(_ key: String, _ value: Float) throws {
-        try _default.SetScalarParameterImpl(key, value)
+        try _default.SetScalarParameter(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setvector2parameter)
     public func setVector2Parameter(_ key: String, _ value: WindowsFoundation.Vector2) throws {
-        try _default.SetVector2ParameterImpl(key, value)
+        try _default.SetVector2Parameter(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setvector3parameter)
     public func setVector3Parameter(_ key: String, _ value: WindowsFoundation.Vector3) throws {
-        try _default.SetVector3ParameterImpl(key, value)
+        try _default.SetVector3Parameter(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setvector4parameter)
     public func setVector4Parameter(_ key: String, _ value: WindowsFoundation.Vector4) throws {
-        try _default.SetVector4ParameterImpl(key, value)
+        try _default.SetVector4Parameter(key, value)
     }
 
     private lazy var _ICompositionAnimation2: __ABI_Microsoft_UI_Composition.ICompositionAnimation2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setbooleanparameter)
     public func setBooleanParameter(_ key: String, _ value: Bool) throws {
-        try _ICompositionAnimation2.SetBooleanParameterImpl(key, value)
+        try _ICompositionAnimation2.SetBooleanParameter(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.target)
     public var target : String {
-        get { try! _ICompositionAnimation2.get_TargetImpl() }
-        set { try! _ICompositionAnimation2.put_TargetImpl(newValue) }
+        get { try! _ICompositionAnimation2.get_Target() }
+        set { try! _ICompositionAnimation2.put_Target(newValue) }
     }
 
     private lazy var _ICompositionAnimation3: __ABI_Microsoft_UI_Composition.ICompositionAnimation3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.initialvalueexpressions)
     public var initialValueExpressions : InitialValueExpressionCollection! {
-        get { try! _ICompositionAnimation3.get_InitialValueExpressionsImpl() }
+        get { try! _ICompositionAnimation3.get_InitialValueExpressions() }
     }
 
     private lazy var _ICompositionAnimation4: __ABI_Microsoft_UI_Composition.ICompositionAnimation4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimation.setexpressionreferenceparameter)
     public func setExpressionReferenceParameter(_ parameterName: String, _ source: AnyIAnimationObject!) throws {
-        try _ICompositionAnimation4.SetExpressionReferenceParameterImpl(parameterName, source)
+        try _ICompositionAnimation4.SetExpressionReferenceParameter(parameterName, source)
     }
 
     private lazy var _ICompositionAnimationBase: __ABI_Microsoft_UI_Composition.ICompositionAnimationBase! = getInterfaceForCaching()
-    internal enum ICompositionAnimation : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionAnimation
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionAnimation
-        }
-    }
-    internal typealias Composable = ICompositionAnimation
     deinit {
         _default = nil
         _ICompositionAnimation2 = nil
@@ -675,12 +592,6 @@ public final class CompositionAnimationGroup : WinAppSDK.CompositionObject, IIte
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimationGroup>?) -> CompositionAnimationGroup? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -690,28 +601,28 @@ public final class CompositionAnimationGroup : WinAppSDK.CompositionObject, IIte
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimationgroup.add)
     public func add(_ value: CompositionAnimation!) throws {
-        try _default.AddImpl(value)
+        try _default.Add(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimationgroup.remove)
     public func remove(_ value: CompositionAnimation!) throws {
-        try _default.RemoveImpl(value)
+        try _default.Remove(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimationgroup.removeall)
     public func removeAll() throws {
-        try _default.RemoveAllImpl()
+        try _default.RemoveAll()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimationgroup.count)
     public var count : Int32 {
-        get { try! _default.get_CountImpl() }
+        get { try! _default.get_Count() }
     }
 
     private lazy var _IIterable: IIterableCompositionAnimation! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionanimationgroup.first)
     public func first() -> WindowsFoundation.AnyIIterator<CompositionAnimation?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _ICompositionAnimationBase: __ABI_Microsoft_UI_Composition.ICompositionAnimationBase! = getInterfaceForCaching()
@@ -724,10 +635,10 @@ public final class CompositionAnimationGroup : WinAppSDK.CompositionObject, IIte
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionapiinformation)
 public final class CompositionApiInformation {
-    private static let _ICompositionApiInformationStatics: __ABI_Microsoft_UI_Composition.ICompositionApiInformationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionApiInformation"))
+    private static let _ICompositionApiInformationStatics: __ABI_Microsoft_UI_Composition.ICompositionApiInformationStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionApiInformation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionapiinformation.apiversion)
     public static var apiVersion : UInt64 {
-        get { try! _ICompositionApiInformationStatics.get_ApiVersionImpl() }
+        get { try! _ICompositionApiInformationStatics.get_ApiVersion() }
     }
 
 }
@@ -743,12 +654,6 @@ public final class CompositionBackdropBrush : WinAppSDK.CompositionBrush {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionBackdropBrush>?) -> CompositionBackdropBrush? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -775,12 +680,6 @@ public final class CompositionBatchCompletedEventArgs : WinAppSDK.CompositionObj
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionBatchCompletedEventArgs>?) -> CompositionBatchCompletedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -804,12 +703,6 @@ open class CompositionBrush : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionBrush>?) -> CompositionBrush? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -824,19 +717,8 @@ open class CompositionBrush : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionBrushFactory : __ABI_Microsoft_UI_Composition.ICompositionBrushFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionBrush"))
+    private static var _ICompositionBrushFactory : __ABI_Microsoft_UI_Composition.ICompositionBrushFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionBrush")
 
-    internal enum ICompositionBrush : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionBrush
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionBrush
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionBrush
-        }
-    }
-    internal typealias Composable = ICompositionBrush
     deinit {
         _default = nil
     }
@@ -856,28 +738,23 @@ public final class CompositionCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionCapabilities>?) -> CompositionCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionCapabilities")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Composition.CompositionCapabilities")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncapabilities.areeffectssupported)
     public func areEffectsSupported() throws -> Bool {
-        try _default.AreEffectsSupportedImpl()
+        try _default.AreEffectsSupported()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncapabilities.areeffectsfast)
     public func areEffectsFast() throws -> Bool {
-        try _default.AreEffectsFastImpl()
+        try _default.AreEffectsFast()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncapabilities.changed)
@@ -885,10 +762,10 @@ public final class CompositionCapabilities : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ChangedImpl($0)
+          return try! this.add_Changed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ChangedImpl($0)
+         try? self?._default.remove_Changed($0)
        }
       )
     }()
@@ -912,12 +789,6 @@ open class CompositionClip : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip>?) -> CompositionClip? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -932,62 +803,51 @@ open class CompositionClip : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionClipFactory : __ABI_Microsoft_UI_Composition.ICompositionClipFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionClip"))
+    private static var _ICompositionClipFactory : __ABI_Microsoft_UI_Composition.ICompositionClipFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionClip")
 
     private lazy var _ICompositionClip2: __ABI_Microsoft_UI_Composition.ICompositionClip2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionclip.anchorpoint)
     public var anchorPoint : WindowsFoundation.Vector2 {
-        get { try! _ICompositionClip2.get_AnchorPointImpl() }
-        set { try! _ICompositionClip2.put_AnchorPointImpl(newValue) }
+        get { try! _ICompositionClip2.get_AnchorPoint() }
+        set { try! _ICompositionClip2.put_AnchorPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionclip.centerpoint)
     public var centerPoint : WindowsFoundation.Vector2 {
-        get { try! _ICompositionClip2.get_CenterPointImpl() }
-        set { try! _ICompositionClip2.put_CenterPointImpl(newValue) }
+        get { try! _ICompositionClip2.get_CenterPoint() }
+        set { try! _ICompositionClip2.put_CenterPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionclip.offset)
     public var offset : WindowsFoundation.Vector2 {
-        get { try! _ICompositionClip2.get_OffsetImpl() }
-        set { try! _ICompositionClip2.put_OffsetImpl(newValue) }
+        get { try! _ICompositionClip2.get_Offset() }
+        set { try! _ICompositionClip2.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionclip.rotationangle)
     public var rotationAngle : Float {
-        get { try! _ICompositionClip2.get_RotationAngleImpl() }
-        set { try! _ICompositionClip2.put_RotationAngleImpl(newValue) }
+        get { try! _ICompositionClip2.get_RotationAngle() }
+        set { try! _ICompositionClip2.put_RotationAngle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionclip.rotationangleindegrees)
     public var rotationAngleInDegrees : Float {
-        get { try! _ICompositionClip2.get_RotationAngleInDegreesImpl() }
-        set { try! _ICompositionClip2.put_RotationAngleInDegreesImpl(newValue) }
+        get { try! _ICompositionClip2.get_RotationAngleInDegrees() }
+        set { try! _ICompositionClip2.put_RotationAngleInDegrees(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionclip.scale)
     public var scale : WindowsFoundation.Vector2 {
-        get { try! _ICompositionClip2.get_ScaleImpl() }
-        set { try! _ICompositionClip2.put_ScaleImpl(newValue) }
+        get { try! _ICompositionClip2.get_Scale() }
+        set { try! _ICompositionClip2.put_Scale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionclip.transformmatrix)
     public var transformMatrix : WindowsFoundation.Matrix3x2 {
-        get { try! _ICompositionClip2.get_TransformMatrixImpl() }
-        set { try! _ICompositionClip2.put_TransformMatrixImpl(newValue) }
+        get { try! _ICompositionClip2.get_TransformMatrix() }
+        set { try! _ICompositionClip2.put_TransformMatrix(newValue) }
     }
 
-    internal enum ICompositionClip : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionClip
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionClip
-        }
-    }
-    internal typealias Composable = ICompositionClip
     deinit {
         _default = nil
         _ICompositionClip2 = nil
@@ -1008,20 +868,14 @@ public final class CompositionColorBrush : WinAppSDK.CompositionBrush {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorBrush>?) -> CompositionColorBrush? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorbrush.color)
     public var color : UWP.Color {
-        get { try! _default.get_ColorImpl() }
-        set { try! _default.put_ColorImpl(newValue) }
+        get { try! _default.get_Color() }
+        set { try! _default.put_Color(newValue) }
     }
 
     deinit {
@@ -1043,26 +897,20 @@ public final class CompositionColorGradientStop : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStop>?) -> CompositionColorGradientStop? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstop.color)
     public var color : UWP.Color {
-        get { try! _default.get_ColorImpl() }
-        set { try! _default.put_ColorImpl(newValue) }
+        get { try! _default.get_Color() }
+        set { try! _default.put_Color(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstop.offset)
     public var offset : Float {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     deinit {
@@ -1085,12 +933,6 @@ public final class CompositionColorGradientStopCollection : WinRTClass, IIterabl
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStopCollection>?) -> CompositionColorGradientStopCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1101,7 +943,7 @@ public final class CompositionColorGradientStopCollection : WinRTClass, IIterabl
     private lazy var _IIterable: IIterableCompositionColorGradientStop! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<CompositionColorGradientStop?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     // MARK: Collection
@@ -1138,52 +980,62 @@ public final class CompositionColorGradientStopCollection : WinRTClass, IIterabl
     private lazy var _IVector: IVectorCompositionColorGradientStop! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.getat)
     public func getAt(_ index: UInt32) -> CompositionColorGradientStop? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<CompositionColorGradientStop?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.indexof)
     public func indexOf(_ value: CompositionColorGradientStop?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.setat)
     public func setAt(_ index: UInt32, _ value: CompositionColorGradientStop?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.insertat)
     public func insertAt(_ index: UInt32, _ value: CompositionColorGradientStop?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.append)
     public func append(_ value: CompositionColorGradientStop?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [CompositionColorGradientStop?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.replaceall)
+    public func replaceAll(_ items: [CompositionColorGradientStop?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncolorgradientstopcollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     deinit {
@@ -1207,24 +1059,18 @@ public final class CompositionCommitBatch : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionCommitBatch>?) -> CompositionCommitBatch? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncommitbatch.isactive)
     public var isActive : Bool {
-        get { try! _default.get_IsActiveImpl() }
+        get { try! _default.get_IsActive() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncommitbatch.isended)
     public var isEnded : Bool {
-        get { try! _default.get_IsEndedImpl() }
+        get { try! _default.get_IsEnded() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncommitbatch.completed)
@@ -1232,10 +1078,10 @@ public final class CompositionCommitBatch : WinAppSDK.CompositionObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CompletedImpl($0)
+          return try! this.add_Completed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CompletedImpl($0)
+         try? self?._default.remove_Completed($0)
        }
       )
     }()
@@ -1259,19 +1105,13 @@ public final class CompositionContainerShape : WinAppSDK.CompositionShape {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionContainerShape>?) -> CompositionContainerShape? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioncontainershape.shapes)
     public var shapes : CompositionShapeCollection! {
-        get { try! _default.get_ShapesImpl() }
+        get { try! _default.get_Shapes() }
     }
 
     deinit {
@@ -1293,12 +1133,6 @@ open class CompositionDrawingSurface : WinAppSDK.CompositionObject, IComposition
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface>?) -> CompositionDrawingSurface? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1313,66 +1147,55 @@ open class CompositionDrawingSurface : WinAppSDK.CompositionObject, IComposition
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionDrawingSurfaceFactory : __ABI_Microsoft_UI_Composition.ICompositionDrawingSurfaceFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionDrawingSurface"))
+    private static var _ICompositionDrawingSurfaceFactory : __ABI_Microsoft_UI_Composition.ICompositionDrawingSurfaceFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionDrawingSurface")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiondrawingsurface.alphamode)
     public var alphaMode : WinAppSDK.DirectXAlphaMode {
-        get { try! _default.get_AlphaModeImpl() }
+        get { try! _default.get_AlphaMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiondrawingsurface.pixelformat)
     public var pixelFormat : WinAppSDK.DirectXPixelFormat {
-        get { try! _default.get_PixelFormatImpl() }
+        get { try! _default.get_PixelFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiondrawingsurface.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _ICompositionDrawingSurface2: __ABI_Microsoft_UI_Composition.ICompositionDrawingSurface2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiondrawingsurface.resize)
     public func resize(_ sizePixels: UWP.SizeInt32) throws {
-        try _ICompositionDrawingSurface2.ResizeImpl(sizePixels)
+        try _ICompositionDrawingSurface2.Resize(sizePixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiondrawingsurface.scroll)
     public func scroll(_ offset: UWP.PointInt32) throws {
-        try _ICompositionDrawingSurface2.ScrollImpl(offset)
+        try _ICompositionDrawingSurface2.Scroll(offset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiondrawingsurface.scroll)
     public func scroll(_ offset: UWP.PointInt32, _ scrollRect: UWP.RectInt32) throws {
-        try _ICompositionDrawingSurface2.ScrollRectImpl(offset, scrollRect)
+        try _ICompositionDrawingSurface2.ScrollRect(offset, scrollRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiondrawingsurface.scrollwithclip)
     public func scrollWithClip(_ offset: UWP.PointInt32, _ clipRect: UWP.RectInt32) throws {
-        try _ICompositionDrawingSurface2.ScrollWithClipImpl(offset, clipRect)
+        try _ICompositionDrawingSurface2.ScrollWithClip(offset, clipRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiondrawingsurface.scrollwithclip)
     public func scrollWithClip(_ offset: UWP.PointInt32, _ clipRect: UWP.RectInt32, _ scrollRect: UWP.RectInt32) throws {
-        try _ICompositionDrawingSurface2.ScrollRectWithClipImpl(offset, clipRect, scrollRect)
+        try _ICompositionDrawingSurface2.ScrollRectWithClip(offset, clipRect, scrollRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiondrawingsurface.sizeint32)
     public var sizeInt32 : UWP.SizeInt32 {
-        get { try! _ICompositionDrawingSurface2.get_SizeInt32Impl() }
+        get { try! _ICompositionDrawingSurface2.get_SizeInt32() }
     }
 
     private lazy var _ICompositionSurface: __ABI_Microsoft_UI_Composition.ICompositionSurface! = getInterfaceForCaching()
-    internal enum ICompositionDrawingSurface : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionDrawingSurface
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionDrawingSurface
-        }
-    }
-    internal typealias Composable = ICompositionDrawingSurface
     deinit {
         _default = nil
         _ICompositionDrawingSurface2 = nil
@@ -1394,12 +1217,6 @@ open class CompositionEasingFunction : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunction>?) -> CompositionEasingFunction? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1414,75 +1231,64 @@ open class CompositionEasingFunction : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionEasingFunctionFactory : __ABI_Microsoft_UI_Composition.ICompositionEasingFunctionFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionEasingFunction"))
+    private static var _ICompositionEasingFunctionFactory : __ABI_Microsoft_UI_Composition.ICompositionEasingFunctionFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionEasingFunction")
 
-    private static let _ICompositionEasingFunctionStatics: __ABI_Microsoft_UI_Composition.ICompositionEasingFunctionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionEasingFunction"))
+    private static let _ICompositionEasingFunctionStatics: __ABI_Microsoft_UI_Composition.ICompositionEasingFunctionStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionEasingFunction")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createcubicbeziereasingfunction)
-    public class func createCubicBezierEasingFunction(_ owner: Compositor!, _ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2) -> CubicBezierEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateCubicBezierEasingFunctionImpl(owner, controlPoint1, controlPoint2)
+    public class func createCubicBezierEasingFunction(_ owner: Compositor!, _ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2) throws -> CubicBezierEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateCubicBezierEasingFunction(owner, controlPoint1, controlPoint2)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createlineareasingfunction)
-    public class func createLinearEasingFunction(_ owner: Compositor!) -> LinearEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateLinearEasingFunctionImpl(owner)
+    public class func createLinearEasingFunction(_ owner: Compositor!) throws -> LinearEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateLinearEasingFunction(owner)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createstepeasingfunction)
-    public class func createStepEasingFunction(_ owner: Compositor!) -> StepEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateStepEasingFunctionImpl(owner)
+    public class func createStepEasingFunction(_ owner: Compositor!) throws -> StepEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateStepEasingFunction(owner)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createstepeasingfunction)
-    public class func createStepEasingFunction(_ owner: Compositor!, _ stepCount: Int32) -> StepEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateStepEasingFunctionWithStepCountImpl(owner, stepCount)
+    public class func createStepEasingFunction(_ owner: Compositor!, _ stepCount: Int32) throws -> StepEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateStepEasingFunctionWithStepCount(owner, stepCount)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createbackeasingfunction)
-    public class func createBackEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ amplitude: Float) -> BackEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateBackEasingFunctionImpl(owner, mode, amplitude)
+    public class func createBackEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ amplitude: Float) throws -> BackEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateBackEasingFunction(owner, mode, amplitude)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createbounceeasingfunction)
-    public class func createBounceEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ bounces: Int32, _ bounciness: Float) -> BounceEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateBounceEasingFunctionImpl(owner, mode, bounces, bounciness)
+    public class func createBounceEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ bounces: Int32, _ bounciness: Float) throws -> BounceEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateBounceEasingFunction(owner, mode, bounces, bounciness)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createcircleeasingfunction)
-    public class func createCircleEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode) -> CircleEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateCircleEasingFunctionImpl(owner, mode)
+    public class func createCircleEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode) throws -> CircleEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateCircleEasingFunction(owner, mode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createelasticeasingfunction)
-    public class func createElasticEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ oscillations: Int32, _ springiness: Float) -> ElasticEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateElasticEasingFunctionImpl(owner, mode, oscillations, springiness)
+    public class func createElasticEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ oscillations: Int32, _ springiness: Float) throws -> ElasticEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateElasticEasingFunction(owner, mode, oscillations, springiness)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createexponentialeasingfunction)
-    public class func createExponentialEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ exponent: Float) -> ExponentialEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateExponentialEasingFunctionImpl(owner, mode, exponent)
+    public class func createExponentialEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ exponent: Float) throws -> ExponentialEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateExponentialEasingFunction(owner, mode, exponent)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createpowereasingfunction)
-    public class func createPowerEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ power: Float) -> PowerEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreatePowerEasingFunctionImpl(owner, mode, power)
+    public class func createPowerEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode, _ power: Float) throws -> PowerEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreatePowerEasingFunction(owner, mode, power)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneasingfunction.createsineeasingfunction)
-    public class func createSineEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode) -> SineEasingFunction! {
-        return try! _ICompositionEasingFunctionStatics.CreateSineEasingFunctionImpl(owner, mode)
+    public class func createSineEasingFunction(_ owner: Compositor!, _ mode: CompositionEasingFunctionMode) throws -> SineEasingFunction! {
+        return try _ICompositionEasingFunctionStatics.CreateSineEasingFunction(owner, mode)
     }
 
-    internal enum ICompositionEasingFunction : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionEasingFunction
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunction
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionEasingFunction
-        }
-    }
-    internal typealias Composable = ICompositionEasingFunction
     deinit {
         _default = nil
     }
@@ -1502,24 +1308,18 @@ public final class CompositionEffectBrush : WinAppSDK.CompositionBrush {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectBrush>?) -> CompositionEffectBrush? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneffectbrush.getsourceparameter)
     public func getSourceParameter(_ name: String) throws -> CompositionBrush! {
-        try _default.GetSourceParameterImpl(name)
+        try _default.GetSourceParameter(name)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneffectbrush.setsourceparameter)
     public func setSourceParameter(_ name: String, _ source: CompositionBrush!) throws {
-        try _default.SetSourceParameterImpl(name, source)
+        try _default.SetSourceParameter(name, source)
     }
 
     deinit {
@@ -1541,29 +1341,23 @@ public final class CompositionEffectFactory : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectFactory>?) -> CompositionEffectFactory? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneffectfactory.createbrush)
     public func createBrush() throws -> CompositionEffectBrush! {
-        try _default.CreateBrushImpl()
+        try _default.CreateBrush()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneffectfactory.extendederror)
     public var extendedError : HRESULT {
-        get { try! _default.get_ExtendedErrorImpl() }
+        get { try! _default.get_ExtendedError() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneffectfactory.loadstatus)
     public var loadStatus : CompositionEffectFactoryLoadStatus {
-        get { try! _default.get_LoadStatusImpl() }
+        get { try! _default.get_LoadStatus() }
     }
 
     deinit {
@@ -1585,12 +1379,6 @@ public final class CompositionEffectSourceParameter : WinRTClass, UWP.IGraphicsE
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectSourceParameter>?) -> CompositionEffectSourceParameter? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1598,14 +1386,14 @@ public final class CompositionEffectSourceParameter : WinRTClass, UWP.IGraphicsE
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICompositionEffectSourceParameterFactory: __ABI_Microsoft_UI_Composition.ICompositionEffectSourceParameterFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionEffectSourceParameter"))
+    private static let _ICompositionEffectSourceParameterFactory: __ABI_Microsoft_UI_Composition.ICompositionEffectSourceParameterFactory = try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionEffectSourceParameter")
     public init(_ name: String) {
-        super.init(try! Self._ICompositionEffectSourceParameterFactory.CreateImpl(name))
+        super.init(try! Self._ICompositionEffectSourceParameterFactory.Create(name))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositioneffectsourceparameter.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
+        get { try! _default.get_Name() }
     }
 
     private lazy var _IGraphicsEffectSource: __ABI_Windows_Graphics_Effects.IGraphicsEffectSource! = getInterfaceForCaching()
@@ -1629,26 +1417,20 @@ public final class CompositionEllipseGeometry : WinAppSDK.CompositionGeometry {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEllipseGeometry>?) -> CompositionEllipseGeometry? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionellipsegeometry.center)
     public var center : WindowsFoundation.Vector2 {
-        get { try! _default.get_CenterImpl() }
-        set { try! _default.put_CenterImpl(newValue) }
+        get { try! _default.get_Center() }
+        set { try! _default.put_Center(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionellipsegeometry.radius)
     public var radius : WindowsFoundation.Vector2 {
-        get { try! _default.get_RadiusImpl() }
-        set { try! _default.put_RadiusImpl(newValue) }
+        get { try! _default.get_Radius() }
+        set { try! _default.put_Radius(newValue) }
     }
 
     deinit {
@@ -1670,26 +1452,20 @@ public final class CompositionGeometricClip : WinAppSDK.CompositionClip {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometricClip>?) -> CompositionGeometricClip? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongeometricclip.geometry)
     public var geometry : CompositionGeometry! {
-        get { try! _default.get_GeometryImpl() }
-        set { try! _default.put_GeometryImpl(newValue) }
+        get { try! _default.get_Geometry() }
+        set { try! _default.put_Geometry(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongeometricclip.viewbox)
     public var viewBox : CompositionViewBox! {
-        get { try! _default.get_ViewBoxImpl() }
-        set { try! _default.put_ViewBoxImpl(newValue) }
+        get { try! _default.get_ViewBox() }
+        set { try! _default.put_ViewBox(newValue) }
     }
 
     deinit {
@@ -1711,12 +1487,6 @@ open class CompositionGeometry : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry>?) -> CompositionGeometry? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1731,37 +1501,26 @@ open class CompositionGeometry : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionGeometryFactory : __ABI_Microsoft_UI_Composition.ICompositionGeometryFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionGeometry"))
+    private static var _ICompositionGeometryFactory : __ABI_Microsoft_UI_Composition.ICompositionGeometryFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionGeometry")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongeometry.trimend)
     public var trimEnd : Float {
-        get { try! _default.get_TrimEndImpl() }
-        set { try! _default.put_TrimEndImpl(newValue) }
+        get { try! _default.get_TrimEnd() }
+        set { try! _default.put_TrimEnd(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongeometry.trimoffset)
     public var trimOffset : Float {
-        get { try! _default.get_TrimOffsetImpl() }
-        set { try! _default.put_TrimOffsetImpl(newValue) }
+        get { try! _default.get_TrimOffset() }
+        set { try! _default.put_TrimOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongeometry.trimstart)
     public var trimStart : Float {
-        get { try! _default.get_TrimStartImpl() }
-        set { try! _default.put_TrimStartImpl(newValue) }
+        get { try! _default.get_TrimStart() }
+        set { try! _default.put_TrimStart(newValue) }
     }
 
-    internal enum ICompositionGeometry : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionGeometry
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionGeometry
-        }
-    }
-    internal typealias Composable = ICompositionGeometry
     deinit {
         _default = nil
     }
@@ -1781,12 +1540,6 @@ open class CompositionGradientBrush : WinAppSDK.CompositionBrush {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush>?) -> CompositionGradientBrush? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1801,85 +1554,74 @@ open class CompositionGradientBrush : WinAppSDK.CompositionBrush {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionGradientBrushFactory : __ABI_Microsoft_UI_Composition.ICompositionGradientBrushFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionGradientBrush"))
+    private static var _ICompositionGradientBrushFactory : __ABI_Microsoft_UI_Composition.ICompositionGradientBrushFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionGradientBrush")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.anchorpoint)
     public var anchorPoint : WindowsFoundation.Vector2 {
-        get { try! _default.get_AnchorPointImpl() }
-        set { try! _default.put_AnchorPointImpl(newValue) }
+        get { try! _default.get_AnchorPoint() }
+        set { try! _default.put_AnchorPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.centerpoint)
     public var centerPoint : WindowsFoundation.Vector2 {
-        get { try! _default.get_CenterPointImpl() }
-        set { try! _default.put_CenterPointImpl(newValue) }
+        get { try! _default.get_CenterPoint() }
+        set { try! _default.put_CenterPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.colorstops)
     public var colorStops : CompositionColorGradientStopCollection! {
-        get { try! _default.get_ColorStopsImpl() }
+        get { try! _default.get_ColorStops() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.extendmode)
     public var extendMode : CompositionGradientExtendMode {
-        get { try! _default.get_ExtendModeImpl() }
-        set { try! _default.put_ExtendModeImpl(newValue) }
+        get { try! _default.get_ExtendMode() }
+        set { try! _default.put_ExtendMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.interpolationspace)
     public var interpolationSpace : CompositionColorSpace {
-        get { try! _default.get_InterpolationSpaceImpl() }
-        set { try! _default.put_InterpolationSpaceImpl(newValue) }
+        get { try! _default.get_InterpolationSpace() }
+        set { try! _default.put_InterpolationSpace(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.offset)
     public var offset : WindowsFoundation.Vector2 {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.rotationangle)
     public var rotationAngle : Float {
-        get { try! _default.get_RotationAngleImpl() }
-        set { try! _default.put_RotationAngleImpl(newValue) }
+        get { try! _default.get_RotationAngle() }
+        set { try! _default.put_RotationAngle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.rotationangleindegrees)
     public var rotationAngleInDegrees : Float {
-        get { try! _default.get_RotationAngleInDegreesImpl() }
-        set { try! _default.put_RotationAngleInDegreesImpl(newValue) }
+        get { try! _default.get_RotationAngleInDegrees() }
+        set { try! _default.put_RotationAngleInDegrees(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.scale)
     public var scale : WindowsFoundation.Vector2 {
-        get { try! _default.get_ScaleImpl() }
-        set { try! _default.put_ScaleImpl(newValue) }
+        get { try! _default.get_Scale() }
+        set { try! _default.put_Scale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.transformmatrix)
     public var transformMatrix : WindowsFoundation.Matrix3x2 {
-        get { try! _default.get_TransformMatrixImpl() }
-        set { try! _default.put_TransformMatrixImpl(newValue) }
+        get { try! _default.get_TransformMatrix() }
+        set { try! _default.put_TransformMatrix(newValue) }
     }
 
     private lazy var _ICompositionGradientBrush2: __ABI_Microsoft_UI_Composition.ICompositionGradientBrush2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongradientbrush.mappingmode)
     public var mappingMode : CompositionMappingMode {
-        get { try! _ICompositionGradientBrush2.get_MappingModeImpl() }
-        set { try! _ICompositionGradientBrush2.put_MappingModeImpl(newValue) }
+        get { try! _ICompositionGradientBrush2.get_MappingMode() }
+        set { try! _ICompositionGradientBrush2.put_MappingMode(newValue) }
     }
 
-    internal enum ICompositionGradientBrush : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionGradientBrush
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionGradientBrush
-        }
-    }
-    internal typealias Composable = ICompositionGradientBrush
     deinit {
         _default = nil
         _ICompositionGradientBrush2 = nil
@@ -1900,19 +1642,13 @@ public final class CompositionGraphicsDevice : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice>?) -> CompositionGraphicsDevice? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongraphicsdevice.createdrawingsurface)
     public func createDrawingSurface(_ sizePixels: WindowsFoundation.Size, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> CompositionDrawingSurface! {
-        try _default.CreateDrawingSurfaceImpl(sizePixels, pixelFormat, alphaMode)
+        try _default.CreateDrawingSurface(sizePixels, pixelFormat, alphaMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongraphicsdevice.renderingdevicereplaced)
@@ -1920,10 +1656,10 @@ public final class CompositionGraphicsDevice : WinAppSDK.CompositionObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_RenderingDeviceReplacedImpl($0)
+          return try! this.add_RenderingDeviceReplaced($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_RenderingDeviceReplacedImpl($0)
+         try? self?._default.remove_RenderingDeviceReplaced($0)
        }
       )
     }()
@@ -1931,29 +1667,29 @@ public final class CompositionGraphicsDevice : WinAppSDK.CompositionObject {
     private lazy var _ICompositionGraphicsDevice2: __ABI_Microsoft_UI_Composition.ICompositionGraphicsDevice2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongraphicsdevice.createdrawingsurface2)
     public func createDrawingSurface2(_ sizePixels: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> CompositionDrawingSurface! {
-        try _ICompositionGraphicsDevice2.CreateDrawingSurface2Impl(sizePixels, pixelFormat, alphaMode)
+        try _ICompositionGraphicsDevice2.CreateDrawingSurface2(sizePixels, pixelFormat, alphaMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongraphicsdevice.createvirtualdrawingsurface)
     public func createVirtualDrawingSurface(_ sizePixels: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> CompositionVirtualDrawingSurface! {
-        try _ICompositionGraphicsDevice2.CreateVirtualDrawingSurfaceImpl(sizePixels, pixelFormat, alphaMode)
+        try _ICompositionGraphicsDevice2.CreateVirtualDrawingSurface(sizePixels, pixelFormat, alphaMode)
     }
 
     private lazy var _ICompositionGraphicsDevice3: __ABI_Microsoft_UI_Composition.ICompositionGraphicsDevice3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongraphicsdevice.createmipmapsurface)
     public func createMipmapSurface(_ sizePixels: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> CompositionMipmapSurface! {
-        try _ICompositionGraphicsDevice3.CreateMipmapSurfaceImpl(sizePixels, pixelFormat, alphaMode)
+        try _ICompositionGraphicsDevice3.CreateMipmapSurface(sizePixels, pixelFormat, alphaMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongraphicsdevice.trim)
     public func trim() throws {
-        try _ICompositionGraphicsDevice3.TrimImpl()
+        try _ICompositionGraphicsDevice3.Trim()
     }
 
     private lazy var _ICompositionGraphicsDevice4: __ABI_Microsoft_UI_Composition.ICompositionGraphicsDevice4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositiongraphicsdevice.captureasync)
     public func captureAsync(_ captureVisual: Visual!, _ size: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode, _ sdrBoost: Float) throws -> WindowsFoundation.AnyIAsyncOperation<AnyICompositionSurface?>! {
-        try _ICompositionGraphicsDevice4.CaptureAsyncImpl(captureVisual, size, pixelFormat, alphaMode, sdrBoost)
+        try _ICompositionGraphicsDevice4.CaptureAsync(captureVisual, size, pixelFormat, alphaMode, sdrBoost)
     }
 
     deinit {
@@ -1978,12 +1714,6 @@ open class CompositionLight : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight>?) -> CompositionLight? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1998,37 +1728,26 @@ open class CompositionLight : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionLightFactory : __ABI_Microsoft_UI_Composition.ICompositionLightFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionLight"))
+    private static var _ICompositionLightFactory : __ABI_Microsoft_UI_Composition.ICompositionLightFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionLight")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionlight.targets)
     public var targets : VisualUnorderedCollection! {
-        get { try! _default.get_TargetsImpl() }
+        get { try! _default.get_Targets() }
     }
 
     private lazy var _ICompositionLight2: __ABI_Microsoft_UI_Composition.ICompositionLight2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionlight.exclusionsfromtargets)
     public var exclusionsFromTargets : VisualUnorderedCollection! {
-        get { try! _ICompositionLight2.get_ExclusionsFromTargetsImpl() }
+        get { try! _ICompositionLight2.get_ExclusionsFromTargets() }
     }
 
     private lazy var _ICompositionLight3: __ABI_Microsoft_UI_Composition.ICompositionLight3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionlight.isenabled)
     public var isEnabled : Bool {
-        get { try! _ICompositionLight3.get_IsEnabledImpl() }
-        set { try! _ICompositionLight3.put_IsEnabledImpl(newValue) }
+        get { try! _ICompositionLight3.get_IsEnabled() }
+        set { try! _ICompositionLight3.put_IsEnabled(newValue) }
     }
 
-    internal enum ICompositionLight : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionLight
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionLight
-        }
-    }
-    internal typealias Composable = ICompositionLight
     deinit {
         _default = nil
         _ICompositionLight2 = nil
@@ -2050,26 +1769,20 @@ public final class CompositionLineGeometry : WinAppSDK.CompositionGeometry {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionLineGeometry>?) -> CompositionLineGeometry? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionlinegeometry.end)
     public var end : WindowsFoundation.Vector2 {
-        get { try! _default.get_EndImpl() }
-        set { try! _default.put_EndImpl(newValue) }
+        get { try! _default.get_End() }
+        set { try! _default.put_End(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionlinegeometry.start)
     public var start : WindowsFoundation.Vector2 {
-        get { try! _default.get_StartImpl() }
-        set { try! _default.put_StartImpl(newValue) }
+        get { try! _default.get_Start() }
+        set { try! _default.put_Start(newValue) }
     }
 
     deinit {
@@ -2091,26 +1804,20 @@ public final class CompositionLinearGradientBrush : WinAppSDK.CompositionGradien
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionLinearGradientBrush>?) -> CompositionLinearGradientBrush? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionlineargradientbrush.endpoint)
     public var endPoint : WindowsFoundation.Vector2 {
-        get { try! _default.get_EndPointImpl() }
-        set { try! _default.put_EndPointImpl(newValue) }
+        get { try! _default.get_EndPoint() }
+        set { try! _default.put_EndPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionlineargradientbrush.startpoint)
     public var startPoint : WindowsFoundation.Vector2 {
-        get { try! _default.get_StartPointImpl() }
-        set { try! _default.put_StartPointImpl(newValue) }
+        get { try! _default.get_StartPoint() }
+        set { try! _default.put_StartPoint(newValue) }
     }
 
     deinit {
@@ -2132,26 +1839,20 @@ public final class CompositionMaskBrush : WinAppSDK.CompositionBrush {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionMaskBrush>?) -> CompositionMaskBrush? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionmaskbrush.mask)
     public var mask : CompositionBrush! {
-        get { try! _default.get_MaskImpl() }
-        set { try! _default.put_MaskImpl(newValue) }
+        get { try! _default.get_Mask() }
+        set { try! _default.put_Mask(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionmaskbrush.source)
     public var source : CompositionBrush! {
-        get { try! _default.get_SourceImpl() }
-        set { try! _default.put_SourceImpl(newValue) }
+        get { try! _default.get_Source() }
+        set { try! _default.put_Source(newValue) }
     }
 
     deinit {
@@ -2173,12 +1874,6 @@ public final class CompositionMipmapSurface : WinAppSDK.CompositionObject, IComp
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionMipmapSurface>?) -> CompositionMipmapSurface? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2188,27 +1883,27 @@ public final class CompositionMipmapSurface : WinAppSDK.CompositionObject, IComp
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionmipmapsurface.getdrawingsurfaceforlevel)
     public func getDrawingSurfaceForLevel(_ level: UInt32) throws -> CompositionDrawingSurface! {
-        try _default.GetDrawingSurfaceForLevelImpl(level)
+        try _default.GetDrawingSurfaceForLevel(level)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionmipmapsurface.alphamode)
     public var alphaMode : WinAppSDK.DirectXAlphaMode {
-        get { try! _default.get_AlphaModeImpl() }
+        get { try! _default.get_AlphaMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionmipmapsurface.levelcount)
     public var levelCount : UInt32 {
-        get { try! _default.get_LevelCountImpl() }
+        get { try! _default.get_LevelCount() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionmipmapsurface.pixelformat)
     public var pixelFormat : WinAppSDK.DirectXPixelFormat {
-        get { try! _default.get_PixelFormatImpl() }
+        get { try! _default.get_PixelFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionmipmapsurface.sizeint32)
     public var sizeInt32 : UWP.SizeInt32 {
-        get { try! _default.get_SizeInt32Impl() }
+        get { try! _default.get_SizeInt32() }
     }
 
     private lazy var _ICompositionSurface: __ABI_Microsoft_UI_Composition.ICompositionSurface! = getInterfaceForCaching()
@@ -2232,94 +1927,88 @@ public final class CompositionNineGridBrush : WinAppSDK.CompositionBrush {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush>?) -> CompositionNineGridBrush? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.setinsets)
     public func setInsets(_ inset: Float) throws {
-        try _default.SetInsetsImpl(inset)
+        try _default.SetInsets(inset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.setinsets)
     public func setInsets(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float) throws {
-        try _default.SetInsetsWithValuesImpl(left, top, right, bottom)
+        try _default.SetInsetsWithValues(left, top, right, bottom)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.setinsetscales)
     public func setInsetScales(_ scale: Float) throws {
-        try _default.SetInsetScalesImpl(scale)
+        try _default.SetInsetScales(scale)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.setinsetscales)
     public func setInsetScales(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float) throws {
-        try _default.SetInsetScalesWithValuesImpl(left, top, right, bottom)
+        try _default.SetInsetScalesWithValues(left, top, right, bottom)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.bottominset)
     public var bottomInset : Float {
-        get { try! _default.get_BottomInsetImpl() }
-        set { try! _default.put_BottomInsetImpl(newValue) }
+        get { try! _default.get_BottomInset() }
+        set { try! _default.put_BottomInset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.bottominsetscale)
     public var bottomInsetScale : Float {
-        get { try! _default.get_BottomInsetScaleImpl() }
-        set { try! _default.put_BottomInsetScaleImpl(newValue) }
+        get { try! _default.get_BottomInsetScale() }
+        set { try! _default.put_BottomInsetScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.iscenterhollow)
     public var isCenterHollow : Bool {
-        get { try! _default.get_IsCenterHollowImpl() }
-        set { try! _default.put_IsCenterHollowImpl(newValue) }
+        get { try! _default.get_IsCenterHollow() }
+        set { try! _default.put_IsCenterHollow(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.leftinset)
     public var leftInset : Float {
-        get { try! _default.get_LeftInsetImpl() }
-        set { try! _default.put_LeftInsetImpl(newValue) }
+        get { try! _default.get_LeftInset() }
+        set { try! _default.put_LeftInset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.leftinsetscale)
     public var leftInsetScale : Float {
-        get { try! _default.get_LeftInsetScaleImpl() }
-        set { try! _default.put_LeftInsetScaleImpl(newValue) }
+        get { try! _default.get_LeftInsetScale() }
+        set { try! _default.put_LeftInsetScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.rightinset)
     public var rightInset : Float {
-        get { try! _default.get_RightInsetImpl() }
-        set { try! _default.put_RightInsetImpl(newValue) }
+        get { try! _default.get_RightInset() }
+        set { try! _default.put_RightInset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.rightinsetscale)
     public var rightInsetScale : Float {
-        get { try! _default.get_RightInsetScaleImpl() }
-        set { try! _default.put_RightInsetScaleImpl(newValue) }
+        get { try! _default.get_RightInsetScale() }
+        set { try! _default.put_RightInsetScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.source)
     public var source : CompositionBrush! {
-        get { try! _default.get_SourceImpl() }
-        set { try! _default.put_SourceImpl(newValue) }
+        get { try! _default.get_Source() }
+        set { try! _default.put_Source(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.topinset)
     public var topInset : Float {
-        get { try! _default.get_TopInsetImpl() }
-        set { try! _default.put_TopInsetImpl(newValue) }
+        get { try! _default.get_TopInset() }
+        set { try! _default.put_TopInset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionninegridbrush.topinsetscale)
     public var topInsetScale : Float {
-        get { try! _default.get_TopInsetScaleImpl() }
-        set { try! _default.put_TopInsetScaleImpl(newValue) }
+        get { try! _default.get_TopInsetScale() }
+        set { try! _default.put_TopInsetScale(newValue) }
     }
 
     deinit {
@@ -2341,12 +2030,6 @@ open class CompositionObject : WinRTClass, WindowsFoundation.IClosable, IAnimati
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject>?) -> CompositionObject? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2362,103 +2045,92 @@ open class CompositionObject : WinRTClass, WindowsFoundation.IClosable, IAnimati
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionObjectFactory : __ABI_Microsoft_UI_Composition.ICompositionObjectFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionObject"))
+    private static var _ICompositionObjectFactory : __ABI_Microsoft_UI_Composition.ICompositionObjectFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionObject")
 
-    private static let _ICompositionObjectStatics: __ABI_Microsoft_UI_Composition.ICompositionObjectStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionObject"))
+    private static let _ICompositionObjectStatics: __ABI_Microsoft_UI_Composition.ICompositionObjectStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionObject")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.startanimationwithianimationobject)
-    public class func startAnimationWithIAnimationObject(_ target: AnyIAnimationObject!, _ propertyName: String, _ animation: CompositionAnimation!) {
-        try! _ICompositionObjectStatics.StartAnimationWithIAnimationObjectImpl(target, propertyName, animation)
+    public class func startAnimationWithIAnimationObject(_ target: AnyIAnimationObject!, _ propertyName: String, _ animation: CompositionAnimation!) throws {
+        try _ICompositionObjectStatics.StartAnimationWithIAnimationObject(target, propertyName, animation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.startanimationgroupwithianimationobject)
-    public class func startAnimationGroupWithIAnimationObject(_ target: AnyIAnimationObject!, _ animation: AnyICompositionAnimationBase!) {
-        try! _ICompositionObjectStatics.StartAnimationGroupWithIAnimationObjectImpl(target, animation)
+    public class func startAnimationGroupWithIAnimationObject(_ target: AnyIAnimationObject!, _ animation: AnyICompositionAnimationBase!) throws {
+        try _ICompositionObjectStatics.StartAnimationGroupWithIAnimationObject(target, animation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.startanimation)
     public func startAnimation(_ propertyName: String, _ animation: CompositionAnimation!) throws {
-        try _default.StartAnimationImpl(propertyName, animation)
+        try _default.StartAnimation(propertyName, animation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.stopanimation)
     public func stopAnimation(_ propertyName: String) throws {
-        try _default.StopAnimationImpl(propertyName)
+        try _default.StopAnimation(propertyName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.compositor)
     public var compositor : Compositor! {
-        get { try! _default.get_CompositorImpl() }
+        get { try! _default.get_Compositor() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.properties)
     public var properties : CompositionPropertySet! {
-        get { try! _default.get_PropertiesImpl() }
+        get { try! _default.get_Properties() }
     }
 
     private lazy var _ICompositionObject2: __ABI_Microsoft_UI_Composition.ICompositionObject2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.startanimationgroup)
     public func startAnimationGroup(_ value: AnyICompositionAnimationBase!) throws {
-        try _ICompositionObject2.StartAnimationGroupImpl(value)
+        try _ICompositionObject2.StartAnimationGroup(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.stopanimationgroup)
     public func stopAnimationGroup(_ value: AnyICompositionAnimationBase!) throws {
-        try _ICompositionObject2.StopAnimationGroupImpl(value)
+        try _ICompositionObject2.StopAnimationGroup(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.comment)
     public var comment : String {
-        get { try! _ICompositionObject2.get_CommentImpl() }
-        set { try! _ICompositionObject2.put_CommentImpl(newValue) }
+        get { try! _ICompositionObject2.get_Comment() }
+        set { try! _ICompositionObject2.put_Comment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.implicitanimations)
     public var implicitAnimations : ImplicitAnimationCollection! {
-        get { try! _ICompositionObject2.get_ImplicitAnimationsImpl() }
-        set { try! _ICompositionObject2.put_ImplicitAnimationsImpl(newValue) }
+        get { try! _ICompositionObject2.get_ImplicitAnimations() }
+        set { try! _ICompositionObject2.put_ImplicitAnimations(newValue) }
     }
 
     private lazy var _ICompositionObject3: __ABI_Microsoft_UI_Composition.ICompositionObject3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.dispatcherqueue)
     public var dispatcherQueue : WinAppSDK.DispatcherQueue! {
-        get { try! _ICompositionObject3.get_DispatcherQueueImpl() }
+        get { try! _ICompositionObject3.get_DispatcherQueue() }
     }
 
     private lazy var _ICompositionObject4: __ABI_Microsoft_UI_Composition.ICompositionObject4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.trygetanimationcontroller)
     public func tryGetAnimationController(_ propertyName: String) throws -> AnimationController! {
-        try _ICompositionObject4.TryGetAnimationControllerImpl(propertyName)
+        try _ICompositionObject4.TryGetAnimationController(propertyName)
     }
 
     private lazy var _ICompositionObject5: __ABI_Microsoft_UI_Composition.ICompositionObject5! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.startanimation)
     public func startAnimation(_ propertyName: String, _ animation: CompositionAnimation!, _ animationController: AnimationController!) throws {
-        try _ICompositionObject5.StartAnimationWithControllerImpl(propertyName, animation, animationController)
+        try _ICompositionObject5.StartAnimationWithController(propertyName, animation, animationController)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IAnimationObject: __ABI_Microsoft_UI_Composition.IAnimationObject! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionobject.populatepropertyinfo)
     public func populatePropertyInfo(_ propertyName: String, _ propertyInfo: AnimationPropertyInfo!) throws {
-        try _IAnimationObject.PopulatePropertyInfoImpl(propertyName, propertyInfo)
+        try _IAnimationObject.PopulatePropertyInfo(propertyName, propertyInfo)
     }
 
-    internal enum ICompositionObject : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionObject
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionObject
-        }
-    }
-    internal typealias Composable = ICompositionObject
     deinit {
         _default = nil
         _ICompositionObject2 = nil
@@ -2484,12 +2156,6 @@ public final class CompositionPath : WinRTClass, UWP.IGeometrySource2D {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionPath>?) -> CompositionPath? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2497,9 +2163,9 @@ public final class CompositionPath : WinRTClass, UWP.IGeometrySource2D {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICompositionPathFactory: __ABI_Microsoft_UI_Composition.ICompositionPathFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionPath"))
+    private static let _ICompositionPathFactory: __ABI_Microsoft_UI_Composition.ICompositionPathFactory = try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionPath")
     public init(_ source: UWP.AnyIGeometrySource2D!) {
-        super.init(try! Self._ICompositionPathFactory.CreateImpl(source))
+        super.init(try! Self._ICompositionPathFactory.Create(source))
     }
 
     private lazy var _IGeometrySource2D: __ABI_Windows_Graphics.IGeometrySource2D! = getInterfaceForCaching()
@@ -2523,20 +2189,14 @@ public final class CompositionPathGeometry : WinAppSDK.CompositionGeometry {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionPathGeometry>?) -> CompositionPathGeometry? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpathgeometry.path)
     public var path : CompositionPath! {
-        get { try! _default.get_PathImpl() }
-        set { try! _default.put_PathImpl(newValue) }
+        get { try! _default.get_Path() }
+        set { try! _default.put_Path(newValue) }
     }
 
     deinit {
@@ -2558,48 +2218,42 @@ public final class CompositionProjectedShadow : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow>?) -> CompositionProjectedShadow? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadow.blurradiusmultiplier)
     public var blurRadiusMultiplier : Float {
-        get { try! _default.get_BlurRadiusMultiplierImpl() }
-        set { try! _default.put_BlurRadiusMultiplierImpl(newValue) }
+        get { try! _default.get_BlurRadiusMultiplier() }
+        set { try! _default.put_BlurRadiusMultiplier(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadow.casters)
     public var casters : CompositionProjectedShadowCasterCollection! {
-        get { try! _default.get_CastersImpl() }
+        get { try! _default.get_Casters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadow.lightsource)
     public var lightSource : CompositionLight! {
-        get { try! _default.get_LightSourceImpl() }
-        set { try! _default.put_LightSourceImpl(newValue) }
+        get { try! _default.get_LightSource() }
+        set { try! _default.put_LightSource(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadow.maxblurradius)
     public var maxBlurRadius : Float {
-        get { try! _default.get_MaxBlurRadiusImpl() }
-        set { try! _default.put_MaxBlurRadiusImpl(newValue) }
+        get { try! _default.get_MaxBlurRadius() }
+        set { try! _default.put_MaxBlurRadius(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadow.minblurradius)
     public var minBlurRadius : Float {
-        get { try! _default.get_MinBlurRadiusImpl() }
-        set { try! _default.put_MinBlurRadiusImpl(newValue) }
+        get { try! _default.get_MinBlurRadius() }
+        set { try! _default.put_MinBlurRadius(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadow.receivers)
     public var receivers : CompositionProjectedShadowReceiverUnorderedCollection! {
-        get { try! _default.get_ReceiversImpl() }
+        get { try! _default.get_Receivers() }
     }
 
     deinit {
@@ -2621,26 +2275,20 @@ public final class CompositionProjectedShadowCaster : WinAppSDK.CompositionObjec
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCaster>?) -> CompositionProjectedShadowCaster? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcaster.brush)
     public var brush : CompositionBrush! {
-        get { try! _default.get_BrushImpl() }
-        set { try! _default.put_BrushImpl(newValue) }
+        get { try! _default.get_Brush() }
+        set { try! _default.put_Brush(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcaster.castingvisual)
     public var castingVisual : Visual! {
-        get { try! _default.get_CastingVisualImpl() }
-        set { try! _default.put_CastingVisualImpl(newValue) }
+        get { try! _default.get_CastingVisual() }
+        set { try! _default.put_CastingVisual(newValue) }
     }
 
     deinit {
@@ -2663,12 +2311,6 @@ public final class CompositionProjectedShadowCasterCollection : WinAppSDK.Compos
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection>?) -> CompositionProjectedShadowCasterCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2676,51 +2318,51 @@ public final class CompositionProjectedShadowCasterCollection : WinAppSDK.Compos
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICompositionProjectedShadowCasterCollectionStatics: __ABI_Microsoft_UI_Composition.ICompositionProjectedShadowCasterCollectionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionProjectedShadowCasterCollection"))
+    private static let _ICompositionProjectedShadowCasterCollectionStatics: __ABI_Microsoft_UI_Composition.ICompositionProjectedShadowCasterCollectionStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionProjectedShadowCasterCollection")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcastercollection.maxrespectedcasters)
     public static var maxRespectedCasters : Int32 {
-        get { try! _ICompositionProjectedShadowCasterCollectionStatics.get_MaxRespectedCastersImpl() }
+        get { try! _ICompositionProjectedShadowCasterCollectionStatics.get_MaxRespectedCasters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcastercollection.insertabove)
     public func insertAbove(_ newCaster: CompositionProjectedShadowCaster!, _ reference: CompositionProjectedShadowCaster!) throws {
-        try _default.InsertAboveImpl(newCaster, reference)
+        try _default.InsertAbove(newCaster, reference)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcastercollection.insertatbottom)
     public func insertAtBottom(_ newCaster: CompositionProjectedShadowCaster!) throws {
-        try _default.InsertAtBottomImpl(newCaster)
+        try _default.InsertAtBottom(newCaster)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcastercollection.insertattop)
     public func insertAtTop(_ newCaster: CompositionProjectedShadowCaster!) throws {
-        try _default.InsertAtTopImpl(newCaster)
+        try _default.InsertAtTop(newCaster)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcastercollection.insertbelow)
     public func insertBelow(_ newCaster: CompositionProjectedShadowCaster!, _ reference: CompositionProjectedShadowCaster!) throws {
-        try _default.InsertBelowImpl(newCaster, reference)
+        try _default.InsertBelow(newCaster, reference)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcastercollection.remove)
     public func remove(_ caster: CompositionProjectedShadowCaster!) throws {
-        try _default.RemoveImpl(caster)
+        try _default.Remove(caster)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcastercollection.removeall)
     public func removeAll() throws {
-        try _default.RemoveAllImpl()
+        try _default.RemoveAll()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcastercollection.count)
     public var count : Int32 {
-        get { try! _default.get_CountImpl() }
+        get { try! _default.get_Count() }
     }
 
     private lazy var _IIterable: IIterableCompositionProjectedShadowCaster! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowcastercollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<CompositionProjectedShadowCaster?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -2743,20 +2385,14 @@ public final class CompositionProjectedShadowReceiver : WinAppSDK.CompositionObj
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiver>?) -> CompositionProjectedShadowReceiver? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowreceiver.receivingvisual)
     public var receivingVisual : Visual! {
-        get { try! _default.get_ReceivingVisualImpl() }
-        set { try! _default.put_ReceivingVisualImpl(newValue) }
+        get { try! _default.get_ReceivingVisual() }
+        set { try! _default.put_ReceivingVisual(newValue) }
     }
 
     deinit {
@@ -2779,12 +2415,6 @@ public final class CompositionProjectedShadowReceiverUnorderedCollection : WinAp
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection>?) -> CompositionProjectedShadowReceiverUnorderedCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2794,28 +2424,28 @@ public final class CompositionProjectedShadowReceiverUnorderedCollection : WinAp
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowreceiverunorderedcollection.add)
     public func add(_ value: CompositionProjectedShadowReceiver!) throws {
-        try _default.AddImpl(value)
+        try _default.Add(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowreceiverunorderedcollection.remove)
     public func remove(_ value: CompositionProjectedShadowReceiver!) throws {
-        try _default.RemoveImpl(value)
+        try _default.Remove(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowreceiverunorderedcollection.removeall)
     public func removeAll() throws {
-        try _default.RemoveAllImpl()
+        try _default.RemoveAll()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowreceiverunorderedcollection.count)
     public var count : Int32 {
-        get { try! _default.get_CountImpl() }
+        get { try! _default.get_Count() }
     }
 
     private lazy var _IIterable: IIterableCompositionProjectedShadowReceiver! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionprojectedshadowreceiverunorderedcollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<CompositionProjectedShadowReceiver?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -2838,105 +2468,99 @@ public final class CompositionPropertySet : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet>?) -> CompositionPropertySet? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.insertcolor)
     public func insertColor(_ propertyName: String, _ value: UWP.Color) throws {
-        try _default.InsertColorImpl(propertyName, value)
+        try _default.InsertColor(propertyName, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.insertmatrix3x2)
     public func insertMatrix3x2(_ propertyName: String, _ value: WindowsFoundation.Matrix3x2) throws {
-        try _default.InsertMatrix3x2Impl(propertyName, value)
+        try _default.InsertMatrix3x2(propertyName, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.insertmatrix4x4)
     public func insertMatrix4x4(_ propertyName: String, _ value: WindowsFoundation.Matrix4x4) throws {
-        try _default.InsertMatrix4x4Impl(propertyName, value)
+        try _default.InsertMatrix4x4(propertyName, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.insertquaternion)
     public func insertQuaternion(_ propertyName: String, _ value: WindowsFoundation.Quaternion) throws {
-        try _default.InsertQuaternionImpl(propertyName, value)
+        try _default.InsertQuaternion(propertyName, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.insertscalar)
     public func insertScalar(_ propertyName: String, _ value: Float) throws {
-        try _default.InsertScalarImpl(propertyName, value)
+        try _default.InsertScalar(propertyName, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.insertvector2)
     public func insertVector2(_ propertyName: String, _ value: WindowsFoundation.Vector2) throws {
-        try _default.InsertVector2Impl(propertyName, value)
+        try _default.InsertVector2(propertyName, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.insertvector3)
     public func insertVector3(_ propertyName: String, _ value: WindowsFoundation.Vector3) throws {
-        try _default.InsertVector3Impl(propertyName, value)
+        try _default.InsertVector3(propertyName, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.insertvector4)
     public func insertVector4(_ propertyName: String, _ value: WindowsFoundation.Vector4) throws {
-        try _default.InsertVector4Impl(propertyName, value)
+        try _default.InsertVector4(propertyName, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.trygetcolor)
     public func tryGetColor(_ propertyName: String, _ value: inout UWP.Color) throws -> CompositionGetValueStatus {
-        try _default.TryGetColorImpl(propertyName, &value)
+        try _default.TryGetColor(propertyName, &value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.trygetmatrix3x2)
     public func tryGetMatrix3x2(_ propertyName: String, _ value: inout WindowsFoundation.Matrix3x2) throws -> CompositionGetValueStatus {
-        try _default.TryGetMatrix3x2Impl(propertyName, &value)
+        try _default.TryGetMatrix3x2(propertyName, &value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.trygetmatrix4x4)
     public func tryGetMatrix4x4(_ propertyName: String, _ value: inout WindowsFoundation.Matrix4x4) throws -> CompositionGetValueStatus {
-        try _default.TryGetMatrix4x4Impl(propertyName, &value)
+        try _default.TryGetMatrix4x4(propertyName, &value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.trygetquaternion)
     public func tryGetQuaternion(_ propertyName: String, _ value: inout WindowsFoundation.Quaternion) throws -> CompositionGetValueStatus {
-        try _default.TryGetQuaternionImpl(propertyName, &value)
+        try _default.TryGetQuaternion(propertyName, &value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.trygetscalar)
     public func tryGetScalar(_ propertyName: String, _ value: inout Float) throws -> CompositionGetValueStatus {
-        try _default.TryGetScalarImpl(propertyName, &value)
+        try _default.TryGetScalar(propertyName, &value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.trygetvector2)
     public func tryGetVector2(_ propertyName: String, _ value: inout WindowsFoundation.Vector2) throws -> CompositionGetValueStatus {
-        try _default.TryGetVector2Impl(propertyName, &value)
+        try _default.TryGetVector2(propertyName, &value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.trygetvector3)
     public func tryGetVector3(_ propertyName: String, _ value: inout WindowsFoundation.Vector3) throws -> CompositionGetValueStatus {
-        try _default.TryGetVector3Impl(propertyName, &value)
+        try _default.TryGetVector3(propertyName, &value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.trygetvector4)
     public func tryGetVector4(_ propertyName: String, _ value: inout WindowsFoundation.Vector4) throws -> CompositionGetValueStatus {
-        try _default.TryGetVector4Impl(propertyName, &value)
+        try _default.TryGetVector4(propertyName, &value)
     }
 
     private lazy var _ICompositionPropertySet2: __ABI_Microsoft_UI_Composition.ICompositionPropertySet2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.insertboolean)
     public func insertBoolean(_ propertyName: String, _ value: Bool) throws {
-        try _ICompositionPropertySet2.InsertBooleanImpl(propertyName, value)
+        try _ICompositionPropertySet2.InsertBoolean(propertyName, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionpropertyset.trygetboolean)
     public func tryGetBoolean(_ propertyName: String, _ value: inout Bool) throws -> CompositionGetValueStatus {
-        try _ICompositionPropertySet2.TryGetBooleanImpl(propertyName, &value)
+        try _ICompositionPropertySet2.TryGetBoolean(propertyName, &value)
     }
 
     deinit {
@@ -2959,32 +2583,26 @@ public final class CompositionRadialGradientBrush : WinAppSDK.CompositionGradien
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush>?) -> CompositionRadialGradientBrush? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionradialgradientbrush.ellipsecenter)
     public var ellipseCenter : WindowsFoundation.Vector2 {
-        get { try! _default.get_EllipseCenterImpl() }
-        set { try! _default.put_EllipseCenterImpl(newValue) }
+        get { try! _default.get_EllipseCenter() }
+        set { try! _default.put_EllipseCenter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionradialgradientbrush.ellipseradius)
     public var ellipseRadius : WindowsFoundation.Vector2 {
-        get { try! _default.get_EllipseRadiusImpl() }
-        set { try! _default.put_EllipseRadiusImpl(newValue) }
+        get { try! _default.get_EllipseRadius() }
+        set { try! _default.put_EllipseRadius(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionradialgradientbrush.gradientoriginoffset)
     public var gradientOriginOffset : WindowsFoundation.Vector2 {
-        get { try! _default.get_GradientOriginOffsetImpl() }
-        set { try! _default.put_GradientOriginOffsetImpl(newValue) }
+        get { try! _default.get_GradientOriginOffset() }
+        set { try! _default.put_GradientOriginOffset(newValue) }
     }
 
     deinit {
@@ -3006,26 +2624,20 @@ public final class CompositionRectangleGeometry : WinAppSDK.CompositionGeometry 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionRectangleGeometry>?) -> CompositionRectangleGeometry? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionrectanglegeometry.offset)
     public var offset : WindowsFoundation.Vector2 {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionrectanglegeometry.size)
     public var size : WindowsFoundation.Vector2 {
-        get { try! _default.get_SizeImpl() }
-        set { try! _default.put_SizeImpl(newValue) }
+        get { try! _default.get_Size() }
+        set { try! _default.put_Size(newValue) }
     }
 
     deinit {
@@ -3047,32 +2659,26 @@ public final class CompositionRoundedRectangleGeometry : WinAppSDK.CompositionGe
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry>?) -> CompositionRoundedRectangleGeometry? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionroundedrectanglegeometry.cornerradius)
     public var cornerRadius : WindowsFoundation.Vector2 {
-        get { try! _default.get_CornerRadiusImpl() }
-        set { try! _default.put_CornerRadiusImpl(newValue) }
+        get { try! _default.get_CornerRadius() }
+        set { try! _default.put_CornerRadius(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionroundedrectanglegeometry.offset)
     public var offset : WindowsFoundation.Vector2 {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionroundedrectanglegeometry.size)
     public var size : WindowsFoundation.Vector2 {
-        get { try! _default.get_SizeImpl() }
-        set { try! _default.put_SizeImpl(newValue) }
+        get { try! _default.get_Size() }
+        set { try! _default.put_Size(newValue) }
     }
 
     deinit {
@@ -3094,39 +2700,33 @@ public final class CompositionScopedBatch : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch>?) -> CompositionScopedBatch? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionscopedbatch.end)
     public func end() throws {
-        try _default.EndImpl()
+        try _default.End()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionscopedbatch.resume)
     public func resume() throws {
-        try _default.ResumeImpl()
+        try _default.Resume()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionscopedbatch.suspend)
     public func suspend() throws {
-        try _default.SuspendImpl()
+        try _default.Suspend()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionscopedbatch.isactive)
     public var isActive : Bool {
-        get { try! _default.get_IsActiveImpl() }
+        get { try! _default.get_IsActive() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionscopedbatch.isended)
     public var isEnded : Bool {
-        get { try! _default.get_IsEndedImpl() }
+        get { try! _default.get_IsEnded() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionscopedbatch.completed)
@@ -3134,10 +2734,10 @@ public final class CompositionScopedBatch : WinAppSDK.CompositionObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CompletedImpl($0)
+          return try! this.add_Completed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CompletedImpl($0)
+         try? self?._default.remove_Completed($0)
        }
       )
     }()
@@ -3161,12 +2761,6 @@ open class CompositionShadow : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionShadow>?) -> CompositionShadow? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -3181,19 +2775,8 @@ open class CompositionShadow : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionShadowFactory : __ABI_Microsoft_UI_Composition.ICompositionShadowFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionShadow"))
+    private static var _ICompositionShadowFactory : __ABI_Microsoft_UI_Composition.ICompositionShadowFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionShadow")
 
-    internal enum ICompositionShadow : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionShadow
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShadow
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionShadow
-        }
-    }
-    internal typealias Composable = ICompositionShadow
     deinit {
         _default = nil
     }
@@ -3213,12 +2796,6 @@ open class CompositionShape : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape>?) -> CompositionShape? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -3233,55 +2810,44 @@ open class CompositionShape : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionShapeFactory : __ABI_Microsoft_UI_Composition.ICompositionShapeFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionShape"))
+    private static var _ICompositionShapeFactory : __ABI_Microsoft_UI_Composition.ICompositionShapeFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionShape")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshape.centerpoint)
     public var centerPoint : WindowsFoundation.Vector2 {
-        get { try! _default.get_CenterPointImpl() }
-        set { try! _default.put_CenterPointImpl(newValue) }
+        get { try! _default.get_CenterPoint() }
+        set { try! _default.put_CenterPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshape.offset)
     public var offset : WindowsFoundation.Vector2 {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshape.rotationangle)
     public var rotationAngle : Float {
-        get { try! _default.get_RotationAngleImpl() }
-        set { try! _default.put_RotationAngleImpl(newValue) }
+        get { try! _default.get_RotationAngle() }
+        set { try! _default.put_RotationAngle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshape.rotationangleindegrees)
     public var rotationAngleInDegrees : Float {
-        get { try! _default.get_RotationAngleInDegreesImpl() }
-        set { try! _default.put_RotationAngleInDegreesImpl(newValue) }
+        get { try! _default.get_RotationAngleInDegrees() }
+        set { try! _default.put_RotationAngleInDegrees(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshape.scale)
     public var scale : WindowsFoundation.Vector2 {
-        get { try! _default.get_ScaleImpl() }
-        set { try! _default.put_ScaleImpl(newValue) }
+        get { try! _default.get_Scale() }
+        set { try! _default.put_Scale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshape.transformmatrix)
     public var transformMatrix : WindowsFoundation.Matrix3x2 {
-        get { try! _default.get_TransformMatrixImpl() }
-        set { try! _default.put_TransformMatrixImpl(newValue) }
+        get { try! _default.get_TransformMatrix() }
+        set { try! _default.put_TransformMatrix(newValue) }
     }
 
-    internal enum ICompositionShape : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionShape
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionShape
-        }
-    }
-    internal typealias Composable = ICompositionShape
     deinit {
         _default = nil
     }
@@ -3299,12 +2865,6 @@ public final class CompositionShapeCollection : WinAppSDK.CompositionObject, IVe
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CComposition__CCompositionShape>?) -> CompositionShapeCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -3348,58 +2908,68 @@ public final class CompositionShapeCollection : WinAppSDK.CompositionObject, IVe
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.getat)
     public func getAt(_ index: UInt32) -> CompositionShape? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<CompositionShape?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.indexof)
     public func indexOf(_ value: CompositionShape?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.setat)
     public func setAt(_ index: UInt32, _ value: CompositionShape?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: CompositionShape?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.append)
     public func append(_ value: CompositionShape?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [CompositionShape?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.replaceall)
+    public func replaceAll(_ items: [CompositionShape?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableCompositionShape! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionshapecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<CompositionShape?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -3422,85 +2992,79 @@ public final class CompositionSpriteShape : WinAppSDK.CompositionShape {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape>?) -> CompositionSpriteShape? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.fillbrush)
     public var fillBrush : CompositionBrush! {
-        get { try! _default.get_FillBrushImpl() }
-        set { try! _default.put_FillBrushImpl(newValue) }
+        get { try! _default.get_FillBrush() }
+        set { try! _default.put_FillBrush(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.geometry)
     public var geometry : CompositionGeometry! {
-        get { try! _default.get_GeometryImpl() }
-        set { try! _default.put_GeometryImpl(newValue) }
+        get { try! _default.get_Geometry() }
+        set { try! _default.put_Geometry(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.isstrokenonscaling)
     public var isStrokeNonScaling : Bool {
-        get { try! _default.get_IsStrokeNonScalingImpl() }
-        set { try! _default.put_IsStrokeNonScalingImpl(newValue) }
+        get { try! _default.get_IsStrokeNonScaling() }
+        set { try! _default.put_IsStrokeNonScaling(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.strokebrush)
     public var strokeBrush : CompositionBrush! {
-        get { try! _default.get_StrokeBrushImpl() }
-        set { try! _default.put_StrokeBrushImpl(newValue) }
+        get { try! _default.get_StrokeBrush() }
+        set { try! _default.put_StrokeBrush(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.strokedasharray)
     public var strokeDashArray : CompositionStrokeDashArray! {
-        get { try! _default.get_StrokeDashArrayImpl() }
+        get { try! _default.get_StrokeDashArray() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.strokedashcap)
     public var strokeDashCap : CompositionStrokeCap {
-        get { try! _default.get_StrokeDashCapImpl() }
-        set { try! _default.put_StrokeDashCapImpl(newValue) }
+        get { try! _default.get_StrokeDashCap() }
+        set { try! _default.put_StrokeDashCap(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.strokedashoffset)
     public var strokeDashOffset : Float {
-        get { try! _default.get_StrokeDashOffsetImpl() }
-        set { try! _default.put_StrokeDashOffsetImpl(newValue) }
+        get { try! _default.get_StrokeDashOffset() }
+        set { try! _default.put_StrokeDashOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.strokeendcap)
     public var strokeEndCap : CompositionStrokeCap {
-        get { try! _default.get_StrokeEndCapImpl() }
-        set { try! _default.put_StrokeEndCapImpl(newValue) }
+        get { try! _default.get_StrokeEndCap() }
+        set { try! _default.put_StrokeEndCap(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.strokelinejoin)
     public var strokeLineJoin : CompositionStrokeLineJoin {
-        get { try! _default.get_StrokeLineJoinImpl() }
-        set { try! _default.put_StrokeLineJoinImpl(newValue) }
+        get { try! _default.get_StrokeLineJoin() }
+        set { try! _default.put_StrokeLineJoin(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.strokemiterlimit)
     public var strokeMiterLimit : Float {
-        get { try! _default.get_StrokeMiterLimitImpl() }
-        set { try! _default.put_StrokeMiterLimitImpl(newValue) }
+        get { try! _default.get_StrokeMiterLimit() }
+        set { try! _default.put_StrokeMiterLimit(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.strokestartcap)
     public var strokeStartCap : CompositionStrokeCap {
-        get { try! _default.get_StrokeStartCapImpl() }
-        set { try! _default.put_StrokeStartCapImpl(newValue) }
+        get { try! _default.get_StrokeStartCap() }
+        set { try! _default.put_StrokeStartCap(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionspriteshape.strokethickness)
     public var strokeThickness : Float {
-        get { try! _default.get_StrokeThicknessImpl() }
-        set { try! _default.put_StrokeThicknessImpl(newValue) }
+        get { try! _default.get_StrokeThickness() }
+        set { try! _default.put_StrokeThickness(newValue) }
     }
 
     deinit {
@@ -3520,12 +3084,6 @@ public final class CompositionStrokeDashArray : WinAppSDK.CompositionObject, IVe
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1_float>?) -> CompositionStrokeDashArray? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -3569,58 +3127,68 @@ public final class CompositionStrokeDashArray : WinAppSDK.CompositionObject, IVe
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.getat)
     public func getAt(_ index: UInt32) -> Float {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<Float>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.indexof)
     public func indexOf(_ value: Float, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.setat)
     public func setAt(_ index: UInt32, _ value: Float) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.insertat)
     public func insertAt(_ index: UInt32, _ value: Float) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.append)
     public func append(_ value: Float) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [Float]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.replaceall)
+    public func replaceAll(_ items: [Float]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableFloat! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionstrokedasharray.first)
     public func first() -> WindowsFoundation.AnyIIterator<Float>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -3643,94 +3211,88 @@ public final class CompositionSurfaceBrush : WinAppSDK.CompositionBrush {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush>?) -> CompositionSurfaceBrush? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.bitmapinterpolationmode)
     public var bitmapInterpolationMode : CompositionBitmapInterpolationMode {
-        get { try! _default.get_BitmapInterpolationModeImpl() }
-        set { try! _default.put_BitmapInterpolationModeImpl(newValue) }
+        get { try! _default.get_BitmapInterpolationMode() }
+        set { try! _default.put_BitmapInterpolationMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.horizontalalignmentratio)
     public var horizontalAlignmentRatio : Float {
-        get { try! _default.get_HorizontalAlignmentRatioImpl() }
-        set { try! _default.put_HorizontalAlignmentRatioImpl(newValue) }
+        get { try! _default.get_HorizontalAlignmentRatio() }
+        set { try! _default.put_HorizontalAlignmentRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.stretch)
     public var stretch : CompositionStretch {
-        get { try! _default.get_StretchImpl() }
-        set { try! _default.put_StretchImpl(newValue) }
+        get { try! _default.get_Stretch() }
+        set { try! _default.put_Stretch(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.surface)
     public var surface : AnyICompositionSurface! {
-        get { try! _default.get_SurfaceImpl() }
-        set { try! _default.put_SurfaceImpl(newValue) }
+        get { try! _default.get_Surface() }
+        set { try! _default.put_Surface(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.verticalalignmentratio)
     public var verticalAlignmentRatio : Float {
-        get { try! _default.get_VerticalAlignmentRatioImpl() }
-        set { try! _default.put_VerticalAlignmentRatioImpl(newValue) }
+        get { try! _default.get_VerticalAlignmentRatio() }
+        set { try! _default.put_VerticalAlignmentRatio(newValue) }
     }
 
     private lazy var _ICompositionSurfaceBrush2: __ABI_Microsoft_UI_Composition.ICompositionSurfaceBrush2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.anchorpoint)
     public var anchorPoint : WindowsFoundation.Vector2 {
-        get { try! _ICompositionSurfaceBrush2.get_AnchorPointImpl() }
-        set { try! _ICompositionSurfaceBrush2.put_AnchorPointImpl(newValue) }
+        get { try! _ICompositionSurfaceBrush2.get_AnchorPoint() }
+        set { try! _ICompositionSurfaceBrush2.put_AnchorPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.centerpoint)
     public var centerPoint : WindowsFoundation.Vector2 {
-        get { try! _ICompositionSurfaceBrush2.get_CenterPointImpl() }
-        set { try! _ICompositionSurfaceBrush2.put_CenterPointImpl(newValue) }
+        get { try! _ICompositionSurfaceBrush2.get_CenterPoint() }
+        set { try! _ICompositionSurfaceBrush2.put_CenterPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.offset)
     public var offset : WindowsFoundation.Vector2 {
-        get { try! _ICompositionSurfaceBrush2.get_OffsetImpl() }
-        set { try! _ICompositionSurfaceBrush2.put_OffsetImpl(newValue) }
+        get { try! _ICompositionSurfaceBrush2.get_Offset() }
+        set { try! _ICompositionSurfaceBrush2.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.rotationangle)
     public var rotationAngle : Float {
-        get { try! _ICompositionSurfaceBrush2.get_RotationAngleImpl() }
-        set { try! _ICompositionSurfaceBrush2.put_RotationAngleImpl(newValue) }
+        get { try! _ICompositionSurfaceBrush2.get_RotationAngle() }
+        set { try! _ICompositionSurfaceBrush2.put_RotationAngle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.rotationangleindegrees)
     public var rotationAngleInDegrees : Float {
-        get { try! _ICompositionSurfaceBrush2.get_RotationAngleInDegreesImpl() }
-        set { try! _ICompositionSurfaceBrush2.put_RotationAngleInDegreesImpl(newValue) }
+        get { try! _ICompositionSurfaceBrush2.get_RotationAngleInDegrees() }
+        set { try! _ICompositionSurfaceBrush2.put_RotationAngleInDegrees(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.scale)
     public var scale : WindowsFoundation.Vector2 {
-        get { try! _ICompositionSurfaceBrush2.get_ScaleImpl() }
-        set { try! _ICompositionSurfaceBrush2.put_ScaleImpl(newValue) }
+        get { try! _ICompositionSurfaceBrush2.get_Scale() }
+        set { try! _ICompositionSurfaceBrush2.put_Scale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.transformmatrix)
     public var transformMatrix : WindowsFoundation.Matrix3x2 {
-        get { try! _ICompositionSurfaceBrush2.get_TransformMatrixImpl() }
-        set { try! _ICompositionSurfaceBrush2.put_TransformMatrixImpl(newValue) }
+        get { try! _ICompositionSurfaceBrush2.get_TransformMatrix() }
+        set { try! _ICompositionSurfaceBrush2.put_TransformMatrix(newValue) }
     }
 
     private lazy var _ICompositionSurfaceBrush3: __ABI_Microsoft_UI_Composition.ICompositionSurfaceBrush3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionsurfacebrush.snaptopixels)
     public var snapToPixels : Bool {
-        get { try! _ICompositionSurfaceBrush3.get_SnapToPixelsImpl() }
-        set { try! _ICompositionSurfaceBrush3.put_SnapToPixelsImpl(newValue) }
+        get { try! _ICompositionSurfaceBrush3.get_SnapToPixels() }
+        set { try! _ICompositionSurfaceBrush3.put_SnapToPixels(newValue) }
     }
 
     deinit {
@@ -3754,12 +3316,6 @@ open class CompositionTransform : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionTransform>?) -> CompositionTransform? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -3774,19 +3330,8 @@ open class CompositionTransform : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionTransformFactory : __ABI_Microsoft_UI_Composition.ICompositionTransformFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionTransform"))
+    private static var _ICompositionTransformFactory : __ABI_Microsoft_UI_Composition.ICompositionTransformFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionTransform")
 
-    internal enum ICompositionTransform : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionTransform
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionTransform
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionTransform
-        }
-    }
-    internal typealias Composable = ICompositionTransform
     deinit {
         _default = nil
     }
@@ -3806,44 +3351,38 @@ public final class CompositionViewBox : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox>?) -> CompositionViewBox? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionviewbox.horizontalalignmentratio)
     public var horizontalAlignmentRatio : Float {
-        get { try! _default.get_HorizontalAlignmentRatioImpl() }
-        set { try! _default.put_HorizontalAlignmentRatioImpl(newValue) }
+        get { try! _default.get_HorizontalAlignmentRatio() }
+        set { try! _default.put_HorizontalAlignmentRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionviewbox.offset)
     public var offset : WindowsFoundation.Vector2 {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionviewbox.size)
     public var size : WindowsFoundation.Vector2 {
-        get { try! _default.get_SizeImpl() }
-        set { try! _default.put_SizeImpl(newValue) }
+        get { try! _default.get_Size() }
+        set { try! _default.put_Size(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionviewbox.stretch)
     public var stretch : CompositionStretch {
-        get { try! _default.get_StretchImpl() }
-        set { try! _default.put_StretchImpl(newValue) }
+        get { try! _default.get_Stretch() }
+        set { try! _default.put_Stretch(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionviewbox.verticalalignmentratio)
     public var verticalAlignmentRatio : Float {
-        get { try! _default.get_VerticalAlignmentRatioImpl() }
-        set { try! _default.put_VerticalAlignmentRatioImpl(newValue) }
+        get { try! _default.get_VerticalAlignmentRatio() }
+        set { try! _default.put_VerticalAlignmentRatio(newValue) }
     }
 
     deinit {
@@ -3865,12 +3404,6 @@ open class CompositionVirtualDrawingSurface : WinAppSDK.CompositionDrawingSurfac
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionVirtualDrawingSurface>?) -> CompositionVirtualDrawingSurface? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -3885,19 +3418,13 @@ open class CompositionVirtualDrawingSurface : WinAppSDK.CompositionDrawingSurfac
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionVirtualDrawingSurfaceFactory : __ABI_Microsoft_UI_Composition.ICompositionVirtualDrawingSurfaceFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.CompositionVirtualDrawingSurface"))
+    private static var _ICompositionVirtualDrawingSurfaceFactory : __ABI_Microsoft_UI_Composition.ICompositionVirtualDrawingSurfaceFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.CompositionVirtualDrawingSurface")
 
-    internal enum ICompositionVirtualDrawingSurface : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CompositionVirtualDrawingSurface
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVirtualDrawingSurface
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionVirtualDrawingSurface
-        }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionvirtualdrawingsurface.trim)
+    public func trim(_ rects: [UWP.RectInt32]) throws {
+        try _default.Trim(rects)
     }
-    internal typealias Composable = ICompositionVirtualDrawingSurface
+
     deinit {
         _default = nil
     }
@@ -3917,12 +3444,6 @@ public final class CompositionVisualSurface : WinAppSDK.CompositionObject, IComp
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface>?) -> CompositionVisualSurface? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -3932,20 +3453,20 @@ public final class CompositionVisualSurface : WinAppSDK.CompositionObject, IComp
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionvisualsurface.sourceoffset)
     public var sourceOffset : WindowsFoundation.Vector2 {
-        get { try! _default.get_SourceOffsetImpl() }
-        set { try! _default.put_SourceOffsetImpl(newValue) }
+        get { try! _default.get_SourceOffset() }
+        set { try! _default.put_SourceOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionvisualsurface.sourcesize)
     public var sourceSize : WindowsFoundation.Vector2 {
-        get { try! _default.get_SourceSizeImpl() }
-        set { try! _default.put_SourceSizeImpl(newValue) }
+        get { try! _default.get_SourceSize() }
+        set { try! _default.put_SourceSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositionvisualsurface.sourcevisual)
     public var sourceVisual : Visual! {
-        get { try! _default.get_SourceVisualImpl() }
-        set { try! _default.put_SourceVisualImpl(newValue) }
+        get { try! _default.get_SourceVisual() }
+        set { try! _default.put_SourceVisual(newValue) }
     }
 
     private lazy var _ICompositionSurface: __ABI_Microsoft_UI_Composition.ICompositionSurface! = getInterfaceForCaching()
@@ -3969,12 +3490,6 @@ public final class Compositor : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositor>?) -> Compositor? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -3982,416 +3497,417 @@ public final class Compositor : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Composition.Compositor")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Composition.Compositor")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ICompositorStatics: __ABI_Microsoft_UI_Composition.ICompositorStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Compositor"))
+    private static let _ICompositorStatics: __ABI_Microsoft_UI_Composition.ICompositorStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.Compositor")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.maxglobalplaybackrate)
     public static var maxGlobalPlaybackRate : Float {
-        get { try! _ICompositorStatics.get_MaxGlobalPlaybackRateImpl() }
+        get { try! _ICompositorStatics.get_MaxGlobalPlaybackRate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.minglobalplaybackrate)
     public static var minGlobalPlaybackRate : Float {
-        get { try! _ICompositorStatics.get_MinGlobalPlaybackRateImpl() }
+        get { try! _ICompositorStatics.get_MinGlobalPlaybackRate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createcolorkeyframeanimation)
     public func createColorKeyFrameAnimation() throws -> ColorKeyFrameAnimation! {
-        try _default.CreateColorKeyFrameAnimationImpl()
+        try _default.CreateColorKeyFrameAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createcolorbrush)
     public func createColorBrush() throws -> CompositionColorBrush! {
-        try _default.CreateColorBrushImpl()
+        try _default.CreateColorBrush()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createcolorbrush)
     public func createColorBrush(_ color: UWP.Color) throws -> CompositionColorBrush! {
-        try _default.CreateColorBrushWithColorImpl(color)
+        try _default.CreateColorBrushWithColor(color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createcontainervisual)
     public func createContainerVisual() throws -> ContainerVisual! {
-        try _default.CreateContainerVisualImpl()
+        try _default.CreateContainerVisual()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createcubicbeziereasingfunction)
     public func createCubicBezierEasingFunction(_ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2) throws -> CubicBezierEasingFunction! {
-        try _default.CreateCubicBezierEasingFunctionImpl(controlPoint1, controlPoint2)
+        try _default.CreateCubicBezierEasingFunction(controlPoint1, controlPoint2)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createeffectfactory)
     public func createEffectFactory(_ graphicsEffect: UWP.AnyIGraphicsEffect!) throws -> CompositionEffectFactory! {
-        try _default.CreateEffectFactoryImpl(graphicsEffect)
+        try _default.CreateEffectFactory(graphicsEffect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createeffectfactory)
     public func createEffectFactory(_ graphicsEffect: UWP.AnyIGraphicsEffect!, _ animatableProperties: WindowsFoundation.AnyIIterable<String>!) throws -> CompositionEffectFactory! {
-        try _default.CreateEffectFactoryWithPropertiesImpl(graphicsEffect, animatableProperties)
+        try _default.CreateEffectFactoryWithProperties(graphicsEffect, animatableProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createexpressionanimation)
     public func createExpressionAnimation() throws -> ExpressionAnimation! {
-        try _default.CreateExpressionAnimationImpl()
+        try _default.CreateExpressionAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createexpressionanimation)
     public func createExpressionAnimation(_ expression: String) throws -> ExpressionAnimation! {
-        try _default.CreateExpressionAnimationWithExpressionImpl(expression)
+        try _default.CreateExpressionAnimationWithExpression(expression)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createinsetclip)
     public func createInsetClip() throws -> InsetClip! {
-        try _default.CreateInsetClipImpl()
+        try _default.CreateInsetClip()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createinsetclip)
     public func createInsetClip(_ leftInset: Float, _ topInset: Float, _ rightInset: Float, _ bottomInset: Float) throws -> InsetClip! {
-        try _default.CreateInsetClipWithInsetsImpl(leftInset, topInset, rightInset, bottomInset)
+        try _default.CreateInsetClipWithInsets(leftInset, topInset, rightInset, bottomInset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createlineareasingfunction)
     public func createLinearEasingFunction() throws -> LinearEasingFunction! {
-        try _default.CreateLinearEasingFunctionImpl()
+        try _default.CreateLinearEasingFunction()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createpropertyset)
     public func createPropertySet() throws -> CompositionPropertySet! {
-        try _default.CreatePropertySetImpl()
+        try _default.CreatePropertySet()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createquaternionkeyframeanimation)
     public func createQuaternionKeyFrameAnimation() throws -> QuaternionKeyFrameAnimation! {
-        try _default.CreateQuaternionKeyFrameAnimationImpl()
+        try _default.CreateQuaternionKeyFrameAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createscalarkeyframeanimation)
     public func createScalarKeyFrameAnimation() throws -> ScalarKeyFrameAnimation! {
-        try _default.CreateScalarKeyFrameAnimationImpl()
+        try _default.CreateScalarKeyFrameAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createscopedbatch)
     public func createScopedBatch(_ batchType: CompositionBatchTypes) throws -> CompositionScopedBatch! {
-        try _default.CreateScopedBatchImpl(batchType)
+        try _default.CreateScopedBatch(batchType)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createspritevisual)
     public func createSpriteVisual() throws -> SpriteVisual! {
-        try _default.CreateSpriteVisualImpl()
+        try _default.CreateSpriteVisual()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createsurfacebrush)
     public func createSurfaceBrush() throws -> CompositionSurfaceBrush! {
-        try _default.CreateSurfaceBrushImpl()
+        try _default.CreateSurfaceBrush()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createsurfacebrush)
     public func createSurfaceBrush(_ surface: AnyICompositionSurface!) throws -> CompositionSurfaceBrush! {
-        try _default.CreateSurfaceBrushWithSurfaceImpl(surface)
+        try _default.CreateSurfaceBrushWithSurface(surface)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createvector2keyframeanimation)
     public func createVector2KeyFrameAnimation() throws -> Vector2KeyFrameAnimation! {
-        try _default.CreateVector2KeyFrameAnimationImpl()
+        try _default.CreateVector2KeyFrameAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createvector3keyframeanimation)
     public func createVector3KeyFrameAnimation() throws -> Vector3KeyFrameAnimation! {
-        try _default.CreateVector3KeyFrameAnimationImpl()
+        try _default.CreateVector3KeyFrameAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createvector4keyframeanimation)
     public func createVector4KeyFrameAnimation() throws -> Vector4KeyFrameAnimation! {
-        try _default.CreateVector4KeyFrameAnimationImpl()
+        try _default.CreateVector4KeyFrameAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.getcommitbatch)
     public func getCommitBatch(_ batchType: CompositionBatchTypes) throws -> CompositionCommitBatch! {
-        try _default.GetCommitBatchImpl(batchType)
+        try _default.GetCommitBatch(batchType)
     }
 
     private lazy var _ICompositor2: __ABI_Microsoft_UI_Composition.ICompositor2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createambientlight)
     public func createAmbientLight() throws -> AmbientLight! {
-        try _ICompositor2.CreateAmbientLightImpl()
+        try _ICompositor2.CreateAmbientLight()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createanimationgroup)
     public func createAnimationGroup() throws -> CompositionAnimationGroup! {
-        try _ICompositor2.CreateAnimationGroupImpl()
+        try _ICompositor2.CreateAnimationGroup()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createbackdropbrush)
     public func createBackdropBrush() throws -> CompositionBackdropBrush! {
-        try _ICompositor2.CreateBackdropBrushImpl()
+        try _ICompositor2.CreateBackdropBrush()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createdistantlight)
     public func createDistantLight() throws -> DistantLight! {
-        try _ICompositor2.CreateDistantLightImpl()
+        try _ICompositor2.CreateDistantLight()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createdropshadow)
     public func createDropShadow() throws -> DropShadow! {
-        try _ICompositor2.CreateDropShadowImpl()
+        try _ICompositor2.CreateDropShadow()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createimplicitanimationcollection)
     public func createImplicitAnimationCollection() throws -> ImplicitAnimationCollection! {
-        try _ICompositor2.CreateImplicitAnimationCollectionImpl()
+        try _ICompositor2.CreateImplicitAnimationCollection()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createlayervisual)
     public func createLayerVisual() throws -> LayerVisual! {
-        try _ICompositor2.CreateLayerVisualImpl()
+        try _ICompositor2.CreateLayerVisual()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createmaskbrush)
     public func createMaskBrush() throws -> CompositionMaskBrush! {
-        try _ICompositor2.CreateMaskBrushImpl()
+        try _ICompositor2.CreateMaskBrush()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createninegridbrush)
     public func createNineGridBrush() throws -> CompositionNineGridBrush! {
-        try _ICompositor2.CreateNineGridBrushImpl()
+        try _ICompositor2.CreateNineGridBrush()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createpointlight)
     public func createPointLight() throws -> PointLight! {
-        try _ICompositor2.CreatePointLightImpl()
+        try _ICompositor2.CreatePointLight()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createspotlight)
     public func createSpotLight() throws -> SpotLight! {
-        try _ICompositor2.CreateSpotLightImpl()
+        try _ICompositor2.CreateSpotLight()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createstepeasingfunction)
     public func createStepEasingFunction() throws -> StepEasingFunction! {
-        try _ICompositor2.CreateStepEasingFunctionImpl()
+        try _ICompositor2.CreateStepEasingFunction()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createstepeasingfunction)
     public func createStepEasingFunction(_ stepCount: Int32) throws -> StepEasingFunction! {
-        try _ICompositor2.CreateStepEasingFunctionWithStepCountImpl(stepCount)
+        try _ICompositor2.CreateStepEasingFunctionWithStepCount(stepCount)
     }
 
     private lazy var _ICompositor4: __ABI_Microsoft_UI_Composition.ICompositor4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createcolorgradientstop)
     public func createColorGradientStop() throws -> CompositionColorGradientStop! {
-        try _ICompositor4.CreateColorGradientStopImpl()
+        try _ICompositor4.CreateColorGradientStop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createcolorgradientstop)
     public func createColorGradientStop(_ offset: Float, _ color: UWP.Color) throws -> CompositionColorGradientStop! {
-        try _ICompositor4.CreateColorGradientStopWithOffsetAndColorImpl(offset, color)
+        try _ICompositor4.CreateColorGradientStopWithOffsetAndColor(offset, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createlineargradientbrush)
     public func createLinearGradientBrush() throws -> CompositionLinearGradientBrush! {
-        try _ICompositor4.CreateLinearGradientBrushImpl()
+        try _ICompositor4.CreateLinearGradientBrush()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createspringscalaranimation)
     public func createSpringScalarAnimation() throws -> SpringScalarNaturalMotionAnimation! {
-        try _ICompositor4.CreateSpringScalarAnimationImpl()
+        try _ICompositor4.CreateSpringScalarAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createspringvector2animation)
     public func createSpringVector2Animation() throws -> SpringVector2NaturalMotionAnimation! {
-        try _ICompositor4.CreateSpringVector2AnimationImpl()
+        try _ICompositor4.CreateSpringVector2Animation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createspringvector3animation)
     public func createSpringVector3Animation() throws -> SpringVector3NaturalMotionAnimation! {
-        try _ICompositor4.CreateSpringVector3AnimationImpl()
+        try _ICompositor4.CreateSpringVector3Animation()
     }
 
     private lazy var _ICompositor5: __ABI_Microsoft_UI_Composition.ICompositor5! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createbouncescalaranimation)
     public func createBounceScalarAnimation() throws -> BounceScalarNaturalMotionAnimation! {
-        try _ICompositor5.CreateBounceScalarAnimationImpl()
+        try _ICompositor5.CreateBounceScalarAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createbouncevector2animation)
     public func createBounceVector2Animation() throws -> BounceVector2NaturalMotionAnimation! {
-        try _ICompositor5.CreateBounceVector2AnimationImpl()
+        try _ICompositor5.CreateBounceVector2Animation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createbouncevector3animation)
     public func createBounceVector3Animation() throws -> BounceVector3NaturalMotionAnimation! {
-        try _ICompositor5.CreateBounceVector3AnimationImpl()
+        try _ICompositor5.CreateBounceVector3Animation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createcontainershape)
     public func createContainerShape() throws -> CompositionContainerShape! {
-        try _ICompositor5.CreateContainerShapeImpl()
+        try _ICompositor5.CreateContainerShape()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createellipsegeometry)
     public func createEllipseGeometry() throws -> CompositionEllipseGeometry! {
-        try _ICompositor5.CreateEllipseGeometryImpl()
+        try _ICompositor5.CreateEllipseGeometry()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createlinegeometry)
     public func createLineGeometry() throws -> CompositionLineGeometry! {
-        try _ICompositor5.CreateLineGeometryImpl()
+        try _ICompositor5.CreateLineGeometry()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createpathgeometry)
     public func createPathGeometry() throws -> CompositionPathGeometry! {
-        try _ICompositor5.CreatePathGeometryImpl()
+        try _ICompositor5.CreatePathGeometry()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createpathgeometry)
     public func createPathGeometry(_ path: CompositionPath!) throws -> CompositionPathGeometry! {
-        try _ICompositor5.CreatePathGeometryWithPathImpl(path)
+        try _ICompositor5.CreatePathGeometryWithPath(path)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createpathkeyframeanimation)
     public func createPathKeyFrameAnimation() throws -> PathKeyFrameAnimation! {
-        try _ICompositor5.CreatePathKeyFrameAnimationImpl()
+        try _ICompositor5.CreatePathKeyFrameAnimation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createrectanglegeometry)
     public func createRectangleGeometry() throws -> CompositionRectangleGeometry! {
-        try _ICompositor5.CreateRectangleGeometryImpl()
+        try _ICompositor5.CreateRectangleGeometry()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createroundedrectanglegeometry)
     public func createRoundedRectangleGeometry() throws -> CompositionRoundedRectangleGeometry! {
-        try _ICompositor5.CreateRoundedRectangleGeometryImpl()
+        try _ICompositor5.CreateRoundedRectangleGeometry()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createshapevisual)
     public func createShapeVisual() throws -> ShapeVisual! {
-        try _ICompositor5.CreateShapeVisualImpl()
+        try _ICompositor5.CreateShapeVisual()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createspriteshape)
     public func createSpriteShape() throws -> CompositionSpriteShape! {
-        try _ICompositor5.CreateSpriteShapeImpl()
+        try _ICompositor5.CreateSpriteShape()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createspriteshape)
     public func createSpriteShape(_ geometry: CompositionGeometry!) throws -> CompositionSpriteShape! {
-        try _ICompositor5.CreateSpriteShapeWithGeometryImpl(geometry)
+        try _ICompositor5.CreateSpriteShapeWithGeometry(geometry)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createviewbox)
     public func createViewBox() throws -> CompositionViewBox! {
-        try _ICompositor5.CreateViewBoxImpl()
+        try _ICompositor5.CreateViewBox()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.requestcommitasync)
     public func requestCommitAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _ICompositor5.RequestCommitAsyncImpl()
+        try _ICompositor5.RequestCommitAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.comment)
     public var comment : String {
-        get { try! _ICompositor5.get_CommentImpl() }
-        set { try! _ICompositor5.put_CommentImpl(newValue) }
+        get { try! _ICompositor5.get_Comment() }
+        set { try! _ICompositor5.put_Comment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.globalplaybackrate)
     public var globalPlaybackRate : Float {
-        get { try! _ICompositor5.get_GlobalPlaybackRateImpl() }
-        set { try! _ICompositor5.put_GlobalPlaybackRateImpl(newValue) }
+        get { try! _ICompositor5.get_GlobalPlaybackRate() }
+        set { try! _ICompositor5.put_GlobalPlaybackRate(newValue) }
     }
 
     private lazy var _ICompositor6: __ABI_Microsoft_UI_Composition.ICompositor6! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.creategeometricclip)
     public func createGeometricClip() throws -> CompositionGeometricClip! {
-        try _ICompositor6.CreateGeometricClipImpl()
+        try _ICompositor6.CreateGeometricClip()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.creategeometricclip)
     public func createGeometricClip(_ geometry: CompositionGeometry!) throws -> CompositionGeometricClip! {
-        try _ICompositor6.CreateGeometricClipWithGeometryImpl(geometry)
+        try _ICompositor6.CreateGeometricClipWithGeometry(geometry)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createredirectvisual)
     public func createRedirectVisual() throws -> RedirectVisual! {
-        try _ICompositor6.CreateRedirectVisualImpl()
+        try _ICompositor6.CreateRedirectVisual()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createredirectvisual)
     public func createRedirectVisual(_ source: Visual!) throws -> RedirectVisual! {
-        try _ICompositor6.CreateRedirectVisualWithSourceVisualImpl(source)
+        try _ICompositor6.CreateRedirectVisualWithSourceVisual(source)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createbooleankeyframeanimation)
     public func createBooleanKeyFrameAnimation() throws -> BooleanKeyFrameAnimation! {
-        try _ICompositor6.CreateBooleanKeyFrameAnimationImpl()
+        try _ICompositor6.CreateBooleanKeyFrameAnimation()
     }
 
     private lazy var _ICompositor7: __ABI_Microsoft_UI_Composition.ICompositor7! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createanimationpropertyinfo)
     public func createAnimationPropertyInfo() throws -> AnimationPropertyInfo! {
-        try _ICompositor7.CreateAnimationPropertyInfoImpl()
+        try _ICompositor7.CreateAnimationPropertyInfo()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createrectangleclip)
     public func createRectangleClip() throws -> RectangleClip! {
-        try _ICompositor7.CreateRectangleClipImpl()
+        try _ICompositor7.CreateRectangleClip()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createrectangleclip)
     public func createRectangleClip(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float) throws -> RectangleClip! {
-        try _ICompositor7.CreateRectangleClipWithSidesImpl(left, top, right, bottom)
+        try _ICompositor7.CreateRectangleClipWithSides(left, top, right, bottom)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createrectangleclip)
     public func createRectangleClip(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float, _ topLeftRadius: WindowsFoundation.Vector2, _ topRightRadius: WindowsFoundation.Vector2, _ bottomRightRadius: WindowsFoundation.Vector2, _ bottomLeftRadius: WindowsFoundation.Vector2) throws -> RectangleClip! {
-        try _ICompositor7.CreateRectangleClipWithSidesAndRadiusImpl(left, top, right, bottom, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)
+        try _ICompositor7.CreateRectangleClipWithSidesAndRadius(left, top, right, bottom, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.dispatcherqueue)
     public var dispatcherQueue : WinAppSDK.DispatcherQueue! {
-        get { try! _ICompositor7.get_DispatcherQueueImpl() }
+        get { try! _ICompositor7.get_DispatcherQueue() }
     }
 
     private lazy var _ICompositorWithProjectedShadow: __ABI_Microsoft_UI_Composition.ICompositorWithProjectedShadow! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createprojectedshadowcaster)
     public func createProjectedShadowCaster() throws -> CompositionProjectedShadowCaster! {
-        try _ICompositorWithProjectedShadow.CreateProjectedShadowCasterImpl()
+        try _ICompositorWithProjectedShadow.CreateProjectedShadowCaster()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createprojectedshadow)
     public func createProjectedShadow() throws -> CompositionProjectedShadow! {
-        try _ICompositorWithProjectedShadow.CreateProjectedShadowImpl()
+        try _ICompositorWithProjectedShadow.CreateProjectedShadow()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createprojectedshadowreceiver)
     public func createProjectedShadowReceiver() throws -> CompositionProjectedShadowReceiver! {
-        try _ICompositorWithProjectedShadow.CreateProjectedShadowReceiverImpl()
+        try _ICompositorWithProjectedShadow.CreateProjectedShadowReceiver()
     }
 
     private lazy var _ICompositorWithRadialGradient: __ABI_Microsoft_UI_Composition.ICompositorWithRadialGradient! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createradialgradientbrush)
     public func createRadialGradientBrush() throws -> CompositionRadialGradientBrush! {
-        try _ICompositorWithRadialGradient.CreateRadialGradientBrushImpl()
+        try _ICompositorWithRadialGradient.CreateRadialGradientBrush()
     }
 
     private lazy var _ICompositorWithVisualSurface: __ABI_Microsoft_UI_Composition.ICompositorWithVisualSurface! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createvisualsurface)
     public func createVisualSurface() throws -> CompositionVisualSurface! {
-        try _ICompositorWithVisualSurface.CreateVisualSurfaceImpl()
+        try _ICompositorWithVisualSurface.CreateVisualSurface()
     }
 
     private lazy var _ICompositor8: __ABI_Microsoft_UI_Composition.ICompositor8! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.createanimationcontroller)
     public func createAnimationController() throws -> AnimationController! {
-        try _ICompositor8.CreateAnimationControllerImpl()
+        try _ICompositor8.CreateAnimationController()
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.compositor.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     deinit {
@@ -4423,12 +3939,6 @@ open class ContainerVisual : WinAppSDK.Visual {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual>?) -> ContainerVisual? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -4443,24 +3953,13 @@ open class ContainerVisual : WinAppSDK.Visual {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IContainerVisualFactory : __ABI_Microsoft_UI_Composition.IContainerVisualFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.ContainerVisual"))
+    private static var _IContainerVisualFactory : __ABI_Microsoft_UI_Composition.IContainerVisualFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.ContainerVisual")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.containervisual.children)
     public var children : VisualCollection! {
-        get { try! _default.get_ChildrenImpl() }
+        get { try! _default.get_Children() }
     }
 
-    internal enum IContainerVisual : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ContainerVisual
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.IContainerVisual
-        }
-    }
-    internal typealias Composable = IContainerVisual
     deinit {
         _default = nil
     }
@@ -4480,24 +3979,18 @@ public final class CubicBezierEasingFunction : WinAppSDK.CompositionEasingFuncti
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICubicBezierEasingFunction>?) -> CubicBezierEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.cubicbeziereasingfunction.controlpoint1)
     public var controlPoint1 : WindowsFoundation.Vector2 {
-        get { try! _default.get_ControlPoint1Impl() }
+        get { try! _default.get_ControlPoint1() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.cubicbeziereasingfunction.controlpoint2)
     public var controlPoint2 : WindowsFoundation.Vector2 {
-        get { try! _default.get_ControlPoint2Impl() }
+        get { try! _default.get_ControlPoint2() }
     }
 
     deinit {
@@ -4519,39 +4012,33 @@ public final class DistantLight : WinAppSDK.CompositionLight {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight>?) -> DistantLight? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.distantlight.color)
     public var color : UWP.Color {
-        get { try! _default.get_ColorImpl() }
-        set { try! _default.put_ColorImpl(newValue) }
+        get { try! _default.get_Color() }
+        set { try! _default.put_Color(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.distantlight.coordinatespace)
     public var coordinateSpace : Visual! {
-        get { try! _default.get_CoordinateSpaceImpl() }
-        set { try! _default.put_CoordinateSpaceImpl(newValue) }
+        get { try! _default.get_CoordinateSpace() }
+        set { try! _default.put_CoordinateSpace(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.distantlight.direction)
     public var direction : WindowsFoundation.Vector3 {
-        get { try! _default.get_DirectionImpl() }
-        set { try! _default.put_DirectionImpl(newValue) }
+        get { try! _default.get_Direction() }
+        set { try! _default.put_Direction(newValue) }
     }
 
     private lazy var _IDistantLight2: __ABI_Microsoft_UI_Composition.IDistantLight2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.distantlight.intensity)
     public var intensity : Float {
-        get { try! _IDistantLight2.get_IntensityImpl() }
-        set { try! _IDistantLight2.put_IntensityImpl(newValue) }
+        get { try! _IDistantLight2.get_Intensity() }
+        set { try! _IDistantLight2.put_Intensity(newValue) }
     }
 
     deinit {
@@ -4574,51 +4061,45 @@ public final class DropShadow : WinAppSDK.CompositionShadow {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow>?) -> DropShadow? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.dropshadow.blurradius)
     public var blurRadius : Float {
-        get { try! _default.get_BlurRadiusImpl() }
-        set { try! _default.put_BlurRadiusImpl(newValue) }
+        get { try! _default.get_BlurRadius() }
+        set { try! _default.put_BlurRadius(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.dropshadow.color)
     public var color : UWP.Color {
-        get { try! _default.get_ColorImpl() }
-        set { try! _default.put_ColorImpl(newValue) }
+        get { try! _default.get_Color() }
+        set { try! _default.put_Color(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.dropshadow.mask)
     public var mask : CompositionBrush! {
-        get { try! _default.get_MaskImpl() }
-        set { try! _default.put_MaskImpl(newValue) }
+        get { try! _default.get_Mask() }
+        set { try! _default.put_Mask(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.dropshadow.offset)
     public var offset : WindowsFoundation.Vector3 {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.dropshadow.opacity)
     public var opacity : Float {
-        get { try! _default.get_OpacityImpl() }
-        set { try! _default.put_OpacityImpl(newValue) }
+        get { try! _default.get_Opacity() }
+        set { try! _default.put_Opacity(newValue) }
     }
 
     private lazy var _IDropShadow2: __ABI_Microsoft_UI_Composition.IDropShadow2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.dropshadow.sourcepolicy)
     public var sourcePolicy : CompositionDropShadowSourcePolicy {
-        get { try! _IDropShadow2.get_SourcePolicyImpl() }
-        set { try! _IDropShadow2.put_SourcePolicyImpl(newValue) }
+        get { try! _IDropShadow2.get_SourcePolicy() }
+        set { try! _IDropShadow2.put_SourcePolicy(newValue) }
     }
 
     deinit {
@@ -4641,29 +4122,23 @@ public final class ElasticEasingFunction : WinAppSDK.CompositionEasingFunction {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIElasticEasingFunction>?) -> ElasticEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.elasticeasingfunction.mode)
     public var mode : CompositionEasingFunctionMode {
-        get { try! _default.get_ModeImpl() }
+        get { try! _default.get_Mode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.elasticeasingfunction.oscillations)
     public var oscillations : Int32 {
-        get { try! _default.get_OscillationsImpl() }
+        get { try! _default.get_Oscillations() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.elasticeasingfunction.springiness)
     public var springiness : Float {
-        get { try! _default.get_SpringinessImpl() }
+        get { try! _default.get_Springiness() }
     }
 
     deinit {
@@ -4685,24 +4160,18 @@ public final class ExponentialEasingFunction : WinAppSDK.CompositionEasingFuncti
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIExponentialEasingFunction>?) -> ExponentialEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.exponentialeasingfunction.exponent)
     public var exponent : Float {
-        get { try! _default.get_ExponentImpl() }
+        get { try! _default.get_Exponent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.exponentialeasingfunction.mode)
     public var mode : CompositionEasingFunctionMode {
-        get { try! _default.get_ModeImpl() }
+        get { try! _default.get_Mode() }
     }
 
     deinit {
@@ -4724,20 +4193,14 @@ public final class ExpressionAnimation : WinAppSDK.CompositionAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIExpressionAnimation>?) -> ExpressionAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.expressionanimation.expression)
     public var expression : String {
-        get { try! _default.get_ExpressionImpl() }
-        set { try! _default.put_ExpressionImpl(newValue) }
+        get { try! _default.get_Expression() }
+        set { try! _default.put_Expression(newValue) }
     }
 
     deinit {
@@ -4762,12 +4225,6 @@ public final class ImplicitAnimationCollection : WinAppSDK.CompositionObject, II
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIImplicitAnimationCollection>?) -> ImplicitAnimationCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -4778,43 +4235,43 @@ public final class ImplicitAnimationCollection : WinAppSDK.CompositionObject, II
     private lazy var _IIterable: IIterableIKeyValuePairString_ICompositionAnimationBase! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.implicitanimationcollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, AnyICompositionAnimationBase?>?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IMap: IMapString_ICompositionAnimationBase! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.implicitanimationcollection.lookup)
     public func lookup(_ key: String) -> AnyICompositionAnimationBase? {
-        try! _IMap.LookupImpl(key)
+        try! _IMap.Lookup(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.implicitanimationcollection.haskey)
     public func hasKey(_ key: String) -> Bool {
-        try! _IMap.HasKeyImpl(key)
+        try! _IMap.HasKey(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.implicitanimationcollection.getview)
     public func getView() -> WindowsFoundation.AnyIMapView<String, AnyICompositionAnimationBase?>? {
-        try! _IMap.GetViewImpl()
+        try! _IMap.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.implicitanimationcollection.insert)
     public func insert(_ key: String, _ value: AnyICompositionAnimationBase?) -> Bool {
-        try! _IMap.InsertImpl(key, value)
+        try! _IMap.Insert(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.implicitanimationcollection.remove)
     public func remove(_ key: String) {
-        try! _IMap.RemoveImpl(key)
+        try! _IMap.Remove(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.implicitanimationcollection.clear)
     public func clear() {
-        try! _IMap.ClearImpl()
+        try! _IMap.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.implicitanimationcollection.size)
     public var size : UInt32 {
-        get { try! _IMap.get_SizeImpl() }
+        get { try! _IMap.get_Size() }
     }
 
     deinit {
@@ -4841,12 +4298,6 @@ public final class InitialValueExpressionCollection : WinAppSDK.CompositionObjec
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIMap_2_HSTRING_HSTRING>?) -> InitialValueExpressionCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -4856,43 +4307,43 @@ public final class InitialValueExpressionCollection : WinAppSDK.CompositionObjec
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.initialvalueexpressioncollection.lookup)
     public func lookup(_ key: String) -> String {
-        try! _default.LookupImpl(key)
+        try! _default.Lookup(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.initialvalueexpressioncollection.haskey)
     public func hasKey(_ key: String) -> Bool {
-        try! _default.HasKeyImpl(key)
+        try! _default.HasKey(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.initialvalueexpressioncollection.getview)
     public func getView() -> WindowsFoundation.AnyIMapView<String, String>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.initialvalueexpressioncollection.insert)
     public func insert(_ key: String, _ value: String) -> Bool {
-        try! _default.InsertImpl(key, value)
+        try! _default.Insert(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.initialvalueexpressioncollection.remove)
     public func remove(_ key: String) {
-        try! _default.RemoveImpl(key)
+        try! _default.Remove(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.initialvalueexpressioncollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.initialvalueexpressioncollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableIKeyValuePairString_String! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.initialvalueexpressioncollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, String>?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -4915,38 +4366,32 @@ public final class InsetClip : WinAppSDK.CompositionClip {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip>?) -> InsetClip? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.insetclip.bottominset)
     public var bottomInset : Float {
-        get { try! _default.get_BottomInsetImpl() }
-        set { try! _default.put_BottomInsetImpl(newValue) }
+        get { try! _default.get_BottomInset() }
+        set { try! _default.put_BottomInset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.insetclip.leftinset)
     public var leftInset : Float {
-        get { try! _default.get_LeftInsetImpl() }
-        set { try! _default.put_LeftInsetImpl(newValue) }
+        get { try! _default.get_LeftInset() }
+        set { try! _default.put_LeftInset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.insetclip.rightinset)
     public var rightInset : Float {
-        get { try! _default.get_RightInsetImpl() }
-        set { try! _default.put_RightInsetImpl(newValue) }
+        get { try! _default.get_RightInset() }
+        set { try! _default.put_RightInset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.insetclip.topinset)
     public var topInset : Float {
-        get { try! _default.get_TopInsetImpl() }
-        set { try! _default.put_TopInsetImpl(newValue) }
+        get { try! _default.get_TopInset() }
+        set { try! _default.put_TopInset(newValue) }
     }
 
     deinit {
@@ -4968,12 +4413,6 @@ open class KeyFrameAnimation : WinAppSDK.CompositionAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation>?) -> KeyFrameAnimation? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -4988,78 +4427,67 @@ open class KeyFrameAnimation : WinAppSDK.CompositionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IKeyFrameAnimationFactory : __ABI_Microsoft_UI_Composition.IKeyFrameAnimationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.KeyFrameAnimation"))
+    private static var _IKeyFrameAnimationFactory : __ABI_Microsoft_UI_Composition.IKeyFrameAnimationFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.KeyFrameAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.insertexpressionkeyframe)
     public func insertExpressionKeyFrame(_ normalizedProgressKey: Float, _ value: String) throws {
-        try _default.InsertExpressionKeyFrameImpl(normalizedProgressKey, value)
+        try _default.InsertExpressionKeyFrame(normalizedProgressKey, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.insertexpressionkeyframe)
     public func insertExpressionKeyFrame(_ normalizedProgressKey: Float, _ value: String, _ easingFunction: CompositionEasingFunction!) throws {
-        try _default.InsertExpressionKeyFrameWithEasingFunctionImpl(normalizedProgressKey, value, easingFunction)
+        try _default.InsertExpressionKeyFrameWithEasingFunction(normalizedProgressKey, value, easingFunction)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.delaytime)
     public var delayTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DelayTimeImpl() }
-        set { try! _default.put_DelayTimeImpl(newValue) }
+        get { try! _default.get_DelayTime() }
+        set { try! _default.put_DelayTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.duration)
     public var duration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DurationImpl() }
-        set { try! _default.put_DurationImpl(newValue) }
+        get { try! _default.get_Duration() }
+        set { try! _default.put_Duration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.iterationbehavior)
     public var iterationBehavior : AnimationIterationBehavior {
-        get { try! _default.get_IterationBehaviorImpl() }
-        set { try! _default.put_IterationBehaviorImpl(newValue) }
+        get { try! _default.get_IterationBehavior() }
+        set { try! _default.put_IterationBehavior(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.iterationcount)
     public var iterationCount : Int32 {
-        get { try! _default.get_IterationCountImpl() }
-        set { try! _default.put_IterationCountImpl(newValue) }
+        get { try! _default.get_IterationCount() }
+        set { try! _default.put_IterationCount(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.keyframecount)
     public var keyFrameCount : Int32 {
-        get { try! _default.get_KeyFrameCountImpl() }
+        get { try! _default.get_KeyFrameCount() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.stopbehavior)
     public var stopBehavior : AnimationStopBehavior {
-        get { try! _default.get_StopBehaviorImpl() }
-        set { try! _default.put_StopBehaviorImpl(newValue) }
+        get { try! _default.get_StopBehavior() }
+        set { try! _default.put_StopBehavior(newValue) }
     }
 
     private lazy var _IKeyFrameAnimation2: __ABI_Microsoft_UI_Composition.IKeyFrameAnimation2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.direction)
     public var direction : AnimationDirection {
-        get { try! _IKeyFrameAnimation2.get_DirectionImpl() }
-        set { try! _IKeyFrameAnimation2.put_DirectionImpl(newValue) }
+        get { try! _IKeyFrameAnimation2.get_Direction() }
+        set { try! _IKeyFrameAnimation2.put_Direction(newValue) }
     }
 
     private lazy var _IKeyFrameAnimation3: __ABI_Microsoft_UI_Composition.IKeyFrameAnimation3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.keyframeanimation.delaybehavior)
     public var delayBehavior : AnimationDelayBehavior {
-        get { try! _IKeyFrameAnimation3.get_DelayBehaviorImpl() }
-        set { try! _IKeyFrameAnimation3.put_DelayBehaviorImpl(newValue) }
+        get { try! _IKeyFrameAnimation3.get_DelayBehavior() }
+        set { try! _IKeyFrameAnimation3.put_DelayBehavior(newValue) }
     }
 
-    internal enum IKeyFrameAnimation : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = KeyFrameAnimation
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.IKeyFrameAnimation
-        }
-    }
-    internal typealias Composable = IKeyFrameAnimation
     deinit {
         _default = nil
         _IKeyFrameAnimation2 = nil
@@ -5081,27 +4509,21 @@ public final class LayerVisual : WinAppSDK.ContainerVisual {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CILayerVisual>?) -> LayerVisual? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.layervisual.effect)
     public var effect : CompositionEffectBrush! {
-        get { try! _default.get_EffectImpl() }
-        set { try! _default.put_EffectImpl(newValue) }
+        get { try! _default.get_Effect() }
+        set { try! _default.put_Effect(newValue) }
     }
 
     private lazy var _ILayerVisual2: __ABI_Microsoft_UI_Composition.ILayerVisual2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.layervisual.shadow)
     public var shadow : CompositionShadow! {
-        get { try! _ILayerVisual2.get_ShadowImpl() }
-        set { try! _ILayerVisual2.put_ShadowImpl(newValue) }
+        get { try! _ILayerVisual2.get_Shadow() }
+        set { try! _ILayerVisual2.put_Shadow(newValue) }
     }
 
     deinit {
@@ -5121,12 +4543,6 @@ public final class LinearEasingFunction : WinAppSDK.CompositionEasingFunction {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CILinearEasingFunction>?) -> LinearEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -5153,12 +4569,6 @@ open class NaturalMotionAnimation : WinAppSDK.CompositionAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation>?) -> NaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -5173,37 +4583,26 @@ open class NaturalMotionAnimation : WinAppSDK.CompositionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INaturalMotionAnimationFactory : __ABI_Microsoft_UI_Composition.INaturalMotionAnimationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.NaturalMotionAnimation"))
+    private static var _INaturalMotionAnimationFactory : __ABI_Microsoft_UI_Composition.INaturalMotionAnimationFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.NaturalMotionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.naturalmotionanimation.delaybehavior)
     public var delayBehavior : AnimationDelayBehavior {
-        get { try! _default.get_DelayBehaviorImpl() }
-        set { try! _default.put_DelayBehaviorImpl(newValue) }
+        get { try! _default.get_DelayBehavior() }
+        set { try! _default.put_DelayBehavior(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.naturalmotionanimation.delaytime)
     public var delayTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DelayTimeImpl() }
-        set { try! _default.put_DelayTimeImpl(newValue) }
+        get { try! _default.get_DelayTime() }
+        set { try! _default.put_DelayTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.naturalmotionanimation.stopbehavior)
     public var stopBehavior : AnimationStopBehavior {
-        get { try! _default.get_StopBehaviorImpl() }
-        set { try! _default.put_StopBehaviorImpl(newValue) }
+        get { try! _default.get_StopBehavior() }
+        set { try! _default.put_StopBehavior(newValue) }
     }
 
-    internal enum INaturalMotionAnimation : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = NaturalMotionAnimation
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.INaturalMotionAnimation
-        }
-    }
-    internal typealias Composable = INaturalMotionAnimation
     deinit {
         _default = nil
     }
@@ -5223,24 +4622,18 @@ public final class PathKeyFrameAnimation : WinAppSDK.KeyFrameAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIPathKeyFrameAnimation>?) -> PathKeyFrameAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pathkeyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ path: CompositionPath!) throws {
-        try _default.InsertKeyFrameImpl(normalizedProgressKey, path)
+        try _default.InsertKeyFrame(normalizedProgressKey, path)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pathkeyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ path: CompositionPath!, _ easingFunction: CompositionEasingFunction!) throws {
-        try _default.InsertKeyFrameWithEasingFunctionImpl(normalizedProgressKey, path, easingFunction)
+        try _default.InsertKeyFrameWithEasingFunction(normalizedProgressKey, path, easingFunction)
     }
 
     deinit {
@@ -5262,70 +4655,64 @@ public final class PointLight : WinAppSDK.CompositionLight {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIPointLight>?) -> PointLight? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pointlight.color)
     public var color : UWP.Color {
-        get { try! _default.get_ColorImpl() }
-        set { try! _default.put_ColorImpl(newValue) }
+        get { try! _default.get_Color() }
+        set { try! _default.put_Color(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pointlight.constantattenuation)
     public var constantAttenuation : Float {
-        get { try! _default.get_ConstantAttenuationImpl() }
-        set { try! _default.put_ConstantAttenuationImpl(newValue) }
+        get { try! _default.get_ConstantAttenuation() }
+        set { try! _default.put_ConstantAttenuation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pointlight.coordinatespace)
     public var coordinateSpace : Visual! {
-        get { try! _default.get_CoordinateSpaceImpl() }
-        set { try! _default.put_CoordinateSpaceImpl(newValue) }
+        get { try! _default.get_CoordinateSpace() }
+        set { try! _default.put_CoordinateSpace(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pointlight.linearattenuation)
     public var linearAttenuation : Float {
-        get { try! _default.get_LinearAttenuationImpl() }
-        set { try! _default.put_LinearAttenuationImpl(newValue) }
+        get { try! _default.get_LinearAttenuation() }
+        set { try! _default.put_LinearAttenuation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pointlight.offset)
     public var offset : WindowsFoundation.Vector3 {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pointlight.quadraticattenuation)
     public var quadraticAttenuation : Float {
-        get { try! _default.get_QuadraticAttenuationImpl() }
-        set { try! _default.put_QuadraticAttenuationImpl(newValue) }
+        get { try! _default.get_QuadraticAttenuation() }
+        set { try! _default.put_QuadraticAttenuation(newValue) }
     }
 
     private lazy var _IPointLight2: __ABI_Microsoft_UI_Composition.IPointLight2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pointlight.intensity)
     public var intensity : Float {
-        get { try! _IPointLight2.get_IntensityImpl() }
-        set { try! _IPointLight2.put_IntensityImpl(newValue) }
+        get { try! _IPointLight2.get_Intensity() }
+        set { try! _IPointLight2.put_Intensity(newValue) }
     }
 
     private lazy var _IPointLight3: __ABI_Microsoft_UI_Composition.IPointLight3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pointlight.maxattenuationcutoff)
     public var maxAttenuationCutoff : Float {
-        get { try! _IPointLight3.get_MaxAttenuationCutoffImpl() }
-        set { try! _IPointLight3.put_MaxAttenuationCutoffImpl(newValue) }
+        get { try! _IPointLight3.get_MaxAttenuationCutoff() }
+        set { try! _IPointLight3.put_MaxAttenuationCutoff(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.pointlight.minattenuationcutoff)
     public var minAttenuationCutoff : Float {
-        get { try! _IPointLight3.get_MinAttenuationCutoffImpl() }
-        set { try! _IPointLight3.put_MinAttenuationCutoffImpl(newValue) }
+        get { try! _IPointLight3.get_MinAttenuationCutoff() }
+        set { try! _IPointLight3.put_MinAttenuationCutoff(newValue) }
     }
 
     deinit {
@@ -5349,24 +4736,18 @@ public final class PowerEasingFunction : WinAppSDK.CompositionEasingFunction {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIPowerEasingFunction>?) -> PowerEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.powereasingfunction.mode)
     public var mode : CompositionEasingFunctionMode {
-        get { try! _default.get_ModeImpl() }
+        get { try! _default.get_Mode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.powereasingfunction.power)
     public var power : Float {
-        get { try! _default.get_PowerImpl() }
+        get { try! _default.get_Power() }
     }
 
     deinit {
@@ -5388,24 +4769,18 @@ public final class QuaternionKeyFrameAnimation : WinAppSDK.KeyFrameAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIQuaternionKeyFrameAnimation>?) -> QuaternionKeyFrameAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.quaternionkeyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Quaternion) throws {
-        try _default.InsertKeyFrameImpl(normalizedProgressKey, value)
+        try _default.InsertKeyFrame(normalizedProgressKey, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.quaternionkeyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Quaternion, _ easingFunction: CompositionEasingFunction!) throws {
-        try _default.InsertKeyFrameWithEasingFunctionImpl(normalizedProgressKey, value, easingFunction)
+        try _default.InsertKeyFrameWithEasingFunction(normalizedProgressKey, value, easingFunction)
     }
 
     deinit {
@@ -5427,62 +4802,56 @@ public final class RectangleClip : WinAppSDK.CompositionClip {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip>?) -> RectangleClip? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.rectangleclip.bottom)
     public var bottom : Float {
-        get { try! _default.get_BottomImpl() }
-        set { try! _default.put_BottomImpl(newValue) }
+        get { try! _default.get_Bottom() }
+        set { try! _default.put_Bottom(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.rectangleclip.bottomleftradius)
     public var bottomLeftRadius : WindowsFoundation.Vector2 {
-        get { try! _default.get_BottomLeftRadiusImpl() }
-        set { try! _default.put_BottomLeftRadiusImpl(newValue) }
+        get { try! _default.get_BottomLeftRadius() }
+        set { try! _default.put_BottomLeftRadius(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.rectangleclip.bottomrightradius)
     public var bottomRightRadius : WindowsFoundation.Vector2 {
-        get { try! _default.get_BottomRightRadiusImpl() }
-        set { try! _default.put_BottomRightRadiusImpl(newValue) }
+        get { try! _default.get_BottomRightRadius() }
+        set { try! _default.put_BottomRightRadius(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.rectangleclip.left)
     public var left : Float {
-        get { try! _default.get_LeftImpl() }
-        set { try! _default.put_LeftImpl(newValue) }
+        get { try! _default.get_Left() }
+        set { try! _default.put_Left(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.rectangleclip.right)
     public var right : Float {
-        get { try! _default.get_RightImpl() }
-        set { try! _default.put_RightImpl(newValue) }
+        get { try! _default.get_Right() }
+        set { try! _default.put_Right(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.rectangleclip.top)
     public var top : Float {
-        get { try! _default.get_TopImpl() }
-        set { try! _default.put_TopImpl(newValue) }
+        get { try! _default.get_Top() }
+        set { try! _default.put_Top(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.rectangleclip.topleftradius)
     public var topLeftRadius : WindowsFoundation.Vector2 {
-        get { try! _default.get_TopLeftRadiusImpl() }
-        set { try! _default.put_TopLeftRadiusImpl(newValue) }
+        get { try! _default.get_TopLeftRadius() }
+        set { try! _default.put_TopLeftRadius(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.rectangleclip.toprightradius)
     public var topRightRadius : WindowsFoundation.Vector2 {
-        get { try! _default.get_TopRightRadiusImpl() }
-        set { try! _default.put_TopRightRadiusImpl(newValue) }
+        get { try! _default.get_TopRightRadius() }
+        set { try! _default.put_TopRightRadius(newValue) }
     }
 
     deinit {
@@ -5504,20 +4873,14 @@ public final class RedirectVisual : WinAppSDK.ContainerVisual {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIRedirectVisual>?) -> RedirectVisual? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.redirectvisual.source)
     public var source : Visual! {
-        get { try! _default.get_SourceImpl() }
-        set { try! _default.put_SourceImpl(newValue) }
+        get { try! _default.get_Source() }
+        set { try! _default.put_Source(newValue) }
     }
 
     deinit {
@@ -5539,19 +4902,13 @@ public final class RenderingDeviceReplacedEventArgs : WinAppSDK.CompositionObjec
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIRenderingDeviceReplacedEventArgs>?) -> RenderingDeviceReplacedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.renderingdevicereplacedeventargs.graphicsdevice)
     public var graphicsDevice : CompositionGraphicsDevice! {
-        get { try! _default.get_GraphicsDeviceImpl() }
+        get { try! _default.get_GraphicsDevice() }
     }
 
     deinit {
@@ -5573,24 +4930,18 @@ public final class ScalarKeyFrameAnimation : WinAppSDK.KeyFrameAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIScalarKeyFrameAnimation>?) -> ScalarKeyFrameAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.scalarkeyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: Float) throws {
-        try _default.InsertKeyFrameImpl(normalizedProgressKey, value)
+        try _default.InsertKeyFrame(normalizedProgressKey, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.scalarkeyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: Float, _ easingFunction: CompositionEasingFunction!) throws {
-        try _default.InsertKeyFrameWithEasingFunctionImpl(normalizedProgressKey, value, easingFunction)
+        try _default.InsertKeyFrameWithEasingFunction(normalizedProgressKey, value, easingFunction)
     }
 
     deinit {
@@ -5612,12 +4963,6 @@ open class ScalarNaturalMotionAnimation : WinAppSDK.NaturalMotionAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation>?) -> ScalarNaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -5632,37 +4977,26 @@ open class ScalarNaturalMotionAnimation : WinAppSDK.NaturalMotionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IScalarNaturalMotionAnimationFactory : __ABI_Microsoft_UI_Composition.IScalarNaturalMotionAnimationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.ScalarNaturalMotionAnimation"))
+    private static var _IScalarNaturalMotionAnimationFactory : __ABI_Microsoft_UI_Composition.IScalarNaturalMotionAnimationFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.ScalarNaturalMotionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.scalarnaturalmotionanimation.finalvalue)
     public var finalValue : Float? {
-        get { try! _default.get_FinalValueImpl() }
-        set { try! _default.put_FinalValueImpl(newValue) }
+        get { try! _default.get_FinalValue() }
+        set { try! _default.put_FinalValue(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.scalarnaturalmotionanimation.initialvalue)
     public var initialValue : Float? {
-        get { try! _default.get_InitialValueImpl() }
-        set { try! _default.put_InitialValueImpl(newValue) }
+        get { try! _default.get_InitialValue() }
+        set { try! _default.put_InitialValue(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.scalarnaturalmotionanimation.initialvelocity)
     public var initialVelocity : Float {
-        get { try! _default.get_InitialVelocityImpl() }
-        set { try! _default.put_InitialVelocityImpl(newValue) }
+        get { try! _default.get_InitialVelocity() }
+        set { try! _default.put_InitialVelocity(newValue) }
     }
 
-    internal enum IScalarNaturalMotionAnimation : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ScalarNaturalMotionAnimation
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.IScalarNaturalMotionAnimation
-        }
-    }
-    internal typealias Composable = IScalarNaturalMotionAnimation
     deinit {
         _default = nil
     }
@@ -5682,25 +5016,19 @@ public final class ShapeVisual : WinAppSDK.ContainerVisual {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIShapeVisual>?) -> ShapeVisual? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.shapevisual.shapes)
     public var shapes : CompositionShapeCollection! {
-        get { try! _default.get_ShapesImpl() }
+        get { try! _default.get_Shapes() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.shapevisual.viewbox)
     public var viewBox : CompositionViewBox! {
-        get { try! _default.get_ViewBoxImpl() }
-        set { try! _default.put_ViewBoxImpl(newValue) }
+        get { try! _default.get_ViewBox() }
+        set { try! _default.put_ViewBox(newValue) }
     }
 
     deinit {
@@ -5722,19 +5050,13 @@ public final class SineEasingFunction : WinAppSDK.CompositionEasingFunction {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISineEasingFunction>?) -> SineEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.sineeasingfunction.mode)
     public var mode : CompositionEasingFunctionMode {
-        get { try! _default.get_ModeImpl() }
+        get { try! _default.get_Mode() }
     }
 
     deinit {
@@ -5756,112 +5078,106 @@ public final class SpotLight : WinAppSDK.CompositionLight {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpotLight>?) -> SpotLight? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.constantattenuation)
     public var constantAttenuation : Float {
-        get { try! _default.get_ConstantAttenuationImpl() }
-        set { try! _default.put_ConstantAttenuationImpl(newValue) }
+        get { try! _default.get_ConstantAttenuation() }
+        set { try! _default.put_ConstantAttenuation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.coordinatespace)
     public var coordinateSpace : Visual! {
-        get { try! _default.get_CoordinateSpaceImpl() }
-        set { try! _default.put_CoordinateSpaceImpl(newValue) }
+        get { try! _default.get_CoordinateSpace() }
+        set { try! _default.put_CoordinateSpace(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.direction)
     public var direction : WindowsFoundation.Vector3 {
-        get { try! _default.get_DirectionImpl() }
-        set { try! _default.put_DirectionImpl(newValue) }
+        get { try! _default.get_Direction() }
+        set { try! _default.put_Direction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.innerconeangle)
     public var innerConeAngle : Float {
-        get { try! _default.get_InnerConeAngleImpl() }
-        set { try! _default.put_InnerConeAngleImpl(newValue) }
+        get { try! _default.get_InnerConeAngle() }
+        set { try! _default.put_InnerConeAngle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.innerconeangleindegrees)
     public var innerConeAngleInDegrees : Float {
-        get { try! _default.get_InnerConeAngleInDegreesImpl() }
-        set { try! _default.put_InnerConeAngleInDegreesImpl(newValue) }
+        get { try! _default.get_InnerConeAngleInDegrees() }
+        set { try! _default.put_InnerConeAngleInDegrees(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.innerconecolor)
     public var innerConeColor : UWP.Color {
-        get { try! _default.get_InnerConeColorImpl() }
-        set { try! _default.put_InnerConeColorImpl(newValue) }
+        get { try! _default.get_InnerConeColor() }
+        set { try! _default.put_InnerConeColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.linearattenuation)
     public var linearAttenuation : Float {
-        get { try! _default.get_LinearAttenuationImpl() }
-        set { try! _default.put_LinearAttenuationImpl(newValue) }
+        get { try! _default.get_LinearAttenuation() }
+        set { try! _default.put_LinearAttenuation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.offset)
     public var offset : WindowsFoundation.Vector3 {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.outerconeangle)
     public var outerConeAngle : Float {
-        get { try! _default.get_OuterConeAngleImpl() }
-        set { try! _default.put_OuterConeAngleImpl(newValue) }
+        get { try! _default.get_OuterConeAngle() }
+        set { try! _default.put_OuterConeAngle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.outerconeangleindegrees)
     public var outerConeAngleInDegrees : Float {
-        get { try! _default.get_OuterConeAngleInDegreesImpl() }
-        set { try! _default.put_OuterConeAngleInDegreesImpl(newValue) }
+        get { try! _default.get_OuterConeAngleInDegrees() }
+        set { try! _default.put_OuterConeAngleInDegrees(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.outerconecolor)
     public var outerConeColor : UWP.Color {
-        get { try! _default.get_OuterConeColorImpl() }
-        set { try! _default.put_OuterConeColorImpl(newValue) }
+        get { try! _default.get_OuterConeColor() }
+        set { try! _default.put_OuterConeColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.quadraticattenuation)
     public var quadraticAttenuation : Float {
-        get { try! _default.get_QuadraticAttenuationImpl() }
-        set { try! _default.put_QuadraticAttenuationImpl(newValue) }
+        get { try! _default.get_QuadraticAttenuation() }
+        set { try! _default.put_QuadraticAttenuation(newValue) }
     }
 
     private lazy var _ISpotLight2: __ABI_Microsoft_UI_Composition.ISpotLight2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.innerconeintensity)
     public var innerConeIntensity : Float {
-        get { try! _ISpotLight2.get_InnerConeIntensityImpl() }
-        set { try! _ISpotLight2.put_InnerConeIntensityImpl(newValue) }
+        get { try! _ISpotLight2.get_InnerConeIntensity() }
+        set { try! _ISpotLight2.put_InnerConeIntensity(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.outerconeintensity)
     public var outerConeIntensity : Float {
-        get { try! _ISpotLight2.get_OuterConeIntensityImpl() }
-        set { try! _ISpotLight2.put_OuterConeIntensityImpl(newValue) }
+        get { try! _ISpotLight2.get_OuterConeIntensity() }
+        set { try! _ISpotLight2.put_OuterConeIntensity(newValue) }
     }
 
     private lazy var _ISpotLight3: __ABI_Microsoft_UI_Composition.ISpotLight3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.maxattenuationcutoff)
     public var maxAttenuationCutoff : Float {
-        get { try! _ISpotLight3.get_MaxAttenuationCutoffImpl() }
-        set { try! _ISpotLight3.put_MaxAttenuationCutoffImpl(newValue) }
+        get { try! _ISpotLight3.get_MaxAttenuationCutoff() }
+        set { try! _ISpotLight3.put_MaxAttenuationCutoff(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spotlight.minattenuationcutoff)
     public var minAttenuationCutoff : Float {
-        get { try! _ISpotLight3.get_MinAttenuationCutoffImpl() }
-        set { try! _ISpotLight3.put_MinAttenuationCutoffImpl(newValue) }
+        get { try! _ISpotLight3.get_MinAttenuationCutoff() }
+        set { try! _ISpotLight3.put_MinAttenuationCutoff(newValue) }
     }
 
     deinit {
@@ -5885,26 +5201,20 @@ public final class SpringScalarNaturalMotionAnimation : WinAppSDK.ScalarNaturalM
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpringScalarNaturalMotionAnimation>?) -> SpringScalarNaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.springscalarnaturalmotionanimation.dampingratio)
     public var dampingRatio : Float {
-        get { try! _default.get_DampingRatioImpl() }
-        set { try! _default.put_DampingRatioImpl(newValue) }
+        get { try! _default.get_DampingRatio() }
+        set { try! _default.put_DampingRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.springscalarnaturalmotionanimation.period)
     public var period : WindowsFoundation.TimeSpan {
-        get { try! _default.get_PeriodImpl() }
-        set { try! _default.put_PeriodImpl(newValue) }
+        get { try! _default.get_Period() }
+        set { try! _default.put_Period(newValue) }
     }
 
     deinit {
@@ -5926,26 +5236,20 @@ public final class SpringVector2NaturalMotionAnimation : WinAppSDK.Vector2Natura
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpringVector2NaturalMotionAnimation>?) -> SpringVector2NaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.springvector2naturalmotionanimation.dampingratio)
     public var dampingRatio : Float {
-        get { try! _default.get_DampingRatioImpl() }
-        set { try! _default.put_DampingRatioImpl(newValue) }
+        get { try! _default.get_DampingRatio() }
+        set { try! _default.put_DampingRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.springvector2naturalmotionanimation.period)
     public var period : WindowsFoundation.TimeSpan {
-        get { try! _default.get_PeriodImpl() }
-        set { try! _default.put_PeriodImpl(newValue) }
+        get { try! _default.get_Period() }
+        set { try! _default.put_Period(newValue) }
     }
 
     deinit {
@@ -5967,26 +5271,20 @@ public final class SpringVector3NaturalMotionAnimation : WinAppSDK.Vector3Natura
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpringVector3NaturalMotionAnimation>?) -> SpringVector3NaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.springvector3naturalmotionanimation.dampingratio)
     public var dampingRatio : Float {
-        get { try! _default.get_DampingRatioImpl() }
-        set { try! _default.put_DampingRatioImpl(newValue) }
+        get { try! _default.get_DampingRatio() }
+        set { try! _default.put_DampingRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.springvector3naturalmotionanimation.period)
     public var period : WindowsFoundation.TimeSpan {
-        get { try! _default.get_PeriodImpl() }
-        set { try! _default.put_PeriodImpl(newValue) }
+        get { try! _default.get_Period() }
+        set { try! _default.put_Period(newValue) }
     }
 
     deinit {
@@ -6008,27 +5306,21 @@ public final class SpriteVisual : WinAppSDK.ContainerVisual {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpriteVisual>?) -> SpriteVisual? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spritevisual.brush)
     public var brush : CompositionBrush! {
-        get { try! _default.get_BrushImpl() }
-        set { try! _default.put_BrushImpl(newValue) }
+        get { try! _default.get_Brush() }
+        set { try! _default.put_Brush(newValue) }
     }
 
     private lazy var _ISpriteVisual2: __ABI_Microsoft_UI_Composition.ISpriteVisual2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.spritevisual.shadow)
     public var shadow : CompositionShadow! {
-        get { try! _ISpriteVisual2.get_ShadowImpl() }
-        set { try! _ISpriteVisual2.put_ShadowImpl(newValue) }
+        get { try! _ISpriteVisual2.get_Shadow() }
+        set { try! _ISpriteVisual2.put_Shadow(newValue) }
     }
 
     deinit {
@@ -6051,44 +5343,38 @@ public final class StepEasingFunction : WinAppSDK.CompositionEasingFunction {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction>?) -> StepEasingFunction? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.stepeasingfunction.finalstep)
     public var finalStep : Int32 {
-        get { try! _default.get_FinalStepImpl() }
-        set { try! _default.put_FinalStepImpl(newValue) }
+        get { try! _default.get_FinalStep() }
+        set { try! _default.put_FinalStep(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.stepeasingfunction.initialstep)
     public var initialStep : Int32 {
-        get { try! _default.get_InitialStepImpl() }
-        set { try! _default.put_InitialStepImpl(newValue) }
+        get { try! _default.get_InitialStep() }
+        set { try! _default.put_InitialStep(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.stepeasingfunction.isfinalstepsingleframe)
     public var isFinalStepSingleFrame : Bool {
-        get { try! _default.get_IsFinalStepSingleFrameImpl() }
-        set { try! _default.put_IsFinalStepSingleFrameImpl(newValue) }
+        get { try! _default.get_IsFinalStepSingleFrame() }
+        set { try! _default.put_IsFinalStepSingleFrame(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.stepeasingfunction.isinitialstepsingleframe)
     public var isInitialStepSingleFrame : Bool {
-        get { try! _default.get_IsInitialStepSingleFrameImpl() }
-        set { try! _default.put_IsInitialStepSingleFrameImpl(newValue) }
+        get { try! _default.get_IsInitialStepSingleFrame() }
+        set { try! _default.put_IsInitialStepSingleFrame(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.stepeasingfunction.stepcount)
     public var stepCount : Int32 {
-        get { try! _default.get_StepCountImpl() }
-        set { try! _default.put_StepCountImpl(newValue) }
+        get { try! _default.get_StepCount() }
+        set { try! _default.put_StepCount(newValue) }
     }
 
     deinit {
@@ -6110,24 +5396,18 @@ public final class Vector2KeyFrameAnimation : WinAppSDK.KeyFrameAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector2KeyFrameAnimation>?) -> Vector2KeyFrameAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector2keyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector2) throws {
-        try _default.InsertKeyFrameImpl(normalizedProgressKey, value)
+        try _default.InsertKeyFrame(normalizedProgressKey, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector2keyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector2, _ easingFunction: CompositionEasingFunction!) throws {
-        try _default.InsertKeyFrameWithEasingFunctionImpl(normalizedProgressKey, value, easingFunction)
+        try _default.InsertKeyFrameWithEasingFunction(normalizedProgressKey, value, easingFunction)
     }
 
     deinit {
@@ -6149,12 +5429,6 @@ open class Vector2NaturalMotionAnimation : WinAppSDK.NaturalMotionAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation>?) -> Vector2NaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -6169,37 +5443,26 @@ open class Vector2NaturalMotionAnimation : WinAppSDK.NaturalMotionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IVector2NaturalMotionAnimationFactory : __ABI_Microsoft_UI_Composition.IVector2NaturalMotionAnimationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Vector2NaturalMotionAnimation"))
+    private static var _IVector2NaturalMotionAnimationFactory : __ABI_Microsoft_UI_Composition.IVector2NaturalMotionAnimationFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.Vector2NaturalMotionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector2naturalmotionanimation.finalvalue)
     public var finalValue : WindowsFoundation.Vector2? {
-        get { try! _default.get_FinalValueImpl() }
-        set { try! _default.put_FinalValueImpl(newValue) }
+        get { try! _default.get_FinalValue() }
+        set { try! _default.put_FinalValue(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector2naturalmotionanimation.initialvalue)
     public var initialValue : WindowsFoundation.Vector2? {
-        get { try! _default.get_InitialValueImpl() }
-        set { try! _default.put_InitialValueImpl(newValue) }
+        get { try! _default.get_InitialValue() }
+        set { try! _default.put_InitialValue(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector2naturalmotionanimation.initialvelocity)
     public var initialVelocity : WindowsFoundation.Vector2 {
-        get { try! _default.get_InitialVelocityImpl() }
-        set { try! _default.put_InitialVelocityImpl(newValue) }
+        get { try! _default.get_InitialVelocity() }
+        set { try! _default.put_InitialVelocity(newValue) }
     }
 
-    internal enum IVector2NaturalMotionAnimation : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = Vector2NaturalMotionAnimation
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.IVector2NaturalMotionAnimation
-        }
-    }
-    internal typealias Composable = IVector2NaturalMotionAnimation
     deinit {
         _default = nil
     }
@@ -6219,24 +5482,18 @@ public final class Vector3KeyFrameAnimation : WinAppSDK.KeyFrameAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector3KeyFrameAnimation>?) -> Vector3KeyFrameAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector3keyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector3) throws {
-        try _default.InsertKeyFrameImpl(normalizedProgressKey, value)
+        try _default.InsertKeyFrame(normalizedProgressKey, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector3keyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector3, _ easingFunction: CompositionEasingFunction!) throws {
-        try _default.InsertKeyFrameWithEasingFunctionImpl(normalizedProgressKey, value, easingFunction)
+        try _default.InsertKeyFrameWithEasingFunction(normalizedProgressKey, value, easingFunction)
     }
 
     deinit {
@@ -6258,12 +5515,6 @@ open class Vector3NaturalMotionAnimation : WinAppSDK.NaturalMotionAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation>?) -> Vector3NaturalMotionAnimation? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -6278,37 +5529,26 @@ open class Vector3NaturalMotionAnimation : WinAppSDK.NaturalMotionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IVector3NaturalMotionAnimationFactory : __ABI_Microsoft_UI_Composition.IVector3NaturalMotionAnimationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Vector3NaturalMotionAnimation"))
+    private static var _IVector3NaturalMotionAnimationFactory : __ABI_Microsoft_UI_Composition.IVector3NaturalMotionAnimationFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.Vector3NaturalMotionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector3naturalmotionanimation.finalvalue)
     public var finalValue : WindowsFoundation.Vector3? {
-        get { try! _default.get_FinalValueImpl() }
-        set { try! _default.put_FinalValueImpl(newValue) }
+        get { try! _default.get_FinalValue() }
+        set { try! _default.put_FinalValue(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector3naturalmotionanimation.initialvalue)
     public var initialValue : WindowsFoundation.Vector3? {
-        get { try! _default.get_InitialValueImpl() }
-        set { try! _default.put_InitialValueImpl(newValue) }
+        get { try! _default.get_InitialValue() }
+        set { try! _default.put_InitialValue(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector3naturalmotionanimation.initialvelocity)
     public var initialVelocity : WindowsFoundation.Vector3 {
-        get { try! _default.get_InitialVelocityImpl() }
-        set { try! _default.put_InitialVelocityImpl(newValue) }
+        get { try! _default.get_InitialVelocity() }
+        set { try! _default.put_InitialVelocity(newValue) }
     }
 
-    internal enum IVector3NaturalMotionAnimation : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = Vector3NaturalMotionAnimation
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.IVector3NaturalMotionAnimation
-        }
-    }
-    internal typealias Composable = IVector3NaturalMotionAnimation
     deinit {
         _default = nil
     }
@@ -6328,24 +5568,18 @@ public final class Vector4KeyFrameAnimation : WinAppSDK.KeyFrameAnimation {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector4KeyFrameAnimation>?) -> Vector4KeyFrameAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector4keyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector4) throws {
-        try _default.InsertKeyFrameImpl(normalizedProgressKey, value)
+        try _default.InsertKeyFrame(normalizedProgressKey, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.vector4keyframeanimation.insertkeyframe)
     public func insertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector4, _ easingFunction: CompositionEasingFunction!) throws {
-        try _default.InsertKeyFrameWithEasingFunctionImpl(normalizedProgressKey, value, easingFunction)
+        try _default.InsertKeyFrameWithEasingFunction(normalizedProgressKey, value, easingFunction)
     }
 
     deinit {
@@ -6367,12 +5601,6 @@ open class Visual : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVisual>?) -> Visual? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -6387,153 +5615,142 @@ open class Visual : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IVisualFactory : __ABI_Microsoft_UI_Composition.IVisualFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Visual"))
+    private static var _IVisualFactory : __ABI_Microsoft_UI_Composition.IVisualFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.Visual")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.anchorpoint)
     public var anchorPoint : WindowsFoundation.Vector2 {
-        get { try! _default.get_AnchorPointImpl() }
-        set { try! _default.put_AnchorPointImpl(newValue) }
+        get { try! _default.get_AnchorPoint() }
+        set { try! _default.put_AnchorPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.backfacevisibility)
     public var backfaceVisibility : CompositionBackfaceVisibility {
-        get { try! _default.get_BackfaceVisibilityImpl() }
-        set { try! _default.put_BackfaceVisibilityImpl(newValue) }
+        get { try! _default.get_BackfaceVisibility() }
+        set { try! _default.put_BackfaceVisibility(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.bordermode)
     public var borderMode : CompositionBorderMode {
-        get { try! _default.get_BorderModeImpl() }
-        set { try! _default.put_BorderModeImpl(newValue) }
+        get { try! _default.get_BorderMode() }
+        set { try! _default.put_BorderMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.centerpoint)
     public var centerPoint : WindowsFoundation.Vector3 {
-        get { try! _default.get_CenterPointImpl() }
-        set { try! _default.put_CenterPointImpl(newValue) }
+        get { try! _default.get_CenterPoint() }
+        set { try! _default.put_CenterPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.clip)
     public var clip : CompositionClip! {
-        get { try! _default.get_ClipImpl() }
-        set { try! _default.put_ClipImpl(newValue) }
+        get { try! _default.get_Clip() }
+        set { try! _default.put_Clip(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.compositemode)
     public var compositeMode : CompositionCompositeMode {
-        get { try! _default.get_CompositeModeImpl() }
-        set { try! _default.put_CompositeModeImpl(newValue) }
+        get { try! _default.get_CompositeMode() }
+        set { try! _default.put_CompositeMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.isvisible)
     public var isVisible : Bool {
-        get { try! _default.get_IsVisibleImpl() }
-        set { try! _default.put_IsVisibleImpl(newValue) }
+        get { try! _default.get_IsVisible() }
+        set { try! _default.put_IsVisible(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.offset)
     public var offset : WindowsFoundation.Vector3 {
-        get { try! _default.get_OffsetImpl() }
-        set { try! _default.put_OffsetImpl(newValue) }
+        get { try! _default.get_Offset() }
+        set { try! _default.put_Offset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.opacity)
     public var opacity : Float {
-        get { try! _default.get_OpacityImpl() }
-        set { try! _default.put_OpacityImpl(newValue) }
+        get { try! _default.get_Opacity() }
+        set { try! _default.put_Opacity(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.orientation)
     public var orientation : WindowsFoundation.Quaternion {
-        get { try! _default.get_OrientationImpl() }
-        set { try! _default.put_OrientationImpl(newValue) }
+        get { try! _default.get_Orientation() }
+        set { try! _default.put_Orientation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.parent)
     public var parent : ContainerVisual! {
-        get { try! _default.get_ParentImpl() }
+        get { try! _default.get_Parent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.rotationangle)
     public var rotationAngle : Float {
-        get { try! _default.get_RotationAngleImpl() }
-        set { try! _default.put_RotationAngleImpl(newValue) }
+        get { try! _default.get_RotationAngle() }
+        set { try! _default.put_RotationAngle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.rotationangleindegrees)
     public var rotationAngleInDegrees : Float {
-        get { try! _default.get_RotationAngleInDegreesImpl() }
-        set { try! _default.put_RotationAngleInDegreesImpl(newValue) }
+        get { try! _default.get_RotationAngleInDegrees() }
+        set { try! _default.put_RotationAngleInDegrees(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.rotationaxis)
     public var rotationAxis : WindowsFoundation.Vector3 {
-        get { try! _default.get_RotationAxisImpl() }
-        set { try! _default.put_RotationAxisImpl(newValue) }
+        get { try! _default.get_RotationAxis() }
+        set { try! _default.put_RotationAxis(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.scale)
     public var scale : WindowsFoundation.Vector3 {
-        get { try! _default.get_ScaleImpl() }
-        set { try! _default.put_ScaleImpl(newValue) }
+        get { try! _default.get_Scale() }
+        set { try! _default.put_Scale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.size)
     public var size : WindowsFoundation.Vector2 {
-        get { try! _default.get_SizeImpl() }
-        set { try! _default.put_SizeImpl(newValue) }
+        get { try! _default.get_Size() }
+        set { try! _default.put_Size(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.transformmatrix)
     public var transformMatrix : WindowsFoundation.Matrix4x4 {
-        get { try! _default.get_TransformMatrixImpl() }
-        set { try! _default.put_TransformMatrixImpl(newValue) }
+        get { try! _default.get_TransformMatrix() }
+        set { try! _default.put_TransformMatrix(newValue) }
     }
 
     private lazy var _IVisual2: __ABI_Microsoft_UI_Composition.IVisual2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.parentfortransform)
     public var parentForTransform : Visual! {
-        get { try! _IVisual2.get_ParentForTransformImpl() }
-        set { try! _IVisual2.put_ParentForTransformImpl(newValue) }
+        get { try! _IVisual2.get_ParentForTransform() }
+        set { try! _IVisual2.put_ParentForTransform(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.relativeoffsetadjustment)
     public var relativeOffsetAdjustment : WindowsFoundation.Vector3 {
-        get { try! _IVisual2.get_RelativeOffsetAdjustmentImpl() }
-        set { try! _IVisual2.put_RelativeOffsetAdjustmentImpl(newValue) }
+        get { try! _IVisual2.get_RelativeOffsetAdjustment() }
+        set { try! _IVisual2.put_RelativeOffsetAdjustment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.relativesizeadjustment)
     public var relativeSizeAdjustment : WindowsFoundation.Vector2 {
-        get { try! _IVisual2.get_RelativeSizeAdjustmentImpl() }
-        set { try! _IVisual2.put_RelativeSizeAdjustmentImpl(newValue) }
+        get { try! _IVisual2.get_RelativeSizeAdjustment() }
+        set { try! _IVisual2.put_RelativeSizeAdjustment(newValue) }
     }
 
     private lazy var _IVisual3: __ABI_Microsoft_UI_Composition.IVisual3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.ishittestvisible)
     public var isHitTestVisible : Bool {
-        get { try! _IVisual3.get_IsHitTestVisibleImpl() }
-        set { try! _IVisual3.put_IsHitTestVisibleImpl(newValue) }
+        get { try! _IVisual3.get_IsHitTestVisible() }
+        set { try! _IVisual3.put_IsHitTestVisible(newValue) }
     }
 
     private lazy var _IVisual4: __ABI_Microsoft_UI_Composition.IVisual4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visual.ispixelsnappingenabled)
     public var isPixelSnappingEnabled : Bool {
-        get { try! _IVisual4.get_IsPixelSnappingEnabledImpl() }
-        set { try! _IVisual4.put_IsPixelSnappingEnabledImpl(newValue) }
+        get { try! _IVisual4.get_IsPixelSnappingEnabled() }
+        set { try! _IVisual4.put_IsPixelSnappingEnabled(newValue) }
     }
 
-    internal enum IVisual : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = Visual
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVisual
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition.IVisual
-        }
-    }
-    internal typealias Composable = IVisual
     deinit {
         _default = nil
         _IVisual2 = nil
@@ -6557,12 +5774,6 @@ public final class VisualCollection : WinAppSDK.CompositionObject, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection>?) -> VisualCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -6572,43 +5783,43 @@ public final class VisualCollection : WinAppSDK.CompositionObject, IIterable {
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualcollection.insertabove)
     public func insertAbove(_ newChild: Visual!, _ sibling: Visual!) throws {
-        try _default.InsertAboveImpl(newChild, sibling)
+        try _default.InsertAbove(newChild, sibling)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualcollection.insertatbottom)
     public func insertAtBottom(_ newChild: Visual!) throws {
-        try _default.InsertAtBottomImpl(newChild)
+        try _default.InsertAtBottom(newChild)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualcollection.insertattop)
     public func insertAtTop(_ newChild: Visual!) throws {
-        try _default.InsertAtTopImpl(newChild)
+        try _default.InsertAtTop(newChild)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualcollection.insertbelow)
     public func insertBelow(_ newChild: Visual!, _ sibling: Visual!) throws {
-        try _default.InsertBelowImpl(newChild, sibling)
+        try _default.InsertBelow(newChild, sibling)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualcollection.remove)
     public func remove(_ child: Visual!) throws {
-        try _default.RemoveImpl(child)
+        try _default.Remove(child)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualcollection.removeall)
     public func removeAll() throws {
-        try _default.RemoveAllImpl()
+        try _default.RemoveAll()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualcollection.count)
     public var count : Int32 {
-        get { try! _default.get_CountImpl() }
+        get { try! _default.get_Count() }
     }
 
     private lazy var _IIterable: IIterableVisual! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualcollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<Visual?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -6632,12 +5843,6 @@ public final class VisualUnorderedCollection : WinAppSDK.CompositionObject, IIte
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVisualUnorderedCollection>?) -> VisualUnorderedCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -6647,28 +5852,28 @@ public final class VisualUnorderedCollection : WinAppSDK.CompositionObject, IIte
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualunorderedcollection.add)
     public func add(_ newVisual: Visual!) throws {
-        try _default.AddImpl(newVisual)
+        try _default.Add(newVisual)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualunorderedcollection.remove)
     public func remove(_ visual: Visual!) throws {
-        try _default.RemoveImpl(visual)
+        try _default.Remove(visual)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualunorderedcollection.removeall)
     public func removeAll() throws {
-        try _default.RemoveAllImpl()
+        try _default.RemoveAll()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualunorderedcollection.count)
     public var count : Int32 {
-        get { try! _default.get_CountImpl() }
+        get { try! _default.get_Count() }
     }
 
     private lazy var _IIterable: IIterableVisual! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.visualunorderedcollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<Visual?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -6805,7 +6010,7 @@ extension WinAppSDK.AnimationControllerProgressBehavior {
         __x_ABI_CMicrosoft_CUI_CComposition_CAnimationControllerProgressBehavior_IncludesDelayTime
     }
 }
-extension WinAppSDK.AnimationControllerProgressBehavior: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.AnimationControllerProgressBehavior: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.AnimationDelayBehavior {
     public static var setInitialValueAfterDelay : WinAppSDK.AnimationDelayBehavior {
@@ -6815,7 +6020,7 @@ extension WinAppSDK.AnimationDelayBehavior {
         __x_ABI_CMicrosoft_CUI_CComposition_CAnimationDelayBehavior_SetInitialValueBeforeDelay
     }
 }
-extension WinAppSDK.AnimationDelayBehavior: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.AnimationDelayBehavior: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.AnimationDirection {
     public static var normal : WinAppSDK.AnimationDirection {
@@ -6831,7 +6036,7 @@ extension WinAppSDK.AnimationDirection {
         __x_ABI_CMicrosoft_CUI_CComposition_CAnimationDirection_AlternateReverse
     }
 }
-extension WinAppSDK.AnimationDirection: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.AnimationDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.AnimationIterationBehavior {
     public static var count : WinAppSDK.AnimationIterationBehavior {
@@ -6841,7 +6046,7 @@ extension WinAppSDK.AnimationIterationBehavior {
         __x_ABI_CMicrosoft_CUI_CComposition_CAnimationIterationBehavior_Forever
     }
 }
-extension WinAppSDK.AnimationIterationBehavior: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.AnimationIterationBehavior: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.AnimationPropertyAccessMode {
     public static var none : WinAppSDK.AnimationPropertyAccessMode {
@@ -6857,7 +6062,7 @@ extension WinAppSDK.AnimationPropertyAccessMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CAnimationPropertyAccessMode_ReadWrite
     }
 }
-extension WinAppSDK.AnimationPropertyAccessMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.AnimationPropertyAccessMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.AnimationStopBehavior {
     public static var leaveCurrentValue : WinAppSDK.AnimationStopBehavior {
@@ -6870,7 +6075,7 @@ extension WinAppSDK.AnimationStopBehavior {
         __x_ABI_CMicrosoft_CUI_CComposition_CAnimationStopBehavior_SetToFinalValue
     }
 }
-extension WinAppSDK.AnimationStopBehavior: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.AnimationStopBehavior: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionBackfaceVisibility {
     public static var inherit : WinAppSDK.CompositionBackfaceVisibility {
@@ -6883,7 +6088,7 @@ extension WinAppSDK.CompositionBackfaceVisibility {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionBackfaceVisibility_Hidden
     }
 }
-extension WinAppSDK.CompositionBackfaceVisibility: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionBackfaceVisibility: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionBatchTypes {
     public static var none : WinAppSDK.CompositionBatchTypes {
@@ -6902,7 +6107,7 @@ extension WinAppSDK.CompositionBatchTypes {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionBatchTypes_AllAnimations
     }
 }
-extension WinAppSDK.CompositionBatchTypes: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionBatchTypes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionBitmapInterpolationMode {
     public static var nearestNeighbor : WinAppSDK.CompositionBitmapInterpolationMode {
@@ -6936,7 +6141,7 @@ extension WinAppSDK.CompositionBitmapInterpolationMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionBitmapInterpolationMode_MagNearestMinNearestMipNearest
     }
 }
-extension WinAppSDK.CompositionBitmapInterpolationMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionBitmapInterpolationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionBorderMode {
     public static var inherit : WinAppSDK.CompositionBorderMode {
@@ -6949,7 +6154,7 @@ extension WinAppSDK.CompositionBorderMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionBorderMode_Hard
     }
 }
-extension WinAppSDK.CompositionBorderMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionBorderMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionColorSpace {
     public static var auto : WinAppSDK.CompositionColorSpace {
@@ -6968,7 +6173,7 @@ extension WinAppSDK.CompositionColorSpace {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionColorSpace_RgbLinear
     }
 }
-extension WinAppSDK.CompositionColorSpace: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionColorSpace: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionCompositeMode {
     public static var inherit : WinAppSDK.CompositionCompositeMode {
@@ -6984,7 +6189,7 @@ extension WinAppSDK.CompositionCompositeMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionCompositeMode_MinBlend
     }
 }
-extension WinAppSDK.CompositionCompositeMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionCompositeMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionDropShadowSourcePolicy {
     public static var `default` : WinAppSDK.CompositionDropShadowSourcePolicy {
@@ -6994,7 +6199,7 @@ extension WinAppSDK.CompositionDropShadowSourcePolicy {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionDropShadowSourcePolicy_InheritFromVisualContent
     }
 }
-extension WinAppSDK.CompositionDropShadowSourcePolicy: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionDropShadowSourcePolicy: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionEasingFunctionMode {
     public static var `in` : WinAppSDK.CompositionEasingFunctionMode {
@@ -7007,7 +6212,7 @@ extension WinAppSDK.CompositionEasingFunctionMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEasingFunctionMode_InOut
     }
 }
-extension WinAppSDK.CompositionEasingFunctionMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionEasingFunctionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionEffectFactoryLoadStatus {
     public static var success : WinAppSDK.CompositionEffectFactoryLoadStatus {
@@ -7023,7 +6228,7 @@ extension WinAppSDK.CompositionEffectFactoryLoadStatus {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEffectFactoryLoadStatus_Other
     }
 }
-extension WinAppSDK.CompositionEffectFactoryLoadStatus: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionEffectFactoryLoadStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionGetValueStatus {
     public static var succeeded : WinAppSDK.CompositionGetValueStatus {
@@ -7036,7 +6241,7 @@ extension WinAppSDK.CompositionGetValueStatus {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus_NotFound
     }
 }
-extension WinAppSDK.CompositionGetValueStatus: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionGetValueStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionGradientExtendMode {
     public static var clamp : WinAppSDK.CompositionGradientExtendMode {
@@ -7049,7 +6254,7 @@ extension WinAppSDK.CompositionGradientExtendMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGradientExtendMode_Mirror
     }
 }
-extension WinAppSDK.CompositionGradientExtendMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionGradientExtendMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionMappingMode {
     public static var absolute : WinAppSDK.CompositionMappingMode {
@@ -7059,7 +6264,7 @@ extension WinAppSDK.CompositionMappingMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionMappingMode_Relative
     }
 }
-extension WinAppSDK.CompositionMappingMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionMappingMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionStretch {
     public static var none : WinAppSDK.CompositionStretch {
@@ -7075,7 +6280,7 @@ extension WinAppSDK.CompositionStretch {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionStretch_UniformToFill
     }
 }
-extension WinAppSDK.CompositionStretch: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionStretch: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionStrokeCap {
     public static var flat : WinAppSDK.CompositionStrokeCap {
@@ -7091,7 +6296,7 @@ extension WinAppSDK.CompositionStrokeCap {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionStrokeCap_Triangle
     }
 }
-extension WinAppSDK.CompositionStrokeCap: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionStrokeCap: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.CompositionStrokeLineJoin {
     public static var miter : WinAppSDK.CompositionStrokeLineJoin {
@@ -7107,5 +6312,5 @@ extension WinAppSDK.CompositionStrokeLineJoin {
         __x_ABI_CMicrosoft_CUI_CComposition_CCompositionStrokeLineJoin_MiterOrBevel
     }
 }
-extension WinAppSDK.CompositionStrokeLineJoin: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.CompositionStrokeLineJoin: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

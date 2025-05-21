@@ -22,23 +22,18 @@ public final class DispatcherExitDeferral : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherExitDeferral>?) -> DispatcherExitDeferral? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Dispatching.DispatcherExitDeferral")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Dispatching.DispatcherExitDeferral")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherexitdeferral.complete)
     public func complete() throws {
-        try _default.CompleteImpl()
+        try _default.Complete()
     }
 
     deinit {
@@ -60,35 +55,29 @@ public final class DispatcherQueue : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue>?) -> DispatcherQueue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IDispatcherQueueStatics: __ABI_Microsoft_UI_Dispatching.IDispatcherQueueStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Dispatching.DispatcherQueue"))
+    private static let _IDispatcherQueueStatics: __ABI_Microsoft_UI_Dispatching.IDispatcherQueueStatics = try! RoGetActivationFactory("Microsoft.UI.Dispatching.DispatcherQueue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.getforcurrentthread)
-    public static func getForCurrentThread() -> DispatcherQueue! {
-        return try! _IDispatcherQueueStatics.GetForCurrentThreadImpl()
+    public static func getForCurrentThread() throws -> DispatcherQueue! {
+        return try _IDispatcherQueueStatics.GetForCurrentThread()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.createtimer)
     public func createTimer() throws -> DispatcherQueueTimer! {
-        try _default.CreateTimerImpl()
+        try _default.CreateTimer()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.tryenqueue)
     public func tryEnqueue(_ callback: DispatcherQueueHandler!) throws -> Bool {
-        try _default.TryEnqueueImpl(callback)
+        try _default.TryEnqueue(callback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.tryenqueue)
     public func tryEnqueue(_ priority: DispatcherQueuePriority, _ callback: DispatcherQueueHandler!) throws -> Bool {
-        try _default.TryEnqueueWithPriorityImpl(priority, callback)
+        try _default.TryEnqueueWithPriority(priority, callback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.shutdowncompleted)
@@ -96,10 +85,10 @@ public final class DispatcherQueue : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ShutdownCompletedImpl($0)
+          return try! this.add_ShutdownCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ShutdownCompletedImpl($0)
+         try? self?._default.remove_ShutdownCompleted($0)
        }
       )
     }()
@@ -109,10 +98,10 @@ public final class DispatcherQueue : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ShutdownStartingImpl($0)
+          return try! this.add_ShutdownStarting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ShutdownStartingImpl($0)
+         try? self?._default.remove_ShutdownStarting($0)
        }
       )
     }()
@@ -120,28 +109,28 @@ public final class DispatcherQueue : WinRTClass {
     private lazy var _IDispatcherQueue2: __ABI_Microsoft_UI_Dispatching.IDispatcherQueue2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.hasthreadaccess)
     public var hasThreadAccess : Bool {
-        get { try! _IDispatcherQueue2.get_HasThreadAccessImpl() }
+        get { try! _IDispatcherQueue2.get_HasThreadAccess() }
     }
 
     private lazy var _IDispatcherQueue3: __ABI_Microsoft_UI_Dispatching.IDispatcherQueue3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.enqueueeventloopexit)
     public func enqueueEventLoopExit() throws {
-        try _IDispatcherQueue3.EnqueueEventLoopExitImpl()
+        try _IDispatcherQueue3.EnqueueEventLoopExit()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.ensuresystemdispatcherqueue)
     public func ensureSystemDispatcherQueue() throws {
-        try _IDispatcherQueue3.EnsureSystemDispatcherQueueImpl()
+        try _IDispatcherQueue3.EnsureSystemDispatcherQueue()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.runeventloop)
     public func runEventLoop() throws {
-        try _IDispatcherQueue3.RunEventLoopImpl()
+        try _IDispatcherQueue3.RunEventLoop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.runeventloop)
     public func runEventLoop(_ options: DispatcherRunOptions, _ deferral: DispatcherExitDeferral!) throws {
-        try _IDispatcherQueue3.RunEventLoopWithOptionsImpl(options, deferral)
+        try _IDispatcherQueue3.RunEventLoopWithOptions(options, deferral)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.frameworkshutdowncompleted)
@@ -149,10 +138,10 @@ public final class DispatcherQueue : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IDispatcherQueue3 else { return .init() }
-          return try! this.add_FrameworkShutdownCompletedImpl($0)
+          return try! this.add_FrameworkShutdownCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._IDispatcherQueue3.remove_FrameworkShutdownCompletedImpl($0)
+         try? self?._IDispatcherQueue3.remove_FrameworkShutdownCompleted($0)
        }
       )
     }()
@@ -162,10 +151,10 @@ public final class DispatcherQueue : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IDispatcherQueue3 else { return .init() }
-          return try! this.add_FrameworkShutdownStartingImpl($0)
+          return try! this.add_FrameworkShutdownStarting($0)
         },
         remove: { [weak self] in
-         try? self?._IDispatcherQueue3.remove_FrameworkShutdownStartingImpl($0)
+         try? self?._IDispatcherQueue3.remove_FrameworkShutdownStarting($0)
        }
       )
     }()
@@ -191,41 +180,35 @@ public final class DispatcherQueueController : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueController>?) -> DispatcherQueueController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IDispatcherQueueControllerStatics: __ABI_Microsoft_UI_Dispatching.IDispatcherQueueControllerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Dispatching.DispatcherQueueController"))
+    private static let _IDispatcherQueueControllerStatics: __ABI_Microsoft_UI_Dispatching.IDispatcherQueueControllerStatics = try! RoGetActivationFactory("Microsoft.UI.Dispatching.DispatcherQueueController")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuecontroller.createondedicatedthread)
-    public static func createOnDedicatedThread() -> DispatcherQueueController! {
-        return try! _IDispatcherQueueControllerStatics.CreateOnDedicatedThreadImpl()
+    public static func createOnDedicatedThread() throws -> DispatcherQueueController! {
+        return try _IDispatcherQueueControllerStatics.CreateOnDedicatedThread()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuecontroller.createoncurrentthread)
-    public static func createOnCurrentThread() -> DispatcherQueueController! {
-        return try! _IDispatcherQueueControllerStatics.CreateOnCurrentThreadImpl()
+    public static func createOnCurrentThread() throws -> DispatcherQueueController! {
+        return try _IDispatcherQueueControllerStatics.CreateOnCurrentThread()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuecontroller.shutdownqueueasync)
     public func shutdownQueueAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.ShutdownQueueAsyncImpl()
+        try _default.ShutdownQueueAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuecontroller.dispatcherqueue)
     public var dispatcherQueue : DispatcherQueue! {
-        get { try! _default.get_DispatcherQueueImpl() }
+        get { try! _default.get_DispatcherQueue() }
     }
 
     private lazy var _IDispatcherQueueController2: __ABI_Microsoft_UI_Dispatching.IDispatcherQueueController2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuecontroller.shutdownqueue)
     public func shutdownQueue() throws {
-        try _IDispatcherQueueController2.ShutdownQueueImpl()
+        try _IDispatcherQueueController2.ShutdownQueue()
     }
 
     deinit {
@@ -248,19 +231,13 @@ public final class DispatcherQueueShutdownStartingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueShutdownStartingEventArgs>?) -> DispatcherQueueShutdownStartingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueueshutdownstartingeventargs.getdeferral)
     public func getDeferral() throws -> WindowsFoundation.Deferral! {
-        try _default.GetDeferralImpl()
+        try _default.GetDeferral()
     }
 
     deinit {
@@ -282,41 +259,35 @@ public final class DispatcherQueueTimer : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer>?) -> DispatcherQueueTimer? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuetimer.start)
     public func start() throws {
-        try _default.StartImpl()
+        try _default.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuetimer.stop)
     public func stop() throws {
-        try _default.StopImpl()
+        try _default.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuetimer.interval)
     public var interval : WindowsFoundation.TimeSpan {
-        get { try! _default.get_IntervalImpl() }
-        set { try! _default.put_IntervalImpl(newValue) }
+        get { try! _default.get_Interval() }
+        set { try! _default.put_Interval(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuetimer.isrepeating)
     public var isRepeating : Bool {
-        get { try! _default.get_IsRepeatingImpl() }
-        set { try! _default.put_IsRepeatingImpl(newValue) }
+        get { try! _default.get_IsRepeating() }
+        set { try! _default.put_IsRepeating(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuetimer.isrunning)
     public var isRunning : Bool {
-        get { try! _default.get_IsRunningImpl() }
+        get { try! _default.get_IsRunning() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuetimer.tick)
@@ -324,10 +295,10 @@ public final class DispatcherQueueTimer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_TickImpl($0)
+          return try! this.add_Tick($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_TickImpl($0)
+         try? self?._default.remove_Tick($0)
        }
       )
     }()
@@ -337,7 +308,7 @@ public final class DispatcherQueueTimer : WinRTClass {
     }
 }
 
-public typealias DispatcherQueueHandler = () -> ()
+public typealias DispatcherQueueHandler = () throws -> ()
 extension WinAppSDK.DispatcherQueuePriority {
     public static var low : WinAppSDK.DispatcherQueuePriority {
         __x_ABI_CMicrosoft_CUI_CDispatching_CDispatcherQueuePriority_Low
@@ -349,7 +320,7 @@ extension WinAppSDK.DispatcherQueuePriority {
         __x_ABI_CMicrosoft_CUI_CDispatching_CDispatcherQueuePriority_High
     }
 }
-extension WinAppSDK.DispatcherQueuePriority: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.DispatcherQueuePriority: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.DispatcherRunOptions {
     public static var none : WinAppSDK.DispatcherRunOptions {
@@ -362,5 +333,5 @@ extension WinAppSDK.DispatcherRunOptions {
         __x_ABI_CMicrosoft_CUI_CDispatching_CDispatcherRunOptions_QuitOnlyLocalLoop
     }
 }
-extension WinAppSDK.DispatcherRunOptions: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.DispatcherRunOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

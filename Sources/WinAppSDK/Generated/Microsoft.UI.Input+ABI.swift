@@ -253,11 +253,12 @@ private var IID___x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs: WindowsFoundati
     .init(Data1: 0xC3A01BB5, Data2: 0x6076, Data3: 0x5E0F, Data4: ( 0x87,0x1A,0x9D,0x94,0xA6,0xA8,0xF8,0x2B ))// C3A01BB5-6076-5E0F-871A-9D94A6A8F82B
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Input {
     public class ICharacterReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CICharacterReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CICharacterReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -265,13 +266,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CICharacterReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_KeyCodeImpl() throws -> UInt32 {
+        public func get_KeyCode() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CICharacterReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyCode(pThis, &value))
@@ -279,7 +280,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_KeyStatusImpl() throws -> WinAppSDK.PhysicalKeyStatus {
+        public func get_KeyStatus() throws -> WinAppSDK.PhysicalKeyStatus {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPhysicalKeyStatus = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CICharacterReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyStatus(pThis, &value))
@@ -292,7 +293,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IContextMenuKeyEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIContextMenuKeyEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIContextMenuKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -300,7 +301,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIContextMenuKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
@@ -311,7 +312,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class ICrossSlidingEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CICrossSlidingEventArgs }
 
-        internal func get_CrossSlidingStateImpl() throws -> WinAppSDK.CrossSlidingState {
+        public func get_CrossSlidingState() throws -> WinAppSDK.CrossSlidingState {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CCrossSlidingState = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CICrossSlidingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CrossSlidingState(pThis, &value))
@@ -319,7 +320,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CICrossSlidingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -327,7 +328,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CICrossSlidingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -340,7 +341,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IDraggingEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs }
 
-        internal func get_DraggingStateImpl() throws -> WinAppSDK.DraggingState {
+        public func get_DraggingState() throws -> WinAppSDK.DraggingState {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CDraggingState = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DraggingState(pThis, &value))
@@ -348,7 +349,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -356,7 +357,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -369,7 +370,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IFocusChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -377,7 +378,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
@@ -388,7 +389,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IFocusNavigationRequest: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequest }
 
-        internal func get_CorrelationIdImpl() throws -> Foundation.UUID {
+        public func get_CorrelationId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CorrelationId(pThis, &value))
@@ -396,7 +397,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_HintRectImpl() throws -> WindowsFoundation.Rect? {
+        public func get_HintRect() throws -> WindowsFoundation.Rect? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequest.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_HintRect(pThis, &valueAbi))
@@ -405,7 +406,7 @@ public enum __ABI_Microsoft_UI_Input {
             return WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ReasonImpl() throws -> WinAppSDK.FocusNavigationReason {
+        public func get_Reason() throws -> WinAppSDK.FocusNavigationReason {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CFocusNavigationReason = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Reason(pThis, &value))
@@ -418,16 +419,16 @@ public enum __ABI_Microsoft_UI_Input {
     public class IFocusNavigationRequestEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestEventArgs }
 
-        internal func get_RequestImpl() throws -> WinAppSDK.FocusNavigationRequest? {
+        public func get_Request() throws -> WinAppSDK.FocusNavigationRequest? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Request(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Input.FocusNavigationRequestBridge.from(abi: value)
         }
 
-        internal func get_ResultImpl() throws -> WinAppSDK.FocusNavigationResult {
+        public func get_Result() throws -> WinAppSDK.FocusNavigationResult {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CFocusNavigationResult = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Result(pThis, &value))
@@ -435,7 +436,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_ResultImpl(_ value: WinAppSDK.FocusNavigationResult) throws {
+        public func put_Result(_ value: WinAppSDK.FocusNavigationResult) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Result(pThis, value))
             }
@@ -446,31 +447,31 @@ public enum __ABI_Microsoft_UI_Input {
     public class IFocusNavigationRequestStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestStatics }
 
-        internal func CreateImpl(_ reason: WinAppSDK.FocusNavigationReason) throws -> WinAppSDK.FocusNavigationRequest? {
+        public func Create(_ reason: WinAppSDK.FocusNavigationReason) throws -> WinAppSDK.FocusNavigationRequest? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, reason, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.FocusNavigationRequestBridge.from(abi: result)
         }
 
-        internal func CreateWithHintRectImpl(_ reason: WinAppSDK.FocusNavigationReason, _ hintRect: WindowsFoundation.Rect) throws -> WinAppSDK.FocusNavigationRequest? {
+        public func CreateWithHintRect(_ reason: WinAppSDK.FocusNavigationReason, _ hintRect: WindowsFoundation.Rect) throws -> WinAppSDK.FocusNavigationRequest? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithHintRect(pThis, reason, .from(swift: hintRect), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.FocusNavigationRequestBridge.from(abi: result)
         }
 
-        internal func CreateWithHintRectAndIdImpl(_ reason: WinAppSDK.FocusNavigationReason, _ hintRect: WindowsFoundation.Rect, _ correlationId: Foundation.UUID) throws -> WinAppSDK.FocusNavigationRequest? {
+        public func CreateWithHintRectAndId(_ reason: WinAppSDK.FocusNavigationReason, _ hintRect: WindowsFoundation.Rect, _ correlationId: Foundation.UUID) throws -> WinAppSDK.FocusNavigationRequest? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithHintRectAndId(pThis, reason, .from(swift: hintRect), .init(from: correlationId), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.FocusNavigationRequestBridge.from(abi: result)
         }
 
     }
@@ -478,7 +479,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IGestureRecognizer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer }
 
-        internal func get_AutoProcessInertiaImpl() throws -> Bool {
+        public func get_AutoProcessInertia() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoProcessInertia(pThis, &value))
@@ -486,13 +487,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_AutoProcessInertiaImpl(_ value: Bool) throws {
+        public func put_AutoProcessInertia(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AutoProcessInertia(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CrossSlideExactImpl() throws -> Bool {
+        public func get_CrossSlideExact() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CrossSlideExact(pThis, &value))
@@ -500,13 +501,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_CrossSlideExactImpl(_ value: Bool) throws {
+        public func put_CrossSlideExact(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CrossSlideExact(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CrossSlideHorizontallyImpl() throws -> Bool {
+        public func get_CrossSlideHorizontally() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CrossSlideHorizontally(pThis, &value))
@@ -514,13 +515,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_CrossSlideHorizontallyImpl(_ value: Bool) throws {
+        public func put_CrossSlideHorizontally(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CrossSlideHorizontally(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CrossSlideThresholdsImpl() throws -> WinAppSDK.CrossSlideThresholds {
+        public func get_CrossSlideThresholds() throws -> WinAppSDK.CrossSlideThresholds {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CCrossSlideThresholds = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CrossSlideThresholds(pThis, &value))
@@ -528,13 +529,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func put_CrossSlideThresholdsImpl(_ value: WinAppSDK.CrossSlideThresholds) throws {
+        public func put_CrossSlideThresholds(_ value: WinAppSDK.CrossSlideThresholds) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CrossSlideThresholds(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_GestureSettingsImpl() throws -> WinAppSDK.GestureSettings {
+        public func get_GestureSettings() throws -> WinAppSDK.GestureSettings {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CGestureSettings = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GestureSettings(pThis, &value))
@@ -542,13 +543,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_GestureSettingsImpl(_ value: WinAppSDK.GestureSettings) throws {
+        public func put_GestureSettings(_ value: WinAppSDK.GestureSettings) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_GestureSettings(pThis, value))
             }
         }
 
-        internal func get_IsActiveImpl() throws -> Bool {
+        public func get_IsActive() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsActive(pThis, &value))
@@ -556,7 +557,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsInertialImpl() throws -> Bool {
+        public func get_IsInertial() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInertial(pThis, &value))
@@ -564,7 +565,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_PivotCenterImpl() throws -> WindowsFoundation.Point {
+        public func get_PivotCenter() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PivotCenter(pThis, &value))
@@ -572,13 +573,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func put_PivotCenterImpl(_ value: WindowsFoundation.Point) throws {
+        public func put_PivotCenter(_ value: WindowsFoundation.Point) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PivotCenter(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_PivotRadiusImpl() throws -> Float {
+        public func get_PivotRadius() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PivotRadius(pThis, &value))
@@ -586,13 +587,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_PivotRadiusImpl(_ value: Float) throws {
+        public func put_PivotRadius(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PivotRadius(pThis, value))
             }
         }
 
-        internal func get_InertiaExpansionDecelerationImpl() throws -> Float {
+        public func get_InertiaExpansionDeceleration() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InertiaExpansionDeceleration(pThis, &value))
@@ -600,13 +601,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_InertiaExpansionDecelerationImpl(_ value: Float) throws {
+        public func put_InertiaExpansionDeceleration(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InertiaExpansionDeceleration(pThis, value))
             }
         }
 
-        internal func get_InertiaExpansionImpl() throws -> Float {
+        public func get_InertiaExpansion() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InertiaExpansion(pThis, &value))
@@ -614,13 +615,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_InertiaExpansionImpl(_ value: Float) throws {
+        public func put_InertiaExpansion(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InertiaExpansion(pThis, value))
             }
         }
 
-        internal func get_InertiaRotationAngleImpl() throws -> Float {
+        public func get_InertiaRotationAngle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InertiaRotationAngle(pThis, &value))
@@ -628,13 +629,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_InertiaRotationAngleImpl(_ value: Float) throws {
+        public func put_InertiaRotationAngle(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InertiaRotationAngle(pThis, value))
             }
         }
 
-        internal func get_InertiaRotationDecelerationImpl() throws -> Float {
+        public func get_InertiaRotationDeceleration() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InertiaRotationDeceleration(pThis, &value))
@@ -642,13 +643,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_InertiaRotationDecelerationImpl(_ value: Float) throws {
+        public func put_InertiaRotationDeceleration(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InertiaRotationDeceleration(pThis, value))
             }
         }
 
-        internal func get_InertiaTranslationDecelerationImpl() throws -> Float {
+        public func get_InertiaTranslationDeceleration() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InertiaTranslationDeceleration(pThis, &value))
@@ -656,13 +657,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_InertiaTranslationDecelerationImpl(_ value: Float) throws {
+        public func put_InertiaTranslationDeceleration(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InertiaTranslationDeceleration(pThis, value))
             }
         }
 
-        internal func get_InertiaTranslationDisplacementImpl() throws -> Float {
+        public func get_InertiaTranslationDisplacement() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InertiaTranslationDisplacement(pThis, &value))
@@ -670,13 +671,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_InertiaTranslationDisplacementImpl(_ value: Float) throws {
+        public func put_InertiaTranslationDisplacement(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InertiaTranslationDisplacement(pThis, value))
             }
         }
 
-        internal func get_ManipulationExactImpl() throws -> Bool {
+        public func get_ManipulationExact() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ManipulationExact(pThis, &value))
@@ -684,22 +685,22 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_ManipulationExactImpl(_ value: Bool) throws {
+        public func put_ManipulationExact(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ManipulationExact(pThis, .init(from: value)))
             }
         }
 
-        internal func get_MouseWheelParametersImpl() throws -> WinAppSDK.MouseWheelParameters? {
+        public func get_MouseWheelParameters() throws -> WinAppSDK.MouseWheelParameters? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MouseWheelParameters(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Input.MouseWheelParametersBridge.from(abi: value)
         }
 
-        internal func get_ShowGestureFeedbackImpl() throws -> Bool {
+        public func get_ShowGestureFeedback() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShowGestureFeedback(pThis, &value))
@@ -707,13 +708,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_ShowGestureFeedbackImpl(_ value: Bool) throws {
+        public func put_ShowGestureFeedback(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ShowGestureFeedback(pThis, .init(from: value)))
             }
         }
 
-        internal func CanBeDoubleTapImpl(_ value: WinAppSDK.PointerPoint?) throws -> Bool {
+        public func CanBeDoubleTap(_ value: WinAppSDK.PointerPoint?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CanBeDoubleTap(pThis, RawPointer(value), &result))
@@ -721,19 +722,19 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: result)
         }
 
-        internal func CompleteGestureImpl() throws {
+        public func CompleteGesture() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CompleteGesture(pThis))
             }
         }
 
-        internal func ProcessDownEventImpl(_ value: WinAppSDK.PointerPoint?) throws {
+        public func ProcessDownEvent(_ value: WinAppSDK.PointerPoint?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ProcessDownEvent(pThis, RawPointer(value)))
             }
         }
 
-        internal func ProcessMoveEventsImpl(_ value: WindowsFoundation.AnyIVector<WinAppSDK.PointerPoint?>?) throws {
+        public func ProcessMoveEvents(_ value: WindowsFoundation.AnyIVector<WinAppSDK.PointerPoint?>?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CInput__CPointerPointWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
@@ -741,25 +742,25 @@ public enum __ABI_Microsoft_UI_Input {
             }
         }
 
-        internal func ProcessMouseWheelEventImpl(_ value: WinAppSDK.PointerPoint?, _ isShiftKeyDown: Bool, _ isControlKeyDown: Bool) throws {
+        public func ProcessMouseWheelEvent(_ value: WinAppSDK.PointerPoint?, _ isShiftKeyDown: Bool, _ isControlKeyDown: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ProcessMouseWheelEvent(pThis, RawPointer(value), .init(from: isShiftKeyDown), .init(from: isControlKeyDown)))
             }
         }
 
-        internal func ProcessInertiaImpl() throws {
+        public func ProcessInertia() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ProcessInertia(pThis))
             }
         }
 
-        internal func ProcessUpEventImpl(_ value: WinAppSDK.PointerPoint?) throws {
+        public func ProcessUpEvent(_ value: WinAppSDK.PointerPoint?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ProcessUpEvent(pThis, RawPointer(value)))
             }
         }
 
-        internal func add_TappedImpl(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.TappedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Tapped(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.TappedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CGestureRecognizer___x_ABI_CMicrosoft__CUI__CInput__CTappedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -769,13 +770,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_TappedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Tapped(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Tapped(pThis, token))
             }
         }
 
-        internal func add_RightTappedImpl(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.RightTappedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_RightTapped(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.RightTappedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CGestureRecognizer___x_ABI_CMicrosoft__CUI__CInput__CRightTappedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -785,13 +786,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_RightTappedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_RightTapped(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RightTapped(pThis, token))
             }
         }
 
-        internal func add_HoldingImpl(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.HoldingEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Holding(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.HoldingEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CGestureRecognizer___x_ABI_CMicrosoft__CUI__CInput__CHoldingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -801,13 +802,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_HoldingImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Holding(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Holding(pThis, token))
             }
         }
 
-        internal func add_DraggingImpl(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.DraggingEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Dragging(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.DraggingEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CGestureRecognizer___x_ABI_CMicrosoft__CUI__CInput__CDraggingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -817,13 +818,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_DraggingImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Dragging(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Dragging(pThis, token))
             }
         }
 
-        internal func add_ManipulationStartedImpl(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.ManipulationStartedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ManipulationStarted(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.ManipulationStartedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CGestureRecognizer___x_ABI_CMicrosoft__CUI__CInput__CManipulationStartedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -833,13 +834,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_ManipulationStartedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ManipulationStarted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ManipulationStarted(pThis, token))
             }
         }
 
-        internal func add_ManipulationUpdatedImpl(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.ManipulationUpdatedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ManipulationUpdated(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.ManipulationUpdatedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CGestureRecognizer___x_ABI_CMicrosoft__CUI__CInput__CManipulationUpdatedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -849,13 +850,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_ManipulationUpdatedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ManipulationUpdated(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ManipulationUpdated(pThis, token))
             }
         }
 
-        internal func add_ManipulationInertiaStartingImpl(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.ManipulationInertiaStartingEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ManipulationInertiaStarting(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.ManipulationInertiaStartingEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CGestureRecognizer___x_ABI_CMicrosoft__CUI__CInput__CManipulationInertiaStartingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -865,13 +866,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_ManipulationInertiaStartingImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ManipulationInertiaStarting(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ManipulationInertiaStarting(pThis, token))
             }
         }
 
-        internal func add_ManipulationCompletedImpl(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.ManipulationCompletedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ManipulationCompleted(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.ManipulationCompletedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CGestureRecognizer___x_ABI_CMicrosoft__CUI__CInput__CManipulationCompletedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -881,13 +882,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_ManipulationCompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ManipulationCompleted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ManipulationCompleted(pThis, token))
             }
         }
 
-        internal func add_CrossSlidingImpl(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.CrossSlidingEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_CrossSliding(_ handler: TypedEventHandler<WinAppSDK.GestureRecognizer?, WinAppSDK.CrossSlidingEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CGestureRecognizer___x_ABI_CMicrosoft__CUI__CInput__CCrossSlidingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -897,7 +898,7 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_CrossSlidingImpl(_ token: EventRegistrationToken) throws {
+        public func remove_CrossSliding(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CrossSliding(pThis, token))
             }
@@ -908,7 +909,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IHoldingEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIHoldingEventArgs }
 
-        internal func get_HoldingStateImpl() throws -> WinAppSDK.HoldingState {
+        public func get_HoldingState() throws -> WinAppSDK.HoldingState {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CHoldingState = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIHoldingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HoldingState(pThis, &value))
@@ -916,7 +917,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIHoldingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -924,7 +925,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIHoldingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -937,7 +938,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputActivationListener: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListener }
 
-        internal func get_StateImpl() throws -> WinAppSDK.InputActivationState {
+        public func get_State() throws -> WinAppSDK.InputActivationState {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CInputActivationState = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListener.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_State(pThis, &value))
@@ -945,7 +946,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func add_InputActivationChangedImpl(_ handler: TypedEventHandler<WinAppSDK.InputActivationListener?, WinAppSDK.InputActivationListenerActivationChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_InputActivationChanged(_ handler: TypedEventHandler<WinAppSDK.InputActivationListener?, WinAppSDK.InputActivationListenerActivationChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputActivationListener___x_ABI_CMicrosoft__CUI__CInput__CInputActivationListenerActivationChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -955,7 +956,7 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_InputActivationChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_InputActivationChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListener.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_InputActivationChanged(pThis, token))
             }
@@ -971,13 +972,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputActivationListenerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListenerStatics }
 
-        internal func GetForWindowIdImpl(_ windowId: WinAppSDK.WindowId) throws -> WinAppSDK.InputActivationListener? {
+        public func GetForWindowId(_ windowId: WinAppSDK.WindowId) throws -> WinAppSDK.InputActivationListener? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListenerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForWindowId(pThis, .from(swift: windowId), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputActivationListenerBridge.from(abi: result)
         }
 
     }
@@ -985,13 +986,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputActivationListenerStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListenerStatics2 }
 
-        internal func GetForIslandImpl(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputActivationListener? {
+        public func GetForIsland(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputActivationListener? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListenerStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForIsland(pThis, RawPointer(island), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputActivationListenerBridge.from(abi: result)
         }
 
     }
@@ -1009,13 +1010,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputCursorStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputCursorStatics }
 
-        internal func CreateFromCoreCursorImpl(_ cursor: UWP.CoreCursor?) throws -> WinAppSDK.InputCursor? {
+        public func CreateFromCoreCursor(_ cursor: UWP.CoreCursor?) throws -> WinAppSDK.InputCursor? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputCursorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromCoreCursor(pThis, RawPointer(cursor), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputCursorBridge.from(abi: result)
         }
 
     }
@@ -1033,7 +1034,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputDesktopNamedResourceCursor: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopNamedResourceCursor }
 
-        internal func get_ModuleNameImpl() throws -> String {
+        public func get_ModuleName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopNamedResourceCursor.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ModuleName(pThis, &value))
@@ -1041,7 +1042,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_ResourceNameImpl() throws -> String {
+        public func get_ResourceName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopNamedResourceCursor.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceName(pThis, &value))
@@ -1054,17 +1055,17 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputDesktopNamedResourceCursorStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopNamedResourceCursorStatics }
 
-        internal func CreateImpl(_ resourceName: String) throws -> WinAppSDK.InputDesktopNamedResourceCursor? {
+        public func Create(_ resourceName: String) throws -> WinAppSDK.InputDesktopNamedResourceCursor? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _resourceName = try! HString(resourceName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopNamedResourceCursorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, _resourceName.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputDesktopNamedResourceCursorBridge.from(abi: result)
         }
 
-        internal func CreateFromModuleImpl(_ moduleName: String, _ resourceName: String) throws -> WinAppSDK.InputDesktopNamedResourceCursor? {
+        public func CreateFromModule(_ moduleName: String, _ resourceName: String) throws -> WinAppSDK.InputDesktopNamedResourceCursor? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _moduleName = try! HString(moduleName)
                 let _resourceName = try! HString(resourceName)
@@ -1072,7 +1073,7 @@ public enum __ABI_Microsoft_UI_Input {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromModule(pThis, _moduleName.get(), _resourceName.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputDesktopNamedResourceCursorBridge.from(abi: result)
         }
 
     }
@@ -1080,7 +1081,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputDesktopResourceCursor: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopResourceCursor }
 
-        internal func get_ModuleNameImpl() throws -> String {
+        public func get_ModuleName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopResourceCursor.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ModuleName(pThis, &value))
@@ -1088,7 +1089,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_ResourceIdImpl() throws -> UInt32 {
+        public func get_ResourceId() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopResourceCursor.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceId(pThis, &value))
@@ -1101,23 +1102,23 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputDesktopResourceCursorStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopResourceCursorStatics }
 
-        internal func CreateImpl(_ resourceId: UInt32) throws -> WinAppSDK.InputDesktopResourceCursor? {
+        public func Create(_ resourceId: UInt32) throws -> WinAppSDK.InputDesktopResourceCursor? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopResourceCursorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, resourceId, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputDesktopResourceCursorBridge.from(abi: result)
         }
 
-        internal func CreateFromModuleImpl(_ moduleName: String, _ resourceId: UInt32) throws -> WinAppSDK.InputDesktopResourceCursor? {
+        public func CreateFromModule(_ moduleName: String, _ resourceId: UInt32) throws -> WinAppSDK.InputDesktopResourceCursor? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _moduleName = try! HString(moduleName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopResourceCursorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromModule(pThis, _moduleName.get(), resourceId, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputDesktopResourceCursorBridge.from(abi: result)
         }
 
     }
@@ -1125,7 +1126,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputFocusController: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController }
 
-        internal func get_HasFocusImpl() throws -> Bool {
+        public func get_HasFocus() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasFocus(pThis, &value))
@@ -1133,7 +1134,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func TrySetFocusImpl() throws -> Bool {
+        public func TrySetFocus() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TrySetFocus(pThis, &result))
@@ -1141,7 +1142,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: result)
         }
 
-        internal func add_GotFocusImpl(_ handler: TypedEventHandler<WinAppSDK.InputFocusController?, WinAppSDK.FocusChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_GotFocus(_ handler: TypedEventHandler<WinAppSDK.InputFocusController?, WinAppSDK.FocusChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputFocusController___x_ABI_CMicrosoft__CUI__CInput__CFocusChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1151,13 +1152,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_GotFocusImpl(_ token: EventRegistrationToken) throws {
+        public func remove_GotFocus(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_GotFocus(pThis, token))
             }
         }
 
-        internal func add_LostFocusImpl(_ handler: TypedEventHandler<WinAppSDK.InputFocusController?, WinAppSDK.FocusChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_LostFocus(_ handler: TypedEventHandler<WinAppSDK.InputFocusController?, WinAppSDK.FocusChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputFocusController___x_ABI_CMicrosoft__CUI__CInput__CFocusChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1167,7 +1168,7 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_LostFocusImpl(_ token: EventRegistrationToken) throws {
+        public func remove_LostFocus(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_LostFocus(pThis, token))
             }
@@ -1178,7 +1179,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputFocusController2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController2 }
 
-        internal func DepartFocusImpl(_ request: WinAppSDK.FocusNavigationRequest?) throws -> WinAppSDK.FocusNavigationResult {
+        public func DepartFocus(_ request: WinAppSDK.FocusNavigationRequest?) throws -> WinAppSDK.FocusNavigationResult {
             var result: __x_ABI_CMicrosoft_CUI_CInput_CFocusNavigationResult = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DepartFocus(pThis, RawPointer(request), &result))
@@ -1186,7 +1187,7 @@ public enum __ABI_Microsoft_UI_Input {
             return result
         }
 
-        internal func add_NavigateFocusRequestedImpl(_ handler: TypedEventHandler<WinAppSDK.InputFocusController?, WinAppSDK.FocusNavigationRequestEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_NavigateFocusRequested(_ handler: TypedEventHandler<WinAppSDK.InputFocusController?, WinAppSDK.FocusNavigationRequestEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputFocusController___x_ABI_CMicrosoft__CUI__CInput__CFocusNavigationRequestEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1196,7 +1197,7 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_NavigateFocusRequestedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_NavigateFocusRequested(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_NavigateFocusRequested(pThis, token))
             }
@@ -1207,13 +1208,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputFocusControllerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusControllerStatics }
 
-        internal func GetForIslandImpl(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputFocusController? {
+        public func GetForIsland(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputFocusController? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusControllerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForIsland(pThis, RawPointer(island), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputFocusControllerBridge.from(abi: result)
         }
 
     }
@@ -1221,7 +1222,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputFocusNavigationHost: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHost }
 
-        internal func get_ContainsFocusImpl() throws -> Bool {
+        public func get_ContainsFocus() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHost.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContainsFocus(pThis, &value))
@@ -1229,7 +1230,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func NavigateFocusImpl(_ request: WinAppSDK.FocusNavigationRequest?) throws -> WinAppSDK.FocusNavigationResult {
+        public func NavigateFocus(_ request: WinAppSDK.FocusNavigationRequest?) throws -> WinAppSDK.FocusNavigationResult {
             var result: __x_ABI_CMicrosoft_CUI_CInput_CFocusNavigationResult = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHost.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.NavigateFocus(pThis, RawPointer(request), &result))
@@ -1237,7 +1238,7 @@ public enum __ABI_Microsoft_UI_Input {
             return result
         }
 
-        internal func add_DepartFocusRequestedImpl(_ handler: TypedEventHandler<WinAppSDK.InputFocusNavigationHost?, WinAppSDK.FocusNavigationRequestEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_DepartFocusRequested(_ handler: TypedEventHandler<WinAppSDK.InputFocusNavigationHost?, WinAppSDK.FocusNavigationRequestEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputFocusNavigationHost___x_ABI_CMicrosoft__CUI__CInput__CFocusNavigationRequestEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1247,7 +1248,7 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_DepartFocusRequestedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_DepartFocusRequested(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHost.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DepartFocusRequested(pThis, token))
             }
@@ -1258,7 +1259,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputFocusNavigationHostStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics }
 
-        internal func GetForSiteBridgeImpl(_ site: WinAppSDK.AnyIContentSiteBridge?) throws -> WinAppSDK.InputFocusNavigationHost? {
+        public func GetForSiteBridge(_ site: WinAppSDK.AnyIContentSiteBridge?) throws -> WinAppSDK.InputFocusNavigationHost? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let siteWrapper = __ABI_Microsoft_UI_Content.IContentSiteBridgeWrapper(site)
                 let _site = try! siteWrapper?.toABI { $0 }
@@ -1266,7 +1267,7 @@ public enum __ABI_Microsoft_UI_Input {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForSiteBridge(pThis, _site, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputFocusNavigationHostBridge.from(abi: result)
         }
 
     }
@@ -1279,7 +1280,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputKeyboardSource2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource2 }
 
-        internal func GetCurrentKeyStateImpl(_ virtualKey: UWP.VirtualKey) throws -> WinAppSDK.VirtualKeyStates {
+        public func GetCurrentKeyState(_ virtualKey: UWP.VirtualKey) throws -> WinAppSDK.VirtualKeyStates {
             var result: __x_ABI_CMicrosoft_CUI_CInput_CVirtualKeyStates = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentKeyState(pThis, virtualKey, &result))
@@ -1287,7 +1288,7 @@ public enum __ABI_Microsoft_UI_Input {
             return result
         }
 
-        internal func GetKeyStateImpl(_ virtualKey: UWP.VirtualKey) throws -> WinAppSDK.VirtualKeyStates {
+        public func GetKeyState(_ virtualKey: UWP.VirtualKey) throws -> WinAppSDK.VirtualKeyStates {
             var result: __x_ABI_CMicrosoft_CUI_CInput_CVirtualKeyStates = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetKeyState(pThis, virtualKey, &result))
@@ -1295,7 +1296,7 @@ public enum __ABI_Microsoft_UI_Input {
             return result
         }
 
-        internal func add_CharacterReceivedImpl(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.CharacterReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_CharacterReceived(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.CharacterReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputKeyboardSource___x_ABI_CMicrosoft__CUI__CInput__CCharacterReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1305,13 +1306,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_CharacterReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_CharacterReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CharacterReceived(pThis, token))
             }
         }
 
-        internal func add_ContextMenuKeyImpl(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.ContextMenuKeyEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ContextMenuKey(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.ContextMenuKeyEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputKeyboardSource___x_ABI_CMicrosoft__CUI__CInput__CContextMenuKeyEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1321,13 +1322,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_ContextMenuKeyImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ContextMenuKey(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ContextMenuKey(pThis, token))
             }
         }
 
-        internal func add_KeyDownImpl(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.KeyEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_KeyDown(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.KeyEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputKeyboardSource___x_ABI_CMicrosoft__CUI__CInput__CKeyEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1337,13 +1338,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_KeyDownImpl(_ token: EventRegistrationToken) throws {
+        public func remove_KeyDown(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_KeyDown(pThis, token))
             }
         }
 
-        internal func add_KeyUpImpl(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.KeyEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_KeyUp(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.KeyEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputKeyboardSource___x_ABI_CMicrosoft__CUI__CInput__CKeyEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1353,13 +1354,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_KeyUpImpl(_ token: EventRegistrationToken) throws {
+        public func remove_KeyUp(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_KeyUp(pThis, token))
             }
         }
 
-        internal func add_SystemKeyDownImpl(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.KeyEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_SystemKeyDown(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.KeyEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputKeyboardSource___x_ABI_CMicrosoft__CUI__CInput__CKeyEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1369,13 +1370,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_SystemKeyDownImpl(_ token: EventRegistrationToken) throws {
+        public func remove_SystemKeyDown(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SystemKeyDown(pThis, token))
             }
         }
 
-        internal func add_SystemKeyUpImpl(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.KeyEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_SystemKeyUp(_ handler: TypedEventHandler<WinAppSDK.InputKeyboardSource?, WinAppSDK.KeyEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputKeyboardSource___x_ABI_CMicrosoft__CUI__CInput__CKeyEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1385,7 +1386,7 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_SystemKeyUpImpl(_ token: EventRegistrationToken) throws {
+        public func remove_SystemKeyUp(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SystemKeyUp(pThis, token))
             }
@@ -1396,7 +1397,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputKeyboardSourceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSourceStatics }
 
-        internal func GetKeyStateForCurrentThreadImpl(_ virtualKey: UWP.VirtualKey) throws -> UWP.CoreVirtualKeyStates {
+        public func GetKeyStateForCurrentThread(_ virtualKey: UWP.VirtualKey) throws -> UWP.CoreVirtualKeyStates {
             var result: __x_ABI_CWindows_CUI_CCore_CCoreVirtualKeyStates = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSourceStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetKeyStateForCurrentThread(pThis, virtualKey, &result))
@@ -1409,13 +1410,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputKeyboardSourceStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSourceStatics2 }
 
-        internal func GetForIslandImpl(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputKeyboardSource? {
+        public func GetForIsland(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputKeyboardSource? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSourceStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForIsland(pThis, RawPointer(island), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputKeyboardSourceBridge.from(abi: result)
         }
 
     }
@@ -1423,7 +1424,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputLightDismissAction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissAction }
 
-        internal func add_DismissedImpl(_ handler: TypedEventHandler<WinAppSDK.InputLightDismissAction?, WinAppSDK.InputLightDismissEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Dismissed(_ handler: TypedEventHandler<WinAppSDK.InputLightDismissAction?, WinAppSDK.InputLightDismissEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputLightDismissAction___x_ABI_CMicrosoft__CUI__CInput__CInputLightDismissEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1433,7 +1434,7 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_DismissedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Dismissed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissAction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Dismissed(pThis, token))
             }
@@ -1444,13 +1445,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputLightDismissActionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissActionStatics }
 
-        internal func GetForWindowIdImpl(_ windowId: WinAppSDK.WindowId) throws -> WinAppSDK.InputLightDismissAction? {
+        public func GetForWindowId(_ windowId: WinAppSDK.WindowId) throws -> WinAppSDK.InputLightDismissAction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissActionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForWindowId(pThis, .from(swift: windowId), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputLightDismissActionBridge.from(abi: result)
         }
 
     }
@@ -1463,28 +1464,46 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputNonClientPointerSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource }
 
-        internal func get_DispatcherQueueImpl() throws -> WinAppSDK.DispatcherQueue? {
+        public func get_DispatcherQueue() throws -> WinAppSDK.DispatcherQueue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DispatcherQueue(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Dispatching.DispatcherQueueBridge.from(abi: value)
         }
 
-        internal func ClearAllRegionRectsImpl() throws {
+        public func ClearAllRegionRects() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ClearAllRegionRects(pThis))
             }
         }
 
-        internal func ClearRegionRectsImpl(_ region: WinAppSDK.NonClientRegionKind) throws {
+        public func ClearRegionRects(_ region: WinAppSDK.NonClientRegionKind) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ClearRegionRects(pThis, region))
             }
         }
 
-        internal func add_CaptionTappedImpl(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientCaptionTappedEventArgs?>?) throws -> EventRegistrationToken {
+        public func GetRegionRects(_ region: WinAppSDK.NonClientRegionKind) throws -> [UWP.RectInt32] {
+            var result: WinRTArrayAbi<__x_ABI_CWindows_CGraphics_CRectInt32> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetRegionRects(pThis, region, &result.count, &result.start))
+            }
+            defer { CoTaskMemFree(result.start) }
+            return .from(abi: result)
+
+        }
+
+        public func SetRegionRects(_ region: WinAppSDK.NonClientRegionKind, _ rects: [UWP.RectInt32]) throws {
+            try rects.toABI { _rects in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetRegionRects(pThis, region, _rects.count, _rects.start))
+                }
+            }
+        }
+
+        public func add_CaptionTapped(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientCaptionTappedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientCaptionTappedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1494,13 +1513,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_CaptionTappedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_CaptionTapped(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CaptionTapped(pThis, token))
             }
         }
 
-        internal func add_PointerEnteredImpl(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerEntered(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1510,13 +1529,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerEnteredImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerEntered(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerEntered(pThis, token))
             }
         }
 
-        internal func add_PointerExitedImpl(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerExited(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1526,13 +1545,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerExitedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerExited(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerExited(pThis, token))
             }
         }
 
-        internal func add_PointerMovedImpl(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerMoved(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1542,13 +1561,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerMovedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerMoved(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerMoved(pThis, token))
             }
         }
 
-        internal func add_PointerPressedImpl(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerPressed(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1558,13 +1577,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerPressedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerPressed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerPressed(pThis, token))
             }
         }
 
-        internal func add_PointerReleasedImpl(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerReleased(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientPointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1574,13 +1593,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerReleasedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerReleased(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerReleased(pThis, token))
             }
         }
 
-        internal func add_RegionsChangedImpl(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientRegionsChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_RegionsChanged(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientRegionsChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientRegionsChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1590,7 +1609,7 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_RegionsChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_RegionsChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RegionsChanged(pThis, token))
             }
@@ -1601,13 +1620,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputNonClientPointerSourceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics }
 
-        internal func GetForWindowIdImpl(_ windowId: WinAppSDK.WindowId) throws -> WinAppSDK.InputNonClientPointerSource? {
+        public func GetForWindowId(_ windowId: WinAppSDK.WindowId) throws -> WinAppSDK.InputNonClientPointerSource? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForWindowId(pThis, .from(swift: windowId), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputNonClientPointerSourceBridge.from(abi: result)
         }
 
     }
@@ -1615,13 +1634,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputObject: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputObject }
 
-        internal func get_DispatcherQueueImpl() throws -> WinAppSDK.DispatcherQueue? {
+        public func get_DispatcherQueue() throws -> WinAppSDK.DispatcherQueue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputObject.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DispatcherQueue(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Dispatching.DispatcherQueueBridge.from(abi: value)
         }
 
     }
@@ -1634,22 +1653,22 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputPointerSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource }
 
-        internal func get_CursorImpl() throws -> WinAppSDK.InputCursor? {
+        public func get_Cursor() throws -> WinAppSDK.InputCursor? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cursor(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Input.InputCursorBridge.from(abi: value)
         }
 
-        internal func put_CursorImpl(_ value: WinAppSDK.InputCursor?) throws {
+        public func put_Cursor(_ value: WinAppSDK.InputCursor?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Cursor(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_DeviceKindsImpl() throws -> WinAppSDK.InputPointerSourceDeviceKinds {
+        public func get_DeviceKinds() throws -> WinAppSDK.InputPointerSourceDeviceKinds {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CInputPointerSourceDeviceKinds = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceKinds(pThis, &value))
@@ -1657,7 +1676,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func add_PointerCaptureLostImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerCaptureLost(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1667,13 +1686,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerCaptureLostImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerCaptureLost(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerCaptureLost(pThis, token))
             }
         }
 
-        internal func add_PointerEnteredImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerEntered(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1683,13 +1702,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerEnteredImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerEntered(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerEntered(pThis, token))
             }
         }
 
-        internal func add_PointerExitedImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerExited(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1699,13 +1718,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerExitedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerExited(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerExited(pThis, token))
             }
         }
 
-        internal func add_PointerMovedImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerMoved(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1715,13 +1734,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerMovedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerMoved(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerMoved(pThis, token))
             }
         }
 
-        internal func add_PointerPressedImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerPressed(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1731,13 +1750,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerPressedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerPressed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerPressed(pThis, token))
             }
         }
 
-        internal func add_PointerReleasedImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerReleased(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1747,13 +1766,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerReleasedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerReleased(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerReleased(pThis, token))
             }
         }
 
-        internal func add_PointerRoutedAwayImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerRoutedAway(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1763,13 +1782,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerRoutedAwayImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerRoutedAway(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerRoutedAway(pThis, token))
             }
         }
 
-        internal func add_PointerRoutedReleasedImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerRoutedReleased(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1779,13 +1798,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerRoutedReleasedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerRoutedReleased(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerRoutedReleased(pThis, token))
             }
         }
 
-        internal func add_PointerRoutedToImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerRoutedTo(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1795,13 +1814,13 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerRoutedToImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerRoutedTo(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerRoutedTo(pThis, token))
             }
         }
 
-        internal func add_PointerWheelChangedImpl(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PointerWheelChanged(_ handler: TypedEventHandler<WinAppSDK.InputPointerSource?, WinAppSDK.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1811,7 +1830,7 @@ public enum __ABI_Microsoft_UI_Input {
             return token
         }
 
-        internal func remove_PointerWheelChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PointerWheelChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerWheelChanged(pThis, token))
             }
@@ -1822,13 +1841,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputPointerSourceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSourceStatics }
 
-        internal func GetForIslandImpl(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputPointerSource? {
+        public func GetForIsland(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputPointerSource? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSourceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForIsland(pThis, RawPointer(island), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputPointerSourceBridge.from(abi: result)
         }
 
     }
@@ -1841,13 +1860,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputPreTranslateKeyboardSourceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputPreTranslateKeyboardSourceStatics }
 
-        internal func GetForIslandImpl(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputPreTranslateKeyboardSource? {
+        public func GetForIsland(_ island: WinAppSDK.ContentIsland?) throws -> WinAppSDK.InputPreTranslateKeyboardSource? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputPreTranslateKeyboardSourceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForIsland(pThis, RawPointer(island), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputPreTranslateKeyboardSourceBridge.from(abi: result)
         }
 
     }
@@ -1855,7 +1874,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputSystemCursor: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputSystemCursor }
 
-        internal func get_CursorShapeImpl() throws -> WinAppSDK.InputSystemCursorShape {
+        public func get_CursorShape() throws -> WinAppSDK.InputSystemCursorShape {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CInputSystemCursorShape = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputSystemCursor.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CursorShape(pThis, &value))
@@ -1868,13 +1887,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IInputSystemCursorStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputSystemCursorStatics }
 
-        internal func CreateImpl(_ type: WinAppSDK.InputSystemCursorShape) throws -> WinAppSDK.InputSystemCursor? {
+        public func Create(_ type: WinAppSDK.InputSystemCursorShape) throws -> WinAppSDK.InputSystemCursor? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputSystemCursorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, type, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.InputSystemCursorBridge.from(abi: result)
         }
 
     }
@@ -1882,7 +1901,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IKeyEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIKeyEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1890,13 +1909,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_KeyStatusImpl() throws -> WinAppSDK.PhysicalKeyStatus {
+        public func get_KeyStatus() throws -> WinAppSDK.PhysicalKeyStatus {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPhysicalKeyStatus = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyStatus(pThis, &value))
@@ -1904,7 +1923,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_TimestampImpl() throws -> UInt64 {
+        public func get_Timestamp() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Timestamp(pThis, &value))
@@ -1912,7 +1931,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_VirtualKeyImpl() throws -> UWP.VirtualKey {
+        public func get_VirtualKey() throws -> UWP.VirtualKey {
             var value: __x_ABI_CWindows_CSystem_CVirtualKey = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VirtualKey(pThis, &value))
@@ -1925,7 +1944,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IManipulationCompletedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIManipulationCompletedEventArgs }
 
-        internal func get_CumulativeImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Cumulative() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationCompletedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cumulative(pThis, &value))
@@ -1933,7 +1952,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationCompletedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -1941,7 +1960,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationCompletedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -1949,7 +1968,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_VelocitiesImpl() throws -> WinAppSDK.ManipulationVelocities {
+        public func get_Velocities() throws -> WinAppSDK.ManipulationVelocities {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationVelocities = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationCompletedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Velocities(pThis, &value))
@@ -1962,7 +1981,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IManipulationInertiaStartingEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIManipulationInertiaStartingEventArgs }
 
-        internal func get_CumulativeImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Cumulative() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationInertiaStartingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cumulative(pThis, &value))
@@ -1970,7 +1989,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_DeltaImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Delta() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationInertiaStartingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Delta(pThis, &value))
@@ -1978,7 +1997,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationInertiaStartingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -1986,7 +2005,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationInertiaStartingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -1994,7 +2013,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_VelocitiesImpl() throws -> WinAppSDK.ManipulationVelocities {
+        public func get_Velocities() throws -> WinAppSDK.ManipulationVelocities {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationVelocities = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationInertiaStartingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Velocities(pThis, &value))
@@ -2007,7 +2026,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IManipulationStartedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIManipulationStartedEventArgs }
 
-        internal func get_CumulativeImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Cumulative() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationStartedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cumulative(pThis, &value))
@@ -2015,7 +2034,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationStartedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -2023,7 +2042,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationStartedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -2036,7 +2055,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IManipulationUpdatedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIManipulationUpdatedEventArgs }
 
-        internal func get_CumulativeImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Cumulative() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationUpdatedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cumulative(pThis, &value))
@@ -2044,7 +2063,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_DeltaImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Delta() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationUpdatedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Delta(pThis, &value))
@@ -2052,7 +2071,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationUpdatedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -2060,7 +2079,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationUpdatedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -2068,7 +2087,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_VelocitiesImpl() throws -> WinAppSDK.ManipulationVelocities {
+        public func get_Velocities() throws -> WinAppSDK.ManipulationVelocities {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationVelocities = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIManipulationUpdatedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Velocities(pThis, &value))
@@ -2081,7 +2100,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IMouseWheelParameters: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters }
 
-        internal func get_CharTranslationImpl() throws -> WindowsFoundation.Point {
+        public func get_CharTranslation() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharTranslation(pThis, &value))
@@ -2089,13 +2108,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func put_CharTranslationImpl(_ value: WindowsFoundation.Point) throws {
+        public func put_CharTranslation(_ value: WindowsFoundation.Point) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CharTranslation(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_DeltaScaleImpl() throws -> Float {
+        public func get_DeltaScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeltaScale(pThis, &value))
@@ -2103,13 +2122,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_DeltaScaleImpl(_ value: Float) throws {
+        public func put_DeltaScale(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DeltaScale(pThis, value))
             }
         }
 
-        internal func get_DeltaRotationAngleImpl() throws -> Float {
+        public func get_DeltaRotationAngle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeltaRotationAngle(pThis, &value))
@@ -2117,13 +2136,13 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func put_DeltaRotationAngleImpl(_ value: Float) throws {
+        public func put_DeltaRotationAngle(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DeltaRotationAngle(pThis, value))
             }
         }
 
-        internal func get_PageTranslationImpl() throws -> WindowsFoundation.Point {
+        public func get_PageTranslation() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PageTranslation(pThis, &value))
@@ -2131,7 +2150,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func put_PageTranslationImpl(_ value: WindowsFoundation.Point) throws {
+        public func put_PageTranslation(_ value: WindowsFoundation.Point) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PageTranslation(pThis, .from(swift: value)))
             }
@@ -2142,7 +2161,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class INonClientCaptionTappedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CINonClientCaptionTappedEventArgs }
 
-        internal func get_PointImpl() throws -> WindowsFoundation.Point {
+        public func get_Point() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CINonClientCaptionTappedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Point(pThis, &value))
@@ -2150,7 +2169,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CINonClientCaptionTappedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -2163,7 +2182,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class INonClientPointerEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CINonClientPointerEventArgs }
 
-        internal func get_PointImpl() throws -> WindowsFoundation.Point {
+        public func get_Point() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CINonClientPointerEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Point(pThis, &value))
@@ -2171,7 +2190,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CINonClientPointerEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -2179,7 +2198,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_RegionKindImpl() throws -> WinAppSDK.NonClientRegionKind {
+        public func get_RegionKind() throws -> WinAppSDK.NonClientRegionKind {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CNonClientRegionKind = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CINonClientPointerEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RegionKind(pThis, &value))
@@ -2187,7 +2206,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_IsPointInRegionImpl() throws -> Bool {
+        public func get_IsPointInRegion() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CINonClientPointerEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPointInRegion(pThis, &value))
@@ -2200,21 +2219,31 @@ public enum __ABI_Microsoft_UI_Input {
     public class INonClientRegionsChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CINonClientRegionsChangedEventArgs }
 
+        public func get_ChangedRegions() throws -> [WinAppSDK.NonClientRegionKind] {
+            var value: WinRTArrayAbi<__x_ABI_CMicrosoft_CUI_CInput_CNonClientRegionKind> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CINonClientRegionsChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ChangedRegions(pThis, &value.count, &value.start))
+            }
+            defer { CoTaskMemFree(value.start) }
+            return .from(abi: value)
+
+        }
+
     }
 
     public class IPointerEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIPointerEventArgs }
 
-        internal func get_CurrentPointImpl() throws -> WinAppSDK.PointerPoint? {
+        public func get_CurrentPoint() throws -> WinAppSDK.PointerPoint? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentPoint(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Input.PointerPointBridge.from(abi: value)
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -2222,13 +2251,13 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_KeyModifiersImpl() throws -> UWP.VirtualKeyModifiers {
+        public func get_KeyModifiers() throws -> UWP.VirtualKeyModifiers {
             var value: __x_ABI_CWindows_CSystem_CVirtualKeyModifiers = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyModifiers(pThis, &value))
@@ -2236,7 +2265,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func GetIntermediatePointsImpl() throws -> WindowsFoundation.AnyIVector<WinAppSDK.PointerPoint?>? {
+        public func GetIntermediatePoints() throws -> WindowsFoundation.AnyIVector<WinAppSDK.PointerPoint?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetIntermediatePoints(pThis, &resultAbi))
@@ -2245,7 +2274,7 @@ public enum __ABI_Microsoft_UI_Input {
             return WinAppSDK.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CInput__CPointerPointWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetIntermediateTransformedPointsImpl(_ transform: WinAppSDK.AnyIPointerPointTransform?) throws -> WindowsFoundation.AnyIVector<WinAppSDK.PointerPoint?>? {
+        public func GetIntermediateTransformedPoints(_ transform: WinAppSDK.AnyIPointerPointTransform?) throws -> WindowsFoundation.AnyIVector<WinAppSDK.PointerPoint?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let transformWrapper = __ABI_Microsoft_UI_Input.IPointerPointTransformWrapper(transform)
                 let _transform = try! transformWrapper?.toABI { $0 }
@@ -2261,7 +2290,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IPointerPoint: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint }
 
-        internal func get_FrameIdImpl() throws -> UInt32 {
+        public func get_FrameId() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FrameId(pThis, &value))
@@ -2269,7 +2298,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_IsInContactImpl() throws -> Bool {
+        public func get_IsInContact() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInContact(pThis, &value))
@@ -2277,7 +2306,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -2285,7 +2314,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PointerIdImpl() throws -> UInt32 {
+        public func get_PointerId() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerId(pThis, &value))
@@ -2293,7 +2322,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -2301,16 +2330,16 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_PropertiesImpl() throws -> WinAppSDK.PointerPointProperties? {
+        public func get_Properties() throws -> WinAppSDK.PointerPointProperties? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Input.PointerPointPropertiesBridge.from(abi: value)
         }
 
-        internal func get_TimestampImpl() throws -> UInt64 {
+        public func get_Timestamp() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Timestamp(pThis, &value))
@@ -2318,7 +2347,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func GetTransformedPointImpl(_ transform: WinAppSDK.AnyIPointerPointTransform?) throws -> WinAppSDK.PointerPoint? {
+        public func GetTransformedPoint(_ transform: WinAppSDK.AnyIPointerPointTransform?) throws -> WinAppSDK.PointerPoint? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let transformWrapper = __ABI_Microsoft_UI_Input.IPointerPointTransformWrapper(transform)
                 let _transform = try! transformWrapper?.toABI { $0 }
@@ -2326,7 +2355,7 @@ public enum __ABI_Microsoft_UI_Input {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetTransformedPoint(pThis, _transform, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.PointerPointBridge.from(abi: result)
         }
 
     }
@@ -2334,7 +2363,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IPointerPointProperties: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties }
 
-        internal func get_ContactRectImpl() throws -> WindowsFoundation.Rect {
+        public func get_ContactRect() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContactRect(pThis, &value))
@@ -2342,7 +2371,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_IsBarrelButtonPressedImpl() throws -> Bool {
+        public func get_IsBarrelButtonPressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsBarrelButtonPressed(pThis, &value))
@@ -2350,7 +2379,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsCanceledImpl() throws -> Bool {
+        public func get_IsCanceled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCanceled(pThis, &value))
@@ -2358,7 +2387,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsEraserImpl() throws -> Bool {
+        public func get_IsEraser() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEraser(pThis, &value))
@@ -2366,7 +2395,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsHorizontalMouseWheelImpl() throws -> Bool {
+        public func get_IsHorizontalMouseWheel() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsHorizontalMouseWheel(pThis, &value))
@@ -2374,7 +2403,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsInRangeImpl() throws -> Bool {
+        public func get_IsInRange() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInRange(pThis, &value))
@@ -2382,7 +2411,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsInvertedImpl() throws -> Bool {
+        public func get_IsInverted() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInverted(pThis, &value))
@@ -2390,7 +2419,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsLeftButtonPressedImpl() throws -> Bool {
+        public func get_IsLeftButtonPressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsLeftButtonPressed(pThis, &value))
@@ -2398,7 +2427,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsMiddleButtonPressedImpl() throws -> Bool {
+        public func get_IsMiddleButtonPressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsMiddleButtonPressed(pThis, &value))
@@ -2406,7 +2435,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsPrimaryImpl() throws -> Bool {
+        public func get_IsPrimary() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPrimary(pThis, &value))
@@ -2414,7 +2443,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsRightButtonPressedImpl() throws -> Bool {
+        public func get_IsRightButtonPressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRightButtonPressed(pThis, &value))
@@ -2422,7 +2451,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsXButton1PressedImpl() throws -> Bool {
+        public func get_IsXButton1Pressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsXButton1Pressed(pThis, &value))
@@ -2430,7 +2459,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsXButton2PressedImpl() throws -> Bool {
+        public func get_IsXButton2Pressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsXButton2Pressed(pThis, &value))
@@ -2438,7 +2467,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_MouseWheelDeltaImpl() throws -> Int32 {
+        public func get_MouseWheelDelta() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MouseWheelDelta(pThis, &value))
@@ -2446,7 +2475,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_OrientationImpl() throws -> Float {
+        public func get_Orientation() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Orientation(pThis, &value))
@@ -2454,7 +2483,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PointerUpdateKindImpl() throws -> WinAppSDK.PointerUpdateKind {
+        public func get_PointerUpdateKind() throws -> WinAppSDK.PointerUpdateKind {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerUpdateKind = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerUpdateKind(pThis, &value))
@@ -2462,7 +2491,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PressureImpl() throws -> Float {
+        public func get_Pressure() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Pressure(pThis, &value))
@@ -2470,7 +2499,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_TouchConfidenceImpl() throws -> Bool {
+        public func get_TouchConfidence() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TouchConfidence(pThis, &value))
@@ -2478,7 +2507,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_TwistImpl() throws -> Float {
+        public func get_Twist() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Twist(pThis, &value))
@@ -2486,7 +2515,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_XTiltImpl() throws -> Float {
+        public func get_XTilt() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_XTilt(pThis, &value))
@@ -2494,7 +2523,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_YTiltImpl() throws -> Float {
+        public func get_YTilt() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_YTilt(pThis, &value))
@@ -2507,7 +2536,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IPointerPointTransform: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIPointerPointTransform }
 
-        open func get_InverseImpl() throws -> WinAppSDK.AnyIPointerPointTransform? {
+        open func get_Inverse() throws -> WinAppSDK.AnyIPointerPointTransform? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointTransform.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Inverse(pThis, &valueAbi))
@@ -2516,7 +2545,7 @@ public enum __ABI_Microsoft_UI_Input {
             return __ABI_Microsoft_UI_Input.IPointerPointTransformWrapper.unwrapFrom(abi: value)
         }
 
-        open func TryTransformImpl(_ inPoint: WindowsFoundation.Point, _ outPoint: inout WindowsFoundation.Point) throws -> Bool {
+        open func TryTransform(_ inPoint: WindowsFoundation.Point, _ outPoint: inout WindowsFoundation.Point) throws -> Bool {
             var result: boolean = 0
             var _outPoint: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointTransform.self) { pThis in
@@ -2526,7 +2555,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .init(from: result)
         }
 
-        open func TryTransformBoundsImpl(_ inRect: WindowsFoundation.Rect, _ outRect: inout WindowsFoundation.Rect) throws -> Bool {
+        open func TryTransformBounds(_ inRect: WindowsFoundation.Rect, _ outRect: inout WindowsFoundation.Rect) throws -> Bool {
             var result: boolean = 0
             var _outRect: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointTransform.self) { pThis in
@@ -2583,7 +2612,7 @@ public enum __ABI_Microsoft_UI_Input {
                 $2?.initialize(to: .from(swift: outPoint))
                 $3?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         TryTransformBounds: {
@@ -2595,7 +2624,7 @@ public enum __ABI_Microsoft_UI_Input {
                 $2?.initialize(to: .from(swift: outRect))
                 $3?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -2603,7 +2632,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IPointerPredictor: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIPointerPredictor }
 
-        internal func get_PredictionTimeImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_PredictionTime() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPredictor.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PredictionTime(pThis, &value))
@@ -2611,10 +2640,20 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func put_PredictionTimeImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_PredictionTime(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPredictor.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PredictionTime(pThis, .from(swift: value)))
             }
+        }
+
+        public func GetPredictedPoints(_ point: WinAppSDK.PointerPoint?) throws -> [WinAppSDK.PointerPoint?] {
+            var result: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint>?> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPredictor.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPredictedPoints(pThis, RawPointer(point), &result.count, &result.start))
+            }
+            defer { CoTaskMemFree(result.start) }
+            return .from(abiBridge: __IMPL_Microsoft_UI_Input.PointerPointBridge.self, abi: result)
+
         }
 
     }
@@ -2622,13 +2661,13 @@ public enum __ABI_Microsoft_UI_Input {
     public class IPointerPredictorStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIPointerPredictorStatics }
 
-        internal func CreateForInputPointerSourceImpl(_ inputPointerSource: WinAppSDK.InputPointerSource?) throws -> WinAppSDK.PointerPredictor? {
+        public func CreateForInputPointerSource(_ inputPointerSource: WinAppSDK.InputPointerSource?) throws -> WinAppSDK.PointerPredictor? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIPointerPredictorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForInputPointerSource(pThis, RawPointer(inputPointerSource), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.PointerPredictorBridge.from(abi: result)
         }
 
     }
@@ -2636,7 +2675,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class IRightTappedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIRightTappedEventArgs }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIRightTappedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -2644,7 +2683,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIRightTappedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -2657,7 +2696,7 @@ public enum __ABI_Microsoft_UI_Input {
     public class ITappedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -2665,7 +2704,7 @@ public enum __ABI_Microsoft_UI_Input {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -2673,7 +2712,7 @@ public enum __ABI_Microsoft_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_TapCountImpl() throws -> UInt32 {
+        public func get_TapCount() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TapCount(pThis, &value))

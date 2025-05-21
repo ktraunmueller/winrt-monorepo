@@ -709,11 +709,12 @@ private var IID___x_ABI_CMicrosoft_CUI_CComposition_CIVisualUnorderedCollection:
     .init(Data1: 0x4A97216E, Data2: 0x793E, Data3: 0x54E3, Data4: ( 0x96,0xE8,0xF9,0xDB,0x79,0x01,0x19,0xCD ))// 4A97216E-793E-54E3-96E8-F9DB790119CD
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Composition {
     public class IAmbientLight: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIAmbientLight }
 
-        internal func get_ColorImpl() throws -> UWP.Color {
+        public func get_Color() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAmbientLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Color(pThis, &value))
@@ -721,7 +722,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ColorImpl(_ value: UWP.Color) throws {
+        public func put_Color(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAmbientLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Color(pThis, .from(swift: value)))
             }
@@ -732,7 +733,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IAmbientLight2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIAmbientLight2 }
 
-        internal func get_IntensityImpl() throws -> Float {
+        public func get_Intensity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAmbientLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Intensity(pThis, &value))
@@ -740,7 +741,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_IntensityImpl(_ value: Float) throws {
+        public func put_Intensity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAmbientLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Intensity(pThis, value))
             }
@@ -751,7 +752,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IAnimationController: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController }
 
-        internal func get_PlaybackRateImpl() throws -> Float {
+        public func get_PlaybackRate() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackRate(pThis, &value))
@@ -759,13 +760,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_PlaybackRateImpl(_ value: Float) throws {
+        public func put_PlaybackRate(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaybackRate(pThis, value))
             }
         }
 
-        internal func get_ProgressImpl() throws -> Float {
+        public func get_Progress() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Progress(pThis, &value))
@@ -773,13 +774,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_ProgressImpl(_ value: Float) throws {
+        public func put_Progress(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Progress(pThis, value))
             }
         }
 
-        internal func get_ProgressBehaviorImpl() throws -> WinAppSDK.AnimationControllerProgressBehavior {
+        public func get_ProgressBehavior() throws -> WinAppSDK.AnimationControllerProgressBehavior {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CAnimationControllerProgressBehavior = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProgressBehavior(pThis, &value))
@@ -787,19 +788,19 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_ProgressBehaviorImpl(_ value: WinAppSDK.AnimationControllerProgressBehavior) throws {
+        public func put_ProgressBehavior(_ value: WinAppSDK.AnimationControllerProgressBehavior) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ProgressBehavior(pThis, value))
             }
         }
 
-        internal func PauseImpl() throws {
+        public func Pause() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Pause(pThis))
             }
         }
 
-        internal func ResumeImpl() throws {
+        public func Resume() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Resume(pThis))
             }
@@ -810,7 +811,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IAnimationControllerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIAnimationControllerStatics }
 
-        internal func get_MaxPlaybackRateImpl() throws -> Float {
+        public func get_MaxPlaybackRate() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationControllerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxPlaybackRate(pThis, &value))
@@ -818,7 +819,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_MinPlaybackRateImpl() throws -> Float {
+        public func get_MinPlaybackRate() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationControllerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinPlaybackRate(pThis, &value))
@@ -831,7 +832,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IAnimationObject: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIAnimationObject }
 
-        open func PopulatePropertyInfoImpl(_ propertyName: String, _ propertyInfo: WinAppSDK.AnimationPropertyInfo?) throws {
+        open func PopulatePropertyInfo(_ propertyName: String, _ propertyInfo: WinAppSDK.AnimationPropertyInfo?) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationObject.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.PopulatePropertyInfo(pThis, _propertyName.get(), RawPointer(propertyInfo)))
@@ -872,10 +873,10 @@ public enum __ABI_Microsoft_UI_Composition {
             do {
                 guard let __unwrapped__instance = IAnimationObjectWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let propertyName: String = .init(from: $1)
-                let propertyInfo: WinAppSDK.AnimationPropertyInfo? = .from(abi: ComPtr($2))
+                let propertyInfo: WinAppSDK.AnimationPropertyInfo? = __IMPL_Microsoft_UI_Composition.AnimationPropertyInfoBridge.from(abi: ComPtr($2))
                 try __unwrapped__instance.populatePropertyInfo(propertyName, propertyInfo)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -883,7 +884,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IAnimationPropertyInfo: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIAnimationPropertyInfo }
 
-        internal func get_AccessModeImpl() throws -> WinAppSDK.AnimationPropertyAccessMode {
+        public func get_AccessMode() throws -> WinAppSDK.AnimationPropertyAccessMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CAnimationPropertyAccessMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationPropertyInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessMode(pThis, &value))
@@ -891,7 +892,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_AccessModeImpl(_ value: WinAppSDK.AnimationPropertyAccessMode) throws {
+        public func put_AccessMode(_ value: WinAppSDK.AnimationPropertyAccessMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationPropertyInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AccessMode(pThis, value))
             }
@@ -902,16 +903,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IAnimationPropertyInfo2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIAnimationPropertyInfo2 }
 
-        internal func GetResolvedCompositionObjectImpl() throws -> WinAppSDK.CompositionObject? {
+        public func GetResolvedCompositionObject() throws -> WinAppSDK.CompositionObject? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationPropertyInfo2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetResolvedCompositionObject(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionObjectBridge.from(abi: result)
         }
 
-        internal func GetResolvedCompositionObjectPropertyImpl() throws -> String {
+        public func GetResolvedCompositionObjectProperty() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationPropertyInfo2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetResolvedCompositionObjectProperty(pThis, &result))
@@ -924,7 +925,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IBackEasingFunction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIBackEasingFunction }
 
-        internal func get_ModeImpl() throws -> WinAppSDK.CompositionEasingFunctionMode {
+        public func get_Mode() throws -> WinAppSDK.CompositionEasingFunctionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEasingFunctionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBackEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -932,7 +933,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_AmplitudeImpl() throws -> Float {
+        public func get_Amplitude() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBackEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Amplitude(pThis, &value))
@@ -945,7 +946,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IBooleanKeyFrameAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIBooleanKeyFrameAnimation }
 
-        internal func InsertKeyFrameImpl(_ normalizedProgressKey: Float, _ value: Bool) throws {
+        public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBooleanKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrame(pThis, normalizedProgressKey, .init(from: value)))
             }
@@ -956,7 +957,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IBounceEasingFunction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIBounceEasingFunction }
 
-        internal func get_ModeImpl() throws -> WinAppSDK.CompositionEasingFunctionMode {
+        public func get_Mode() throws -> WinAppSDK.CompositionEasingFunctionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEasingFunctionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -964,7 +965,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_BouncesImpl() throws -> Int32 {
+        public func get_Bounces() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bounces(pThis, &value))
@@ -972,7 +973,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_BouncinessImpl() throws -> Float {
+        public func get_Bounciness() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bounciness(pThis, &value))
@@ -985,7 +986,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IBounceScalarNaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIBounceScalarNaturalMotionAnimation }
 
-        internal func get_AccelerationImpl() throws -> Float {
+        public func get_Acceleration() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Acceleration(pThis, &value))
@@ -993,13 +994,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_AccelerationImpl(_ value: Float) throws {
+        public func put_Acceleration(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Acceleration(pThis, value))
             }
         }
 
-        internal func get_RestitutionImpl() throws -> Float {
+        public func get_Restitution() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Restitution(pThis, &value))
@@ -1007,7 +1008,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RestitutionImpl(_ value: Float) throws {
+        public func put_Restitution(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Restitution(pThis, value))
             }
@@ -1018,7 +1019,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IBounceVector2NaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector2NaturalMotionAnimation }
 
-        internal func get_AccelerationImpl() throws -> Float {
+        public func get_Acceleration() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Acceleration(pThis, &value))
@@ -1026,13 +1027,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_AccelerationImpl(_ value: Float) throws {
+        public func put_Acceleration(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Acceleration(pThis, value))
             }
         }
 
-        internal func get_RestitutionImpl() throws -> Float {
+        public func get_Restitution() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Restitution(pThis, &value))
@@ -1040,7 +1041,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RestitutionImpl(_ value: Float) throws {
+        public func put_Restitution(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Restitution(pThis, value))
             }
@@ -1051,7 +1052,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IBounceVector3NaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector3NaturalMotionAnimation }
 
-        internal func get_AccelerationImpl() throws -> Float {
+        public func get_Acceleration() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Acceleration(pThis, &value))
@@ -1059,13 +1060,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_AccelerationImpl(_ value: Float) throws {
+        public func put_Acceleration(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Acceleration(pThis, value))
             }
         }
 
-        internal func get_RestitutionImpl() throws -> Float {
+        public func get_Restitution() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Restitution(pThis, &value))
@@ -1073,7 +1074,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RestitutionImpl(_ value: Float) throws {
+        public func put_Restitution(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Restitution(pThis, value))
             }
@@ -1084,7 +1085,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICircleEasingFunction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICircleEasingFunction }
 
-        internal func get_ModeImpl() throws -> WinAppSDK.CompositionEasingFunctionMode {
+        public func get_Mode() throws -> WinAppSDK.CompositionEasingFunctionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEasingFunctionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICircleEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -1097,7 +1098,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IColorKeyFrameAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIColorKeyFrameAnimation }
 
-        internal func get_InterpolationColorSpaceImpl() throws -> WinAppSDK.CompositionColorSpace {
+        public func get_InterpolationColorSpace() throws -> WinAppSDK.CompositionColorSpace {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionColorSpace = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIColorKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InterpolationColorSpace(pThis, &value))
@@ -1105,19 +1106,19 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_InterpolationColorSpaceImpl(_ value: WinAppSDK.CompositionColorSpace) throws {
+        public func put_InterpolationColorSpace(_ value: WinAppSDK.CompositionColorSpace) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIColorKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InterpolationColorSpace(pThis, value))
             }
         }
 
-        internal func InsertKeyFrameImpl(_ normalizedProgressKey: Float, _ value: UWP.Color) throws {
+        public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIColorKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrame(pThis, normalizedProgressKey, .from(swift: value)))
             }
         }
 
-        internal func InsertKeyFrameWithEasingFunctionImpl(_ normalizedProgressKey: Float, _ value: UWP.Color, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
+        public func InsertKeyFrameWithEasingFunction(_ normalizedProgressKey: Float, _ value: UWP.Color, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIColorKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrameWithEasingFunction(pThis, normalizedProgressKey, .from(swift: value), RawPointer(easingFunction)))
             }
@@ -1128,76 +1129,76 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation }
 
-        internal func ClearAllParametersImpl() throws {
+        public func ClearAllParameters() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ClearAllParameters(pThis))
             }
         }
 
-        internal func ClearParameterImpl(_ key: String) throws {
+        public func ClearParameter(_ key: String) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ClearParameter(pThis, _key.get()))
             }
         }
 
-        internal func SetColorParameterImpl(_ key: String, _ value: UWP.Color) throws {
+        public func SetColorParameter(_ key: String, _ value: UWP.Color) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetColorParameter(pThis, _key.get(), .from(swift: value)))
             }
         }
 
-        internal func SetMatrix3x2ParameterImpl(_ key: String, _ value: WindowsFoundation.Matrix3x2) throws {
+        public func SetMatrix3x2Parameter(_ key: String, _ value: WindowsFoundation.Matrix3x2) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetMatrix3x2Parameter(pThis, _key.get(), .from(swift: value)))
             }
         }
 
-        internal func SetMatrix4x4ParameterImpl(_ key: String, _ value: WindowsFoundation.Matrix4x4) throws {
+        public func SetMatrix4x4Parameter(_ key: String, _ value: WindowsFoundation.Matrix4x4) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetMatrix4x4Parameter(pThis, _key.get(), .from(swift: value)))
             }
         }
 
-        internal func SetQuaternionParameterImpl(_ key: String, _ value: WindowsFoundation.Quaternion) throws {
+        public func SetQuaternionParameter(_ key: String, _ value: WindowsFoundation.Quaternion) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetQuaternionParameter(pThis, _key.get(), .from(swift: value)))
             }
         }
 
-        internal func SetReferenceParameterImpl(_ key: String, _ compositionObject: WinAppSDK.CompositionObject?) throws {
+        public func SetReferenceParameter(_ key: String, _ compositionObject: WinAppSDK.CompositionObject?) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetReferenceParameter(pThis, _key.get(), RawPointer(compositionObject)))
             }
         }
 
-        internal func SetScalarParameterImpl(_ key: String, _ value: Float) throws {
+        public func SetScalarParameter(_ key: String, _ value: Float) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetScalarParameter(pThis, _key.get(), value))
             }
         }
 
-        internal func SetVector2ParameterImpl(_ key: String, _ value: WindowsFoundation.Vector2) throws {
+        public func SetVector2Parameter(_ key: String, _ value: WindowsFoundation.Vector2) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetVector2Parameter(pThis, _key.get(), .from(swift: value)))
             }
         }
 
-        internal func SetVector3ParameterImpl(_ key: String, _ value: WindowsFoundation.Vector3) throws {
+        public func SetVector3Parameter(_ key: String, _ value: WindowsFoundation.Vector3) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetVector3Parameter(pThis, _key.get(), .from(swift: value)))
             }
         }
 
-        internal func SetVector4ParameterImpl(_ key: String, _ value: WindowsFoundation.Vector4) throws {
+        public func SetVector4Parameter(_ key: String, _ value: WindowsFoundation.Vector4) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetVector4Parameter(pThis, _key.get(), .from(swift: value)))
@@ -1209,14 +1210,14 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionAnimation2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation2 }
 
-        internal func SetBooleanParameterImpl(_ key: String, _ value: Bool) throws {
+        public func SetBooleanParameter(_ key: String, _ value: Bool) throws {
             let _key = try! HString(key)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetBooleanParameter(pThis, _key.get(), .init(from: value)))
             }
         }
 
-        internal func get_TargetImpl() throws -> String {
+        public func get_Target() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Target(pThis, &value))
@@ -1224,7 +1225,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_TargetImpl(_ value: String) throws {
+        public func put_Target(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Target(pThis, _value.get()))
@@ -1236,13 +1237,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionAnimation3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation3 }
 
-        internal func get_InitialValueExpressionsImpl() throws -> WinAppSDK.InitialValueExpressionCollection? {
+        public func get_InitialValueExpressions() throws -> WinAppSDK.InitialValueExpressionCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_InitialValueExpressions(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.InitialValueExpressionCollectionBridge.from(abi: value)
         }
 
     }
@@ -1250,7 +1251,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionAnimation4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation4 }
 
-        internal func SetExpressionReferenceParameterImpl(_ parameterName: String, _ source: WinAppSDK.AnyIAnimationObject?) throws {
+        public func SetExpressionReferenceParameter(_ parameterName: String, _ source: WinAppSDK.AnyIAnimationObject?) throws {
             let _parameterName = try! HString(parameterName)
             let sourceWrapper = __ABI_Microsoft_UI_Composition.IAnimationObjectWrapper(source)
             let _source = try! sourceWrapper?.toABI { $0 }
@@ -1304,7 +1305,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionAnimationGroup: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimationGroup }
 
-        internal func get_CountImpl() throws -> Int32 {
+        public func get_Count() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimationGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Count(pThis, &value))
@@ -1312,19 +1313,19 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func AddImpl(_ value: WinAppSDK.CompositionAnimation?) throws {
+        public func Add(_ value: WinAppSDK.CompositionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimationGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Add(pThis, RawPointer(value)))
             }
         }
 
-        internal func RemoveImpl(_ value: WinAppSDK.CompositionAnimation?) throws {
+        public func Remove(_ value: WinAppSDK.CompositionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimationGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Remove(pThis, RawPointer(value)))
             }
         }
 
-        internal func RemoveAllImpl() throws {
+        public func RemoveAll() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimationGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAll(pThis))
             }
@@ -1335,7 +1336,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionApiInformationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionApiInformationStatics }
 
-        internal func get_ApiVersionImpl() throws -> UInt64 {
+        public func get_ApiVersion() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionApiInformationStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApiVersion(pThis, &value))
@@ -1368,7 +1369,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionCapabilities }
 
-        internal func AreEffectsSupportedImpl() throws -> Bool {
+        public func AreEffectsSupported() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AreEffectsSupported(pThis, &result))
@@ -1376,7 +1377,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: result)
         }
 
-        internal func AreEffectsFastImpl() throws -> Bool {
+        public func AreEffectsFast() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AreEffectsFast(pThis, &result))
@@ -1384,7 +1385,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: result)
         }
 
-        internal func add_ChangedImpl(_ handler: TypedEventHandler<WinAppSDK.CompositionCapabilities?, Any?>?) throws -> EventRegistrationToken {
+        public func add_Changed(_ handler: TypedEventHandler<WinAppSDK.CompositionCapabilities?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CComposition__CCompositionCapabilities_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1394,7 +1395,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return token
         }
 
-        internal func remove_ChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Changed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Changed(pThis, token))
             }
@@ -1410,7 +1411,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionClip2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2 }
 
-        internal func get_AnchorPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_AnchorPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AnchorPoint(pThis, &value))
@@ -1418,13 +1419,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_AnchorPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_AnchorPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AnchorPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_CenterPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_CenterPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CenterPoint(pThis, &value))
@@ -1432,13 +1433,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_CenterPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_CenterPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CenterPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Offset() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -1446,13 +1447,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_RotationAngleImpl() throws -> Float {
+        public func get_RotationAngle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngle(pThis, &value))
@@ -1460,13 +1461,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleImpl(_ value: Float) throws {
+        public func put_RotationAngle(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngle(pThis, value))
             }
         }
 
-        internal func get_RotationAngleInDegreesImpl() throws -> Float {
+        public func get_RotationAngleInDegrees() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngleInDegrees(pThis, &value))
@@ -1474,13 +1475,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleInDegreesImpl(_ value: Float) throws {
+        public func put_RotationAngleInDegrees(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngleInDegrees(pThis, value))
             }
         }
 
-        internal func get_ScaleImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Scale() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scale(pThis, &value))
@@ -1488,13 +1489,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ScaleImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Scale(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Scale(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_TransformMatrixImpl() throws -> WindowsFoundation.Matrix3x2 {
+        public func get_TransformMatrix() throws -> WindowsFoundation.Matrix3x2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransformMatrix(pThis, &value))
@@ -1502,7 +1503,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_TransformMatrixImpl(_ value: WindowsFoundation.Matrix3x2) throws {
+        public func put_TransformMatrix(_ value: WindowsFoundation.Matrix3x2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TransformMatrix(pThis, .from(swift: value)))
             }
@@ -1518,7 +1519,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionColorBrush: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorBrush }
 
-        internal func get_ColorImpl() throws -> UWP.Color {
+        public func get_Color() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Color(pThis, &value))
@@ -1526,7 +1527,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ColorImpl(_ value: UWP.Color) throws {
+        public func put_Color(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Color(pThis, .from(swift: value)))
             }
@@ -1537,7 +1538,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionColorGradientStop: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStop }
 
-        internal func get_ColorImpl() throws -> UWP.Color {
+        public func get_Color() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStop.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Color(pThis, &value))
@@ -1545,13 +1546,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ColorImpl(_ value: UWP.Color) throws {
+        public func put_Color(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStop.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Color(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_OffsetImpl() throws -> Float {
+        public func get_Offset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStop.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -1559,7 +1560,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_OffsetImpl(_ value: Float) throws {
+        public func put_Offset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStop.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, value))
             }
@@ -1575,7 +1576,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionCommitBatch: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionCommitBatch }
 
-        internal func get_IsActiveImpl() throws -> Bool {
+        public func get_IsActive() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionCommitBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsActive(pThis, &value))
@@ -1583,7 +1584,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func get_IsEndedImpl() throws -> Bool {
+        public func get_IsEnded() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionCommitBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnded(pThis, &value))
@@ -1591,7 +1592,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func add_CompletedImpl(_ handler: TypedEventHandler<Any?, WinAppSDK.CompositionBatchCompletedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Completed(_ handler: TypedEventHandler<Any?, WinAppSDK.CompositionBatchCompletedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CComposition__CCompositionBatchCompletedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1601,7 +1602,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return token
         }
 
-        internal func remove_CompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Completed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionCommitBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Completed(pThis, token))
             }
@@ -1612,13 +1613,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionContainerShape: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionContainerShape }
 
-        internal func get_ShapesImpl() throws -> WinAppSDK.CompositionShapeCollection? {
+        public func get_Shapes() throws -> WinAppSDK.CompositionShapeCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionContainerShape.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Shapes(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionShapeCollectionBridge.from(abi: value)
         }
 
     }
@@ -1626,7 +1627,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionDrawingSurface: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface }
 
-        internal func get_AlphaModeImpl() throws -> WinAppSDK.DirectXAlphaMode {
+        public func get_AlphaMode() throws -> WinAppSDK.DirectXAlphaMode {
             var value: __x_ABI_CMicrosoft_CGraphics_CDirectX_CDirectXAlphaMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlphaMode(pThis, &value))
@@ -1634,7 +1635,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_PixelFormatImpl() throws -> WinAppSDK.DirectXPixelFormat {
+        public func get_PixelFormat() throws -> WinAppSDK.DirectXPixelFormat {
             var value: __x_ABI_CMicrosoft_CGraphics_CDirectX_CDirectXPixelFormat = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelFormat(pThis, &value))
@@ -1642,7 +1643,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Size {
+        public func get_Size() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -1655,7 +1656,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionDrawingSurface2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface2 }
 
-        internal func get_SizeInt32Impl() throws -> UWP.SizeInt32 {
+        public func get_SizeInt32() throws -> UWP.SizeInt32 {
             var value: __x_ABI_CWindows_CGraphics_CSizeInt32 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SizeInt32(pThis, &value))
@@ -1663,31 +1664,31 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func ResizeImpl(_ sizePixels: UWP.SizeInt32) throws {
+        public func Resize(_ sizePixels: UWP.SizeInt32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Resize(pThis, .from(swift: sizePixels)))
             }
         }
 
-        internal func ScrollImpl(_ offset: UWP.PointInt32) throws {
+        public func Scroll(_ offset: UWP.PointInt32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Scroll(pThis, .from(swift: offset)))
             }
         }
 
-        internal func ScrollRectImpl(_ offset: UWP.PointInt32, _ scrollRect: UWP.RectInt32) throws {
+        public func ScrollRect(_ offset: UWP.PointInt32, _ scrollRect: UWP.RectInt32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ScrollRect(pThis, .from(swift: offset), .from(swift: scrollRect)))
             }
         }
 
-        internal func ScrollWithClipImpl(_ offset: UWP.PointInt32, _ clipRect: UWP.RectInt32) throws {
+        public func ScrollWithClip(_ offset: UWP.PointInt32, _ clipRect: UWP.RectInt32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ScrollWithClip(pThis, .from(swift: offset), .from(swift: clipRect)))
             }
         }
 
-        internal func ScrollRectWithClipImpl(_ offset: UWP.PointInt32, _ clipRect: UWP.RectInt32, _ scrollRect: UWP.RectInt32) throws {
+        public func ScrollRectWithClip(_ offset: UWP.PointInt32, _ clipRect: UWP.RectInt32, _ scrollRect: UWP.RectInt32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ScrollRectWithClip(pThis, .from(swift: offset), .from(swift: clipRect), .from(swift: scrollRect)))
             }
@@ -1713,103 +1714,103 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionEasingFunctionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics }
 
-        internal func CreateCubicBezierEasingFunctionImpl(_ owner: WinAppSDK.Compositor?, _ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2) throws -> WinAppSDK.CubicBezierEasingFunction? {
+        public func CreateCubicBezierEasingFunction(_ owner: WinAppSDK.Compositor?, _ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2) throws -> WinAppSDK.CubicBezierEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCubicBezierEasingFunction(pThis, RawPointer(owner), .from(swift: controlPoint1), .from(swift: controlPoint2), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CubicBezierEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateLinearEasingFunctionImpl(_ owner: WinAppSDK.Compositor?) throws -> WinAppSDK.LinearEasingFunction? {
+        public func CreateLinearEasingFunction(_ owner: WinAppSDK.Compositor?) throws -> WinAppSDK.LinearEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLinearEasingFunction(pThis, RawPointer(owner), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.LinearEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateStepEasingFunctionImpl(_ owner: WinAppSDK.Compositor?) throws -> WinAppSDK.StepEasingFunction? {
+        public func CreateStepEasingFunction(_ owner: WinAppSDK.Compositor?) throws -> WinAppSDK.StepEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateStepEasingFunction(pThis, RawPointer(owner), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.StepEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateStepEasingFunctionWithStepCountImpl(_ owner: WinAppSDK.Compositor?, _ stepCount: Int32) throws -> WinAppSDK.StepEasingFunction? {
+        public func CreateStepEasingFunctionWithStepCount(_ owner: WinAppSDK.Compositor?, _ stepCount: Int32) throws -> WinAppSDK.StepEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateStepEasingFunctionWithStepCount(pThis, RawPointer(owner), stepCount, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.StepEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateBackEasingFunctionImpl(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ amplitude: Float) throws -> WinAppSDK.BackEasingFunction? {
+        public func CreateBackEasingFunction(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ amplitude: Float) throws -> WinAppSDK.BackEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateBackEasingFunction(pThis, RawPointer(owner), mode, amplitude, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.BackEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateBounceEasingFunctionImpl(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ bounces: Int32, _ bounciness: Float) throws -> WinAppSDK.BounceEasingFunction? {
+        public func CreateBounceEasingFunction(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ bounces: Int32, _ bounciness: Float) throws -> WinAppSDK.BounceEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateBounceEasingFunction(pThis, RawPointer(owner), mode, bounces, bounciness, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.BounceEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateCircleEasingFunctionImpl(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode) throws -> WinAppSDK.CircleEasingFunction? {
+        public func CreateCircleEasingFunction(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode) throws -> WinAppSDK.CircleEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCircleEasingFunction(pThis, RawPointer(owner), mode, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CircleEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateElasticEasingFunctionImpl(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ oscillations: Int32, _ springiness: Float) throws -> WinAppSDK.ElasticEasingFunction? {
+        public func CreateElasticEasingFunction(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ oscillations: Int32, _ springiness: Float) throws -> WinAppSDK.ElasticEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateElasticEasingFunction(pThis, RawPointer(owner), mode, oscillations, springiness, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.ElasticEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateExponentialEasingFunctionImpl(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ exponent: Float) throws -> WinAppSDK.ExponentialEasingFunction? {
+        public func CreateExponentialEasingFunction(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ exponent: Float) throws -> WinAppSDK.ExponentialEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateExponentialEasingFunction(pThis, RawPointer(owner), mode, exponent, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.ExponentialEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreatePowerEasingFunctionImpl(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ power: Float) throws -> WinAppSDK.PowerEasingFunction? {
+        public func CreatePowerEasingFunction(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode, _ power: Float) throws -> WinAppSDK.PowerEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePowerEasingFunction(pThis, RawPointer(owner), mode, power, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.PowerEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateSineEasingFunctionImpl(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode) throws -> WinAppSDK.SineEasingFunction? {
+        public func CreateSineEasingFunction(_ owner: WinAppSDK.Compositor?, _ mode: WinAppSDK.CompositionEasingFunctionMode) throws -> WinAppSDK.SineEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunctionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSineEasingFunction(pThis, RawPointer(owner), mode, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.SineEasingFunctionBridge.from(abi: result)
         }
 
     }
@@ -1817,17 +1818,17 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionEffectBrush: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectBrush }
 
-        internal func GetSourceParameterImpl(_ name: String) throws -> WinAppSDK.CompositionBrush? {
+        public func GetSourceParameter(_ name: String) throws -> WinAppSDK.CompositionBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _name = try! HString(name)
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectBrush.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSourceParameter(pThis, _name.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: result)
         }
 
-        internal func SetSourceParameterImpl(_ name: String, _ source: WinAppSDK.CompositionBrush?) throws {
+        public func SetSourceParameter(_ name: String, _ source: WinAppSDK.CompositionBrush?) throws {
             let _name = try! HString(name)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetSourceParameter(pThis, _name.get(), RawPointer(source)))
@@ -1839,16 +1840,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionEffectFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectFactory }
 
-        internal func CreateBrushImpl() throws -> WinAppSDK.CompositionEffectBrush? {
+        public func CreateBrush() throws -> WinAppSDK.CompositionEffectBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateBrush(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionEffectBrushBridge.from(abi: result)
         }
 
-        internal func get_ExtendedErrorImpl() throws -> HRESULT {
+        public func get_ExtendedError() throws -> HRESULT {
             var value: HRESULT = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectFactory.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
@@ -1856,7 +1857,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_LoadStatusImpl() throws -> WinAppSDK.CompositionEffectFactoryLoadStatus {
+        public func get_LoadStatus() throws -> WinAppSDK.CompositionEffectFactoryLoadStatus {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEffectFactoryLoadStatus = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectFactory.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LoadStatus(pThis, &value))
@@ -1869,7 +1870,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionEffectSourceParameter: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectSourceParameter }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectSourceParameter.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -1882,7 +1883,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionEffectSourceParameterFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectSourceParameterFactory }
 
-        internal func CreateImpl(_ name: String) throws -> ICompositionEffectSourceParameter {
+        public func Create(_ name: String) throws -> ICompositionEffectSourceParameter {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _name = try! HString(name)
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectSourceParameterFactory.self) { pThis in
@@ -1897,7 +1898,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionEllipseGeometry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionEllipseGeometry }
 
-        internal func get_CenterImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Center() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEllipseGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Center(pThis, &value))
@@ -1905,13 +1906,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_CenterImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Center(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEllipseGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Center(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_RadiusImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Radius() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEllipseGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Radius(pThis, &value))
@@ -1919,7 +1920,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_RadiusImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Radius(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEllipseGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Radius(pThis, .from(swift: value)))
             }
@@ -1930,31 +1931,31 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionGeometricClip: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometricClip }
 
-        internal func get_GeometryImpl() throws -> WinAppSDK.CompositionGeometry? {
+        public func get_Geometry() throws -> WinAppSDK.CompositionGeometry? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometricClip.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Geometry(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionGeometryBridge.from(abi: value)
         }
 
-        internal func put_GeometryImpl(_ value: WinAppSDK.CompositionGeometry?) throws {
+        public func put_Geometry(_ value: WinAppSDK.CompositionGeometry?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometricClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Geometry(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ViewBoxImpl() throws -> WinAppSDK.CompositionViewBox? {
+        public func get_ViewBox() throws -> WinAppSDK.CompositionViewBox? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometricClip.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ViewBox(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionViewBoxBridge.from(abi: value)
         }
 
-        internal func put_ViewBoxImpl(_ value: WinAppSDK.CompositionViewBox?) throws {
+        public func put_ViewBox(_ value: WinAppSDK.CompositionViewBox?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometricClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ViewBox(pThis, RawPointer(value)))
             }
@@ -1965,7 +1966,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionGeometry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry }
 
-        internal func get_TrimEndImpl() throws -> Float {
+        public func get_TrimEnd() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimEnd(pThis, &value))
@@ -1973,13 +1974,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_TrimEndImpl(_ value: Float) throws {
+        public func put_TrimEnd(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimEnd(pThis, value))
             }
         }
 
-        internal func get_TrimOffsetImpl() throws -> Float {
+        public func get_TrimOffset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimOffset(pThis, &value))
@@ -1987,13 +1988,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_TrimOffsetImpl(_ value: Float) throws {
+        public func put_TrimOffset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimOffset(pThis, value))
             }
         }
 
-        internal func get_TrimStartImpl() throws -> Float {
+        public func get_TrimStart() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimStart(pThis, &value))
@@ -2001,7 +2002,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_TrimStartImpl(_ value: Float) throws {
+        public func put_TrimStart(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimStart(pThis, value))
             }
@@ -2017,7 +2018,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionGradientBrush: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush }
 
-        internal func get_AnchorPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_AnchorPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AnchorPoint(pThis, &value))
@@ -2025,13 +2026,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_AnchorPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_AnchorPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AnchorPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_CenterPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_CenterPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CenterPoint(pThis, &value))
@@ -2039,22 +2040,22 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_CenterPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_CenterPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CenterPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ColorStopsImpl() throws -> WinAppSDK.CompositionColorGradientStopCollection? {
+        public func get_ColorStops() throws -> WinAppSDK.CompositionColorGradientStopCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ColorStops(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionColorGradientStopCollectionBridge.from(abi: value)
         }
 
-        internal func get_ExtendModeImpl() throws -> WinAppSDK.CompositionGradientExtendMode {
+        public func get_ExtendMode() throws -> WinAppSDK.CompositionGradientExtendMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGradientExtendMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendMode(pThis, &value))
@@ -2062,13 +2063,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_ExtendModeImpl(_ value: WinAppSDK.CompositionGradientExtendMode) throws {
+        public func put_ExtendMode(_ value: WinAppSDK.CompositionGradientExtendMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExtendMode(pThis, value))
             }
         }
 
-        internal func get_InterpolationSpaceImpl() throws -> WinAppSDK.CompositionColorSpace {
+        public func get_InterpolationSpace() throws -> WinAppSDK.CompositionColorSpace {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionColorSpace = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InterpolationSpace(pThis, &value))
@@ -2076,13 +2077,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_InterpolationSpaceImpl(_ value: WinAppSDK.CompositionColorSpace) throws {
+        public func put_InterpolationSpace(_ value: WinAppSDK.CompositionColorSpace) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InterpolationSpace(pThis, value))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Offset() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -2090,13 +2091,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_RotationAngleImpl() throws -> Float {
+        public func get_RotationAngle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngle(pThis, &value))
@@ -2104,13 +2105,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleImpl(_ value: Float) throws {
+        public func put_RotationAngle(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngle(pThis, value))
             }
         }
 
-        internal func get_RotationAngleInDegreesImpl() throws -> Float {
+        public func get_RotationAngleInDegrees() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngleInDegrees(pThis, &value))
@@ -2118,13 +2119,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleInDegreesImpl(_ value: Float) throws {
+        public func put_RotationAngleInDegrees(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngleInDegrees(pThis, value))
             }
         }
 
-        internal func get_ScaleImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Scale() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scale(pThis, &value))
@@ -2132,13 +2133,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ScaleImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Scale(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Scale(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_TransformMatrixImpl() throws -> WindowsFoundation.Matrix3x2 {
+        public func get_TransformMatrix() throws -> WindowsFoundation.Matrix3x2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransformMatrix(pThis, &value))
@@ -2146,7 +2147,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_TransformMatrixImpl(_ value: WindowsFoundation.Matrix3x2) throws {
+        public func put_TransformMatrix(_ value: WindowsFoundation.Matrix3x2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TransformMatrix(pThis, .from(swift: value)))
             }
@@ -2157,7 +2158,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionGradientBrush2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush2 }
 
-        internal func get_MappingModeImpl() throws -> WinAppSDK.CompositionMappingMode {
+        public func get_MappingMode() throws -> WinAppSDK.CompositionMappingMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionMappingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MappingMode(pThis, &value))
@@ -2165,7 +2166,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_MappingModeImpl(_ value: WinAppSDK.CompositionMappingMode) throws {
+        public func put_MappingMode(_ value: WinAppSDK.CompositionMappingMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MappingMode(pThis, value))
             }
@@ -2181,16 +2182,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionGraphicsDevice: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice }
 
-        internal func CreateDrawingSurfaceImpl(_ sizePixels: WindowsFoundation.Size, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> WinAppSDK.CompositionDrawingSurface? {
+        public func CreateDrawingSurface(_ sizePixels: WindowsFoundation.Size, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> WinAppSDK.CompositionDrawingSurface? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDrawingSurface(pThis, .from(swift: sizePixels), pixelFormat, alphaMode, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionDrawingSurfaceBridge.from(abi: result)
         }
 
-        internal func add_RenderingDeviceReplacedImpl(_ handler: TypedEventHandler<WinAppSDK.CompositionGraphicsDevice?, WinAppSDK.RenderingDeviceReplacedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_RenderingDeviceReplaced(_ handler: TypedEventHandler<WinAppSDK.CompositionGraphicsDevice?, WinAppSDK.RenderingDeviceReplacedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CComposition__CCompositionGraphicsDevice___x_ABI_CMicrosoft__CUI__CComposition__CRenderingDeviceReplacedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -2200,7 +2201,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return token
         }
 
-        internal func remove_RenderingDeviceReplacedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_RenderingDeviceReplaced(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RenderingDeviceReplaced(pThis, token))
             }
@@ -2211,22 +2212,22 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionGraphicsDevice2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice2 }
 
-        internal func CreateDrawingSurface2Impl(_ sizePixels: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> WinAppSDK.CompositionDrawingSurface? {
+        public func CreateDrawingSurface2(_ sizePixels: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> WinAppSDK.CompositionDrawingSurface? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDrawingSurface2(pThis, .from(swift: sizePixels), pixelFormat, alphaMode, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionDrawingSurfaceBridge.from(abi: result)
         }
 
-        internal func CreateVirtualDrawingSurfaceImpl(_ sizePixels: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> WinAppSDK.CompositionVirtualDrawingSurface? {
+        public func CreateVirtualDrawingSurface(_ sizePixels: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> WinAppSDK.CompositionVirtualDrawingSurface? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateVirtualDrawingSurface(pThis, .from(swift: sizePixels), pixelFormat, alphaMode, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionVirtualDrawingSurfaceBridge.from(abi: result)
         }
 
     }
@@ -2234,16 +2235,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionGraphicsDevice3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice3 }
 
-        internal func CreateMipmapSurfaceImpl(_ sizePixels: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> WinAppSDK.CompositionMipmapSurface? {
+        public func CreateMipmapSurface(_ sizePixels: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode) throws -> WinAppSDK.CompositionMipmapSurface? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateMipmapSurface(pThis, .from(swift: sizePixels), pixelFormat, alphaMode, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionMipmapSurfaceBridge.from(abi: result)
         }
 
-        internal func TrimImpl() throws {
+        public func Trim() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Trim(pThis))
             }
@@ -2254,7 +2255,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionGraphicsDevice4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice4 }
 
-        internal func CaptureAsyncImpl(_ captureVisual: WinAppSDK.Visual?, _ size: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode, _ sdrBoost: Float) throws -> WindowsFoundation.AnyIAsyncOperation<WinAppSDK.AnyICompositionSurface?>? {
+        public func CaptureAsync(_ captureVisual: WinAppSDK.Visual?, _ size: UWP.SizeInt32, _ pixelFormat: WinAppSDK.DirectXPixelFormat, _ alphaMode: WinAppSDK.DirectXAlphaMode, _ sdrBoost: Float) throws -> WindowsFoundation.AnyIAsyncOperation<WinAppSDK.AnyICompositionSurface?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CaptureAsync(pThis, RawPointer(captureVisual), .from(swift: size), pixelFormat, alphaMode, sdrBoost, &operationAbi))
@@ -2268,13 +2269,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionLight: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight }
 
-        internal func get_TargetsImpl() throws -> WinAppSDK.VisualUnorderedCollection? {
+        public func get_Targets() throws -> WinAppSDK.VisualUnorderedCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Targets(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualUnorderedCollectionBridge.from(abi: value)
         }
 
     }
@@ -2282,13 +2283,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionLight2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight2 }
 
-        internal func get_ExclusionsFromTargetsImpl() throws -> WinAppSDK.VisualUnorderedCollection? {
+        public func get_ExclusionsFromTargets() throws -> WinAppSDK.VisualUnorderedCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExclusionsFromTargets(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualUnorderedCollectionBridge.from(abi: value)
         }
 
     }
@@ -2296,7 +2297,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionLight3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight3 }
 
-        internal func get_IsEnabledImpl() throws -> Bool {
+        public func get_IsEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnabled(pThis, &value))
@@ -2304,7 +2305,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_IsEnabledImpl(_ value: Bool) throws {
+        public func put_IsEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsEnabled(pThis, .init(from: value)))
             }
@@ -2320,7 +2321,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionLineGeometry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionLineGeometry }
 
-        internal func get_StartImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Start() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLineGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Start(pThis, &value))
@@ -2328,13 +2329,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_StartImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Start(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLineGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Start(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_EndImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_End() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLineGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_End(pThis, &value))
@@ -2342,7 +2343,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_EndImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_End(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLineGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_End(pThis, .from(swift: value)))
             }
@@ -2353,7 +2354,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionLinearGradientBrush: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionLinearGradientBrush }
 
-        internal func get_EndPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_EndPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLinearGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EndPoint(pThis, &value))
@@ -2361,13 +2362,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_EndPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_EndPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLinearGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EndPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_StartPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_StartPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLinearGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartPoint(pThis, &value))
@@ -2375,7 +2376,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_StartPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_StartPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLinearGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StartPoint(pThis, .from(swift: value)))
             }
@@ -2386,31 +2387,31 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionMaskBrush: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionMaskBrush }
 
-        internal func get_MaskImpl() throws -> WinAppSDK.CompositionBrush? {
+        public func get_Mask() throws -> WinAppSDK.CompositionBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMaskBrush.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mask(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: value)
         }
 
-        internal func put_MaskImpl(_ value: WinAppSDK.CompositionBrush?) throws {
+        public func put_Mask(_ value: WinAppSDK.CompositionBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMaskBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Mask(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_SourceImpl() throws -> WinAppSDK.CompositionBrush? {
+        public func get_Source() throws -> WinAppSDK.CompositionBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMaskBrush.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Source(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: value)
         }
 
-        internal func put_SourceImpl(_ value: WinAppSDK.CompositionBrush?) throws {
+        public func put_Source(_ value: WinAppSDK.CompositionBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMaskBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Source(pThis, RawPointer(value)))
             }
@@ -2421,7 +2422,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionMipmapSurface: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionMipmapSurface }
 
-        internal func get_LevelCountImpl() throws -> UInt32 {
+        public func get_LevelCount() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMipmapSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LevelCount(pThis, &value))
@@ -2429,7 +2430,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_AlphaModeImpl() throws -> WinAppSDK.DirectXAlphaMode {
+        public func get_AlphaMode() throws -> WinAppSDK.DirectXAlphaMode {
             var value: __x_ABI_CMicrosoft_CGraphics_CDirectX_CDirectXAlphaMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMipmapSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlphaMode(pThis, &value))
@@ -2437,7 +2438,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_PixelFormatImpl() throws -> WinAppSDK.DirectXPixelFormat {
+        public func get_PixelFormat() throws -> WinAppSDK.DirectXPixelFormat {
             var value: __x_ABI_CMicrosoft_CGraphics_CDirectX_CDirectXPixelFormat = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMipmapSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelFormat(pThis, &value))
@@ -2445,7 +2446,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_SizeInt32Impl() throws -> UWP.SizeInt32 {
+        public func get_SizeInt32() throws -> UWP.SizeInt32 {
             var value: __x_ABI_CWindows_CGraphics_CSizeInt32 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMipmapSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SizeInt32(pThis, &value))
@@ -2453,13 +2454,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func GetDrawingSurfaceForLevelImpl(_ level: UInt32) throws -> WinAppSDK.CompositionDrawingSurface? {
+        public func GetDrawingSurfaceForLevel(_ level: UInt32) throws -> WinAppSDK.CompositionDrawingSurface? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMipmapSurface.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDrawingSurfaceForLevel(pThis, level, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionDrawingSurfaceBridge.from(abi: result)
         }
 
     }
@@ -2467,7 +2468,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionNineGridBrush: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush }
 
-        internal func get_BottomInsetImpl() throws -> Float {
+        public func get_BottomInset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BottomInset(pThis, &value))
@@ -2475,13 +2476,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_BottomInsetImpl(_ value: Float) throws {
+        public func put_BottomInset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BottomInset(pThis, value))
             }
         }
 
-        internal func get_BottomInsetScaleImpl() throws -> Float {
+        public func get_BottomInsetScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BottomInsetScale(pThis, &value))
@@ -2489,13 +2490,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_BottomInsetScaleImpl(_ value: Float) throws {
+        public func put_BottomInsetScale(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BottomInsetScale(pThis, value))
             }
         }
 
-        internal func get_IsCenterHollowImpl() throws -> Bool {
+        public func get_IsCenterHollow() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCenterHollow(pThis, &value))
@@ -2503,13 +2504,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_IsCenterHollowImpl(_ value: Bool) throws {
+        public func put_IsCenterHollow(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsCenterHollow(pThis, .init(from: value)))
             }
         }
 
-        internal func get_LeftInsetImpl() throws -> Float {
+        public func get_LeftInset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LeftInset(pThis, &value))
@@ -2517,13 +2518,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_LeftInsetImpl(_ value: Float) throws {
+        public func put_LeftInset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LeftInset(pThis, value))
             }
         }
 
-        internal func get_LeftInsetScaleImpl() throws -> Float {
+        public func get_LeftInsetScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LeftInsetScale(pThis, &value))
@@ -2531,13 +2532,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_LeftInsetScaleImpl(_ value: Float) throws {
+        public func put_LeftInsetScale(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LeftInsetScale(pThis, value))
             }
         }
 
-        internal func get_RightInsetImpl() throws -> Float {
+        public func get_RightInset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RightInset(pThis, &value))
@@ -2545,13 +2546,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RightInsetImpl(_ value: Float) throws {
+        public func put_RightInset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RightInset(pThis, value))
             }
         }
 
-        internal func get_RightInsetScaleImpl() throws -> Float {
+        public func get_RightInsetScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RightInsetScale(pThis, &value))
@@ -2559,28 +2560,28 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RightInsetScaleImpl(_ value: Float) throws {
+        public func put_RightInsetScale(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RightInsetScale(pThis, value))
             }
         }
 
-        internal func get_SourceImpl() throws -> WinAppSDK.CompositionBrush? {
+        public func get_Source() throws -> WinAppSDK.CompositionBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Source(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: value)
         }
 
-        internal func put_SourceImpl(_ value: WinAppSDK.CompositionBrush?) throws {
+        public func put_Source(_ value: WinAppSDK.CompositionBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Source(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_TopInsetImpl() throws -> Float {
+        public func get_TopInset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TopInset(pThis, &value))
@@ -2588,13 +2589,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_TopInsetImpl(_ value: Float) throws {
+        public func put_TopInset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TopInset(pThis, value))
             }
         }
 
-        internal func get_TopInsetScaleImpl() throws -> Float {
+        public func get_TopInsetScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TopInsetScale(pThis, &value))
@@ -2602,31 +2603,31 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_TopInsetScaleImpl(_ value: Float) throws {
+        public func put_TopInsetScale(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TopInsetScale(pThis, value))
             }
         }
 
-        internal func SetInsetsImpl(_ inset: Float) throws {
+        public func SetInsets(_ inset: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetInsets(pThis, inset))
             }
         }
 
-        internal func SetInsetsWithValuesImpl(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float) throws {
+        public func SetInsetsWithValues(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetInsetsWithValues(pThis, left, top, right, bottom))
             }
         }
 
-        internal func SetInsetScalesImpl(_ scale: Float) throws {
+        public func SetInsetScales(_ scale: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetInsetScales(pThis, scale))
             }
         }
 
-        internal func SetInsetScalesWithValuesImpl(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float) throws {
+        public func SetInsetScalesWithValues(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetInsetScalesWithValues(pThis, left, top, right, bottom))
             }
@@ -2637,32 +2638,32 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionObject: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject }
 
-        internal func get_CompositorImpl() throws -> WinAppSDK.Compositor? {
+        public func get_Compositor() throws -> WinAppSDK.Compositor? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Compositor(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositorBridge.from(abi: value)
         }
 
-        internal func get_PropertiesImpl() throws -> WinAppSDK.CompositionPropertySet? {
+        public func get_Properties() throws -> WinAppSDK.CompositionPropertySet? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionPropertySetBridge.from(abi: value)
         }
 
-        internal func StartAnimationImpl(_ propertyName: String, _ animation: WinAppSDK.CompositionAnimation?) throws {
+        public func StartAnimation(_ propertyName: String, _ animation: WinAppSDK.CompositionAnimation?) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StartAnimation(pThis, _propertyName.get(), RawPointer(animation)))
             }
         }
 
-        internal func StopAnimationImpl(_ propertyName: String) throws {
+        public func StopAnimation(_ propertyName: String) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StopAnimation(pThis, _propertyName.get()))
@@ -2674,7 +2675,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionObject2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject2 }
 
-        internal func get_CommentImpl() throws -> String {
+        public func get_Comment() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Comment(pThis, &value))
@@ -2682,29 +2683,29 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_CommentImpl(_ value: String) throws {
+        public func put_Comment(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Comment(pThis, _value.get()))
             }
         }
 
-        internal func get_ImplicitAnimationsImpl() throws -> WinAppSDK.ImplicitAnimationCollection? {
+        public func get_ImplicitAnimations() throws -> WinAppSDK.ImplicitAnimationCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ImplicitAnimations(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ImplicitAnimationCollectionBridge.from(abi: value)
         }
 
-        internal func put_ImplicitAnimationsImpl(_ value: WinAppSDK.ImplicitAnimationCollection?) throws {
+        public func put_ImplicitAnimations(_ value: WinAppSDK.ImplicitAnimationCollection?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ImplicitAnimations(pThis, RawPointer(value)))
             }
         }
 
-        internal func StartAnimationGroupImpl(_ value: WinAppSDK.AnyICompositionAnimationBase?) throws {
+        public func StartAnimationGroup(_ value: WinAppSDK.AnyICompositionAnimationBase?) throws {
             let valueWrapper = __ABI_Microsoft_UI_Composition.ICompositionAnimationBaseWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject2.self) { pThis in
@@ -2712,7 +2713,7 @@ public enum __ABI_Microsoft_UI_Composition {
             }
         }
 
-        internal func StopAnimationGroupImpl(_ value: WinAppSDK.AnyICompositionAnimationBase?) throws {
+        public func StopAnimationGroup(_ value: WinAppSDK.AnyICompositionAnimationBase?) throws {
             let valueWrapper = __ABI_Microsoft_UI_Composition.ICompositionAnimationBaseWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject2.self) { pThis in
@@ -2725,13 +2726,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionObject3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject3 }
 
-        internal func get_DispatcherQueueImpl() throws -> WinAppSDK.DispatcherQueue? {
+        public func get_DispatcherQueue() throws -> WinAppSDK.DispatcherQueue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DispatcherQueue(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Dispatching.DispatcherQueueBridge.from(abi: value)
         }
 
     }
@@ -2739,14 +2740,14 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionObject4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject4 }
 
-        internal func TryGetAnimationControllerImpl(_ propertyName: String) throws -> WinAppSDK.AnimationController? {
+        public func TryGetAnimationController(_ propertyName: String) throws -> WinAppSDK.AnimationController? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _propertyName = try! HString(propertyName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryGetAnimationController(pThis, _propertyName.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.AnimationControllerBridge.from(abi: result)
         }
 
     }
@@ -2754,7 +2755,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionObject5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject5 }
 
-        internal func StartAnimationWithControllerImpl(_ propertyName: String, _ animation: WinAppSDK.CompositionAnimation?, _ animationController: WinAppSDK.AnimationController?) throws {
+        public func StartAnimationWithController(_ propertyName: String, _ animation: WinAppSDK.CompositionAnimation?, _ animationController: WinAppSDK.AnimationController?) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StartAnimationWithController(pThis, _propertyName.get(), RawPointer(animation), RawPointer(animationController)))
@@ -2771,7 +2772,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionObjectStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionObjectStatics }
 
-        internal func StartAnimationWithIAnimationObjectImpl(_ target: WinAppSDK.AnyIAnimationObject?, _ propertyName: String, _ animation: WinAppSDK.CompositionAnimation?) throws {
+        public func StartAnimationWithIAnimationObject(_ target: WinAppSDK.AnyIAnimationObject?, _ propertyName: String, _ animation: WinAppSDK.CompositionAnimation?) throws {
             let targetWrapper = __ABI_Microsoft_UI_Composition.IAnimationObjectWrapper(target)
             let _target = try! targetWrapper?.toABI { $0 }
             let _propertyName = try! HString(propertyName)
@@ -2780,7 +2781,7 @@ public enum __ABI_Microsoft_UI_Composition {
             }
         }
 
-        internal func StartAnimationGroupWithIAnimationObjectImpl(_ target: WinAppSDK.AnyIAnimationObject?, _ animation: WinAppSDK.AnyICompositionAnimationBase?) throws {
+        public func StartAnimationGroupWithIAnimationObject(_ target: WinAppSDK.AnyIAnimationObject?, _ animation: WinAppSDK.AnyICompositionAnimationBase?) throws {
             let targetWrapper = __ABI_Microsoft_UI_Composition.IAnimationObjectWrapper(target)
             let _target = try! targetWrapper?.toABI { $0 }
             let animationWrapper = __ABI_Microsoft_UI_Composition.ICompositionAnimationBaseWrapper(animation)
@@ -2800,7 +2801,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionPathFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionPathFactory }
 
-        internal func CreateImpl(_ source: UWP.AnyIGeometrySource2D?) throws -> ICompositionPath {
+        public func Create(_ source: UWP.AnyIGeometrySource2D?) throws -> ICompositionPath {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let sourceWrapper = __ABI_Windows_Graphics.IGeometrySource2DWrapper(source)
                 let _source = try! sourceWrapper?.toABI { $0 }
@@ -2816,16 +2817,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionPathGeometry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionPathGeometry }
 
-        internal func get_PathImpl() throws -> WinAppSDK.CompositionPath? {
+        public func get_Path() throws -> WinAppSDK.CompositionPath? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPathGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Path(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionPathBridge.from(abi: value)
         }
 
-        internal func put_PathImpl(_ value: WinAppSDK.CompositionPath?) throws {
+        public func put_Path(_ value: WinAppSDK.CompositionPath?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPathGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Path(pThis, RawPointer(value)))
             }
@@ -2836,7 +2837,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionProjectedShadow: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow }
 
-        internal func get_BlurRadiusMultiplierImpl() throws -> Float {
+        public func get_BlurRadiusMultiplier() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BlurRadiusMultiplier(pThis, &value))
@@ -2844,37 +2845,37 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_BlurRadiusMultiplierImpl(_ value: Float) throws {
+        public func put_BlurRadiusMultiplier(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BlurRadiusMultiplier(pThis, value))
             }
         }
 
-        internal func get_CastersImpl() throws -> WinAppSDK.CompositionProjectedShadowCasterCollection? {
+        public func get_Casters() throws -> WinAppSDK.CompositionProjectedShadowCasterCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Casters(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionProjectedShadowCasterCollectionBridge.from(abi: value)
         }
 
-        internal func get_LightSourceImpl() throws -> WinAppSDK.CompositionLight? {
+        public func get_LightSource() throws -> WinAppSDK.CompositionLight? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightSource(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionLightBridge.from(abi: value)
         }
 
-        internal func put_LightSourceImpl(_ value: WinAppSDK.CompositionLight?) throws {
+        public func put_LightSource(_ value: WinAppSDK.CompositionLight?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LightSource(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_MaxBlurRadiusImpl() throws -> Float {
+        public func get_MaxBlurRadius() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxBlurRadius(pThis, &value))
@@ -2882,13 +2883,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_MaxBlurRadiusImpl(_ value: Float) throws {
+        public func put_MaxBlurRadius(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxBlurRadius(pThis, value))
             }
         }
 
-        internal func get_MinBlurRadiusImpl() throws -> Float {
+        public func get_MinBlurRadius() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinBlurRadius(pThis, &value))
@@ -2896,19 +2897,19 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_MinBlurRadiusImpl(_ value: Float) throws {
+        public func put_MinBlurRadius(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinBlurRadius(pThis, value))
             }
         }
 
-        internal func get_ReceiversImpl() throws -> WinAppSDK.CompositionProjectedShadowReceiverUnorderedCollection? {
+        public func get_Receivers() throws -> WinAppSDK.CompositionProjectedShadowReceiverUnorderedCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Receivers(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionProjectedShadowReceiverUnorderedCollectionBridge.from(abi: value)
         }
 
     }
@@ -2916,31 +2917,31 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionProjectedShadowCaster: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCaster }
 
-        internal func get_BrushImpl() throws -> WinAppSDK.CompositionBrush? {
+        public func get_Brush() throws -> WinAppSDK.CompositionBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCaster.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Brush(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: value)
         }
 
-        internal func put_BrushImpl(_ value: WinAppSDK.CompositionBrush?) throws {
+        public func put_Brush(_ value: WinAppSDK.CompositionBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCaster.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Brush(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_CastingVisualImpl() throws -> WinAppSDK.Visual? {
+        public func get_CastingVisual() throws -> WinAppSDK.Visual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCaster.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CastingVisual(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: value)
         }
 
-        internal func put_CastingVisualImpl(_ value: WinAppSDK.Visual?) throws {
+        public func put_CastingVisual(_ value: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCaster.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CastingVisual(pThis, RawPointer(value)))
             }
@@ -2951,7 +2952,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionProjectedShadowCasterCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection }
 
-        internal func get_CountImpl() throws -> Int32 {
+        public func get_Count() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Count(pThis, &value))
@@ -2959,37 +2960,37 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func InsertAboveImpl(_ newCaster: WinAppSDK.CompositionProjectedShadowCaster?, _ reference: WinAppSDK.CompositionProjectedShadowCaster?) throws {
+        public func InsertAbove(_ newCaster: WinAppSDK.CompositionProjectedShadowCaster?, _ reference: WinAppSDK.CompositionProjectedShadowCaster?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAbove(pThis, RawPointer(newCaster), RawPointer(reference)))
             }
         }
 
-        internal func InsertAtBottomImpl(_ newCaster: WinAppSDK.CompositionProjectedShadowCaster?) throws {
+        public func InsertAtBottom(_ newCaster: WinAppSDK.CompositionProjectedShadowCaster?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAtBottom(pThis, RawPointer(newCaster)))
             }
         }
 
-        internal func InsertAtTopImpl(_ newCaster: WinAppSDK.CompositionProjectedShadowCaster?) throws {
+        public func InsertAtTop(_ newCaster: WinAppSDK.CompositionProjectedShadowCaster?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAtTop(pThis, RawPointer(newCaster)))
             }
         }
 
-        internal func InsertBelowImpl(_ newCaster: WinAppSDK.CompositionProjectedShadowCaster?, _ reference: WinAppSDK.CompositionProjectedShadowCaster?) throws {
+        public func InsertBelow(_ newCaster: WinAppSDK.CompositionProjectedShadowCaster?, _ reference: WinAppSDK.CompositionProjectedShadowCaster?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertBelow(pThis, RawPointer(newCaster), RawPointer(reference)))
             }
         }
 
-        internal func RemoveImpl(_ caster: WinAppSDK.CompositionProjectedShadowCaster?) throws {
+        public func Remove(_ caster: WinAppSDK.CompositionProjectedShadowCaster?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Remove(pThis, RawPointer(caster)))
             }
         }
 
-        internal func RemoveAllImpl() throws {
+        public func RemoveAll() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAll(pThis))
             }
@@ -3000,7 +3001,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionProjectedShadowCasterCollectionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollectionStatics }
 
-        internal func get_MaxRespectedCastersImpl() throws -> Int32 {
+        public func get_MaxRespectedCasters() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollectionStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxRespectedCasters(pThis, &value))
@@ -3013,16 +3014,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionProjectedShadowReceiver: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiver }
 
-        internal func get_ReceivingVisualImpl() throws -> WinAppSDK.Visual? {
+        public func get_ReceivingVisual() throws -> WinAppSDK.Visual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiver.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReceivingVisual(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: value)
         }
 
-        internal func put_ReceivingVisualImpl(_ value: WinAppSDK.Visual?) throws {
+        public func put_ReceivingVisual(_ value: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiver.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ReceivingVisual(pThis, RawPointer(value)))
             }
@@ -3033,13 +3034,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionProjectedShadowReceiverUnorderedCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection }
 
-        internal func AddImpl(_ value: WinAppSDK.CompositionProjectedShadowReceiver?) throws {
+        public func Add(_ value: WinAppSDK.CompositionProjectedShadowReceiver?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Add(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_CountImpl() throws -> Int32 {
+        public func get_Count() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Count(pThis, &value))
@@ -3047,13 +3048,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func RemoveImpl(_ value: WinAppSDK.CompositionProjectedShadowReceiver?) throws {
+        public func Remove(_ value: WinAppSDK.CompositionProjectedShadowReceiver?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Remove(pThis, RawPointer(value)))
             }
         }
 
-        internal func RemoveAllImpl() throws {
+        public func RemoveAll() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAll(pThis))
             }
@@ -3064,63 +3065,63 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionPropertySet: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet }
 
-        internal func InsertColorImpl(_ propertyName: String, _ value: UWP.Color) throws {
+        public func InsertColor(_ propertyName: String, _ value: UWP.Color) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertColor(pThis, _propertyName.get(), .from(swift: value)))
             }
         }
 
-        internal func InsertMatrix3x2Impl(_ propertyName: String, _ value: WindowsFoundation.Matrix3x2) throws {
+        public func InsertMatrix3x2(_ propertyName: String, _ value: WindowsFoundation.Matrix3x2) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertMatrix3x2(pThis, _propertyName.get(), .from(swift: value)))
             }
         }
 
-        internal func InsertMatrix4x4Impl(_ propertyName: String, _ value: WindowsFoundation.Matrix4x4) throws {
+        public func InsertMatrix4x4(_ propertyName: String, _ value: WindowsFoundation.Matrix4x4) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertMatrix4x4(pThis, _propertyName.get(), .from(swift: value)))
             }
         }
 
-        internal func InsertQuaternionImpl(_ propertyName: String, _ value: WindowsFoundation.Quaternion) throws {
+        public func InsertQuaternion(_ propertyName: String, _ value: WindowsFoundation.Quaternion) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertQuaternion(pThis, _propertyName.get(), .from(swift: value)))
             }
         }
 
-        internal func InsertScalarImpl(_ propertyName: String, _ value: Float) throws {
+        public func InsertScalar(_ propertyName: String, _ value: Float) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertScalar(pThis, _propertyName.get(), value))
             }
         }
 
-        internal func InsertVector2Impl(_ propertyName: String, _ value: WindowsFoundation.Vector2) throws {
+        public func InsertVector2(_ propertyName: String, _ value: WindowsFoundation.Vector2) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertVector2(pThis, _propertyName.get(), .from(swift: value)))
             }
         }
 
-        internal func InsertVector3Impl(_ propertyName: String, _ value: WindowsFoundation.Vector3) throws {
+        public func InsertVector3(_ propertyName: String, _ value: WindowsFoundation.Vector3) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertVector3(pThis, _propertyName.get(), .from(swift: value)))
             }
         }
 
-        internal func InsertVector4Impl(_ propertyName: String, _ value: WindowsFoundation.Vector4) throws {
+        public func InsertVector4(_ propertyName: String, _ value: WindowsFoundation.Vector4) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertVector4(pThis, _propertyName.get(), .from(swift: value)))
             }
         }
 
-        internal func TryGetColorImpl(_ propertyName: String, _ value: inout UWP.Color) throws -> WinAppSDK.CompositionGetValueStatus {
+        public func TryGetColor(_ propertyName: String, _ value: inout UWP.Color) throws -> WinAppSDK.CompositionGetValueStatus {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus = .init(0)
             let _propertyName = try! HString(propertyName)
             var _value: __x_ABI_CWindows_CUI_CColor = .init()
@@ -3131,7 +3132,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return result
         }
 
-        internal func TryGetMatrix3x2Impl(_ propertyName: String, _ value: inout WindowsFoundation.Matrix3x2) throws -> WinAppSDK.CompositionGetValueStatus {
+        public func TryGetMatrix3x2(_ propertyName: String, _ value: inout WindowsFoundation.Matrix3x2) throws -> WinAppSDK.CompositionGetValueStatus {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus = .init(0)
             let _propertyName = try! HString(propertyName)
             var _value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
@@ -3142,7 +3143,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return result
         }
 
-        internal func TryGetMatrix4x4Impl(_ propertyName: String, _ value: inout WindowsFoundation.Matrix4x4) throws -> WinAppSDK.CompositionGetValueStatus {
+        public func TryGetMatrix4x4(_ propertyName: String, _ value: inout WindowsFoundation.Matrix4x4) throws -> WinAppSDK.CompositionGetValueStatus {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus = .init(0)
             let _propertyName = try! HString(propertyName)
             var _value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4 = .init()
@@ -3153,7 +3154,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return result
         }
 
-        internal func TryGetQuaternionImpl(_ propertyName: String, _ value: inout WindowsFoundation.Quaternion) throws -> WinAppSDK.CompositionGetValueStatus {
+        public func TryGetQuaternion(_ propertyName: String, _ value: inout WindowsFoundation.Quaternion) throws -> WinAppSDK.CompositionGetValueStatus {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus = .init(0)
             let _propertyName = try! HString(propertyName)
             var _value: __x_ABI_CWindows_CFoundation_CNumerics_CQuaternion = .init()
@@ -3164,7 +3165,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return result
         }
 
-        internal func TryGetScalarImpl(_ propertyName: String, _ value: inout Float) throws -> WinAppSDK.CompositionGetValueStatus {
+        public func TryGetScalar(_ propertyName: String, _ value: inout Float) throws -> WinAppSDK.CompositionGetValueStatus {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus = .init(0)
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet.self) { pThis in
@@ -3173,7 +3174,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return result
         }
 
-        internal func TryGetVector2Impl(_ propertyName: String, _ value: inout WindowsFoundation.Vector2) throws -> WinAppSDK.CompositionGetValueStatus {
+        public func TryGetVector2(_ propertyName: String, _ value: inout WindowsFoundation.Vector2) throws -> WinAppSDK.CompositionGetValueStatus {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus = .init(0)
             let _propertyName = try! HString(propertyName)
             var _value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
@@ -3184,7 +3185,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return result
         }
 
-        internal func TryGetVector3Impl(_ propertyName: String, _ value: inout WindowsFoundation.Vector3) throws -> WinAppSDK.CompositionGetValueStatus {
+        public func TryGetVector3(_ propertyName: String, _ value: inout WindowsFoundation.Vector3) throws -> WinAppSDK.CompositionGetValueStatus {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus = .init(0)
             let _propertyName = try! HString(propertyName)
             var _value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
@@ -3195,7 +3196,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return result
         }
 
-        internal func TryGetVector4Impl(_ propertyName: String, _ value: inout WindowsFoundation.Vector4) throws -> WinAppSDK.CompositionGetValueStatus {
+        public func TryGetVector4(_ propertyName: String, _ value: inout WindowsFoundation.Vector4) throws -> WinAppSDK.CompositionGetValueStatus {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus = .init(0)
             let _propertyName = try! HString(propertyName)
             var _value: __x_ABI_CWindows_CFoundation_CNumerics_CVector4 = .init()
@@ -3211,14 +3212,14 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionPropertySet2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet2 }
 
-        internal func InsertBooleanImpl(_ propertyName: String, _ value: Bool) throws {
+        public func InsertBoolean(_ propertyName: String, _ value: Bool) throws {
             let _propertyName = try! HString(propertyName)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertBoolean(pThis, _propertyName.get(), .init(from: value)))
             }
         }
 
-        internal func TryGetBooleanImpl(_ propertyName: String, _ value: inout Bool) throws -> WinAppSDK.CompositionGetValueStatus {
+        public func TryGetBoolean(_ propertyName: String, _ value: inout Bool) throws -> WinAppSDK.CompositionGetValueStatus {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionGetValueStatus = .init(0)
             let _propertyName = try! HString(propertyName)
             var _value: boolean = .init()
@@ -3234,7 +3235,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionRadialGradientBrush: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush }
 
-        internal func get_EllipseCenterImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_EllipseCenter() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EllipseCenter(pThis, &value))
@@ -3242,13 +3243,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_EllipseCenterImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_EllipseCenter(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EllipseCenter(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_EllipseRadiusImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_EllipseRadius() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EllipseRadius(pThis, &value))
@@ -3256,13 +3257,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_EllipseRadiusImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_EllipseRadius(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EllipseRadius(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_GradientOriginOffsetImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_GradientOriginOffset() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GradientOriginOffset(pThis, &value))
@@ -3270,7 +3271,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_GradientOriginOffsetImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_GradientOriginOffset(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_GradientOriginOffset(pThis, .from(swift: value)))
             }
@@ -3281,7 +3282,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionRectangleGeometry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionRectangleGeometry }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Offset() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -3289,13 +3290,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Size() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -3303,7 +3304,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_SizeImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Size(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Size(pThis, .from(swift: value)))
             }
@@ -3314,7 +3315,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionRoundedRectangleGeometry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry }
 
-        internal func get_CornerRadiusImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_CornerRadius() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CornerRadius(pThis, &value))
@@ -3322,13 +3323,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_CornerRadiusImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_CornerRadius(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CornerRadius(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Offset() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -3336,13 +3337,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Size() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -3350,7 +3351,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_SizeImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Size(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Size(pThis, .from(swift: value)))
             }
@@ -3361,7 +3362,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionScopedBatch: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch }
 
-        internal func get_IsActiveImpl() throws -> Bool {
+        public func get_IsActive() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsActive(pThis, &value))
@@ -3369,7 +3370,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func get_IsEndedImpl() throws -> Bool {
+        public func get_IsEnded() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnded(pThis, &value))
@@ -3377,25 +3378,25 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func EndImpl() throws {
+        public func End() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.End(pThis))
             }
         }
 
-        internal func ResumeImpl() throws {
+        public func Resume() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Resume(pThis))
             }
         }
 
-        internal func SuspendImpl() throws {
+        public func Suspend() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Suspend(pThis))
             }
         }
 
-        internal func add_CompletedImpl(_ handler: TypedEventHandler<Any?, WinAppSDK.CompositionBatchCompletedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Completed(_ handler: TypedEventHandler<Any?, WinAppSDK.CompositionBatchCompletedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CComposition__CCompositionBatchCompletedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -3405,7 +3406,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return token
         }
 
-        internal func remove_CompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Completed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Completed(pThis, token))
             }
@@ -3426,7 +3427,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionShape: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape }
 
-        internal func get_CenterPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_CenterPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CenterPoint(pThis, &value))
@@ -3434,13 +3435,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_CenterPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_CenterPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CenterPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Offset() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -3448,13 +3449,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_RotationAngleImpl() throws -> Float {
+        public func get_RotationAngle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngle(pThis, &value))
@@ -3462,13 +3463,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleImpl(_ value: Float) throws {
+        public func put_RotationAngle(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngle(pThis, value))
             }
         }
 
-        internal func get_RotationAngleInDegreesImpl() throws -> Float {
+        public func get_RotationAngleInDegrees() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngleInDegrees(pThis, &value))
@@ -3476,13 +3477,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleInDegreesImpl(_ value: Float) throws {
+        public func put_RotationAngleInDegrees(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngleInDegrees(pThis, value))
             }
         }
 
-        internal func get_ScaleImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Scale() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scale(pThis, &value))
@@ -3490,13 +3491,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ScaleImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Scale(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Scale(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_TransformMatrixImpl() throws -> WindowsFoundation.Matrix3x2 {
+        public func get_TransformMatrix() throws -> WindowsFoundation.Matrix3x2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransformMatrix(pThis, &value))
@@ -3504,7 +3505,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_TransformMatrixImpl(_ value: WindowsFoundation.Matrix3x2) throws {
+        public func put_TransformMatrix(_ value: WindowsFoundation.Matrix3x2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TransformMatrix(pThis, .from(swift: value)))
             }
@@ -3520,37 +3521,37 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionSpriteShape: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape }
 
-        internal func get_FillBrushImpl() throws -> WinAppSDK.CompositionBrush? {
+        public func get_FillBrush() throws -> WinAppSDK.CompositionBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FillBrush(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: value)
         }
 
-        internal func put_FillBrushImpl(_ value: WinAppSDK.CompositionBrush?) throws {
+        public func put_FillBrush(_ value: WinAppSDK.CompositionBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FillBrush(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_GeometryImpl() throws -> WinAppSDK.CompositionGeometry? {
+        public func get_Geometry() throws -> WinAppSDK.CompositionGeometry? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Geometry(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionGeometryBridge.from(abi: value)
         }
 
-        internal func put_GeometryImpl(_ value: WinAppSDK.CompositionGeometry?) throws {
+        public func put_Geometry(_ value: WinAppSDK.CompositionGeometry?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Geometry(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_IsStrokeNonScalingImpl() throws -> Bool {
+        public func get_IsStrokeNonScaling() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStrokeNonScaling(pThis, &value))
@@ -3558,37 +3559,37 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_IsStrokeNonScalingImpl(_ value: Bool) throws {
+        public func put_IsStrokeNonScaling(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsStrokeNonScaling(pThis, .init(from: value)))
             }
         }
 
-        internal func get_StrokeBrushImpl() throws -> WinAppSDK.CompositionBrush? {
+        public func get_StrokeBrush() throws -> WinAppSDK.CompositionBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeBrush(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: value)
         }
 
-        internal func put_StrokeBrushImpl(_ value: WinAppSDK.CompositionBrush?) throws {
+        public func put_StrokeBrush(_ value: WinAppSDK.CompositionBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeBrush(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_StrokeDashArrayImpl() throws -> WinAppSDK.CompositionStrokeDashArray? {
+        public func get_StrokeDashArray() throws -> WinAppSDK.CompositionStrokeDashArray? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeDashArray(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionStrokeDashArrayBridge.from(abi: value)
         }
 
-        internal func get_StrokeDashCapImpl() throws -> WinAppSDK.CompositionStrokeCap {
+        public func get_StrokeDashCap() throws -> WinAppSDK.CompositionStrokeCap {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionStrokeCap = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeDashCap(pThis, &value))
@@ -3596,13 +3597,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StrokeDashCapImpl(_ value: WinAppSDK.CompositionStrokeCap) throws {
+        public func put_StrokeDashCap(_ value: WinAppSDK.CompositionStrokeCap) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeDashCap(pThis, value))
             }
         }
 
-        internal func get_StrokeDashOffsetImpl() throws -> Float {
+        public func get_StrokeDashOffset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeDashOffset(pThis, &value))
@@ -3610,13 +3611,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StrokeDashOffsetImpl(_ value: Float) throws {
+        public func put_StrokeDashOffset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeDashOffset(pThis, value))
             }
         }
 
-        internal func get_StrokeEndCapImpl() throws -> WinAppSDK.CompositionStrokeCap {
+        public func get_StrokeEndCap() throws -> WinAppSDK.CompositionStrokeCap {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionStrokeCap = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeEndCap(pThis, &value))
@@ -3624,13 +3625,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StrokeEndCapImpl(_ value: WinAppSDK.CompositionStrokeCap) throws {
+        public func put_StrokeEndCap(_ value: WinAppSDK.CompositionStrokeCap) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeEndCap(pThis, value))
             }
         }
 
-        internal func get_StrokeLineJoinImpl() throws -> WinAppSDK.CompositionStrokeLineJoin {
+        public func get_StrokeLineJoin() throws -> WinAppSDK.CompositionStrokeLineJoin {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionStrokeLineJoin = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeLineJoin(pThis, &value))
@@ -3638,13 +3639,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StrokeLineJoinImpl(_ value: WinAppSDK.CompositionStrokeLineJoin) throws {
+        public func put_StrokeLineJoin(_ value: WinAppSDK.CompositionStrokeLineJoin) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeLineJoin(pThis, value))
             }
         }
 
-        internal func get_StrokeMiterLimitImpl() throws -> Float {
+        public func get_StrokeMiterLimit() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeMiterLimit(pThis, &value))
@@ -3652,13 +3653,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StrokeMiterLimitImpl(_ value: Float) throws {
+        public func put_StrokeMiterLimit(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeMiterLimit(pThis, value))
             }
         }
 
-        internal func get_StrokeStartCapImpl() throws -> WinAppSDK.CompositionStrokeCap {
+        public func get_StrokeStartCap() throws -> WinAppSDK.CompositionStrokeCap {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionStrokeCap = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeStartCap(pThis, &value))
@@ -3666,13 +3667,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StrokeStartCapImpl(_ value: WinAppSDK.CompositionStrokeCap) throws {
+        public func put_StrokeStartCap(_ value: WinAppSDK.CompositionStrokeCap) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeStartCap(pThis, value))
             }
         }
 
-        internal func get_StrokeThicknessImpl() throws -> Float {
+        public func get_StrokeThickness() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeThickness(pThis, &value))
@@ -3680,7 +3681,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StrokeThicknessImpl(_ value: Float) throws {
+        public func put_StrokeThickness(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeThickness(pThis, value))
             }
@@ -3691,16 +3692,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionSupportsSystemBackdrop: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionSupportsSystemBackdrop }
 
-        open func get_SystemBackdropImpl() throws -> UWP.CompositionBrush? {
+        open func get_SystemBackdrop() throws -> UWP.CompositionBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSupportsSystemBackdrop.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SystemBackdrop(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI_Composition.CompositionBrushBridge.from(abi: value)
         }
 
-        open func put_SystemBackdropImpl(_ value: UWP.CompositionBrush?) throws {
+        open func put_SystemBackdrop(_ value: UWP.CompositionBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSupportsSystemBackdrop.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SystemBackdrop(pThis, RawPointer(value)))
             }
@@ -3745,7 +3746,7 @@ public enum __ABI_Microsoft_UI_Composition {
 
         put_SystemBackdrop: {
             guard let __unwrapped__instance = ICompositionSupportsSystemBackdropWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value: UWP.CompositionBrush? = .from(abi: ComPtr($1))
+            let value: UWP.CompositionBrush? = __IMPL_Windows_UI_Composition.CompositionBrushBridge.from(abi: ComPtr($1))
             __unwrapped__instance.systemBackdrop = value
             return S_OK
         }
@@ -3790,7 +3791,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionSurfaceBrush: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush }
 
-        internal func get_BitmapInterpolationModeImpl() throws -> WinAppSDK.CompositionBitmapInterpolationMode {
+        public func get_BitmapInterpolationMode() throws -> WinAppSDK.CompositionBitmapInterpolationMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionBitmapInterpolationMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapInterpolationMode(pThis, &value))
@@ -3798,13 +3799,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_BitmapInterpolationModeImpl(_ value: WinAppSDK.CompositionBitmapInterpolationMode) throws {
+        public func put_BitmapInterpolationMode(_ value: WinAppSDK.CompositionBitmapInterpolationMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BitmapInterpolationMode(pThis, value))
             }
         }
 
-        internal func get_HorizontalAlignmentRatioImpl() throws -> Float {
+        public func get_HorizontalAlignmentRatio() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalAlignmentRatio(pThis, &value))
@@ -3812,13 +3813,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_HorizontalAlignmentRatioImpl(_ value: Float) throws {
+        public func put_HorizontalAlignmentRatio(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalAlignmentRatio(pThis, value))
             }
         }
 
-        internal func get_StretchImpl() throws -> WinAppSDK.CompositionStretch {
+        public func get_Stretch() throws -> WinAppSDK.CompositionStretch {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionStretch = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Stretch(pThis, &value))
@@ -3826,13 +3827,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StretchImpl(_ value: WinAppSDK.CompositionStretch) throws {
+        public func put_Stretch(_ value: WinAppSDK.CompositionStretch) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Stretch(pThis, value))
             }
         }
 
-        internal func get_SurfaceImpl() throws -> WinAppSDK.AnyICompositionSurface? {
+        public func get_Surface() throws -> WinAppSDK.AnyICompositionSurface? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Surface(pThis, &valueAbi))
@@ -3841,7 +3842,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return __ABI_Microsoft_UI_Composition.ICompositionSurfaceWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_SurfaceImpl(_ value: WinAppSDK.AnyICompositionSurface?) throws {
+        public func put_Surface(_ value: WinAppSDK.AnyICompositionSurface?) throws {
             let valueWrapper = __ABI_Microsoft_UI_Composition.ICompositionSurfaceWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
@@ -3849,7 +3850,7 @@ public enum __ABI_Microsoft_UI_Composition {
             }
         }
 
-        internal func get_VerticalAlignmentRatioImpl() throws -> Float {
+        public func get_VerticalAlignmentRatio() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalAlignmentRatio(pThis, &value))
@@ -3857,7 +3858,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_VerticalAlignmentRatioImpl(_ value: Float) throws {
+        public func put_VerticalAlignmentRatio(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalAlignmentRatio(pThis, value))
             }
@@ -3868,7 +3869,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionSurfaceBrush2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2 }
 
-        internal func get_AnchorPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_AnchorPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AnchorPoint(pThis, &value))
@@ -3876,13 +3877,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_AnchorPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_AnchorPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AnchorPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_CenterPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_CenterPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CenterPoint(pThis, &value))
@@ -3890,13 +3891,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_CenterPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_CenterPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CenterPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Offset() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -3904,13 +3905,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_RotationAngleImpl() throws -> Float {
+        public func get_RotationAngle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngle(pThis, &value))
@@ -3918,13 +3919,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleImpl(_ value: Float) throws {
+        public func put_RotationAngle(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngle(pThis, value))
             }
         }
 
-        internal func get_RotationAngleInDegreesImpl() throws -> Float {
+        public func get_RotationAngleInDegrees() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngleInDegrees(pThis, &value))
@@ -3932,13 +3933,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleInDegreesImpl(_ value: Float) throws {
+        public func put_RotationAngleInDegrees(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngleInDegrees(pThis, value))
             }
         }
 
-        internal func get_ScaleImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Scale() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scale(pThis, &value))
@@ -3946,13 +3947,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ScaleImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Scale(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Scale(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_TransformMatrixImpl() throws -> WindowsFoundation.Matrix3x2 {
+        public func get_TransformMatrix() throws -> WindowsFoundation.Matrix3x2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransformMatrix(pThis, &value))
@@ -3960,7 +3961,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_TransformMatrixImpl(_ value: WindowsFoundation.Matrix3x2) throws {
+        public func put_TransformMatrix(_ value: WindowsFoundation.Matrix3x2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TransformMatrix(pThis, .from(swift: value)))
             }
@@ -3971,7 +3972,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionSurfaceBrush3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush3 }
 
-        internal func get_SnapToPixelsImpl() throws -> Bool {
+        public func get_SnapToPixels() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SnapToPixels(pThis, &value))
@@ -3979,7 +3980,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_SnapToPixelsImpl(_ value: Bool) throws {
+        public func put_SnapToPixels(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SnapToPixels(pThis, .init(from: value)))
             }
@@ -3990,7 +3991,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionSurfaceFacade: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceFacade }
 
-        open func GetRealSurfaceImpl() throws -> WinAppSDK.AnyICompositionSurface? {
+        open func GetRealSurface() throws -> WinAppSDK.AnyICompositionSurface? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceFacade.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetRealSurface(pThis, &resultAbi))
@@ -4036,7 +4037,7 @@ public enum __ABI_Microsoft_UI_Composition {
                 let resultWrapper = __ABI_Microsoft_UI_Composition.ICompositionSurfaceWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -4054,7 +4055,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionViewBox: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox }
 
-        internal func get_HorizontalAlignmentRatioImpl() throws -> Float {
+        public func get_HorizontalAlignmentRatio() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalAlignmentRatio(pThis, &value))
@@ -4062,13 +4063,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_HorizontalAlignmentRatioImpl(_ value: Float) throws {
+        public func put_HorizontalAlignmentRatio(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalAlignmentRatio(pThis, value))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Offset() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -4076,13 +4077,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Size() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -4090,13 +4091,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_SizeImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Size(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Size(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_StretchImpl() throws -> WinAppSDK.CompositionStretch {
+        public func get_Stretch() throws -> WinAppSDK.CompositionStretch {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionStretch = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Stretch(pThis, &value))
@@ -4104,13 +4105,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StretchImpl(_ value: WinAppSDK.CompositionStretch) throws {
+        public func put_Stretch(_ value: WinAppSDK.CompositionStretch) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Stretch(pThis, value))
             }
         }
 
-        internal func get_VerticalAlignmentRatioImpl() throws -> Float {
+        public func get_VerticalAlignmentRatio() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalAlignmentRatio(pThis, &value))
@@ -4118,7 +4119,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_VerticalAlignmentRatioImpl(_ value: Float) throws {
+        public func put_VerticalAlignmentRatio(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalAlignmentRatio(pThis, value))
             }
@@ -4128,6 +4129,14 @@ public enum __ABI_Microsoft_UI_Composition {
 
     public class ICompositionVirtualDrawingSurface: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionVirtualDrawingSurface }
+
+        public func Trim(_ rects: [UWP.RectInt32]) throws {
+            try rects.toABI { _rects in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVirtualDrawingSurface.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Trim(pThis, _rects.count, _rects.start))
+                }
+            }
+        }
 
     }
 
@@ -4139,22 +4148,22 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositionVisualSurface: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface }
 
-        internal func get_SourceVisualImpl() throws -> WinAppSDK.Visual? {
+        public func get_SourceVisual() throws -> WinAppSDK.Visual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourceVisual(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: value)
         }
 
-        internal func put_SourceVisualImpl(_ value: WinAppSDK.Visual?) throws {
+        public func put_SourceVisual(_ value: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SourceVisual(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_SourceOffsetImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_SourceOffset() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourceOffset(pThis, &value))
@@ -4162,13 +4171,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_SourceOffsetImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_SourceOffset(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SourceOffset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_SourceSizeImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_SourceSize() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourceSize(pThis, &value))
@@ -4176,7 +4185,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_SourceSizeImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_SourceSize(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SourceSize(pThis, .from(swift: value)))
             }
@@ -4187,52 +4196,52 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositor: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositor }
 
-        internal func CreateColorKeyFrameAnimationImpl() throws -> WinAppSDK.ColorKeyFrameAnimation? {
+        public func CreateColorKeyFrameAnimation() throws -> WinAppSDK.ColorKeyFrameAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateColorKeyFrameAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.ColorKeyFrameAnimationBridge.from(abi: result)
         }
 
-        internal func CreateColorBrushImpl() throws -> WinAppSDK.CompositionColorBrush? {
+        public func CreateColorBrush() throws -> WinAppSDK.CompositionColorBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateColorBrush(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionColorBrushBridge.from(abi: result)
         }
 
-        internal func CreateColorBrushWithColorImpl(_ color: UWP.Color) throws -> WinAppSDK.CompositionColorBrush? {
+        public func CreateColorBrushWithColor(_ color: UWP.Color) throws -> WinAppSDK.CompositionColorBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateColorBrushWithColor(pThis, .from(swift: color), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionColorBrushBridge.from(abi: result)
         }
 
-        internal func CreateContainerVisualImpl() throws -> WinAppSDK.ContainerVisual? {
+        public func CreateContainerVisual() throws -> WinAppSDK.ContainerVisual? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateContainerVisual(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.ContainerVisualBridge.from(abi: result)
         }
 
-        internal func CreateCubicBezierEasingFunctionImpl(_ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2) throws -> WinAppSDK.CubicBezierEasingFunction? {
+        public func CreateCubicBezierEasingFunction(_ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2) throws -> WinAppSDK.CubicBezierEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCubicBezierEasingFunction(pThis, .from(swift: controlPoint1), .from(swift: controlPoint2), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CubicBezierEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateEffectFactoryImpl(_ graphicsEffect: UWP.AnyIGraphicsEffect?) throws -> WinAppSDK.CompositionEffectFactory? {
+        public func CreateEffectFactory(_ graphicsEffect: UWP.AnyIGraphicsEffect?) throws -> WinAppSDK.CompositionEffectFactory? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let graphicsEffectWrapper = __ABI_Windows_Graphics_Effects.IGraphicsEffectWrapper(graphicsEffect)
                 let _graphicsEffect = try! graphicsEffectWrapper?.toABI { $0 }
@@ -4240,10 +4249,10 @@ public enum __ABI_Microsoft_UI_Composition {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateEffectFactory(pThis, _graphicsEffect, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionEffectFactoryBridge.from(abi: result)
         }
 
-        internal func CreateEffectFactoryWithPropertiesImpl(_ graphicsEffect: UWP.AnyIGraphicsEffect?, _ animatableProperties: WindowsFoundation.AnyIIterable<String>?) throws -> WinAppSDK.CompositionEffectFactory? {
+        public func CreateEffectFactoryWithProperties(_ graphicsEffect: UWP.AnyIGraphicsEffect?, _ animatableProperties: WindowsFoundation.AnyIIterable<String>?) throws -> WinAppSDK.CompositionEffectFactory? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let graphicsEffectWrapper = __ABI_Windows_Graphics_Effects.IGraphicsEffectWrapper(graphicsEffect)
                 let _graphicsEffect = try! graphicsEffectWrapper?.toABI { $0 }
@@ -4253,110 +4262,110 @@ public enum __ABI_Microsoft_UI_Composition {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateEffectFactoryWithProperties(pThis, _graphicsEffect, _animatableProperties, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionEffectFactoryBridge.from(abi: result)
         }
 
-        internal func CreateExpressionAnimationImpl() throws -> WinAppSDK.ExpressionAnimation? {
+        public func CreateExpressionAnimation() throws -> WinAppSDK.ExpressionAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateExpressionAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: result)
         }
 
-        internal func CreateExpressionAnimationWithExpressionImpl(_ expression: String) throws -> WinAppSDK.ExpressionAnimation? {
+        public func CreateExpressionAnimationWithExpression(_ expression: String) throws -> WinAppSDK.ExpressionAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _expression = try! HString(expression)
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateExpressionAnimationWithExpression(pThis, _expression.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: result)
         }
 
-        internal func CreateInsetClipImpl() throws -> WinAppSDK.InsetClip? {
+        public func CreateInsetClip() throws -> WinAppSDK.InsetClip? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInsetClip(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.InsetClipBridge.from(abi: result)
         }
 
-        internal func CreateInsetClipWithInsetsImpl(_ leftInset: Float, _ topInset: Float, _ rightInset: Float, _ bottomInset: Float) throws -> WinAppSDK.InsetClip? {
+        public func CreateInsetClipWithInsets(_ leftInset: Float, _ topInset: Float, _ rightInset: Float, _ bottomInset: Float) throws -> WinAppSDK.InsetClip? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInsetClipWithInsets(pThis, leftInset, topInset, rightInset, bottomInset, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.InsetClipBridge.from(abi: result)
         }
 
-        internal func CreateLinearEasingFunctionImpl() throws -> WinAppSDK.LinearEasingFunction? {
+        public func CreateLinearEasingFunction() throws -> WinAppSDK.LinearEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLinearEasingFunction(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.LinearEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreatePropertySetImpl() throws -> WinAppSDK.CompositionPropertySet? {
+        public func CreatePropertySet() throws -> WinAppSDK.CompositionPropertySet? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePropertySet(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionPropertySetBridge.from(abi: result)
         }
 
-        internal func CreateQuaternionKeyFrameAnimationImpl() throws -> WinAppSDK.QuaternionKeyFrameAnimation? {
+        public func CreateQuaternionKeyFrameAnimation() throws -> WinAppSDK.QuaternionKeyFrameAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateQuaternionKeyFrameAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.QuaternionKeyFrameAnimationBridge.from(abi: result)
         }
 
-        internal func CreateScalarKeyFrameAnimationImpl() throws -> WinAppSDK.ScalarKeyFrameAnimation? {
+        public func CreateScalarKeyFrameAnimation() throws -> WinAppSDK.ScalarKeyFrameAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateScalarKeyFrameAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.ScalarKeyFrameAnimationBridge.from(abi: result)
         }
 
-        internal func CreateScopedBatchImpl(_ batchType: WinAppSDK.CompositionBatchTypes) throws -> WinAppSDK.CompositionScopedBatch? {
+        public func CreateScopedBatch(_ batchType: WinAppSDK.CompositionBatchTypes) throws -> WinAppSDK.CompositionScopedBatch? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateScopedBatch(pThis, batchType, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionScopedBatchBridge.from(abi: result)
         }
 
-        internal func CreateSpriteVisualImpl() throws -> WinAppSDK.SpriteVisual? {
+        public func CreateSpriteVisual() throws -> WinAppSDK.SpriteVisual? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpriteVisual(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.SpriteVisualBridge.from(abi: result)
         }
 
-        internal func CreateSurfaceBrushImpl() throws -> WinAppSDK.CompositionSurfaceBrush? {
+        public func CreateSurfaceBrush() throws -> WinAppSDK.CompositionSurfaceBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSurfaceBrush(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionSurfaceBrushBridge.from(abi: result)
         }
 
-        internal func CreateSurfaceBrushWithSurfaceImpl(_ surface: WinAppSDK.AnyICompositionSurface?) throws -> WinAppSDK.CompositionSurfaceBrush? {
+        public func CreateSurfaceBrushWithSurface(_ surface: WinAppSDK.AnyICompositionSurface?) throws -> WinAppSDK.CompositionSurfaceBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let surfaceWrapper = __ABI_Microsoft_UI_Composition.ICompositionSurfaceWrapper(surface)
                 let _surface = try! surfaceWrapper?.toABI { $0 }
@@ -4364,43 +4373,43 @@ public enum __ABI_Microsoft_UI_Composition {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSurfaceBrushWithSurface(pThis, _surface, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionSurfaceBrushBridge.from(abi: result)
         }
 
-        internal func CreateVector2KeyFrameAnimationImpl() throws -> WinAppSDK.Vector2KeyFrameAnimation? {
+        public func CreateVector2KeyFrameAnimation() throws -> WinAppSDK.Vector2KeyFrameAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateVector2KeyFrameAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.Vector2KeyFrameAnimationBridge.from(abi: result)
         }
 
-        internal func CreateVector3KeyFrameAnimationImpl() throws -> WinAppSDK.Vector3KeyFrameAnimation? {
+        public func CreateVector3KeyFrameAnimation() throws -> WinAppSDK.Vector3KeyFrameAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateVector3KeyFrameAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.Vector3KeyFrameAnimationBridge.from(abi: result)
         }
 
-        internal func CreateVector4KeyFrameAnimationImpl() throws -> WinAppSDK.Vector4KeyFrameAnimation? {
+        public func CreateVector4KeyFrameAnimation() throws -> WinAppSDK.Vector4KeyFrameAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateVector4KeyFrameAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.Vector4KeyFrameAnimationBridge.from(abi: result)
         }
 
-        internal func GetCommitBatchImpl(_ batchType: WinAppSDK.CompositionBatchTypes) throws -> WinAppSDK.CompositionCommitBatch? {
+        public func GetCommitBatch(_ batchType: WinAppSDK.CompositionBatchTypes) throws -> WinAppSDK.CompositionCommitBatch? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetCommitBatch(pThis, batchType, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionCommitBatchBridge.from(abi: result)
         }
 
     }
@@ -4408,121 +4417,121 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositor2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositor2 }
 
-        internal func CreateAmbientLightImpl() throws -> WinAppSDK.AmbientLight? {
+        public func CreateAmbientLight() throws -> WinAppSDK.AmbientLight? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateAmbientLight(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.AmbientLightBridge.from(abi: result)
         }
 
-        internal func CreateAnimationGroupImpl() throws -> WinAppSDK.CompositionAnimationGroup? {
+        public func CreateAnimationGroup() throws -> WinAppSDK.CompositionAnimationGroup? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateAnimationGroup(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionAnimationGroupBridge.from(abi: result)
         }
 
-        internal func CreateBackdropBrushImpl() throws -> WinAppSDK.CompositionBackdropBrush? {
+        public func CreateBackdropBrush() throws -> WinAppSDK.CompositionBackdropBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateBackdropBrush(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionBackdropBrushBridge.from(abi: result)
         }
 
-        internal func CreateDistantLightImpl() throws -> WinAppSDK.DistantLight? {
+        public func CreateDistantLight() throws -> WinAppSDK.DistantLight? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDistantLight(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.DistantLightBridge.from(abi: result)
         }
 
-        internal func CreateDropShadowImpl() throws -> WinAppSDK.DropShadow? {
+        public func CreateDropShadow() throws -> WinAppSDK.DropShadow? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDropShadow(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.DropShadowBridge.from(abi: result)
         }
 
-        internal func CreateImplicitAnimationCollectionImpl() throws -> WinAppSDK.ImplicitAnimationCollection? {
+        public func CreateImplicitAnimationCollection() throws -> WinAppSDK.ImplicitAnimationCollection? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateImplicitAnimationCollection(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.ImplicitAnimationCollectionBridge.from(abi: result)
         }
 
-        internal func CreateLayerVisualImpl() throws -> WinAppSDK.LayerVisual? {
+        public func CreateLayerVisual() throws -> WinAppSDK.LayerVisual? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerVisual(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.LayerVisualBridge.from(abi: result)
         }
 
-        internal func CreateMaskBrushImpl() throws -> WinAppSDK.CompositionMaskBrush? {
+        public func CreateMaskBrush() throws -> WinAppSDK.CompositionMaskBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateMaskBrush(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionMaskBrushBridge.from(abi: result)
         }
 
-        internal func CreateNineGridBrushImpl() throws -> WinAppSDK.CompositionNineGridBrush? {
+        public func CreateNineGridBrush() throws -> WinAppSDK.CompositionNineGridBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateNineGridBrush(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionNineGridBrushBridge.from(abi: result)
         }
 
-        internal func CreatePointLightImpl() throws -> WinAppSDK.PointLight? {
+        public func CreatePointLight() throws -> WinAppSDK.PointLight? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePointLight(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.PointLightBridge.from(abi: result)
         }
 
-        internal func CreateSpotLightImpl() throws -> WinAppSDK.SpotLight? {
+        public func CreateSpotLight() throws -> WinAppSDK.SpotLight? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpotLight(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.SpotLightBridge.from(abi: result)
         }
 
-        internal func CreateStepEasingFunctionImpl() throws -> WinAppSDK.StepEasingFunction? {
+        public func CreateStepEasingFunction() throws -> WinAppSDK.StepEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateStepEasingFunction(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.StepEasingFunctionBridge.from(abi: result)
         }
 
-        internal func CreateStepEasingFunctionWithStepCountImpl(_ stepCount: Int32) throws -> WinAppSDK.StepEasingFunction? {
+        public func CreateStepEasingFunctionWithStepCount(_ stepCount: Int32) throws -> WinAppSDK.StepEasingFunction? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateStepEasingFunctionWithStepCount(pThis, stepCount, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.StepEasingFunctionBridge.from(abi: result)
         }
 
     }
@@ -4530,58 +4539,58 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositor4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositor4 }
 
-        internal func CreateColorGradientStopImpl() throws -> WinAppSDK.CompositionColorGradientStop? {
+        public func CreateColorGradientStop() throws -> WinAppSDK.CompositionColorGradientStop? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateColorGradientStop(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionColorGradientStopBridge.from(abi: result)
         }
 
-        internal func CreateColorGradientStopWithOffsetAndColorImpl(_ offset: Float, _ color: UWP.Color) throws -> WinAppSDK.CompositionColorGradientStop? {
+        public func CreateColorGradientStopWithOffsetAndColor(_ offset: Float, _ color: UWP.Color) throws -> WinAppSDK.CompositionColorGradientStop? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateColorGradientStopWithOffsetAndColor(pThis, offset, .from(swift: color), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionColorGradientStopBridge.from(abi: result)
         }
 
-        internal func CreateLinearGradientBrushImpl() throws -> WinAppSDK.CompositionLinearGradientBrush? {
+        public func CreateLinearGradientBrush() throws -> WinAppSDK.CompositionLinearGradientBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLinearGradientBrush(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionLinearGradientBrushBridge.from(abi: result)
         }
 
-        internal func CreateSpringScalarAnimationImpl() throws -> WinAppSDK.SpringScalarNaturalMotionAnimation? {
+        public func CreateSpringScalarAnimation() throws -> WinAppSDK.SpringScalarNaturalMotionAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpringScalarAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.SpringScalarNaturalMotionAnimationBridge.from(abi: result)
         }
 
-        internal func CreateSpringVector2AnimationImpl() throws -> WinAppSDK.SpringVector2NaturalMotionAnimation? {
+        public func CreateSpringVector2Animation() throws -> WinAppSDK.SpringVector2NaturalMotionAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpringVector2Animation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.SpringVector2NaturalMotionAnimationBridge.from(abi: result)
         }
 
-        internal func CreateSpringVector3AnimationImpl() throws -> WinAppSDK.SpringVector3NaturalMotionAnimation? {
+        public func CreateSpringVector3Animation() throws -> WinAppSDK.SpringVector3NaturalMotionAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpringVector3Animation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.SpringVector3NaturalMotionAnimationBridge.from(abi: result)
         }
 
     }
@@ -4589,7 +4598,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositor5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositor5 }
 
-        internal func get_CommentImpl() throws -> String {
+        public func get_Comment() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Comment(pThis, &value))
@@ -4597,14 +4606,14 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_CommentImpl(_ value: String) throws {
+        public func put_Comment(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Comment(pThis, _value.get()))
             }
         }
 
-        internal func get_GlobalPlaybackRateImpl() throws -> Float {
+        public func get_GlobalPlaybackRate() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GlobalPlaybackRate(pThis, &value))
@@ -4612,148 +4621,148 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_GlobalPlaybackRateImpl(_ value: Float) throws {
+        public func put_GlobalPlaybackRate(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_GlobalPlaybackRate(pThis, value))
             }
         }
 
-        internal func CreateBounceScalarAnimationImpl() throws -> WinAppSDK.BounceScalarNaturalMotionAnimation? {
+        public func CreateBounceScalarAnimation() throws -> WinAppSDK.BounceScalarNaturalMotionAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateBounceScalarAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.BounceScalarNaturalMotionAnimationBridge.from(abi: result)
         }
 
-        internal func CreateBounceVector2AnimationImpl() throws -> WinAppSDK.BounceVector2NaturalMotionAnimation? {
+        public func CreateBounceVector2Animation() throws -> WinAppSDK.BounceVector2NaturalMotionAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateBounceVector2Animation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.BounceVector2NaturalMotionAnimationBridge.from(abi: result)
         }
 
-        internal func CreateBounceVector3AnimationImpl() throws -> WinAppSDK.BounceVector3NaturalMotionAnimation? {
+        public func CreateBounceVector3Animation() throws -> WinAppSDK.BounceVector3NaturalMotionAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateBounceVector3Animation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.BounceVector3NaturalMotionAnimationBridge.from(abi: result)
         }
 
-        internal func CreateContainerShapeImpl() throws -> WinAppSDK.CompositionContainerShape? {
+        public func CreateContainerShape() throws -> WinAppSDK.CompositionContainerShape? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateContainerShape(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionContainerShapeBridge.from(abi: result)
         }
 
-        internal func CreateEllipseGeometryImpl() throws -> WinAppSDK.CompositionEllipseGeometry? {
+        public func CreateEllipseGeometry() throws -> WinAppSDK.CompositionEllipseGeometry? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateEllipseGeometry(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionEllipseGeometryBridge.from(abi: result)
         }
 
-        internal func CreateLineGeometryImpl() throws -> WinAppSDK.CompositionLineGeometry? {
+        public func CreateLineGeometry() throws -> WinAppSDK.CompositionLineGeometry? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLineGeometry(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionLineGeometryBridge.from(abi: result)
         }
 
-        internal func CreatePathGeometryImpl() throws -> WinAppSDK.CompositionPathGeometry? {
+        public func CreatePathGeometry() throws -> WinAppSDK.CompositionPathGeometry? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePathGeometry(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionPathGeometryBridge.from(abi: result)
         }
 
-        internal func CreatePathGeometryWithPathImpl(_ path: WinAppSDK.CompositionPath?) throws -> WinAppSDK.CompositionPathGeometry? {
+        public func CreatePathGeometryWithPath(_ path: WinAppSDK.CompositionPath?) throws -> WinAppSDK.CompositionPathGeometry? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePathGeometryWithPath(pThis, RawPointer(path), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionPathGeometryBridge.from(abi: result)
         }
 
-        internal func CreatePathKeyFrameAnimationImpl() throws -> WinAppSDK.PathKeyFrameAnimation? {
+        public func CreatePathKeyFrameAnimation() throws -> WinAppSDK.PathKeyFrameAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePathKeyFrameAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.PathKeyFrameAnimationBridge.from(abi: result)
         }
 
-        internal func CreateRectangleGeometryImpl() throws -> WinAppSDK.CompositionRectangleGeometry? {
+        public func CreateRectangleGeometry() throws -> WinAppSDK.CompositionRectangleGeometry? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRectangleGeometry(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionRectangleGeometryBridge.from(abi: result)
         }
 
-        internal func CreateRoundedRectangleGeometryImpl() throws -> WinAppSDK.CompositionRoundedRectangleGeometry? {
+        public func CreateRoundedRectangleGeometry() throws -> WinAppSDK.CompositionRoundedRectangleGeometry? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRoundedRectangleGeometry(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionRoundedRectangleGeometryBridge.from(abi: result)
         }
 
-        internal func CreateShapeVisualImpl() throws -> WinAppSDK.ShapeVisual? {
+        public func CreateShapeVisual() throws -> WinAppSDK.ShapeVisual? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateShapeVisual(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.ShapeVisualBridge.from(abi: result)
         }
 
-        internal func CreateSpriteShapeImpl() throws -> WinAppSDK.CompositionSpriteShape? {
+        public func CreateSpriteShape() throws -> WinAppSDK.CompositionSpriteShape? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpriteShape(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionSpriteShapeBridge.from(abi: result)
         }
 
-        internal func CreateSpriteShapeWithGeometryImpl(_ geometry: WinAppSDK.CompositionGeometry?) throws -> WinAppSDK.CompositionSpriteShape? {
+        public func CreateSpriteShapeWithGeometry(_ geometry: WinAppSDK.CompositionGeometry?) throws -> WinAppSDK.CompositionSpriteShape? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpriteShapeWithGeometry(pThis, RawPointer(geometry), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionSpriteShapeBridge.from(abi: result)
         }
 
-        internal func CreateViewBoxImpl() throws -> WinAppSDK.CompositionViewBox? {
+        public func CreateViewBox() throws -> WinAppSDK.CompositionViewBox? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateViewBox(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionViewBoxBridge.from(abi: result)
         }
 
-        internal func RequestCommitAsyncImpl() throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func RequestCommitAsync() throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.RequestCommitAsync(pThis, &operationAbi))
@@ -4767,49 +4776,49 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositor6: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositor6 }
 
-        internal func CreateGeometricClipImpl() throws -> WinAppSDK.CompositionGeometricClip? {
+        public func CreateGeometricClip() throws -> WinAppSDK.CompositionGeometricClip? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor6.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateGeometricClip(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionGeometricClipBridge.from(abi: result)
         }
 
-        internal func CreateGeometricClipWithGeometryImpl(_ geometry: WinAppSDK.CompositionGeometry?) throws -> WinAppSDK.CompositionGeometricClip? {
+        public func CreateGeometricClipWithGeometry(_ geometry: WinAppSDK.CompositionGeometry?) throws -> WinAppSDK.CompositionGeometricClip? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor6.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateGeometricClipWithGeometry(pThis, RawPointer(geometry), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionGeometricClipBridge.from(abi: result)
         }
 
-        internal func CreateRedirectVisualImpl() throws -> WinAppSDK.RedirectVisual? {
+        public func CreateRedirectVisual() throws -> WinAppSDK.RedirectVisual? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor6.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRedirectVisual(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.RedirectVisualBridge.from(abi: result)
         }
 
-        internal func CreateRedirectVisualWithSourceVisualImpl(_ source: WinAppSDK.Visual?) throws -> WinAppSDK.RedirectVisual? {
+        public func CreateRedirectVisualWithSourceVisual(_ source: WinAppSDK.Visual?) throws -> WinAppSDK.RedirectVisual? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor6.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRedirectVisualWithSourceVisual(pThis, RawPointer(source), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.RedirectVisualBridge.from(abi: result)
         }
 
-        internal func CreateBooleanKeyFrameAnimationImpl() throws -> WinAppSDK.BooleanKeyFrameAnimation? {
+        public func CreateBooleanKeyFrameAnimation() throws -> WinAppSDK.BooleanKeyFrameAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor6.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateBooleanKeyFrameAnimation(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.BooleanKeyFrameAnimationBridge.from(abi: result)
         }
 
     }
@@ -4817,49 +4826,49 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositor7: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositor7 }
 
-        internal func get_DispatcherQueueImpl() throws -> WinAppSDK.DispatcherQueue? {
+        public func get_DispatcherQueue() throws -> WinAppSDK.DispatcherQueue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor7.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DispatcherQueue(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Dispatching.DispatcherQueueBridge.from(abi: value)
         }
 
-        internal func CreateAnimationPropertyInfoImpl() throws -> WinAppSDK.AnimationPropertyInfo? {
+        public func CreateAnimationPropertyInfo() throws -> WinAppSDK.AnimationPropertyInfo? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor7.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateAnimationPropertyInfo(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.AnimationPropertyInfoBridge.from(abi: result)
         }
 
-        internal func CreateRectangleClipImpl() throws -> WinAppSDK.RectangleClip? {
+        public func CreateRectangleClip() throws -> WinAppSDK.RectangleClip? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor7.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRectangleClip(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.RectangleClipBridge.from(abi: result)
         }
 
-        internal func CreateRectangleClipWithSidesImpl(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float) throws -> WinAppSDK.RectangleClip? {
+        public func CreateRectangleClipWithSides(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float) throws -> WinAppSDK.RectangleClip? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor7.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRectangleClipWithSides(pThis, left, top, right, bottom, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.RectangleClipBridge.from(abi: result)
         }
 
-        internal func CreateRectangleClipWithSidesAndRadiusImpl(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float, _ topLeftRadius: WindowsFoundation.Vector2, _ topRightRadius: WindowsFoundation.Vector2, _ bottomRightRadius: WindowsFoundation.Vector2, _ bottomLeftRadius: WindowsFoundation.Vector2) throws -> WinAppSDK.RectangleClip? {
+        public func CreateRectangleClipWithSidesAndRadius(_ left: Float, _ top: Float, _ right: Float, _ bottom: Float, _ topLeftRadius: WindowsFoundation.Vector2, _ topRightRadius: WindowsFoundation.Vector2, _ bottomRightRadius: WindowsFoundation.Vector2, _ bottomLeftRadius: WindowsFoundation.Vector2) throws -> WinAppSDK.RectangleClip? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor7.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRectangleClipWithSidesAndRadius(pThis, left, top, right, bottom, .from(swift: topLeftRadius), .from(swift: topRightRadius), .from(swift: bottomRightRadius), .from(swift: bottomLeftRadius), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.RectangleClipBridge.from(abi: result)
         }
 
     }
@@ -4867,13 +4876,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositor8: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositor8 }
 
-        internal func CreateAnimationControllerImpl() throws -> WinAppSDK.AnimationController? {
+        public func CreateAnimationController() throws -> WinAppSDK.AnimationController? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositor8.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateAnimationController(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.AnimationControllerBridge.from(abi: result)
         }
 
     }
@@ -4881,7 +4890,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositorStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositorStatics }
 
-        internal func get_MaxGlobalPlaybackRateImpl() throws -> Float {
+        public func get_MaxGlobalPlaybackRate() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositorStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxGlobalPlaybackRate(pThis, &value))
@@ -4889,7 +4898,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_MinGlobalPlaybackRateImpl() throws -> Float {
+        public func get_MinGlobalPlaybackRate() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositorStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinGlobalPlaybackRate(pThis, &value))
@@ -4902,31 +4911,31 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositorWithProjectedShadow: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositorWithProjectedShadow }
 
-        internal func CreateProjectedShadowCasterImpl() throws -> WinAppSDK.CompositionProjectedShadowCaster? {
+        public func CreateProjectedShadowCaster() throws -> WinAppSDK.CompositionProjectedShadowCaster? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositorWithProjectedShadow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateProjectedShadowCaster(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionProjectedShadowCasterBridge.from(abi: result)
         }
 
-        internal func CreateProjectedShadowImpl() throws -> WinAppSDK.CompositionProjectedShadow? {
+        public func CreateProjectedShadow() throws -> WinAppSDK.CompositionProjectedShadow? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositorWithProjectedShadow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateProjectedShadow(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionProjectedShadowBridge.from(abi: result)
         }
 
-        internal func CreateProjectedShadowReceiverImpl() throws -> WinAppSDK.CompositionProjectedShadowReceiver? {
+        public func CreateProjectedShadowReceiver() throws -> WinAppSDK.CompositionProjectedShadowReceiver? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositorWithProjectedShadow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateProjectedShadowReceiver(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionProjectedShadowReceiverBridge.from(abi: result)
         }
 
     }
@@ -4934,13 +4943,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositorWithRadialGradient: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositorWithRadialGradient }
 
-        internal func CreateRadialGradientBrushImpl() throws -> WinAppSDK.CompositionRadialGradientBrush? {
+        public func CreateRadialGradientBrush() throws -> WinAppSDK.CompositionRadialGradientBrush? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositorWithRadialGradient.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRadialGradientBrush(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionRadialGradientBrushBridge.from(abi: result)
         }
 
     }
@@ -4948,13 +4957,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICompositorWithVisualSurface: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICompositorWithVisualSurface }
 
-        internal func CreateVisualSurfaceImpl() throws -> WinAppSDK.CompositionVisualSurface? {
+        public func CreateVisualSurface() throws -> WinAppSDK.CompositionVisualSurface? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICompositorWithVisualSurface.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateVisualSurface(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionVisualSurfaceBridge.from(abi: result)
         }
 
     }
@@ -4962,13 +4971,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IContainerVisual: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual }
 
-        internal func get_ChildrenImpl() throws -> WinAppSDK.VisualCollection? {
+        public func get_Children() throws -> WinAppSDK.VisualCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Children(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualCollectionBridge.from(abi: value)
         }
 
     }
@@ -4981,7 +4990,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ICubicBezierEasingFunction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CICubicBezierEasingFunction }
 
-        internal func get_ControlPoint1Impl() throws -> WindowsFoundation.Vector2 {
+        public func get_ControlPoint1() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICubicBezierEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ControlPoint1(pThis, &value))
@@ -4989,7 +4998,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func get_ControlPoint2Impl() throws -> WindowsFoundation.Vector2 {
+        public func get_ControlPoint2() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CICubicBezierEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ControlPoint2(pThis, &value))
@@ -5002,7 +5011,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IDistantLight: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight }
 
-        internal func get_ColorImpl() throws -> UWP.Color {
+        public func get_Color() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Color(pThis, &value))
@@ -5010,28 +5019,28 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ColorImpl(_ value: UWP.Color) throws {
+        public func put_Color(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Color(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_CoordinateSpaceImpl() throws -> WinAppSDK.Visual? {
+        public func get_CoordinateSpace() throws -> WinAppSDK.Visual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CoordinateSpace(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: value)
         }
 
-        internal func put_CoordinateSpaceImpl(_ value: WinAppSDK.Visual?) throws {
+        public func put_CoordinateSpace(_ value: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CoordinateSpace(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_DirectionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Direction() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
@@ -5039,7 +5048,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_DirectionImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_Direction(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Direction(pThis, .from(swift: value)))
             }
@@ -5050,7 +5059,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IDistantLight2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight2 }
 
-        internal func get_IntensityImpl() throws -> Float {
+        public func get_Intensity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Intensity(pThis, &value))
@@ -5058,7 +5067,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_IntensityImpl(_ value: Float) throws {
+        public func put_Intensity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Intensity(pThis, value))
             }
@@ -5069,7 +5078,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IDropShadow: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow }
 
-        internal func get_BlurRadiusImpl() throws -> Float {
+        public func get_BlurRadius() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BlurRadius(pThis, &value))
@@ -5077,13 +5086,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_BlurRadiusImpl(_ value: Float) throws {
+        public func put_BlurRadius(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BlurRadius(pThis, value))
             }
         }
 
-        internal func get_ColorImpl() throws -> UWP.Color {
+        public func get_Color() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Color(pThis, &value))
@@ -5091,28 +5100,28 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ColorImpl(_ value: UWP.Color) throws {
+        public func put_Color(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Color(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_MaskImpl() throws -> WinAppSDK.CompositionBrush? {
+        public func get_Mask() throws -> WinAppSDK.CompositionBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mask(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: value)
         }
 
-        internal func put_MaskImpl(_ value: WinAppSDK.CompositionBrush?) throws {
+        public func put_Mask(_ value: WinAppSDK.CompositionBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Mask(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Offset() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -5120,13 +5129,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_OpacityImpl() throws -> Float {
+        public func get_Opacity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Opacity(pThis, &value))
@@ -5134,7 +5143,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_OpacityImpl(_ value: Float) throws {
+        public func put_Opacity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Opacity(pThis, value))
             }
@@ -5145,7 +5154,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IDropShadow2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow2 }
 
-        internal func get_SourcePolicyImpl() throws -> WinAppSDK.CompositionDropShadowSourcePolicy {
+        public func get_SourcePolicy() throws -> WinAppSDK.CompositionDropShadowSourcePolicy {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionDropShadowSourcePolicy = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePolicy(pThis, &value))
@@ -5153,7 +5162,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_SourcePolicyImpl(_ value: WinAppSDK.CompositionDropShadowSourcePolicy) throws {
+        public func put_SourcePolicy(_ value: WinAppSDK.CompositionDropShadowSourcePolicy) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SourcePolicy(pThis, value))
             }
@@ -5164,7 +5173,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IElasticEasingFunction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIElasticEasingFunction }
 
-        internal func get_ModeImpl() throws -> WinAppSDK.CompositionEasingFunctionMode {
+        public func get_Mode() throws -> WinAppSDK.CompositionEasingFunctionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEasingFunctionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIElasticEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -5172,7 +5181,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_OscillationsImpl() throws -> Int32 {
+        public func get_Oscillations() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIElasticEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Oscillations(pThis, &value))
@@ -5180,7 +5189,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_SpringinessImpl() throws -> Float {
+        public func get_Springiness() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIElasticEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Springiness(pThis, &value))
@@ -5193,7 +5202,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IExponentialEasingFunction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIExponentialEasingFunction }
 
-        internal func get_ModeImpl() throws -> WinAppSDK.CompositionEasingFunctionMode {
+        public func get_Mode() throws -> WinAppSDK.CompositionEasingFunctionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEasingFunctionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIExponentialEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -5201,7 +5210,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_ExponentImpl() throws -> Float {
+        public func get_Exponent() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIExponentialEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Exponent(pThis, &value))
@@ -5214,7 +5223,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IExpressionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIExpressionAnimation }
 
-        internal func get_ExpressionImpl() throws -> String {
+        public func get_Expression() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIExpressionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Expression(pThis, &value))
@@ -5222,7 +5231,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_ExpressionImpl(_ value: String) throws {
+        public func put_Expression(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIExpressionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Expression(pThis, _value.get()))
@@ -5239,7 +5248,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IInsetClip: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip }
 
-        internal func get_BottomInsetImpl() throws -> Float {
+        public func get_BottomInset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BottomInset(pThis, &value))
@@ -5247,13 +5256,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_BottomInsetImpl(_ value: Float) throws {
+        public func put_BottomInset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BottomInset(pThis, value))
             }
         }
 
-        internal func get_LeftInsetImpl() throws -> Float {
+        public func get_LeftInset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LeftInset(pThis, &value))
@@ -5261,13 +5270,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_LeftInsetImpl(_ value: Float) throws {
+        public func put_LeftInset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LeftInset(pThis, value))
             }
         }
 
-        internal func get_RightInsetImpl() throws -> Float {
+        public func get_RightInset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RightInset(pThis, &value))
@@ -5275,13 +5284,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RightInsetImpl(_ value: Float) throws {
+        public func put_RightInset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RightInset(pThis, value))
             }
         }
 
-        internal func get_TopInsetImpl() throws -> Float {
+        public func get_TopInset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TopInset(pThis, &value))
@@ -5289,7 +5298,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_TopInsetImpl(_ value: Float) throws {
+        public func put_TopInset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TopInset(pThis, value))
             }
@@ -5300,7 +5309,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IKeyFrameAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation }
 
-        internal func get_DelayTimeImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_DelayTime() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DelayTime(pThis, &value))
@@ -5308,13 +5317,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_DelayTimeImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_DelayTime(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DelayTime(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_DurationImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Duration() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Duration(pThis, &value))
@@ -5322,13 +5331,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_DurationImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_Duration(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Duration(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_IterationBehaviorImpl() throws -> WinAppSDK.AnimationIterationBehavior {
+        public func get_IterationBehavior() throws -> WinAppSDK.AnimationIterationBehavior {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CAnimationIterationBehavior = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IterationBehavior(pThis, &value))
@@ -5336,13 +5345,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_IterationBehaviorImpl(_ value: WinAppSDK.AnimationIterationBehavior) throws {
+        public func put_IterationBehavior(_ value: WinAppSDK.AnimationIterationBehavior) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IterationBehavior(pThis, value))
             }
         }
 
-        internal func get_IterationCountImpl() throws -> Int32 {
+        public func get_IterationCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IterationCount(pThis, &value))
@@ -5350,13 +5359,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_IterationCountImpl(_ value: Int32) throws {
+        public func put_IterationCount(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IterationCount(pThis, value))
             }
         }
 
-        internal func get_KeyFrameCountImpl() throws -> Int32 {
+        public func get_KeyFrameCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyFrameCount(pThis, &value))
@@ -5364,7 +5373,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_StopBehaviorImpl() throws -> WinAppSDK.AnimationStopBehavior {
+        public func get_StopBehavior() throws -> WinAppSDK.AnimationStopBehavior {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CAnimationStopBehavior = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StopBehavior(pThis, &value))
@@ -5372,20 +5381,20 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StopBehaviorImpl(_ value: WinAppSDK.AnimationStopBehavior) throws {
+        public func put_StopBehavior(_ value: WinAppSDK.AnimationStopBehavior) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StopBehavior(pThis, value))
             }
         }
 
-        internal func InsertExpressionKeyFrameImpl(_ normalizedProgressKey: Float, _ value: String) throws {
+        public func InsertExpressionKeyFrame(_ normalizedProgressKey: Float, _ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertExpressionKeyFrame(pThis, normalizedProgressKey, _value.get()))
             }
         }
 
-        internal func InsertExpressionKeyFrameWithEasingFunctionImpl(_ normalizedProgressKey: Float, _ value: String, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
+        public func InsertExpressionKeyFrameWithEasingFunction(_ normalizedProgressKey: Float, _ value: String, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertExpressionKeyFrameWithEasingFunction(pThis, normalizedProgressKey, _value.get(), RawPointer(easingFunction)))
@@ -5397,7 +5406,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IKeyFrameAnimation2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation2 }
 
-        internal func get_DirectionImpl() throws -> WinAppSDK.AnimationDirection {
+        public func get_Direction() throws -> WinAppSDK.AnimationDirection {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CAnimationDirection = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
@@ -5405,7 +5414,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_DirectionImpl(_ value: WinAppSDK.AnimationDirection) throws {
+        public func put_Direction(_ value: WinAppSDK.AnimationDirection) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Direction(pThis, value))
             }
@@ -5416,7 +5425,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IKeyFrameAnimation3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation3 }
 
-        internal func get_DelayBehaviorImpl() throws -> WinAppSDK.AnimationDelayBehavior {
+        public func get_DelayBehavior() throws -> WinAppSDK.AnimationDelayBehavior {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CAnimationDelayBehavior = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DelayBehavior(pThis, &value))
@@ -5424,7 +5433,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_DelayBehaviorImpl(_ value: WinAppSDK.AnimationDelayBehavior) throws {
+        public func put_DelayBehavior(_ value: WinAppSDK.AnimationDelayBehavior) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DelayBehavior(pThis, value))
             }
@@ -5440,16 +5449,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ILayerVisual: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CILayerVisual }
 
-        internal func get_EffectImpl() throws -> WinAppSDK.CompositionEffectBrush? {
+        public func get_Effect() throws -> WinAppSDK.CompositionEffectBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CILayerVisual.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Effect(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionEffectBrushBridge.from(abi: value)
         }
 
-        internal func put_EffectImpl(_ value: WinAppSDK.CompositionEffectBrush?) throws {
+        public func put_Effect(_ value: WinAppSDK.CompositionEffectBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CILayerVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Effect(pThis, RawPointer(value)))
             }
@@ -5460,16 +5469,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ILayerVisual2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CILayerVisual2 }
 
-        internal func get_ShadowImpl() throws -> WinAppSDK.CompositionShadow? {
+        public func get_Shadow() throws -> WinAppSDK.CompositionShadow? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CILayerVisual2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Shadow(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionShadowBridge.from(abi: value)
         }
 
-        internal func put_ShadowImpl(_ value: WinAppSDK.CompositionShadow?) throws {
+        public func put_Shadow(_ value: WinAppSDK.CompositionShadow?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CILayerVisual2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Shadow(pThis, RawPointer(value)))
             }
@@ -5485,7 +5494,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class INaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation }
 
-        internal func get_DelayBehaviorImpl() throws -> WinAppSDK.AnimationDelayBehavior {
+        public func get_DelayBehavior() throws -> WinAppSDK.AnimationDelayBehavior {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CAnimationDelayBehavior = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DelayBehavior(pThis, &value))
@@ -5493,13 +5502,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_DelayBehaviorImpl(_ value: WinAppSDK.AnimationDelayBehavior) throws {
+        public func put_DelayBehavior(_ value: WinAppSDK.AnimationDelayBehavior) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DelayBehavior(pThis, value))
             }
         }
 
-        internal func get_DelayTimeImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_DelayTime() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DelayTime(pThis, &value))
@@ -5507,13 +5516,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_DelayTimeImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_DelayTime(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DelayTime(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_StopBehaviorImpl() throws -> WinAppSDK.AnimationStopBehavior {
+        public func get_StopBehavior() throws -> WinAppSDK.AnimationStopBehavior {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CAnimationStopBehavior = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StopBehavior(pThis, &value))
@@ -5521,7 +5530,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StopBehaviorImpl(_ value: WinAppSDK.AnimationStopBehavior) throws {
+        public func put_StopBehavior(_ value: WinAppSDK.AnimationStopBehavior) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StopBehavior(pThis, value))
             }
@@ -5537,13 +5546,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IPathKeyFrameAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIPathKeyFrameAnimation }
 
-        internal func InsertKeyFrameImpl(_ normalizedProgressKey: Float, _ path: WinAppSDK.CompositionPath?) throws {
+        public func InsertKeyFrame(_ normalizedProgressKey: Float, _ path: WinAppSDK.CompositionPath?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPathKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrame(pThis, normalizedProgressKey, RawPointer(path)))
             }
         }
 
-        internal func InsertKeyFrameWithEasingFunctionImpl(_ normalizedProgressKey: Float, _ path: WinAppSDK.CompositionPath?, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
+        public func InsertKeyFrameWithEasingFunction(_ normalizedProgressKey: Float, _ path: WinAppSDK.CompositionPath?, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPathKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrameWithEasingFunction(pThis, normalizedProgressKey, RawPointer(path), RawPointer(easingFunction)))
             }
@@ -5554,7 +5563,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IPointLight: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIPointLight }
 
-        internal func get_ColorImpl() throws -> UWP.Color {
+        public func get_Color() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Color(pThis, &value))
@@ -5562,13 +5571,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ColorImpl(_ value: UWP.Color) throws {
+        public func put_Color(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Color(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ConstantAttenuationImpl() throws -> Float {
+        public func get_ConstantAttenuation() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConstantAttenuation(pThis, &value))
@@ -5576,28 +5585,28 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_ConstantAttenuationImpl(_ value: Float) throws {
+        public func put_ConstantAttenuation(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ConstantAttenuation(pThis, value))
             }
         }
 
-        internal func get_CoordinateSpaceImpl() throws -> WinAppSDK.Visual? {
+        public func get_CoordinateSpace() throws -> WinAppSDK.Visual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CoordinateSpace(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: value)
         }
 
-        internal func put_CoordinateSpaceImpl(_ value: WinAppSDK.Visual?) throws {
+        public func put_CoordinateSpace(_ value: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CoordinateSpace(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_LinearAttenuationImpl() throws -> Float {
+        public func get_LinearAttenuation() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LinearAttenuation(pThis, &value))
@@ -5605,13 +5614,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_LinearAttenuationImpl(_ value: Float) throws {
+        public func put_LinearAttenuation(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LinearAttenuation(pThis, value))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Offset() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -5619,13 +5628,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_QuadraticAttenuationImpl() throws -> Float {
+        public func get_QuadraticAttenuation() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_QuadraticAttenuation(pThis, &value))
@@ -5633,7 +5642,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_QuadraticAttenuationImpl(_ value: Float) throws {
+        public func put_QuadraticAttenuation(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_QuadraticAttenuation(pThis, value))
             }
@@ -5644,7 +5653,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IPointLight2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIPointLight2 }
 
-        internal func get_IntensityImpl() throws -> Float {
+        public func get_Intensity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Intensity(pThis, &value))
@@ -5652,7 +5661,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_IntensityImpl(_ value: Float) throws {
+        public func put_Intensity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Intensity(pThis, value))
             }
@@ -5663,7 +5672,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IPointLight3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIPointLight3 }
 
-        internal func get_MinAttenuationCutoffImpl() throws -> Float {
+        public func get_MinAttenuationCutoff() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinAttenuationCutoff(pThis, &value))
@@ -5671,13 +5680,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_MinAttenuationCutoffImpl(_ value: Float) throws {
+        public func put_MinAttenuationCutoff(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinAttenuationCutoff(pThis, value))
             }
         }
 
-        internal func get_MaxAttenuationCutoffImpl() throws -> Float {
+        public func get_MaxAttenuationCutoff() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxAttenuationCutoff(pThis, &value))
@@ -5685,7 +5694,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_MaxAttenuationCutoffImpl(_ value: Float) throws {
+        public func put_MaxAttenuationCutoff(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxAttenuationCutoff(pThis, value))
             }
@@ -5696,7 +5705,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IPowerEasingFunction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIPowerEasingFunction }
 
-        internal func get_ModeImpl() throws -> WinAppSDK.CompositionEasingFunctionMode {
+        public func get_Mode() throws -> WinAppSDK.CompositionEasingFunctionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEasingFunctionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPowerEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -5704,7 +5713,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func get_PowerImpl() throws -> Float {
+        public func get_Power() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIPowerEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Power(pThis, &value))
@@ -5717,13 +5726,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IQuaternionKeyFrameAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIQuaternionKeyFrameAnimation }
 
-        internal func InsertKeyFrameImpl(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Quaternion) throws {
+        public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Quaternion) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIQuaternionKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrame(pThis, normalizedProgressKey, .from(swift: value)))
             }
         }
 
-        internal func InsertKeyFrameWithEasingFunctionImpl(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Quaternion, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
+        public func InsertKeyFrameWithEasingFunction(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Quaternion, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIQuaternionKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrameWithEasingFunction(pThis, normalizedProgressKey, .from(swift: value), RawPointer(easingFunction)))
             }
@@ -5734,7 +5743,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IRectangleClip: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip }
 
-        internal func get_BottomImpl() throws -> Float {
+        public func get_Bottom() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bottom(pThis, &value))
@@ -5742,13 +5751,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_BottomImpl(_ value: Float) throws {
+        public func put_Bottom(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Bottom(pThis, value))
             }
         }
 
-        internal func get_BottomLeftRadiusImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_BottomLeftRadius() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BottomLeftRadius(pThis, &value))
@@ -5756,13 +5765,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_BottomLeftRadiusImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_BottomLeftRadius(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BottomLeftRadius(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_BottomRightRadiusImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_BottomRightRadius() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BottomRightRadius(pThis, &value))
@@ -5770,13 +5779,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_BottomRightRadiusImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_BottomRightRadius(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BottomRightRadius(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_LeftImpl() throws -> Float {
+        public func get_Left() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Left(pThis, &value))
@@ -5784,13 +5793,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_LeftImpl(_ value: Float) throws {
+        public func put_Left(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Left(pThis, value))
             }
         }
 
-        internal func get_RightImpl() throws -> Float {
+        public func get_Right() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Right(pThis, &value))
@@ -5798,13 +5807,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RightImpl(_ value: Float) throws {
+        public func put_Right(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Right(pThis, value))
             }
         }
 
-        internal func get_TopImpl() throws -> Float {
+        public func get_Top() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Top(pThis, &value))
@@ -5812,13 +5821,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_TopImpl(_ value: Float) throws {
+        public func put_Top(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Top(pThis, value))
             }
         }
 
-        internal func get_TopLeftRadiusImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_TopLeftRadius() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TopLeftRadius(pThis, &value))
@@ -5826,13 +5835,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_TopLeftRadiusImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_TopLeftRadius(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TopLeftRadius(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_TopRightRadiusImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_TopRightRadius() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TopRightRadius(pThis, &value))
@@ -5840,7 +5849,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_TopRightRadiusImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_TopRightRadius(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TopRightRadius(pThis, .from(swift: value)))
             }
@@ -5851,16 +5860,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IRedirectVisual: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIRedirectVisual }
 
-        internal func get_SourceImpl() throws -> WinAppSDK.Visual? {
+        public func get_Source() throws -> WinAppSDK.Visual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRedirectVisual.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Source(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: value)
         }
 
-        internal func put_SourceImpl(_ value: WinAppSDK.Visual?) throws {
+        public func put_Source(_ value: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRedirectVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Source(pThis, RawPointer(value)))
             }
@@ -5871,13 +5880,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IRenderingDeviceReplacedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIRenderingDeviceReplacedEventArgs }
 
-        internal func get_GraphicsDeviceImpl() throws -> WinAppSDK.CompositionGraphicsDevice? {
+        public func get_GraphicsDevice() throws -> WinAppSDK.CompositionGraphicsDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIRenderingDeviceReplacedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_GraphicsDevice(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionGraphicsDeviceBridge.from(abi: value)
         }
 
     }
@@ -5885,13 +5894,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IScalarKeyFrameAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIScalarKeyFrameAnimation }
 
-        internal func InsertKeyFrameImpl(_ normalizedProgressKey: Float, _ value: Float) throws {
+        public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIScalarKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrame(pThis, normalizedProgressKey, value))
             }
         }
 
-        internal func InsertKeyFrameWithEasingFunctionImpl(_ normalizedProgressKey: Float, _ value: Float, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
+        public func InsertKeyFrameWithEasingFunction(_ normalizedProgressKey: Float, _ value: Float, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIScalarKeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrameWithEasingFunction(pThis, normalizedProgressKey, value, RawPointer(easingFunction)))
             }
@@ -5902,7 +5911,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IScalarNaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation }
 
-        internal func get_FinalValueImpl() throws -> Float? {
+        public func get_FinalValue() throws -> Float? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FinalValue(pThis, &valueAbi))
@@ -5911,7 +5920,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return WinAppSDK.__x_ABI_C__FIReference_1_floatWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_FinalValueImpl(_ value: Float?) throws {
+        public func put_FinalValue(_ value: Float?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIReference_1_floatWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation.self) { pThis in
@@ -5919,7 +5928,7 @@ public enum __ABI_Microsoft_UI_Composition {
             }
         }
 
-        internal func get_InitialValueImpl() throws -> Float? {
+        public func get_InitialValue() throws -> Float? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_InitialValue(pThis, &valueAbi))
@@ -5928,7 +5937,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return WinAppSDK.__x_ABI_C__FIReference_1_floatWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_InitialValueImpl(_ value: Float?) throws {
+        public func put_InitialValue(_ value: Float?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIReference_1_floatWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation.self) { pThis in
@@ -5936,7 +5945,7 @@ public enum __ABI_Microsoft_UI_Composition {
             }
         }
 
-        internal func get_InitialVelocityImpl() throws -> Float {
+        public func get_InitialVelocity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InitialVelocity(pThis, &value))
@@ -5944,7 +5953,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_InitialVelocityImpl(_ value: Float) throws {
+        public func put_InitialVelocity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InitialVelocity(pThis, value))
             }
@@ -5960,25 +5969,25 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IShapeVisual: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIShapeVisual }
 
-        internal func get_ShapesImpl() throws -> WinAppSDK.CompositionShapeCollection? {
+        public func get_Shapes() throws -> WinAppSDK.CompositionShapeCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIShapeVisual.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Shapes(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionShapeCollectionBridge.from(abi: value)
         }
 
-        internal func get_ViewBoxImpl() throws -> WinAppSDK.CompositionViewBox? {
+        public func get_ViewBox() throws -> WinAppSDK.CompositionViewBox? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIShapeVisual.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ViewBox(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionViewBoxBridge.from(abi: value)
         }
 
-        internal func put_ViewBoxImpl(_ value: WinAppSDK.CompositionViewBox?) throws {
+        public func put_ViewBox(_ value: WinAppSDK.CompositionViewBox?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIShapeVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ViewBox(pThis, RawPointer(value)))
             }
@@ -5989,7 +5998,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ISineEasingFunction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CISineEasingFunction }
 
-        internal func get_ModeImpl() throws -> WinAppSDK.CompositionEasingFunctionMode {
+        public func get_Mode() throws -> WinAppSDK.CompositionEasingFunctionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionEasingFunctionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISineEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -6002,7 +6011,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ISpotLight: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CISpotLight }
 
-        internal func get_ConstantAttenuationImpl() throws -> Float {
+        public func get_ConstantAttenuation() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConstantAttenuation(pThis, &value))
@@ -6010,28 +6019,28 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_ConstantAttenuationImpl(_ value: Float) throws {
+        public func put_ConstantAttenuation(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ConstantAttenuation(pThis, value))
             }
         }
 
-        internal func get_CoordinateSpaceImpl() throws -> WinAppSDK.Visual? {
+        public func get_CoordinateSpace() throws -> WinAppSDK.Visual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CoordinateSpace(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: value)
         }
 
-        internal func put_CoordinateSpaceImpl(_ value: WinAppSDK.Visual?) throws {
+        public func put_CoordinateSpace(_ value: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CoordinateSpace(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_DirectionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Direction() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
@@ -6039,13 +6048,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_DirectionImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_Direction(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Direction(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_InnerConeAngleImpl() throws -> Float {
+        public func get_InnerConeAngle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InnerConeAngle(pThis, &value))
@@ -6053,13 +6062,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_InnerConeAngleImpl(_ value: Float) throws {
+        public func put_InnerConeAngle(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InnerConeAngle(pThis, value))
             }
         }
 
-        internal func get_InnerConeAngleInDegreesImpl() throws -> Float {
+        public func get_InnerConeAngleInDegrees() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InnerConeAngleInDegrees(pThis, &value))
@@ -6067,13 +6076,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_InnerConeAngleInDegreesImpl(_ value: Float) throws {
+        public func put_InnerConeAngleInDegrees(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InnerConeAngleInDegrees(pThis, value))
             }
         }
 
-        internal func get_InnerConeColorImpl() throws -> UWP.Color {
+        public func get_InnerConeColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InnerConeColor(pThis, &value))
@@ -6081,13 +6090,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_InnerConeColorImpl(_ value: UWP.Color) throws {
+        public func put_InnerConeColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InnerConeColor(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_LinearAttenuationImpl() throws -> Float {
+        public func get_LinearAttenuation() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LinearAttenuation(pThis, &value))
@@ -6095,13 +6104,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_LinearAttenuationImpl(_ value: Float) throws {
+        public func put_LinearAttenuation(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LinearAttenuation(pThis, value))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Offset() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -6109,13 +6118,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_OuterConeAngleImpl() throws -> Float {
+        public func get_OuterConeAngle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OuterConeAngle(pThis, &value))
@@ -6123,13 +6132,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_OuterConeAngleImpl(_ value: Float) throws {
+        public func put_OuterConeAngle(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OuterConeAngle(pThis, value))
             }
         }
 
-        internal func get_OuterConeAngleInDegreesImpl() throws -> Float {
+        public func get_OuterConeAngleInDegrees() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OuterConeAngleInDegrees(pThis, &value))
@@ -6137,13 +6146,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_OuterConeAngleInDegreesImpl(_ value: Float) throws {
+        public func put_OuterConeAngleInDegrees(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OuterConeAngleInDegrees(pThis, value))
             }
         }
 
-        internal func get_OuterConeColorImpl() throws -> UWP.Color {
+        public func get_OuterConeColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OuterConeColor(pThis, &value))
@@ -6151,13 +6160,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OuterConeColorImpl(_ value: UWP.Color) throws {
+        public func put_OuterConeColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OuterConeColor(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_QuadraticAttenuationImpl() throws -> Float {
+        public func get_QuadraticAttenuation() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_QuadraticAttenuation(pThis, &value))
@@ -6165,7 +6174,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_QuadraticAttenuationImpl(_ value: Float) throws {
+        public func put_QuadraticAttenuation(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_QuadraticAttenuation(pThis, value))
             }
@@ -6176,7 +6185,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ISpotLight2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CISpotLight2 }
 
-        internal func get_InnerConeIntensityImpl() throws -> Float {
+        public func get_InnerConeIntensity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InnerConeIntensity(pThis, &value))
@@ -6184,13 +6193,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_InnerConeIntensityImpl(_ value: Float) throws {
+        public func put_InnerConeIntensity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InnerConeIntensity(pThis, value))
             }
         }
 
-        internal func get_OuterConeIntensityImpl() throws -> Float {
+        public func get_OuterConeIntensity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OuterConeIntensity(pThis, &value))
@@ -6198,7 +6207,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_OuterConeIntensityImpl(_ value: Float) throws {
+        public func put_OuterConeIntensity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OuterConeIntensity(pThis, value))
             }
@@ -6209,7 +6218,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ISpotLight3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CISpotLight3 }
 
-        internal func get_MinAttenuationCutoffImpl() throws -> Float {
+        public func get_MinAttenuationCutoff() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinAttenuationCutoff(pThis, &value))
@@ -6217,13 +6226,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_MinAttenuationCutoffImpl(_ value: Float) throws {
+        public func put_MinAttenuationCutoff(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinAttenuationCutoff(pThis, value))
             }
         }
 
-        internal func get_MaxAttenuationCutoffImpl() throws -> Float {
+        public func get_MaxAttenuationCutoff() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxAttenuationCutoff(pThis, &value))
@@ -6231,7 +6240,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_MaxAttenuationCutoffImpl(_ value: Float) throws {
+        public func put_MaxAttenuationCutoff(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxAttenuationCutoff(pThis, value))
             }
@@ -6242,7 +6251,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ISpringScalarNaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CISpringScalarNaturalMotionAnimation }
 
-        internal func get_DampingRatioImpl() throws -> Float {
+        public func get_DampingRatio() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DampingRatio(pThis, &value))
@@ -6250,13 +6259,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_DampingRatioImpl(_ value: Float) throws {
+        public func put_DampingRatio(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DampingRatio(pThis, value))
             }
         }
 
-        internal func get_PeriodImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Period() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Period(pThis, &value))
@@ -6264,7 +6273,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_PeriodImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_Period(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringScalarNaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Period(pThis, .from(swift: value)))
             }
@@ -6275,7 +6284,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ISpringVector2NaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CISpringVector2NaturalMotionAnimation }
 
-        internal func get_DampingRatioImpl() throws -> Float {
+        public func get_DampingRatio() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DampingRatio(pThis, &value))
@@ -6283,13 +6292,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_DampingRatioImpl(_ value: Float) throws {
+        public func put_DampingRatio(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DampingRatio(pThis, value))
             }
         }
 
-        internal func get_PeriodImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Period() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Period(pThis, &value))
@@ -6297,7 +6306,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_PeriodImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_Period(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Period(pThis, .from(swift: value)))
             }
@@ -6308,7 +6317,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ISpringVector3NaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CISpringVector3NaturalMotionAnimation }
 
-        internal func get_DampingRatioImpl() throws -> Float {
+        public func get_DampingRatio() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DampingRatio(pThis, &value))
@@ -6316,13 +6325,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_DampingRatioImpl(_ value: Float) throws {
+        public func put_DampingRatio(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DampingRatio(pThis, value))
             }
         }
 
-        internal func get_PeriodImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Period() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Period(pThis, &value))
@@ -6330,7 +6339,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_PeriodImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_Period(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Period(pThis, .from(swift: value)))
             }
@@ -6341,16 +6350,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ISpriteVisual: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CISpriteVisual }
 
-        internal func get_BrushImpl() throws -> WinAppSDK.CompositionBrush? {
+        public func get_Brush() throws -> WinAppSDK.CompositionBrush? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpriteVisual.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Brush(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: value)
         }
 
-        internal func put_BrushImpl(_ value: WinAppSDK.CompositionBrush?) throws {
+        public func put_Brush(_ value: WinAppSDK.CompositionBrush?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpriteVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Brush(pThis, RawPointer(value)))
             }
@@ -6361,16 +6370,16 @@ public enum __ABI_Microsoft_UI_Composition {
     public class ISpriteVisual2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CISpriteVisual2 }
 
-        internal func get_ShadowImpl() throws -> WinAppSDK.CompositionShadow? {
+        public func get_Shadow() throws -> WinAppSDK.CompositionShadow? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpriteVisual2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Shadow(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionShadowBridge.from(abi: value)
         }
 
-        internal func put_ShadowImpl(_ value: WinAppSDK.CompositionShadow?) throws {
+        public func put_Shadow(_ value: WinAppSDK.CompositionShadow?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CISpriteVisual2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Shadow(pThis, RawPointer(value)))
             }
@@ -6381,7 +6390,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IStepEasingFunction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction }
 
-        internal func get_FinalStepImpl() throws -> Int32 {
+        public func get_FinalStep() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FinalStep(pThis, &value))
@@ -6389,13 +6398,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_FinalStepImpl(_ value: Int32) throws {
+        public func put_FinalStep(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FinalStep(pThis, value))
             }
         }
 
-        internal func get_InitialStepImpl() throws -> Int32 {
+        public func get_InitialStep() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InitialStep(pThis, &value))
@@ -6403,13 +6412,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_InitialStepImpl(_ value: Int32) throws {
+        public func put_InitialStep(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InitialStep(pThis, value))
             }
         }
 
-        internal func get_IsFinalStepSingleFrameImpl() throws -> Bool {
+        public func get_IsFinalStepSingleFrame() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFinalStepSingleFrame(pThis, &value))
@@ -6417,13 +6426,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_IsFinalStepSingleFrameImpl(_ value: Bool) throws {
+        public func put_IsFinalStepSingleFrame(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsFinalStepSingleFrame(pThis, .init(from: value)))
             }
         }
 
-        internal func get_IsInitialStepSingleFrameImpl() throws -> Bool {
+        public func get_IsInitialStepSingleFrame() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInitialStepSingleFrame(pThis, &value))
@@ -6431,13 +6440,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_IsInitialStepSingleFrameImpl(_ value: Bool) throws {
+        public func put_IsInitialStepSingleFrame(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsInitialStepSingleFrame(pThis, .init(from: value)))
             }
         }
 
-        internal func get_StepCountImpl() throws -> Int32 {
+        public func get_StepCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StepCount(pThis, &value))
@@ -6445,7 +6454,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_StepCountImpl(_ value: Int32) throws {
+        public func put_StepCount(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StepCount(pThis, value))
             }
@@ -6456,13 +6465,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVector2KeyFrameAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVector2KeyFrameAnimation }
 
-        internal func InsertKeyFrameImpl(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector2) throws {
+        public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector2KeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrame(pThis, normalizedProgressKey, .from(swift: value)))
             }
         }
 
-        internal func InsertKeyFrameWithEasingFunctionImpl(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector2, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
+        public func InsertKeyFrameWithEasingFunction(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector2, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector2KeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrameWithEasingFunction(pThis, normalizedProgressKey, .from(swift: value), RawPointer(easingFunction)))
             }
@@ -6473,7 +6482,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVector2NaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation }
 
-        internal func get_FinalValueImpl() throws -> WindowsFoundation.Vector2? {
+        public func get_FinalValue() throws -> WindowsFoundation.Vector2? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FinalValue(pThis, &valueAbi))
@@ -6482,7 +6491,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector2Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_FinalValueImpl(_ value: WindowsFoundation.Vector2?) throws {
+        public func put_FinalValue(_ value: WindowsFoundation.Vector2?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector2Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation.self) { pThis in
@@ -6490,7 +6499,7 @@ public enum __ABI_Microsoft_UI_Composition {
             }
         }
 
-        internal func get_InitialValueImpl() throws -> WindowsFoundation.Vector2? {
+        public func get_InitialValue() throws -> WindowsFoundation.Vector2? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_InitialValue(pThis, &valueAbi))
@@ -6499,7 +6508,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector2Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_InitialValueImpl(_ value: WindowsFoundation.Vector2?) throws {
+        public func put_InitialValue(_ value: WindowsFoundation.Vector2?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector2Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation.self) { pThis in
@@ -6507,7 +6516,7 @@ public enum __ABI_Microsoft_UI_Composition {
             }
         }
 
-        internal func get_InitialVelocityImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_InitialVelocity() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InitialVelocity(pThis, &value))
@@ -6515,7 +6524,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_InitialVelocityImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_InitialVelocity(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InitialVelocity(pThis, .from(swift: value)))
             }
@@ -6531,13 +6540,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVector3KeyFrameAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVector3KeyFrameAnimation }
 
-        internal func InsertKeyFrameImpl(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector3) throws {
+        public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector3KeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrame(pThis, normalizedProgressKey, .from(swift: value)))
             }
         }
 
-        internal func InsertKeyFrameWithEasingFunctionImpl(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector3, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
+        public func InsertKeyFrameWithEasingFunction(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector3, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector3KeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrameWithEasingFunction(pThis, normalizedProgressKey, .from(swift: value), RawPointer(easingFunction)))
             }
@@ -6548,7 +6557,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVector3NaturalMotionAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation }
 
-        internal func get_FinalValueImpl() throws -> WindowsFoundation.Vector3? {
+        public func get_FinalValue() throws -> WindowsFoundation.Vector3? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FinalValue(pThis, &valueAbi))
@@ -6557,7 +6566,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector3Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_FinalValueImpl(_ value: WindowsFoundation.Vector3?) throws {
+        public func put_FinalValue(_ value: WindowsFoundation.Vector3?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector3Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation.self) { pThis in
@@ -6565,7 +6574,7 @@ public enum __ABI_Microsoft_UI_Composition {
             }
         }
 
-        internal func get_InitialValueImpl() throws -> WindowsFoundation.Vector3? {
+        public func get_InitialValue() throws -> WindowsFoundation.Vector3? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_InitialValue(pThis, &valueAbi))
@@ -6574,7 +6583,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector3Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_InitialValueImpl(_ value: WindowsFoundation.Vector3?) throws {
+        public func put_InitialValue(_ value: WindowsFoundation.Vector3?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector3Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation.self) { pThis in
@@ -6582,7 +6591,7 @@ public enum __ABI_Microsoft_UI_Composition {
             }
         }
 
-        internal func get_InitialVelocityImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_InitialVelocity() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InitialVelocity(pThis, &value))
@@ -6590,7 +6599,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_InitialVelocityImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_InitialVelocity(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InitialVelocity(pThis, .from(swift: value)))
             }
@@ -6606,13 +6615,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVector4KeyFrameAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVector4KeyFrameAnimation }
 
-        internal func InsertKeyFrameImpl(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector4) throws {
+        public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector4KeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrame(pThis, normalizedProgressKey, .from(swift: value)))
             }
         }
 
-        internal func InsertKeyFrameWithEasingFunctionImpl(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector4, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
+        public func InsertKeyFrameWithEasingFunction(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector4, _ easingFunction: WinAppSDK.CompositionEasingFunction?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVector4KeyFrameAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertKeyFrameWithEasingFunction(pThis, normalizedProgressKey, .from(swift: value), RawPointer(easingFunction)))
             }
@@ -6623,7 +6632,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVisual: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVisual }
 
-        internal func get_AnchorPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_AnchorPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AnchorPoint(pThis, &value))
@@ -6631,13 +6640,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_AnchorPointImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_AnchorPoint(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AnchorPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_BackfaceVisibilityImpl() throws -> WinAppSDK.CompositionBackfaceVisibility {
+        public func get_BackfaceVisibility() throws -> WinAppSDK.CompositionBackfaceVisibility {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionBackfaceVisibility = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackfaceVisibility(pThis, &value))
@@ -6645,13 +6654,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_BackfaceVisibilityImpl(_ value: WinAppSDK.CompositionBackfaceVisibility) throws {
+        public func put_BackfaceVisibility(_ value: WinAppSDK.CompositionBackfaceVisibility) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BackfaceVisibility(pThis, value))
             }
         }
 
-        internal func get_BorderModeImpl() throws -> WinAppSDK.CompositionBorderMode {
+        public func get_BorderMode() throws -> WinAppSDK.CompositionBorderMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionBorderMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BorderMode(pThis, &value))
@@ -6659,13 +6668,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_BorderModeImpl(_ value: WinAppSDK.CompositionBorderMode) throws {
+        public func put_BorderMode(_ value: WinAppSDK.CompositionBorderMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BorderMode(pThis, value))
             }
         }
 
-        internal func get_CenterPointImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_CenterPoint() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CenterPoint(pThis, &value))
@@ -6673,28 +6682,28 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_CenterPointImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_CenterPoint(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CenterPoint(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ClipImpl() throws -> WinAppSDK.CompositionClip? {
+        public func get_Clip() throws -> WinAppSDK.CompositionClip? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Clip(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionClipBridge.from(abi: value)
         }
 
-        internal func put_ClipImpl(_ value: WinAppSDK.CompositionClip?) throws {
+        public func put_Clip(_ value: WinAppSDK.CompositionClip?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Clip(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_CompositeModeImpl() throws -> WinAppSDK.CompositionCompositeMode {
+        public func get_CompositeMode() throws -> WinAppSDK.CompositionCompositeMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CCompositionCompositeMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CompositeMode(pThis, &value))
@@ -6702,13 +6711,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_CompositeModeImpl(_ value: WinAppSDK.CompositionCompositeMode) throws {
+        public func put_CompositeMode(_ value: WinAppSDK.CompositionCompositeMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CompositeMode(pThis, value))
             }
         }
 
-        internal func get_IsVisibleImpl() throws -> Bool {
+        public func get_IsVisible() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsVisible(pThis, &value))
@@ -6716,13 +6725,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_IsVisibleImpl(_ value: Bool) throws {
+        public func put_IsVisible(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsVisible(pThis, .init(from: value)))
             }
         }
 
-        internal func get_OffsetImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Offset() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
@@ -6730,13 +6739,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OffsetImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_Offset(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Offset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_OpacityImpl() throws -> Float {
+        public func get_Opacity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Opacity(pThis, &value))
@@ -6744,13 +6753,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_OpacityImpl(_ value: Float) throws {
+        public func put_Opacity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Opacity(pThis, value))
             }
         }
 
-        internal func get_OrientationImpl() throws -> WindowsFoundation.Quaternion {
+        public func get_Orientation() throws -> WindowsFoundation.Quaternion {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CQuaternion = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Orientation(pThis, &value))
@@ -6758,22 +6767,22 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_OrientationImpl(_ value: WindowsFoundation.Quaternion) throws {
+        public func put_Orientation(_ value: WindowsFoundation.Quaternion) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Orientation(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ParentImpl() throws -> WinAppSDK.ContainerVisual? {
+        public func get_Parent() throws -> WinAppSDK.ContainerVisual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parent(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ContainerVisualBridge.from(abi: value)
         }
 
-        internal func get_RotationAngleImpl() throws -> Float {
+        public func get_RotationAngle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngle(pThis, &value))
@@ -6781,13 +6790,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleImpl(_ value: Float) throws {
+        public func put_RotationAngle(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngle(pThis, value))
             }
         }
 
-        internal func get_RotationAngleInDegreesImpl() throws -> Float {
+        public func get_RotationAngleInDegrees() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngleInDegrees(pThis, &value))
@@ -6795,13 +6804,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func put_RotationAngleInDegreesImpl(_ value: Float) throws {
+        public func put_RotationAngleInDegrees(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAngleInDegrees(pThis, value))
             }
         }
 
-        internal func get_RotationAxisImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_RotationAxis() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAxis(pThis, &value))
@@ -6809,13 +6818,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_RotationAxisImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_RotationAxis(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationAxis(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ScaleImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Scale() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scale(pThis, &value))
@@ -6823,13 +6832,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_ScaleImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_Scale(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Scale(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_Size() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -6837,13 +6846,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_SizeImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_Size(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Size(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_TransformMatrixImpl() throws -> WindowsFoundation.Matrix4x4 {
+        public func get_TransformMatrix() throws -> WindowsFoundation.Matrix4x4 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransformMatrix(pThis, &value))
@@ -6851,7 +6860,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_TransformMatrixImpl(_ value: WindowsFoundation.Matrix4x4) throws {
+        public func put_TransformMatrix(_ value: WindowsFoundation.Matrix4x4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TransformMatrix(pThis, .from(swift: value)))
             }
@@ -6862,22 +6871,22 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVisual2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVisual2 }
 
-        internal func get_ParentForTransformImpl() throws -> WinAppSDK.Visual? {
+        public func get_ParentForTransform() throws -> WinAppSDK.Visual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ParentForTransform(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: value)
         }
 
-        internal func put_ParentForTransformImpl(_ value: WinAppSDK.Visual?) throws {
+        public func put_ParentForTransform(_ value: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ParentForTransform(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_RelativeOffsetAdjustmentImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_RelativeOffsetAdjustment() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RelativeOffsetAdjustment(pThis, &value))
@@ -6885,13 +6894,13 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_RelativeOffsetAdjustmentImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_RelativeOffsetAdjustment(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RelativeOffsetAdjustment(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_RelativeSizeAdjustmentImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_RelativeSizeAdjustment() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RelativeSizeAdjustment(pThis, &value))
@@ -6899,7 +6908,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .from(abi: value)
         }
 
-        internal func put_RelativeSizeAdjustmentImpl(_ value: WindowsFoundation.Vector2) throws {
+        public func put_RelativeSizeAdjustment(_ value: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RelativeSizeAdjustment(pThis, .from(swift: value)))
             }
@@ -6910,7 +6919,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVisual3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVisual3 }
 
-        internal func get_IsHitTestVisibleImpl() throws -> Bool {
+        public func get_IsHitTestVisible() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsHitTestVisible(pThis, &value))
@@ -6918,7 +6927,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_IsHitTestVisibleImpl(_ value: Bool) throws {
+        public func put_IsHitTestVisible(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsHitTestVisible(pThis, .init(from: value)))
             }
@@ -6929,7 +6938,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVisual4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVisual4 }
 
-        internal func get_IsPixelSnappingEnabledImpl() throws -> Bool {
+        public func get_IsPixelSnappingEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPixelSnappingEnabled(pThis, &value))
@@ -6937,7 +6946,7 @@ public enum __ABI_Microsoft_UI_Composition {
             return .init(from: value)
         }
 
-        internal func put_IsPixelSnappingEnabledImpl(_ value: Bool) throws {
+        public func put_IsPixelSnappingEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisual4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsPixelSnappingEnabled(pThis, .init(from: value)))
             }
@@ -6948,7 +6957,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVisualCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection }
 
-        internal func get_CountImpl() throws -> Int32 {
+        public func get_Count() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Count(pThis, &value))
@@ -6956,37 +6965,37 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func InsertAboveImpl(_ newChild: WinAppSDK.Visual?, _ sibling: WinAppSDK.Visual?) throws {
+        public func InsertAbove(_ newChild: WinAppSDK.Visual?, _ sibling: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAbove(pThis, RawPointer(newChild), RawPointer(sibling)))
             }
         }
 
-        internal func InsertAtBottomImpl(_ newChild: WinAppSDK.Visual?) throws {
+        public func InsertAtBottom(_ newChild: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAtBottom(pThis, RawPointer(newChild)))
             }
         }
 
-        internal func InsertAtTopImpl(_ newChild: WinAppSDK.Visual?) throws {
+        public func InsertAtTop(_ newChild: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAtTop(pThis, RawPointer(newChild)))
             }
         }
 
-        internal func InsertBelowImpl(_ newChild: WinAppSDK.Visual?, _ sibling: WinAppSDK.Visual?) throws {
+        public func InsertBelow(_ newChild: WinAppSDK.Visual?, _ sibling: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertBelow(pThis, RawPointer(newChild), RawPointer(sibling)))
             }
         }
 
-        internal func RemoveImpl(_ child: WinAppSDK.Visual?) throws {
+        public func Remove(_ child: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Remove(pThis, RawPointer(child)))
             }
         }
 
-        internal func RemoveAllImpl() throws {
+        public func RemoveAll() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAll(pThis))
             }
@@ -7032,13 +7041,13 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVisualElement2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVisualElement2 }
 
-        open func GetVisualInternalImpl() throws -> WinAppSDK.Visual? {
+        open func GetVisualInternal() throws -> WinAppSDK.Visual? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualElement2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetVisualInternal(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: result)
         }
 
     }
@@ -7077,7 +7086,7 @@ public enum __ABI_Microsoft_UI_Composition {
                 let result = try __unwrapped__instance.getVisualInternal()
                 result?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -7090,7 +7099,7 @@ public enum __ABI_Microsoft_UI_Composition {
     public class IVisualUnorderedCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CIVisualUnorderedCollection }
 
-        internal func get_CountImpl() throws -> Int32 {
+        public func get_Count() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualUnorderedCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Count(pThis, &value))
@@ -7098,19 +7107,19 @@ public enum __ABI_Microsoft_UI_Composition {
             return value
         }
 
-        internal func AddImpl(_ newVisual: WinAppSDK.Visual?) throws {
+        public func Add(_ newVisual: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualUnorderedCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Add(pThis, RawPointer(newVisual)))
             }
         }
 
-        internal func RemoveImpl(_ visual: WinAppSDK.Visual?) throws {
+        public func Remove(_ visual: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualUnorderedCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Remove(pThis, RawPointer(visual)))
             }
         }
 
-        internal func RemoveAllImpl() throws {
+        public func RemoveAll() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CIVisualUnorderedCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAll(pThis))
             }

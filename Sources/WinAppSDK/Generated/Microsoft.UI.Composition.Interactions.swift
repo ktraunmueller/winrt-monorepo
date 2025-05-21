@@ -32,32 +32,26 @@ public final class CompositionConditionalValue : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValue>?) -> CompositionConditionalValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _ICompositionConditionalValueStatics: __ABI_Microsoft_UI_Composition_Interactions.ICompositionConditionalValueStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.CompositionConditionalValue"))
+    private static let _ICompositionConditionalValueStatics: __ABI_Microsoft_UI_Composition_Interactions.ICompositionConditionalValueStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.CompositionConditionalValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.compositionconditionalvalue.create)
-    public static func create(_ compositor: WinAppSDK.Compositor!) -> CompositionConditionalValue! {
-        return try! _ICompositionConditionalValueStatics.CreateImpl(compositor)
+    public static func create(_ compositor: WinAppSDK.Compositor!) throws -> CompositionConditionalValue! {
+        return try _ICompositionConditionalValueStatics.Create(compositor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.compositionconditionalvalue.condition)
     public var condition : WinAppSDK.ExpressionAnimation! {
-        get { try! _default.get_ConditionImpl() }
-        set { try! _default.put_ConditionImpl(newValue) }
+        get { try! _default.get_Condition() }
+        set { try! _default.put_Condition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.compositionconditionalvalue.value)
     public var value : WinAppSDK.ExpressionAnimation! {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     deinit {
@@ -80,12 +74,6 @@ public final class CompositionInteractionSourceCollection : WinAppSDK.Compositio
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionInteractionSourceCollection>?) -> CompositionInteractionSourceCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -95,28 +83,28 @@ public final class CompositionInteractionSourceCollection : WinAppSDK.Compositio
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.compositioninteractionsourcecollection.add)
     public func add(_ value: AnyICompositionInteractionSource!) throws {
-        try _default.AddImpl(value)
+        try _default.Add(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.compositioninteractionsourcecollection.remove)
     public func remove(_ value: AnyICompositionInteractionSource!) throws {
-        try _default.RemoveImpl(value)
+        try _default.Remove(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.compositioninteractionsourcecollection.removeall)
     public func removeAll() throws {
-        try _default.RemoveAllImpl()
+        try _default.RemoveAll()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.compositioninteractionsourcecollection.count)
     public var count : Int32 {
-        get { try! _default.get_CountImpl() }
+        get { try! _default.get_Count() }
     }
 
     private lazy var _IIterable: IIterableICompositionInteractionSource! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.compositioninteractionsourcecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<AnyICompositionInteractionSource?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -139,32 +127,26 @@ public final class InteractionSourceConfiguration : WinAppSDK.CompositionObject 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration>?) -> InteractionSourceConfiguration? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactionsourceconfiguration.positionxsourcemode)
     public var positionXSourceMode : InteractionSourceRedirectionMode {
-        get { try! _default.get_PositionXSourceModeImpl() }
-        set { try! _default.put_PositionXSourceModeImpl(newValue) }
+        get { try! _default.get_PositionXSourceMode() }
+        set { try! _default.put_PositionXSourceMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactionsourceconfiguration.positionysourcemode)
     public var positionYSourceMode : InteractionSourceRedirectionMode {
-        get { try! _default.get_PositionYSourceModeImpl() }
-        set { try! _default.put_PositionYSourceModeImpl(newValue) }
+        get { try! _default.get_PositionYSourceMode() }
+        set { try! _default.put_PositionYSourceMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactionsourceconfiguration.scalesourcemode)
     public var scaleSourceMode : InteractionSourceRedirectionMode {
-        get { try! _default.get_ScaleSourceModeImpl() }
-        set { try! _default.put_ScaleSourceModeImpl(newValue) }
+        get { try! _default.get_ScaleSourceMode() }
+        set { try! _default.put_ScaleSourceMode(newValue) }
     }
 
     deinit {
@@ -186,216 +168,210 @@ public final class InteractionTracker : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker>?) -> InteractionTracker? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInteractionTrackerStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.InteractionTracker"))
+    private static let _IInteractionTrackerStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.InteractionTracker")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.create)
-    public static func create(_ compositor: WinAppSDK.Compositor!) -> InteractionTracker! {
-        return try! _IInteractionTrackerStatics.CreateImpl(compositor)
+    public static func create(_ compositor: WinAppSDK.Compositor!) throws -> InteractionTracker! {
+        return try _IInteractionTrackerStatics.Create(compositor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.createwithowner)
-    public static func createWithOwner(_ compositor: WinAppSDK.Compositor!, _ owner: AnyIInteractionTrackerOwner!) -> InteractionTracker! {
-        return try! _IInteractionTrackerStatics.CreateWithOwnerImpl(compositor, owner)
+    public static func createWithOwner(_ compositor: WinAppSDK.Compositor!, _ owner: AnyIInteractionTrackerOwner!) throws -> InteractionTracker! {
+        return try _IInteractionTrackerStatics.CreateWithOwner(compositor, owner)
     }
 
-    private static let _IInteractionTrackerStatics2: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.InteractionTracker"))
+    private static let _IInteractionTrackerStatics2: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerStatics2 = try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.InteractionTracker")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.setbindingmode)
-    public static func setBindingMode(_ boundTracker1: InteractionTracker!, _ boundTracker2: InteractionTracker!, _ axisMode: InteractionBindingAxisModes) {
-        try! _IInteractionTrackerStatics2.SetBindingModeImpl(boundTracker1, boundTracker2, axisMode)
+    public static func setBindingMode(_ boundTracker1: InteractionTracker!, _ boundTracker2: InteractionTracker!, _ axisMode: InteractionBindingAxisModes) throws {
+        try _IInteractionTrackerStatics2.SetBindingMode(boundTracker1, boundTracker2, axisMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.getbindingmode)
-    public static func getBindingMode(_ boundTracker1: InteractionTracker!, _ boundTracker2: InteractionTracker!) -> InteractionBindingAxisModes {
-        return try! _IInteractionTrackerStatics2.GetBindingModeImpl(boundTracker1, boundTracker2)
+    public static func getBindingMode(_ boundTracker1: InteractionTracker!, _ boundTracker2: InteractionTracker!) throws -> InteractionBindingAxisModes {
+        return try _IInteractionTrackerStatics2.GetBindingMode(boundTracker1, boundTracker2)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.adjustpositionxifgreaterthanthreshold)
     public func adjustPositionXIfGreaterThanThreshold(_ adjustment: Float, _ positionThreshold: Float) throws {
-        try _default.AdjustPositionXIfGreaterThanThresholdImpl(adjustment, positionThreshold)
+        try _default.AdjustPositionXIfGreaterThanThreshold(adjustment, positionThreshold)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.adjustpositionyifgreaterthanthreshold)
     public func adjustPositionYIfGreaterThanThreshold(_ adjustment: Float, _ positionThreshold: Float) throws {
-        try _default.AdjustPositionYIfGreaterThanThresholdImpl(adjustment, positionThreshold)
+        try _default.AdjustPositionYIfGreaterThanThreshold(adjustment, positionThreshold)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.configurepositionxinertiamodifiers)
     public func configurePositionXInertiaModifiers(_ modifiers: WindowsFoundation.AnyIIterable<InteractionTrackerInertiaModifier?>!) throws {
-        try _default.ConfigurePositionXInertiaModifiersImpl(modifiers)
+        try _default.ConfigurePositionXInertiaModifiers(modifiers)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.configurepositionyinertiamodifiers)
     public func configurePositionYInertiaModifiers(_ modifiers: WindowsFoundation.AnyIIterable<InteractionTrackerInertiaModifier?>!) throws {
-        try _default.ConfigurePositionYInertiaModifiersImpl(modifiers)
+        try _default.ConfigurePositionYInertiaModifiers(modifiers)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.configurescaleinertiamodifiers)
     public func configureScaleInertiaModifiers(_ modifiers: WindowsFoundation.AnyIIterable<InteractionTrackerInertiaModifier?>!) throws {
-        try _default.ConfigureScaleInertiaModifiersImpl(modifiers)
+        try _default.ConfigureScaleInertiaModifiers(modifiers)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdateposition)
     public func tryUpdatePosition(_ value: WindowsFoundation.Vector3) throws -> Int32 {
-        try _default.TryUpdatePositionImpl(value)
+        try _default.TryUpdatePosition(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdatepositionby)
     public func tryUpdatePositionBy(_ amount: WindowsFoundation.Vector3) throws -> Int32 {
-        try _default.TryUpdatePositionByImpl(amount)
+        try _default.TryUpdatePositionBy(amount)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdatepositionwithanimation)
     public func tryUpdatePositionWithAnimation(_ animation: WinAppSDK.CompositionAnimation!) throws -> Int32 {
-        try _default.TryUpdatePositionWithAnimationImpl(animation)
+        try _default.TryUpdatePositionWithAnimation(animation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdatepositionwithadditionalvelocity)
     public func tryUpdatePositionWithAdditionalVelocity(_ velocityInPixelsPerSecond: WindowsFoundation.Vector3) throws -> Int32 {
-        try _default.TryUpdatePositionWithAdditionalVelocityImpl(velocityInPixelsPerSecond)
+        try _default.TryUpdatePositionWithAdditionalVelocity(velocityInPixelsPerSecond)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdatescale)
     public func tryUpdateScale(_ value: Float, _ centerPoint: WindowsFoundation.Vector3) throws -> Int32 {
-        try _default.TryUpdateScaleImpl(value, centerPoint)
+        try _default.TryUpdateScale(value, centerPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdatescalewithanimation)
     public func tryUpdateScaleWithAnimation(_ animation: WinAppSDK.CompositionAnimation!, _ centerPoint: WindowsFoundation.Vector3) throws -> Int32 {
-        try _default.TryUpdateScaleWithAnimationImpl(animation, centerPoint)
+        try _default.TryUpdateScaleWithAnimation(animation, centerPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdatescalewithadditionalvelocity)
     public func tryUpdateScaleWithAdditionalVelocity(_ velocityInPercentPerSecond: Float, _ centerPoint: WindowsFoundation.Vector3) throws -> Int32 {
-        try _default.TryUpdateScaleWithAdditionalVelocityImpl(velocityInPercentPerSecond, centerPoint)
+        try _default.TryUpdateScaleWithAdditionalVelocity(velocityInPercentPerSecond, centerPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.interactionsources)
     public var interactionSources : CompositionInteractionSourceCollection! {
-        get { try! _default.get_InteractionSourcesImpl() }
+        get { try! _default.get_InteractionSources() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.ispositionroundingsuggested)
     public var isPositionRoundingSuggested : Bool {
-        get { try! _default.get_IsPositionRoundingSuggestedImpl() }
+        get { try! _default.get_IsPositionRoundingSuggested() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.maxposition)
     public var maxPosition : WindowsFoundation.Vector3 {
-        get { try! _default.get_MaxPositionImpl() }
-        set { try! _default.put_MaxPositionImpl(newValue) }
+        get { try! _default.get_MaxPosition() }
+        set { try! _default.put_MaxPosition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.maxscale)
     public var maxScale : Float {
-        get { try! _default.get_MaxScaleImpl() }
-        set { try! _default.put_MaxScaleImpl(newValue) }
+        get { try! _default.get_MaxScale() }
+        set { try! _default.put_MaxScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.minposition)
     public var minPosition : WindowsFoundation.Vector3 {
-        get { try! _default.get_MinPositionImpl() }
-        set { try! _default.put_MinPositionImpl(newValue) }
+        get { try! _default.get_MinPosition() }
+        set { try! _default.put_MinPosition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.minscale)
     public var minScale : Float {
-        get { try! _default.get_MinScaleImpl() }
-        set { try! _default.put_MinScaleImpl(newValue) }
+        get { try! _default.get_MinScale() }
+        set { try! _default.put_MinScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.naturalrestingposition)
     public var naturalRestingPosition : WindowsFoundation.Vector3 {
-        get { try! _default.get_NaturalRestingPositionImpl() }
+        get { try! _default.get_NaturalRestingPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.naturalrestingscale)
     public var naturalRestingScale : Float {
-        get { try! _default.get_NaturalRestingScaleImpl() }
+        get { try! _default.get_NaturalRestingScale() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.owner)
     public var owner : AnyIInteractionTrackerOwner! {
-        get { try! _default.get_OwnerImpl() }
+        get { try! _default.get_Owner() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.position)
     public var position : WindowsFoundation.Vector3 {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.positioninertiadecayrate)
     public var positionInertiaDecayRate : WindowsFoundation.Vector3? {
-        get { try! _default.get_PositionInertiaDecayRateImpl() }
-        set { try! _default.put_PositionInertiaDecayRateImpl(newValue) }
+        get { try! _default.get_PositionInertiaDecayRate() }
+        set { try! _default.put_PositionInertiaDecayRate(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.positionvelocityinpixelspersecond)
     public var positionVelocityInPixelsPerSecond : WindowsFoundation.Vector3 {
-        get { try! _default.get_PositionVelocityInPixelsPerSecondImpl() }
+        get { try! _default.get_PositionVelocityInPixelsPerSecond() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.scale)
     public var scale : Float {
-        get { try! _default.get_ScaleImpl() }
+        get { try! _default.get_Scale() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.scaleinertiadecayrate)
     public var scaleInertiaDecayRate : Float? {
-        get { try! _default.get_ScaleInertiaDecayRateImpl() }
-        set { try! _default.put_ScaleInertiaDecayRateImpl(newValue) }
+        get { try! _default.get_ScaleInertiaDecayRate() }
+        set { try! _default.put_ScaleInertiaDecayRate(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.scalevelocityinpercentpersecond)
     public var scaleVelocityInPercentPerSecond : Float {
-        get { try! _default.get_ScaleVelocityInPercentPerSecondImpl() }
+        get { try! _default.get_ScaleVelocityInPercentPerSecond() }
     }
 
     private lazy var _IInteractionTracker2: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTracker2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.configurecenterpointxinertiamodifiers)
     public func configureCenterPointXInertiaModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<CompositionConditionalValue?>!) throws {
-        try _IInteractionTracker2.ConfigureCenterPointXInertiaModifiersImpl(conditionalValues)
+        try _IInteractionTracker2.ConfigureCenterPointXInertiaModifiers(conditionalValues)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.configurecenterpointyinertiamodifiers)
     public func configureCenterPointYInertiaModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<CompositionConditionalValue?>!) throws {
-        try _IInteractionTracker2.ConfigureCenterPointYInertiaModifiersImpl(conditionalValues)
+        try _IInteractionTracker2.ConfigureCenterPointYInertiaModifiers(conditionalValues)
     }
 
     private lazy var _IInteractionTracker3: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTracker3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.configurevector2positioninertiamodifiers)
     public func configureVector2PositionInertiaModifiers(_ modifiers: WindowsFoundation.AnyIIterable<InteractionTrackerVector2InertiaModifier?>!) throws {
-        try _IInteractionTracker3.ConfigureVector2PositionInertiaModifiersImpl(modifiers)
+        try _IInteractionTracker3.ConfigureVector2PositionInertiaModifiers(modifiers)
     }
 
     private lazy var _IInteractionTracker4: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTracker4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdateposition)
     public func tryUpdatePosition(_ value: WindowsFoundation.Vector3, _ option: InteractionTrackerClampingOption) throws -> Int32 {
-        try _IInteractionTracker4.TryUpdatePositionWithOptionImpl(value, option)
+        try _IInteractionTracker4.TryUpdatePositionWithOption(value, option)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdatepositionby)
     public func tryUpdatePositionBy(_ amount: WindowsFoundation.Vector3, _ option: InteractionTrackerClampingOption) throws -> Int32 {
-        try _IInteractionTracker4.TryUpdatePositionByWithOptionImpl(amount, option)
+        try _IInteractionTracker4.TryUpdatePositionByWithOption(amount, option)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.isinertiafromimpulse)
     public var isInertiaFromImpulse : Bool {
-        get { try! _IInteractionTracker4.get_IsInertiaFromImpulseImpl() }
+        get { try! _IInteractionTracker4.get_IsInertiaFromImpulse() }
     }
 
     private lazy var _IInteractionTracker5: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTracker5! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontracker.tryupdateposition)
     public func tryUpdatePosition(_ value: WindowsFoundation.Vector3, _ option: InteractionTrackerClampingOption, _ posUpdateOption: InteractionTrackerPositionUpdateOption) throws -> Int32 {
-        try _IInteractionTracker5.TryUpdatePositionWithOptionImpl(value, option, posUpdateOption)
+        try _IInteractionTracker5.TryUpdatePositionWithOption(value, option, posUpdateOption)
     }
 
     deinit {
@@ -421,25 +397,19 @@ public final class InteractionTrackerCustomAnimationStateEnteredArgs : WinRTClas
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerCustomAnimationStateEnteredArgs>?) -> InteractionTrackerCustomAnimationStateEnteredArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackercustomanimationstateenteredargs.requestid)
     public var requestId : Int32 {
-        get { try! _default.get_RequestIdImpl() }
+        get { try! _default.get_RequestId() }
     }
 
     private lazy var _IInteractionTrackerCustomAnimationStateEnteredArgs2: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerCustomAnimationStateEnteredArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackercustomanimationstateenteredargs.isfrombinding)
     public var isFromBinding : Bool {
-        get { try! _IInteractionTrackerCustomAnimationStateEnteredArgs2.get_IsFromBindingImpl() }
+        get { try! _IInteractionTrackerCustomAnimationStateEnteredArgs2.get_IsFromBinding() }
     }
 
     deinit {
@@ -462,25 +432,19 @@ public final class InteractionTrackerIdleStateEnteredArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerIdleStateEnteredArgs>?) -> InteractionTrackerIdleStateEnteredArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackeridlestateenteredargs.requestid)
     public var requestId : Int32 {
-        get { try! _default.get_RequestIdImpl() }
+        get { try! _default.get_RequestId() }
     }
 
     private lazy var _IInteractionTrackerIdleStateEnteredArgs2: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerIdleStateEnteredArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackeridlestateenteredargs.isfrombinding)
     public var isFromBinding : Bool {
-        get { try! _IInteractionTrackerIdleStateEnteredArgs2.get_IsFromBindingImpl() }
+        get { try! _IInteractionTrackerIdleStateEnteredArgs2.get_IsFromBinding() }
     }
 
     deinit {
@@ -503,12 +467,6 @@ open class InteractionTrackerInertiaModifier : WinAppSDK.CompositionObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaModifier>?) -> InteractionTrackerInertiaModifier? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -523,19 +481,8 @@ open class InteractionTrackerInertiaModifier : WinAppSDK.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInteractionTrackerInertiaModifierFactory : __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaModifierFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.InteractionTrackerInertiaModifier"))
+    private static var _IInteractionTrackerInertiaModifierFactory : __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaModifierFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.InteractionTrackerInertiaModifier")
 
-    internal enum IInteractionTrackerInertiaModifier : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = InteractionTrackerInertiaModifier
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaModifier
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaModifier
-        }
-    }
-    internal typealias Composable = IInteractionTrackerInertiaModifier
     deinit {
         _default = nil
     }
@@ -555,32 +502,26 @@ public final class InteractionTrackerInertiaMotion : WinAppSDK.InteractionTracke
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotion>?) -> InteractionTrackerInertiaMotion? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInteractionTrackerInertiaMotionStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaMotionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.InteractionTrackerInertiaMotion"))
+    private static let _IInteractionTrackerInertiaMotionStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaMotionStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.InteractionTrackerInertiaMotion")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiamotion.create)
-    public static func create(_ compositor: WinAppSDK.Compositor!) -> InteractionTrackerInertiaMotion! {
-        return try! _IInteractionTrackerInertiaMotionStatics.CreateImpl(compositor)
+    public static func create(_ compositor: WinAppSDK.Compositor!) throws -> InteractionTrackerInertiaMotion! {
+        return try _IInteractionTrackerInertiaMotionStatics.Create(compositor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiamotion.condition)
     public var condition : WinAppSDK.ExpressionAnimation! {
-        get { try! _default.get_ConditionImpl() }
-        set { try! _default.put_ConditionImpl(newValue) }
+        get { try! _default.get_Condition() }
+        set { try! _default.put_Condition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiamotion.motion)
     public var motion : WinAppSDK.ExpressionAnimation! {
-        get { try! _default.get_MotionImpl() }
-        set { try! _default.put_MotionImpl(newValue) }
+        get { try! _default.get_Motion() }
+        set { try! _default.put_Motion(newValue) }
     }
 
     deinit {
@@ -602,32 +543,26 @@ public final class InteractionTrackerInertiaNaturalMotion : WinAppSDK.Interactio
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotion>?) -> InteractionTrackerInertiaNaturalMotion? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInteractionTrackerInertiaNaturalMotionStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaNaturalMotionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion"))
+    private static let _IInteractionTrackerInertiaNaturalMotionStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaNaturalMotionStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertianaturalmotion.create)
-    public static func create(_ compositor: WinAppSDK.Compositor!) -> InteractionTrackerInertiaNaturalMotion! {
-        return try! _IInteractionTrackerInertiaNaturalMotionStatics.CreateImpl(compositor)
+    public static func create(_ compositor: WinAppSDK.Compositor!) throws -> InteractionTrackerInertiaNaturalMotion! {
+        return try _IInteractionTrackerInertiaNaturalMotionStatics.Create(compositor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertianaturalmotion.condition)
     public var condition : WinAppSDK.ExpressionAnimation! {
-        get { try! _default.get_ConditionImpl() }
-        set { try! _default.put_ConditionImpl(newValue) }
+        get { try! _default.get_Condition() }
+        set { try! _default.put_Condition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertianaturalmotion.naturalmotion)
     public var naturalMotion : WinAppSDK.ScalarNaturalMotionAnimation! {
-        get { try! _default.get_NaturalMotionImpl() }
-        set { try! _default.put_NaturalMotionImpl(newValue) }
+        get { try! _default.get_NaturalMotion() }
+        set { try! _default.put_NaturalMotion(newValue) }
     }
 
     deinit {
@@ -649,32 +584,26 @@ public final class InteractionTrackerInertiaRestingValue : WinAppSDK.Interaction
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValue>?) -> InteractionTrackerInertiaRestingValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInteractionTrackerInertiaRestingValueStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaRestingValueStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue"))
+    private static let _IInteractionTrackerInertiaRestingValueStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaRestingValueStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiarestingvalue.create)
-    public static func create(_ compositor: WinAppSDK.Compositor!) -> InteractionTrackerInertiaRestingValue! {
-        return try! _IInteractionTrackerInertiaRestingValueStatics.CreateImpl(compositor)
+    public static func create(_ compositor: WinAppSDK.Compositor!) throws -> InteractionTrackerInertiaRestingValue! {
+        return try _IInteractionTrackerInertiaRestingValueStatics.Create(compositor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiarestingvalue.condition)
     public var condition : WinAppSDK.ExpressionAnimation! {
-        get { try! _default.get_ConditionImpl() }
-        set { try! _default.put_ConditionImpl(newValue) }
+        get { try! _default.get_Condition() }
+        set { try! _default.put_Condition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiarestingvalue.restingvalue)
     public var restingValue : WinAppSDK.ExpressionAnimation! {
-        get { try! _default.get_RestingValueImpl() }
-        set { try! _default.put_RestingValueImpl(newValue) }
+        get { try! _default.get_RestingValue() }
+        set { try! _default.put_RestingValue(newValue) }
     }
 
     deinit {
@@ -696,61 +625,55 @@ public final class InteractionTrackerInertiaStateEnteredArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs>?) -> InteractionTrackerInertiaStateEnteredArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiastateenteredargs.modifiedrestingposition)
     public var modifiedRestingPosition : WindowsFoundation.Vector3? {
-        get { try! _default.get_ModifiedRestingPositionImpl() }
+        get { try! _default.get_ModifiedRestingPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiastateenteredargs.modifiedrestingscale)
     public var modifiedRestingScale : Float? {
-        get { try! _default.get_ModifiedRestingScaleImpl() }
+        get { try! _default.get_ModifiedRestingScale() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiastateenteredargs.naturalrestingposition)
     public var naturalRestingPosition : WindowsFoundation.Vector3 {
-        get { try! _default.get_NaturalRestingPositionImpl() }
+        get { try! _default.get_NaturalRestingPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiastateenteredargs.naturalrestingscale)
     public var naturalRestingScale : Float {
-        get { try! _default.get_NaturalRestingScaleImpl() }
+        get { try! _default.get_NaturalRestingScale() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiastateenteredargs.positionvelocityinpixelspersecond)
     public var positionVelocityInPixelsPerSecond : WindowsFoundation.Vector3 {
-        get { try! _default.get_PositionVelocityInPixelsPerSecondImpl() }
+        get { try! _default.get_PositionVelocityInPixelsPerSecond() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiastateenteredargs.requestid)
     public var requestId : Int32 {
-        get { try! _default.get_RequestIdImpl() }
+        get { try! _default.get_RequestId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiastateenteredargs.scalevelocityinpercentpersecond)
     public var scaleVelocityInPercentPerSecond : Float {
-        get { try! _default.get_ScaleVelocityInPercentPerSecondImpl() }
+        get { try! _default.get_ScaleVelocityInPercentPerSecond() }
     }
 
     private lazy var _IInteractionTrackerInertiaStateEnteredArgs2: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaStateEnteredArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiastateenteredargs.isinertiafromimpulse)
     public var isInertiaFromImpulse : Bool {
-        get { try! _IInteractionTrackerInertiaStateEnteredArgs2.get_IsInertiaFromImpulseImpl() }
+        get { try! _IInteractionTrackerInertiaStateEnteredArgs2.get_IsInertiaFromImpulse() }
     }
 
     private lazy var _IInteractionTrackerInertiaStateEnteredArgs3: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaStateEnteredArgs3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinertiastateenteredargs.isfrombinding)
     public var isFromBinding : Bool {
-        get { try! _IInteractionTrackerInertiaStateEnteredArgs3.get_IsFromBindingImpl() }
+        get { try! _IInteractionTrackerInertiaStateEnteredArgs3.get_IsFromBinding() }
     }
 
     deinit {
@@ -774,25 +697,19 @@ public final class InteractionTrackerInteractingStateEnteredArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInteractingStateEnteredArgs>?) -> InteractionTrackerInteractingStateEnteredArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinteractingstateenteredargs.requestid)
     public var requestId : Int32 {
-        get { try! _default.get_RequestIdImpl() }
+        get { try! _default.get_RequestId() }
     }
 
     private lazy var _IInteractionTrackerInteractingStateEnteredArgs2: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInteractingStateEnteredArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerinteractingstateenteredargs.isfrombinding)
     public var isFromBinding : Bool {
-        get { try! _IInteractionTrackerInteractingStateEnteredArgs2.get_IsFromBindingImpl() }
+        get { try! _IInteractionTrackerInteractingStateEnteredArgs2.get_IsFromBinding() }
     }
 
     deinit {
@@ -815,19 +732,13 @@ public final class InteractionTrackerRequestIgnoredArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerRequestIgnoredArgs>?) -> InteractionTrackerRequestIgnoredArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackerrequestignoredargs.requestid)
     public var requestId : Int32 {
-        get { try! _default.get_RequestIdImpl() }
+        get { try! _default.get_RequestId() }
     }
 
     deinit {
@@ -849,29 +760,23 @@ public final class InteractionTrackerValuesChangedArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerValuesChangedArgs>?) -> InteractionTrackerValuesChangedArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackervalueschangedargs.position)
     public var position : WindowsFoundation.Vector3 {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackervalueschangedargs.requestid)
     public var requestId : Int32 {
-        get { try! _default.get_RequestIdImpl() }
+        get { try! _default.get_RequestId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackervalueschangedargs.scale)
     public var scale : Float {
-        get { try! _default.get_ScaleImpl() }
+        get { try! _default.get_Scale() }
     }
 
     deinit {
@@ -893,12 +798,6 @@ open class InteractionTrackerVector2InertiaModifier : WinAppSDK.CompositionObjec
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaModifier>?) -> InteractionTrackerVector2InertiaModifier? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -913,19 +812,8 @@ open class InteractionTrackerVector2InertiaModifier : WinAppSDK.CompositionObjec
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInteractionTrackerVector2InertiaModifierFactory : __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerVector2InertiaModifierFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier"))
+    private static var _IInteractionTrackerVector2InertiaModifierFactory : __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerVector2InertiaModifierFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier")
 
-    internal enum IInteractionTrackerVector2InertiaModifier : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = InteractionTrackerVector2InertiaModifier
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaModifier
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerVector2InertiaModifier
-        }
-    }
-    internal typealias Composable = IInteractionTrackerVector2InertiaModifier
     deinit {
         _default = nil
     }
@@ -945,32 +833,26 @@ public final class InteractionTrackerVector2InertiaNaturalMotion : WinAppSDK.Int
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotion>?) -> InteractionTrackerVector2InertiaNaturalMotion? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IInteractionTrackerVector2InertiaNaturalMotionStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerVector2InertiaNaturalMotionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion"))
+    private static let _IInteractionTrackerVector2InertiaNaturalMotionStatics: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerVector2InertiaNaturalMotionStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackervector2inertianaturalmotion.create)
-    public static func create(_ compositor: WinAppSDK.Compositor!) -> InteractionTrackerVector2InertiaNaturalMotion! {
-        return try! _IInteractionTrackerVector2InertiaNaturalMotionStatics.CreateImpl(compositor)
+    public static func create(_ compositor: WinAppSDK.Compositor!) throws -> InteractionTrackerVector2InertiaNaturalMotion! {
+        return try _IInteractionTrackerVector2InertiaNaturalMotionStatics.Create(compositor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackervector2inertianaturalmotion.condition)
     public var condition : WinAppSDK.ExpressionAnimation! {
-        get { try! _default.get_ConditionImpl() }
-        set { try! _default.put_ConditionImpl(newValue) }
+        get { try! _default.get_Condition() }
+        set { try! _default.put_Condition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.interactiontrackervector2inertianaturalmotion.naturalmotion)
     public var naturalMotion : WinAppSDK.Vector2NaturalMotionAnimation! {
-        get { try! _default.get_NaturalMotionImpl() }
-        set { try! _default.put_NaturalMotionImpl(newValue) }
+        get { try! _default.get_NaturalMotion() }
+        set { try! _default.put_NaturalMotion(newValue) }
     }
 
     deinit {
@@ -992,12 +874,6 @@ open class VisualInteractionSource : WinAppSDK.CompositionObject, ICompositionIn
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource>?) -> VisualInteractionSource? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1012,158 +888,147 @@ open class VisualInteractionSource : WinAppSDK.CompositionObject, ICompositionIn
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IVisualInteractionSourceObjectFactory : __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSourceObjectFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.VisualInteractionSource"))
+    private static var _IVisualInteractionSourceObjectFactory : __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSourceObjectFactory =  try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.VisualInteractionSource")
 
-    private static let _IVisualInteractionSourceStatics: __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSourceStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.VisualInteractionSource"))
+    private static let _IVisualInteractionSourceStatics: __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.VisualInteractionSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.create)
-    public class func create(_ source: WinAppSDK.Visual!) -> VisualInteractionSource! {
-        return try! _IVisualInteractionSourceStatics.CreateImpl(source)
+    public class func create(_ source: WinAppSDK.Visual!) throws -> VisualInteractionSource! {
+        return try _IVisualInteractionSourceStatics.Create(source)
     }
 
-    private static let _IVisualInteractionSourceStatics2: __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSourceStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Composition.Interactions.VisualInteractionSource"))
+    private static let _IVisualInteractionSourceStatics2: __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSourceStatics2 = try! RoGetActivationFactory("Microsoft.UI.Composition.Interactions.VisualInteractionSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.createfromivisualelement)
-    public class func createFromIVisualElement(_ source: WinAppSDK.AnyIVisualElement!) -> VisualInteractionSource! {
-        return try! _IVisualInteractionSourceStatics2.CreateFromIVisualElementImpl(source)
+    public class func createFromIVisualElement(_ source: WinAppSDK.AnyIVisualElement!) throws -> VisualInteractionSource! {
+        return try _IVisualInteractionSourceStatics2.CreateFromIVisualElement(source)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.tryredirectformanipulation)
     public func tryRedirectForManipulation(_ pointerPoint: WinAppSDK.PointerPoint!) throws {
-        try _default.TryRedirectForManipulationImpl(pointerPoint)
+        try _default.TryRedirectForManipulation(pointerPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.ispositionxrailsenabled)
     public var isPositionXRailsEnabled : Bool {
-        get { try! _default.get_IsPositionXRailsEnabledImpl() }
-        set { try! _default.put_IsPositionXRailsEnabledImpl(newValue) }
+        get { try! _default.get_IsPositionXRailsEnabled() }
+        set { try! _default.put_IsPositionXRailsEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.ispositionyrailsenabled)
     public var isPositionYRailsEnabled : Bool {
-        get { try! _default.get_IsPositionYRailsEnabledImpl() }
-        set { try! _default.put_IsPositionYRailsEnabledImpl(newValue) }
+        get { try! _default.get_IsPositionYRailsEnabled() }
+        set { try! _default.put_IsPositionYRailsEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.manipulationredirectionmode)
     public var manipulationRedirectionMode : VisualInteractionSourceRedirectionMode {
-        get { try! _default.get_ManipulationRedirectionModeImpl() }
-        set { try! _default.put_ManipulationRedirectionModeImpl(newValue) }
+        get { try! _default.get_ManipulationRedirectionMode() }
+        set { try! _default.put_ManipulationRedirectionMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.positionxchainingmode)
     public var positionXChainingMode : InteractionChainingMode {
-        get { try! _default.get_PositionXChainingModeImpl() }
-        set { try! _default.put_PositionXChainingModeImpl(newValue) }
+        get { try! _default.get_PositionXChainingMode() }
+        set { try! _default.put_PositionXChainingMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.positionxsourcemode)
     public var positionXSourceMode : InteractionSourceMode {
-        get { try! _default.get_PositionXSourceModeImpl() }
-        set { try! _default.put_PositionXSourceModeImpl(newValue) }
+        get { try! _default.get_PositionXSourceMode() }
+        set { try! _default.put_PositionXSourceMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.positionychainingmode)
     public var positionYChainingMode : InteractionChainingMode {
-        get { try! _default.get_PositionYChainingModeImpl() }
-        set { try! _default.put_PositionYChainingModeImpl(newValue) }
+        get { try! _default.get_PositionYChainingMode() }
+        set { try! _default.put_PositionYChainingMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.positionysourcemode)
     public var positionYSourceMode : InteractionSourceMode {
-        get { try! _default.get_PositionYSourceModeImpl() }
-        set { try! _default.put_PositionYSourceModeImpl(newValue) }
+        get { try! _default.get_PositionYSourceMode() }
+        set { try! _default.put_PositionYSourceMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.scalechainingmode)
     public var scaleChainingMode : InteractionChainingMode {
-        get { try! _default.get_ScaleChainingModeImpl() }
-        set { try! _default.put_ScaleChainingModeImpl(newValue) }
+        get { try! _default.get_ScaleChainingMode() }
+        set { try! _default.put_ScaleChainingMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.scalesourcemode)
     public var scaleSourceMode : InteractionSourceMode {
-        get { try! _default.get_ScaleSourceModeImpl() }
-        set { try! _default.put_ScaleSourceModeImpl(newValue) }
+        get { try! _default.get_ScaleSourceMode() }
+        set { try! _default.put_ScaleSourceMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.source)
     public var source : WinAppSDK.Visual! {
-        get { try! _default.get_SourceImpl() }
+        get { try! _default.get_Source() }
     }
 
     private lazy var _IVisualInteractionSource2: __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSource2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.configurecenterpointxmodifiers)
     public func configureCenterPointXModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<CompositionConditionalValue?>!) throws {
-        try _IVisualInteractionSource2.ConfigureCenterPointXModifiersImpl(conditionalValues)
+        try _IVisualInteractionSource2.ConfigureCenterPointXModifiers(conditionalValues)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.configurecenterpointymodifiers)
     public func configureCenterPointYModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<CompositionConditionalValue?>!) throws {
-        try _IVisualInteractionSource2.ConfigureCenterPointYModifiersImpl(conditionalValues)
+        try _IVisualInteractionSource2.ConfigureCenterPointYModifiers(conditionalValues)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.configuredeltapositionxmodifiers)
     public func configureDeltaPositionXModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<CompositionConditionalValue?>!) throws {
-        try _IVisualInteractionSource2.ConfigureDeltaPositionXModifiersImpl(conditionalValues)
+        try _IVisualInteractionSource2.ConfigureDeltaPositionXModifiers(conditionalValues)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.configuredeltapositionymodifiers)
     public func configureDeltaPositionYModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<CompositionConditionalValue?>!) throws {
-        try _IVisualInteractionSource2.ConfigureDeltaPositionYModifiersImpl(conditionalValues)
+        try _IVisualInteractionSource2.ConfigureDeltaPositionYModifiers(conditionalValues)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.configuredeltascalemodifiers)
     public func configureDeltaScaleModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<CompositionConditionalValue?>!) throws {
-        try _IVisualInteractionSource2.ConfigureDeltaScaleModifiersImpl(conditionalValues)
+        try _IVisualInteractionSource2.ConfigureDeltaScaleModifiers(conditionalValues)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.deltaposition)
     public var deltaPosition : WindowsFoundation.Vector3 {
-        get { try! _IVisualInteractionSource2.get_DeltaPositionImpl() }
+        get { try! _IVisualInteractionSource2.get_DeltaPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.deltascale)
     public var deltaScale : Float {
-        get { try! _IVisualInteractionSource2.get_DeltaScaleImpl() }
+        get { try! _IVisualInteractionSource2.get_DeltaScale() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.position)
     public var position : WindowsFoundation.Vector3 {
-        get { try! _IVisualInteractionSource2.get_PositionImpl() }
+        get { try! _IVisualInteractionSource2.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.positionvelocity)
     public var positionVelocity : WindowsFoundation.Vector3 {
-        get { try! _IVisualInteractionSource2.get_PositionVelocityImpl() }
+        get { try! _IVisualInteractionSource2.get_PositionVelocity() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.scale)
     public var scale : Float {
-        get { try! _IVisualInteractionSource2.get_ScaleImpl() }
+        get { try! _IVisualInteractionSource2.get_Scale() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.scalevelocity)
     public var scaleVelocity : Float {
-        get { try! _IVisualInteractionSource2.get_ScaleVelocityImpl() }
+        get { try! _IVisualInteractionSource2.get_ScaleVelocity() }
     }
 
     private lazy var _IVisualInteractionSource3: __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSource3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.visualinteractionsource.pointerwheelconfig)
     public var pointerWheelConfig : InteractionSourceConfiguration! {
-        get { try! _IVisualInteractionSource3.get_PointerWheelConfigImpl() }
+        get { try! _IVisualInteractionSource3.get_PointerWheelConfig() }
     }
 
     private lazy var _ICompositionInteractionSource: __ABI_Microsoft_UI_Composition_Interactions.ICompositionInteractionSource! = getInterfaceForCaching()
-    internal enum IVisualInteractionSource : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = VisualInteractionSource
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSource
-        }
-    }
-    internal typealias Composable = IVisualInteractionSource
     deinit {
         _default = nil
         _IVisualInteractionSource2 = nil
@@ -1230,7 +1095,7 @@ extension WinAppSDK.InteractionBindingAxisModes {
         __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionBindingAxisModes_Scale
     }
 }
-extension WinAppSDK.InteractionBindingAxisModes: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.InteractionBindingAxisModes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.InteractionChainingMode {
     public static var auto : WinAppSDK.InteractionChainingMode {
@@ -1243,7 +1108,7 @@ extension WinAppSDK.InteractionChainingMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionChainingMode_Never
     }
 }
-extension WinAppSDK.InteractionChainingMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.InteractionChainingMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.InteractionSourceMode {
     public static var disabled : WinAppSDK.InteractionSourceMode {
@@ -1256,7 +1121,7 @@ extension WinAppSDK.InteractionSourceMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionSourceMode_EnabledWithoutInertia
     }
 }
-extension WinAppSDK.InteractionSourceMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.InteractionSourceMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.InteractionSourceRedirectionMode {
     public static var disabled : WinAppSDK.InteractionSourceRedirectionMode {
@@ -1266,7 +1131,7 @@ extension WinAppSDK.InteractionSourceRedirectionMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionSourceRedirectionMode_Enabled
     }
 }
-extension WinAppSDK.InteractionSourceRedirectionMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.InteractionSourceRedirectionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.InteractionTrackerClampingOption {
     public static var auto : WinAppSDK.InteractionTrackerClampingOption {
@@ -1276,7 +1141,7 @@ extension WinAppSDK.InteractionTrackerClampingOption {
         __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionTrackerClampingOption_Disabled
     }
 }
-extension WinAppSDK.InteractionTrackerClampingOption: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.InteractionTrackerClampingOption: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.InteractionTrackerPositionUpdateOption {
     public static var `default` : WinAppSDK.InteractionTrackerPositionUpdateOption {
@@ -1286,7 +1151,7 @@ extension WinAppSDK.InteractionTrackerPositionUpdateOption {
         __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionTrackerPositionUpdateOption_AllowActiveCustomScaleAnimation
     }
 }
-extension WinAppSDK.InteractionTrackerPositionUpdateOption: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.InteractionTrackerPositionUpdateOption: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.VisualInteractionSourceRedirectionMode {
     public static var off : WinAppSDK.VisualInteractionSourceRedirectionMode {
@@ -1302,5 +1167,5 @@ extension WinAppSDK.VisualInteractionSourceRedirectionMode {
         __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CVisualInteractionSourceRedirectionMode_CapableTouchpadAndPointerWheel
     }
 }
-extension WinAppSDK.VisualInteractionSourceRedirectionMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.VisualInteractionSourceRedirectionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

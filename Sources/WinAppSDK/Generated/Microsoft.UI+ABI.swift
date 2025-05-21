@@ -12,11 +12,12 @@ private var IID___x_ABI_CMicrosoft_CUI_CIClosableNotifierHandler: WindowsFoundat
     .init(Data1: 0x478CEC68, Data2: 0xEA8E, Data3: 0x52FC, Data4: ( 0x87,0xE2,0xC8,0x19,0xDE,0x00,0x0F,0x92 ))// 478CEC68-EA8E-52FC-87E2-C819DE000F92
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI {
     public class IClosableNotifier: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CIClosableNotifier }
 
-        open func get_IsClosedImpl() throws -> Bool {
+        open func get_IsClosed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CIClosableNotifier.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsClosed(pThis, &value))
@@ -24,7 +25,7 @@ public enum __ABI_Microsoft_UI {
             return .init(from: value)
         }
 
-        open func add_ClosedImpl(_ handler: WinAppSDK.ClosableNotifierHandler?) throws -> EventRegistrationToken {
+        open func add_Closed(_ handler: WinAppSDK.ClosableNotifierHandler?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Microsoft_UI.ClosableNotifierHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -34,13 +35,13 @@ public enum __ABI_Microsoft_UI {
             return token
         }
 
-        open func remove_ClosedImpl(_ token: EventRegistrationToken) throws {
+        open func remove_Closed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CIClosableNotifier.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Closed(pThis, token))
             }
         }
 
-        open func add_FrameworkClosedImpl(_ handler: WinAppSDK.ClosableNotifierHandler?) throws -> EventRegistrationToken {
+        open func add_FrameworkClosed(_ handler: WinAppSDK.ClosableNotifierHandler?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Microsoft_UI.ClosableNotifierHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -50,7 +51,7 @@ public enum __ABI_Microsoft_UI {
             return token
         }
 
-        open func remove_FrameworkClosedImpl(_ token: EventRegistrationToken) throws {
+        open func remove_FrameworkClosed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CIClosableNotifier.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_FrameworkClosed(pThis, token))
             }
@@ -146,7 +147,7 @@ extension __ABI_Microsoft_UI {
     public class ClosableNotifierHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CIClosableNotifierHandler }
 
-        open func InvokeImpl() throws {
+        open func Invoke() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CIClosableNotifierHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis))
             }
@@ -161,9 +162,11 @@ extension __ABI_Microsoft_UI {
         AddRef: { ClosableNotifierHandlerWrapper.addRef($0) },
         Release: { ClosableNotifierHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = ClosableNotifierHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            __unwrapped__instance()
-            return S_OK
+            do {
+                guard let __unwrapped__instance = ClosableNotifierHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance()
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

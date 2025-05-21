@@ -40,11 +40,12 @@ private var IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResou
     .init(Data1: 0x64ABB08B, Data2: 0xE77D, Data3: 0x5B26, Data4: ( 0x83,0x0F,0x15,0x94,0x1E,0x0E,0x82,0x00 ))// 64ABB08B-E77D-5B26-830F-15941E0E8200
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
     public class IResourceCandidate: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidate }
 
-        internal func get_ValueAsStringImpl() throws -> String {
+        public func get_ValueAsString() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValueAsString(pThis, &value))
@@ -52,7 +53,17 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
             return .init(from: value)
         }
 
-        internal func get_KindImpl() throws -> WinAppSDK.ResourceCandidateKind {
+        public func get_ValueAsBytes() throws -> [UInt8] {
+            var value: WinRTArrayAbi<UINT8> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidate.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValueAsBytes(pThis, &value.count, &value.start))
+            }
+            defer { CoTaskMemFree(value.start) }
+            return .from(abi: value)
+
+        }
+
+        public func get_Kind() throws -> WinAppSDK.ResourceCandidateKind {
             var value: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CResourceCandidateKind = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kind(pThis, &value))
@@ -60,7 +71,7 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
             return value
         }
 
-        internal func get_QualifierValuesImpl() throws -> WindowsFoundation.AnyIMapView<String, String>? {
+        public func get_QualifierValues() throws -> WindowsFoundation.AnyIMapView<String, String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidate.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_QualifierValues(pThis, &valueAbi))
@@ -74,11 +85,22 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
     public class IResourceCandidateFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidateFactory }
 
-        internal func CreateInstanceImpl(_ kind: WinAppSDK.ResourceCandidateKind, _ data: String) throws -> IResourceCandidate {
+        public func CreateInstance(_ kind: WinAppSDK.ResourceCandidateKind, _ data: String) throws -> IResourceCandidate {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _data = try! HString(data)
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidateFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, kind, _data.get(), &valueAbi))
+                }
+            }
+            return IResourceCandidate(value!)
+        }
+
+        public func CreateInstance2(_ data: [UInt8]) throws -> IResourceCandidate {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                try data.toABI { _data in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidateFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance2(pThis, _data.count, _data.start, &valueAbi))
+                    }
                 }
             }
             return IResourceCandidate(value!)
@@ -89,7 +111,7 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
     public class IResourceContext: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceContext }
 
-        open func get_QualifierValuesImpl() throws -> WindowsFoundation.AnyIMap<String, String>? {
+        open func get_QualifierValues() throws -> WindowsFoundation.AnyIMap<String, String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceContext.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_QualifierValues(pThis, &valueAbi))
@@ -146,25 +168,25 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
     public class IResourceManager: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceManager }
 
-        open func get_MainResourceMapImpl() throws -> WinAppSDK.ResourceMap? {
+        open func get_MainResourceMap() throws -> WinAppSDK.ResourceMap? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MainResourceMap(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Windows_ApplicationModel_Resources.ResourceMapBridge.from(abi: value)
         }
 
-        open func CreateResourceContextImpl() throws -> WinAppSDK.ResourceContext? {
+        open func CreateResourceContext() throws -> WinAppSDK.ResourceContext? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateResourceContext(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_ApplicationModel_Resources.ResourceContextBridge.from(abi: result)
         }
 
-        open func add_ResourceNotFoundImpl(_ handler: TypedEventHandler<WinAppSDK.ResourceManager?, WinAppSDK.ResourceNotFoundEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_ResourceNotFound(_ handler: TypedEventHandler<WinAppSDK.ResourceManager?, WinAppSDK.ResourceNotFoundEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CWindows__CApplicationModel__CResources__CResourceManager___x_ABI_CMicrosoft__CWindows__CApplicationModel__CResources__CResourceNotFoundEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -174,7 +196,7 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
             return token
         }
 
-        open func remove_ResourceNotFoundImpl(_ token: EventRegistrationToken) throws {
+        open func remove_ResourceNotFound(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ResourceNotFound(pThis, token))
             }
@@ -223,7 +245,7 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
                 let result = try __unwrapped__instance.createResourceContext()
                 result?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         add_ResourceNotFound: {
@@ -251,7 +273,7 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
     public class IResourceManagerFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceManagerFactory }
 
-        internal func CreateInstanceImpl(_ fileName: String) throws -> IResourceManager {
+        public func CreateInstance(_ fileName: String) throws -> IResourceManager {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _fileName = try! HString(fileName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceManagerFactory.self) { pThis in
@@ -266,7 +288,7 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
     public class IResourceMap: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap }
 
-        internal func get_ResourceCountImpl() throws -> UInt32 {
+        public func get_ResourceCount() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceCount(pThis, &value))
@@ -274,47 +296,47 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
             return value
         }
 
-        internal func GetSubtreeImpl(_ reference: String) throws -> WinAppSDK.ResourceMap? {
+        public func GetSubtree(_ reference: String) throws -> WinAppSDK.ResourceMap? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _reference = try! HString(reference)
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSubtree(pThis, _reference.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_ApplicationModel_Resources.ResourceMapBridge.from(abi: result)
         }
 
-        internal func TryGetSubtreeImpl(_ reference: String) throws -> WinAppSDK.ResourceMap? {
+        public func TryGetSubtree(_ reference: String) throws -> WinAppSDK.ResourceMap? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _reference = try! HString(reference)
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryGetSubtree(pThis, _reference.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_ApplicationModel_Resources.ResourceMapBridge.from(abi: result)
         }
 
-        internal func GetValueImpl(_ resource: String) throws -> WinAppSDK.ResourceCandidate? {
+        public func GetValue(_ resource: String) throws -> WinAppSDK.ResourceCandidate? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _resource = try! HString(resource)
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetValue(pThis, _resource.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_ApplicationModel_Resources.ResourceCandidateBridge.from(abi: result)
         }
 
-        internal func GetValueWithContextImpl(_ resource: String, _ context: WinAppSDK.ResourceContext?) throws -> WinAppSDK.ResourceCandidate? {
+        public func GetValueWithContext(_ resource: String, _ context: WinAppSDK.ResourceContext?) throws -> WinAppSDK.ResourceCandidate? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _resource = try! HString(resource)
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetValueWithContext(pThis, _resource.get(), RawPointer(context), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_ApplicationModel_Resources.ResourceCandidateBridge.from(abi: result)
         }
 
-        internal func GetValueByIndexImpl(_ index: UInt32) throws -> WindowsFoundation.AnyIKeyValuePair<String, WinAppSDK.ResourceCandidate?>? {
+        public func GetValueByIndex(_ index: UInt32) throws -> WindowsFoundation.AnyIKeyValuePair<String, WinAppSDK.ResourceCandidate?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetValueByIndex(pThis, index, &resultAbi))
@@ -323,7 +345,7 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
             return WinAppSDK.__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CMicrosoft__CWindows__CApplicationModel__CResources__CResourceCandidateWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetValueByIndexWithContextImpl(_ index: UInt32, _ context: WinAppSDK.ResourceContext?) throws -> WindowsFoundation.AnyIKeyValuePair<String, WinAppSDK.ResourceCandidate?>? {
+        public func GetValueByIndexWithContext(_ index: UInt32, _ context: WinAppSDK.ResourceContext?) throws -> WindowsFoundation.AnyIKeyValuePair<String, WinAppSDK.ResourceCandidate?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetValueByIndexWithContext(pThis, index, RawPointer(context), &resultAbi))
@@ -332,24 +354,24 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
             return WinAppSDK.__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CMicrosoft__CWindows__CApplicationModel__CResources__CResourceCandidateWrapper.unwrapFrom(abi: result)
         }
 
-        internal func TryGetValueImpl(_ resource: String) throws -> WinAppSDK.ResourceCandidate? {
+        public func TryGetValue(_ resource: String) throws -> WinAppSDK.ResourceCandidate? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _resource = try! HString(resource)
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryGetValue(pThis, _resource.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_ApplicationModel_Resources.ResourceCandidateBridge.from(abi: result)
         }
 
-        internal func TryGetValueWithContextImpl(_ resource: String, _ context: WinAppSDK.ResourceContext?) throws -> WinAppSDK.ResourceCandidate? {
+        public func TryGetValueWithContext(_ resource: String, _ context: WinAppSDK.ResourceContext?) throws -> WinAppSDK.ResourceCandidate? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _resource = try! HString(resource)
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryGetValueWithContext(pThis, _resource.get(), RawPointer(context), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Windows_ApplicationModel_Resources.ResourceCandidateBridge.from(abi: result)
         }
 
     }
@@ -357,16 +379,16 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
     public class IResourceNotFoundEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceNotFoundEventArgs }
 
-        internal func get_ContextImpl() throws -> WinAppSDK.ResourceContext? {
+        public func get_Context() throws -> WinAppSDK.ResourceContext? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceNotFoundEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Context(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Windows_ApplicationModel_Resources.ResourceContextBridge.from(abi: value)
         }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceNotFoundEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -374,7 +396,7 @@ public enum __ABI_Microsoft_Windows_ApplicationModel_Resources {
             return .init(from: value)
         }
 
-        internal func SetResolvedCandidateImpl(_ candidate: WinAppSDK.ResourceCandidate?) throws {
+        public func SetResolvedCandidate(_ candidate: WinAppSDK.ResourceCandidate?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceNotFoundEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetResolvedCandidate(pThis, RawPointer(candidate)))
             }

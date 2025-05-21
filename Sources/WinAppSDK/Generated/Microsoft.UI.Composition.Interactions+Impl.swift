@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Composition_Interactions {
     public enum ICompositionInteractionSourceBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionInteractionSource
@@ -55,34 +56,358 @@ public enum __IMPL_Microsoft_UI_Composition_Interactions {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.iinteractiontrackerowner.customanimationstateentered)
         fileprivate func customAnimationStateEntered(_ sender: InteractionTracker!, _ args: InteractionTrackerCustomAnimationStateEnteredArgs!) throws {
-            try _default.CustomAnimationStateEnteredImpl(sender, args)
+            try _default.CustomAnimationStateEntered(sender, args)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.iinteractiontrackerowner.idlestateentered)
         fileprivate func idleStateEntered(_ sender: InteractionTracker!, _ args: InteractionTrackerIdleStateEnteredArgs!) throws {
-            try _default.IdleStateEnteredImpl(sender, args)
+            try _default.IdleStateEntered(sender, args)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.iinteractiontrackerowner.inertiastateentered)
         fileprivate func inertiaStateEntered(_ sender: InteractionTracker!, _ args: InteractionTrackerInertiaStateEnteredArgs!) throws {
-            try _default.InertiaStateEnteredImpl(sender, args)
+            try _default.InertiaStateEntered(sender, args)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.iinteractiontrackerowner.interactingstateentered)
         fileprivate func interactingStateEntered(_ sender: InteractionTracker!, _ args: InteractionTrackerInteractingStateEnteredArgs!) throws {
-            try _default.InteractingStateEnteredImpl(sender, args)
+            try _default.InteractingStateEntered(sender, args)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.iinteractiontrackerowner.requestignored)
         fileprivate func requestIgnored(_ sender: InteractionTracker!, _ args: InteractionTrackerRequestIgnoredArgs!) throws {
-            try _default.RequestIgnoredImpl(sender, args)
+            try _default.RequestIgnored(sender, args)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.interactions.iinteractiontrackerowner.valueschanged)
         fileprivate func valuesChanged(_ sender: InteractionTracker!, _ args: InteractionTrackerValuesChangedArgs!) throws {
-            try _default.ValuesChangedImpl(sender, args)
+            try _default.ValuesChanged(sender, args)
         }
 
     }
 
+    public enum CompositionConditionalValueBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionConditionalValue
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValue
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValue>?) -> CompositionConditionalValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionInteractionSourceCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionInteractionSourceCollection
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionInteractionSourceCollection
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionInteractionSourceCollection>?) -> CompositionInteractionSourceCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionSourceConfigurationBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionSourceConfiguration
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration>?) -> InteractionSourceConfiguration? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTracker
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker>?) -> InteractionTracker? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerCustomAnimationStateEnteredArgsBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerCustomAnimationStateEnteredArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerCustomAnimationStateEnteredArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerCustomAnimationStateEnteredArgs>?) -> InteractionTrackerCustomAnimationStateEnteredArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerIdleStateEnteredArgsBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerIdleStateEnteredArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerIdleStateEnteredArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerIdleStateEnteredArgs>?) -> InteractionTrackerIdleStateEnteredArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerInertiaModifierBridge: ComposableBridge {
+        public typealias SwiftProjection = InteractionTrackerInertiaModifier
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaModifier
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaModifier>?) -> InteractionTrackerInertiaModifier? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IInteractionTrackerInertiaModifier : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = InteractionTrackerInertiaModifier
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaModifier
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerInertiaModifier
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IInteractionTrackerInertiaModifier
+    }
+
+    public enum InteractionTrackerInertiaMotionBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerInertiaMotion
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotion
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotion>?) -> InteractionTrackerInertiaMotion? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerInertiaNaturalMotionBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerInertiaNaturalMotion
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotion
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotion>?) -> InteractionTrackerInertiaNaturalMotion? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerInertiaRestingValueBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerInertiaRestingValue
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValue
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValue>?) -> InteractionTrackerInertiaRestingValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerInertiaStateEnteredArgsBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerInertiaStateEnteredArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs>?) -> InteractionTrackerInertiaStateEnteredArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerInteractingStateEnteredArgsBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerInteractingStateEnteredArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInteractingStateEnteredArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInteractingStateEnteredArgs>?) -> InteractionTrackerInteractingStateEnteredArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerRequestIgnoredArgsBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerRequestIgnoredArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerRequestIgnoredArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerRequestIgnoredArgs>?) -> InteractionTrackerRequestIgnoredArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerValuesChangedArgsBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerValuesChangedArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerValuesChangedArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerValuesChangedArgs>?) -> InteractionTrackerValuesChangedArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InteractionTrackerVector2InertiaModifierBridge: ComposableBridge {
+        public typealias SwiftProjection = InteractionTrackerVector2InertiaModifier
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaModifier
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaModifier>?) -> InteractionTrackerVector2InertiaModifier? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IInteractionTrackerVector2InertiaModifier : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = InteractionTrackerVector2InertiaModifier
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaModifier
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerVector2InertiaModifier
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IInteractionTrackerVector2InertiaModifier
+    }
+
+    public enum InteractionTrackerVector2InertiaNaturalMotionBridge: AbiBridge {
+        public typealias SwiftProjection = InteractionTrackerVector2InertiaNaturalMotion
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotion
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotion>?) -> InteractionTrackerVector2InertiaNaturalMotion? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VisualInteractionSourceBridge: ComposableBridge {
+        public typealias SwiftProjection = VisualInteractionSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource>?) -> VisualInteractionSource? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IVisualInteractionSource : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = VisualInteractionSource
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition_Interactions.IVisualInteractionSource
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IVisualInteractionSource
+    }
+
+}
+@_spi(WinRTInternal)
+public class ICompositionInteractionSourceMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICompositionInteractionSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition_Interactions.ICompositionInteractionSource = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition_Interactions.ICompositionInteractionSourceBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IInteractionTrackerOwnerMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIInteractionTrackerOwner
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerOwner = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition_Interactions.IInteractionTrackerOwnerBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionConditionalValueMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionConditionalValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionConditionalValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionInteractionSourceCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionInteractionSourceCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionInteractionSourceCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionSourceConfigurationMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionSourceConfiguration
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionSourceConfiguration(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTracker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTracker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerCustomAnimationStateEnteredArgsMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerCustomAnimationStateEnteredArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerCustomAnimationStateEnteredArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerIdleStateEnteredArgsMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerIdleStateEnteredArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerIdleStateEnteredArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerInertiaModifierMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerInertiaModifier
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerInertiaModifier(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerInertiaMotionMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerInertiaMotion
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerInertiaMotion(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerInertiaNaturalMotionMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerInertiaNaturalMotion
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerInertiaNaturalMotion(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerInertiaRestingValueMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerInertiaRestingValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerInertiaRestingValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerInertiaStateEnteredArgsMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerInertiaStateEnteredArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerInertiaStateEnteredArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerInteractingStateEnteredArgsMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerInteractingStateEnteredArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerInteractingStateEnteredArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerRequestIgnoredArgsMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerRequestIgnoredArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerRequestIgnoredArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerValuesChangedArgsMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerValuesChangedArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerValuesChangedArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerVector2InertiaModifierMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerVector2InertiaModifier
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerVector2InertiaModifier(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InteractionTrackerVector2InertiaNaturalMotionMaker: MakeFromAbi {
+    public typealias SwiftType = InteractionTrackerVector2InertiaNaturalMotion
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InteractionTrackerVector2InertiaNaturalMotion(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VisualInteractionSourceMaker: MakeFromAbi {
+    public typealias SwiftType = VisualInteractionSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VisualInteractionSource(fromAbi: abi)
+    }
 }

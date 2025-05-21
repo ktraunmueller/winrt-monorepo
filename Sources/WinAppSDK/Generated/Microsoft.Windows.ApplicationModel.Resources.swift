@@ -20,34 +20,37 @@ public final class ResourceCandidate : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidate>?) -> ResourceCandidate? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IResourceCandidateFactory: __ABI_Microsoft_Windows_ApplicationModel_Resources.IResourceCandidateFactory = try! RoGetActivationFactory(HString("Microsoft.Windows.ApplicationModel.Resources.ResourceCandidate"))
+    private static let _IResourceCandidateFactory: __ABI_Microsoft_Windows_ApplicationModel_Resources.IResourceCandidateFactory = try! RoGetActivationFactory("Microsoft.Windows.ApplicationModel.Resources.ResourceCandidate")
     public init(_ kind: ResourceCandidateKind, _ data: String) {
-        super.init(try! Self._IResourceCandidateFactory.CreateInstanceImpl(kind, data))
+        super.init(try! Self._IResourceCandidateFactory.CreateInstance(kind, data))
+    }
+
+    public init(_ data: [UInt8]) {
+        super.init(try! Self._IResourceCandidateFactory.CreateInstance2(data))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcecandidate.kind)
     public var kind : ResourceCandidateKind {
-        get { try! _default.get_KindImpl() }
+        get { try! _default.get_Kind() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcecandidate.qualifiervalues)
     public var qualifierValues : WindowsFoundation.AnyIMapView<String, String>! {
-        get { try! _default.get_QualifierValuesImpl() }
+        get { try! _default.get_QualifierValues() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcecandidate.valueasbytes)
+    public var valueAsBytes : [UInt8] {
+        get { try! _default.get_ValueAsBytes() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcecandidate.valueasstring)
     public var valueAsString : String {
-        get { try! _default.get_ValueAsStringImpl() }
+        get { try! _default.get_ValueAsString() }
     }
 
     deinit {
@@ -69,12 +72,6 @@ public final class ResourceContext : WinRTClass, IResourceContext {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceContext>?) -> ResourceContext? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -85,7 +82,7 @@ public final class ResourceContext : WinRTClass, IResourceContext {
     private lazy var _IResourceContext2: __ABI_Microsoft_Windows_ApplicationModel_Resources.IResourceContext2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcecontext.qualifiervalues)
     public var qualifierValues : WindowsFoundation.AnyIMap<String, String>! {
-        get { try! _default.get_QualifierValuesImpl() }
+        get { try! _default.get_QualifierValues() }
     }
 
     deinit {
@@ -108,12 +105,6 @@ public final class ResourceManager : WinRTClass, IResourceManager {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceManager>?) -> ResourceManager? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -121,24 +112,25 @@ public final class ResourceManager : WinRTClass, IResourceManager {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.Windows.ApplicationModel.Resources.ResourceManager")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.Windows.ApplicationModel.Resources.ResourceManager")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IResourceManagerFactory: __ABI_Microsoft_Windows_ApplicationModel_Resources.IResourceManagerFactory = try! RoGetActivationFactory(HString("Microsoft.Windows.ApplicationModel.Resources.ResourceManager"))
+    private static let _IResourceManagerFactory: __ABI_Microsoft_Windows_ApplicationModel_Resources.IResourceManagerFactory = try! RoGetActivationFactory("Microsoft.Windows.ApplicationModel.Resources.ResourceManager")
     public init(_ fileName: String) {
-        super.init(try! Self._IResourceManagerFactory.CreateInstanceImpl(fileName))
+        super.init(try! Self._IResourceManagerFactory.CreateInstance(fileName))
     }
 
     private lazy var _IResourceManager2: __ABI_Microsoft_Windows_ApplicationModel_Resources.IResourceManager2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemanager.createresourcecontext)
     public func createResourceContext() throws -> ResourceContext! {
-        try _default.CreateResourceContextImpl()
+        try _default.CreateResourceContext()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemanager.mainresourcemap)
     public var mainResourceMap : ResourceMap! {
-        get { try! _default.get_MainResourceMapImpl() }
+        get { try! _default.get_MainResourceMap() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemanager.resourcenotfound)
@@ -146,10 +138,10 @@ public final class ResourceManager : WinRTClass, IResourceManager {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ResourceNotFoundImpl($0)
+          return try! this.add_ResourceNotFound($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ResourceNotFoundImpl($0)
+         try? self?._default.remove_ResourceNotFound($0)
        }
       )
     }()
@@ -174,59 +166,53 @@ public final class ResourceMap : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap>?) -> ResourceMap? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemap.getsubtree)
     public func getSubtree(_ reference: String) throws -> ResourceMap! {
-        try _default.GetSubtreeImpl(reference)
+        try _default.GetSubtree(reference)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemap.trygetsubtree)
     public func tryGetSubtree(_ reference: String) throws -> ResourceMap! {
-        try _default.TryGetSubtreeImpl(reference)
+        try _default.TryGetSubtree(reference)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemap.getvalue)
     public func getValue(_ resource: String) throws -> ResourceCandidate! {
-        try _default.GetValueImpl(resource)
+        try _default.GetValue(resource)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemap.getvalue)
     public func getValue(_ resource: String, _ context: ResourceContext!) throws -> ResourceCandidate! {
-        try _default.GetValueWithContextImpl(resource, context)
+        try _default.GetValueWithContext(resource, context)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemap.getvaluebyindex)
     public func getValueByIndex(_ index: UInt32) throws -> WindowsFoundation.AnyIKeyValuePair<String, ResourceCandidate?>! {
-        try _default.GetValueByIndexImpl(index)
+        try _default.GetValueByIndex(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemap.getvaluebyindex)
     public func getValueByIndex(_ index: UInt32, _ context: ResourceContext!) throws -> WindowsFoundation.AnyIKeyValuePair<String, ResourceCandidate?>! {
-        try _default.GetValueByIndexWithContextImpl(index, context)
+        try _default.GetValueByIndexWithContext(index, context)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemap.trygetvalue)
     public func tryGetValue(_ resource: String) throws -> ResourceCandidate! {
-        try _default.TryGetValueImpl(resource)
+        try _default.TryGetValue(resource)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemap.trygetvalue)
     public func tryGetValue(_ resource: String, _ context: ResourceContext!) throws -> ResourceCandidate! {
-        try _default.TryGetValueWithContextImpl(resource, context)
+        try _default.TryGetValueWithContext(resource, context)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcemap.resourcecount)
     public var resourceCount : UInt32 {
-        get { try! _default.get_ResourceCountImpl() }
+        get { try! _default.get_ResourceCount() }
     }
 
     deinit {
@@ -248,29 +234,23 @@ public final class ResourceNotFoundEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceNotFoundEventArgs>?) -> ResourceNotFoundEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcenotfoundeventargs.setresolvedcandidate)
     public func setResolvedCandidate(_ candidate: ResourceCandidate!) throws {
-        try _default.SetResolvedCandidateImpl(candidate)
+        try _default.SetResolvedCandidate(candidate)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcenotfoundeventargs.context)
     public var context : ResourceContext! {
-        get { try! _default.get_ContextImpl() }
+        get { try! _default.get_Context() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.resourcenotfoundeventargs.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
+        get { try! _default.get_Name() }
     }
 
     deinit {
@@ -332,5 +312,5 @@ extension WinAppSDK.ResourceCandidateKind {
         __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CResourceCandidateKind_EmbeddedData
     }
 }
-extension WinAppSDK.ResourceCandidateKind: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.ResourceCandidateKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_Windows_ApplicationModel_Resources {
     public enum IResourceContextBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceContext
@@ -30,7 +31,7 @@ public enum __IMPL_Microsoft_Windows_ApplicationModel_Resources {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.iresourcecontext.qualifiervalues)
         fileprivate var qualifierValues : WindowsFoundation.AnyIMap<String, String>! {
-            get { try! _default.get_QualifierValuesImpl() }
+            get { try! _default.get_QualifierValues() }
         }
 
     }
@@ -60,12 +61,12 @@ public enum __IMPL_Microsoft_Windows_ApplicationModel_Resources {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.iresourcemanager.createresourcecontext)
         fileprivate func createResourceContext() throws -> ResourceContext! {
-            try _default.CreateResourceContextImpl()
+            try _default.CreateResourceContext()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.iresourcemanager.mainresourcemap)
         fileprivate var mainResourceMap : ResourceMap! {
-            get { try! _default.get_MainResourceMapImpl() }
+            get { try! _default.get_MainResourceMap() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources.iresourcemanager.resourcenotfound)
@@ -73,14 +74,110 @@ public enum __IMPL_Microsoft_Windows_ApplicationModel_Resources {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_ResourceNotFoundImpl($0)
+              return try! this.add_ResourceNotFound($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_ResourceNotFoundImpl($0)
+             try? self?._default.remove_ResourceNotFound($0)
            }
           )
         }()
 
     }
 
+    public enum ResourceCandidateBridge: AbiBridge {
+        public typealias SwiftProjection = ResourceCandidate
+        public typealias CABI = __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidate
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceCandidate>?) -> ResourceCandidate? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ResourceContextBridge: AbiBridge {
+        public typealias SwiftProjection = ResourceContext
+        public typealias CABI = __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceContext
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceContext>?) -> ResourceContext? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ResourceManagerBridge: AbiBridge {
+        public typealias SwiftProjection = ResourceManager
+        public typealias CABI = __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceManager
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceManager>?) -> ResourceManager? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ResourceMapBridge: AbiBridge {
+        public typealias SwiftProjection = ResourceMap
+        public typealias CABI = __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceMap>?) -> ResourceMap? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ResourceNotFoundEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ResourceNotFoundEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceNotFoundEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CApplicationModel_CResources_CIResourceNotFoundEventArgs>?) -> ResourceNotFoundEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IResourceContextMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIResourceContext
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_Windows_ApplicationModel_Resources.IResourceContext = try! abi.QueryInterface()
+        return __IMPL_Microsoft_Windows_ApplicationModel_Resources.IResourceContextBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IResourceManagerMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIResourceManager
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_Windows_ApplicationModel_Resources.IResourceManager = try! abi.QueryInterface()
+        return __IMPL_Microsoft_Windows_ApplicationModel_Resources.IResourceManagerBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ResourceCandidateMaker: MakeFromAbi {
+    public typealias SwiftType = ResourceCandidate
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ResourceCandidate(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ResourceContextMaker: MakeFromAbi {
+    public typealias SwiftType = ResourceContext
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ResourceContext(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ResourceManagerMaker: MakeFromAbi {
+    public typealias SwiftType = ResourceManager
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ResourceManager(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ResourceMapMaker: MakeFromAbi {
+    public typealias SwiftType = ResourceMap
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ResourceMap(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ResourceNotFoundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ResourceNotFoundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ResourceNotFoundEventArgs(fromAbi: abi)
+    }
 }

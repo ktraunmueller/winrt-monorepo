@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Dispatching {
     public class DispatcherQueueHandlerBridge : WinRTDelegateBridge {
         public typealias Handler = DispatcherQueueHandler
@@ -14,9 +15,89 @@ public enum __IMPL_Microsoft_UI_Dispatching {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { () in
-                try! _default.InvokeImpl()
+                try _default.Invoke()
             }
             return handler
         }
+    }
+    public enum DispatcherExitDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = DispatcherExitDeferral
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherExitDeferral
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherExitDeferral>?) -> DispatcherExitDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DispatcherQueueBridge: AbiBridge {
+        public typealias SwiftProjection = DispatcherQueue
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue>?) -> DispatcherQueue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DispatcherQueueControllerBridge: AbiBridge {
+        public typealias SwiftProjection = DispatcherQueueController
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueController
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueController>?) -> DispatcherQueueController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DispatcherQueueShutdownStartingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = DispatcherQueueShutdownStartingEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueShutdownStartingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueShutdownStartingEventArgs>?) -> DispatcherQueueShutdownStartingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DispatcherQueueTimerBridge: AbiBridge {
+        public typealias SwiftProjection = DispatcherQueueTimer
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer>?) -> DispatcherQueueTimer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DispatcherExitDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = DispatcherExitDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DispatcherExitDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DispatcherQueueMaker: MakeFromAbi {
+    public typealias SwiftType = DispatcherQueue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DispatcherQueue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DispatcherQueueControllerMaker: MakeFromAbi {
+    public typealias SwiftType = DispatcherQueueController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DispatcherQueueController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DispatcherQueueShutdownStartingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DispatcherQueueShutdownStartingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DispatcherQueueShutdownStartingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DispatcherQueueTimerMaker: MakeFromAbi {
+    public typealias SwiftType = DispatcherQueueTimer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DispatcherQueueTimer(fromAbi: abi)
     }
 }

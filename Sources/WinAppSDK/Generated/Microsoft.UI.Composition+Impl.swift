@@ -5,6 +5,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Composition {
     public enum IAnimationObjectBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationObject
@@ -31,7 +32,7 @@ public enum __IMPL_Microsoft_UI_Composition {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.ianimationobject.populatepropertyinfo)
         fileprivate func populatePropertyInfo(_ propertyName: String, _ propertyInfo: AnimationPropertyInfo!) throws {
-            try _default.PopulatePropertyInfoImpl(propertyName, propertyInfo)
+            try _default.PopulatePropertyInfo(propertyName, propertyInfo)
         }
 
     }
@@ -86,8 +87,8 @@ public enum __IMPL_Microsoft_UI_Composition {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.icompositionsupportssystembackdrop.systembackdrop)
         fileprivate var systemBackdrop : UWP.CompositionBrush! {
-            get { try! _default.get_SystemBackdropImpl() }
-            set { try! _default.put_SystemBackdropImpl(newValue) }
+            get { try! _default.get_SystemBackdrop() }
+            set { try! _default.put_SystemBackdrop(newValue) }
         }
 
     }
@@ -142,7 +143,7 @@ public enum __IMPL_Microsoft_UI_Composition {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.icompositionsurfacefacade.getrealsurface)
         fileprivate func getRealSurface() throws -> AnyICompositionSurface! {
-            try _default.GetRealSurfaceImpl()
+            try _default.GetRealSurface()
         }
 
     }
@@ -197,9 +198,1937 @@ public enum __IMPL_Microsoft_UI_Composition {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.ivisualelement2.getvisualinternal)
         fileprivate func getVisualInternal() throws -> Visual! {
-            try _default.GetVisualInternalImpl()
+            try _default.GetVisualInternal()
         }
 
     }
 
+    public enum AmbientLightBridge: AbiBridge {
+        public typealias SwiftProjection = AmbientLight
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIAmbientLight
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIAmbientLight>?) -> AmbientLight? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AnimationControllerBridge: AbiBridge {
+        public typealias SwiftProjection = AnimationController
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIAnimationController>?) -> AnimationController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AnimationPropertyInfoBridge: AbiBridge {
+        public typealias SwiftProjection = AnimationPropertyInfo
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIAnimationPropertyInfo
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIAnimationPropertyInfo>?) -> AnimationPropertyInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BackEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = BackEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIBackEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBackEasingFunction>?) -> BackEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BooleanKeyFrameAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = BooleanKeyFrameAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIBooleanKeyFrameAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBooleanKeyFrameAnimation>?) -> BooleanKeyFrameAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BounceEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = BounceEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIBounceEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBounceEasingFunction>?) -> BounceEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BounceScalarNaturalMotionAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = BounceScalarNaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIBounceScalarNaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBounceScalarNaturalMotionAnimation>?) -> BounceScalarNaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BounceVector2NaturalMotionAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = BounceVector2NaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector2NaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector2NaturalMotionAnimation>?) -> BounceVector2NaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BounceVector3NaturalMotionAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = BounceVector3NaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector3NaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIBounceVector3NaturalMotionAnimation>?) -> BounceVector3NaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CircleEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = CircleEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICircleEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICircleEasingFunction>?) -> CircleEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ColorKeyFrameAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = ColorKeyFrameAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIColorKeyFrameAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIColorKeyFrameAnimation>?) -> ColorKeyFrameAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionAnimationBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation>?) -> CompositionAnimation? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionAnimation : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionAnimation
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimation
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionAnimation
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionAnimation
+    }
+
+    public enum CompositionAnimationGroupBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionAnimationGroup
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimationGroup
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionAnimationGroup>?) -> CompositionAnimationGroup? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionBackdropBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionBackdropBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionBackdropBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionBackdropBrush>?) -> CompositionBackdropBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionBatchCompletedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionBatchCompletedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionBatchCompletedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionBatchCompletedEventArgs>?) -> CompositionBatchCompletedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionBrushBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionBrush>?) -> CompositionBrush? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionBrush : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionBrush
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionBrush
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionBrush
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionBrush
+    }
+
+    public enum CompositionCapabilitiesBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionCapabilities
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionCapabilities
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionCapabilities>?) -> CompositionCapabilities? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionClipBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionClip
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip>?) -> CompositionClip? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionClip : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionClip
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionClip
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionClip
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionClip
+    }
+
+    public enum CompositionColorBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionColorBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorBrush>?) -> CompositionColorBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionColorGradientStopBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionColorGradientStop
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStop
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStop>?) -> CompositionColorGradientStop? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionColorGradientStopCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionColorGradientStopCollection
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStopCollection
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionColorGradientStopCollection>?) -> CompositionColorGradientStopCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionCommitBatchBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionCommitBatch
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionCommitBatch
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionCommitBatch>?) -> CompositionCommitBatch? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionContainerShapeBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionContainerShape
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionContainerShape
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionContainerShape>?) -> CompositionContainerShape? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionDrawingSurfaceBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionDrawingSurface
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface>?) -> CompositionDrawingSurface? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionDrawingSurface : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionDrawingSurface
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionDrawingSurface
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionDrawingSurface
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionDrawingSurface
+    }
+
+    public enum CompositionEasingFunctionBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunction>?) -> CompositionEasingFunction? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionEasingFunction : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionEasingFunction
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEasingFunction
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionEasingFunction
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionEasingFunction
+    }
+
+    public enum CompositionEffectBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionEffectBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectBrush>?) -> CompositionEffectBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionEffectFactoryBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionEffectFactory
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectFactory
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectFactory>?) -> CompositionEffectFactory? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionEffectSourceParameterBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionEffectSourceParameter
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectSourceParameter
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEffectSourceParameter>?) -> CompositionEffectSourceParameter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionEllipseGeometryBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionEllipseGeometry
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionEllipseGeometry
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionEllipseGeometry>?) -> CompositionEllipseGeometry? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionGeometricClipBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionGeometricClip
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometricClip
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometricClip>?) -> CompositionGeometricClip? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionGeometryBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionGeometry
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry>?) -> CompositionGeometry? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionGeometry : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionGeometry
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGeometry
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionGeometry
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionGeometry
+    }
+
+    public enum CompositionGradientBrushBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionGradientBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush>?) -> CompositionGradientBrush? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionGradientBrush : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionGradientBrush
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGradientBrush
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionGradientBrush
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionGradientBrush
+    }
+
+    public enum CompositionGraphicsDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionGraphicsDevice
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionGraphicsDevice>?) -> CompositionGraphicsDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionLightBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionLight
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight>?) -> CompositionLight? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionLight : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionLight
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLight
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionLight
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionLight
+    }
+
+    public enum CompositionLineGeometryBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionLineGeometry
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLineGeometry
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionLineGeometry>?) -> CompositionLineGeometry? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionLinearGradientBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionLinearGradientBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionLinearGradientBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionLinearGradientBrush>?) -> CompositionLinearGradientBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionMaskBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionMaskBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMaskBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionMaskBrush>?) -> CompositionMaskBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionMipmapSurfaceBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionMipmapSurface
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionMipmapSurface
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionMipmapSurface>?) -> CompositionMipmapSurface? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionNineGridBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionNineGridBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionNineGridBrush>?) -> CompositionNineGridBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionObjectBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionObject
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject>?) -> CompositionObject? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionObject : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionObject
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionObject
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionObject
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionObject
+    }
+
+    public enum CompositionPathBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionPath
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPath
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionPath>?) -> CompositionPath? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionPathGeometryBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionPathGeometry
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPathGeometry
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionPathGeometry>?) -> CompositionPathGeometry? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionProjectedShadowBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionProjectedShadow
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadow>?) -> CompositionProjectedShadow? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionProjectedShadowCasterBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionProjectedShadowCaster
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCaster
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCaster>?) -> CompositionProjectedShadowCaster? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionProjectedShadowCasterCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionProjectedShadowCasterCollection
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowCasterCollection>?) -> CompositionProjectedShadowCasterCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionProjectedShadowReceiverBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionProjectedShadowReceiver
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiver
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiver>?) -> CompositionProjectedShadowReceiver? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionProjectedShadowReceiverUnorderedCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionProjectedShadowReceiverUnorderedCollection
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection>?) -> CompositionProjectedShadowReceiverUnorderedCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionPropertySetBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionPropertySet
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionPropertySet>?) -> CompositionPropertySet? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionRadialGradientBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionRadialGradientBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionRadialGradientBrush>?) -> CompositionRadialGradientBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionRectangleGeometryBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionRectangleGeometry
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRectangleGeometry
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionRectangleGeometry>?) -> CompositionRectangleGeometry? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionRoundedRectangleGeometryBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionRoundedRectangleGeometry
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionRoundedRectangleGeometry>?) -> CompositionRoundedRectangleGeometry? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionScopedBatchBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionScopedBatch
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionScopedBatch>?) -> CompositionScopedBatch? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionShadowBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionShadow
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShadow
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionShadow>?) -> CompositionShadow? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionShadow : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionShadow
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShadow
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionShadow
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionShadow
+    }
+
+    public enum CompositionShapeBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionShape
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape>?) -> CompositionShape? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionShape : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionShape
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionShape
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionShape
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionShape
+    }
+
+    public enum CompositionShapeCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionShapeCollection
+        public typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CComposition__CCompositionShape
+        public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CComposition__CCompositionShape>?) -> CompositionShapeCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionSpriteShapeBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionSpriteShape
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionSpriteShape>?) -> CompositionSpriteShape? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionStrokeDashArrayBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionStrokeDashArray
+        public typealias CABI = __x_ABI_C__FIVector_1_float
+        public static func from(abi: ComPtr<__x_ABI_C__FIVector_1_float>?) -> CompositionStrokeDashArray? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionSurfaceBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionSurfaceBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionSurfaceBrush>?) -> CompositionSurfaceBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionTransformBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionTransform
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionTransform
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionTransform>?) -> CompositionTransform? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionTransform : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionTransform
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionTransform
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionTransform
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionTransform
+    }
+
+    public enum CompositionViewBoxBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionViewBox
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionViewBox>?) -> CompositionViewBox? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositionVirtualDrawingSurfaceBridge: ComposableBridge {
+        public typealias SwiftProjection = CompositionVirtualDrawingSurface
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVirtualDrawingSurface
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionVirtualDrawingSurface>?) -> CompositionVirtualDrawingSurface? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICompositionVirtualDrawingSurface : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CompositionVirtualDrawingSurface
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVirtualDrawingSurface
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.ICompositionVirtualDrawingSurface
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICompositionVirtualDrawingSurface
+    }
+
+    public enum CompositionVisualSurfaceBridge: AbiBridge {
+        public typealias SwiftProjection = CompositionVisualSurface
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositionVisualSurface>?) -> CompositionVisualSurface? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CompositorBridge: AbiBridge {
+        public typealias SwiftProjection = Compositor
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICompositor
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICompositor>?) -> Compositor? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ContainerVisualBridge: ComposableBridge {
+        public typealias SwiftProjection = ContainerVisual
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual>?) -> ContainerVisual? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IContainerVisual : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = ContainerVisual
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.IContainerVisual
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IContainerVisual
+    }
+
+    public enum CubicBezierEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = CubicBezierEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CICubicBezierEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CICubicBezierEasingFunction>?) -> CubicBezierEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DistantLightBridge: AbiBridge {
+        public typealias SwiftProjection = DistantLight
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIDistantLight>?) -> DistantLight? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DropShadowBridge: AbiBridge {
+        public typealias SwiftProjection = DropShadow
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIDropShadow>?) -> DropShadow? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ElasticEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = ElasticEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIElasticEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIElasticEasingFunction>?) -> ElasticEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ExponentialEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = ExponentialEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIExponentialEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIExponentialEasingFunction>?) -> ExponentialEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ExpressionAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = ExpressionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIExpressionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIExpressionAnimation>?) -> ExpressionAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ImplicitAnimationCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = ImplicitAnimationCollection
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIImplicitAnimationCollection
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIImplicitAnimationCollection>?) -> ImplicitAnimationCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InitialValueExpressionCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = InitialValueExpressionCollection
+        public typealias CABI = __x_ABI_C__FIMap_2_HSTRING_HSTRING
+        public static func from(abi: ComPtr<__x_ABI_C__FIMap_2_HSTRING_HSTRING>?) -> InitialValueExpressionCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InsetClipBridge: AbiBridge {
+        public typealias SwiftProjection = InsetClip
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIInsetClip>?) -> InsetClip? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum KeyFrameAnimationBridge: ComposableBridge {
+        public typealias SwiftProjection = KeyFrameAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation>?) -> KeyFrameAnimation? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IKeyFrameAnimation : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = KeyFrameAnimation
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIKeyFrameAnimation
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.IKeyFrameAnimation
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IKeyFrameAnimation
+    }
+
+    public enum LayerVisualBridge: AbiBridge {
+        public typealias SwiftProjection = LayerVisual
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CILayerVisual
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CILayerVisual>?) -> LayerVisual? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LinearEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = LinearEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CILinearEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CILinearEasingFunction>?) -> LinearEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NaturalMotionAnimationBridge: ComposableBridge {
+        public typealias SwiftProjection = NaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation>?) -> NaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum INaturalMotionAnimation : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = NaturalMotionAnimation
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CINaturalMotionAnimation
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.INaturalMotionAnimation
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = INaturalMotionAnimation
+    }
+
+    public enum PathKeyFrameAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = PathKeyFrameAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIPathKeyFrameAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIPathKeyFrameAnimation>?) -> PathKeyFrameAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointLightBridge: AbiBridge {
+        public typealias SwiftProjection = PointLight
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIPointLight
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIPointLight>?) -> PointLight? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PowerEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = PowerEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIPowerEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIPowerEasingFunction>?) -> PowerEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum QuaternionKeyFrameAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = QuaternionKeyFrameAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIQuaternionKeyFrameAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIQuaternionKeyFrameAnimation>?) -> QuaternionKeyFrameAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RectangleClipBridge: AbiBridge {
+        public typealias SwiftProjection = RectangleClip
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIRectangleClip>?) -> RectangleClip? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RedirectVisualBridge: AbiBridge {
+        public typealias SwiftProjection = RedirectVisual
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIRedirectVisual
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIRedirectVisual>?) -> RedirectVisual? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RenderingDeviceReplacedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = RenderingDeviceReplacedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIRenderingDeviceReplacedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIRenderingDeviceReplacedEventArgs>?) -> RenderingDeviceReplacedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ScalarKeyFrameAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = ScalarKeyFrameAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIScalarKeyFrameAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIScalarKeyFrameAnimation>?) -> ScalarKeyFrameAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ScalarNaturalMotionAnimationBridge: ComposableBridge {
+        public typealias SwiftProjection = ScalarNaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation>?) -> ScalarNaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IScalarNaturalMotionAnimation : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = ScalarNaturalMotionAnimation
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIScalarNaturalMotionAnimation
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.IScalarNaturalMotionAnimation
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IScalarNaturalMotionAnimation
+    }
+
+    public enum ShapeVisualBridge: AbiBridge {
+        public typealias SwiftProjection = ShapeVisual
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIShapeVisual
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIShapeVisual>?) -> ShapeVisual? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SineEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = SineEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CISineEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISineEasingFunction>?) -> SineEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SpotLightBridge: AbiBridge {
+        public typealias SwiftProjection = SpotLight
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CISpotLight
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpotLight>?) -> SpotLight? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SpringScalarNaturalMotionAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = SpringScalarNaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CISpringScalarNaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpringScalarNaturalMotionAnimation>?) -> SpringScalarNaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SpringVector2NaturalMotionAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = SpringVector2NaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector2NaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpringVector2NaturalMotionAnimation>?) -> SpringVector2NaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SpringVector3NaturalMotionAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = SpringVector3NaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CISpringVector3NaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpringVector3NaturalMotionAnimation>?) -> SpringVector3NaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SpriteVisualBridge: AbiBridge {
+        public typealias SwiftProjection = SpriteVisual
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CISpriteVisual
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CISpriteVisual>?) -> SpriteVisual? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StepEasingFunctionBridge: AbiBridge {
+        public typealias SwiftProjection = StepEasingFunction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIStepEasingFunction>?) -> StepEasingFunction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum Vector2KeyFrameAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = Vector2KeyFrameAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVector2KeyFrameAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector2KeyFrameAnimation>?) -> Vector2KeyFrameAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum Vector2NaturalMotionAnimationBridge: ComposableBridge {
+        public typealias SwiftProjection = Vector2NaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation>?) -> Vector2NaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IVector2NaturalMotionAnimation : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = Vector2NaturalMotionAnimation
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVector2NaturalMotionAnimation
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.IVector2NaturalMotionAnimation
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IVector2NaturalMotionAnimation
+    }
+
+    public enum Vector3KeyFrameAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = Vector3KeyFrameAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVector3KeyFrameAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector3KeyFrameAnimation>?) -> Vector3KeyFrameAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum Vector3NaturalMotionAnimationBridge: ComposableBridge {
+        public typealias SwiftProjection = Vector3NaturalMotionAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation>?) -> Vector3NaturalMotionAnimation? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IVector3NaturalMotionAnimation : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = Vector3NaturalMotionAnimation
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVector3NaturalMotionAnimation
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.IVector3NaturalMotionAnimation
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IVector3NaturalMotionAnimation
+    }
+
+    public enum Vector4KeyFrameAnimationBridge: AbiBridge {
+        public typealias SwiftProjection = Vector4KeyFrameAnimation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVector4KeyFrameAnimation
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVector4KeyFrameAnimation>?) -> Vector4KeyFrameAnimation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VisualBridge: ComposableBridge {
+        public typealias SwiftProjection = Visual
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVisual
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVisual>?) -> Visual? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IVisual : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = Visual
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVisual
+                public typealias SwiftABI = __ABI_Microsoft_UI_Composition.IVisual
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IVisual
+    }
+
+    public enum VisualCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = VisualCollection
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVisualCollection>?) -> VisualCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VisualUnorderedCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = VisualUnorderedCollection
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CIVisualUnorderedCollection
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CIVisualUnorderedCollection>?) -> VisualUnorderedCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IAnimationObjectMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIAnimationObject
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition.IAnimationObject = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition.IAnimationObjectBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ICompositionAnimationBaseMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICompositionAnimationBase
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition.ICompositionAnimationBase = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition.ICompositionAnimationBaseBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ICompositionSupportsSystemBackdropMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICompositionSupportsSystemBackdrop
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition.ICompositionSupportsSystemBackdrop = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition.ICompositionSupportsSystemBackdropBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ICompositionSurfaceMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICompositionSurface
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition.ICompositionSurface = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition.ICompositionSurfaceBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ICompositionSurfaceFacadeMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICompositionSurfaceFacade
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition.ICompositionSurfaceFacade = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition.ICompositionSurfaceFacadeBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IVisualElementMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIVisualElement
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition.IVisualElement = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition.IVisualElementBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IVisualElement2Maker: MakeFromAbi {
+    public typealias SwiftType = AnyIVisualElement2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition.IVisualElement2 = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition.IVisualElement2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class AmbientLightMaker: MakeFromAbi {
+    public typealias SwiftType = AmbientLight
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AmbientLight(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AnimationControllerMaker: MakeFromAbi {
+    public typealias SwiftType = AnimationController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AnimationController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AnimationPropertyInfoMaker: MakeFromAbi {
+    public typealias SwiftType = AnimationPropertyInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AnimationPropertyInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BackEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = BackEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BooleanKeyFrameAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = BooleanKeyFrameAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BooleanKeyFrameAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BounceEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = BounceEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BounceEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BounceScalarNaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = BounceScalarNaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BounceScalarNaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BounceVector2NaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = BounceVector2NaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BounceVector2NaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BounceVector3NaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = BounceVector3NaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BounceVector3NaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CircleEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = CircleEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CircleEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ColorKeyFrameAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = ColorKeyFrameAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ColorKeyFrameAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionAnimationGroupMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionAnimationGroup
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionAnimationGroup(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionBackdropBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionBackdropBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionBackdropBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionBatchCompletedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionBatchCompletedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionBatchCompletedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionCapabilitiesMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionCapabilities
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionCapabilities(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionClipMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionClip
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionClip(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionColorBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionColorBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionColorBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionColorGradientStopMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionColorGradientStop
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionColorGradientStop(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionColorGradientStopCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionColorGradientStopCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionColorGradientStopCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionCommitBatchMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionCommitBatch
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionCommitBatch(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionContainerShapeMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionContainerShape
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionContainerShape(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionDrawingSurfaceMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionDrawingSurface
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionDrawingSurface(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionEffectBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionEffectBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionEffectBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionEffectFactoryMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionEffectFactory
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionEffectFactory(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionEffectSourceParameterMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionEffectSourceParameter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionEffectSourceParameter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionEllipseGeometryMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionEllipseGeometry
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionEllipseGeometry(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionGeometricClipMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionGeometricClip
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionGeometricClip(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionGeometryMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionGeometry
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionGeometry(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionGradientBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionGradientBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionGradientBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionGraphicsDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionGraphicsDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionGraphicsDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionLightMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionLight
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionLight(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionLineGeometryMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionLineGeometry
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionLineGeometry(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionLinearGradientBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionLinearGradientBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionLinearGradientBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionMaskBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionMaskBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionMaskBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionMipmapSurfaceMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionMipmapSurface
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionMipmapSurface(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionNineGridBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionNineGridBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionNineGridBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionObjectMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionObject
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionObject(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionPathMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionPath
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionPath(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionPathGeometryMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionPathGeometry
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionPathGeometry(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionProjectedShadowMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionProjectedShadow
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionProjectedShadow(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionProjectedShadowCasterMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionProjectedShadowCaster
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionProjectedShadowCaster(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionProjectedShadowCasterCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionProjectedShadowCasterCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionProjectedShadowCasterCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionProjectedShadowReceiverMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionProjectedShadowReceiver
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionProjectedShadowReceiver(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionProjectedShadowReceiverUnorderedCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionProjectedShadowReceiverUnorderedCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionProjectedShadowReceiverUnorderedCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionPropertySetMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionPropertySet
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionPropertySet(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionRadialGradientBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionRadialGradientBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionRadialGradientBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionRectangleGeometryMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionRectangleGeometry
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionRectangleGeometry(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionRoundedRectangleGeometryMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionRoundedRectangleGeometry
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionRoundedRectangleGeometry(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionScopedBatchMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionScopedBatch
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionScopedBatch(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionShadowMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionShadow
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionShadow(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionShapeMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionShape
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionShape(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionShapeCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionShapeCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionShapeCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionSpriteShapeMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionSpriteShape
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionSpriteShape(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionStrokeDashArrayMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionStrokeDashArray
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionStrokeDashArray(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionSurfaceBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionSurfaceBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionSurfaceBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionTransformMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionTransform
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionTransform(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionViewBoxMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionViewBox
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionViewBox(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionVirtualDrawingSurfaceMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionVirtualDrawingSurface
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionVirtualDrawingSurface(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositionVisualSurfaceMaker: MakeFromAbi {
+    public typealias SwiftType = CompositionVisualSurface
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CompositionVisualSurface(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CompositorMaker: MakeFromAbi {
+    public typealias SwiftType = Compositor
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Compositor(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ContainerVisualMaker: MakeFromAbi {
+    public typealias SwiftType = ContainerVisual
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ContainerVisual(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CubicBezierEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = CubicBezierEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CubicBezierEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DistantLightMaker: MakeFromAbi {
+    public typealias SwiftType = DistantLight
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DistantLight(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DropShadowMaker: MakeFromAbi {
+    public typealias SwiftType = DropShadow
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DropShadow(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ElasticEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = ElasticEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ElasticEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ExponentialEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = ExponentialEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ExponentialEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ExpressionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = ExpressionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ExpressionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ImplicitAnimationCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = ImplicitAnimationCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ImplicitAnimationCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InitialValueExpressionCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = InitialValueExpressionCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InitialValueExpressionCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InsetClipMaker: MakeFromAbi {
+    public typealias SwiftType = InsetClip
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InsetClip(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class KeyFrameAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = KeyFrameAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return KeyFrameAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LayerVisualMaker: MakeFromAbi {
+    public typealias SwiftType = LayerVisual
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LayerVisual(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LinearEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = LinearEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LinearEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = NaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PathKeyFrameAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = PathKeyFrameAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PathKeyFrameAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointLightMaker: MakeFromAbi {
+    public typealias SwiftType = PointLight
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointLight(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PowerEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = PowerEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PowerEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class QuaternionKeyFrameAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = QuaternionKeyFrameAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return QuaternionKeyFrameAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RectangleClipMaker: MakeFromAbi {
+    public typealias SwiftType = RectangleClip
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RectangleClip(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RedirectVisualMaker: MakeFromAbi {
+    public typealias SwiftType = RedirectVisual
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RedirectVisual(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RenderingDeviceReplacedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = RenderingDeviceReplacedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RenderingDeviceReplacedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ScalarKeyFrameAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = ScalarKeyFrameAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ScalarKeyFrameAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ScalarNaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = ScalarNaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ScalarNaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ShapeVisualMaker: MakeFromAbi {
+    public typealias SwiftType = ShapeVisual
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShapeVisual(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SineEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = SineEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SineEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SpotLightMaker: MakeFromAbi {
+    public typealias SwiftType = SpotLight
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SpotLight(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SpringScalarNaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = SpringScalarNaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SpringScalarNaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SpringVector2NaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = SpringVector2NaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SpringVector2NaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SpringVector3NaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = SpringVector3NaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SpringVector3NaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SpriteVisualMaker: MakeFromAbi {
+    public typealias SwiftType = SpriteVisual
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SpriteVisual(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StepEasingFunctionMaker: MakeFromAbi {
+    public typealias SwiftType = StepEasingFunction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StepEasingFunction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class Vector2KeyFrameAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = Vector2KeyFrameAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Vector2KeyFrameAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class Vector2NaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = Vector2NaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Vector2NaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class Vector3KeyFrameAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = Vector3KeyFrameAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Vector3KeyFrameAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class Vector3NaturalMotionAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = Vector3NaturalMotionAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Vector3NaturalMotionAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class Vector4KeyFrameAnimationMaker: MakeFromAbi {
+    public typealias SwiftType = Vector4KeyFrameAnimation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Vector4KeyFrameAnimation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VisualMaker: MakeFromAbi {
+    public typealias SwiftType = Visual
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Visual(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VisualCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = VisualCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VisualCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VisualUnorderedCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = VisualUnorderedCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VisualUnorderedCollection(fromAbi: abi)
+    }
 }

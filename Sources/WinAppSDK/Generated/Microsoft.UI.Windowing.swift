@@ -31,148 +31,142 @@ public final class AppWindow : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow>?) -> AppWindow? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IAppWindowStatics: __ABI_Microsoft_UI_Windowing.IAppWindowStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Windowing.AppWindow"))
+    private static let _IAppWindowStatics: __ABI_Microsoft_UI_Windowing.IAppWindowStatics = try! RoGetActivationFactory("Microsoft.UI.Windowing.AppWindow")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.create)
-    public static func create() -> AppWindow! {
-        return try! _IAppWindowStatics.CreateImpl()
+    public static func create() throws -> AppWindow! {
+        return try _IAppWindowStatics.Create()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.create)
-    public static func create(_ appWindowPresenter: AppWindowPresenter!) -> AppWindow! {
-        return try! _IAppWindowStatics.CreateWithPresenterImpl(appWindowPresenter)
+    public static func create(_ appWindowPresenter: AppWindowPresenter!) throws -> AppWindow! {
+        return try _IAppWindowStatics.CreateWithPresenter(appWindowPresenter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.create)
-    public static func create(_ appWindowPresenter: AppWindowPresenter!, _ ownerWindowId: WinAppSDK.WindowId) -> AppWindow! {
-        return try! _IAppWindowStatics.CreateWithPresenterAndOwnerImpl(appWindowPresenter, ownerWindowId)
+    public static func create(_ appWindowPresenter: AppWindowPresenter!, _ ownerWindowId: WinAppSDK.WindowId) throws -> AppWindow! {
+        return try _IAppWindowStatics.CreateWithPresenterAndOwner(appWindowPresenter, ownerWindowId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.getfromwindowid)
-    public static func getFromWindowId(_ windowId: WinAppSDK.WindowId) -> AppWindow! {
-        return try! _IAppWindowStatics.GetFromWindowIdImpl(windowId)
+    public static func getFromWindowId(_ windowId: WinAppSDK.WindowId) throws -> AppWindow! {
+        return try _IAppWindowStatics.GetFromWindowId(windowId)
     }
 
-    private static let _IAppWindowStatics2: __ABI_Microsoft_UI_Windowing.IAppWindowStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Windowing.AppWindow"))
+    private static let _IAppWindowStatics2: __ABI_Microsoft_UI_Windowing.IAppWindowStatics2 = try! RoGetActivationFactory("Microsoft.UI.Windowing.AppWindow")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.create)
-    public static func create(_ appWindowPresenter: AppWindowPresenter!, _ ownerWindowId: WinAppSDK.WindowId, _ DispatcherQueue: WinAppSDK.DispatcherQueue!) -> AppWindow! {
-        return try! _IAppWindowStatics2.CreateWithDispatcherQueueImpl(appWindowPresenter, ownerWindowId, DispatcherQueue)
+    public static func create(_ appWindowPresenter: AppWindowPresenter!, _ ownerWindowId: WinAppSDK.WindowId, _ DispatcherQueue: WinAppSDK.DispatcherQueue!) throws -> AppWindow! {
+        return try _IAppWindowStatics2.CreateWithDispatcherQueue(appWindowPresenter, ownerWindowId, DispatcherQueue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.destroy)
     public func destroy() throws {
-        try _default.DestroyImpl()
+        try _default.Destroy()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.hide)
     public func hide() throws {
-        try _default.HideImpl()
+        try _default.Hide()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.move)
     public func move(_ position: UWP.PointInt32) throws {
-        try _default.MoveImpl(position)
+        try _default.Move(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.moveandresize)
     public func moveAndResize(_ rect: UWP.RectInt32) throws {
-        try _default.MoveAndResizeImpl(rect)
+        try _default.MoveAndResize(rect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.moveandresize)
     public func moveAndResize(_ rect: UWP.RectInt32, _ displayarea: DisplayArea!) throws {
-        try _default.MoveAndResizeRelativeToDisplayAreaImpl(rect, displayarea)
+        try _default.MoveAndResizeRelativeToDisplayArea(rect, displayarea)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.resize)
     public func resize(_ size: UWP.SizeInt32) throws {
-        try _default.ResizeImpl(size)
+        try _default.Resize(size)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.seticon)
     public func setIcon(_ iconPath: String) throws {
-        try _default.SetIconImpl(iconPath)
+        try _default.SetIcon(iconPath)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.seticon)
     public func setIcon(_ iconId: WinAppSDK.IconId) throws {
-        try _default.SetIconWithIconIdImpl(iconId)
+        try _default.SetIconWithIconId(iconId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.setpresenter)
     public func setPresenter(_ appWindowPresenter: AppWindowPresenter!) throws {
-        try _default.SetPresenterImpl(appWindowPresenter)
+        try _default.SetPresenter(appWindowPresenter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.setpresenter)
     public func setPresenter(_ appWindowPresenterKind: AppWindowPresenterKind) throws {
-        try _default.SetPresenterByKindImpl(appWindowPresenterKind)
+        try _default.SetPresenterByKind(appWindowPresenterKind)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.show)
     public func show() throws {
-        try _default.ShowImpl()
+        try _default.Show()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.show)
     public func show(_ activateWindow: Bool) throws {
-        try _default.ShowWithActivationImpl(activateWindow)
+        try _default.ShowWithActivation(activateWindow)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.id)
     public var id : WinAppSDK.WindowId {
-        get { try! _default.get_IdImpl() }
+        get { try! _default.get_Id() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.isshowninswitchers)
     public var isShownInSwitchers : Bool {
-        get { try! _default.get_IsShownInSwitchersImpl() }
-        set { try! _default.put_IsShownInSwitchersImpl(newValue) }
+        get { try! _default.get_IsShownInSwitchers() }
+        set { try! _default.put_IsShownInSwitchers(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.isvisible)
     public var isVisible : Bool {
-        get { try! _default.get_IsVisibleImpl() }
+        get { try! _default.get_IsVisible() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.ownerwindowid)
     public var ownerWindowId : WinAppSDK.WindowId {
-        get { try! _default.get_OwnerWindowIdImpl() }
+        get { try! _default.get_OwnerWindowId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.position)
     public var position : UWP.PointInt32 {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.presenter)
     public var presenter : AppWindowPresenter! {
-        get { try! _default.get_PresenterImpl() }
+        get { try! _default.get_Presenter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.size)
     public var size : UWP.SizeInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.title)
     public var title : String {
-        get { try! _default.get_TitleImpl() }
-        set { try! _default.put_TitleImpl(newValue) }
+        get { try! _default.get_Title() }
+        set { try! _default.put_Title(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.titlebar)
     public var titleBar : AppWindowTitleBar! {
-        get { try! _default.get_TitleBarImpl() }
+        get { try! _default.get_TitleBar() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.changed)
@@ -180,10 +174,10 @@ public final class AppWindow : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ChangedImpl($0)
+          return try! this.add_Changed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ChangedImpl($0)
+         try? self?._default.remove_Changed($0)
        }
       )
     }()
@@ -193,10 +187,10 @@ public final class AppWindow : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ClosingImpl($0)
+          return try! this.add_Closing($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ClosingImpl($0)
+         try? self?._default.remove_Closing($0)
        }
       )
     }()
@@ -206,10 +200,10 @@ public final class AppWindow : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DestroyingImpl($0)
+          return try! this.add_Destroying($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DestroyingImpl($0)
+         try? self?._default.remove_Destroying($0)
        }
       )
     }()
@@ -217,43 +211,43 @@ public final class AppWindow : WinRTClass {
     private lazy var _IAppWindow2: __ABI_Microsoft_UI_Windowing.IAppWindow2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.moveinzorderatbottom)
     public func moveInZOrderAtBottom() throws {
-        try _IAppWindow2.MoveInZOrderAtBottomImpl()
+        try _IAppWindow2.MoveInZOrderAtBottom()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.moveinzorderattop)
     public func moveInZOrderAtTop() throws {
-        try _IAppWindow2.MoveInZOrderAtTopImpl()
+        try _IAppWindow2.MoveInZOrderAtTop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.moveinzorderbelow)
     public func moveInZOrderBelow(_ windowId: WinAppSDK.WindowId) throws {
-        try _IAppWindow2.MoveInZOrderBelowImpl(windowId)
+        try _IAppWindow2.MoveInZOrderBelow(windowId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.resizeclient)
     public func resizeClient(_ size: UWP.SizeInt32) throws {
-        try _IAppWindow2.ResizeClientImpl(size)
+        try _IAppWindow2.ResizeClient(size)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.showoncewithrequestedstartupstate)
     public func showOnceWithRequestedStartupState() throws {
-        try _IAppWindow2.ShowOnceWithRequestedStartupStateImpl()
+        try _IAppWindow2.ShowOnceWithRequestedStartupState()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.clientsize)
     public var clientSize : UWP.SizeInt32 {
-        get { try! _IAppWindow2.get_ClientSizeImpl() }
+        get { try! _IAppWindow2.get_ClientSize() }
     }
 
     private lazy var _IAppWindow3: __ABI_Microsoft_UI_Windowing.IAppWindow3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.associatewithdispatcherqueue)
     public func associateWithDispatcherQueue(_ dispatcherQueue: WinAppSDK.DispatcherQueue!) throws {
-        try _IAppWindow3.AssociateWithDispatcherQueueImpl(dispatcherQueue)
+        try _IAppWindow3.AssociateWithDispatcherQueue(dispatcherQueue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.dispatcherqueue)
     public var dispatcherQueue : WinAppSDK.DispatcherQueue! {
-        get { try! _IAppWindow3.get_DispatcherQueueImpl() }
+        get { try! _IAppWindow3.get_DispatcherQueue() }
     }
 
     deinit {
@@ -277,55 +271,49 @@ public final class AppWindowChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowChangedEventArgs>?) -> AppWindowChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowchangedeventargs.didpositionchange)
     public var didPositionChange : Bool {
-        get { try! _default.get_DidPositionChangeImpl() }
+        get { try! _default.get_DidPositionChange() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowchangedeventargs.didpresenterchange)
     public var didPresenterChange : Bool {
-        get { try! _default.get_DidPresenterChangeImpl() }
+        get { try! _default.get_DidPresenterChange() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowchangedeventargs.didsizechange)
     public var didSizeChange : Bool {
-        get { try! _default.get_DidSizeChangeImpl() }
+        get { try! _default.get_DidSizeChange() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowchangedeventargs.didvisibilitychange)
     public var didVisibilityChange : Bool {
-        get { try! _default.get_DidVisibilityChangeImpl() }
+        get { try! _default.get_DidVisibilityChange() }
     }
 
     private lazy var _IAppWindowChangedEventArgs2: __ABI_Microsoft_UI_Windowing.IAppWindowChangedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowchangedeventargs.didzorderchange)
     public var didZOrderChange : Bool {
-        get { try! _IAppWindowChangedEventArgs2.get_DidZOrderChangeImpl() }
+        get { try! _IAppWindowChangedEventArgs2.get_DidZOrderChange() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowchangedeventargs.iszorderatbottom)
     public var isZOrderAtBottom : Bool {
-        get { try! _IAppWindowChangedEventArgs2.get_IsZOrderAtBottomImpl() }
+        get { try! _IAppWindowChangedEventArgs2.get_IsZOrderAtBottom() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowchangedeventargs.iszorderattop)
     public var isZOrderAtTop : Bool {
-        get { try! _IAppWindowChangedEventArgs2.get_IsZOrderAtTopImpl() }
+        get { try! _IAppWindowChangedEventArgs2.get_IsZOrderAtTop() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowchangedeventargs.zorderbelowwindowid)
     public var zorderBelowWindowId : WinAppSDK.WindowId {
-        get { try! _IAppWindowChangedEventArgs2.get_ZOrderBelowWindowIdImpl() }
+        get { try! _IAppWindowChangedEventArgs2.get_ZOrderBelowWindowId() }
     }
 
     deinit {
@@ -348,20 +336,14 @@ public final class AppWindowClosingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowClosingEventArgs>?) -> AppWindowClosingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowclosingeventargs.cancel)
     public var cancel : Bool {
-        get { try! _default.get_CancelImpl() }
-        set { try! _default.put_CancelImpl(newValue) }
+        get { try! _default.get_Cancel() }
+        set { try! _default.put_Cancel(newValue) }
     }
 
     deinit {
@@ -383,12 +365,6 @@ open class AppWindowPresenter : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowPresenter>?) -> AppWindowPresenter? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -404,24 +380,13 @@ open class AppWindowPresenter : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IAppWindowPresenterFactory : __ABI_Microsoft_UI_Windowing.IAppWindowPresenterFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Windowing.AppWindowPresenter"))
+    private static var _IAppWindowPresenterFactory : __ABI_Microsoft_UI_Windowing.IAppWindowPresenterFactory =  try! RoGetActivationFactory("Microsoft.UI.Windowing.AppWindowPresenter")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowpresenter.kind)
     public var kind : AppWindowPresenterKind {
-        get { try! _default.get_KindImpl() }
+        get { try! _default.get_Kind() }
     }
 
-    internal enum IAppWindowPresenter : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = AppWindowPresenter
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowPresenter
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Windowing.IAppWindowPresenter
-        }
-    }
-    internal typealias Composable = IAppWindowPresenter
     deinit {
         _default = nil
     }
@@ -441,131 +406,130 @@ public final class AppWindowTitleBar : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar>?) -> AppWindowTitleBar? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IAppWindowTitleBarStatics: __ABI_Microsoft_UI_Windowing.IAppWindowTitleBarStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Windowing.AppWindowTitleBar"))
+    private static let _IAppWindowTitleBarStatics: __ABI_Microsoft_UI_Windowing.IAppWindowTitleBarStatics = try! RoGetActivationFactory("Microsoft.UI.Windowing.AppWindowTitleBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.iscustomizationsupported)
-    public static func isCustomizationSupported() -> Bool {
-        return try! _IAppWindowTitleBarStatics.IsCustomizationSupportedImpl()
+    public static func isCustomizationSupported() throws -> Bool {
+        return try _IAppWindowTitleBarStatics.IsCustomizationSupported()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.resettodefault)
     public func resetToDefault() throws {
-        try _default.ResetToDefaultImpl()
+        try _default.ResetToDefault()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.setdragrectangles)
+    public func setDragRectangles(_ value: [UWP.RectInt32]) throws {
+        try _default.SetDragRectangles(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.backgroundcolor)
     public var backgroundColor : UWP.Color? {
-        get { try! _default.get_BackgroundColorImpl() }
-        set { try! _default.put_BackgroundColorImpl(newValue) }
+        get { try! _default.get_BackgroundColor() }
+        set { try! _default.put_BackgroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.buttonbackgroundcolor)
     public var buttonBackgroundColor : UWP.Color? {
-        get { try! _default.get_ButtonBackgroundColorImpl() }
-        set { try! _default.put_ButtonBackgroundColorImpl(newValue) }
+        get { try! _default.get_ButtonBackgroundColor() }
+        set { try! _default.put_ButtonBackgroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.buttonforegroundcolor)
     public var buttonForegroundColor : UWP.Color? {
-        get { try! _default.get_ButtonForegroundColorImpl() }
-        set { try! _default.put_ButtonForegroundColorImpl(newValue) }
+        get { try! _default.get_ButtonForegroundColor() }
+        set { try! _default.put_ButtonForegroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.buttonhoverbackgroundcolor)
     public var buttonHoverBackgroundColor : UWP.Color? {
-        get { try! _default.get_ButtonHoverBackgroundColorImpl() }
-        set { try! _default.put_ButtonHoverBackgroundColorImpl(newValue) }
+        get { try! _default.get_ButtonHoverBackgroundColor() }
+        set { try! _default.put_ButtonHoverBackgroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.buttonhoverforegroundcolor)
     public var buttonHoverForegroundColor : UWP.Color? {
-        get { try! _default.get_ButtonHoverForegroundColorImpl() }
-        set { try! _default.put_ButtonHoverForegroundColorImpl(newValue) }
+        get { try! _default.get_ButtonHoverForegroundColor() }
+        set { try! _default.put_ButtonHoverForegroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.buttoninactivebackgroundcolor)
     public var buttonInactiveBackgroundColor : UWP.Color? {
-        get { try! _default.get_ButtonInactiveBackgroundColorImpl() }
-        set { try! _default.put_ButtonInactiveBackgroundColorImpl(newValue) }
+        get { try! _default.get_ButtonInactiveBackgroundColor() }
+        set { try! _default.put_ButtonInactiveBackgroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.buttoninactiveforegroundcolor)
     public var buttonInactiveForegroundColor : UWP.Color? {
-        get { try! _default.get_ButtonInactiveForegroundColorImpl() }
-        set { try! _default.put_ButtonInactiveForegroundColorImpl(newValue) }
+        get { try! _default.get_ButtonInactiveForegroundColor() }
+        set { try! _default.put_ButtonInactiveForegroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.buttonpressedbackgroundcolor)
     public var buttonPressedBackgroundColor : UWP.Color? {
-        get { try! _default.get_ButtonPressedBackgroundColorImpl() }
-        set { try! _default.put_ButtonPressedBackgroundColorImpl(newValue) }
+        get { try! _default.get_ButtonPressedBackgroundColor() }
+        set { try! _default.put_ButtonPressedBackgroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.buttonpressedforegroundcolor)
     public var buttonPressedForegroundColor : UWP.Color? {
-        get { try! _default.get_ButtonPressedForegroundColorImpl() }
-        set { try! _default.put_ButtonPressedForegroundColorImpl(newValue) }
+        get { try! _default.get_ButtonPressedForegroundColor() }
+        set { try! _default.put_ButtonPressedForegroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.extendscontentintotitlebar)
     public var extendsContentIntoTitleBar : Bool {
-        get { try! _default.get_ExtendsContentIntoTitleBarImpl() }
-        set { try! _default.put_ExtendsContentIntoTitleBarImpl(newValue) }
+        get { try! _default.get_ExtendsContentIntoTitleBar() }
+        set { try! _default.put_ExtendsContentIntoTitleBar(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.foregroundcolor)
     public var foregroundColor : UWP.Color? {
-        get { try! _default.get_ForegroundColorImpl() }
-        set { try! _default.put_ForegroundColorImpl(newValue) }
+        get { try! _default.get_ForegroundColor() }
+        set { try! _default.put_ForegroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.height)
     public var height : Int32 {
-        get { try! _default.get_HeightImpl() }
+        get { try! _default.get_Height() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.iconshowoptions)
     public var iconShowOptions : IconShowOptions {
-        get { try! _default.get_IconShowOptionsImpl() }
-        set { try! _default.put_IconShowOptionsImpl(newValue) }
+        get { try! _default.get_IconShowOptions() }
+        set { try! _default.put_IconShowOptions(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.inactivebackgroundcolor)
     public var inactiveBackgroundColor : UWP.Color? {
-        get { try! _default.get_InactiveBackgroundColorImpl() }
-        set { try! _default.put_InactiveBackgroundColorImpl(newValue) }
+        get { try! _default.get_InactiveBackgroundColor() }
+        set { try! _default.put_InactiveBackgroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.inactiveforegroundcolor)
     public var inactiveForegroundColor : UWP.Color? {
-        get { try! _default.get_InactiveForegroundColorImpl() }
-        set { try! _default.put_InactiveForegroundColorImpl(newValue) }
+        get { try! _default.get_InactiveForegroundColor() }
+        set { try! _default.put_InactiveForegroundColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.leftinset)
     public var leftInset : Int32 {
-        get { try! _default.get_LeftInsetImpl() }
+        get { try! _default.get_LeftInset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.rightinset)
     public var rightInset : Int32 {
-        get { try! _default.get_RightInsetImpl() }
+        get { try! _default.get_RightInset() }
     }
 
     private lazy var _IAppWindowTitleBar2: __ABI_Microsoft_UI_Windowing.IAppWindowTitleBar2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar.preferredheightoption)
     public var preferredHeightOption : TitleBarHeightOption {
-        get { try! _IAppWindowTitleBar2.get_PreferredHeightOptionImpl() }
-        set { try! _IAppWindowTitleBar2.put_PreferredHeightOptionImpl(newValue) }
+        get { try! _IAppWindowTitleBar2.get_PreferredHeightOption() }
+        set { try! _IAppWindowTitleBar2.put_PreferredHeightOption(newValue) }
     }
 
     deinit {
@@ -588,71 +552,65 @@ public final class DisplayArea : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIDisplayArea>?) -> DisplayArea? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IDisplayAreaStatics: __ABI_Microsoft_UI_Windowing.IDisplayAreaStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Windowing.DisplayArea"))
+    private static let _IDisplayAreaStatics: __ABI_Microsoft_UI_Windowing.IDisplayAreaStatics = try! RoGetActivationFactory("Microsoft.UI.Windowing.DisplayArea")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.createwatcher)
-    public static func createWatcher() -> DisplayAreaWatcher! {
-        return try! _IDisplayAreaStatics.CreateWatcherImpl()
+    public static func createWatcher() throws -> DisplayAreaWatcher! {
+        return try _IDisplayAreaStatics.CreateWatcher()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.findall)
-    public static func findAll() -> WindowsFoundation.AnyIVectorView<DisplayArea?>! {
-        return try! _IDisplayAreaStatics.FindAllImpl()
+    public static func findAll() throws -> WindowsFoundation.AnyIVectorView<DisplayArea?>! {
+        return try _IDisplayAreaStatics.FindAll()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.getfromwindowid)
-    public static func getFromWindowId(_ windowId: WinAppSDK.WindowId, _ displayAreaFallback: DisplayAreaFallback) -> DisplayArea! {
-        return try! _IDisplayAreaStatics.GetFromWindowIdImpl(windowId, displayAreaFallback)
+    public static func getFromWindowId(_ windowId: WinAppSDK.WindowId, _ displayAreaFallback: DisplayAreaFallback) throws -> DisplayArea! {
+        return try _IDisplayAreaStatics.GetFromWindowId(windowId, displayAreaFallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.getfrompoint)
-    public static func getFromPoint(_ point: UWP.PointInt32, _ displayAreaFallback: DisplayAreaFallback) -> DisplayArea! {
-        return try! _IDisplayAreaStatics.GetFromPointImpl(point, displayAreaFallback)
+    public static func getFromPoint(_ point: UWP.PointInt32, _ displayAreaFallback: DisplayAreaFallback) throws -> DisplayArea! {
+        return try _IDisplayAreaStatics.GetFromPoint(point, displayAreaFallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.getfromrect)
-    public static func getFromRect(_ rect: UWP.RectInt32, _ displayAreaFallback: DisplayAreaFallback) -> DisplayArea! {
-        return try! _IDisplayAreaStatics.GetFromRectImpl(rect, displayAreaFallback)
+    public static func getFromRect(_ rect: UWP.RectInt32, _ displayAreaFallback: DisplayAreaFallback) throws -> DisplayArea! {
+        return try _IDisplayAreaStatics.GetFromRect(rect, displayAreaFallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.primary)
     public static var primary : DisplayArea! {
-        get { try! _IDisplayAreaStatics.get_PrimaryImpl() }
+        get { try! _IDisplayAreaStatics.get_Primary() }
     }
 
-    private static let _IDisplayAreaStatics2: __ABI_Microsoft_UI_Windowing.IDisplayAreaStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Windowing.DisplayArea"))
+    private static let _IDisplayAreaStatics2: __ABI_Microsoft_UI_Windowing.IDisplayAreaStatics2 = try! RoGetActivationFactory("Microsoft.UI.Windowing.DisplayArea")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.getfromdisplayid)
-    public static func getFromDisplayId(_ displayId: WinAppSDK.DisplayId) -> DisplayArea! {
-        return try! _IDisplayAreaStatics2.GetFromDisplayIdImpl(displayId)
+    public static func getFromDisplayId(_ displayId: WinAppSDK.DisplayId) throws -> DisplayArea! {
+        return try _IDisplayAreaStatics2.GetFromDisplayId(displayId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.displayid)
     public var displayId : WinAppSDK.DisplayId {
-        get { try! _default.get_DisplayIdImpl() }
+        get { try! _default.get_DisplayId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.isprimary)
     public var isPrimary : Bool {
-        get { try! _default.get_IsPrimaryImpl() }
+        get { try! _default.get_IsPrimary() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.outerbounds)
     public var outerBounds : UWP.RectInt32 {
-        get { try! _default.get_OuterBoundsImpl() }
+        get { try! _default.get_OuterBounds() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayarea.workarea)
     public var workArea : UWP.RectInt32 {
-        get { try! _default.get_WorkAreaImpl() }
+        get { try! _default.get_WorkArea() }
     }
 
     deinit {
@@ -674,29 +632,23 @@ public final class DisplayAreaWatcher : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIDisplayAreaWatcher>?) -> DisplayAreaWatcher? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayareawatcher.start)
     public func start() throws {
-        try _default.StartImpl()
+        try _default.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayareawatcher.stop)
     public func stop() throws {
-        try _default.StopImpl()
+        try _default.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayareawatcher.status)
     public var status : DisplayAreaWatcherStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.displayareawatcher.added)
@@ -704,10 +656,10 @@ public final class DisplayAreaWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AddedImpl($0)
+          return try! this.add_Added($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AddedImpl($0)
+         try? self?._default.remove_Added($0)
        }
       )
     }()
@@ -717,10 +669,10 @@ public final class DisplayAreaWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_EnumerationCompletedImpl($0)
+          return try! this.add_EnumerationCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_EnumerationCompletedImpl($0)
+         try? self?._default.remove_EnumerationCompleted($0)
        }
       )
     }()
@@ -730,10 +682,10 @@ public final class DisplayAreaWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_RemovedImpl($0)
+          return try! this.add_Removed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_RemovedImpl($0)
+         try? self?._default.remove_Removed($0)
        }
       )
     }()
@@ -743,10 +695,10 @@ public final class DisplayAreaWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_StoppedImpl($0)
+          return try! this.add_Stopped($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_StoppedImpl($0)
+         try? self?._default.remove_Stopped($0)
        }
       )
     }()
@@ -756,10 +708,10 @@ public final class DisplayAreaWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_UpdatedImpl($0)
+          return try! this.add_Updated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_UpdatedImpl($0)
+         try? self?._default.remove_Updated($0)
        }
       )
     }()
@@ -783,20 +735,14 @@ public final class FullScreenPresenter : WinAppSDK.AppWindowPresenter {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIFullScreenPresenter>?) -> FullScreenPresenter? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IFullScreenPresenterStatics: __ABI_Microsoft_UI_Windowing.IFullScreenPresenterStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Windowing.FullScreenPresenter"))
+    private static let _IFullScreenPresenterStatics: __ABI_Microsoft_UI_Windowing.IFullScreenPresenterStatics = try! RoGetActivationFactory("Microsoft.UI.Windowing.FullScreenPresenter")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.fullscreenpresenter.create)
-    public static func create() -> FullScreenPresenter! {
-        return try! _IFullScreenPresenterStatics.CreateImpl()
+    public static func create() throws -> FullScreenPresenter! {
+        return try _IFullScreenPresenterStatics.Create()
     }
 
     deinit {
@@ -818,117 +764,111 @@ public final class OverlappedPresenter : WinAppSDK.AppWindowPresenter {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter>?) -> OverlappedPresenter? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IOverlappedPresenterStatics: __ABI_Microsoft_UI_Windowing.IOverlappedPresenterStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Windowing.OverlappedPresenter"))
+    private static let _IOverlappedPresenterStatics: __ABI_Microsoft_UI_Windowing.IOverlappedPresenterStatics = try! RoGetActivationFactory("Microsoft.UI.Windowing.OverlappedPresenter")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.create)
-    public static func create() -> OverlappedPresenter! {
-        return try! _IOverlappedPresenterStatics.CreateImpl()
+    public static func create() throws -> OverlappedPresenter! {
+        return try _IOverlappedPresenterStatics.Create()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.createforcontextmenu)
-    public static func createForContextMenu() -> OverlappedPresenter! {
-        return try! _IOverlappedPresenterStatics.CreateForContextMenuImpl()
+    public static func createForContextMenu() throws -> OverlappedPresenter! {
+        return try _IOverlappedPresenterStatics.CreateForContextMenu()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.createfordialog)
-    public static func createForDialog() -> OverlappedPresenter! {
-        return try! _IOverlappedPresenterStatics.CreateForDialogImpl()
+    public static func createForDialog() throws -> OverlappedPresenter! {
+        return try _IOverlappedPresenterStatics.CreateForDialog()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.createfortoolwindow)
-    public static func createForToolWindow() -> OverlappedPresenter! {
-        return try! _IOverlappedPresenterStatics.CreateForToolWindowImpl()
+    public static func createForToolWindow() throws -> OverlappedPresenter! {
+        return try _IOverlappedPresenterStatics.CreateForToolWindow()
     }
 
-    private static let _IOverlappedPresenterStatics2: __ABI_Microsoft_UI_Windowing.IOverlappedPresenterStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Windowing.OverlappedPresenter"))
+    private static let _IOverlappedPresenterStatics2: __ABI_Microsoft_UI_Windowing.IOverlappedPresenterStatics2 = try! RoGetActivationFactory("Microsoft.UI.Windowing.OverlappedPresenter")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.requestedstartupstate)
     public static var requestedStartupState : OverlappedPresenterState {
-        get { try! _IOverlappedPresenterStatics2.get_RequestedStartupStateImpl() }
+        get { try! _IOverlappedPresenterStatics2.get_RequestedStartupState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.maximize)
     public func maximize() throws {
-        try _default.MaximizeImpl()
+        try _default.Maximize()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.minimize)
     public func minimize() throws {
-        try _default.MinimizeImpl()
+        try _default.Minimize()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.restore)
     public func restore() throws {
-        try _default.RestoreImpl()
+        try _default.Restore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.setborderandtitlebar)
     public func setBorderAndTitleBar(_ hasBorder: Bool, _ hasTitleBar: Bool) throws {
-        try _default.SetBorderAndTitleBarImpl(hasBorder, hasTitleBar)
+        try _default.SetBorderAndTitleBar(hasBorder, hasTitleBar)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.hasborder)
     public var hasBorder : Bool {
-        get { try! _default.get_HasBorderImpl() }
+        get { try! _default.get_HasBorder() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.hastitlebar)
     public var hasTitleBar : Bool {
-        get { try! _default.get_HasTitleBarImpl() }
+        get { try! _default.get_HasTitleBar() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.isalwaysontop)
     public var isAlwaysOnTop : Bool {
-        get { try! _default.get_IsAlwaysOnTopImpl() }
-        set { try! _default.put_IsAlwaysOnTopImpl(newValue) }
+        get { try! _default.get_IsAlwaysOnTop() }
+        set { try! _default.put_IsAlwaysOnTop(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.ismaximizable)
     public var isMaximizable : Bool {
-        get { try! _default.get_IsMaximizableImpl() }
-        set { try! _default.put_IsMaximizableImpl(newValue) }
+        get { try! _default.get_IsMaximizable() }
+        set { try! _default.put_IsMaximizable(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.isminimizable)
     public var isMinimizable : Bool {
-        get { try! _default.get_IsMinimizableImpl() }
-        set { try! _default.put_IsMinimizableImpl(newValue) }
+        get { try! _default.get_IsMinimizable() }
+        set { try! _default.put_IsMinimizable(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.ismodal)
     public var isModal : Bool {
-        get { try! _default.get_IsModalImpl() }
-        set { try! _default.put_IsModalImpl(newValue) }
+        get { try! _default.get_IsModal() }
+        set { try! _default.put_IsModal(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.isresizable)
     public var isResizable : Bool {
-        get { try! _default.get_IsResizableImpl() }
-        set { try! _default.put_IsResizableImpl(newValue) }
+        get { try! _default.get_IsResizable() }
+        set { try! _default.put_IsResizable(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.state)
     public var state : OverlappedPresenterState {
-        get { try! _default.get_StateImpl() }
+        get { try! _default.get_State() }
     }
 
     private lazy var _IOverlappedPresenter2: __ABI_Microsoft_UI_Windowing.IOverlappedPresenter2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.minimize)
     public func minimize(_ activateWindow: Bool) throws {
-        try _IOverlappedPresenter2.MinimizeWithActivationImpl(activateWindow)
+        try _IOverlappedPresenter2.MinimizeWithActivation(activateWindow)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.overlappedpresenter.restore)
     public func restore(_ activateWindow: Bool) throws {
-        try _IOverlappedPresenter2.RestoreWithActivationImpl(activateWindow)
+        try _IOverlappedPresenter2.RestoreWithActivation(activateWindow)
     }
 
     deinit {
@@ -951,7 +891,7 @@ extension WinAppSDK.AppWindowPresenterKind {
         __x_ABI_CMicrosoft_CUI_CWindowing_CAppWindowPresenterKind_Overlapped
     }
 }
-extension WinAppSDK.AppWindowPresenterKind: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.AppWindowPresenterKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.DisplayAreaFallback {
     public static var none : WinAppSDK.DisplayAreaFallback {
@@ -964,7 +904,7 @@ extension WinAppSDK.DisplayAreaFallback {
         __x_ABI_CMicrosoft_CUI_CWindowing_CDisplayAreaFallback_Nearest
     }
 }
-extension WinAppSDK.DisplayAreaFallback: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.DisplayAreaFallback: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.DisplayAreaWatcherStatus {
     public static var created : WinAppSDK.DisplayAreaWatcherStatus {
@@ -986,7 +926,7 @@ extension WinAppSDK.DisplayAreaWatcherStatus {
         __x_ABI_CMicrosoft_CUI_CWindowing_CDisplayAreaWatcherStatus_Aborted
     }
 }
-extension WinAppSDK.DisplayAreaWatcherStatus: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.DisplayAreaWatcherStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.IconShowOptions {
     public static var showIconAndSystemMenu : WinAppSDK.IconShowOptions {
@@ -996,7 +936,7 @@ extension WinAppSDK.IconShowOptions {
         __x_ABI_CMicrosoft_CUI_CWindowing_CIconShowOptions_HideIconAndSystemMenu
     }
 }
-extension WinAppSDK.IconShowOptions: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.IconShowOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.OverlappedPresenterState {
     public static var maximized : WinAppSDK.OverlappedPresenterState {
@@ -1009,7 +949,7 @@ extension WinAppSDK.OverlappedPresenterState {
         __x_ABI_CMicrosoft_CUI_CWindowing_COverlappedPresenterState_Restored
     }
 }
-extension WinAppSDK.OverlappedPresenterState: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.OverlappedPresenterState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.TitleBarHeightOption {
     public static var standard : WinAppSDK.TitleBarHeightOption {
@@ -1022,5 +962,5 @@ extension WinAppSDK.TitleBarHeightOption {
         __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption_Collapsed
     }
 }
-extension WinAppSDK.TitleBarHeightOption: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.TitleBarHeightOption: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

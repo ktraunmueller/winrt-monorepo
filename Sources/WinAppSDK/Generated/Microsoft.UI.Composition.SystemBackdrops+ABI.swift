@@ -45,11 +45,12 @@ private var IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBac
     .init(Data1: 0x9C56FE7C, Data2: 0x98EB, Data3: 0x5F89, Data4: ( 0xAD,0x97,0xDA,0xD5,0x7F,0xC3,0x0C,0x8C ))// 9C56FE7C-98EB-5F89-AD97-DAD57FC30C8C
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class IDesktopAcrylicController: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController }
 
-        internal func get_FallbackColorImpl() throws -> UWP.Color {
+        public func get_FallbackColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FallbackColor(pThis, &value))
@@ -57,13 +58,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return .from(abi: value)
         }
 
-        internal func put_FallbackColorImpl(_ value: UWP.Color) throws {
+        public func put_FallbackColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FallbackColor(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_LuminosityOpacityImpl() throws -> Float {
+        public func get_LuminosityOpacity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LuminosityOpacity(pThis, &value))
@@ -71,13 +72,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return value
         }
 
-        internal func put_LuminosityOpacityImpl(_ value: Float) throws {
+        public func put_LuminosityOpacity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LuminosityOpacity(pThis, value))
             }
         }
 
-        internal func get_TintColorImpl() throws -> UWP.Color {
+        public func get_TintColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TintColor(pThis, &value))
@@ -85,13 +86,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return .from(abi: value)
         }
 
-        internal func put_TintColorImpl(_ value: UWP.Color) throws {
+        public func put_TintColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TintColor(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_TintOpacityImpl() throws -> Float {
+        public func get_TintOpacity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TintOpacity(pThis, &value))
@@ -99,7 +100,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return value
         }
 
-        internal func put_TintOpacityImpl(_ value: Float) throws {
+        public func put_TintOpacity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TintOpacity(pThis, value))
             }
@@ -110,7 +111,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class IDesktopAcrylicController2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController2 }
 
-        internal func ResetPropertiesImpl() throws {
+        public func ResetProperties() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResetProperties(pThis))
             }
@@ -121,7 +122,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class IDesktopAcrylicController3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController3 }
 
-        internal func get_KindImpl() throws -> WinAppSDK.DesktopAcrylicKind {
+        public func get_Kind() throws -> WinAppSDK.DesktopAcrylicKind {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CDesktopAcrylicKind = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kind(pThis, &value))
@@ -129,7 +130,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return value
         }
 
-        internal func put_KindImpl(_ value: WinAppSDK.DesktopAcrylicKind) throws {
+        public func put_Kind(_ value: WinAppSDK.DesktopAcrylicKind) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Kind(pThis, value))
             }
@@ -140,7 +141,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class IDesktopAcrylicControllerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicControllerStatics }
 
-        internal func IsSupportedImpl() throws -> Bool {
+        public func IsSupported() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicControllerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsSupported(pThis, &result))
@@ -153,7 +154,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class IMicaController: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController }
 
-        internal func get_FallbackColorImpl() throws -> UWP.Color {
+        public func get_FallbackColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FallbackColor(pThis, &value))
@@ -161,13 +162,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return .from(abi: value)
         }
 
-        internal func put_FallbackColorImpl(_ value: UWP.Color) throws {
+        public func put_FallbackColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FallbackColor(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_LuminosityOpacityImpl() throws -> Float {
+        public func get_LuminosityOpacity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LuminosityOpacity(pThis, &value))
@@ -175,13 +176,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return value
         }
 
-        internal func put_LuminosityOpacityImpl(_ value: Float) throws {
+        public func put_LuminosityOpacity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LuminosityOpacity(pThis, value))
             }
         }
 
-        internal func get_TintColorImpl() throws -> UWP.Color {
+        public func get_TintColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TintColor(pThis, &value))
@@ -189,13 +190,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return .from(abi: value)
         }
 
-        internal func put_TintColorImpl(_ value: UWP.Color) throws {
+        public func put_TintColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TintColor(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_TintOpacityImpl() throws -> Float {
+        public func get_TintOpacity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TintOpacity(pThis, &value))
@@ -203,7 +204,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return value
         }
 
-        internal func put_TintOpacityImpl(_ value: Float) throws {
+        public func put_TintOpacity(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TintOpacity(pThis, value))
             }
@@ -214,7 +215,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class IMicaController2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController2 }
 
-        internal func get_KindImpl() throws -> WinAppSDK.MicaKind {
+        public func get_Kind() throws -> WinAppSDK.MicaKind {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CMicaKind = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kind(pThis, &value))
@@ -222,13 +223,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return value
         }
 
-        internal func put_KindImpl(_ value: WinAppSDK.MicaKind) throws {
+        public func put_Kind(_ value: WinAppSDK.MicaKind) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Kind(pThis, value))
             }
         }
 
-        internal func ResetPropertiesImpl() throws {
+        public func ResetProperties() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResetProperties(pThis))
             }
@@ -239,7 +240,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class IMicaControllerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaControllerStatics }
 
-        internal func IsSupportedImpl() throws -> Bool {
+        public func IsSupported() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaControllerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsSupported(pThis, &result))
@@ -252,7 +253,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class ISystemBackdropConfiguration: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration }
 
-        internal func get_HighContrastBackgroundColorImpl() throws -> UWP.Color? {
+        public func get_HighContrastBackgroundColor() throws -> UWP.Color? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_HighContrastBackgroundColor(pThis, &valueAbi))
@@ -261,7 +262,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_HighContrastBackgroundColorImpl(_ value: UWP.Color?) throws {
+        public func put_HighContrastBackgroundColor(_ value: UWP.Color?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration.self) { pThis in
@@ -269,7 +270,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             }
         }
 
-        internal func get_IsHighContrastImpl() throws -> Bool {
+        public func get_IsHighContrast() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsHighContrast(pThis, &value))
@@ -277,13 +278,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return .init(from: value)
         }
 
-        internal func put_IsHighContrastImpl(_ value: Bool) throws {
+        public func put_IsHighContrast(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsHighContrast(pThis, .init(from: value)))
             }
         }
 
-        internal func get_IsInputActiveImpl() throws -> Bool {
+        public func get_IsInputActive() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInputActive(pThis, &value))
@@ -291,13 +292,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return .init(from: value)
         }
 
-        internal func put_IsInputActiveImpl(_ value: Bool) throws {
+        public func put_IsInputActive(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsInputActive(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ThemeImpl() throws -> WinAppSDK.SystemBackdropTheme {
+        public func get_Theme() throws -> WinAppSDK.SystemBackdropTheme {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CSystemBackdropTheme = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Theme(pThis, &value))
@@ -305,7 +306,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return value
         }
 
-        internal func put_ThemeImpl(_ value: WinAppSDK.SystemBackdropTheme) throws {
+        public func put_Theme(_ value: WinAppSDK.SystemBackdropTheme) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Theme(pThis, value))
             }
@@ -316,7 +317,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class ISystemBackdropController: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropController }
 
-        open func SetTargetWithWindowIdImpl(_ windowId: WinAppSDK.WindowId, _ desktopWindowTarget: UWP.CompositionTarget?) throws -> Bool {
+        open func SetTargetWithWindowId(_ windowId: WinAppSDK.WindowId, _ desktopWindowTarget: UWP.CompositionTarget?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetTargetWithWindowId(pThis, .from(swift: windowId), RawPointer(desktopWindowTarget), &result))
@@ -324,7 +325,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return .init(from: result)
         }
 
-        open func SetTargetWithCoreWindowImpl(_ coreWindow: UWP.CoreWindow?, _ compositionTarget: UWP.CompositionTarget?) throws -> Bool {
+        open func SetTargetWithCoreWindow(_ coreWindow: UWP.CoreWindow?, _ compositionTarget: UWP.CompositionTarget?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetTargetWithCoreWindow(pThis, RawPointer(coreWindow), RawPointer(compositionTarget), &result))
@@ -367,22 +368,22 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             do {
                 guard let __unwrapped__instance = ISystemBackdropControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let windowId: WinAppSDK.WindowId = .from(abi: $1)
-                let desktopWindowTarget: UWP.CompositionTarget? = .from(abi: ComPtr($2))
+                let desktopWindowTarget: UWP.CompositionTarget? = __IMPL_Windows_UI_Composition.CompositionTargetBridge.from(abi: ComPtr($2))
                 let result = try __unwrapped__instance.setTarget(windowId, desktopWindowTarget)
                 $3?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetTargetWithCoreWindow: {
             do {
                 guard let __unwrapped__instance = ISystemBackdropControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let coreWindow: UWP.CoreWindow? = .from(abi: ComPtr($1))
-                let compositionTarget: UWP.CompositionTarget? = .from(abi: ComPtr($2))
+                let coreWindow: UWP.CoreWindow? = __IMPL_Windows_UI_Core.CoreWindowBridge.from(abi: ComPtr($1))
+                let compositionTarget: UWP.CompositionTarget? = __IMPL_Windows_UI_Composition.CompositionTargetBridge.from(abi: ComPtr($2))
                 let result = try __unwrapped__instance.setTarget(coreWindow, compositionTarget)
                 $3?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -390,7 +391,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
     public class ISystemBackdropControllerWithTargets: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropControllerWithTargets }
 
-        open func get_StateImpl() throws -> WinAppSDK.SystemBackdropState {
+        open func get_State() throws -> WinAppSDK.SystemBackdropState {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CSystemBackdropState = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropControllerWithTargets.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_State(pThis, &value))
@@ -398,7 +399,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return value
         }
 
-        open func AddSystemBackdropTargetImpl(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop?) throws -> Bool {
+        open func AddSystemBackdropTarget(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop?) throws -> Bool {
             var result: boolean = 0
             let systemBackdropTargetWrapper = __ABI_Microsoft_UI_Composition.ICompositionSupportsSystemBackdropWrapper(systemBackdropTarget)
             let _systemBackdropTarget = try! systemBackdropTargetWrapper?.toABI { $0 }
@@ -408,13 +409,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return .init(from: result)
         }
 
-        open func RemoveAllSystemBackdropTargetsImpl() throws {
+        open func RemoveAllSystemBackdropTargets() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropControllerWithTargets.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAllSystemBackdropTargets(pThis))
             }
         }
 
-        open func RemoveSystemBackdropTargetImpl(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop?) throws -> Bool {
+        open func RemoveSystemBackdropTarget(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop?) throws -> Bool {
             var result: boolean = 0
             let systemBackdropTargetWrapper = __ABI_Microsoft_UI_Composition.ICompositionSupportsSystemBackdropWrapper(systemBackdropTarget)
             let _systemBackdropTarget = try! systemBackdropTargetWrapper?.toABI { $0 }
@@ -424,13 +425,13 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return .init(from: result)
         }
 
-        open func SetSystemBackdropConfigurationImpl(_ configuration: WinAppSDK.SystemBackdropConfiguration?) throws {
+        open func SetSystemBackdropConfiguration(_ configuration: WinAppSDK.SystemBackdropConfiguration?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropControllerWithTargets.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetSystemBackdropConfiguration(pThis, RawPointer(configuration)))
             }
         }
 
-        open func add_StateChangedImpl(_ handler: TypedEventHandler<WinAppSDK.AnyISystemBackdropControllerWithTargets?, Any?>?) throws -> EventRegistrationToken {
+        open func add_StateChanged(_ handler: TypedEventHandler<WinAppSDK.AnyISystemBackdropControllerWithTargets?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CComposition__CSystemBackdrops__CISystemBackdropControllerWithTargets_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -440,7 +441,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
             return token
         }
 
-        open func remove_StateChangedImpl(_ token: EventRegistrationToken) throws {
+        open func remove_StateChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropControllerWithTargets.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_StateChanged(pThis, token))
             }
@@ -492,7 +493,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
                 let result = try __unwrapped__instance.addSystemBackdropTarget(systemBackdropTarget)
                 $2?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         RemoveAllSystemBackdropTargets: {
@@ -500,7 +501,7 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
                 guard let __unwrapped__instance = ISystemBackdropControllerWithTargetsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.removeAllSystemBackdropTargets()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         RemoveSystemBackdropTarget: {
@@ -510,16 +511,16 @@ public enum __ABI_Microsoft_UI_Composition_SystemBackdrops {
                 let result = try __unwrapped__instance.removeSystemBackdropTarget(systemBackdropTarget)
                 $2?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetSystemBackdropConfiguration: {
             do {
                 guard let __unwrapped__instance = ISystemBackdropControllerWithTargetsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let configuration: WinAppSDK.SystemBackdropConfiguration? = .from(abi: ComPtr($1))
+                let configuration: WinAppSDK.SystemBackdropConfiguration? = __IMPL_Microsoft_UI_Composition_SystemBackdrops.SystemBackdropConfigurationBridge.from(abi: ComPtr($1))
                 try __unwrapped__instance.setSystemBackdropConfiguration(configuration)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         add_StateChanged: {

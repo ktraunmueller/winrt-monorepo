@@ -48,11 +48,12 @@ private var IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandler: Wi
     .init(Data1: 0x2E0872A9, Data2: 0x4E29, Data3: 0x5F14, Data4: ( 0xB6,0x88,0xFB,0x96,0xD5,0xF9,0xD5,0xF8 ))// 2E0872A9-4E29-5F14-B688-FB96D5F9D5F8
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherExitDeferral: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherExitDeferral }
 
-        internal func CompleteImpl() throws {
+        public func Complete() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherExitDeferral.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
             }
@@ -63,16 +64,16 @@ public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherQueue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue }
 
-        internal func CreateTimerImpl() throws -> WinAppSDK.DispatcherQueueTimer? {
+        public func CreateTimer() throws -> WinAppSDK.DispatcherQueueTimer? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateTimer(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Dispatching.DispatcherQueueTimerBridge.from(abi: result)
         }
 
-        internal func TryEnqueueImpl(_ callback: WinAppSDK.DispatcherQueueHandler?) throws -> Bool {
+        public func TryEnqueue(_ callback: WinAppSDK.DispatcherQueueHandler?) throws -> Bool {
             var result: boolean = 0
             let callbackWrapper = __ABI_Microsoft_UI_Dispatching.DispatcherQueueHandlerWrapper(callback)
             let _callback = try! callbackWrapper?.toABI { $0 }
@@ -82,7 +83,7 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return .init(from: result)
         }
 
-        internal func TryEnqueueWithPriorityImpl(_ priority: WinAppSDK.DispatcherQueuePriority, _ callback: WinAppSDK.DispatcherQueueHandler?) throws -> Bool {
+        public func TryEnqueueWithPriority(_ priority: WinAppSDK.DispatcherQueuePriority, _ callback: WinAppSDK.DispatcherQueueHandler?) throws -> Bool {
             var result: boolean = 0
             let callbackWrapper = __ABI_Microsoft_UI_Dispatching.DispatcherQueueHandlerWrapper(callback)
             let _callback = try! callbackWrapper?.toABI { $0 }
@@ -92,7 +93,7 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return .init(from: result)
         }
 
-        internal func add_ShutdownStartingImpl(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueue?, WinAppSDK.DispatcherQueueShutdownStartingEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ShutdownStarting(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueue?, WinAppSDK.DispatcherQueueShutdownStartingEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CDispatching__CDispatcherQueue___x_ABI_CMicrosoft__CUI__CDispatching__CDispatcherQueueShutdownStartingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -102,13 +103,13 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return token
         }
 
-        internal func remove_ShutdownStartingImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ShutdownStarting(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShutdownStarting(pThis, token))
             }
         }
 
-        internal func add_ShutdownCompletedImpl(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueue?, Any?>?) throws -> EventRegistrationToken {
+        public func add_ShutdownCompleted(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueue?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CDispatching__CDispatcherQueue_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -118,7 +119,7 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return token
         }
 
-        internal func remove_ShutdownCompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ShutdownCompleted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShutdownCompleted(pThis, token))
             }
@@ -129,7 +130,7 @@ public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherQueue2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue2 }
 
-        internal func get_HasThreadAccessImpl() throws -> Bool {
+        public func get_HasThreadAccess() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasThreadAccess(pThis, &value))
@@ -142,31 +143,31 @@ public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherQueue3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue3 }
 
-        internal func EnqueueEventLoopExitImpl() throws {
+        public func EnqueueEventLoopExit() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.EnqueueEventLoopExit(pThis))
             }
         }
 
-        internal func EnsureSystemDispatcherQueueImpl() throws {
+        public func EnsureSystemDispatcherQueue() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.EnsureSystemDispatcherQueue(pThis))
             }
         }
 
-        internal func RunEventLoopImpl() throws {
+        public func RunEventLoop() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RunEventLoop(pThis))
             }
         }
 
-        internal func RunEventLoopWithOptionsImpl(_ options: WinAppSDK.DispatcherRunOptions, _ deferral: WinAppSDK.DispatcherExitDeferral?) throws {
+        public func RunEventLoopWithOptions(_ options: WinAppSDK.DispatcherRunOptions, _ deferral: WinAppSDK.DispatcherExitDeferral?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RunEventLoopWithOptions(pThis, options, RawPointer(deferral)))
             }
         }
 
-        internal func add_FrameworkShutdownStartingImpl(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueue?, WinAppSDK.DispatcherQueueShutdownStartingEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_FrameworkShutdownStarting(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueue?, WinAppSDK.DispatcherQueueShutdownStartingEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CDispatching__CDispatcherQueue___x_ABI_CMicrosoft__CUI__CDispatching__CDispatcherQueueShutdownStartingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -176,13 +177,13 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return token
         }
 
-        internal func remove_FrameworkShutdownStartingImpl(_ token: EventRegistrationToken) throws {
+        public func remove_FrameworkShutdownStarting(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_FrameworkShutdownStarting(pThis, token))
             }
         }
 
-        internal func add_FrameworkShutdownCompletedImpl(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueue?, Any?>?) throws -> EventRegistrationToken {
+        public func add_FrameworkShutdownCompleted(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueue?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CDispatching__CDispatcherQueue_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -192,7 +193,7 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return token
         }
 
-        internal func remove_FrameworkShutdownCompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_FrameworkShutdownCompleted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_FrameworkShutdownCompleted(pThis, token))
             }
@@ -203,16 +204,16 @@ public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherQueueController: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueController }
 
-        internal func get_DispatcherQueueImpl() throws -> WinAppSDK.DispatcherQueue? {
+        public func get_DispatcherQueue() throws -> WinAppSDK.DispatcherQueue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DispatcherQueue(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Dispatching.DispatcherQueueBridge.from(abi: value)
         }
 
-        internal func ShutdownQueueAsyncImpl() throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func ShutdownQueueAsync() throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.ShutdownQueueAsync(pThis, &operationAbi))
@@ -226,7 +227,7 @@ public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherQueueController2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueController2 }
 
-        internal func ShutdownQueueImpl() throws {
+        public func ShutdownQueue() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueController2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ShutdownQueue(pThis))
             }
@@ -237,22 +238,22 @@ public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherQueueControllerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueControllerStatics }
 
-        internal func CreateOnDedicatedThreadImpl() throws -> WinAppSDK.DispatcherQueueController? {
+        public func CreateOnDedicatedThread() throws -> WinAppSDK.DispatcherQueueController? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueControllerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateOnDedicatedThread(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Dispatching.DispatcherQueueControllerBridge.from(abi: result)
         }
 
-        internal func CreateOnCurrentThreadImpl() throws -> WinAppSDK.DispatcherQueueController? {
+        public func CreateOnCurrentThread() throws -> WinAppSDK.DispatcherQueueController? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueControllerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateOnCurrentThread(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Dispatching.DispatcherQueueControllerBridge.from(abi: result)
         }
 
     }
@@ -260,13 +261,13 @@ public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherQueueShutdownStartingEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueShutdownStartingEventArgs }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueShutdownStartingEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: result)
         }
 
     }
@@ -274,13 +275,13 @@ public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherQueueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueStatics }
 
-        internal func GetForCurrentThreadImpl() throws -> WinAppSDK.DispatcherQueue? {
+        public func GetForCurrentThread() throws -> WinAppSDK.DispatcherQueue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentThread(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Dispatching.DispatcherQueueBridge.from(abi: result)
         }
 
     }
@@ -288,7 +289,7 @@ public enum __ABI_Microsoft_UI_Dispatching {
     public class IDispatcherQueueTimer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer }
 
-        internal func get_IntervalImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Interval() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Interval(pThis, &value))
@@ -296,13 +297,13 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return .from(abi: value)
         }
 
-        internal func put_IntervalImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_Interval(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Interval(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_IsRunningImpl() throws -> Bool {
+        public func get_IsRunning() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRunning(pThis, &value))
@@ -310,7 +311,7 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return .init(from: value)
         }
 
-        internal func get_IsRepeatingImpl() throws -> Bool {
+        public func get_IsRepeating() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRepeating(pThis, &value))
@@ -318,25 +319,25 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return .init(from: value)
         }
 
-        internal func put_IsRepeatingImpl(_ value: Bool) throws {
+        public func put_IsRepeating(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsRepeating(pThis, .init(from: value)))
             }
         }
 
-        internal func StartImpl() throws {
+        public func Start() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Start(pThis))
             }
         }
 
-        internal func StopImpl() throws {
+        public func Stop() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Stop(pThis))
             }
         }
 
-        internal func add_TickImpl(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueueTimer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_Tick(_ handler: TypedEventHandler<WinAppSDK.DispatcherQueueTimer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CDispatching__CDispatcherQueueTimer_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -346,7 +347,7 @@ public enum __ABI_Microsoft_UI_Dispatching {
             return token
         }
 
-        internal func remove_TickImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Tick(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Tick(pThis, token))
             }
@@ -360,7 +361,7 @@ extension __ABI_Microsoft_UI_Dispatching {
     public class DispatcherQueueHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandler }
 
-        open func InvokeImpl() throws {
+        open func Invoke() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueueHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis))
             }
@@ -375,9 +376,11 @@ extension __ABI_Microsoft_UI_Dispatching {
         AddRef: { DispatcherQueueHandlerWrapper.addRef($0) },
         Release: { DispatcherQueueHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = DispatcherQueueHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            __unwrapped__instance()
-            return S_OK
+            do {
+                guard let __unwrapped__instance = DispatcherQueueHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance()
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

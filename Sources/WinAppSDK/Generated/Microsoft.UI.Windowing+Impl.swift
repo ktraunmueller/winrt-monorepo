@@ -4,5 +4,162 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Windowing {
+    public enum AppWindowBridge: AbiBridge {
+        public typealias SwiftProjection = AppWindow
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow>?) -> AppWindow? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AppWindowChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AppWindowChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowChangedEventArgs>?) -> AppWindowChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AppWindowClosingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AppWindowClosingEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowClosingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowClosingEventArgs>?) -> AppWindowClosingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AppWindowPresenterBridge: ComposableBridge {
+        public typealias SwiftProjection = AppWindowPresenter
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowPresenter
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowPresenter>?) -> AppWindowPresenter? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IAppWindowPresenter : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = AppWindowPresenter
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowPresenter
+                public typealias SwiftABI = __ABI_Microsoft_UI_Windowing.IAppWindowPresenter
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IAppWindowPresenter
+    }
+
+    public enum AppWindowTitleBarBridge: AbiBridge {
+        public typealias SwiftProjection = AppWindowTitleBar
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar>?) -> AppWindowTitleBar? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DisplayAreaBridge: AbiBridge {
+        public typealias SwiftProjection = DisplayArea
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIDisplayArea
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIDisplayArea>?) -> DisplayArea? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DisplayAreaWatcherBridge: AbiBridge {
+        public typealias SwiftProjection = DisplayAreaWatcher
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIDisplayAreaWatcher
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIDisplayAreaWatcher>?) -> DisplayAreaWatcher? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FullScreenPresenterBridge: AbiBridge {
+        public typealias SwiftProjection = FullScreenPresenter
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIFullScreenPresenter
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIFullScreenPresenter>?) -> FullScreenPresenter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum OverlappedPresenterBridge: AbiBridge {
+        public typealias SwiftProjection = OverlappedPresenter
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter>?) -> OverlappedPresenter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AppWindowMaker: MakeFromAbi {
+    public typealias SwiftType = AppWindow
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppWindow(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AppWindowChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AppWindowChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppWindowChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AppWindowClosingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AppWindowClosingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppWindowClosingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AppWindowPresenterMaker: MakeFromAbi {
+    public typealias SwiftType = AppWindowPresenter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppWindowPresenter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AppWindowTitleBarMaker: MakeFromAbi {
+    public typealias SwiftType = AppWindowTitleBar
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppWindowTitleBar(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DisplayAreaMaker: MakeFromAbi {
+    public typealias SwiftType = DisplayArea
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DisplayArea(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DisplayAreaWatcherMaker: MakeFromAbi {
+    public typealias SwiftType = DisplayAreaWatcher
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DisplayAreaWatcher(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FullScreenPresenterMaker: MakeFromAbi {
+    public typealias SwiftType = FullScreenPresenter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FullScreenPresenter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class OverlappedPresenterMaker: MakeFromAbi {
+    public typealias SwiftType = OverlappedPresenter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return OverlappedPresenter(fromAbi: abi)
+    }
 }

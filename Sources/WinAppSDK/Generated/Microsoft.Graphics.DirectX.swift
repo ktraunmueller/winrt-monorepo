@@ -22,7 +22,7 @@ extension WinAppSDK.DirectXAlphaMode {
         __x_ABI_CMicrosoft_CGraphics_CDirectX_CDirectXAlphaMode_Ignore
     }
 }
-extension WinAppSDK.DirectXAlphaMode: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.DirectXAlphaMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.DirectXPixelFormat {
     public static var unknown : WinAppSDK.DirectXPixelFormat {
@@ -392,5 +392,5 @@ extension WinAppSDK.DirectXPixelFormat {
         __x_ABI_CMicrosoft_CGraphics_CDirectX_CDirectXPixelFormat_A4B4G4R4
     }
 }
-extension WinAppSDK.DirectXPixelFormat: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.DirectXPixelFormat: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

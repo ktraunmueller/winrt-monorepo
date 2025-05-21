@@ -5,6 +5,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Composition_SystemBackdrops {
     public enum ISystemBackdropControllerBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropController
@@ -31,18 +32,18 @@ public enum __IMPL_Microsoft_UI_Composition_SystemBackdrops {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontroller.settarget)
         fileprivate func setTarget(_ windowId: WinAppSDK.WindowId, _ desktopWindowTarget: UWP.CompositionTarget!) throws -> Bool {
-            try _default.SetTargetWithWindowIdImpl(windowId, desktopWindowTarget)
+            try _default.SetTargetWithWindowId(windowId, desktopWindowTarget)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontroller.settarget)
         fileprivate func setTarget(_ coreWindow: UWP.CoreWindow!, _ compositionTarget: UWP.CompositionTarget!) throws -> Bool {
-            try _default.SetTargetWithCoreWindowImpl(coreWindow, compositionTarget)
+            try _default.SetTargetWithCoreWindow(coreWindow, compositionTarget)
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontroller.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
@@ -72,27 +73,27 @@ public enum __IMPL_Microsoft_UI_Composition_SystemBackdrops {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontrollerwithtargets.addsystembackdroptarget)
         fileprivate func addSystemBackdropTarget(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop!) throws -> Bool {
-            try _default.AddSystemBackdropTargetImpl(systemBackdropTarget)
+            try _default.AddSystemBackdropTarget(systemBackdropTarget)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontrollerwithtargets.removeallsystembackdroptargets)
         fileprivate func removeAllSystemBackdropTargets() throws {
-            try _default.RemoveAllSystemBackdropTargetsImpl()
+            try _default.RemoveAllSystemBackdropTargets()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontrollerwithtargets.removesystembackdroptarget)
         fileprivate func removeSystemBackdropTarget(_ systemBackdropTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop!) throws -> Bool {
-            try _default.RemoveSystemBackdropTargetImpl(systemBackdropTarget)
+            try _default.RemoveSystemBackdropTarget(systemBackdropTarget)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontrollerwithtargets.setsystembackdropconfiguration)
         fileprivate func setSystemBackdropConfiguration(_ configuration: SystemBackdropConfiguration!) throws {
-            try _default.SetSystemBackdropConfigurationImpl(configuration)
+            try _default.SetSystemBackdropConfiguration(configuration)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontrollerwithtargets.state)
         fileprivate var state : SystemBackdropState {
-            get { try! _default.get_StateImpl() }
+            get { try! _default.get_State() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontrollerwithtargets.statechanged)
@@ -100,10 +101,10 @@ public enum __IMPL_Microsoft_UI_Composition_SystemBackdrops {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_StateChangedImpl($0)
+              return try! this.add_StateChanged($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_StateChangedImpl($0)
+             try? self?._default.remove_StateChanged($0)
            }
           )
         }()
@@ -111,20 +112,84 @@ public enum __IMPL_Microsoft_UI_Composition_SystemBackdrops {
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontrollerwithtargets.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
         private lazy var _ISystemBackdropController: __ABI_Microsoft_UI_Composition_SystemBackdrops.ISystemBackdropController! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontrollerwithtargets.settarget)
         fileprivate func setTarget(_ windowId: WinAppSDK.WindowId, _ desktopWindowTarget: UWP.CompositionTarget!) throws -> Bool {
-            try _ISystemBackdropController.SetTargetWithWindowIdImpl(windowId, desktopWindowTarget)
+            try _ISystemBackdropController.SetTargetWithWindowId(windowId, desktopWindowTarget)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.composition.systembackdrops.isystembackdropcontrollerwithtargets.settarget)
         fileprivate func setTarget(_ coreWindow: UWP.CoreWindow!, _ compositionTarget: UWP.CompositionTarget!) throws -> Bool {
-            try _ISystemBackdropController.SetTargetWithCoreWindowImpl(coreWindow, compositionTarget)
+            try _ISystemBackdropController.SetTargetWithCoreWindow(coreWindow, compositionTarget)
         }
 
     }
 
+    public enum DesktopAcrylicControllerBridge: AbiBridge {
+        public typealias SwiftProjection = DesktopAcrylicController
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIDesktopAcrylicController>?) -> DesktopAcrylicController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MicaControllerBridge: AbiBridge {
+        public typealias SwiftProjection = MicaController
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CIMicaController>?) -> MicaController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SystemBackdropConfigurationBridge: AbiBridge {
+        public typealias SwiftProjection = SystemBackdropConfiguration
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CComposition_CSystemBackdrops_CISystemBackdropConfiguration>?) -> SystemBackdropConfiguration? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ISystemBackdropControllerMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISystemBackdropController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition_SystemBackdrops.ISystemBackdropController = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition_SystemBackdrops.ISystemBackdropControllerBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ISystemBackdropControllerWithTargetsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISystemBackdropControllerWithTargets
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Composition_SystemBackdrops.ISystemBackdropControllerWithTargets = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Composition_SystemBackdrops.ISystemBackdropControllerWithTargetsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class DesktopAcrylicControllerMaker: MakeFromAbi {
+    public typealias SwiftType = DesktopAcrylicController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DesktopAcrylicController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MicaControllerMaker: MakeFromAbi {
+    public typealias SwiftType = MicaController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MicaController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SystemBackdropConfigurationMaker: MakeFromAbi {
+    public typealias SwiftType = SystemBackdropConfiguration
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemBackdropConfiguration(fromAbi: abi)
+    }
 }

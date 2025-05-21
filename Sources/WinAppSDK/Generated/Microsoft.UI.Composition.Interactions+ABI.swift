@@ -172,35 +172,36 @@ private var IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualIntera
     .init(Data1: 0xA6B494FE, Data2: 0x12A1, Data3: 0x5A73, Data4: ( 0xB8,0x7E,0x4C,0x4E,0xF5,0x8E,0xAC,0x6C ))// A6B494FE-12A1-5A73-B87E-4C4EF58EAC6C
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class ICompositionConditionalValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValue }
 
-        internal func get_ConditionImpl() throws -> WinAppSDK.ExpressionAnimation? {
+        public func get_Condition() throws -> WinAppSDK.ExpressionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Condition(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: value)
         }
 
-        internal func put_ConditionImpl(_ value: WinAppSDK.ExpressionAnimation?) throws {
+        public func put_Condition(_ value: WinAppSDK.ExpressionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Condition(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ValueImpl() throws -> WinAppSDK.ExpressionAnimation? {
+        public func get_Value() throws -> WinAppSDK.ExpressionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: value)
         }
 
-        internal func put_ValueImpl(_ value: WinAppSDK.ExpressionAnimation?) throws {
+        public func put_Value(_ value: WinAppSDK.ExpressionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, RawPointer(value)))
             }
@@ -211,13 +212,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class ICompositionConditionalValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValueStatics }
 
-        internal func CreateImpl(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.CompositionConditionalValue? {
+        public func Create(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.CompositionConditionalValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionConditionalValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(compositor), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition_Interactions.CompositionConditionalValueBridge.from(abi: result)
         }
 
     }
@@ -260,7 +261,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class ICompositionInteractionSourceCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionInteractionSourceCollection }
 
-        internal func get_CountImpl() throws -> Int32 {
+        public func get_Count() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionInteractionSourceCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Count(pThis, &value))
@@ -268,7 +269,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func AddImpl(_ value: WinAppSDK.AnyICompositionInteractionSource?) throws {
+        public func Add(_ value: WinAppSDK.AnyICompositionInteractionSource?) throws {
             let valueWrapper = __ABI_Microsoft_UI_Composition_Interactions.ICompositionInteractionSourceWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionInteractionSourceCollection.self) { pThis in
@@ -276,7 +277,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func RemoveImpl(_ value: WinAppSDK.AnyICompositionInteractionSource?) throws {
+        public func Remove(_ value: WinAppSDK.AnyICompositionInteractionSource?) throws {
             let valueWrapper = __ABI_Microsoft_UI_Composition_Interactions.ICompositionInteractionSourceWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionInteractionSourceCollection.self) { pThis in
@@ -284,7 +285,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func RemoveAllImpl() throws {
+        public func RemoveAll() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CICompositionInteractionSourceCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAll(pThis))
             }
@@ -295,7 +296,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionSourceConfiguration: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration }
 
-        internal func get_PositionXSourceModeImpl() throws -> WinAppSDK.InteractionSourceRedirectionMode {
+        public func get_PositionXSourceMode() throws -> WinAppSDK.InteractionSourceRedirectionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionSourceRedirectionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionXSourceMode(pThis, &value))
@@ -303,13 +304,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_PositionXSourceModeImpl(_ value: WinAppSDK.InteractionSourceRedirectionMode) throws {
+        public func put_PositionXSourceMode(_ value: WinAppSDK.InteractionSourceRedirectionMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionXSourceMode(pThis, value))
             }
         }
 
-        internal func get_PositionYSourceModeImpl() throws -> WinAppSDK.InteractionSourceRedirectionMode {
+        public func get_PositionYSourceMode() throws -> WinAppSDK.InteractionSourceRedirectionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionSourceRedirectionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionYSourceMode(pThis, &value))
@@ -317,13 +318,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_PositionYSourceModeImpl(_ value: WinAppSDK.InteractionSourceRedirectionMode) throws {
+        public func put_PositionYSourceMode(_ value: WinAppSDK.InteractionSourceRedirectionMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionYSourceMode(pThis, value))
             }
         }
 
-        internal func get_ScaleSourceModeImpl() throws -> WinAppSDK.InteractionSourceRedirectionMode {
+        public func get_ScaleSourceMode() throws -> WinAppSDK.InteractionSourceRedirectionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionSourceRedirectionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleSourceMode(pThis, &value))
@@ -331,7 +332,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_ScaleSourceModeImpl(_ value: WinAppSDK.InteractionSourceRedirectionMode) throws {
+        public func put_ScaleSourceMode(_ value: WinAppSDK.InteractionSourceRedirectionMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionSourceConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ScaleSourceMode(pThis, value))
             }
@@ -342,16 +343,16 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTracker: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker }
 
-        internal func get_InteractionSourcesImpl() throws -> WinAppSDK.CompositionInteractionSourceCollection? {
+        public func get_InteractionSources() throws -> WinAppSDK.CompositionInteractionSourceCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_InteractionSources(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition_Interactions.CompositionInteractionSourceCollectionBridge.from(abi: value)
         }
 
-        internal func get_IsPositionRoundingSuggestedImpl() throws -> Bool {
+        public func get_IsPositionRoundingSuggested() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPositionRoundingSuggested(pThis, &value))
@@ -359,7 +360,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .init(from: value)
         }
 
-        internal func get_MaxPositionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_MaxPosition() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxPosition(pThis, &value))
@@ -367,13 +368,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func put_MaxPositionImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_MaxPosition(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxPosition(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_MaxScaleImpl() throws -> Float {
+        public func get_MaxScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxScale(pThis, &value))
@@ -381,13 +382,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_MaxScaleImpl(_ value: Float) throws {
+        public func put_MaxScale(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxScale(pThis, value))
             }
         }
 
-        internal func get_MinPositionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_MinPosition() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinPosition(pThis, &value))
@@ -395,13 +396,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func put_MinPositionImpl(_ value: WindowsFoundation.Vector3) throws {
+        public func put_MinPosition(_ value: WindowsFoundation.Vector3) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinPosition(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_MinScaleImpl() throws -> Float {
+        public func get_MinScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinScale(pThis, &value))
@@ -409,13 +410,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_MinScaleImpl(_ value: Float) throws {
+        public func put_MinScale(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinScale(pThis, value))
             }
         }
 
-        internal func get_NaturalRestingPositionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_NaturalRestingPosition() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalRestingPosition(pThis, &value))
@@ -423,7 +424,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func get_NaturalRestingScaleImpl() throws -> Float {
+        public func get_NaturalRestingScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalRestingScale(pThis, &value))
@@ -431,7 +432,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func get_OwnerImpl() throws -> WinAppSDK.AnyIInteractionTrackerOwner? {
+        public func get_Owner() throws -> WinAppSDK.AnyIInteractionTrackerOwner? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Owner(pThis, &valueAbi))
@@ -440,7 +441,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerOwnerWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Position() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -448,7 +449,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func get_PositionInertiaDecayRateImpl() throws -> WindowsFoundation.Vector3? {
+        public func get_PositionInertiaDecayRate() throws -> WindowsFoundation.Vector3? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionInertiaDecayRate(pThis, &valueAbi))
@@ -457,7 +458,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector3Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_PositionInertiaDecayRateImpl(_ value: WindowsFoundation.Vector3?) throws {
+        public func put_PositionInertiaDecayRate(_ value: WindowsFoundation.Vector3?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector3Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
@@ -465,7 +466,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func get_PositionVelocityInPixelsPerSecondImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_PositionVelocityInPixelsPerSecond() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionVelocityInPixelsPerSecond(pThis, &value))
@@ -473,7 +474,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func get_ScaleImpl() throws -> Float {
+        public func get_Scale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scale(pThis, &value))
@@ -481,7 +482,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func get_ScaleInertiaDecayRateImpl() throws -> Float? {
+        public func get_ScaleInertiaDecayRate() throws -> Float? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleInertiaDecayRate(pThis, &valueAbi))
@@ -490,7 +491,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return WinAppSDK.__x_ABI_C__FIReference_1_floatWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ScaleInertiaDecayRateImpl(_ value: Float?) throws {
+        public func put_ScaleInertiaDecayRate(_ value: Float?) throws {
             let valueWrapper = WinAppSDK.__x_ABI_C__FIReference_1_floatWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
@@ -498,7 +499,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func get_ScaleVelocityInPercentPerSecondImpl() throws -> Float {
+        public func get_ScaleVelocityInPercentPerSecond() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleVelocityInPercentPerSecond(pThis, &value))
@@ -506,19 +507,19 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func AdjustPositionXIfGreaterThanThresholdImpl(_ adjustment: Float, _ positionThreshold: Float) throws {
+        public func AdjustPositionXIfGreaterThanThreshold(_ adjustment: Float, _ positionThreshold: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AdjustPositionXIfGreaterThanThreshold(pThis, adjustment, positionThreshold))
             }
         }
 
-        internal func AdjustPositionYIfGreaterThanThresholdImpl(_ adjustment: Float, _ positionThreshold: Float) throws {
+        public func AdjustPositionYIfGreaterThanThreshold(_ adjustment: Float, _ positionThreshold: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AdjustPositionYIfGreaterThanThreshold(pThis, adjustment, positionThreshold))
             }
         }
 
-        internal func ConfigurePositionXInertiaModifiersImpl(_ modifiers: WindowsFoundation.AnyIIterable<WinAppSDK.InteractionTrackerInertiaModifier?>?) throws {
+        public func ConfigurePositionXInertiaModifiers(_ modifiers: WindowsFoundation.AnyIIterable<WinAppSDK.InteractionTrackerInertiaModifier?>?) throws {
             let modifiersWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CInteractionTrackerInertiaModifierWrapper(modifiers)
             let _modifiers = try! modifiersWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
@@ -526,7 +527,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func ConfigurePositionYInertiaModifiersImpl(_ modifiers: WindowsFoundation.AnyIIterable<WinAppSDK.InteractionTrackerInertiaModifier?>?) throws {
+        public func ConfigurePositionYInertiaModifiers(_ modifiers: WindowsFoundation.AnyIIterable<WinAppSDK.InteractionTrackerInertiaModifier?>?) throws {
             let modifiersWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CInteractionTrackerInertiaModifierWrapper(modifiers)
             let _modifiers = try! modifiersWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
@@ -534,7 +535,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func ConfigureScaleInertiaModifiersImpl(_ modifiers: WindowsFoundation.AnyIIterable<WinAppSDK.InteractionTrackerInertiaModifier?>?) throws {
+        public func ConfigureScaleInertiaModifiers(_ modifiers: WindowsFoundation.AnyIIterable<WinAppSDK.InteractionTrackerInertiaModifier?>?) throws {
             let modifiersWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CInteractionTrackerInertiaModifierWrapper(modifiers)
             let _modifiers = try! modifiersWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
@@ -542,7 +543,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func TryUpdatePositionImpl(_ value: WindowsFoundation.Vector3) throws -> Int32 {
+        public func TryUpdatePosition(_ value: WindowsFoundation.Vector3) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdatePosition(pThis, .from(swift: value), &result))
@@ -550,7 +551,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return result
         }
 
-        internal func TryUpdatePositionByImpl(_ amount: WindowsFoundation.Vector3) throws -> Int32 {
+        public func TryUpdatePositionBy(_ amount: WindowsFoundation.Vector3) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdatePositionBy(pThis, .from(swift: amount), &result))
@@ -558,7 +559,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return result
         }
 
-        internal func TryUpdatePositionWithAnimationImpl(_ animation: WinAppSDK.CompositionAnimation?) throws -> Int32 {
+        public func TryUpdatePositionWithAnimation(_ animation: WinAppSDK.CompositionAnimation?) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdatePositionWithAnimation(pThis, RawPointer(animation), &result))
@@ -566,7 +567,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return result
         }
 
-        internal func TryUpdatePositionWithAdditionalVelocityImpl(_ velocityInPixelsPerSecond: WindowsFoundation.Vector3) throws -> Int32 {
+        public func TryUpdatePositionWithAdditionalVelocity(_ velocityInPixelsPerSecond: WindowsFoundation.Vector3) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdatePositionWithAdditionalVelocity(pThis, .from(swift: velocityInPixelsPerSecond), &result))
@@ -574,7 +575,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return result
         }
 
-        internal func TryUpdateScaleImpl(_ value: Float, _ centerPoint: WindowsFoundation.Vector3) throws -> Int32 {
+        public func TryUpdateScale(_ value: Float, _ centerPoint: WindowsFoundation.Vector3) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdateScale(pThis, value, .from(swift: centerPoint), &result))
@@ -582,7 +583,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return result
         }
 
-        internal func TryUpdateScaleWithAnimationImpl(_ animation: WinAppSDK.CompositionAnimation?, _ centerPoint: WindowsFoundation.Vector3) throws -> Int32 {
+        public func TryUpdateScaleWithAnimation(_ animation: WinAppSDK.CompositionAnimation?, _ centerPoint: WindowsFoundation.Vector3) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdateScaleWithAnimation(pThis, RawPointer(animation), .from(swift: centerPoint), &result))
@@ -590,7 +591,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return result
         }
 
-        internal func TryUpdateScaleWithAdditionalVelocityImpl(_ velocityInPercentPerSecond: Float, _ centerPoint: WindowsFoundation.Vector3) throws -> Int32 {
+        public func TryUpdateScaleWithAdditionalVelocity(_ velocityInPercentPerSecond: Float, _ centerPoint: WindowsFoundation.Vector3) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdateScaleWithAdditionalVelocity(pThis, velocityInPercentPerSecond, .from(swift: centerPoint), &result))
@@ -603,7 +604,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTracker2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker2 }
 
-        internal func ConfigureCenterPointXInertiaModifiersImpl(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
+        public func ConfigureCenterPointXInertiaModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
             let conditionalValuesWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CCompositionConditionalValueWrapper(conditionalValues)
             let _conditionalValues = try! conditionalValuesWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker2.self) { pThis in
@@ -611,7 +612,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func ConfigureCenterPointYInertiaModifiersImpl(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
+        public func ConfigureCenterPointYInertiaModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
             let conditionalValuesWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CCompositionConditionalValueWrapper(conditionalValues)
             let _conditionalValues = try! conditionalValuesWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker2.self) { pThis in
@@ -624,7 +625,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTracker3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker3 }
 
-        internal func ConfigureVector2PositionInertiaModifiersImpl(_ modifiers: WindowsFoundation.AnyIIterable<WinAppSDK.InteractionTrackerVector2InertiaModifier?>?) throws {
+        public func ConfigureVector2PositionInertiaModifiers(_ modifiers: WindowsFoundation.AnyIIterable<WinAppSDK.InteractionTrackerVector2InertiaModifier?>?) throws {
             let modifiersWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CInteractionTrackerVector2InertiaModifierWrapper(modifiers)
             let _modifiers = try! modifiersWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker3.self) { pThis in
@@ -637,7 +638,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTracker4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker4 }
 
-        internal func TryUpdatePositionWithOptionImpl(_ value: WindowsFoundation.Vector3, _ option: WinAppSDK.InteractionTrackerClampingOption) throws -> Int32 {
+        public func TryUpdatePositionWithOption(_ value: WindowsFoundation.Vector3, _ option: WinAppSDK.InteractionTrackerClampingOption) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdatePositionWithOption(pThis, .from(swift: value), option, &result))
@@ -645,7 +646,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return result
         }
 
-        internal func TryUpdatePositionByWithOptionImpl(_ amount: WindowsFoundation.Vector3, _ option: WinAppSDK.InteractionTrackerClampingOption) throws -> Int32 {
+        public func TryUpdatePositionByWithOption(_ amount: WindowsFoundation.Vector3, _ option: WinAppSDK.InteractionTrackerClampingOption) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdatePositionByWithOption(pThis, .from(swift: amount), option, &result))
@@ -653,7 +654,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return result
         }
 
-        internal func get_IsInertiaFromImpulseImpl() throws -> Bool {
+        public func get_IsInertiaFromImpulse() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInertiaFromImpulse(pThis, &value))
@@ -666,7 +667,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTracker5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker5 }
 
-        internal func TryUpdatePositionWithOptionImpl(_ value: WindowsFoundation.Vector3, _ option: WinAppSDK.InteractionTrackerClampingOption, _ posUpdateOption: WinAppSDK.InteractionTrackerPositionUpdateOption) throws -> Int32 {
+        public func TryUpdatePositionWithOption(_ value: WindowsFoundation.Vector3, _ option: WinAppSDK.InteractionTrackerClampingOption, _ posUpdateOption: WinAppSDK.InteractionTrackerPositionUpdateOption) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTracker5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryUpdatePositionWithOption(pThis, .from(swift: value), option, posUpdateOption, &result))
@@ -679,7 +680,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerCustomAnimationStateEnteredArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerCustomAnimationStateEnteredArgs }
 
-        internal func get_RequestIdImpl() throws -> Int32 {
+        public func get_RequestId() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerCustomAnimationStateEnteredArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &value))
@@ -692,7 +693,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerCustomAnimationStateEnteredArgs2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerCustomAnimationStateEnteredArgs2 }
 
-        internal func get_IsFromBindingImpl() throws -> Bool {
+        public func get_IsFromBinding() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerCustomAnimationStateEnteredArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFromBinding(pThis, &value))
@@ -705,7 +706,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerIdleStateEnteredArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerIdleStateEnteredArgs }
 
-        internal func get_RequestIdImpl() throws -> Int32 {
+        public func get_RequestId() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerIdleStateEnteredArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &value))
@@ -718,7 +719,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerIdleStateEnteredArgs2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerIdleStateEnteredArgs2 }
 
-        internal func get_IsFromBindingImpl() throws -> Bool {
+        public func get_IsFromBinding() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerIdleStateEnteredArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFromBinding(pThis, &value))
@@ -741,31 +742,31 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInertiaMotion: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotion }
 
-        internal func get_ConditionImpl() throws -> WinAppSDK.ExpressionAnimation? {
+        public func get_Condition() throws -> WinAppSDK.ExpressionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotion.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Condition(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: value)
         }
 
-        internal func put_ConditionImpl(_ value: WinAppSDK.ExpressionAnimation?) throws {
+        public func put_Condition(_ value: WinAppSDK.ExpressionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotion.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Condition(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_MotionImpl() throws -> WinAppSDK.ExpressionAnimation? {
+        public func get_Motion() throws -> WinAppSDK.ExpressionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotion.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Motion(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: value)
         }
 
-        internal func put_MotionImpl(_ value: WinAppSDK.ExpressionAnimation?) throws {
+        public func put_Motion(_ value: WinAppSDK.ExpressionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotion.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Motion(pThis, RawPointer(value)))
             }
@@ -776,13 +777,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInertiaMotionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotionStatics }
 
-        internal func CreateImpl(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTrackerInertiaMotion? {
+        public func Create(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTrackerInertiaMotion? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaMotionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(compositor), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerInertiaMotionBridge.from(abi: result)
         }
 
     }
@@ -790,31 +791,31 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInertiaNaturalMotion: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotion }
 
-        internal func get_ConditionImpl() throws -> WinAppSDK.ExpressionAnimation? {
+        public func get_Condition() throws -> WinAppSDK.ExpressionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotion.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Condition(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: value)
         }
 
-        internal func put_ConditionImpl(_ value: WinAppSDK.ExpressionAnimation?) throws {
+        public func put_Condition(_ value: WinAppSDK.ExpressionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotion.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Condition(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_NaturalMotionImpl() throws -> WinAppSDK.ScalarNaturalMotionAnimation? {
+        public func get_NaturalMotion() throws -> WinAppSDK.ScalarNaturalMotionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotion.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalMotion(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ScalarNaturalMotionAnimationBridge.from(abi: value)
         }
 
-        internal func put_NaturalMotionImpl(_ value: WinAppSDK.ScalarNaturalMotionAnimation?) throws {
+        public func put_NaturalMotion(_ value: WinAppSDK.ScalarNaturalMotionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotion.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NaturalMotion(pThis, RawPointer(value)))
             }
@@ -825,13 +826,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInertiaNaturalMotionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotionStatics }
 
-        internal func CreateImpl(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTrackerInertiaNaturalMotion? {
+        public func Create(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTrackerInertiaNaturalMotion? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaNaturalMotionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(compositor), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerInertiaNaturalMotionBridge.from(abi: result)
         }
 
     }
@@ -839,31 +840,31 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInertiaRestingValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValue }
 
-        internal func get_ConditionImpl() throws -> WinAppSDK.ExpressionAnimation? {
+        public func get_Condition() throws -> WinAppSDK.ExpressionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Condition(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: value)
         }
 
-        internal func put_ConditionImpl(_ value: WinAppSDK.ExpressionAnimation?) throws {
+        public func put_Condition(_ value: WinAppSDK.ExpressionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Condition(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_RestingValueImpl() throws -> WinAppSDK.ExpressionAnimation? {
+        public func get_RestingValue() throws -> WinAppSDK.ExpressionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RestingValue(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: value)
         }
 
-        internal func put_RestingValueImpl(_ value: WinAppSDK.ExpressionAnimation?) throws {
+        public func put_RestingValue(_ value: WinAppSDK.ExpressionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RestingValue(pThis, RawPointer(value)))
             }
@@ -874,13 +875,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInertiaRestingValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValueStatics }
 
-        internal func CreateImpl(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTrackerInertiaRestingValue? {
+        public func Create(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTrackerInertiaRestingValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaRestingValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(compositor), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerInertiaRestingValueBridge.from(abi: result)
         }
 
     }
@@ -888,7 +889,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInertiaStateEnteredArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs }
 
-        internal func get_ModifiedRestingPositionImpl() throws -> WindowsFoundation.Vector3? {
+        public func get_ModifiedRestingPosition() throws -> WindowsFoundation.Vector3? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ModifiedRestingPosition(pThis, &valueAbi))
@@ -897,7 +898,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return WinAppSDK.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector3Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ModifiedRestingScaleImpl() throws -> Float? {
+        public func get_ModifiedRestingScale() throws -> Float? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ModifiedRestingScale(pThis, &valueAbi))
@@ -906,7 +907,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return WinAppSDK.__x_ABI_C__FIReference_1_floatWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_NaturalRestingPositionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_NaturalRestingPosition() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalRestingPosition(pThis, &value))
@@ -914,7 +915,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func get_NaturalRestingScaleImpl() throws -> Float {
+        public func get_NaturalRestingScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalRestingScale(pThis, &value))
@@ -922,7 +923,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func get_PositionVelocityInPixelsPerSecondImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_PositionVelocityInPixelsPerSecond() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionVelocityInPixelsPerSecond(pThis, &value))
@@ -930,7 +931,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func get_RequestIdImpl() throws -> Int32 {
+        public func get_RequestId() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &value))
@@ -938,7 +939,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func get_ScaleVelocityInPercentPerSecondImpl() throws -> Float {
+        public func get_ScaleVelocityInPercentPerSecond() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleVelocityInPercentPerSecond(pThis, &value))
@@ -951,7 +952,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInertiaStateEnteredArgs2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs2 }
 
-        internal func get_IsInertiaFromImpulseImpl() throws -> Bool {
+        public func get_IsInertiaFromImpulse() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInertiaFromImpulse(pThis, &value))
@@ -964,7 +965,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInertiaStateEnteredArgs3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs3 }
 
-        internal func get_IsFromBindingImpl() throws -> Bool {
+        public func get_IsFromBinding() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInertiaStateEnteredArgs3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFromBinding(pThis, &value))
@@ -977,7 +978,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInteractingStateEnteredArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInteractingStateEnteredArgs }
 
-        internal func get_RequestIdImpl() throws -> Int32 {
+        public func get_RequestId() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInteractingStateEnteredArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &value))
@@ -990,7 +991,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerInteractingStateEnteredArgs2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInteractingStateEnteredArgs2 }
 
-        internal func get_IsFromBindingImpl() throws -> Bool {
+        public func get_IsFromBinding() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerInteractingStateEnteredArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFromBinding(pThis, &value))
@@ -1003,37 +1004,37 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerOwner: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerOwner }
 
-        open func CustomAnimationStateEnteredImpl(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerCustomAnimationStateEnteredArgs?) throws {
+        open func CustomAnimationStateEntered(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerCustomAnimationStateEnteredArgs?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerOwner.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CustomAnimationStateEntered(pThis, RawPointer(sender), RawPointer(args)))
             }
         }
 
-        open func IdleStateEnteredImpl(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerIdleStateEnteredArgs?) throws {
+        open func IdleStateEntered(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerIdleStateEnteredArgs?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerOwner.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IdleStateEntered(pThis, RawPointer(sender), RawPointer(args)))
             }
         }
 
-        open func InertiaStateEnteredImpl(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerInertiaStateEnteredArgs?) throws {
+        open func InertiaStateEntered(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerInertiaStateEnteredArgs?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerOwner.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InertiaStateEntered(pThis, RawPointer(sender), RawPointer(args)))
             }
         }
 
-        open func InteractingStateEnteredImpl(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerInteractingStateEnteredArgs?) throws {
+        open func InteractingStateEntered(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerInteractingStateEnteredArgs?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerOwner.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InteractingStateEntered(pThis, RawPointer(sender), RawPointer(args)))
             }
         }
 
-        open func RequestIgnoredImpl(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerRequestIgnoredArgs?) throws {
+        open func RequestIgnored(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerRequestIgnoredArgs?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerOwner.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RequestIgnored(pThis, RawPointer(sender), RawPointer(args)))
             }
         }
 
-        open func ValuesChangedImpl(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerValuesChangedArgs?) throws {
+        open func ValuesChanged(_ sender: WinAppSDK.InteractionTracker?, _ args: WinAppSDK.InteractionTrackerValuesChangedArgs?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerOwner.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ValuesChanged(pThis, RawPointer(sender), RawPointer(args)))
             }
@@ -1072,61 +1073,61 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
         CustomAnimationStateEntered: {
             do {
                 guard let __unwrapped__instance = IInteractionTrackerOwnerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: WinAppSDK.InteractionTracker? = .from(abi: ComPtr($1))
-                let args: WinAppSDK.InteractionTrackerCustomAnimationStateEnteredArgs? = .from(abi: ComPtr($2))
+                let sender: WinAppSDK.InteractionTracker? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerBridge.from(abi: ComPtr($1))
+                let args: WinAppSDK.InteractionTrackerCustomAnimationStateEnteredArgs? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerCustomAnimationStateEnteredArgsBridge.from(abi: ComPtr($2))
                 try __unwrapped__instance.customAnimationStateEntered(sender, args)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IdleStateEntered: {
             do {
                 guard let __unwrapped__instance = IInteractionTrackerOwnerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: WinAppSDK.InteractionTracker? = .from(abi: ComPtr($1))
-                let args: WinAppSDK.InteractionTrackerIdleStateEnteredArgs? = .from(abi: ComPtr($2))
+                let sender: WinAppSDK.InteractionTracker? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerBridge.from(abi: ComPtr($1))
+                let args: WinAppSDK.InteractionTrackerIdleStateEnteredArgs? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerIdleStateEnteredArgsBridge.from(abi: ComPtr($2))
                 try __unwrapped__instance.idleStateEntered(sender, args)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         InertiaStateEntered: {
             do {
                 guard let __unwrapped__instance = IInteractionTrackerOwnerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: WinAppSDK.InteractionTracker? = .from(abi: ComPtr($1))
-                let args: WinAppSDK.InteractionTrackerInertiaStateEnteredArgs? = .from(abi: ComPtr($2))
+                let sender: WinAppSDK.InteractionTracker? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerBridge.from(abi: ComPtr($1))
+                let args: WinAppSDK.InteractionTrackerInertiaStateEnteredArgs? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerInertiaStateEnteredArgsBridge.from(abi: ComPtr($2))
                 try __unwrapped__instance.inertiaStateEntered(sender, args)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         InteractingStateEntered: {
             do {
                 guard let __unwrapped__instance = IInteractionTrackerOwnerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: WinAppSDK.InteractionTracker? = .from(abi: ComPtr($1))
-                let args: WinAppSDK.InteractionTrackerInteractingStateEnteredArgs? = .from(abi: ComPtr($2))
+                let sender: WinAppSDK.InteractionTracker? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerBridge.from(abi: ComPtr($1))
+                let args: WinAppSDK.InteractionTrackerInteractingStateEnteredArgs? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerInteractingStateEnteredArgsBridge.from(abi: ComPtr($2))
                 try __unwrapped__instance.interactingStateEntered(sender, args)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         RequestIgnored: {
             do {
                 guard let __unwrapped__instance = IInteractionTrackerOwnerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: WinAppSDK.InteractionTracker? = .from(abi: ComPtr($1))
-                let args: WinAppSDK.InteractionTrackerRequestIgnoredArgs? = .from(abi: ComPtr($2))
+                let sender: WinAppSDK.InteractionTracker? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerBridge.from(abi: ComPtr($1))
+                let args: WinAppSDK.InteractionTrackerRequestIgnoredArgs? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerRequestIgnoredArgsBridge.from(abi: ComPtr($2))
                 try __unwrapped__instance.requestIgnored(sender, args)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ValuesChanged: {
             do {
                 guard let __unwrapped__instance = IInteractionTrackerOwnerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: WinAppSDK.InteractionTracker? = .from(abi: ComPtr($1))
-                let args: WinAppSDK.InteractionTrackerValuesChangedArgs? = .from(abi: ComPtr($2))
+                let sender: WinAppSDK.InteractionTracker? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerBridge.from(abi: ComPtr($1))
+                let args: WinAppSDK.InteractionTrackerValuesChangedArgs? = __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerValuesChangedArgsBridge.from(abi: ComPtr($2))
                 try __unwrapped__instance.valuesChanged(sender, args)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -1134,7 +1135,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerRequestIgnoredArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerRequestIgnoredArgs }
 
-        internal func get_RequestIdImpl() throws -> Int32 {
+        public func get_RequestId() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerRequestIgnoredArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &value))
@@ -1147,16 +1148,16 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerStatics }
 
-        internal func CreateImpl(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTracker? {
+        public func Create(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTracker? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(compositor), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerBridge.from(abi: result)
         }
 
-        internal func CreateWithOwnerImpl(_ compositor: WinAppSDK.Compositor?, _ owner: WinAppSDK.AnyIInteractionTrackerOwner?) throws -> WinAppSDK.InteractionTracker? {
+        public func CreateWithOwner(_ compositor: WinAppSDK.Compositor?, _ owner: WinAppSDK.AnyIInteractionTrackerOwner?) throws -> WinAppSDK.InteractionTracker? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let ownerWrapper = __ABI_Microsoft_UI_Composition_Interactions.IInteractionTrackerOwnerWrapper(owner)
                 let _owner = try! ownerWrapper?.toABI { $0 }
@@ -1164,7 +1165,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithOwner(pThis, RawPointer(compositor), _owner, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerBridge.from(abi: result)
         }
 
     }
@@ -1172,13 +1173,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerStatics2 }
 
-        internal func SetBindingModeImpl(_ boundTracker1: WinAppSDK.InteractionTracker?, _ boundTracker2: WinAppSDK.InteractionTracker?, _ axisMode: WinAppSDK.InteractionBindingAxisModes) throws {
+        public func SetBindingMode(_ boundTracker1: WinAppSDK.InteractionTracker?, _ boundTracker2: WinAppSDK.InteractionTracker?, _ axisMode: WinAppSDK.InteractionBindingAxisModes) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetBindingMode(pThis, RawPointer(boundTracker1), RawPointer(boundTracker2), axisMode))
             }
         }
 
-        internal func GetBindingModeImpl(_ boundTracker1: WinAppSDK.InteractionTracker?, _ boundTracker2: WinAppSDK.InteractionTracker?) throws -> WinAppSDK.InteractionBindingAxisModes {
+        public func GetBindingMode(_ boundTracker1: WinAppSDK.InteractionTracker?, _ boundTracker2: WinAppSDK.InteractionTracker?) throws -> WinAppSDK.InteractionBindingAxisModes {
             var result: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionBindingAxisModes = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetBindingMode(pThis, RawPointer(boundTracker1), RawPointer(boundTracker2), &result))
@@ -1191,7 +1192,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerValuesChangedArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerValuesChangedArgs }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Position() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerValuesChangedArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -1199,7 +1200,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func get_RequestIdImpl() throws -> Int32 {
+        public func get_RequestId() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerValuesChangedArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &value))
@@ -1207,7 +1208,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func get_ScaleImpl() throws -> Float {
+        public func get_Scale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerValuesChangedArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scale(pThis, &value))
@@ -1230,31 +1231,31 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerVector2InertiaNaturalMotion: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotion }
 
-        internal func get_ConditionImpl() throws -> WinAppSDK.ExpressionAnimation? {
+        public func get_Condition() throws -> WinAppSDK.ExpressionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotion.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Condition(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.ExpressionAnimationBridge.from(abi: value)
         }
 
-        internal func put_ConditionImpl(_ value: WinAppSDK.ExpressionAnimation?) throws {
+        public func put_Condition(_ value: WinAppSDK.ExpressionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotion.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Condition(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_NaturalMotionImpl() throws -> WinAppSDK.Vector2NaturalMotionAnimation? {
+        public func get_NaturalMotion() throws -> WinAppSDK.Vector2NaturalMotionAnimation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotion.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalMotion(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.Vector2NaturalMotionAnimationBridge.from(abi: value)
         }
 
-        internal func put_NaturalMotionImpl(_ value: WinAppSDK.Vector2NaturalMotionAnimation?) throws {
+        public func put_NaturalMotion(_ value: WinAppSDK.Vector2NaturalMotionAnimation?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotion.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NaturalMotion(pThis, RawPointer(value)))
             }
@@ -1265,13 +1266,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IInteractionTrackerVector2InertiaNaturalMotionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotionStatics }
 
-        internal func CreateImpl(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTrackerVector2InertiaNaturalMotion? {
+        public func Create(_ compositor: WinAppSDK.Compositor?) throws -> WinAppSDK.InteractionTrackerVector2InertiaNaturalMotion? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIInteractionTrackerVector2InertiaNaturalMotionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(compositor), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition_Interactions.InteractionTrackerVector2InertiaNaturalMotionBridge.from(abi: result)
         }
 
     }
@@ -1279,7 +1280,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IVisualInteractionSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource }
 
-        internal func get_IsPositionXRailsEnabledImpl() throws -> Bool {
+        public func get_IsPositionXRailsEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPositionXRailsEnabled(pThis, &value))
@@ -1287,13 +1288,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .init(from: value)
         }
 
-        internal func put_IsPositionXRailsEnabledImpl(_ value: Bool) throws {
+        public func put_IsPositionXRailsEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsPositionXRailsEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_IsPositionYRailsEnabledImpl() throws -> Bool {
+        public func get_IsPositionYRailsEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPositionYRailsEnabled(pThis, &value))
@@ -1301,13 +1302,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .init(from: value)
         }
 
-        internal func put_IsPositionYRailsEnabledImpl(_ value: Bool) throws {
+        public func put_IsPositionYRailsEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsPositionYRailsEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ManipulationRedirectionModeImpl() throws -> WinAppSDK.VisualInteractionSourceRedirectionMode {
+        public func get_ManipulationRedirectionMode() throws -> WinAppSDK.VisualInteractionSourceRedirectionMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CVisualInteractionSourceRedirectionMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ManipulationRedirectionMode(pThis, &value))
@@ -1315,13 +1316,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_ManipulationRedirectionModeImpl(_ value: WinAppSDK.VisualInteractionSourceRedirectionMode) throws {
+        public func put_ManipulationRedirectionMode(_ value: WinAppSDK.VisualInteractionSourceRedirectionMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ManipulationRedirectionMode(pThis, value))
             }
         }
 
-        internal func get_PositionXChainingModeImpl() throws -> WinAppSDK.InteractionChainingMode {
+        public func get_PositionXChainingMode() throws -> WinAppSDK.InteractionChainingMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionChainingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionXChainingMode(pThis, &value))
@@ -1329,13 +1330,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_PositionXChainingModeImpl(_ value: WinAppSDK.InteractionChainingMode) throws {
+        public func put_PositionXChainingMode(_ value: WinAppSDK.InteractionChainingMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionXChainingMode(pThis, value))
             }
         }
 
-        internal func get_PositionXSourceModeImpl() throws -> WinAppSDK.InteractionSourceMode {
+        public func get_PositionXSourceMode() throws -> WinAppSDK.InteractionSourceMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionSourceMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionXSourceMode(pThis, &value))
@@ -1343,13 +1344,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_PositionXSourceModeImpl(_ value: WinAppSDK.InteractionSourceMode) throws {
+        public func put_PositionXSourceMode(_ value: WinAppSDK.InteractionSourceMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionXSourceMode(pThis, value))
             }
         }
 
-        internal func get_PositionYChainingModeImpl() throws -> WinAppSDK.InteractionChainingMode {
+        public func get_PositionYChainingMode() throws -> WinAppSDK.InteractionChainingMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionChainingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionYChainingMode(pThis, &value))
@@ -1357,13 +1358,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_PositionYChainingModeImpl(_ value: WinAppSDK.InteractionChainingMode) throws {
+        public func put_PositionYChainingMode(_ value: WinAppSDK.InteractionChainingMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionYChainingMode(pThis, value))
             }
         }
 
-        internal func get_PositionYSourceModeImpl() throws -> WinAppSDK.InteractionSourceMode {
+        public func get_PositionYSourceMode() throws -> WinAppSDK.InteractionSourceMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionSourceMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionYSourceMode(pThis, &value))
@@ -1371,13 +1372,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_PositionYSourceModeImpl(_ value: WinAppSDK.InteractionSourceMode) throws {
+        public func put_PositionYSourceMode(_ value: WinAppSDK.InteractionSourceMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionYSourceMode(pThis, value))
             }
         }
 
-        internal func get_ScaleChainingModeImpl() throws -> WinAppSDK.InteractionChainingMode {
+        public func get_ScaleChainingMode() throws -> WinAppSDK.InteractionChainingMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionChainingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleChainingMode(pThis, &value))
@@ -1385,13 +1386,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_ScaleChainingModeImpl(_ value: WinAppSDK.InteractionChainingMode) throws {
+        public func put_ScaleChainingMode(_ value: WinAppSDK.InteractionChainingMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ScaleChainingMode(pThis, value))
             }
         }
 
-        internal func get_ScaleSourceModeImpl() throws -> WinAppSDK.InteractionSourceMode {
+        public func get_ScaleSourceMode() throws -> WinAppSDK.InteractionSourceMode {
             var value: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CInteractionSourceMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleSourceMode(pThis, &value))
@@ -1399,22 +1400,22 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func put_ScaleSourceModeImpl(_ value: WinAppSDK.InteractionSourceMode) throws {
+        public func put_ScaleSourceMode(_ value: WinAppSDK.InteractionSourceMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ScaleSourceMode(pThis, value))
             }
         }
 
-        internal func get_SourceImpl() throws -> WinAppSDK.Visual? {
+        public func get_Source() throws -> WinAppSDK.Visual? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Source(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: value)
         }
 
-        internal func TryRedirectForManipulationImpl(_ pointerPoint: WinAppSDK.PointerPoint?) throws {
+        public func TryRedirectForManipulation(_ pointerPoint: WinAppSDK.PointerPoint?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryRedirectForManipulation(pThis, RawPointer(pointerPoint)))
             }
@@ -1425,7 +1426,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IVisualInteractionSource2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2 }
 
-        internal func get_DeltaPositionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_DeltaPosition() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeltaPosition(pThis, &value))
@@ -1433,7 +1434,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func get_DeltaScaleImpl() throws -> Float {
+        public func get_DeltaScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeltaScale(pThis, &value))
@@ -1441,7 +1442,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_Position() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -1449,7 +1450,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func get_PositionVelocityImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_PositionVelocity() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionVelocity(pThis, &value))
@@ -1457,7 +1458,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return .from(abi: value)
         }
 
-        internal func get_ScaleImpl() throws -> Float {
+        public func get_Scale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scale(pThis, &value))
@@ -1465,7 +1466,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func get_ScaleVelocityImpl() throws -> Float {
+        public func get_ScaleVelocity() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleVelocity(pThis, &value))
@@ -1473,7 +1474,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             return value
         }
 
-        internal func ConfigureCenterPointXModifiersImpl(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
+        public func ConfigureCenterPointXModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
             let conditionalValuesWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CCompositionConditionalValueWrapper(conditionalValues)
             let _conditionalValues = try! conditionalValuesWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
@@ -1481,7 +1482,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func ConfigureCenterPointYModifiersImpl(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
+        public func ConfigureCenterPointYModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
             let conditionalValuesWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CCompositionConditionalValueWrapper(conditionalValues)
             let _conditionalValues = try! conditionalValuesWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
@@ -1489,7 +1490,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func ConfigureDeltaPositionXModifiersImpl(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
+        public func ConfigureDeltaPositionXModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
             let conditionalValuesWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CCompositionConditionalValueWrapper(conditionalValues)
             let _conditionalValues = try! conditionalValuesWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
@@ -1497,7 +1498,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func ConfigureDeltaPositionYModifiersImpl(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
+        public func ConfigureDeltaPositionYModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
             let conditionalValuesWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CCompositionConditionalValueWrapper(conditionalValues)
             let _conditionalValues = try! conditionalValuesWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
@@ -1505,7 +1506,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
             }
         }
 
-        internal func ConfigureDeltaScaleModifiersImpl(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
+        public func ConfigureDeltaScaleModifiers(_ conditionalValues: WindowsFoundation.AnyIIterable<WinAppSDK.CompositionConditionalValue?>?) throws {
             let conditionalValuesWrapper = WinAppSDK.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CComposition__CInteractions__CCompositionConditionalValueWrapper(conditionalValues)
             let _conditionalValues = try! conditionalValuesWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource2.self) { pThis in
@@ -1518,13 +1519,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IVisualInteractionSource3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource3 }
 
-        internal func get_PointerWheelConfigImpl() throws -> WinAppSDK.InteractionSourceConfiguration? {
+        public func get_PointerWheelConfig() throws -> WinAppSDK.InteractionSourceConfiguration? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSource3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerWheelConfig(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition_Interactions.InteractionSourceConfigurationBridge.from(abi: value)
         }
 
     }
@@ -1537,13 +1538,13 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IVisualInteractionSourceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSourceStatics }
 
-        internal func CreateImpl(_ source: WinAppSDK.Visual?) throws -> WinAppSDK.VisualInteractionSource? {
+        public func Create(_ source: WinAppSDK.Visual?) throws -> WinAppSDK.VisualInteractionSource? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSourceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(source), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition_Interactions.VisualInteractionSourceBridge.from(abi: result)
         }
 
     }
@@ -1551,7 +1552,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
     public class IVisualInteractionSourceStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CComposition_CInteractions_CIVisualInteractionSourceStatics2 }
 
-        internal func CreateFromIVisualElementImpl(_ source: WinAppSDK.AnyIVisualElement?) throws -> WinAppSDK.VisualInteractionSource? {
+        public func CreateFromIVisualElement(_ source: WinAppSDK.AnyIVisualElement?) throws -> WinAppSDK.VisualInteractionSource? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let sourceWrapper = __ABI_Microsoft_UI_Composition.IVisualElementWrapper(source)
                 let _source = try! sourceWrapper?.toABI { $0 }
@@ -1559,7 +1560,7 @@ public enum __ABI_Microsoft_UI_Composition_Interactions {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromIVisualElement(pThis, _source, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition_Interactions.VisualInteractionSourceBridge.from(abi: result)
         }
 
     }

@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Input {
     public enum IPointerPointTransformBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointTransform
@@ -30,19 +31,747 @@ public enum __IMPL_Microsoft_UI_Input {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.ipointerpointtransform.trytransform)
         fileprivate func tryTransform(_ inPoint: WindowsFoundation.Point, _ outPoint: inout WindowsFoundation.Point) throws -> Bool {
-            try _default.TryTransformImpl(inPoint, &outPoint)
+            try _default.TryTransform(inPoint, &outPoint)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.ipointerpointtransform.trytransformbounds)
         fileprivate func tryTransformBounds(_ inRect: WindowsFoundation.Rect, _ outRect: inout WindowsFoundation.Rect) throws -> Bool {
-            try _default.TryTransformBoundsImpl(inRect, &outRect)
+            try _default.TryTransformBounds(inRect, &outRect)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.ipointerpointtransform.inverse)
         fileprivate var inverse : AnyIPointerPointTransform! {
-            get { try! _default.get_InverseImpl() }
+            get { try! _default.get_Inverse() }
         }
 
     }
 
+    public enum CharacterReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CharacterReceivedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CICharacterReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CICharacterReceivedEventArgs>?) -> CharacterReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ContextMenuKeyEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ContextMenuKeyEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIContextMenuKeyEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIContextMenuKeyEventArgs>?) -> ContextMenuKeyEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CrossSlidingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CrossSlidingEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CICrossSlidingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CICrossSlidingEventArgs>?) -> CrossSlidingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DraggingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = DraggingEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs>?) -> DraggingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FocusChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = FocusChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs>?) -> FocusChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FocusNavigationRequestBridge: AbiBridge {
+        public typealias SwiftProjection = FocusNavigationRequest
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequest
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequest>?) -> FocusNavigationRequest? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FocusNavigationRequestEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = FocusNavigationRequestEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIFocusNavigationRequestEventArgs>?) -> FocusNavigationRequestEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum GestureRecognizerBridge: AbiBridge {
+        public typealias SwiftProjection = GestureRecognizer
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIGestureRecognizer>?) -> GestureRecognizer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HoldingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = HoldingEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIHoldingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIHoldingEventArgs>?) -> HoldingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputActivationListenerBridge: AbiBridge {
+        public typealias SwiftProjection = InputActivationListener
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListener
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListener>?) -> InputActivationListener? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputActivationListenerActivationChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = InputActivationListenerActivationChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListenerActivationChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputActivationListenerActivationChangedEventArgs>?) -> InputActivationListenerActivationChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputCursorBridge: ComposableBridge {
+        public typealias SwiftProjection = InputCursor
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputCursor
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputCursor>?) -> InputCursor? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IInputCursor : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = InputCursor
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputCursor
+                public typealias SwiftABI = __ABI_Microsoft_UI_Input.IInputCursor
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IInputCursor
+    }
+
+    public enum InputCustomCursorBridge: ComposableBridge {
+        public typealias SwiftProjection = InputCustomCursor
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputCustomCursor
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputCustomCursor>?) -> InputCustomCursor? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IInputCustomCursor : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = InputCustomCursor
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputCustomCursor
+                public typealias SwiftABI = __ABI_Microsoft_UI_Input.IInputCustomCursor
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IInputCustomCursor
+    }
+
+    public enum InputDesktopNamedResourceCursorBridge: AbiBridge {
+        public typealias SwiftProjection = InputDesktopNamedResourceCursor
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopNamedResourceCursor
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopNamedResourceCursor>?) -> InputDesktopNamedResourceCursor? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputDesktopResourceCursorBridge: AbiBridge {
+        public typealias SwiftProjection = InputDesktopResourceCursor
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopResourceCursor
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputDesktopResourceCursor>?) -> InputDesktopResourceCursor? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputFocusControllerBridge: AbiBridge {
+        public typealias SwiftProjection = InputFocusController
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusController>?) -> InputFocusController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputFocusNavigationHostBridge: AbiBridge {
+        public typealias SwiftProjection = InputFocusNavigationHost
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHost
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHost>?) -> InputFocusNavigationHost? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputKeyboardSourceBridge: AbiBridge {
+        public typealias SwiftProjection = InputKeyboardSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource>?) -> InputKeyboardSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputLightDismissActionBridge: AbiBridge {
+        public typealias SwiftProjection = InputLightDismissAction
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissAction
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissAction>?) -> InputLightDismissAction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputLightDismissEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = InputLightDismissEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputLightDismissEventArgs>?) -> InputLightDismissEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputNonClientPointerSourceBridge: AbiBridge {
+        public typealias SwiftProjection = InputNonClientPointerSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource>?) -> InputNonClientPointerSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputObjectBridge: ComposableBridge {
+        public typealias SwiftProjection = InputObject
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputObject
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputObject>?) -> InputObject? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IInputObject : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = InputObject
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputObject
+                public typealias SwiftABI = __ABI_Microsoft_UI_Input.IInputObject
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IInputObject
+    }
+
+    public enum InputPointerSourceBridge: AbiBridge {
+        public typealias SwiftProjection = InputPointerSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputPointerSource>?) -> InputPointerSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputPreTranslateKeyboardSourceBridge: AbiBridge {
+        public typealias SwiftProjection = InputPreTranslateKeyboardSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputPreTranslateKeyboardSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputPreTranslateKeyboardSource>?) -> InputPreTranslateKeyboardSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputSystemCursorBridge: AbiBridge {
+        public typealias SwiftProjection = InputSystemCursor
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIInputSystemCursor
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIInputSystemCursor>?) -> InputSystemCursor? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum KeyEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = KeyEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIKeyEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIKeyEventArgs>?) -> KeyEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ManipulationCompletedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ManipulationCompletedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIManipulationCompletedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIManipulationCompletedEventArgs>?) -> ManipulationCompletedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ManipulationInertiaStartingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ManipulationInertiaStartingEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIManipulationInertiaStartingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIManipulationInertiaStartingEventArgs>?) -> ManipulationInertiaStartingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ManipulationStartedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ManipulationStartedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIManipulationStartedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIManipulationStartedEventArgs>?) -> ManipulationStartedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ManipulationUpdatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ManipulationUpdatedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIManipulationUpdatedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIManipulationUpdatedEventArgs>?) -> ManipulationUpdatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MouseWheelParametersBridge: AbiBridge {
+        public typealias SwiftProjection = MouseWheelParameters
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIMouseWheelParameters>?) -> MouseWheelParameters? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NonClientCaptionTappedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = NonClientCaptionTappedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CINonClientCaptionTappedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CINonClientCaptionTappedEventArgs>?) -> NonClientCaptionTappedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NonClientPointerEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = NonClientPointerEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CINonClientPointerEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CINonClientPointerEventArgs>?) -> NonClientPointerEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NonClientRegionsChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = NonClientRegionsChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CINonClientRegionsChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CINonClientRegionsChangedEventArgs>?) -> NonClientRegionsChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointerEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = PointerEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIPointerEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIPointerEventArgs>?) -> PointerEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointerPointBridge: AbiBridge {
+        public typealias SwiftProjection = PointerPoint
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIPointerPoint>?) -> PointerPoint? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointerPointPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = PointerPointProperties
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIPointerPointProperties>?) -> PointerPointProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointerPredictorBridge: AbiBridge {
+        public typealias SwiftProjection = PointerPredictor
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIPointerPredictor
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIPointerPredictor>?) -> PointerPredictor? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RightTappedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = RightTappedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIRightTappedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIRightTappedEventArgs>?) -> RightTappedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TappedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = TappedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs>?) -> TappedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension CrossSlideThresholds: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CInput_CCrossSlideThresholds
+    public static func from(abi: ABI) -> Self {
+        .init(selectionStart: abi.SelectionStart, speedBumpStart: abi.SpeedBumpStart, speedBumpEnd: abi.SpeedBumpEnd, rearrangeStart: abi.RearrangeStart)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension ManipulationDelta: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta
+    public static func from(abi: ABI) -> Self {
+        .init(translation: .from(abi: abi.Translation), scale: abi.Scale, rotation: abi.Rotation, expansion: abi.Expansion)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension ManipulationVelocities: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CInput_CManipulationVelocities
+    public static func from(abi: ABI) -> Self {
+        .init(linear: .from(abi: abi.Linear), angular: abi.Angular, expansion: abi.Expansion)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension PhysicalKeyStatus: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CInput_CPhysicalKeyStatus
+    public static func from(abi: ABI) -> Self {
+        .init(repeatCount: abi.RepeatCount, scanCode: abi.ScanCode, isExtendedKey: .init(from: abi.IsExtendedKey), isMenuKeyDown: .init(from: abi.IsMenuKeyDown), wasKeyDown: .init(from: abi.WasKeyDown), isKeyReleased: .init(from: abi.IsKeyReleased))
+    }
+    public func toABI() -> ABI {
+        __ABI_Microsoft_UI_Input._ABI_PhysicalKeyStatus(from: self).detach()
+    }
+}
+
+@_spi(WinRTInternal)
+public class IPointerPointTransformMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIPointerPointTransform
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Input.IPointerPointTransform = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Input.IPointerPointTransformBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class CharacterReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CharacterReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CharacterReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ContextMenuKeyEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ContextMenuKeyEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ContextMenuKeyEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CrossSlidingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CrossSlidingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CrossSlidingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DraggingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DraggingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DraggingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FocusChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = FocusChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FocusChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FocusNavigationRequestMaker: MakeFromAbi {
+    public typealias SwiftType = FocusNavigationRequest
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FocusNavigationRequest(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FocusNavigationRequestEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = FocusNavigationRequestEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FocusNavigationRequestEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class GestureRecognizerMaker: MakeFromAbi {
+    public typealias SwiftType = GestureRecognizer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return GestureRecognizer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HoldingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = HoldingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HoldingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputActivationListenerMaker: MakeFromAbi {
+    public typealias SwiftType = InputActivationListener
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputActivationListener(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputActivationListenerActivationChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = InputActivationListenerActivationChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputActivationListenerActivationChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputCursorMaker: MakeFromAbi {
+    public typealias SwiftType = InputCursor
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputCursor(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputCustomCursorMaker: MakeFromAbi {
+    public typealias SwiftType = InputCustomCursor
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputCustomCursor(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputDesktopNamedResourceCursorMaker: MakeFromAbi {
+    public typealias SwiftType = InputDesktopNamedResourceCursor
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputDesktopNamedResourceCursor(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputDesktopResourceCursorMaker: MakeFromAbi {
+    public typealias SwiftType = InputDesktopResourceCursor
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputDesktopResourceCursor(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputFocusControllerMaker: MakeFromAbi {
+    public typealias SwiftType = InputFocusController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputFocusController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputFocusNavigationHostMaker: MakeFromAbi {
+    public typealias SwiftType = InputFocusNavigationHost
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputFocusNavigationHost(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputKeyboardSourceMaker: MakeFromAbi {
+    public typealias SwiftType = InputKeyboardSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputKeyboardSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputLightDismissActionMaker: MakeFromAbi {
+    public typealias SwiftType = InputLightDismissAction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputLightDismissAction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputLightDismissEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = InputLightDismissEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputLightDismissEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputNonClientPointerSourceMaker: MakeFromAbi {
+    public typealias SwiftType = InputNonClientPointerSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputNonClientPointerSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputObjectMaker: MakeFromAbi {
+    public typealias SwiftType = InputObject
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputObject(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputPointerSourceMaker: MakeFromAbi {
+    public typealias SwiftType = InputPointerSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputPointerSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputPreTranslateKeyboardSourceMaker: MakeFromAbi {
+    public typealias SwiftType = InputPreTranslateKeyboardSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputPreTranslateKeyboardSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputSystemCursorMaker: MakeFromAbi {
+    public typealias SwiftType = InputSystemCursor
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputSystemCursor(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class KeyEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = KeyEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return KeyEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationCompletedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationCompletedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationCompletedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationInertiaStartingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationInertiaStartingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationInertiaStartingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationStartedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationStartedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationStartedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationUpdatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationUpdatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationUpdatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MouseWheelParametersMaker: MakeFromAbi {
+    public typealias SwiftType = MouseWheelParameters
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MouseWheelParameters(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NonClientCaptionTappedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NonClientCaptionTappedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NonClientCaptionTappedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NonClientPointerEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NonClientPointerEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NonClientPointerEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NonClientRegionsChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NonClientRegionsChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NonClientRegionsChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointerEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = PointerEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointerPointMaker: MakeFromAbi {
+    public typealias SwiftType = PointerPoint
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerPoint(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointerPointPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = PointerPointProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerPointProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointerPredictorMaker: MakeFromAbi {
+    public typealias SwiftType = PointerPredictor
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerPredictor(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RightTappedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = RightTappedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RightTappedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TappedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = TappedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TappedEventArgs(fromAbi: abi)
+    }
 }

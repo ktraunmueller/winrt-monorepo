@@ -9,25 +9,35 @@ import CWinRT
 public typealias ExtendedActivationKind = __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CExtendedActivationKind
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.activationregistrationmanager)
 public final class ActivationRegistrationManager {
-    private static let _IActivationRegistrationManagerStatics: __ABI_Microsoft_Windows_AppLifecycle.IActivationRegistrationManagerStatics = try! RoGetActivationFactory(HString("Microsoft.Windows.AppLifecycle.ActivationRegistrationManager"))
+    private static let _IActivationRegistrationManagerStatics: __ABI_Microsoft_Windows_AppLifecycle.IActivationRegistrationManagerStatics = try! RoGetActivationFactory("Microsoft.Windows.AppLifecycle.ActivationRegistrationManager")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.activationregistrationmanager.registerforfiletypeactivation)
+    public static func registerForFileTypeActivation(_ supportedFileTypes: [String], _ logo: String, _ displayName: String, _ supportedVerbs: [String], _ exePath: String) throws {
+        try _IActivationRegistrationManagerStatics.RegisterForFileTypeActivation(supportedFileTypes, logo, displayName, supportedVerbs, exePath)
+    }
+
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.activationregistrationmanager.registerforprotocolactivation)
-    public static func registerForProtocolActivation(_ scheme: String, _ logo: String, _ displayName: String, _ exePath: String) {
-        try! _IActivationRegistrationManagerStatics.RegisterForProtocolActivationImpl(scheme, logo, displayName, exePath)
+    public static func registerForProtocolActivation(_ scheme: String, _ logo: String, _ displayName: String, _ exePath: String) throws {
+        try _IActivationRegistrationManagerStatics.RegisterForProtocolActivation(scheme, logo, displayName, exePath)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.activationregistrationmanager.registerforstartupactivation)
-    public static func registerForStartupActivation(_ taskId: String, _ exePath: String) {
-        try! _IActivationRegistrationManagerStatics.RegisterForStartupActivationImpl(taskId, exePath)
+    public static func registerForStartupActivation(_ taskId: String, _ exePath: String) throws {
+        try _IActivationRegistrationManagerStatics.RegisterForStartupActivation(taskId, exePath)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.activationregistrationmanager.unregisterforfiletypeactivation)
+    public static func unregisterForFileTypeActivation(_ fileTypes: [String], _ exePath: String) throws {
+        try _IActivationRegistrationManagerStatics.UnregisterForFileTypeActivation(fileTypes, exePath)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.activationregistrationmanager.unregisterforprotocolactivation)
-    public static func unregisterForProtocolActivation(_ scheme: String, _ exePath: String) {
-        try! _IActivationRegistrationManagerStatics.UnregisterForProtocolActivationImpl(scheme, exePath)
+    public static func unregisterForProtocolActivation(_ scheme: String, _ exePath: String) throws {
+        try _IActivationRegistrationManagerStatics.UnregisterForProtocolActivation(scheme, exePath)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.activationregistrationmanager.unregisterforstartupactivation)
-    public static func unregisterForStartupActivation(_ taskId: String) {
-        try! _IActivationRegistrationManagerStatics.UnregisterForStartupActivationImpl(taskId)
+    public static func unregisterForStartupActivation(_ taskId: String) throws {
+        try _IActivationRegistrationManagerStatics.UnregisterForStartupActivation(taskId)
     }
 
 }
@@ -46,24 +56,18 @@ public final class AppActivationArguments : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppActivationArguments>?) -> AppActivationArguments? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments.data)
     public var data : Any! {
-        get { try! _default.get_DataImpl() }
+        get { try! _default.get_Data() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appactivationarguments.kind)
     public var kind : ExtendedActivationKind {
-        get { try! _default.get_KindImpl() }
+        get { try! _default.get_Kind() }
     }
 
     deinit {
@@ -85,66 +89,60 @@ public final class AppInstance : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CWindows_CAppLifecycle_CIAppInstance>?) -> AppInstance? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IAppInstanceStatics: __ABI_Microsoft_Windows_AppLifecycle.IAppInstanceStatics = try! RoGetActivationFactory(HString("Microsoft.Windows.AppLifecycle.AppInstance"))
+    private static let _IAppInstanceStatics: __ABI_Microsoft_Windows_AppLifecycle.IAppInstanceStatics = try! RoGetActivationFactory("Microsoft.Windows.AppLifecycle.AppInstance")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getcurrent)
-    public static func getCurrent() -> AppInstance! {
-        return try! _IAppInstanceStatics.GetCurrentImpl()
+    public static func getCurrent() throws -> AppInstance! {
+        return try _IAppInstanceStatics.GetCurrent()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getinstances)
-    public static func getInstances() -> WindowsFoundation.AnyIVector<AppInstance?>! {
-        return try! _IAppInstanceStatics.GetInstancesImpl()
+    public static func getInstances() throws -> WindowsFoundation.AnyIVector<AppInstance?>! {
+        return try _IAppInstanceStatics.GetInstances()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.findorregisterforkey)
-    public static func findOrRegisterForKey(_ key: String) -> AppInstance! {
-        return try! _IAppInstanceStatics.FindOrRegisterForKeyImpl(key)
+    public static func findOrRegisterForKey(_ key: String) throws -> AppInstance! {
+        return try _IAppInstanceStatics.FindOrRegisterForKey(key)
     }
 
-    private static let _IAppInstanceStatics2: __ABI_Microsoft_Windows_AppLifecycle.IAppInstanceStatics2 = try! RoGetActivationFactory(HString("Microsoft.Windows.AppLifecycle.AppInstance"))
+    private static let _IAppInstanceStatics2: __ABI_Microsoft_Windows_AppLifecycle.IAppInstanceStatics2 = try! RoGetActivationFactory("Microsoft.Windows.AppLifecycle.AppInstance")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.restart)
-    public static func restart(_ arguments: String) -> UWP.AppRestartFailureReason {
-        return try! _IAppInstanceStatics2.RestartImpl(arguments)
+    public static func restart(_ arguments: String) throws -> UWP.AppRestartFailureReason {
+        return try _IAppInstanceStatics2.Restart(arguments)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.unregisterkey)
     public func unregisterKey() throws {
-        try _default.UnregisterKeyImpl()
+        try _default.UnregisterKey()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.redirectactivationtoasync)
     public func redirectActivationToAsync(_ args: AppActivationArguments!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.RedirectActivationToAsyncImpl(args)
+        try _default.RedirectActivationToAsync(args)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs)
     public func getActivatedEventArgs() throws -> AppActivationArguments! {
-        try _default.GetActivatedEventArgsImpl()
+        try _default.GetActivatedEventArgs()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.iscurrent)
     public var isCurrent : Bool {
-        get { try! _default.get_IsCurrentImpl() }
+        get { try! _default.get_IsCurrent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.key)
     public var key : String {
-        get { try! _default.get_KeyImpl() }
+        get { try! _default.get_Key() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.processid)
     public var processId : UInt32 {
-        get { try! _default.get_ProcessIdImpl() }
+        get { try! _default.get_ProcessId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.activated)
@@ -152,10 +150,10 @@ public final class AppInstance : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ActivatedImpl($0)
+          return try! this.add_Activated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ActivatedImpl($0)
+         try? self?._default.remove_Activated($0)
        }
       )
     }()
@@ -305,5 +303,5 @@ extension WinAppSDK.ExtendedActivationKind {
         __x_ABI_CMicrosoft_CWindows_CAppLifecycle_CExtendedActivationKind_AppNotification
     }
 }
-extension WinAppSDK.ExtendedActivationKind: @retroactive Hashable, @retroactive Codable {}
+extension WinAppSDK.ExtendedActivationKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
