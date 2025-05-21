@@ -20,34 +20,28 @@ public final class CanvasCreateResourcesEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs>?) -> CanvasCreateResourcesEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICanvasCreateResourcesEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI.ICanvasCreateResourcesEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs"))
+    private static let _ICanvasCreateResourcesEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI.ICanvasCreateResourcesEventArgsFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs")
     public init(_ createResourcesReason: CanvasCreateResourcesReason) {
-        super.init(try! Self._ICanvasCreateResourcesEventArgsFactory.CreateImpl(createResourcesReason))
+        super.init(try! Self._ICanvasCreateResourcesEventArgsFactory.Create(createResourcesReason))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvascreateresourceseventargs.trackasyncaction)
     public func trackAsyncAction(_ action: WindowsFoundation.AnyIAsyncAction!) throws {
-        try _default.TrackAsyncActionImpl(action)
+        try _default.TrackAsyncAction(action)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvascreateresourceseventargs.gettrackedaction)
     public func getTrackedAction() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.GetTrackedActionImpl()
+        try _default.GetTrackedAction()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvascreateresourceseventargs.reason)
     public var reason : CanvasCreateResourcesReason {
-        get { try! _default.get_ReasonImpl() }
+        get { try! _default.get_Reason() }
     }
 
     deinit {
@@ -56,7 +50,7 @@ public final class CanvasCreateResourcesEventArgs : WinRTClass {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvastiminginformation)
-public struct CanvasTimingInformation: Hashable, Codable {
+public struct CanvasTimingInformation: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvastiminginformation.updatecount)
     public var updateCount: Int64 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.canvastiminginformation.totaltime)
@@ -72,9 +66,6 @@ public struct CanvasTimingInformation: Hashable, Codable {
         self.elapsedTime = elapsedTime
         self.isRunningSlowly = isRunningSlowly
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation) -> CanvasTimingInformation {
-        .init(updateCount: abi.UpdateCount, totalTime: .from(abi: abi.TotalTime), elapsedTime: .from(abi: abi.ElapsedTime), isRunningSlowly: .init(from: abi.IsRunningSlowly))
-    }
 }
 
 extension Win2D.CanvasCreateResourcesReason {
@@ -88,5 +79,5 @@ extension Win2D.CanvasCreateResourcesReason {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason_DpiChanged
     }
 }
-extension Win2D.CanvasCreateResourcesReason: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasCreateResourcesReason: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

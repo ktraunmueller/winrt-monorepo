@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_Graphics_Canvas_Brushes {
     public enum ICanvasBrushBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CICanvasBrush
@@ -30,27 +31,121 @@ public enum __IMPL_Microsoft_Graphics_Canvas_Brushes {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.brushes.icanvasbrush.device)
         fileprivate var device : Win2D.CanvasDevice! {
-            get { try! _default.get_DeviceImpl() }
+            get { try! _default.get_Device() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.brushes.icanvasbrush.opacity)
         fileprivate var opacity : Float {
-            get { try! _default.get_OpacityImpl() }
-            set { try! _default.put_OpacityImpl(newValue) }
+            get { try! _default.get_Opacity() }
+            set { try! _default.put_Opacity(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.brushes.icanvasbrush.transform)
         fileprivate var transform : WindowsFoundation.Matrix3x2 {
-            get { try! _default.get_TransformImpl() }
-            set { try! _default.put_TransformImpl(newValue) }
+            get { try! _default.get_Transform() }
+            set { try! _default.put_Transform(newValue) }
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.brushes.icanvasbrush.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
 
+    public enum CanvasImageBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasImageBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CICanvasImageBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CICanvasImageBrush>?) -> CanvasImageBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasLinearGradientBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasLinearGradientBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CICanvasLinearGradientBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CICanvasLinearGradientBrush>?) -> CanvasLinearGradientBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasRadialGradientBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasRadialGradientBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CICanvasRadialGradientBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CICanvasRadialGradientBrush>?) -> CanvasRadialGradientBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasSolidColorBrushBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasSolidColorBrush
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CICanvasSolidColorBrush
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CICanvasSolidColorBrush>?) -> CanvasSolidColorBrush? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension CanvasGradientStop: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CCanvasGradientStop
+    public static func from(abi: ABI) -> Self {
+        .init(position: abi.Position, color: .from(abi: abi.Color))
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension CanvasGradientStopHdr: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CBrushes_CCanvasGradientStopHdr
+    public static func from(abi: ABI) -> Self {
+        .init(position: abi.Position, color: .from(abi: abi.Color))
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class ICanvasBrushMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICanvasBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrush = try! abi.QueryInterface()
+        return __IMPL_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasImageBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasImageBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasImageBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasLinearGradientBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasLinearGradientBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasLinearGradientBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasRadialGradientBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasRadialGradientBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasRadialGradientBrush(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasSolidColorBrushMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasSolidColorBrush
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasSolidColorBrush(fromAbi: abi)
+    }
 }

@@ -49,11 +49,12 @@ private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgTextElement
     .init(Data1: 0x652786A8, Data2: 0xF3AB, Data3: 0x4083, Data4: ( 0x99,0x1D,0x97,0x48,0xAA,0x86,0xBD,0x6D ))// 652786A8-F3AB-4083-991D-9748AA86BD6D
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgAttribute: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgAttribute }
 
-        open func CloneImpl() throws -> Win2D.AnyICanvasSvgAttribute? {
+        open func Clone() throws -> Win2D.AnyICanvasSvgAttribute? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgAttribute.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Clone(pThis, &resultAbi))
@@ -62,22 +63,22 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgAttributeWrapper.unwrapFrom(abi: result)
         }
 
-        open func GetElementImpl() throws -> Win2D.CanvasSvgNamedElement? {
+        open func GetElement() throws -> Win2D.CanvasSvgNamedElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgAttribute.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetElement(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgNamedElementBridge.from(abi: value)
         }
 
-        open func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        open func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgAttribute.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
     }
@@ -118,7 +119,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
                 let resultWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgAttributeWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetElement: {
@@ -127,7 +128,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
                 let value = try __unwrapped__instance.getElement()
                 value?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         get_Device: {
@@ -142,16 +143,16 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgDocument: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument }
 
-        internal func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
-        internal func GetXmlImpl() throws -> String {
+        public func GetXml() throws -> String {
             var xmlString: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetXml(pThis, &xmlString))
@@ -159,7 +160,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .init(from: xmlString)
         }
 
-        internal func SaveAsyncImpl(_ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SaveAsync(_ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
                 let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
                 let _stream = try! streamWrapper?.toABI { $0 }
@@ -170,88 +171,125 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncAction)
         }
 
-        internal func put_RootImpl(_ value: Win2D.CanvasSvgNamedElement?) throws {
+        public func put_Root(_ value: Win2D.CanvasSvgNamedElement?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Root(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_RootImpl() throws -> Win2D.CanvasSvgNamedElement? {
+        public func get_Root() throws -> Win2D.CanvasSvgNamedElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Root(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgNamedElementBridge.from(abi: value)
         }
 
-        internal func FindElementByIdImpl(_ id: String) throws -> Win2D.CanvasSvgNamedElement? {
+        public func FindElementById(_ id: String) throws -> Win2D.CanvasSvgNamedElement? {
             let (element) = try ComPtrs.initialize { elementAbi in
                 let _id = try! HString(id)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindElementById(pThis, _id.get(), &elementAbi))
                 }
             }
-            return .from(abi: element)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgNamedElementBridge.from(abi: element)
         }
 
-        internal func CreatePaintAttributeWithDefaultsImpl() throws -> Win2D.CanvasSvgPaintAttribute? {
+        public func CreatePaintAttributeWithDefaults() throws -> Win2D.CanvasSvgPaintAttribute? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePaintAttributeWithDefaults(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgPaintAttributeBridge.from(abi: result)
         }
 
-        internal func CreatePaintAttributeImpl(_ paintType: Win2D.CanvasSvgPaintType, _ color: UWP.Color, _ id: String) throws -> Win2D.CanvasSvgPaintAttribute? {
+        public func CreatePaintAttribute(_ paintType: Win2D.CanvasSvgPaintType, _ color: UWP.Color, _ id: String) throws -> Win2D.CanvasSvgPaintAttribute? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _id = try! HString(id)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePaintAttribute(pThis, paintType, .from(swift: color), _id.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgPaintAttributeBridge.from(abi: result)
         }
 
-        internal func CreatePathAttributeWithDefaultsImpl() throws -> Win2D.CanvasSvgPathAttribute? {
+        public func CreatePathAttributeWithDefaults() throws -> Win2D.CanvasSvgPathAttribute? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePathAttributeWithDefaults(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgPathAttributeBridge.from(abi: result)
         }
 
-        internal func CreatePointsAttributeWithDefaultsImpl() throws -> Win2D.CanvasSvgPointsAttribute? {
+        public func CreatePathAttribute(_ segmentData: [Float], _ commands: [Win2D.CanvasSvgPathCommand]) throws -> Win2D.CanvasSvgPathAttribute? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                try segmentData.toABI { _segmentData in
+                    try commands.toABI { _commands in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePathAttribute(pThis, _segmentData.count, _segmentData.start, _commands.count, _commands.start, &resultAbi))
+                    }
+                }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgPathAttributeBridge.from(abi: result)
+        }
+
+        public func CreatePointsAttributeWithDefaults() throws -> Win2D.CanvasSvgPointsAttribute? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePointsAttributeWithDefaults(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgPointsAttributeBridge.from(abi: result)
         }
 
-        internal func CreateStrokeDashArrayAttributeWithDefaultsImpl() throws -> Win2D.CanvasSvgStrokeDashArrayAttribute? {
+        public func CreatePointsAttribute(_ points: [WindowsFoundation.Vector2]) throws -> Win2D.CanvasSvgPointsAttribute? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                try points.toABI { _points in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePointsAttribute(pThis, _points.count, _points.start, &resultAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgPointsAttributeBridge.from(abi: result)
+        }
+
+        public func CreateStrokeDashArrayAttributeWithDefaults() throws -> Win2D.CanvasSvgStrokeDashArrayAttribute? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateStrokeDashArrayAttributeWithDefaults(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgStrokeDashArrayAttributeBridge.from(abi: result)
         }
 
-        internal func LoadElementFromXmlImpl(_ xmlString: String) throws -> Win2D.CanvasSvgNamedElement? {
+        public func CreateStrokeDashArrayAttribute(_ dashValues: [Float], _ unitValues: [Win2D.CanvasSvgLengthUnits]) throws -> Win2D.CanvasSvgStrokeDashArrayAttribute? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                try dashValues.toABI { _dashValues in
+                    try unitValues.toABI { _unitValues in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateStrokeDashArrayAttribute(pThis, _dashValues.count, _dashValues.start, _unitValues.count, _unitValues.start, &resultAbi))
+                    }
+                }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgStrokeDashArrayAttributeBridge.from(abi: result)
+        }
+
+        public func LoadElementFromXml(_ xmlString: String) throws -> Win2D.CanvasSvgNamedElement? {
             let (svgElement) = try ComPtrs.initialize { svgElementAbi in
                 let _xmlString = try! HString(xmlString)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LoadElementFromXml(pThis, _xmlString.get(), &svgElementAbi))
                 }
             }
-            return .from(abi: svgElement)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgNamedElementBridge.from(abi: svgElement)
         }
 
-        internal func LoadElementAsyncImpl(_ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasSvgNamedElement?>? {
+        public func LoadElementAsync(_ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasSvgNamedElement?>? {
             let (svgElement) = try ComPtrs.initialize { svgElementAbi in
                 let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
                 let _stream = try! streamWrapper?.toABI { $0 }
@@ -267,7 +305,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgDocumentFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocumentFactory }
 
-        internal func CreateEmptyImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> ICanvasSvgDocument {
+        public func CreateEmpty(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> ICanvasSvgDocument {
             let (canvasSvgDocument) = try ComPtrs.initialize { canvasSvgDocumentAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -283,7 +321,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgDocumentStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocumentStatics }
 
-        internal func LoadFromXmlImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ xmlString: String) throws -> Win2D.CanvasSvgDocument? {
+        public func LoadFromXml(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ xmlString: String) throws -> Win2D.CanvasSvgDocument? {
             let (svgDocument) = try ComPtrs.initialize { svgDocumentAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -292,10 +330,10 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LoadFromXml(pThis, _resourceCreator, _xmlString.get(), &svgDocumentAbi))
                 }
             }
-            return .from(abi: svgDocument)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgDocumentBridge.from(abi: svgDocument)
         }
 
-        internal func LoadAsyncImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasSvgDocument?>? {
+        public func LoadAsync(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasSvgDocument?>? {
             let (svgDocument) = try ComPtrs.initialize { svgDocumentAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -308,7 +346,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CSvg__CCanvasSvgDocumentWrapper.unwrapFrom(abi: svgDocument)
         }
 
-        internal func IsSupportedImpl(_ device: Win2D.CanvasDevice?) throws -> Bool {
+        public func IsSupported(_ device: Win2D.CanvasDevice?) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocumentStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsSupported(pThis, RawPointer(device), &value))
@@ -321,31 +359,31 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgElement: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgElement }
 
-        open func get_ContainingDocumentImpl() throws -> Win2D.CanvasSvgDocument? {
+        open func get_ContainingDocument() throws -> Win2D.CanvasSvgDocument? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgElement.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContainingDocument(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgDocumentBridge.from(abi: value)
         }
 
-        open func get_ParentImpl() throws -> Win2D.CanvasSvgNamedElement? {
+        open func get_Parent() throws -> Win2D.CanvasSvgNamedElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgElement.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parent(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgNamedElementBridge.from(abi: value)
         }
 
-        open func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        open func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgElement.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
     }
@@ -405,7 +443,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgNamedElement: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement }
 
-        internal func AppendChildImpl(_ child: Win2D.AnyICanvasSvgElement?) throws {
+        public func AppendChild(_ child: Win2D.AnyICanvasSvgElement?) throws {
             let childWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper(child)
             let _child = try! childWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -413,27 +451,27 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             }
         }
 
-        internal func CreateAndAppendNamedChildElementImpl(_ childName: String) throws -> Win2D.CanvasSvgNamedElement? {
+        public func CreateAndAppendNamedChildElement(_ childName: String) throws -> Win2D.CanvasSvgNamedElement? {
             let (childElement) = try ComPtrs.initialize { childElementAbi in
                 let _childName = try! HString(childName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateAndAppendNamedChildElement(pThis, _childName.get(), &childElementAbi))
                 }
             }
-            return .from(abi: childElement)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgNamedElementBridge.from(abi: childElement)
         }
 
-        internal func CreateAndAppendTextChildElementImpl(_ textContent: String) throws -> Win2D.CanvasSvgTextElement? {
+        public func CreateAndAppendTextChildElement(_ textContent: String) throws -> Win2D.CanvasSvgTextElement? {
             let (childElement) = try ComPtrs.initialize { childElementAbi in
                 let _textContent = try! HString(textContent)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateAndAppendTextChildElement(pThis, _textContent.get(), &childElementAbi))
                 }
             }
-            return .from(abi: childElement)
+            return __IMPL_Microsoft_Graphics_Canvas_Svg.CanvasSvgTextElementBridge.from(abi: childElement)
         }
 
-        internal func get_FirstChildImpl() throws -> Win2D.AnyICanvasSvgElement? {
+        public func get_FirstChild() throws -> Win2D.AnyICanvasSvgElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstChild(pThis, &valueAbi))
@@ -442,7 +480,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_LastChildImpl() throws -> Win2D.AnyICanvasSvgElement? {
+        public func get_LastChild() throws -> Win2D.AnyICanvasSvgElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastChild(pThis, &valueAbi))
@@ -451,7 +489,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetPreviousSiblingImpl(_ child: Win2D.AnyICanvasSvgElement?) throws -> Win2D.AnyICanvasSvgElement? {
+        public func GetPreviousSibling(_ child: Win2D.AnyICanvasSvgElement?) throws -> Win2D.AnyICanvasSvgElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let childWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper(child)
                 let _child = try! childWrapper?.toABI { $0 }
@@ -462,7 +500,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetNextSiblingImpl(_ child: Win2D.AnyICanvasSvgElement?) throws -> Win2D.AnyICanvasSvgElement? {
+        public func GetNextSibling(_ child: Win2D.AnyICanvasSvgElement?) throws -> Win2D.AnyICanvasSvgElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let childWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper(child)
                 let _child = try! childWrapper?.toABI { $0 }
@@ -473,7 +511,17 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_TagImpl() throws -> String {
+        public func get_SpecifiedAttributes() throws -> [String] {
+            var valueElements: WinRTArrayAbi<HSTRING?> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpecifiedAttributes(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func get_Tag() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Tag(pThis, &value))
@@ -481,7 +529,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .init(from: value)
         }
 
-        internal func get_HasChildrenImpl() throws -> Bool {
+        public func get_HasChildren() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasChildren(pThis, &value))
@@ -489,7 +537,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .init(from: value)
         }
 
-        internal func InsertChildBeforeImpl(_ child: Win2D.AnyICanvasSvgElement?, _ referenceChild: Win2D.AnyICanvasSvgElement?) throws {
+        public func InsertChildBefore(_ child: Win2D.AnyICanvasSvgElement?, _ referenceChild: Win2D.AnyICanvasSvgElement?) throws {
             let childWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper(child)
             let _child = try! childWrapper?.toABI { $0 }
             let referenceChildWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper(referenceChild)
@@ -499,7 +547,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             }
         }
 
-        internal func IsAttributeSpecifiedImpl(_ attributeName: String) throws -> Bool {
+        public func IsAttributeSpecified(_ attributeName: String) throws -> Bool {
             var value: boolean = 0
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -508,7 +556,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .init(from: value)
         }
 
-        internal func IsAttributeSpecifiedWithInherhitedImpl(_ attributeName: String, _ inherited: Bool) throws -> Bool {
+        public func IsAttributeSpecifiedWithInherhited(_ attributeName: String, _ inherited: Bool) throws -> Bool {
             var value: boolean = 0
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -517,14 +565,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .init(from: value)
         }
 
-        internal func RemoveAttributeImpl(_ attributeName: String) throws {
+        public func RemoveAttribute(_ attributeName: String) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAttribute(pThis, _attributeName.get()))
             }
         }
 
-        internal func RemoveChildImpl(_ child: Win2D.AnyICanvasSvgElement?) throws {
+        public func RemoveChild(_ child: Win2D.AnyICanvasSvgElement?) throws {
             let childWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper(child)
             let _child = try! childWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -532,7 +580,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             }
         }
 
-        internal func ReplaceChildImpl(_ newChild: Win2D.AnyICanvasSvgElement?, _ oldChild: Win2D.AnyICanvasSvgElement?) throws {
+        public func ReplaceChild(_ newChild: Win2D.AnyICanvasSvgElement?, _ oldChild: Win2D.AnyICanvasSvgElement?) throws {
             let newChildWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper(newChild)
             let _newChild = try! newChildWrapper?.toABI { $0 }
             let oldChildWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElementWrapper(oldChild)
@@ -542,7 +590,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             }
         }
 
-        internal func SetStringAttributeImpl(_ attributeName: String, _ attributeValue: String) throws {
+        public func SetStringAttribute(_ attributeName: String, _ attributeValue: String) throws {
             let _attributeName = try! HString(attributeName)
             let _attributeValue = try! HString(attributeValue)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -550,7 +598,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             }
         }
 
-        internal func GetStringAttributeImpl(_ attributeName: String) throws -> String {
+        public func GetStringAttribute(_ attributeName: String) throws -> String {
             var attributeValue: HSTRING?
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -559,7 +607,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .init(from: attributeValue)
         }
 
-        internal func SetAttributeImpl(_ attributeName: String, _ attributeValue: Win2D.AnyICanvasSvgAttribute?) throws {
+        public func SetAttribute(_ attributeName: String, _ attributeValue: Win2D.AnyICanvasSvgAttribute?) throws {
             let _attributeName = try! HString(attributeName)
             let attributeValueWrapper = __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgAttributeWrapper(attributeValue)
             let _attributeValue = try! attributeValueWrapper?.toABI { $0 }
@@ -568,7 +616,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             }
         }
 
-        internal func GetAttributeImpl(_ attributeName: String) throws -> Win2D.AnyICanvasSvgAttribute? {
+        public func GetAttribute(_ attributeName: String) throws -> Win2D.AnyICanvasSvgAttribute? {
             let (attributeValue) = try ComPtrs.initialize { attributeValueAbi in
                 let _attributeName = try! HString(attributeName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -578,7 +626,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgAttributeWrapper.unwrapFrom(abi: attributeValue)
         }
 
-        internal func SetIdAttributeImpl(_ attributeName: String, _ attributeValue: String) throws {
+        public func SetIdAttribute(_ attributeName: String, _ attributeValue: String) throws {
             let _attributeName = try! HString(attributeName)
             let _attributeValue = try! HString(attributeValue)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -586,7 +634,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             }
         }
 
-        internal func GetIdAttributeImpl(_ attributeName: String) throws -> String {
+        public func GetIdAttribute(_ attributeName: String) throws -> String {
             var attributeValue: HSTRING?
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -595,14 +643,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .init(from: attributeValue)
         }
 
-        internal func SetFloatAttributeImpl(_ attributeName: String, _ attributeValue: Float) throws {
+        public func SetFloatAttribute(_ attributeName: String, _ attributeValue: Float) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFloatAttribute(pThis, _attributeName.get(), attributeValue))
             }
         }
 
-        internal func GetFloatAttributeImpl(_ attributeName: String) throws -> Float {
+        public func GetFloatAttribute(_ attributeName: String) throws -> Float {
             var attributeValue: FLOAT = 0.0
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -611,14 +659,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return attributeValue
         }
 
-        internal func SetColorAttributeImpl(_ attributeName: String, _ attributeValue: UWP.Color) throws {
+        public func SetColorAttribute(_ attributeName: String, _ attributeValue: UWP.Color) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetColorAttribute(pThis, _attributeName.get(), .from(swift: attributeValue)))
             }
         }
 
-        internal func GetColorAttributeImpl(_ attributeName: String) throws -> UWP.Color {
+        public func GetColorAttribute(_ attributeName: String) throws -> UWP.Color {
             var attributeValue: __x_ABI_CWindows_CUI_CColor = .init()
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -627,14 +675,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .from(abi: attributeValue)
         }
 
-        internal func SetFilledRegionDeterminationAttributeImpl(_ attributeName: String, _ attributeValue: Win2D.CanvasFilledRegionDetermination) throws {
+        public func SetFilledRegionDeterminationAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasFilledRegionDetermination) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFilledRegionDeterminationAttribute(pThis, _attributeName.get(), attributeValue))
             }
         }
 
-        internal func GetFilledRegionDeterminationAttributeImpl(_ attributeName: String) throws -> Win2D.CanvasFilledRegionDetermination {
+        public func GetFilledRegionDeterminationAttribute(_ attributeName: String) throws -> Win2D.CanvasFilledRegionDetermination {
             var attributeValue: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasFilledRegionDetermination = .init(0)
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -643,14 +691,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return attributeValue
         }
 
-        internal func SetDisplayAttributeImpl(_ attributeName: String, _ attributeValue: Win2D.CanvasSvgDisplay) throws {
+        public func SetDisplayAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasSvgDisplay) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetDisplayAttribute(pThis, _attributeName.get(), attributeValue))
             }
         }
 
-        internal func GetDisplayAttributeImpl(_ attributeName: String) throws -> Win2D.CanvasSvgDisplay {
+        public func GetDisplayAttribute(_ attributeName: String) throws -> Win2D.CanvasSvgDisplay {
             var attributeValue: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgDisplay = .init(0)
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -659,14 +707,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return attributeValue
         }
 
-        internal func SetOverflowAttributeImpl(_ attributeName: String, _ attributeValue: Win2D.CanvasSvgOverflow) throws {
+        public func SetOverflowAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasSvgOverflow) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetOverflowAttribute(pThis, _attributeName.get(), attributeValue))
             }
         }
 
-        internal func GetOverflowAttributeImpl(_ attributeName: String) throws -> Win2D.CanvasSvgOverflow {
+        public func GetOverflowAttribute(_ attributeName: String) throws -> Win2D.CanvasSvgOverflow {
             var attributeValue: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgOverflow = .init(0)
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -675,14 +723,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return attributeValue
         }
 
-        internal func SetCapStyleAttributeImpl(_ attributeName: String, _ attributeValue: Win2D.CanvasCapStyle) throws {
+        public func SetCapStyleAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasCapStyle) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetCapStyleAttribute(pThis, _attributeName.get(), attributeValue))
             }
         }
 
-        internal func GetCapStyleAttributeImpl(_ attributeName: String) throws -> Win2D.CanvasCapStyle {
+        public func GetCapStyleAttribute(_ attributeName: String) throws -> Win2D.CanvasCapStyle {
             var attributeValue: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasCapStyle = .init(0)
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -691,14 +739,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return attributeValue
         }
 
-        internal func SetLineJoinAttributeImpl(_ attributeName: String, _ attributeValue: Win2D.CanvasLineJoin) throws {
+        public func SetLineJoinAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasLineJoin) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetLineJoinAttribute(pThis, _attributeName.get(), attributeValue))
             }
         }
 
-        internal func GetLineJoinAttributeImpl(_ attributeName: String) throws -> Win2D.CanvasLineJoin {
+        public func GetLineJoinAttribute(_ attributeName: String) throws -> Win2D.CanvasLineJoin {
             var attributeValue: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasLineJoin = .init(0)
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -707,14 +755,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return attributeValue
         }
 
-        internal func SetVisibilityAttributeImpl(_ attributeName: String, _ attributeValue: Win2D.CanvasSvgVisibility) throws {
+        public func SetVisibilityAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasSvgVisibility) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetVisibilityAttribute(pThis, _attributeName.get(), attributeValue))
             }
         }
 
-        internal func GetVisibilityAttributeImpl(_ attributeName: String) throws -> Win2D.CanvasSvgVisibility {
+        public func GetVisibilityAttribute(_ attributeName: String) throws -> Win2D.CanvasSvgVisibility {
             var attributeValue: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgVisibility = .init(0)
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -723,14 +771,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return attributeValue
         }
 
-        internal func SetTransformAttributeImpl(_ attributeName: String, _ attributeValue: WindowsFoundation.Matrix3x2) throws {
+        public func SetTransformAttribute(_ attributeName: String, _ attributeValue: WindowsFoundation.Matrix3x2) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetTransformAttribute(pThis, _attributeName.get(), .from(swift: attributeValue)))
             }
         }
 
-        internal func GetTransformAttributeImpl(_ attributeName: String) throws -> WindowsFoundation.Matrix3x2 {
+        public func GetTransformAttribute(_ attributeName: String) throws -> WindowsFoundation.Matrix3x2 {
             var attributeValue: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -739,14 +787,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .from(abi: attributeValue)
         }
 
-        internal func SetUnitsAttributeImpl(_ attributeName: String, _ attributeValue: Win2D.CanvasSvgUnits) throws {
+        public func SetUnitsAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasSvgUnits) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetUnitsAttribute(pThis, _attributeName.get(), attributeValue))
             }
         }
 
-        internal func GetUnitsAttributeImpl(_ attributeName: String) throws -> Win2D.CanvasSvgUnits {
+        public func GetUnitsAttribute(_ attributeName: String) throws -> Win2D.CanvasSvgUnits {
             var attributeValue: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgUnits = .init(0)
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -755,14 +803,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return attributeValue
         }
 
-        internal func SetEdgeBehaviorAttributeImpl(_ attributeName: String, _ attributeValue: Win2D.CanvasEdgeBehavior) throws {
+        public func SetEdgeBehaviorAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasEdgeBehavior) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetEdgeBehaviorAttribute(pThis, _attributeName.get(), attributeValue))
             }
         }
 
-        internal func GetEdgeBehaviorAttributeImpl(_ attributeName: String) throws -> Win2D.CanvasEdgeBehavior {
+        public func GetEdgeBehaviorAttribute(_ attributeName: String) throws -> Win2D.CanvasEdgeBehavior {
             var attributeValue: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasEdgeBehavior = .init(0)
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -771,14 +819,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return attributeValue
         }
 
-        internal func SetRectangleAttributeImpl(_ attributeName: String, _ attributeValue: WindowsFoundation.Rect) throws {
+        public func SetRectangleAttribute(_ attributeName: String, _ attributeValue: WindowsFoundation.Rect) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetRectangleAttribute(pThis, _attributeName.get(), .from(swift: attributeValue)))
             }
         }
 
-        internal func GetRectangleAttributeImpl(_ attributeName: String) throws -> WindowsFoundation.Rect {
+        public func GetRectangleAttribute(_ attributeName: String) throws -> WindowsFoundation.Rect {
             var attributeValue: __x_ABI_CWindows_CFoundation_CRect = .init()
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -787,14 +835,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .from(abi: attributeValue)
         }
 
-        internal func SetLengthAttributeImpl(_ attributeName: String, _ value: Float, _ units: Win2D.CanvasSvgLengthUnits) throws {
+        public func SetLengthAttribute(_ attributeName: String, _ value: Float, _ units: Win2D.CanvasSvgLengthUnits) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetLengthAttribute(pThis, _attributeName.get(), value, units))
             }
         }
 
-        internal func GetLengthAttributeImpl(_ attributeName: String, _ units: inout Win2D.CanvasSvgLengthUnits) throws -> Float {
+        public func GetLengthAttribute(_ attributeName: String, _ units: inout Win2D.CanvasSvgLengthUnits) throws -> Float {
             var value: FLOAT = 0.0
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -803,14 +851,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return value
         }
 
-        internal func SetAspectRatioAttributeImpl(_ attributeName: String, _ alignment: Win2D.CanvasSvgAspectAlignment, _ meetOrSlice: Win2D.CanvasSvgAspectScaling) throws {
+        public func SetAspectRatioAttribute(_ attributeName: String, _ alignment: Win2D.CanvasSvgAspectAlignment, _ meetOrSlice: Win2D.CanvasSvgAspectScaling) throws {
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetAspectRatioAttribute(pThis, _attributeName.get(), alignment, meetOrSlice))
             }
         }
 
-        internal func GetAspectRatioAttributeImpl(_ attributeName: String, _ meetOrSlice: inout Win2D.CanvasSvgAspectScaling) throws -> Win2D.CanvasSvgAspectAlignment {
+        public func GetAspectRatioAttribute(_ attributeName: String, _ meetOrSlice: inout Win2D.CanvasSvgAspectScaling) throws -> Win2D.CanvasSvgAspectAlignment {
             var alignment: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgAspectAlignment = .init(0)
             let _attributeName = try! HString(attributeName)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement.self) { pThis in
@@ -824,13 +872,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgPaintAttribute: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPaintAttribute }
 
-        internal func put_PaintTypeImpl(_ value: Win2D.CanvasSvgPaintType) throws {
+        public func put_PaintType(_ value: Win2D.CanvasSvgPaintType) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPaintAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PaintType(pThis, value))
             }
         }
 
-        internal func get_PaintTypeImpl() throws -> Win2D.CanvasSvgPaintType {
+        public func get_PaintType() throws -> Win2D.CanvasSvgPaintType {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgPaintType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPaintAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PaintType(pThis, &value))
@@ -838,13 +886,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return value
         }
 
-        internal func put_ColorImpl(_ value: UWP.Color) throws {
+        public func put_Color(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPaintAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Color(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ColorImpl() throws -> UWP.Color {
+        public func get_Color() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPaintAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Color(pThis, &value))
@@ -852,14 +900,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
             return .from(abi: value)
         }
 
-        internal func put_IdImpl(_ value: String) throws {
+        public func put_Id(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPaintAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Id(pThis, _value.get()))
             }
         }
 
-        internal func get_IdImpl() throws -> String {
+        public func get_Id() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPaintAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
@@ -872,33 +920,89 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgPathAttribute: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute }
 
-        internal func CreatePathGeometryImpl() throws -> Win2D.CanvasGeometry? {
+        public func CreatePathGeometry() throws -> Win2D.CanvasGeometry? {
             let (outputGeometry) = try ComPtrs.initialize { outputGeometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePathGeometry(pThis, &outputGeometryAbi))
                 }
             }
-            return .from(abi: outputGeometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: outputGeometry)
         }
 
-        internal func CreatePathGeometryWithFillImpl(_ fill: Win2D.CanvasFilledRegionDetermination) throws -> Win2D.CanvasGeometry? {
+        public func CreatePathGeometryWithFill(_ fill: Win2D.CanvasFilledRegionDetermination) throws -> Win2D.CanvasGeometry? {
             let (outputGeometry) = try ComPtrs.initialize { outputGeometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePathGeometryWithFill(pThis, fill, &outputGeometryAbi))
                 }
             }
-            return .from(abi: outputGeometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: outputGeometry)
         }
 
-        internal func RemoveCommandsAtEndImpl(_ commandsCount: Int32) throws {
+        public func get_Commands() throws -> [Win2D.CanvasSvgPathCommand] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgPathCommand> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Commands(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetCommands(_ startIndex: Int32, _ elementCount: Int32) throws -> [Win2D.CanvasSvgPathCommand] {
+            var outputValueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgPathCommand> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetCommands(pThis, startIndex, elementCount, &outputValueElements.count, &outputValueElements.start))
+            }
+            defer { CoTaskMemFree(outputValueElements.start) }
+            return .from(abi: outputValueElements)
+
+        }
+
+        public func get_SegmentData() throws -> [Float] {
+            var valueElements: WinRTArrayAbi<FLOAT> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SegmentData(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetSegmentData(_ startIndex: Int32, _ elementCount: Int32) throws -> [Float] {
+            var outputValueElements: WinRTArrayAbi<FLOAT> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSegmentData(pThis, startIndex, elementCount, &outputValueElements.count, &outputValueElements.start))
+            }
+            defer { CoTaskMemFree(outputValueElements.start) }
+            return .from(abi: outputValueElements)
+
+        }
+
+        public func RemoveCommandsAtEnd(_ commandsCount: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveCommandsAtEnd(pThis, commandsCount))
             }
         }
 
-        internal func RemoveSegmentDataAtEndImpl(_ commandsCount: Int32) throws {
+        public func RemoveSegmentDataAtEnd(_ commandsCount: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveSegmentDataAtEnd(pThis, commandsCount))
+            }
+        }
+
+        public func SetCommands(_ startIndex: Int32, _ commands: [Win2D.CanvasSvgPathCommand]) throws {
+            try commands.toABI { _commands in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetCommands(pThis, startIndex, _commands.count, _commands.start))
+                }
+            }
+        }
+
+        public func SetSegmentData(_ startIndex: Int32, _ segmentData: [Float]) throws {
+            try segmentData.toABI { _segmentData in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetSegmentData(pThis, startIndex, _segmentData.count, _segmentData.start))
+                }
             }
         }
 
@@ -907,9 +1011,37 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgPointsAttribute: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPointsAttribute }
 
-        internal func RemovePointsAtEndImpl(_ pointCount: Int32) throws {
+        public func get_Points() throws -> [WindowsFoundation.Vector2] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CNumerics_CVector2> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPointsAttribute.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Points(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetPoints(_ startIndex: Int32, _ elementCount: Int32) throws -> [WindowsFoundation.Vector2] {
+            var outputValueElements: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CNumerics_CVector2> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPointsAttribute.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPoints(pThis, startIndex, elementCount, &outputValueElements.count, &outputValueElements.start))
+            }
+            defer { CoTaskMemFree(outputValueElements.start) }
+            return .from(abi: outputValueElements)
+
+        }
+
+        public func RemovePointsAtEnd(_ pointCount: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPointsAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemovePointsAtEnd(pThis, pointCount))
+            }
+        }
+
+        public func SetPoints(_ startIndex: Int32, _ points: [WindowsFoundation.Vector2]) throws {
+            try points.toABI { _points in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPointsAttribute.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetPoints(pThis, startIndex, _points.count, _points.start))
+                }
             }
         }
 
@@ -918,9 +1050,58 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgStrokeDashArrayAttribute: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgStrokeDashArrayAttribute }
 
-        internal func RemoveDashesAtEndImpl(_ dashCount: Int32) throws {
+        public func GetDashes() throws -> [Float] {
+            var valueElements: WinRTArrayAbi<FLOAT> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgStrokeDashArrayAttribute.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetDashes(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetDashesWithUnits(_ startIndex: Int32, _ elementCount: Int32, _ outputUnitsElements: inout [Win2D.CanvasSvgLengthUnits]) throws -> [Float] {
+            var outputValueElements: WinRTArrayAbi<FLOAT> = (0, nil)
+            var _outputUnitsElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgLengthUnits> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgStrokeDashArrayAttribute.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetDashesWithUnits(pThis, startIndex, elementCount, &_outputUnitsElements.count, &_outputUnitsElements.start, &outputValueElements.count, &outputValueElements.start))
+            }
+            defer { CoTaskMemFree(_outputUnitsElements.start) }
+            outputUnitsElements = .from(abi: _outputUnitsElements)
+            defer { CoTaskMemFree(outputValueElements.start) }
+            return .from(abi: outputValueElements)
+
+        }
+
+        public func RemoveDashesAtEnd(_ dashCount: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgStrokeDashArrayAttribute.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveDashesAtEnd(pThis, dashCount))
+            }
+        }
+
+        public func SetDashes(_ startIndex: Int32, _ dashes: [Float]) throws {
+            try dashes.toABI { _dashes in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgStrokeDashArrayAttribute.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetDashes(pThis, startIndex, _dashes.count, _dashes.start))
+                }
+            }
+        }
+
+        public func SetDashesWithUnit(_ startIndex: Int32, _ dashes: [Float], _ units: Win2D.CanvasSvgLengthUnits) throws {
+            try dashes.toABI { _dashes in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgStrokeDashArrayAttribute.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetDashesWithUnit(pThis, startIndex, _dashes.count, _dashes.start, units))
+                }
+            }
+        }
+
+        public func SetDashesWithUnits(_ startIndex: Int32, _ dashValues: [Float], _ unitValues: [Win2D.CanvasSvgLengthUnits]) throws {
+            try dashValues.toABI { _dashValues in
+                try unitValues.toABI { _unitValues in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgStrokeDashArrayAttribute.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetDashesWithUnits(pThis, startIndex, _dashValues.count, _dashValues.start, _unitValues.count, _unitValues.start))
+                }
+            }
             }
         }
 
@@ -929,14 +1110,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Svg {
     public class ICanvasSvgTextElement: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgTextElement }
 
-        internal func put_TextImpl(_ value: String) throws {
+        public func put_Text(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgTextElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Text(pThis, _value.get()))
             }
         }
 
-        internal func get_TextImpl() throws -> String {
+        public func get_Text() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgTextElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))

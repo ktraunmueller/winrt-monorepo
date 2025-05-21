@@ -6,6 +6,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_Graphics_Canvas_UI_Xaml {
     public enum ICanvasAnimatedControlBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl
@@ -32,90 +33,90 @@ public enum __IMPL_Microsoft_Graphics_Canvas_UI_Xaml {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.invalidate)
         fileprivate func invalidate() throws {
-            try _default.InvalidateImpl()
+            try _default.Invalidate()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.resetelapsedtime)
         fileprivate func resetElapsedTime() throws {
-            try _default.ResetElapsedTimeImpl()
+            try _default.ResetElapsedTime()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.createcoreindependentinputsource)
         fileprivate func createCoreIndependentInputSource(_ deviceTypes: WinAppSDK.InputPointerSourceDeviceKinds) throws -> WinAppSDK.InputPointerSource! {
-            try _default.CreateCoreIndependentInputSourceImpl(deviceTypes)
+            try _default.CreateCoreIndependentInputSource(deviceTypes)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.removefromvisualtree)
         fileprivate func removeFromVisualTree() throws {
-            try _default.RemoveFromVisualTreeImpl()
+            try _default.RemoveFromVisualTree()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.runongameloopthreadasync)
         fileprivate func runOnGameLoopThreadAsync(_ agileCallback: WinAppSDK.DispatcherQueueHandler!) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.RunOnGameLoopThreadAsyncImpl(agileCallback)
+            try _default.RunOnGameLoopThreadAsync(agileCallback)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.clearcolor)
         fileprivate var clearColor : UWP.Color {
-            get { try! _default.get_ClearColorImpl() }
-            set { try! _default.put_ClearColorImpl(newValue) }
+            get { try! _default.get_ClearColor() }
+            set { try! _default.put_ClearColor(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.customdevice)
         fileprivate var customDevice : Win2D.CanvasDevice! {
-            get { try! _default.get_CustomDeviceImpl() }
-            set { try! _default.put_CustomDeviceImpl(newValue) }
+            get { try! _default.get_CustomDevice() }
+            set { try! _default.put_CustomDevice(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.dpiscale)
         fileprivate var dpiScale : Float {
-            get { try! _default.get_DpiScaleImpl() }
-            set { try! _default.put_DpiScaleImpl(newValue) }
+            get { try! _default.get_DpiScale() }
+            set { try! _default.put_DpiScale(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.forcesoftwarerenderer)
         fileprivate var forceSoftwareRenderer : Bool {
-            get { try! _default.get_ForceSoftwareRendererImpl() }
-            set { try! _default.put_ForceSoftwareRendererImpl(newValue) }
+            get { try! _default.get_ForceSoftwareRenderer() }
+            set { try! _default.put_ForceSoftwareRenderer(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.hasgameloopthreadaccess)
         fileprivate var hasGameLoopThreadAccess : Bool {
-            get { try! _default.get_HasGameLoopThreadAccessImpl() }
+            get { try! _default.get_HasGameLoopThreadAccess() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.isfixedtimestep)
         fileprivate var isFixedTimeStep : Bool {
-            get { try! _default.get_IsFixedTimeStepImpl() }
-            set { try! _default.put_IsFixedTimeStepImpl(newValue) }
+            get { try! _default.get_IsFixedTimeStep() }
+            set { try! _default.put_IsFixedTimeStep(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.paused)
         fileprivate var paused : Bool {
-            get { try! _default.get_PausedImpl() }
-            set { try! _default.put_PausedImpl(newValue) }
+            get { try! _default.get_Paused() }
+            set { try! _default.put_Paused(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.readytodraw)
         fileprivate var readyToDraw : Bool {
-            get { try! _default.get_ReadyToDrawImpl() }
+            get { try! _default.get_ReadyToDraw() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.size)
         fileprivate var size : WindowsFoundation.Size {
-            get { try! _default.get_SizeImpl() }
+            get { try! _default.get_Size() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.targetelapsedtime)
         fileprivate var targetElapsedTime : WindowsFoundation.TimeSpan {
-            get { try! _default.get_TargetElapsedTimeImpl() }
-            set { try! _default.put_TargetElapsedTimeImpl(newValue) }
+            get { try! _default.get_TargetElapsedTime() }
+            set { try! _default.put_TargetElapsedTime(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.useshareddevice)
         fileprivate var useSharedDevice : Bool {
-            get { try! _default.get_UseSharedDeviceImpl() }
-            set { try! _default.put_UseSharedDeviceImpl(newValue) }
+            get { try! _default.get_UseSharedDevice() }
+            set { try! _default.put_UseSharedDevice(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.createresources)
@@ -123,10 +124,10 @@ public enum __IMPL_Microsoft_Graphics_Canvas_UI_Xaml {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_CreateResourcesImpl($0)
+              return try! this.add_CreateResources($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_CreateResourcesImpl($0)
+             try? self?._default.remove_CreateResources($0)
            }
           )
         }()
@@ -136,10 +137,10 @@ public enum __IMPL_Microsoft_Graphics_Canvas_UI_Xaml {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_DrawImpl($0)
+              return try! this.add_Draw($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_DrawImpl($0)
+             try? self?._default.remove_Draw($0)
            }
           )
         }()
@@ -149,10 +150,10 @@ public enum __IMPL_Microsoft_Graphics_Canvas_UI_Xaml {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_GameLoopStartingImpl($0)
+              return try! this.add_GameLoopStarting($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_GameLoopStartingImpl($0)
+             try? self?._default.remove_GameLoopStarting($0)
            }
           )
         }()
@@ -162,10 +163,10 @@ public enum __IMPL_Microsoft_Graphics_Canvas_UI_Xaml {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_GameLoopStoppedImpl($0)
+              return try! this.add_GameLoopStopped($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_GameLoopStoppedImpl($0)
+             try? self?._default.remove_GameLoopStopped($0)
            }
           )
         }()
@@ -175,10 +176,10 @@ public enum __IMPL_Microsoft_Graphics_Canvas_UI_Xaml {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_UpdateImpl($0)
+              return try! this.add_Update($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_UpdateImpl($0)
+             try? self?._default.remove_Update($0)
            }
           )
         }()
@@ -186,25 +187,193 @@ public enum __IMPL_Microsoft_Graphics_Canvas_UI_Xaml {
         private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.device)
         fileprivate var device : Win2D.CanvasDevice! {
-            get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+            get { try! _ICanvasResourceCreator.get_Device() }
         }
 
         private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.convertpixelstodips)
         fileprivate func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-            try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+            try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.convertdipstopixels)
         fileprivate func convertDipsToPixels(_ dips: Float, _ dpiRounding: Win2D.CanvasDpiRounding) throws -> Int32 {
-            try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+            try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.icanvasanimatedcontrol.dpi)
         fileprivate var dpi : Float {
-            get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+            get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
         }
 
     }
 
+    public enum CanvasAnimatedControlBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasAnimatedControl
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl>?) -> CanvasAnimatedControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasAnimatedDrawEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasAnimatedDrawEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs>?) -> CanvasAnimatedDrawEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasAnimatedUpdateEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasAnimatedUpdateEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs>?) -> CanvasAnimatedUpdateEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasControlBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasControl
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl>?) -> CanvasControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasDrawEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasDrawEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasDrawEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasDrawEventArgs>?) -> CanvasDrawEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasImageSourceBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasImageSource
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource>?) -> CanvasImageSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasRegionsInvalidatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasRegionsInvalidatedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasRegionsInvalidatedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasRegionsInvalidatedEventArgs>?) -> CanvasRegionsInvalidatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasSwapChainPanelBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasSwapChainPanel
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasSwapChainPanel
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasSwapChainPanel>?) -> CanvasSwapChainPanel? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasVirtualControlBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasVirtualControl
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl>?) -> CanvasVirtualControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasVirtualImageSourceBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasVirtualImageSource
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource>?) -> CanvasVirtualImageSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ICanvasAnimatedControlMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICanvasAnimatedControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControl = try! abi.QueryInterface()
+        return __IMPL_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControlBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasAnimatedControlMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasAnimatedControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasAnimatedControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasAnimatedDrawEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasAnimatedDrawEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasAnimatedDrawEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasAnimatedUpdateEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasAnimatedUpdateEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasAnimatedUpdateEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasControlMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasDrawEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasDrawEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasDrawEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasImageSourceMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasImageSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasImageSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasRegionsInvalidatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasRegionsInvalidatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasRegionsInvalidatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasSwapChainPanelMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasSwapChainPanel
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasSwapChainPanel(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasVirtualControlMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasVirtualControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasVirtualControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasVirtualImageSourceMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasVirtualImageSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasVirtualImageSource(fromAbi: abi)
+    }
 }

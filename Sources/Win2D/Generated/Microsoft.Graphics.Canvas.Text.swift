@@ -17,6 +17,8 @@ public typealias CanvasFontInformation = __x_ABI_CMicrosoft_CGraphics_CCanvas_CT
 public typealias CanvasFontPropertyIdentifier = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontsimulations)
 public typealias CanvasFontSimulations = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontSimulations
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphjustification)
+public typealias CanvasGlyphJustification = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphorientation)
 public typealias CanvasGlyphOrientation = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphOrientation
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvashorizontalalignment)
@@ -25,6 +27,8 @@ public typealias CanvasHorizontalAlignment = __x_ABI_CMicrosoft_CGraphics_CCanva
 public typealias CanvasLineBreakCondition = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineBreakCondition
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvaslinespacingmode)
 public typealias CanvasLineSpacingMode = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineSpacingMode
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasnumbersubstitutionmethod)
+public typealias CanvasNumberSubstitutionMethod = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasNumberSubstitutionMethod
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasopticalalignment)
 public typealias CanvasOpticalAlignment = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasOpticalAlignment
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptshape)
@@ -65,12 +69,6 @@ public final class CanvasFontFace : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace>?) -> CanvasFontFace? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -81,177 +79,237 @@ public final class CanvasFontFace : WinRTClass, WindowsFoundation.IClosable {
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getrecommendedrenderingmode)
     public func getRecommendedRenderingMode(_ fontSize: Float, _ dpi: Float, _ measuringMode: CanvasTextMeasuringMode, _ renderingParameters: CanvasTextRenderingParameters!) throws -> CanvasTextRenderingMode {
-        try _default.GetRecommendedRenderingModeImpl(fontSize, dpi, measuringMode, renderingParameters)
+        try _default.GetRecommendedRenderingMode(fontSize, dpi, measuringMode, renderingParameters)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getrecommendedrenderingmode)
     public func getRecommendedRenderingMode(_ fontSize: Float, _ dpi: Float, _ measuringMode: CanvasTextMeasuringMode, _ renderingParameters: CanvasTextRenderingParameters!, _ transform: WindowsFoundation.Matrix3x2, _ isSideways: Bool, _ outlineThreshold: Win2D.CanvasAntialiasing) throws -> CanvasTextRenderingMode {
-        try _default.GetRecommendedRenderingModeWithAllOptionsImpl(fontSize, dpi, measuringMode, renderingParameters, transform, isSideways, outlineThreshold)
+        try _default.GetRecommendedRenderingModeWithAllOptions(fontSize, dpi, measuringMode, renderingParameters, transform, isSideways, outlineThreshold)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getrecommendedgridfit)
     public func getRecommendedGridFit(_ fontSize: Float, _ dpi: Float, _ measuringMode: CanvasTextMeasuringMode, _ renderingParameters: CanvasTextRenderingParameters!, _ transform: WindowsFoundation.Matrix3x2, _ isSideways: Bool, _ outlineThreshold: Win2D.CanvasAntialiasing) throws -> CanvasTextGridFit {
-        try _default.GetRecommendedGridFitImpl(fontSize, dpi, measuringMode, renderingParameters, transform, isSideways, outlineThreshold)
+        try _default.GetRecommendedGridFit(fontSize, dpi, measuringMode, renderingParameters, transform, isSideways, outlineThreshold)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getverticalglyphvariants)
+    public func getVerticalGlyphVariants(_ inputElements: [Int32]) throws -> [Int32] {
+        try _default.GetVerticalGlyphVariants(inputElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getglyphindices)
+    public func getGlyphIndices(_ inputElements: [UInt32]) throws -> [Int32] {
+        try _default.GetGlyphIndices(inputElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getglyphmetrics)
+    public func getGlyphMetrics(_ inputElements: [Int32], _ isSideways: Bool) throws -> [CanvasGlyphMetrics] {
+        try _default.GetGlyphMetrics(inputElements, isSideways)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getgdicompatibleglyphmetrics)
+    public func getGdiCompatibleGlyphMetrics(_ fontSize: Float, _ dpi: Float, _ transform: WindowsFoundation.Matrix3x2, _ useGdiNatural: Bool, _ inputElements: [Int32], _ isSideways: Bool) throws -> [CanvasGlyphMetrics] {
+        try _default.GetGdiCompatibleGlyphMetrics(fontSize, dpi, transform, useGdiNatural, inputElements, isSideways)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getinformationalstrings)
     public func getInformationalStrings(_ fontInformation: CanvasFontInformation) throws -> WindowsFoundation.AnyIMapView<String, String>! {
-        try _default.GetInformationalStringsImpl(fontInformation)
+        try _default.GetInformationalStrings(fontInformation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.hascharacter)
     public func hasCharacter(_ unicodeValue: UInt32) throws -> Bool {
-        try _default.HasCharacterImpl(unicodeValue)
+        try _default.HasCharacter(unicodeValue)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getglyphrunbounds)
+    public func getGlyphRunBounds(_ drawingSession: Win2D.CanvasDrawingSession!, _ point: WindowsFoundation.Vector2, _ fontSize: Float, _ glyphs: [CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32) throws -> WindowsFoundation.Rect {
+        try _default.GetGlyphRunBounds(drawingSession, point, fontSize, glyphs, isSideways, bidiLevel)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getglyphrunbounds)
+    public func getGlyphRunBounds(_ drawingSession: Win2D.CanvasDrawingSession!, _ point: WindowsFoundation.Vector2, _ fontSize: Float, _ glyphs: [CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ measuringMode: CanvasTextMeasuringMode) throws -> WindowsFoundation.Rect {
+        try _default.GetGlyphRunBoundsWithMeasuringMode(drawingSession, point, fontSize, glyphs, isSideways, bidiLevel, measuringMode)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getsupportedtypographicfeaturenames)
+    public func getSupportedTypographicFeatureNames(_ script: CanvasAnalyzedScript) throws -> [CanvasTypographyFeatureName] {
+        try _default.GetSupportedTypographicFeatureNames(script)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.getsupportedtypographicfeaturenames)
+    public func getSupportedTypographicFeatureNames(_ script: CanvasAnalyzedScript, _ locale: String) throws -> [CanvasTypographyFeatureName] {
+        try _default.GetSupportedTypographicFeatureNamesWithLocale(script, locale)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.gettypographicfeatureglyphsupport)
+    public func getTypographicFeatureGlyphSupport(_ script: CanvasAnalyzedScript, _ typographicFeatureName: CanvasTypographyFeatureName, _ glyphsElements: [CanvasGlyph]) throws -> [Bool] {
+        try _default.GetTypographicFeatureGlyphSupport(script, typographicFeatureName, glyphsElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.gettypographicfeatureglyphsupport)
+    public func getTypographicFeatureGlyphSupport(_ script: CanvasAnalyzedScript, _ typographicFeatureName: CanvasTypographyFeatureName, _ glyphsElements: [CanvasGlyph], _ locale: String) throws -> [Bool] {
+        try _default.GetTypographicFeatureGlyphSupportWithLocale(script, typographicFeatureName, glyphsElements, locale)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.ascent)
     public var ascent : Float {
-        get { try! _default.get_AscentImpl() }
+        get { try! _default.get_Ascent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.capheight)
     public var capHeight : Float {
-        get { try! _default.get_CapHeightImpl() }
+        get { try! _default.get_CapHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.caretoffset)
     public var caretOffset : Float {
-        get { try! _default.get_CaretOffsetImpl() }
+        get { try! _default.get_CaretOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.caretsloperise)
     public var caretSlopeRise : Float {
-        get { try! _default.get_CaretSlopeRiseImpl() }
+        get { try! _default.get_CaretSlopeRise() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.caretsloperun)
     public var caretSlopeRun : Float {
-        get { try! _default.get_CaretSlopeRunImpl() }
+        get { try! _default.get_CaretSlopeRun() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.descent)
     public var descent : Float {
-        get { try! _default.get_DescentImpl() }
+        get { try! _default.get_Descent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.facenames)
     public var faceNames : WindowsFoundation.AnyIMapView<String, String>! {
-        get { try! _default.get_FaceNamesImpl() }
+        get { try! _default.get_FaceNames() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.familynames)
     public var familyNames : WindowsFoundation.AnyIMapView<String, String>! {
-        get { try! _default.get_FamilyNamesImpl() }
+        get { try! _default.get_FamilyNames() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.fileformattype)
     public var fileFormatType : CanvasFontFileFormatType {
-        get { try! _default.get_FileFormatTypeImpl() }
+        get { try! _default.get_FileFormatType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.glyphbox)
     public var glyphBox : WindowsFoundation.Rect {
-        get { try! _default.get_GlyphBoxImpl() }
+        get { try! _default.get_GlyphBox() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.glyphcount)
     public var glyphCount : UInt32 {
-        get { try! _default.get_GlyphCountImpl() }
+        get { try! _default.get_GlyphCount() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.hastypographicmetrics)
     public var hasTypographicMetrics : Bool {
-        get { try! _default.get_HasTypographicMetricsImpl() }
+        get { try! _default.get_HasTypographicMetrics() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.hasverticalglyphvariants)
     public var hasVerticalGlyphVariants : Bool {
-        get { try! _default.get_HasVerticalGlyphVariantsImpl() }
+        get { try! _default.get_HasVerticalGlyphVariants() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.ismonospaced)
     public var isMonospaced : Bool {
-        get { try! _default.get_IsMonospacedImpl() }
+        get { try! _default.get_IsMonospaced() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.issymbolfont)
     public var isSymbolFont : Bool {
-        get { try! _default.get_IsSymbolFontImpl() }
+        get { try! _default.get_IsSymbolFont() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.linegap)
     public var lineGap : Float {
-        get { try! _default.get_LineGapImpl() }
+        get { try! _default.get_LineGap() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.lowercaseletterheight)
     public var lowercaseLetterHeight : Float {
-        get { try! _default.get_LowercaseLetterHeightImpl() }
+        get { try! _default.get_LowercaseLetterHeight() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.panose)
+    public var panose : [UInt8] {
+        get { try! _default.get_Panose() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.simulations)
     public var simulations : CanvasFontSimulations {
-        get { try! _default.get_SimulationsImpl() }
+        get { try! _default.get_Simulations() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.stretch)
     public var stretch : UWP.FontStretch {
-        get { try! _default.get_StretchImpl() }
+        get { try! _default.get_Stretch() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.strikethroughposition)
     public var strikethroughPosition : Float {
-        get { try! _default.get_StrikethroughPositionImpl() }
+        get { try! _default.get_StrikethroughPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.strikethroughthickness)
     public var strikethroughThickness : Float {
-        get { try! _default.get_StrikethroughThicknessImpl() }
+        get { try! _default.get_StrikethroughThickness() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.style)
     public var style : UWP.FontStyle {
-        get { try! _default.get_StyleImpl() }
+        get { try! _default.get_Style() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.subscriptposition)
     public var subscriptPosition : WindowsFoundation.Vector2 {
-        get { try! _default.get_SubscriptPositionImpl() }
+        get { try! _default.get_SubscriptPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.subscriptsize)
     public var subscriptSize : WindowsFoundation.Size {
-        get { try! _default.get_SubscriptSizeImpl() }
+        get { try! _default.get_SubscriptSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.superscriptposition)
     public var superscriptPosition : WindowsFoundation.Vector2 {
-        get { try! _default.get_SuperscriptPositionImpl() }
+        get { try! _default.get_SuperscriptPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.superscriptsize)
     public var superscriptSize : WindowsFoundation.Size {
-        get { try! _default.get_SuperscriptSizeImpl() }
+        get { try! _default.get_SuperscriptSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.underlineposition)
     public var underlinePosition : Float {
-        get { try! _default.get_UnderlinePositionImpl() }
+        get { try! _default.get_UnderlinePosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.underlinethickness)
     public var underlineThickness : Float {
-        get { try! _default.get_UnderlineThicknessImpl() }
+        get { try! _default.get_UnderlineThickness() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.unicoderanges)
+    public var unicodeRanges : [CanvasUnicodeRange] {
+        get { try! _default.get_UnicodeRanges() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontface.weight)
     public var weight : UWP.FontWeight {
-        get { try! _default.get_WeightImpl() }
+        get { try! _default.get_Weight() }
     }
 
     deinit {
@@ -274,9 +332,87 @@ public final class CanvasFontSet : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet>?) -> CanvasFontSet? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static let _ICanvasFontSetFactory: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasFontSetFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasFontSet")
+    public init(_ uri: WindowsFoundation.Uri!) {
+        super.init(try! Self._ICanvasFontSetFactory.Create(uri))
+    }
+
+    private static let _ICanvasFontSetStatics: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasFontSetStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasFontSet")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getsystemfontset)
+    public static func getSystemFontSet() throws -> CanvasFontSet! {
+        return try _ICanvasFontSetStatics.GetSystemFontSet()
+    }
+
+    private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.close)
+    public func close() throws {
+        try _IClosable.Close()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.tryfindfontface)
+    public func tryFindFontFace(_ fontFace: CanvasFontFace!, _ index: inout Int32) throws -> Bool {
+        try _default.TryFindFontFace(fontFace, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getmatchingfonts)
+    public func getMatchingFonts(_ propertyElements: [CanvasFontProperty]) throws -> CanvasFontSet! {
+        try _default.GetMatchingFontsFromProperties(propertyElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getmatchingfonts)
+    public func getMatchingFonts(_ familyName: String, _ weight: UWP.FontWeight, _ stretch: UWP.FontStretch, _ style: UWP.FontStyle) throws -> CanvasFontSet! {
+        try _default.GetMatchingFontsFromWwsFamily(familyName, weight, stretch, style)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.countfontsmatchingproperty)
+    public func countFontsMatchingProperty(_ property: CanvasFontProperty) throws -> UInt32 {
+        try _default.CountFontsMatchingProperty(property)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getpropertyvalues)
+    public func getPropertyValues(_ fontIndex: UInt32, _ propertyIdentifier: CanvasFontPropertyIdentifier) throws -> WindowsFoundation.AnyIMapView<String, String>! {
+        try _default.GetPropertyValuesFromIndex(fontIndex, propertyIdentifier)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getpropertyvalues)
+    public func getPropertyValues(_ propertyIdentifier: CanvasFontPropertyIdentifier, _ preferredLocaleNames: String) throws -> [CanvasFontProperty] {
+        try _default.GetPropertyValuesFromIdentifier(propertyIdentifier, preferredLocaleNames)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getpropertyvalues)
+    public func getPropertyValues(_ propertyIdentifier: CanvasFontPropertyIdentifier) throws -> [CanvasFontProperty] {
+        try _default.GetPropertyValues(propertyIdentifier)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.fonts)
+    public var fonts : WindowsFoundation.AnyIVectorView<CanvasFontFace?>! {
+        get { try! _default.get_Fonts() }
+    }
+
+    deinit {
+        _IClosable = nil
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasnumbersubstitution)
+public final class CanvasNumberSubstitution : WinRTClass, WindowsFoundation.IClosable {
+    private typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasNumberSubstitution
+    private typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasNumberSubstitution
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
     }
 
     @_spi(WinRTInternal)
@@ -287,46 +423,188 @@ public final class CanvasFontSet : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasFontSetFactory: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasFontSetFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Text.CanvasFontSet"))
-    public init(_ uri: WindowsFoundation.Uri!) {
-        super.init(try! Self._ICanvasFontSetFactory.CreateImpl(uri))
+    private static let _ICanvasNumberSubstitutionFactory: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasNumberSubstitutionFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasNumberSubstitution")
+    public init(_ method: CanvasNumberSubstitutionMethod) {
+        super.init(try! Self._ICanvasNumberSubstitutionFactory.Create(method))
     }
 
-    private static let _ICanvasFontSetStatics: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasFontSetStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Text.CanvasFontSet"))
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getsystemfontset)
-    public static func getSystemFontSet() -> CanvasFontSet! {
-        return try! _ICanvasFontSetStatics.GetSystemFontSetImpl()
+    public init(_ method: CanvasNumberSubstitutionMethod, _ localeName: String, _ ignoreEnvironmentOverrides: Bool) {
+        super.init(try! Self._ICanvasNumberSubstitutionFactory.CreateWithLocaleAndIgnoreOverrides(method, localeName, ignoreEnvironmentOverrides))
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.close)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasnumbersubstitution.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.tryfindfontface)
-    public func tryFindFontFace(_ fontFace: CanvasFontFace!, _ index: inout Int32) throws -> Bool {
-        try _default.TryFindFontFaceImpl(fontFace, &index)
+    deinit {
+        _IClosable = nil
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscaledfont)
+public final class CanvasScaledFont : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasScaledFont
+    private typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasScaledFont
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
     }
 
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getmatchingfonts)
-    public func getMatchingFonts(_ familyName: String, _ weight: UWP.FontWeight, _ stretch: UWP.FontStretch, _ style: UWP.FontStyle) throws -> CanvasFontSet! {
-        try _default.GetMatchingFontsFromWwsFamilyImpl(familyName, weight, stretch, style)
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
     }
 
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.countfontsmatchingproperty)
-    public func countFontsMatchingProperty(_ property: CanvasFontProperty) throws -> UInt32 {
-        try _default.CountFontsMatchingPropertyImpl(property)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscaledfont.fontface)
+    public var fontFace : CanvasFontFace! {
+        get { try! _default.get_FontFace() }
     }
 
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.getpropertyvalues)
-    public func getPropertyValues(_ fontIndex: UInt32, _ propertyIdentifier: CanvasFontPropertyIdentifier) throws -> WindowsFoundation.AnyIMapView<String, String>! {
-        try _default.GetPropertyValuesFromIndexImpl(fontIndex, propertyIdentifier)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscaledfont.scalefactor)
+    public var scaleFactor : Float {
+        get { try! _default.get_ScaleFactor() }
     }
 
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontset.fonts)
-    public var fonts : WindowsFoundation.AnyIVectorView<CanvasFontFace?>! {
-        get { try! _default.get_FontsImpl() }
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer)
+public final class CanvasTextAnalyzer : WinRTClass, WindowsFoundation.IClosable {
+    private typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextAnalyzer
+    private typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static let _ICanvasTextAnalyzerFactory: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextAnalyzerFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasTextAnalyzer")
+    public init(_ text: String, _ textDirection: CanvasTextDirection) {
+        super.init(try! Self._ICanvasTextAnalyzerFactory.Create(text, textDirection))
+    }
+
+    public init(_ text: String, _ textDirection: CanvasTextDirection, _ numberSubstitution: CanvasNumberSubstitution!, _ verticalGlyphOrientation: CanvasVerticalGlyphOrientation, _ bidiLevel: UInt32) {
+        super.init(try! Self._ICanvasTextAnalyzerFactory.CreateWithNumberSubstitutionAndVerticalGlyphOrientationAndBidiLevel(text, textDirection, numberSubstitution, verticalGlyphOrientation, bidiLevel))
+    }
+
+    public init(_ text: String, _ textDirection: CanvasTextDirection, _ options: AnyICanvasTextAnalyzerOptions!) {
+        super.init(try! Self._ICanvasTextAnalyzerFactory.CreateWithOptions(text, textDirection, options))
+    }
+
+    private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.close)
+    public func close() throws {
+        try _IClosable.Close()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getfonts)
+    public func getFonts(_ textFormat: CanvasTextFormat!) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasScaledFont?>?>! {
+        try _default.GetFontsUsingSystemFontSet(textFormat)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getfonts)
+    public func getFonts(_ textFormat: CanvasTextFormat!, _ fontSet: CanvasFontSet!) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasScaledFont?>?>! {
+        try _default.GetFonts(textFormat, fontSet)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getbidi)
+    public func getBidi() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasAnalyzedBidi>?>! {
+        try _default.GetBidi()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getbidi)
+    public func getBidi(_ locale: String) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasAnalyzedBidi>?>! {
+        try _default.GetBidiWithLocale(locale)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getbreakpoints)
+    public func getBreakpoints() throws -> [CanvasAnalyzedBreakpoint] {
+        try _default.GetBreakpoints()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getbreakpoints)
+    public func getBreakpoints(_ locale: String) throws -> [CanvasAnalyzedBreakpoint] {
+        try _default.GetBreakpointsWithLocale(locale)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getnumbersubstitutions)
+    public func getNumberSubstitutions() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasNumberSubstitution?>?>! {
+        try _default.GetNumberSubstitutions()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getscript)
+    public func getScript() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasAnalyzedScript>?>! {
+        try _default.GetScript()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getscript)
+    public func getScript(_ locale: String) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasAnalyzedScript>?>! {
+        try _default.GetScriptWithLocale(locale)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getglyphorientations)
+    public func getGlyphOrientations() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasAnalyzedGlyphOrientation>?>! {
+        try _default.GetGlyphOrientations()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getglyphorientations)
+    public func getGlyphOrientations(_ locale: String) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasAnalyzedGlyphOrientation>?>! {
+        try _default.GetGlyphOrientationsWithLocale(locale)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getscriptproperties)
+    public func getScriptProperties(_ analyzedScript: CanvasAnalyzedScript) throws -> CanvasScriptProperties {
+        try _default.GetScriptProperties(analyzedScript)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getglyphs)
+    public func getGlyphs(_ characterRange: CanvasCharacterRange, _ fontFace: CanvasFontFace!, _ fontSize: Float, _ isSideways: Bool, _ isRightToLeft: Bool, _ script: CanvasAnalyzedScript) throws -> [CanvasGlyph] {
+        try _default.GetGlyphs(characterRange, fontFace, fontSize, isSideways, isRightToLeft, script)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getglyphs)
+    public func getGlyphs(_ characterRange: CanvasCharacterRange, _ fontFace: CanvasFontFace!, _ fontSize: Float, _ isSideways: Bool, _ isRightToLeft: Bool, _ script: CanvasAnalyzedScript, _ locale: String, _ numberSubstitution: CanvasNumberSubstitution!, _ typographyRanges: WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<CanvasCharacterRange, CanvasTypography?>?>!, _ clusterMapIndicesElements: inout [Int32], _ isShapedAloneGlyphsElements: inout [Bool], _ glyphShapingResultsElements: inout [CanvasGlyphShaping]) throws -> [CanvasGlyph] {
+        try _default.GetGlyphsWithAllOptions(characterRange, fontFace, fontSize, isSideways, isRightToLeft, script, locale, numberSubstitution, typographyRanges, &clusterMapIndicesElements, &isShapedAloneGlyphsElements, &glyphShapingResultsElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.getjustificationopportunities)
+    public func getJustificationOpportunities(_ characterRange: CanvasCharacterRange, _ fontFace: CanvasFontFace!, _ fontSize: Float, _ script: CanvasAnalyzedScript, _ clusterMapIndicesElements: [Int32], _ glyphShapingResultsElements: [CanvasGlyphShaping]) throws -> [CanvasJustificationOpportunity] {
+        try _default.GetJustificationOpportunities(characterRange, fontFace, fontSize, script, clusterMapIndicesElements, glyphShapingResultsElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.applyjustificationopportunities)
+    public func applyJustificationOpportunities(_ lineWidth: Float, _ justificationOpportunitiesElements: [CanvasJustificationOpportunity], _ sourceGlyphsElements: [CanvasGlyph]) throws -> [CanvasGlyph] {
+        try _default.ApplyJustificationOpportunities(lineWidth, justificationOpportunitiesElements, sourceGlyphsElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.addglyphsafterjustification)
+    public func addGlyphsAfterJustification(_ fontFace: CanvasFontFace!, _ fontSize: Float, _ script: CanvasAnalyzedScript, _ clusterMapIndicesElements: [Int32], _ originalGlyphsElements: [CanvasGlyph], _ justifiedGlyphsElements: [CanvasGlyph], _ glyphShapingResultsElements: [CanvasGlyphShaping]) throws -> [CanvasGlyph] {
+        try _default.AddGlyphsAfterJustification(fontFace, fontSize, script, clusterMapIndicesElements, originalGlyphsElements, justifiedGlyphsElements, glyphShapingResultsElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextanalyzer.addglyphsafterjustification)
+    public func addGlyphsAfterJustification(_ fontFace: CanvasFontFace!, _ fontSize: Float, _ script: CanvasAnalyzedScript, _ clusterMapIndicesElements: [Int32], _ originalGlyphsElements: [CanvasGlyph], _ justifiedGlyphsElements: [CanvasGlyph], _ glyphShapingResultsElements: [CanvasGlyphShaping], _ outputClusterMapIndicesElements: inout [Int32]) throws -> [CanvasGlyph] {
+        try _default.AddGlyphsAfterJustificationWithClusterMap(fontFace, fontSize, script, clusterMapIndicesElements, originalGlyphsElements, justifiedGlyphsElements, glyphShapingResultsElements, &outputClusterMapIndicesElements)
     }
 
     deinit {
@@ -349,12 +627,6 @@ public final class CanvasTextFormat : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat>?) -> CanvasTextFormat? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -362,153 +634,164 @@ public final class CanvasTextFormat : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasTextFormat")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.Graphics.Canvas.Text.CanvasTextFormat")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ICanvasTextFormatStatics: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextFormatStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Text.CanvasTextFormat"))
+    private static let _ICanvasTextFormatStatics: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextFormatStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasTextFormat")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.getsystemfontfamilies)
+    public static func getSystemFontFamilies() throws -> [String] {
+        return try _ICanvasTextFormatStatics.GetSystemFontFamilies()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.getsystemfontfamilies)
+    public static func getSystemFontFamilies(_ localeList: WindowsFoundation.AnyIVectorView<String>!) throws -> [String] {
+        return try _ICanvasTextFormatStatics.GetSystemFontFamiliesFromLocaleList(localeList)
+    }
+
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.customtrimmingsign)
     public var customTrimmingSign : AnyICanvasTextInlineObject! {
-        get { try! _default.get_CustomTrimmingSignImpl() }
-        set { try! _default.put_CustomTrimmingSignImpl(newValue) }
+        get { try! _default.get_CustomTrimmingSign() }
+        set { try! _default.put_CustomTrimmingSign(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.direction)
     public var direction : CanvasTextDirection {
-        get { try! _default.get_DirectionImpl() }
-        set { try! _default.put_DirectionImpl(newValue) }
+        get { try! _default.get_Direction() }
+        set { try! _default.put_Direction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.fontfamily)
     public var fontFamily : String {
-        get { try! _default.get_FontFamilyImpl() }
-        set { try! _default.put_FontFamilyImpl(newValue) }
+        get { try! _default.get_FontFamily() }
+        set { try! _default.put_FontFamily(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.fontsize)
     public var fontSize : Float {
-        get { try! _default.get_FontSizeImpl() }
-        set { try! _default.put_FontSizeImpl(newValue) }
+        get { try! _default.get_FontSize() }
+        set { try! _default.put_FontSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.fontstretch)
     public var fontStretch : UWP.FontStretch {
-        get { try! _default.get_FontStretchImpl() }
-        set { try! _default.put_FontStretchImpl(newValue) }
+        get { try! _default.get_FontStretch() }
+        set { try! _default.put_FontStretch(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.fontstyle)
     public var fontStyle : UWP.FontStyle {
-        get { try! _default.get_FontStyleImpl() }
-        set { try! _default.put_FontStyleImpl(newValue) }
+        get { try! _default.get_FontStyle() }
+        set { try! _default.put_FontStyle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.fontweight)
     public var fontWeight : UWP.FontWeight {
-        get { try! _default.get_FontWeightImpl() }
-        set { try! _default.put_FontWeightImpl(newValue) }
+        get { try! _default.get_FontWeight() }
+        set { try! _default.put_FontWeight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.horizontalalignment)
     public var horizontalAlignment : CanvasHorizontalAlignment {
-        get { try! _default.get_HorizontalAlignmentImpl() }
-        set { try! _default.put_HorizontalAlignmentImpl(newValue) }
+        get { try! _default.get_HorizontalAlignment() }
+        set { try! _default.put_HorizontalAlignment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.incrementaltabstop)
     public var incrementalTabStop : Float {
-        get { try! _default.get_IncrementalTabStopImpl() }
-        set { try! _default.put_IncrementalTabStopImpl(newValue) }
+        get { try! _default.get_IncrementalTabStop() }
+        set { try! _default.put_IncrementalTabStop(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.lastlinewrapping)
     public var lastLineWrapping : Bool {
-        get { try! _default.get_LastLineWrappingImpl() }
-        set { try! _default.put_LastLineWrappingImpl(newValue) }
+        get { try! _default.get_LastLineWrapping() }
+        set { try! _default.put_LastLineWrapping(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.linespacing)
     public var lineSpacing : Float {
-        get { try! _default.get_LineSpacingImpl() }
-        set { try! _default.put_LineSpacingImpl(newValue) }
+        get { try! _default.get_LineSpacing() }
+        set { try! _default.put_LineSpacing(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.linespacingbaseline)
     public var lineSpacingBaseline : Float {
-        get { try! _default.get_LineSpacingBaselineImpl() }
-        set { try! _default.put_LineSpacingBaselineImpl(newValue) }
+        get { try! _default.get_LineSpacingBaseline() }
+        set { try! _default.put_LineSpacingBaseline(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.linespacingmode)
     public var lineSpacingMode : CanvasLineSpacingMode {
-        get { try! _default.get_LineSpacingModeImpl() }
-        set { try! _default.put_LineSpacingModeImpl(newValue) }
+        get { try! _default.get_LineSpacingMode() }
+        set { try! _default.put_LineSpacingMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.localename)
     public var localeName : String {
-        get { try! _default.get_LocaleNameImpl() }
-        set { try! _default.put_LocaleNameImpl(newValue) }
+        get { try! _default.get_LocaleName() }
+        set { try! _default.put_LocaleName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.opticalalignment)
     public var opticalAlignment : CanvasOpticalAlignment {
-        get { try! _default.get_OpticalAlignmentImpl() }
-        set { try! _default.put_OpticalAlignmentImpl(newValue) }
+        get { try! _default.get_OpticalAlignment() }
+        set { try! _default.put_OpticalAlignment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.options)
     public var options : CanvasDrawTextOptions {
-        get { try! _default.get_OptionsImpl() }
-        set { try! _default.put_OptionsImpl(newValue) }
+        get { try! _default.get_Options() }
+        set { try! _default.put_Options(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.trimmingdelimiter)
     public var trimmingDelimiter : String {
-        get { try! _default.get_TrimmingDelimiterImpl() }
-        set { try! _default.put_TrimmingDelimiterImpl(newValue) }
+        get { try! _default.get_TrimmingDelimiter() }
+        set { try! _default.put_TrimmingDelimiter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.trimmingdelimitercount)
     public var trimmingDelimiterCount : Int32 {
-        get { try! _default.get_TrimmingDelimiterCountImpl() }
-        set { try! _default.put_TrimmingDelimiterCountImpl(newValue) }
+        get { try! _default.get_TrimmingDelimiterCount() }
+        set { try! _default.put_TrimmingDelimiterCount(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.trimminggranularity)
     public var trimmingGranularity : CanvasTextTrimmingGranularity {
-        get { try! _default.get_TrimmingGranularityImpl() }
-        set { try! _default.put_TrimmingGranularityImpl(newValue) }
+        get { try! _default.get_TrimmingGranularity() }
+        set { try! _default.put_TrimmingGranularity(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.trimmingsign)
     public var trimmingSign : CanvasTrimmingSign {
-        get { try! _default.get_TrimmingSignImpl() }
-        set { try! _default.put_TrimmingSignImpl(newValue) }
+        get { try! _default.get_TrimmingSign() }
+        set { try! _default.put_TrimmingSign(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.verticalalignment)
     public var verticalAlignment : CanvasVerticalAlignment {
-        get { try! _default.get_VerticalAlignmentImpl() }
-        set { try! _default.put_VerticalAlignmentImpl(newValue) }
+        get { try! _default.get_VerticalAlignment() }
+        set { try! _default.put_VerticalAlignment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.verticalglyphorientation)
     public var verticalGlyphOrientation : CanvasVerticalGlyphOrientation {
-        get { try! _default.get_VerticalGlyphOrientationImpl() }
-        set { try! _default.put_VerticalGlyphOrientationImpl(newValue) }
+        get { try! _default.get_VerticalGlyphOrientation() }
+        set { try! _default.put_VerticalGlyphOrientation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextformat.wordwrapping)
     public var wordWrapping : CanvasWordWrapping {
-        get { try! _default.get_WordWrappingImpl() }
-        set { try! _default.put_WordWrappingImpl(newValue) }
+        get { try! _default.get_WordWrapping() }
+        set { try! _default.put_WordWrapping(newValue) }
     }
 
     deinit {
@@ -531,12 +814,6 @@ public final class CanvasTextLayout : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout>?) -> CanvasTextLayout? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -544,399 +821,419 @@ public final class CanvasTextLayout : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasTextLayoutFactory: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextLayoutFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Text.CanvasTextLayout"))
+    private static let _ICanvasTextLayoutFactory: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextLayoutFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasTextLayout")
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ textString: String, _ textFormat: CanvasTextFormat!, _ requestedWidth: Float, _ requestedHeight: Float) {
-        super.init(try! Self._ICanvasTextLayoutFactory.CreateImpl(resourceCreator, textString, textFormat, requestedWidth, requestedHeight))
+        super.init(try! Self._ICanvasTextLayoutFactory.Create(resourceCreator, textString, textFormat, requestedWidth, requestedHeight))
     }
 
-    private static let _ICanvasTextLayoutStatics: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextLayoutStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Text.CanvasTextLayout"))
+    private static let _ICanvasTextLayoutStatics: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextLayoutStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasTextLayout")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getglyphorientationtransform)
-    public static func getGlyphOrientationTransform(_ glyphOrientation: CanvasGlyphOrientation, _ isSideways: Bool, _ position: WindowsFoundation.Vector2) -> WindowsFoundation.Matrix3x2 {
-        return try! _ICanvasTextLayoutStatics.GetGlyphOrientationTransformImpl(glyphOrientation, isSideways, position)
+    public static func getGlyphOrientationTransform(_ glyphOrientation: CanvasGlyphOrientation, _ isSideways: Bool, _ position: WindowsFoundation.Vector2) throws -> WindowsFoundation.Matrix3x2 {
+        return try _ICanvasTextLayoutStatics.GetGlyphOrientationTransform(glyphOrientation, isSideways, position)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getformatchangeindices)
+    public func getFormatChangeIndices() throws -> [Int32] {
+        try _default.GetFormatChangeIndices()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getminimumlinelength)
     public func getMinimumLineLength() throws -> Float {
-        try _default.GetMinimumLineLengthImpl()
+        try _default.GetMinimumLineLength()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getbrush)
     public func getBrush(_ characterIndex: Int32) throws -> Win2D.AnyICanvasBrush! {
-        try _default.GetBrushImpl(characterIndex)
+        try _default.GetBrush(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getcustombrush)
     public func getCustomBrush(_ characterIndex: Int32) throws -> Any! {
-        try _default.GetCustomBrushImpl(characterIndex)
+        try _default.GetCustomBrush(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getfontfamily)
     public func getFontFamily(_ characterIndex: Int32) throws -> String {
-        try _default.GetFontFamilyImpl(characterIndex)
+        try _default.GetFontFamily(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getfontsize)
     public func getFontSize(_ characterIndex: Int32) throws -> Float {
-        try _default.GetFontSizeImpl(characterIndex)
+        try _default.GetFontSize(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getfontstretch)
     public func getFontStretch(_ characterIndex: Int32) throws -> UWP.FontStretch {
-        try _default.GetFontStretchImpl(characterIndex)
+        try _default.GetFontStretch(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getfontstyle)
     public func getFontStyle(_ characterIndex: Int32) throws -> UWP.FontStyle {
-        try _default.GetFontStyleImpl(characterIndex)
+        try _default.GetFontStyle(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getfontweight)
     public func getFontWeight(_ characterIndex: Int32) throws -> UWP.FontWeight {
-        try _default.GetFontWeightImpl(characterIndex)
+        try _default.GetFontWeight(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getlocalename)
     public func getLocaleName(_ characterIndex: Int32) throws -> String {
-        try _default.GetLocaleNameImpl(characterIndex)
+        try _default.GetLocaleName(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getstrikethrough)
     public func getStrikethrough(_ characterIndex: Int32) throws -> Bool {
-        try _default.GetStrikethroughImpl(characterIndex)
+        try _default.GetStrikethrough(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getunderline)
     public func getUnderline(_ characterIndex: Int32) throws -> Bool {
-        try _default.GetUnderlineImpl(characterIndex)
+        try _default.GetUnderline(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getinlineobject)
     public func getInlineObject(_ characterIndex: Int32) throws -> AnyICanvasTextInlineObject! {
-        try _default.GetInlineObjectImpl(characterIndex)
+        try _default.GetInlineObject(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setcolor)
     public func setColor(_ characterIndex: Int32, _ characterCount: Int32, _ color: UWP.Color) throws {
-        try _default.SetColorImpl(characterIndex, characterCount, color)
+        try _default.SetColor(characterIndex, characterCount, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setbrush)
     public func setBrush(_ characterIndex: Int32, _ characterCount: Int32, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.SetBrushImpl(characterIndex, characterCount, brush)
+        try _default.SetBrush(characterIndex, characterCount, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setcustombrush)
     public func setCustomBrush(_ characterIndex: Int32, _ characterCount: Int32, _ brush: Any!) throws {
-        try _default.SetCustomBrushImpl(characterIndex, characterCount, brush)
+        try _default.SetCustomBrush(characterIndex, characterCount, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setfontfamily)
     public func setFontFamily(_ characterIndex: Int32, _ characterCount: Int32, _ fontFamily: String) throws {
-        try _default.SetFontFamilyImpl(characterIndex, characterCount, fontFamily)
+        try _default.SetFontFamily(characterIndex, characterCount, fontFamily)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setfontsize)
     public func setFontSize(_ characterIndex: Int32, _ characterCount: Int32, _ fontSize: Float) throws {
-        try _default.SetFontSizeImpl(characterIndex, characterCount, fontSize)
+        try _default.SetFontSize(characterIndex, characterCount, fontSize)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setfontstretch)
     public func setFontStretch(_ characterIndex: Int32, _ characterCount: Int32, _ fontStretch: UWP.FontStretch) throws {
-        try _default.SetFontStretchImpl(characterIndex, characterCount, fontStretch)
+        try _default.SetFontStretch(characterIndex, characterCount, fontStretch)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setfontstyle)
     public func setFontStyle(_ characterIndex: Int32, _ characterCount: Int32, _ fontStyle: UWP.FontStyle) throws {
-        try _default.SetFontStyleImpl(characterIndex, characterCount, fontStyle)
+        try _default.SetFontStyle(characterIndex, characterCount, fontStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setfontweight)
     public func setFontWeight(_ characterIndex: Int32, _ characterCount: Int32, _ fontWeight: UWP.FontWeight) throws {
-        try _default.SetFontWeightImpl(characterIndex, characterCount, fontWeight)
+        try _default.SetFontWeight(characterIndex, characterCount, fontWeight)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setlocalename)
     public func setLocaleName(_ characterIndex: Int32, _ characterCount: Int32, _ name: String) throws {
-        try _default.SetLocaleNameImpl(characterIndex, characterCount, name)
+        try _default.SetLocaleName(characterIndex, characterCount, name)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setstrikethrough)
     public func setStrikethrough(_ characterIndex: Int32, _ characterCount: Int32, _ hasStrikethrough: Bool) throws {
-        try _default.SetStrikethroughImpl(characterIndex, characterCount, hasStrikethrough)
+        try _default.SetStrikethrough(characterIndex, characterCount, hasStrikethrough)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setunderline)
     public func setUnderline(_ characterIndex: Int32, _ characterCount: Int32, _ hasUnderline: Bool) throws {
-        try _default.SetUnderlineImpl(characterIndex, characterCount, hasUnderline)
+        try _default.SetUnderline(characterIndex, characterCount, hasUnderline)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setinlineobject)
     public func setInlineObject(_ characterIndex: Int32, _ characterCount: Int32, _ inlineObject: AnyICanvasTextInlineObject!) throws {
-        try _default.SetInlineObjectImpl(characterIndex, characterCount, inlineObject)
+        try _default.SetInlineObject(characterIndex, characterCount, inlineObject)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.drawtotextrenderer)
     public func drawToTextRenderer(_ textRenderer: AnyICanvasTextRenderer!, _ position: WindowsFoundation.Vector2) throws {
-        try _default.DrawToTextRendererImpl(textRenderer, position)
+        try _default.DrawToTextRenderer(textRenderer, position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.drawtotextrenderer)
     public func drawToTextRenderer(_ textRenderer: AnyICanvasTextRenderer!, _ x: Float, _ y: Float) throws {
-        try _default.DrawToTextRendererWithCoordsImpl(textRenderer, x, y)
+        try _default.DrawToTextRendererWithCoords(textRenderer, x, y)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.settypography)
     public func setTypography(_ characterIndex: Int32, _ characterCount: Int32, _ typography: CanvasTypography!) throws {
-        try _default.SetTypographyImpl(characterIndex, characterCount, typography)
+        try _default.SetTypography(characterIndex, characterCount, typography)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.gettypography)
     public func getTypography(_ characterIndex: Int32) throws -> CanvasTypography! {
-        try _default.GetTypographyImpl(characterIndex)
+        try _default.GetTypography(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.hittest)
     public func hitTest(_ point: WindowsFoundation.Vector2) throws -> Bool {
-        try _default.HitTestImpl(point)
+        try _default.HitTest(point)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.hittest)
     public func hitTest(_ x: Float, _ y: Float) throws -> Bool {
-        try _default.HitTestWithCoordsImpl(x, y)
+        try _default.HitTestWithCoords(x, y)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.hittest)
     public func hitTest(_ point: WindowsFoundation.Vector2, _ textLayoutRegion: inout CanvasTextLayoutRegion) throws -> Bool {
-        try _default.HitTestWithDescriptionImpl(point, &textLayoutRegion)
+        try _default.HitTestWithDescription(point, &textLayoutRegion)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.hittest)
     public func hitTest(_ x: Float, _ y: Float, _ textLayoutRegion: inout CanvasTextLayoutRegion) throws -> Bool {
-        try _default.HitTestWithDescriptionAndCoordsImpl(x, y, &textLayoutRegion)
+        try _default.HitTestWithDescriptionAndCoords(x, y, &textLayoutRegion)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.hittest)
     public func hitTest(_ point: WindowsFoundation.Vector2, _ textLayoutRegion: inout CanvasTextLayoutRegion, _ trailingSideOfCharacter: inout Bool) throws -> Bool {
-        try _default.HitTestWithDescriptionAndTrailingSideImpl(point, &textLayoutRegion, &trailingSideOfCharacter)
+        try _default.HitTestWithDescriptionAndTrailingSide(point, &textLayoutRegion, &trailingSideOfCharacter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.hittest)
     public func hitTest(_ x: Float, _ y: Float, _ textLayoutRegion: inout CanvasTextLayoutRegion, _ trailingSideOfCharacter: inout Bool) throws -> Bool {
-        try _default.HitTestWithDescriptionAndCoordsAndTrailingSideImpl(x, y, &textLayoutRegion, &trailingSideOfCharacter)
+        try _default.HitTestWithDescriptionAndCoordsAndTrailingSide(x, y, &textLayoutRegion, &trailingSideOfCharacter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getcaretposition)
     public func getCaretPosition(_ characterIndex: Int32, _ trailingSideOfCharacter: Bool) throws -> WindowsFoundation.Vector2 {
-        try _default.GetCaretPositionImpl(characterIndex, trailingSideOfCharacter)
+        try _default.GetCaretPosition(characterIndex, trailingSideOfCharacter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getcaretposition)
     public func getCaretPosition(_ characterIndex: Int32, _ trailingSideOfCharacter: Bool, _ textLayoutRegion: inout CanvasTextLayoutRegion) throws -> WindowsFoundation.Vector2 {
-        try _default.GetCaretPositionWithDescriptionImpl(characterIndex, trailingSideOfCharacter, &textLayoutRegion)
+        try _default.GetCaretPositionWithDescription(characterIndex, trailingSideOfCharacter, &textLayoutRegion)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getcharacterregions)
+    public func getCharacterRegions(_ characterIndex: Int32, _ characterCount: Int32) throws -> [CanvasTextLayoutRegion] {
+        try _default.GetCharacterRegions(characterIndex, characterCount)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getpairkerning)
     public func getPairKerning(_ characterIndex: Int32) throws -> Bool {
-        try _default.GetPairKerningImpl(characterIndex)
+        try _default.GetPairKerning(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setpairkerning)
     public func setPairKerning(_ characterIndex: Int32, _ characterCount: Int32, _ hasPairKerning: Bool) throws {
-        try _default.SetPairKerningImpl(characterIndex, characterCount, hasPairKerning)
+        try _default.SetPairKerning(characterIndex, characterCount, hasPairKerning)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getleadingcharacterspacing)
     public func getLeadingCharacterSpacing(_ characterIndex: Int32) throws -> Float {
-        try _default.GetLeadingCharacterSpacingImpl(characterIndex)
+        try _default.GetLeadingCharacterSpacing(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.gettrailingcharacterspacing)
     public func getTrailingCharacterSpacing(_ characterIndex: Int32) throws -> Float {
-        try _default.GetTrailingCharacterSpacingImpl(characterIndex)
+        try _default.GetTrailingCharacterSpacing(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.getminimumcharacteradvance)
     public func getMinimumCharacterAdvance(_ characterIndex: Int32) throws -> Float {
-        try _default.GetMinimumCharacterAdvanceImpl(characterIndex)
+        try _default.GetMinimumCharacterAdvance(characterIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.setcharacterspacing)
     public func setCharacterSpacing(_ characterIndex: Int32, _ characterCount: Int32, _ leadingSpacing: Float, _ trailingSpacing: Float, _ minimumAdvance: Float) throws {
-        try _default.SetCharacterSpacingImpl(characterIndex, characterCount, leadingSpacing, trailingSpacing, minimumAdvance)
+        try _default.SetCharacterSpacing(characterIndex, characterCount, leadingSpacing, trailingSpacing, minimumAdvance)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.clustermetrics)
+    public var clusterMetrics : [CanvasClusterMetrics] {
+        get { try! _default.get_ClusterMetrics() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.customtrimmingsign)
     public var customTrimmingSign : AnyICanvasTextInlineObject! {
-        get { try! _default.get_CustomTrimmingSignImpl() }
-        set { try! _default.put_CustomTrimmingSignImpl(newValue) }
+        get { try! _default.get_CustomTrimmingSign() }
+        set { try! _default.put_CustomTrimmingSign(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.defaultfontfamily)
     public var defaultFontFamily : String {
-        get { try! _default.get_DefaultFontFamilyImpl() }
+        get { try! _default.get_DefaultFontFamily() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.defaultfontsize)
     public var defaultFontSize : Float {
-        get { try! _default.get_DefaultFontSizeImpl() }
+        get { try! _default.get_DefaultFontSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.defaultfontstretch)
     public var defaultFontStretch : UWP.FontStretch {
-        get { try! _default.get_DefaultFontStretchImpl() }
+        get { try! _default.get_DefaultFontStretch() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.defaultfontstyle)
     public var defaultFontStyle : UWP.FontStyle {
-        get { try! _default.get_DefaultFontStyleImpl() }
+        get { try! _default.get_DefaultFontStyle() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.defaultfontweight)
     public var defaultFontWeight : UWP.FontWeight {
-        get { try! _default.get_DefaultFontWeightImpl() }
+        get { try! _default.get_DefaultFontWeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.defaultlocalename)
     public var defaultLocaleName : String {
-        get { try! _default.get_DefaultLocaleNameImpl() }
+        get { try! _default.get_DefaultLocaleName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.direction)
     public var direction : CanvasTextDirection {
-        get { try! _default.get_DirectionImpl() }
-        set { try! _default.put_DirectionImpl(newValue) }
+        get { try! _default.get_Direction() }
+        set { try! _default.put_Direction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.drawbounds)
     public var drawBounds : WindowsFoundation.Rect {
-        get { try! _default.get_DrawBoundsImpl() }
+        get { try! _default.get_DrawBounds() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.horizontalalignment)
     public var horizontalAlignment : CanvasHorizontalAlignment {
-        get { try! _default.get_HorizontalAlignmentImpl() }
-        set { try! _default.put_HorizontalAlignmentImpl(newValue) }
+        get { try! _default.get_HorizontalAlignment() }
+        set { try! _default.put_HorizontalAlignment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.incrementaltabstop)
     public var incrementalTabStop : Float {
-        get { try! _default.get_IncrementalTabStopImpl() }
-        set { try! _default.put_IncrementalTabStopImpl(newValue) }
+        get { try! _default.get_IncrementalTabStop() }
+        set { try! _default.put_IncrementalTabStop(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.lastlinewrapping)
     public var lastLineWrapping : Bool {
-        get { try! _default.get_LastLineWrappingImpl() }
-        set { try! _default.put_LastLineWrappingImpl(newValue) }
+        get { try! _default.get_LastLineWrapping() }
+        set { try! _default.put_LastLineWrapping(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.layoutbounds)
     public var layoutBounds : WindowsFoundation.Rect {
-        get { try! _default.get_LayoutBoundsImpl() }
+        get { try! _default.get_LayoutBounds() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.layoutboundsincludingtrailingwhitespace)
     public var layoutBoundsIncludingTrailingWhitespace : WindowsFoundation.Rect {
-        get { try! _default.get_LayoutBoundsIncludingTrailingWhitespaceImpl() }
+        get { try! _default.get_LayoutBoundsIncludingTrailingWhitespace() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.linecount)
     public var lineCount : Int32 {
-        get { try! _default.get_LineCountImpl() }
+        get { try! _default.get_LineCount() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.linemetrics)
+    public var lineMetrics : [CanvasLineMetrics] {
+        get { try! _default.get_LineMetrics() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.linespacing)
     public var lineSpacing : Float {
-        get { try! _default.get_LineSpacingImpl() }
-        set { try! _default.put_LineSpacingImpl(newValue) }
+        get { try! _default.get_LineSpacing() }
+        set { try! _default.put_LineSpacing(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.linespacingbaseline)
     public var lineSpacingBaseline : Float {
-        get { try! _default.get_LineSpacingBaselineImpl() }
-        set { try! _default.put_LineSpacingBaselineImpl(newValue) }
+        get { try! _default.get_LineSpacingBaseline() }
+        set { try! _default.put_LineSpacingBaseline(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.linespacingmode)
     public var lineSpacingMode : CanvasLineSpacingMode {
-        get { try! _default.get_LineSpacingModeImpl() }
-        set { try! _default.put_LineSpacingModeImpl(newValue) }
+        get { try! _default.get_LineSpacingMode() }
+        set { try! _default.put_LineSpacingMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.maximumbidireorderingdepth)
     public var maximumBidiReorderingDepth : Int32 {
-        get { try! _default.get_MaximumBidiReorderingDepthImpl() }
+        get { try! _default.get_MaximumBidiReorderingDepth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.opticalalignment)
     public var opticalAlignment : CanvasOpticalAlignment {
-        get { try! _default.get_OpticalAlignmentImpl() }
-        set { try! _default.put_OpticalAlignmentImpl(newValue) }
+        get { try! _default.get_OpticalAlignment() }
+        set { try! _default.put_OpticalAlignment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.options)
     public var options : CanvasDrawTextOptions {
-        get { try! _default.get_OptionsImpl() }
-        set { try! _default.put_OptionsImpl(newValue) }
+        get { try! _default.get_Options() }
+        set { try! _default.put_Options(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.requestedsize)
     public var requestedSize : WindowsFoundation.Size {
-        get { try! _default.get_RequestedSizeImpl() }
-        set { try! _default.put_RequestedSizeImpl(newValue) }
+        get { try! _default.get_RequestedSize() }
+        set { try! _default.put_RequestedSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.trimmingdelimiter)
     public var trimmingDelimiter : String {
-        get { try! _default.get_TrimmingDelimiterImpl() }
-        set { try! _default.put_TrimmingDelimiterImpl(newValue) }
+        get { try! _default.get_TrimmingDelimiter() }
+        set { try! _default.put_TrimmingDelimiter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.trimmingdelimitercount)
     public var trimmingDelimiterCount : Int32 {
-        get { try! _default.get_TrimmingDelimiterCountImpl() }
-        set { try! _default.put_TrimmingDelimiterCountImpl(newValue) }
+        get { try! _default.get_TrimmingDelimiterCount() }
+        set { try! _default.put_TrimmingDelimiterCount(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.trimminggranularity)
     public var trimmingGranularity : CanvasTextTrimmingGranularity {
-        get { try! _default.get_TrimmingGranularityImpl() }
-        set { try! _default.put_TrimmingGranularityImpl(newValue) }
+        get { try! _default.get_TrimmingGranularity() }
+        set { try! _default.put_TrimmingGranularity(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.trimmingsign)
     public var trimmingSign : CanvasTrimmingSign {
-        get { try! _default.get_TrimmingSignImpl() }
-        set { try! _default.put_TrimmingSignImpl(newValue) }
+        get { try! _default.get_TrimmingSign() }
+        set { try! _default.put_TrimmingSign(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.verticalalignment)
     public var verticalAlignment : CanvasVerticalAlignment {
-        get { try! _default.get_VerticalAlignmentImpl() }
-        set { try! _default.put_VerticalAlignmentImpl(newValue) }
+        get { try! _default.get_VerticalAlignment() }
+        set { try! _default.put_VerticalAlignment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.verticalglyphorientation)
     public var verticalGlyphOrientation : CanvasVerticalGlyphOrientation {
-        get { try! _default.get_VerticalGlyphOrientationImpl() }
-        set { try! _default.put_VerticalGlyphOrientationImpl(newValue) }
+        get { try! _default.get_VerticalGlyphOrientation() }
+        set { try! _default.put_VerticalGlyphOrientation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayout.wordwrapping)
     public var wordWrapping : CanvasWordWrapping {
-        get { try! _default.get_WordWrappingImpl() }
-        set { try! _default.put_WordWrappingImpl(newValue) }
+        get { try! _default.get_WordWrapping() }
+        set { try! _default.put_WordWrapping(newValue) }
     }
 
     deinit {
@@ -959,29 +1256,23 @@ public final class CanvasTextRenderingParameters : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderingParameters>?) -> CanvasTextRenderingParameters? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICanvasTextRenderingParametersFactory: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextRenderingParametersFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Text.CanvasTextRenderingParameters"))
+    private static let _ICanvasTextRenderingParametersFactory: __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextRenderingParametersFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasTextRenderingParameters")
     public init(_ textRenderingMode: CanvasTextRenderingMode, _ gridFit: CanvasTextGridFit) {
-        super.init(try! Self._ICanvasTextRenderingParametersFactory.CreateImpl(textRenderingMode, gridFit))
+        super.init(try! Self._ICanvasTextRenderingParametersFactory.Create(textRenderingMode, gridFit))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextrenderingparameters.gridfit)
     public var gridFit : CanvasTextGridFit {
-        get { try! _default.get_GridFitImpl() }
+        get { try! _default.get_GridFit() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextrenderingparameters.renderingmode)
     public var renderingMode : CanvasTextRenderingMode {
-        get { try! _default.get_RenderingModeImpl() }
+        get { try! _default.get_RenderingMode() }
     }
 
     deinit {
@@ -1003,12 +1294,6 @@ public final class CanvasTypography : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTypography>?) -> CanvasTypography? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1016,24 +1301,30 @@ public final class CanvasTypography : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Text.CanvasTypography")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.Graphics.Canvas.Text.CanvasTypography")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastypography.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastypography.addfeature)
     public func addFeature(_ feature: CanvasTypographyFeature) throws {
-        try _default.AddFeatureImpl(feature)
+        try _default.AddFeature(feature)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastypography.addfeature)
     public func addFeature(_ name: CanvasTypographyFeatureName, _ parameter: UInt32) throws {
-        try _default.AddFeatureWithNameAndParameterImpl(name, parameter)
+        try _default.AddFeatureWithNameAndParameter(name, parameter)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastypography.getfeatures)
+    public func getFeatures() throws -> [CanvasTypographyFeature] {
+        try _default.GetFeatures()
     }
 
     deinit {
@@ -1042,8 +1333,59 @@ public final class CanvasTypography : WinRTClass, WindowsFoundation.IClosable {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedbidi)
+public struct CanvasAnalyzedBidi: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedbidi.explicitlevel)
+    public var explicitLevel: UInt32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedbidi.resolvedlevel)
+    public var resolvedLevel: UInt32 = 0
+    public init() {}
+    public init(explicitLevel: UInt32, resolvedLevel: UInt32) {
+        self.explicitLevel = explicitLevel
+        self.resolvedLevel = resolvedLevel
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedbreakpoint)
+public struct CanvasAnalyzedBreakpoint: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedbreakpoint.breakbefore)
+    public var breakBefore: CanvasLineBreakCondition = .init(0)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedbreakpoint.breakafter)
+    public var breakAfter: CanvasLineBreakCondition = .init(0)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedbreakpoint.iswhitespace)
+    public var isWhitespace: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedbreakpoint.issofthyphen)
+    public var isSoftHyphen: Bool = false
+    public init() {}
+    public init(breakBefore: CanvasLineBreakCondition, breakAfter: CanvasLineBreakCondition, isWhitespace: Bool, isSoftHyphen: Bool) {
+        self.breakBefore = breakBefore
+        self.breakAfter = breakAfter
+        self.isWhitespace = isWhitespace
+        self.isSoftHyphen = isSoftHyphen
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedglyphorientation)
+public struct CanvasAnalyzedGlyphOrientation: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedglyphorientation.glyphorientation)
+    public var glyphOrientation: CanvasGlyphOrientation = .init(0)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedglyphorientation.adjustedbidilevel)
+    public var adjustedBidiLevel: UInt32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedglyphorientation.issideways)
+    public var isSideways: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedglyphorientation.isrighttoleft)
+    public var isRightToLeft: Bool = false
+    public init() {}
+    public init(glyphOrientation: CanvasGlyphOrientation, adjustedBidiLevel: UInt32, isSideways: Bool, isRightToLeft: Bool) {
+        self.glyphOrientation = glyphOrientation
+        self.adjustedBidiLevel = adjustedBidiLevel
+        self.isSideways = isSideways
+        self.isRightToLeft = isRightToLeft
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedscript)
-public struct CanvasAnalyzedScript: Hashable, Codable {
+public struct CanvasAnalyzedScript: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedscript.scriptidentifier)
     public var scriptIdentifier: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasanalyzedscript.shape)
@@ -1053,13 +1395,23 @@ public struct CanvasAnalyzedScript: Hashable, Codable {
         self.scriptIdentifier = scriptIdentifier
         self.shape = shape
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedScript) -> CanvasAnalyzedScript {
-        .init(scriptIdentifier: abi.ScriptIdentifier, shape: abi.Shape)
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvascharacterrange)
+public struct CanvasCharacterRange: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvascharacterrange.characterindex)
+    public var characterIndex: Int32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvascharacterrange.charactercount)
+    public var characterCount: Int32 = 0
+    public init() {}
+    public init(characterIndex: Int32, characterCount: Int32) {
+        self.characterIndex = characterIndex
+        self.characterCount = characterCount
     }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasclustermetrics)
-public struct CanvasClusterMetrics: Hashable, Codable {
+public struct CanvasClusterMetrics: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasclustermetrics.charactercount)
     public var characterCount: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasclustermetrics.width)
@@ -1072,13 +1424,10 @@ public struct CanvasClusterMetrics: Hashable, Codable {
         self.width = width
         self.properties = properties
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasClusterMetrics) -> CanvasClusterMetrics {
-        .init(characterCount: abi.CharacterCount, width: abi.Width, properties: abi.Properties)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontproperty)
-public struct CanvasFontProperty: Hashable, Codable {
+public struct CanvasFontProperty: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontproperty.identifier)
     public var identifier: CanvasFontPropertyIdentifier = .init(0)
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasfontproperty.value)
@@ -1091,13 +1440,10 @@ public struct CanvasFontProperty: Hashable, Codable {
         self.value = value
         self.locale = locale
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontProperty) -> CanvasFontProperty {
-        .init(identifier: abi.Identifier, value: .init(from: abi.Value), locale: .init(from: abi.Locale))
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyph)
-public struct CanvasGlyph: Hashable, Codable {
+public struct CanvasGlyph: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyph.index)
     public var index: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyph.advance)
@@ -1113,13 +1459,10 @@ public struct CanvasGlyph: Hashable, Codable {
         self.advanceOffset = advanceOffset
         self.ascenderOffset = ascenderOffset
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyph) -> CanvasGlyph {
-        .init(index: abi.Index, advance: abi.Advance, advanceOffset: abi.AdvanceOffset, ascenderOffset: abi.AscenderOffset)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphmetrics)
-public struct CanvasGlyphMetrics: Hashable, Codable {
+public struct CanvasGlyphMetrics: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphmetrics.leftsidebearing)
     public var leftSideBearing: Float = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphmetrics.advancewidth)
@@ -1147,13 +1490,63 @@ public struct CanvasGlyphMetrics: Hashable, Codable {
         self.verticalOrigin = verticalOrigin
         self.drawBounds = drawBounds
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphMetrics) -> CanvasGlyphMetrics {
-        .init(leftSideBearing: abi.LeftSideBearing, advanceWidth: abi.AdvanceWidth, rightSideBearing: abi.RightSideBearing, topSideBearing: abi.TopSideBearing, advanceHeight: abi.AdvanceHeight, bottomSideBearing: abi.BottomSideBearing, verticalOrigin: abi.VerticalOrigin, drawBounds: .from(abi: abi.DrawBounds))
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphshaping)
+public struct CanvasGlyphShaping: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphshaping.justification)
+    public var justification: CanvasGlyphJustification = .init(0)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphshaping.isclusterstart)
+    public var isClusterStart: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphshaping.isdiacritic)
+    public var isDiacritic: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasglyphshaping.iszerowidthspace)
+    public var isZeroWidthSpace: Bool = false
+    public init() {}
+    public init(justification: CanvasGlyphJustification, isClusterStart: Bool, isDiacritic: Bool, isZeroWidthSpace: Bool) {
+        self.justification = justification
+        self.isClusterStart = isClusterStart
+        self.isDiacritic = isDiacritic
+        self.isZeroWidthSpace = isZeroWidthSpace
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity)
+public struct CanvasJustificationOpportunity: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity.expansionminimum)
+    public var expansionMinimum: Float = 0.0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity.expansionmaximum)
+    public var expansionMaximum: Float = 0.0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity.compressionmaximum)
+    public var compressionMaximum: Float = 0.0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity.expansionpriority)
+    public var expansionPriority: UInt8 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity.compressionpriority)
+    public var compressionPriority: UInt8 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity.allowresidualexpansion)
+    public var allowResidualExpansion: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity.allowresidualcompression)
+    public var allowResidualCompression: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity.applytoleadingedge)
+    public var applyToLeadingEdge: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasjustificationopportunity.applytotrailingedge)
+    public var applyToTrailingEdge: Bool = false
+    public init() {}
+    public init(expansionMinimum: Float, expansionMaximum: Float, compressionMaximum: Float, expansionPriority: UInt8, compressionPriority: UInt8, allowResidualExpansion: Bool, allowResidualCompression: Bool, applyToLeadingEdge: Bool, applyToTrailingEdge: Bool) {
+        self.expansionMinimum = expansionMinimum
+        self.expansionMaximum = expansionMaximum
+        self.compressionMaximum = compressionMaximum
+        self.expansionPriority = expansionPriority
+        self.compressionPriority = compressionPriority
+        self.allowResidualExpansion = allowResidualExpansion
+        self.allowResidualCompression = allowResidualCompression
+        self.applyToLeadingEdge = applyToLeadingEdge
+        self.applyToTrailingEdge = applyToTrailingEdge
     }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvaslinemetrics)
-public struct CanvasLineMetrics: Hashable, Codable {
+public struct CanvasLineMetrics: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvaslinemetrics.charactercount)
     public var characterCount: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvaslinemetrics.trailingwhitespacecount)
@@ -1181,13 +1574,50 @@ public struct CanvasLineMetrics: Hashable, Codable {
         self.leadingWhitespaceBefore = leadingWhitespaceBefore
         self.leadingWhitespaceAfter = leadingWhitespaceAfter
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineMetrics) -> CanvasLineMetrics {
-        .init(characterCount: abi.CharacterCount, trailingWhitespaceCount: abi.TrailingWhitespaceCount, terminalNewlineCount: abi.TerminalNewlineCount, height: abi.Height, baseline: abi.Baseline, isTrimmed: .init(from: abi.IsTrimmed), leadingWhitespaceBefore: abi.LeadingWhitespaceBefore, leadingWhitespaceAfter: abi.LeadingWhitespaceAfter)
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties)
+public struct CanvasScriptProperties: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.isoscriptcode)
+    public var isoScriptCode: String = ""
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.isoscriptnumber)
+    public var isoScriptNumber: Int32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.clusterlookahead)
+    public var clusterLookahead: Int32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.justificationcharacter)
+    public var justificationCharacter: String = ""
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.restrictcarettoclusters)
+    public var restrictCaretToClusters: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.usesworddividers)
+    public var usesWordDividers: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.isdiscretewriting)
+    public var isDiscreteWriting: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.isblockwriting)
+    public var isBlockWriting: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.isdistributedwithincluster)
+    public var isDistributedWithinCluster: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.isconnectedwriting)
+    public var isConnectedWriting: Bool = false
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasscriptproperties.iscursivewriting)
+    public var isCursiveWriting: Bool = false
+    public init() {}
+    public init(isoScriptCode: String, isoScriptNumber: Int32, clusterLookahead: Int32, justificationCharacter: String, restrictCaretToClusters: Bool, usesWordDividers: Bool, isDiscreteWriting: Bool, isBlockWriting: Bool, isDistributedWithinCluster: Bool, isConnectedWriting: Bool, isCursiveWriting: Bool) {
+        self.isoScriptCode = isoScriptCode
+        self.isoScriptNumber = isoScriptNumber
+        self.clusterLookahead = clusterLookahead
+        self.justificationCharacter = justificationCharacter
+        self.restrictCaretToClusters = restrictCaretToClusters
+        self.usesWordDividers = usesWordDividers
+        self.isDiscreteWriting = isDiscreteWriting
+        self.isBlockWriting = isBlockWriting
+        self.isDistributedWithinCluster = isDistributedWithinCluster
+        self.isConnectedWriting = isConnectedWriting
+        self.isCursiveWriting = isCursiveWriting
     }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayoutregion)
-public struct CanvasTextLayoutRegion: Hashable, Codable {
+public struct CanvasTextLayoutRegion: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayoutregion.characterindex)
     public var characterIndex: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastextlayoutregion.charactercount)
@@ -1200,13 +1630,10 @@ public struct CanvasTextLayoutRegion: Hashable, Codable {
         self.characterCount = characterCount
         self.layoutBounds = layoutBounds
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextLayoutRegion) -> CanvasTextLayoutRegion {
-        .init(characterIndex: abi.CharacterIndex, characterCount: abi.CharacterCount, layoutBounds: .from(abi: abi.LayoutBounds))
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastypographyfeature)
-public struct CanvasTypographyFeature: Hashable, Codable {
+public struct CanvasTypographyFeature: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastypographyfeature.name)
     public var name: CanvasTypographyFeatureName = .init(0)
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvastypographyfeature.parameter)
@@ -1216,13 +1643,10 @@ public struct CanvasTypographyFeature: Hashable, Codable {
         self.name = name
         self.parameter = parameter
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTypographyFeature) -> CanvasTypographyFeature {
-        .init(name: abi.Name, parameter: abi.Parameter)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasunicoderange)
-public struct CanvasUnicodeRange: Hashable, Codable {
+public struct CanvasUnicodeRange: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasunicoderange.first)
     public var first: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.canvasunicoderange.last)
@@ -1232,10 +1656,31 @@ public struct CanvasUnicodeRange: Hashable, Codable {
         self.first = first
         self.last = last
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasUnicodeRange) -> CanvasUnicodeRange {
-        .init(first: abi.First, last: abi.Last)
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextanalyzeroptions)
+public protocol ICanvasTextAnalyzerOptions : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextanalyzeroptions.getlocalename)
+    func getLocaleName(_ characterIndex: Int32, _ characterCount: inout Int32) throws -> String
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextanalyzeroptions.getnumbersubstitution)
+    func getNumberSubstitution(_ characterIndex: Int32, _ characterCount: inout Int32) throws -> Win2D.CanvasNumberSubstitution!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextanalyzeroptions.getverticalglyphorientation)
+    func getVerticalGlyphOrientation(_ characterIndex: Int32, _ characterCount: inout Int32) throws -> Win2D.CanvasVerticalGlyphOrientation
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextanalyzeroptions.getbidilevel)
+    func getBidiLevel(_ characterIndex: Int32, _ characterCount: inout Int32) throws -> UInt32
+}
+
+extension ICanvasTextAnalyzerOptions {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextAnalyzerOptionsWrapper.IID:
+                let wrapper = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextAnalyzerOptionsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
     }
 }
+public typealias AnyICanvasTextAnalyzerOptions = any ICanvasTextAnalyzerOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextinlineobject)
 public protocol ICanvasTextInlineObject : WinRTInterface {
@@ -1269,6 +1714,8 @@ public typealias AnyICanvasTextInlineObject = any ICanvasTextInlineObject
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextrenderer)
 public protocol ICanvasTextRenderer : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextrenderer.drawglyphrun)
+    func drawGlyphRun(_ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace!, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ brush: Any!, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ localeName: String, _ textString: String, _ clusterMapIndices: [Int32], _ characterIndex: UInt32, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextrenderer.drawstrikethrough)
     func drawStrikethrough(_ point: WindowsFoundation.Vector2, _ strikethroughWidth: Float, _ strikethroughThickness: Float, _ strikethroughOffset: Float, _ textDirection: Win2D.CanvasTextDirection, _ brush: Any!, _ textMeasuringMode: Win2D.CanvasTextMeasuringMode, _ localeName: String, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.text.icanvastextrenderer.drawunderline)
@@ -1315,7 +1762,7 @@ extension Win2D.CanvasClusterProperties {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasClusterProperties_RightToLeft
     }
 }
-extension Win2D.CanvasClusterProperties: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasClusterProperties: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasDrawTextOptions {
     public static var `default` : Win2D.CanvasDrawTextOptions {
@@ -1331,7 +1778,7 @@ extension Win2D.CanvasDrawTextOptions {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasDrawTextOptions_EnableColorFont
     }
 }
-extension Win2D.CanvasDrawTextOptions: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasDrawTextOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasFontFileFormatType {
     public static var cff : Win2D.CanvasFontFileFormatType {
@@ -1359,7 +1806,7 @@ extension Win2D.CanvasFontFileFormatType {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontFileFormatType_RawCff
     }
 }
-extension Win2D.CanvasFontFileFormatType: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasFontFileFormatType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasFontInformation {
     public static var none : Win2D.CanvasFontInformation {
@@ -1429,7 +1876,7 @@ extension Win2D.CanvasFontInformation {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontInformation_SupportedScriptLanguageTag
     }
 }
-extension Win2D.CanvasFontInformation: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasFontInformation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasFontPropertyIdentifier {
     public static var none : Win2D.CanvasFontPropertyIdentifier {
@@ -1475,7 +1922,7 @@ extension Win2D.CanvasFontPropertyIdentifier {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontPropertyIdentifier_Total
     }
 }
-extension Win2D.CanvasFontPropertyIdentifier: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasFontPropertyIdentifier: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasFontSimulations {
     public static var none : Win2D.CanvasFontSimulations {
@@ -1488,7 +1935,50 @@ extension Win2D.CanvasFontSimulations {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontSimulations_Oblique
     }
 }
-extension Win2D.CanvasFontSimulations: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasFontSimulations: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension Win2D.CanvasGlyphJustification {
+    public static var none : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_None
+    }
+    public static var arabicBlank : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicBlank
+    }
+    public static var character : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_Character
+    }
+    public static var blank : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_Blank
+    }
+    public static var arabicNormal : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicNormal
+    }
+    public static var arabicKashida : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicKashida
+    }
+    public static var arabicAlef : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicAlef
+    }
+    public static var arabicHa : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicHa
+    }
+    public static var arabicRa : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicRa
+    }
+    public static var arabicBa : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicBa
+    }
+    public static var arabicBara : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicBara
+    }
+    public static var arabicSeen : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicSeen
+    }
+    public static var arabicSeenM : Win2D.CanvasGlyphJustification {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphJustification_ArabicSeenM
+    }
+}
+extension Win2D.CanvasGlyphJustification: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasGlyphOrientation {
     public static var upright : Win2D.CanvasGlyphOrientation {
@@ -1504,7 +1994,7 @@ extension Win2D.CanvasGlyphOrientation {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphOrientation_Clockwise270Degrees
     }
 }
-extension Win2D.CanvasGlyphOrientation: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasGlyphOrientation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasHorizontalAlignment {
     public static var left : Win2D.CanvasHorizontalAlignment {
@@ -1520,7 +2010,7 @@ extension Win2D.CanvasHorizontalAlignment {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasHorizontalAlignment_Justified
     }
 }
-extension Win2D.CanvasHorizontalAlignment: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasHorizontalAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasLineBreakCondition {
     public static var neutral : Win2D.CanvasLineBreakCondition {
@@ -1536,7 +2026,7 @@ extension Win2D.CanvasLineBreakCondition {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineBreakCondition_MustBreak
     }
 }
-extension Win2D.CanvasLineBreakCondition: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasLineBreakCondition: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasLineSpacingMode {
     public static var `default` : Win2D.CanvasLineSpacingMode {
@@ -1549,7 +2039,26 @@ extension Win2D.CanvasLineSpacingMode {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineSpacingMode_Proportional
     }
 }
-extension Win2D.CanvasLineSpacingMode: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasLineSpacingMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension Win2D.CanvasNumberSubstitutionMethod {
+    public static var fromCulture : Win2D.CanvasNumberSubstitutionMethod {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasNumberSubstitutionMethod_FromCulture
+    }
+    public static var contextual : Win2D.CanvasNumberSubstitutionMethod {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasNumberSubstitutionMethod_Contextual
+    }
+    public static var disabled : Win2D.CanvasNumberSubstitutionMethod {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasNumberSubstitutionMethod_Disabled
+    }
+    public static var national : Win2D.CanvasNumberSubstitutionMethod {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasNumberSubstitutionMethod_National
+    }
+    public static var traditional : Win2D.CanvasNumberSubstitutionMethod {
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasNumberSubstitutionMethod_Traditional
+    }
+}
+extension Win2D.CanvasNumberSubstitutionMethod: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasOpticalAlignment {
     public static var `default` : Win2D.CanvasOpticalAlignment {
@@ -1559,7 +2068,7 @@ extension Win2D.CanvasOpticalAlignment {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasOpticalAlignment_NoSideBearings
     }
 }
-extension Win2D.CanvasOpticalAlignment: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasOpticalAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasScriptShape {
     public static var `default` : Win2D.CanvasScriptShape {
@@ -1569,7 +2078,7 @@ extension Win2D.CanvasScriptShape {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasScriptShape_NoVisual
     }
 }
-extension Win2D.CanvasScriptShape: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasScriptShape: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasTextAntialiasing {
     public static var auto : Win2D.CanvasTextAntialiasing {
@@ -1585,7 +2094,7 @@ extension Win2D.CanvasTextAntialiasing {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextAntialiasing_Aliased
     }
 }
-extension Win2D.CanvasTextAntialiasing: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasTextAntialiasing: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasTextDirection {
     public static var leftToRightThenTopToBottom : Win2D.CanvasTextDirection {
@@ -1613,7 +2122,7 @@ extension Win2D.CanvasTextDirection {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextDirection_BottomToTopThenRightToLeft
     }
 }
-extension Win2D.CanvasTextDirection: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasTextDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasTextGridFit {
     public static var `default` : Win2D.CanvasTextGridFit {
@@ -1626,7 +2135,7 @@ extension Win2D.CanvasTextGridFit {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextGridFit_Enable
     }
 }
-extension Win2D.CanvasTextGridFit: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasTextGridFit: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasTextMeasuringMode {
     public static var natural : Win2D.CanvasTextMeasuringMode {
@@ -1639,7 +2148,7 @@ extension Win2D.CanvasTextMeasuringMode {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextMeasuringMode_GdiNatural
     }
 }
-extension Win2D.CanvasTextMeasuringMode: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasTextMeasuringMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasTextRenderingMode {
     public static var `default` : Win2D.CanvasTextRenderingMode {
@@ -1667,7 +2176,7 @@ extension Win2D.CanvasTextRenderingMode {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextRenderingMode_NaturalSymmetricDownsampled
     }
 }
-extension Win2D.CanvasTextRenderingMode: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasTextRenderingMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasTextTrimmingGranularity {
     public static var none : Win2D.CanvasTextTrimmingGranularity {
@@ -1680,7 +2189,7 @@ extension Win2D.CanvasTextTrimmingGranularity {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextTrimmingGranularity_Word
     }
 }
-extension Win2D.CanvasTextTrimmingGranularity: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasTextTrimmingGranularity: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasTrimmingSign {
     public static var none : Win2D.CanvasTrimmingSign {
@@ -1690,7 +2199,7 @@ extension Win2D.CanvasTrimmingSign {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTrimmingSign_Ellipsis
     }
 }
-extension Win2D.CanvasTrimmingSign: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasTrimmingSign: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasTypographyFeatureName {
     public static var none : Win2D.CanvasTypographyFeatureName {
@@ -1940,7 +2449,7 @@ extension Win2D.CanvasTypographyFeatureName {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTypographyFeatureName_SlashedZero
     }
 }
-extension Win2D.CanvasTypographyFeatureName: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasTypographyFeatureName: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasVerticalAlignment {
     public static var top : Win2D.CanvasVerticalAlignment {
@@ -1953,7 +2462,7 @@ extension Win2D.CanvasVerticalAlignment {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasVerticalAlignment_Center
     }
 }
-extension Win2D.CanvasVerticalAlignment: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasVerticalAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasVerticalGlyphOrientation {
     public static var `default` : Win2D.CanvasVerticalGlyphOrientation {
@@ -1963,7 +2472,7 @@ extension Win2D.CanvasVerticalGlyphOrientation {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasVerticalGlyphOrientation_Stacked
     }
 }
-extension Win2D.CanvasVerticalGlyphOrientation: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasVerticalGlyphOrientation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasWordWrapping {
     public static var wrap : Win2D.CanvasWordWrapping {
@@ -1982,5 +2491,5 @@ extension Win2D.CanvasWordWrapping {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasWordWrapping_Character
     }
 }
-extension Win2D.CanvasWordWrapping: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasWordWrapping: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

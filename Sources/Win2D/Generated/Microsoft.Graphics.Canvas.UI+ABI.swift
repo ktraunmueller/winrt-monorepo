@@ -12,11 +12,12 @@ private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResources
     .init(Data1: 0x3A21C766, Data2: 0x0781, Data3: 0x4389, Data4: ( 0xBB,0xC3,0x86,0xB1,0xF5,0x02,0x2A,0xF1 ))// 3A21C766-0781-4389-BBC3-86B1F5022AF1
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_Graphics_Canvas_UI {
     public class ICanvasCreateResourcesEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs }
 
-        internal func get_ReasonImpl() throws -> Win2D.CanvasCreateResourcesReason {
+        public func get_Reason() throws -> Win2D.CanvasCreateResourcesReason {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasCreateResourcesReason = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Reason(pThis, &value))
@@ -24,7 +25,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI {
             return value
         }
 
-        internal func TrackAsyncActionImpl(_ action: WindowsFoundation.AnyIAsyncAction?) throws {
+        public func TrackAsyncAction(_ action: WindowsFoundation.AnyIAsyncAction?) throws {
             let actionWrapper = __ABI_Windows_Foundation.IAsyncActionWrapper(action)
             let _action = try! actionWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs.self) { pThis in
@@ -32,7 +33,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI {
             }
         }
 
-        internal func GetTrackedActionImpl() throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func GetTrackedAction() throws -> WindowsFoundation.AnyIAsyncAction? {
             let (action) = try ComPtrs.initialize { actionAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetTrackedAction(pThis, &actionAbi))
@@ -46,7 +47,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI {
     public class ICanvasCreateResourcesEventArgsFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgsFactory }
 
-        internal func CreateImpl(_ createResourcesReason: Win2D.CanvasCreateResourcesReason) throws -> ICanvasCreateResourcesEventArgs {
+        public func Create(_ createResourcesReason: Win2D.CanvasCreateResourcesReason) throws -> ICanvasCreateResourcesEventArgs {
             let (CreateResourcesEventArgs) = try ComPtrs.initialize { CreateResourcesEventArgsAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgsFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, createResourcesReason, &CreateResourcesEventArgsAbi))

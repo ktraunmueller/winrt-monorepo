@@ -48,17 +48,18 @@ private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeSty
     .init(Data1: 0xFD3E1CD2, Data2: 0x6019, Data3: 0x40A1, Data4: ( 0xB3,0x15,0x26,0x7E,0xEF,0x6C,0x2A,0xEB ))// FD3E1CD2-6019-40A1-B315-267EEF6C2AEB
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
     public class ICanvasCachedGeometry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasCachedGeometry }
 
-        internal func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasCachedGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
     }
@@ -66,49 +67,49 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
     public class ICanvasCachedGeometryStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasCachedGeometryStatics }
 
-        internal func CreateFillImpl(_ geometry: Win2D.CanvasGeometry?) throws -> Win2D.CanvasCachedGeometry? {
+        public func CreateFill(_ geometry: Win2D.CanvasGeometry?) throws -> Win2D.CanvasCachedGeometry? {
             let (cachedGeometry) = try ComPtrs.initialize { cachedGeometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasCachedGeometryStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFill(pThis, RawPointer(geometry), &cachedGeometryAbi))
                 }
             }
-            return .from(abi: cachedGeometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasCachedGeometryBridge.from(abi: cachedGeometry)
         }
 
-        internal func CreateFillWithFlatteningToleranceImpl(_ geometry: Win2D.CanvasGeometry?, _ flatteningTolerance: Float) throws -> Win2D.CanvasCachedGeometry? {
+        public func CreateFillWithFlatteningTolerance(_ geometry: Win2D.CanvasGeometry?, _ flatteningTolerance: Float) throws -> Win2D.CanvasCachedGeometry? {
             let (cachedGeometry) = try ComPtrs.initialize { cachedGeometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasCachedGeometryStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFillWithFlatteningTolerance(pThis, RawPointer(geometry), flatteningTolerance, &cachedGeometryAbi))
                 }
             }
-            return .from(abi: cachedGeometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasCachedGeometryBridge.from(abi: cachedGeometry)
         }
 
-        internal func CreateStrokeImpl(_ geometry: Win2D.CanvasGeometry?, _ strokeWidth: Float) throws -> Win2D.CanvasCachedGeometry? {
+        public func CreateStroke(_ geometry: Win2D.CanvasGeometry?, _ strokeWidth: Float) throws -> Win2D.CanvasCachedGeometry? {
             let (cachedGeometry) = try ComPtrs.initialize { cachedGeometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasCachedGeometryStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateStroke(pThis, RawPointer(geometry), strokeWidth, &cachedGeometryAbi))
                 }
             }
-            return .from(abi: cachedGeometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasCachedGeometryBridge.from(abi: cachedGeometry)
         }
 
-        internal func CreateStrokeWithStrokeStyleImpl(_ geometry: Win2D.CanvasGeometry?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws -> Win2D.CanvasCachedGeometry? {
+        public func CreateStrokeWithStrokeStyle(_ geometry: Win2D.CanvasGeometry?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws -> Win2D.CanvasCachedGeometry? {
             let (cachedGeometry) = try ComPtrs.initialize { cachedGeometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasCachedGeometryStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateStrokeWithStrokeStyle(pThis, RawPointer(geometry), strokeWidth, RawPointer(strokeStyle), &cachedGeometryAbi))
                 }
             }
-            return .from(abi: cachedGeometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasCachedGeometryBridge.from(abi: cachedGeometry)
         }
 
-        internal func CreateStrokeWithStrokeStyleAndFlatteningToleranceImpl(_ geometry: Win2D.CanvasGeometry?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?, _ flatteningTolerance: Float) throws -> Win2D.CanvasCachedGeometry? {
+        public func CreateStrokeWithStrokeStyleAndFlatteningTolerance(_ geometry: Win2D.CanvasGeometry?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?, _ flatteningTolerance: Float) throws -> Win2D.CanvasCachedGeometry? {
             let (cachedGeometry) = try ComPtrs.initialize { cachedGeometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasCachedGeometryStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateStrokeWithStrokeStyleAndFlatteningTolerance(pThis, RawPointer(geometry), strokeWidth, RawPointer(strokeStyle), flatteningTolerance, &cachedGeometryAbi))
                 }
             }
-            return .from(abi: cachedGeometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasCachedGeometryBridge.from(abi: cachedGeometry)
         }
 
     }
@@ -116,97 +117,97 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
     public class ICanvasGeometry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry }
 
-        internal func CombineWithImpl(_ otherGeometry: Win2D.CanvasGeometry?, _ otherGeometryTransform: WindowsFoundation.Matrix3x2, _ combine: Win2D.CanvasGeometryCombine) throws -> Win2D.CanvasGeometry? {
+        public func CombineWith(_ otherGeometry: Win2D.CanvasGeometry?, _ otherGeometryTransform: WindowsFoundation.Matrix3x2, _ combine: Win2D.CanvasGeometryCombine) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CombineWith(pThis, RawPointer(otherGeometry), .from(swift: otherGeometryTransform), combine, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CombineWithUsingFlatteningToleranceImpl(_ otherGeometry: Win2D.CanvasGeometry?, _ otherGeometryTransform: WindowsFoundation.Matrix3x2, _ combine: Win2D.CanvasGeometryCombine, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometry? {
+        public func CombineWithUsingFlatteningTolerance(_ otherGeometry: Win2D.CanvasGeometry?, _ otherGeometryTransform: WindowsFoundation.Matrix3x2, _ combine: Win2D.CanvasGeometryCombine, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CombineWithUsingFlatteningTolerance(pThis, RawPointer(otherGeometry), .from(swift: otherGeometryTransform), combine, flatteningTolerance, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func StrokeImpl(_ strokeWidth: Float) throws -> Win2D.CanvasGeometry? {
+        public func Stroke(_ strokeWidth: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Stroke(pThis, strokeWidth, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func StrokeWithStrokeStyleImpl(_ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws -> Win2D.CanvasGeometry? {
+        public func StrokeWithStrokeStyle(_ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.StrokeWithStrokeStyle(pThis, strokeWidth, RawPointer(strokeStyle), &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func StrokeWithAllOptionsImpl(_ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometry? {
+        public func StrokeWithAllOptions(_ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.StrokeWithAllOptions(pThis, strokeWidth, RawPointer(strokeStyle), .from(swift: transform), flatteningTolerance, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func OutlineImpl() throws -> Win2D.CanvasGeometry? {
+        public func Outline() throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Outline(pThis, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func OutlineWithTransformAndFlatteningToleranceImpl(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometry? {
+        public func OutlineWithTransformAndFlatteningTolerance(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.OutlineWithTransformAndFlatteningTolerance(pThis, .from(swift: transform), flatteningTolerance, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func SimplifyImpl(_ simplification: Win2D.CanvasGeometrySimplification) throws -> Win2D.CanvasGeometry? {
+        public func Simplify(_ simplification: Win2D.CanvasGeometrySimplification) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Simplify(pThis, simplification, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func SimplifyWithTransformAndFlatteningToleranceImpl(_ simplification: Win2D.CanvasGeometrySimplification, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometry? {
+        public func SimplifyWithTransformAndFlatteningTolerance(_ simplification: Win2D.CanvasGeometrySimplification, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.SimplifyWithTransformAndFlatteningTolerance(pThis, simplification, .from(swift: transform), flatteningTolerance, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func TransformImpl(_ transform: WindowsFoundation.Matrix3x2) throws -> Win2D.CanvasGeometry? {
+        public func Transform(_ transform: WindowsFoundation.Matrix3x2) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Transform(pThis, .from(swift: transform), &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CompareWithImpl(_ otherGeometry: Win2D.CanvasGeometry?) throws -> Win2D.CanvasGeometryRelation {
+        public func CompareWith(_ otherGeometry: Win2D.CanvasGeometry?) throws -> Win2D.CanvasGeometryRelation {
             var relation: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGeometryRelation = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CompareWith(pThis, RawPointer(otherGeometry), &relation))
@@ -214,7 +215,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return relation
         }
 
-        internal func CompareWithUsingTransformAndFlatteningToleranceImpl(_ otherGeometry: Win2D.CanvasGeometry?, _ otherGeometryTransform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometryRelation {
+        public func CompareWithUsingTransformAndFlatteningTolerance(_ otherGeometry: Win2D.CanvasGeometry?, _ otherGeometryTransform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Win2D.CanvasGeometryRelation {
             var relation: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGeometryRelation = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CompareWithUsingTransformAndFlatteningTolerance(pThis, RawPointer(otherGeometry), .from(swift: otherGeometryTransform), flatteningTolerance, &relation))
@@ -222,7 +223,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return relation
         }
 
-        internal func ComputeAreaImpl() throws -> Float {
+        public func ComputeArea() throws -> Float {
             var area: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeArea(pThis, &area))
@@ -230,7 +231,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return area
         }
 
-        internal func ComputeAreaWithTransformAndFlatteningToleranceImpl(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Float {
+        public func ComputeAreaWithTransformAndFlatteningTolerance(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Float {
             var area: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeAreaWithTransformAndFlatteningTolerance(pThis, .from(swift: transform), flatteningTolerance, &area))
@@ -238,7 +239,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return area
         }
 
-        internal func ComputePathLengthImpl() throws -> Float {
+        public func ComputePathLength() throws -> Float {
             var length: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputePathLength(pThis, &length))
@@ -246,7 +247,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return length
         }
 
-        internal func ComputePathLengthWithTransformAndFlatteningToleranceImpl(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Float {
+        public func ComputePathLengthWithTransformAndFlatteningTolerance(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Float {
             var length: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputePathLengthWithTransformAndFlatteningTolerance(pThis, .from(swift: transform), flatteningTolerance, &length))
@@ -254,7 +255,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return length
         }
 
-        internal func ComputePointOnPathImpl(_ distance: Float) throws -> WindowsFoundation.Vector2 {
+        public func ComputePointOnPath(_ distance: Float) throws -> WindowsFoundation.Vector2 {
             var point: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputePointOnPath(pThis, distance, &point))
@@ -262,7 +263,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: point)
         }
 
-        internal func ComputePointOnPathWithTangentImpl(_ distance: Float, _ tangent: inout WindowsFoundation.Vector2) throws -> WindowsFoundation.Vector2 {
+        public func ComputePointOnPathWithTangent(_ distance: Float, _ tangent: inout WindowsFoundation.Vector2) throws -> WindowsFoundation.Vector2 {
             var point: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             var _tangent: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
@@ -272,7 +273,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: point)
         }
 
-        internal func ComputePointOnPathWithTransformAndFlatteningToleranceAndTangentImpl(_ length: Float, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float, _ tangent: inout WindowsFoundation.Vector2) throws -> WindowsFoundation.Vector2 {
+        public func ComputePointOnPathWithTransformAndFlatteningToleranceAndTangent(_ length: Float, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float, _ tangent: inout WindowsFoundation.Vector2) throws -> WindowsFoundation.Vector2 {
             var point: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             var _tangent: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
@@ -282,7 +283,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: point)
         }
 
-        internal func FillContainsPointImpl(_ point: WindowsFoundation.Vector2) throws -> Bool {
+        public func FillContainsPoint(_ point: WindowsFoundation.Vector2) throws -> Bool {
             var containsPoint: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillContainsPoint(pThis, .from(swift: point), &containsPoint))
@@ -290,7 +291,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .init(from: containsPoint)
         }
 
-        internal func FillContainsPointWithTransformAndFlatteningToleranceImpl(_ point: WindowsFoundation.Vector2, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Bool {
+        public func FillContainsPointWithTransformAndFlatteningTolerance(_ point: WindowsFoundation.Vector2, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Bool {
             var containsPoint: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillContainsPointWithTransformAndFlatteningTolerance(pThis, .from(swift: point), .from(swift: transform), flatteningTolerance, &containsPoint))
@@ -298,7 +299,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .init(from: containsPoint)
         }
 
-        internal func ComputeBoundsImpl() throws -> WindowsFoundation.Rect {
+        public func ComputeBounds() throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeBounds(pThis, &bounds))
@@ -306,7 +307,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: bounds)
         }
 
-        internal func ComputeBoundsWithTransformImpl(_ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
+        public func ComputeBoundsWithTransform(_ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeBoundsWithTransform(pThis, .from(swift: transform), &bounds))
@@ -314,7 +315,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: bounds)
         }
 
-        internal func ComputeStrokeBoundsImpl(_ strokeWidth: Float) throws -> WindowsFoundation.Rect {
+        public func ComputeStrokeBounds(_ strokeWidth: Float) throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeStrokeBounds(pThis, strokeWidth, &bounds))
@@ -322,7 +323,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: bounds)
         }
 
-        internal func ComputeStrokeBoundsWithStrokeStyleImpl(_ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws -> WindowsFoundation.Rect {
+        public func ComputeStrokeBoundsWithStrokeStyle(_ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeStrokeBoundsWithStrokeStyle(pThis, strokeWidth, RawPointer(strokeStyle), &bounds))
@@ -330,7 +331,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: bounds)
         }
 
-        internal func ComputeStrokeBoundsWithAllOptionsImpl(_ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> WindowsFoundation.Rect {
+        public func ComputeStrokeBoundsWithAllOptions(_ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeStrokeBoundsWithAllOptions(pThis, strokeWidth, RawPointer(strokeStyle), .from(swift: transform), flatteningTolerance, &bounds))
@@ -338,7 +339,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: bounds)
         }
 
-        internal func StrokeContainsPointImpl(_ point: WindowsFoundation.Vector2, _ strokeWidth: Float) throws -> Bool {
+        public func StrokeContainsPoint(_ point: WindowsFoundation.Vector2, _ strokeWidth: Float) throws -> Bool {
             var containsPoint: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StrokeContainsPoint(pThis, .from(swift: point), strokeWidth, &containsPoint))
@@ -346,7 +347,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .init(from: containsPoint)
         }
 
-        internal func StrokeContainsPointWithStrokeStyleImpl(_ point: WindowsFoundation.Vector2, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws -> Bool {
+        public func StrokeContainsPointWithStrokeStyle(_ point: WindowsFoundation.Vector2, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws -> Bool {
             var containsPoint: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StrokeContainsPointWithStrokeStyle(pThis, .from(swift: point), strokeWidth, RawPointer(strokeStyle), &containsPoint))
@@ -354,7 +355,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .init(from: containsPoint)
         }
 
-        internal func StrokeContainsPointWithAllOptionsImpl(_ point: WindowsFoundation.Vector2, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Bool {
+        public func StrokeContainsPointWithAllOptions(_ point: WindowsFoundation.Vector2, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Bool {
             var containsPoint: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StrokeContainsPointWithAllOptions(pThis, .from(swift: point), strokeWidth, RawPointer(strokeStyle), .from(swift: transform), flatteningTolerance, &containsPoint))
@@ -362,7 +363,27 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .init(from: containsPoint)
         }
 
-        internal func SendPathToImpl(_ streamReader: Win2D.AnyICanvasPathReceiver?) throws {
+        public func Tessellate() throws -> [Win2D.CanvasTriangleVertices] {
+            var triangles: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasTriangleVertices> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Tessellate(pThis, &triangles.count, &triangles.start))
+            }
+            defer { CoTaskMemFree(triangles.start) }
+            return .from(abi: triangles)
+
+        }
+
+        public func TessellateWithTransformAndFlatteningTolerance(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> [Win2D.CanvasTriangleVertices] {
+            var triangles: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasTriangleVertices> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TessellateWithTransformAndFlatteningTolerance(pThis, .from(swift: transform), flatteningTolerance, &triangles.count, &triangles.start))
+            }
+            defer { CoTaskMemFree(triangles.start) }
+            return .from(abi: triangles)
+
+        }
+
+        public func SendPathTo(_ streamReader: Win2D.AnyICanvasPathReceiver?) throws {
             let streamReaderWrapper = __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasPathReceiverWrapper(streamReader)
             let _streamReader = try! streamReaderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
@@ -370,13 +391,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             }
         }
 
-        internal func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
     }
@@ -384,7 +405,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
     public class ICanvasGeometryStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics }
 
-        internal func CreateRectangleImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ rect: WindowsFoundation.Rect) throws -> Win2D.CanvasGeometry? {
+        public func CreateRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ rect: WindowsFoundation.Rect) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -392,10 +413,10 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRectangle(pThis, _resourceCreator, .from(swift: rect), &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CreateRectangleAtCoordsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ x: Float, _ y: Float, _ w: Float, _ h: Float) throws -> Win2D.CanvasGeometry? {
+        public func CreateRectangleAtCoords(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ x: Float, _ y: Float, _ w: Float, _ h: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -403,10 +424,10 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRectangleAtCoords(pThis, _resourceCreator, x, y, w, h, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CreateRoundedRectangleImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float) throws -> Win2D.CanvasGeometry? {
+        public func CreateRoundedRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -414,10 +435,10 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRoundedRectangle(pThis, _resourceCreator, .from(swift: rect), radiusX, radiusY, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CreateRoundedRectangleAtCoordsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float) throws -> Win2D.CanvasGeometry? {
+        public func CreateRoundedRectangleAtCoords(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -425,10 +446,10 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateRoundedRectangleAtCoords(pThis, _resourceCreator, x, y, w, h, radiusX, radiusY, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CreateEllipseImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float) throws -> Win2D.CanvasGeometry? {
+        public func CreateEllipse(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -436,10 +457,10 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateEllipse(pThis, _resourceCreator, .from(swift: centerPoint), radiusX, radiusY, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CreateEllipseAtCoordsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float) throws -> Win2D.CanvasGeometry? {
+        public func CreateEllipseAtCoords(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -447,10 +468,10 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateEllipseAtCoords(pThis, _resourceCreator, x, y, radiusX, radiusY, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CreateCircleImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ centerPoint: WindowsFoundation.Vector2, _ radius: Float) throws -> Win2D.CanvasGeometry? {
+        public func CreateCircle(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ centerPoint: WindowsFoundation.Vector2, _ radius: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -458,10 +479,10 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCircle(pThis, _resourceCreator, .from(swift: centerPoint), radius, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CreateCircleAtCoordsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ x: Float, _ y: Float, _ radius: Float) throws -> Win2D.CanvasGeometry? {
+        public func CreateCircleAtCoords(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ x: Float, _ y: Float, _ radius: Float) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -469,28 +490,80 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCircleAtCoords(pThis, _resourceCreator, x, y, radius, &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CreatePathImpl(_ pathBuilder: Win2D.CanvasPathBuilder?) throws -> Win2D.CanvasGeometry? {
+        public func CreatePath(_ pathBuilder: Win2D.CanvasPathBuilder?) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePath(pThis, RawPointer(pathBuilder), &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func CreateTextImpl(_ textLayout: Win2D.CanvasTextLayout?) throws -> Win2D.CanvasGeometry? {
+        public func CreatePolygon(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ points: [WindowsFoundation.Vector2]) throws -> Win2D.CanvasGeometry? {
+            let (geometry) = try ComPtrs.initialize { geometryAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try points.toABI { _points in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreatePolygon(pThis, _resourceCreator, _points.count, _points.start, &geometryAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
+        }
+
+        public func CreateGroup(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ geometries: [Win2D.CanvasGeometry?]) throws -> Win2D.CanvasGeometry? {
+            let (geometry) = try ComPtrs.initialize { geometryAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try geometries.toABI(abiBridge: __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.self) { _geometries in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateGroup(pThis, _resourceCreator, _geometries.count, _geometries.start, &geometryAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
+        }
+
+        public func CreateGroupWithFilledRegionDetermination(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ geometries: [Win2D.CanvasGeometry?], _ filledRegionDetermination: Win2D.CanvasFilledRegionDetermination) throws -> Win2D.CanvasGeometry? {
+            let (geometry) = try ComPtrs.initialize { geometryAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try geometries.toABI(abiBridge: __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.self) { _geometries in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateGroupWithFilledRegionDetermination(pThis, _resourceCreator, _geometries.count, _geometries.start, filledRegionDetermination, &geometryAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
+        }
+
+        public func CreateText(_ textLayout: Win2D.CanvasTextLayout?) throws -> Win2D.CanvasGeometry? {
             let (geometry) = try ComPtrs.initialize { geometryAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateText(pThis, RawPointer(textLayout), &geometryAbi))
                 }
             }
-            return .from(abi: geometry)
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
         }
 
-        internal func ComputeFlatteningToleranceImpl(_ dpi: Float, _ maximumZoomFactor: Float) throws -> Float {
+        public func CreateGlyphRun(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws -> Win2D.CanvasGeometry? {
+            let (geometry) = try ComPtrs.initialize { geometryAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try glyphs.toABI { _glyphs in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateGlyphRun(pThis, _resourceCreator, .from(swift: point), RawPointer(fontFace), fontSize, _glyphs.count, _glyphs.start, .init(from: isSideways), bidiLevel, measuringMode, glyphOrientation, &geometryAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Geometry.CanvasGeometryBridge.from(abi: geometry)
+        }
+
+        public func ComputeFlatteningTolerance(_ dpi: Float, _ maximumZoomFactor: Float) throws -> Float {
             var flatteningTolerance: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeFlatteningTolerance(pThis, dpi, maximumZoomFactor, &flatteningTolerance))
@@ -498,7 +571,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return flatteningTolerance
         }
 
-        internal func ComputeFlatteningToleranceWithTransformImpl(_ dpi: Float, _ maximumZoomFactor: Float, _ expectedGeometryTransform: WindowsFoundation.Matrix3x2) throws -> Float {
+        public func ComputeFlatteningToleranceWithTransform(_ dpi: Float, _ maximumZoomFactor: Float, _ expectedGeometryTransform: WindowsFoundation.Matrix3x2) throws -> Float {
             var flatteningTolerance: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeFlatteningToleranceWithTransform(pThis, dpi, maximumZoomFactor, .from(swift: expectedGeometryTransform), &flatteningTolerance))
@@ -506,7 +579,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return flatteningTolerance
         }
 
-        internal func get_DefaultFlatteningToleranceImpl() throws -> Float {
+        public func get_DefaultFlatteningTolerance() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometryStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultFlatteningTolerance(pThis, &value))
@@ -519,7 +592,17 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
     public class ICanvasGradientMesh: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGradientMesh }
 
-        internal func GetBoundsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> WindowsFoundation.Rect {
+        public func get_Patches() throws -> [Win2D.CanvasGradientMeshPatch] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGradientMeshPatch> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGradientMesh.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Patches(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetBounds(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
             let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -529,7 +612,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: bounds)
         }
 
-        internal func GetBoundsWithTransformImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
+        public func GetBoundsWithTransform(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
             let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -539,13 +622,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return .from(abi: bounds)
         }
 
-        internal func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGradientMesh.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
     }
@@ -553,95 +636,136 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
     public class ICanvasGradientMeshFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGradientMeshFactory }
 
+        public func Create(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ patchElements: [Win2D.CanvasGradientMeshPatch]) throws -> ICanvasGradientMesh {
+            let (canvasGradientMesh) = try ComPtrs.initialize { canvasGradientMeshAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try patchElements.toABI { _patchElements in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGradientMeshFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, _resourceCreator, _patchElements.count, _patchElements.start, &canvasGradientMeshAbi))
+                    }
+                }
+            }
+            return ICanvasGradientMesh(canvasGradientMesh!)
+        }
+
     }
 
     public class ICanvasGradientMeshStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGradientMeshStatics }
+
+        public func CreateCoonsPatch(_ points: [WindowsFoundation.Vector2], _ colors: [WindowsFoundation.Vector4], _ edges: [Win2D.CanvasGradientMeshPatchEdge]) throws -> Win2D.CanvasGradientMeshPatch {
+            var gradientMeshPatch: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGradientMeshPatch = .init()
+            try points.toABI { _points in
+                try colors.toABI { _colors in
+                try edges.toABI { _edges in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGradientMeshStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCoonsPatch(pThis, _points.count, _points.start, _colors.count, _colors.start, _edges.count, _edges.start, &gradientMeshPatch))
+                }
+            }
+            }
+            }
+            return .from(abi: gradientMeshPatch)
+        }
+
+        public func CreateTensorPatch(_ points: [WindowsFoundation.Vector2], _ colors: [WindowsFoundation.Vector4], _ edges: [Win2D.CanvasGradientMeshPatchEdge]) throws -> Win2D.CanvasGradientMeshPatch {
+            var gradientMeshPatch: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGradientMeshPatch = .init()
+            try points.toABI { _points in
+                try colors.toABI { _colors in
+                try edges.toABI { _edges in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGradientMeshStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateTensorPatch(pThis, _points.count, _points.start, _colors.count, _colors.start, _edges.count, _edges.start, &gradientMeshPatch))
+                }
+            }
+            }
+            }
+            return .from(abi: gradientMeshPatch)
+        }
 
     }
 
     public class ICanvasPathBuilder: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder }
 
-        internal func BeginFigureWithFigureFillImpl(_ startPoint: WindowsFoundation.Vector2, _ figureFill: Win2D.CanvasFigureFill) throws {
+        public func BeginFigureWithFigureFill(_ startPoint: WindowsFoundation.Vector2, _ figureFill: Win2D.CanvasFigureFill) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.BeginFigureWithFigureFill(pThis, .from(swift: startPoint), figureFill))
             }
         }
 
-        internal func BeginFigureImpl(_ startPoint: WindowsFoundation.Vector2) throws {
+        public func BeginFigure(_ startPoint: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.BeginFigure(pThis, .from(swift: startPoint)))
             }
         }
 
-        internal func BeginFigureAtCoordsWithFigureFillImpl(_ startX: Float, _ startY: Float, _ figureFill: Win2D.CanvasFigureFill) throws {
+        public func BeginFigureAtCoordsWithFigureFill(_ startX: Float, _ startY: Float, _ figureFill: Win2D.CanvasFigureFill) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.BeginFigureAtCoordsWithFigureFill(pThis, startX, startY, figureFill))
             }
         }
 
-        internal func BeginFigureAtCoordsImpl(_ startX: Float, _ startY: Float) throws {
+        public func BeginFigureAtCoords(_ startX: Float, _ startY: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.BeginFigureAtCoords(pThis, startX, startY))
             }
         }
 
-        internal func AddArcToPointImpl(_ endPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ rotationAngle: Float, _ sweepDirection: Win2D.CanvasSweepDirection, _ arcSize: Win2D.CanvasArcSize) throws {
+        public func AddArcToPoint(_ endPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ rotationAngle: Float, _ sweepDirection: Win2D.CanvasSweepDirection, _ arcSize: Win2D.CanvasArcSize) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddArcToPoint(pThis, .from(swift: endPoint), radiusX, radiusY, rotationAngle, sweepDirection, arcSize))
             }
         }
 
-        internal func AddArcAroundEllipseImpl(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ startAngle: Float, _ sweepAngle: Float) throws {
+        public func AddArcAroundEllipse(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ startAngle: Float, _ sweepAngle: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddArcAroundEllipse(pThis, .from(swift: centerPoint), radiusX, radiusY, startAngle, sweepAngle))
             }
         }
 
-        internal func AddCubicBezierImpl(_ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
+        public func AddCubicBezier(_ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddCubicBezier(pThis, .from(swift: controlPoint1), .from(swift: controlPoint2), .from(swift: endPoint)))
             }
         }
 
-        internal func AddLineImpl(_ endPoint: WindowsFoundation.Vector2) throws {
+        public func AddLine(_ endPoint: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddLine(pThis, .from(swift: endPoint)))
             }
         }
 
-        internal func AddLineWithCoordsImpl(_ x: Float, _ y: Float) throws {
+        public func AddLineWithCoords(_ x: Float, _ y: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddLineWithCoords(pThis, x, y))
             }
         }
 
-        internal func AddQuadraticBezierImpl(_ controlPoint: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
+        public func AddQuadraticBezier(_ controlPoint: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddQuadraticBezier(pThis, .from(swift: controlPoint), .from(swift: endPoint)))
             }
         }
 
-        internal func SetFilledRegionDeterminationImpl(_ filledRegionDetermination: Win2D.CanvasFilledRegionDetermination) throws {
+        public func SetFilledRegionDetermination(_ filledRegionDetermination: Win2D.CanvasFilledRegionDetermination) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFilledRegionDetermination(pThis, filledRegionDetermination))
             }
         }
 
-        internal func SetSegmentOptionsImpl(_ figureSegmentOptions: Win2D.CanvasFigureSegmentOptions) throws {
+        public func SetSegmentOptions(_ figureSegmentOptions: Win2D.CanvasFigureSegmentOptions) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetSegmentOptions(pThis, figureSegmentOptions))
             }
         }
 
-        internal func EndFigureImpl(_ figureLoop: Win2D.CanvasFigureLoop) throws {
+        public func EndFigure(_ figureLoop: Win2D.CanvasFigureLoop) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.EndFigure(pThis, figureLoop))
             }
         }
 
-        internal func AddGeometryImpl(_ geometry: Win2D.CanvasGeometry?) throws {
+        public func AddGeometry(_ geometry: Win2D.CanvasGeometry?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddGeometry(pThis, RawPointer(geometry)))
             }
@@ -652,7 +776,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
     public class ICanvasPathBuilderFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilderFactory }
 
-        internal func CreateImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> ICanvasPathBuilder {
+        public func Create(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> ICanvasPathBuilder {
             let (canvasPathBuilder) = try ComPtrs.initialize { canvasPathBuilderAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -668,49 +792,49 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
     public class ICanvasPathReceiver: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathReceiver }
 
-        open func BeginFigureImpl(_ startPoint: WindowsFoundation.Vector2, _ figureFill: Win2D.CanvasFigureFill) throws {
+        open func BeginFigure(_ startPoint: WindowsFoundation.Vector2, _ figureFill: Win2D.CanvasFigureFill) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathReceiver.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.BeginFigure(pThis, .from(swift: startPoint), figureFill))
             }
         }
 
-        open func AddArcImpl(_ endPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ rotationAngle: Float, _ sweepDirection: Win2D.CanvasSweepDirection, _ arcSize: Win2D.CanvasArcSize) throws {
+        open func AddArc(_ endPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ rotationAngle: Float, _ sweepDirection: Win2D.CanvasSweepDirection, _ arcSize: Win2D.CanvasArcSize) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathReceiver.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddArc(pThis, .from(swift: endPoint), radiusX, radiusY, rotationAngle, sweepDirection, arcSize))
             }
         }
 
-        open func AddCubicBezierImpl(_ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
+        open func AddCubicBezier(_ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathReceiver.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddCubicBezier(pThis, .from(swift: controlPoint1), .from(swift: controlPoint2), .from(swift: endPoint)))
             }
         }
 
-        open func AddLineImpl(_ endPoint: WindowsFoundation.Vector2) throws {
+        open func AddLine(_ endPoint: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathReceiver.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddLine(pThis, .from(swift: endPoint)))
             }
         }
 
-        open func AddQuadraticBezierImpl(_ controlPoint: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
+        open func AddQuadraticBezier(_ controlPoint: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathReceiver.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddQuadraticBezier(pThis, .from(swift: controlPoint), .from(swift: endPoint)))
             }
         }
 
-        open func SetFilledRegionDeterminationImpl(_ filledRegionDetermination: Win2D.CanvasFilledRegionDetermination) throws {
+        open func SetFilledRegionDetermination(_ filledRegionDetermination: Win2D.CanvasFilledRegionDetermination) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathReceiver.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFilledRegionDetermination(pThis, filledRegionDetermination))
             }
         }
 
-        open func SetSegmentOptionsImpl(_ figureSegmentOptions: Win2D.CanvasFigureSegmentOptions) throws {
+        open func SetSegmentOptions(_ figureSegmentOptions: Win2D.CanvasFigureSegmentOptions) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathReceiver.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetSegmentOptions(pThis, figureSegmentOptions))
             }
         }
 
-        open func EndFigureImpl(_ figureLoop: Win2D.CanvasFigureLoop) throws {
+        open func EndFigure(_ figureLoop: Win2D.CanvasFigureLoop) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathReceiver.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.EndFigure(pThis, figureLoop))
             }
@@ -753,7 +877,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                 let figureFill: Win2D.CanvasFigureFill = $2
                 try __unwrapped__instance.beginFigure(startPoint, figureFill)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         AddArc: {
@@ -767,7 +891,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                 let arcSize: Win2D.CanvasArcSize = $6
                 try __unwrapped__instance.addArc(endPoint, radiusX, radiusY, rotationAngle, sweepDirection, arcSize)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         AddCubicBezier: {
@@ -778,7 +902,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                 let endPoint: WindowsFoundation.Vector2 = .from(abi: $3)
                 try __unwrapped__instance.addCubicBezier(controlPoint1, controlPoint2, endPoint)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         AddLine: {
@@ -787,7 +911,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                 let endPoint: WindowsFoundation.Vector2 = .from(abi: $1)
                 try __unwrapped__instance.addLine(endPoint)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         AddQuadraticBezier: {
@@ -797,7 +921,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                 let endPoint: WindowsFoundation.Vector2 = .from(abi: $2)
                 try __unwrapped__instance.addQuadraticBezier(controlPoint, endPoint)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetFilledRegionDetermination: {
@@ -806,7 +930,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                 let filledRegionDetermination: Win2D.CanvasFilledRegionDetermination = $1
                 try __unwrapped__instance.setFilledRegionDetermination(filledRegionDetermination)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetSegmentOptions: {
@@ -815,7 +939,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                 let figureSegmentOptions: Win2D.CanvasFigureSegmentOptions = $1
                 try __unwrapped__instance.setSegmentOptions(figureSegmentOptions)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         EndFigure: {
@@ -824,7 +948,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
                 let figureLoop: Win2D.CanvasFigureLoop = $1
                 try __unwrapped__instance.endFigure(figureLoop)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -832,7 +956,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
     public class ICanvasStrokeStyle: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle }
 
-        internal func get_StartCapImpl() throws -> Win2D.CanvasCapStyle {
+        public func get_StartCap() throws -> Win2D.CanvasCapStyle {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasCapStyle = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartCap(pThis, &value))
@@ -840,13 +964,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return value
         }
 
-        internal func put_StartCapImpl(_ value: Win2D.CanvasCapStyle) throws {
+        public func put_StartCap(_ value: Win2D.CanvasCapStyle) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StartCap(pThis, value))
             }
         }
 
-        internal func get_EndCapImpl() throws -> Win2D.CanvasCapStyle {
+        public func get_EndCap() throws -> Win2D.CanvasCapStyle {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasCapStyle = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EndCap(pThis, &value))
@@ -854,13 +978,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return value
         }
 
-        internal func put_EndCapImpl(_ value: Win2D.CanvasCapStyle) throws {
+        public func put_EndCap(_ value: Win2D.CanvasCapStyle) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EndCap(pThis, value))
             }
         }
 
-        internal func get_DashCapImpl() throws -> Win2D.CanvasCapStyle {
+        public func get_DashCap() throws -> Win2D.CanvasCapStyle {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasCapStyle = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DashCap(pThis, &value))
@@ -868,13 +992,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return value
         }
 
-        internal func put_DashCapImpl(_ value: Win2D.CanvasCapStyle) throws {
+        public func put_DashCap(_ value: Win2D.CanvasCapStyle) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DashCap(pThis, value))
             }
         }
 
-        internal func get_LineJoinImpl() throws -> Win2D.CanvasLineJoin {
+        public func get_LineJoin() throws -> Win2D.CanvasLineJoin {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasLineJoin = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineJoin(pThis, &value))
@@ -882,13 +1006,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return value
         }
 
-        internal func put_LineJoinImpl(_ value: Win2D.CanvasLineJoin) throws {
+        public func put_LineJoin(_ value: Win2D.CanvasLineJoin) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineJoin(pThis, value))
             }
         }
 
-        internal func get_MiterLimitImpl() throws -> Float {
+        public func get_MiterLimit() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MiterLimit(pThis, &value))
@@ -896,13 +1020,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return value
         }
 
-        internal func put_MiterLimitImpl(_ value: Float) throws {
+        public func put_MiterLimit(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MiterLimit(pThis, value))
             }
         }
 
-        internal func get_DashStyleImpl() throws -> Win2D.CanvasDashStyle {
+        public func get_DashStyle() throws -> Win2D.CanvasDashStyle {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasDashStyle = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DashStyle(pThis, &value))
@@ -910,13 +1034,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return value
         }
 
-        internal func put_DashStyleImpl(_ value: Win2D.CanvasDashStyle) throws {
+        public func put_DashStyle(_ value: Win2D.CanvasDashStyle) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DashStyle(pThis, value))
             }
         }
 
-        internal func get_DashOffsetImpl() throws -> Float {
+        public func get_DashOffset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DashOffset(pThis, &value))
@@ -924,13 +1048,31 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return value
         }
 
-        internal func put_DashOffsetImpl(_ value: Float) throws {
+        public func put_DashOffset(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DashOffset(pThis, value))
             }
         }
 
-        internal func get_TransformBehaviorImpl() throws -> Win2D.CanvasStrokeTransformBehavior {
+        public func get_CustomDashStyle() throws -> [Float] {
+            var valueElements: WinRTArrayAbi<FLOAT> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomDashStyle(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func put_CustomDashStyle(_ valueElements: [Float]) throws {
+            try valueElements.toABI { _valueElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.put_CustomDashStyle(pThis, _valueElements.count, _valueElements.start))
+                }
+            }
+        }
+
+        public func get_TransformBehavior() throws -> Win2D.CanvasStrokeTransformBehavior {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasStrokeTransformBehavior = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransformBehavior(pThis, &value))
@@ -938,7 +1080,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Geometry {
             return value
         }
 
-        internal func put_TransformBehaviorImpl(_ value: Win2D.CanvasStrokeTransformBehavior) throws {
+        public func put_TransformBehavior(_ value: Win2D.CanvasStrokeTransformBehavior) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TransformBehavior(pThis, value))
             }

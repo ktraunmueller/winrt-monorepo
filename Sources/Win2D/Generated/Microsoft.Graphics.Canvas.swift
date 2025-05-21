@@ -55,12 +55,6 @@ public final class CanvasActiveLayer : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasActiveLayer>?) -> CanvasActiveLayer? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -71,7 +65,7 @@ public final class CanvasActiveLayer : WinRTClass, WindowsFoundation.IClosable {
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasactivelayer.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     deinit {
@@ -94,12 +88,6 @@ open class CanvasBitmap : WinRTClass, UWP.IGraphicsEffectSource, WindowsFoundati
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap>?) -> CanvasBitmap? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -115,231 +103,290 @@ open class CanvasBitmap : WinRTClass, UWP.IGraphicsEffectSource, WindowsFoundati
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICanvasBitmapFactory : __ABI_Microsoft_Graphics_Canvas.ICanvasBitmapFactory =  try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasBitmap"))
+    private static var _ICanvasBitmapFactory : __ABI_Microsoft_Graphics_Canvas.ICanvasBitmapFactory =  try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasBitmap")
 
-    private static let _ICanvasBitmapStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasBitmapStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasBitmap"))
+    private static let _ICanvasBitmapStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasBitmapStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasBitmap")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfromdirect3d11surface)
-    public class func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!) -> CanvasBitmap! {
-        return try! _ICanvasBitmapStatics.CreateFromDirect3D11SurfaceImpl(resourceCreator, surface)
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfromdirect3d11surface)
-    public class func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!, _ dpi: Float) -> CanvasBitmap! {
-        return try! _ICanvasBitmapStatics.CreateFromDirect3D11SurfaceWithDpiImpl(resourceCreator, surface, dpi)
+    public class func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromDirect3D11Surface(resourceCreator, surface)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfromdirect3d11surface)
-    public class func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!, _ dpi: Float, _ alpha: CanvasAlphaMode) -> CanvasBitmap! {
-        return try! _ICanvasBitmapStatics.CreateFromDirect3D11SurfaceWithDpiAndAlphaImpl(resourceCreator, surface, dpi, alpha)
+    public class func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!, _ dpi: Float) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromDirect3D11SurfaceWithDpi(resourceCreator, surface, dpi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfromdirect3d11surface)
+    public class func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!, _ dpi: Float, _ alpha: CanvasAlphaMode) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromDirect3D11SurfaceWithDpiAndAlpha(resourceCreator, surface, dpi, alpha)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfrombytes)
-    public class func createFromBytes(_ resourceCreator: AnyICanvasResourceCreator!, _ buffer: UWP.AnyIBuffer!, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat) -> CanvasBitmap! {
-        return try! _ICanvasBitmapStatics.CreateFromBytesWithBufferImpl(resourceCreator, buffer, widthInPixels, heightInPixels, format)
+    public class func createFromBytes(_ resourceCreator: AnyICanvasResourceCreator!, _ bytes: [UInt8], _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromBytes(resourceCreator, bytes, widthInPixels, heightInPixels, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfrombytes)
-    public class func createFromBytes(_ resourceCreator: AnyICanvasResourceCreator!, _ buffer: UWP.AnyIBuffer!, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float) -> CanvasBitmap! {
-        return try! _ICanvasBitmapStatics.CreateFromBytesWithBufferAndDpiImpl(resourceCreator, buffer, widthInPixels, heightInPixels, format, dpi)
+    public class func createFromBytes(_ resourceCreator: AnyICanvasResourceCreator!, _ bytes: [UInt8], _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromBytesWithDpi(resourceCreator, bytes, widthInPixels, heightInPixels, format, dpi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfrombytes)
-    public class func createFromBytes(_ resourceCreator: AnyICanvasResourceCreator!, _ buffer: UWP.AnyIBuffer!, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float, _ alpha: CanvasAlphaMode) -> CanvasBitmap! {
-        return try! _ICanvasBitmapStatics.CreateFromBytesWithBufferAndDpiAndAlphaImpl(resourceCreator, buffer, widthInPixels, heightInPixels, format, dpi, alpha)
+    public class func createFromBytes(_ resourceCreator: AnyICanvasResourceCreator!, _ bytes: [UInt8], _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float, _ alpha: CanvasAlphaMode) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromBytesWithDpiAndAlpha(resourceCreator, bytes, widthInPixels, heightInPixels, format, dpi, alpha)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfrombytes)
+    public class func createFromBytes(_ resourceCreator: AnyICanvasResourceCreator!, _ buffer: UWP.AnyIBuffer!, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromBytesWithBuffer(resourceCreator, buffer, widthInPixels, heightInPixels, format)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfrombytes)
+    public class func createFromBytes(_ resourceCreator: AnyICanvasResourceCreator!, _ buffer: UWP.AnyIBuffer!, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromBytesWithBufferAndDpi(resourceCreator, buffer, widthInPixels, heightInPixels, format, dpi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfrombytes)
+    public class func createFromBytes(_ resourceCreator: AnyICanvasResourceCreator!, _ buffer: UWP.AnyIBuffer!, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float, _ alpha: CanvasAlphaMode) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromBytesWithBufferAndDpiAndAlpha(resourceCreator, buffer, widthInPixels, heightInPixels, format, dpi, alpha)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfromcolors)
+    public class func createFromColors(_ resourceCreator: AnyICanvasResourceCreator!, _ colors: [UWP.Color], _ widthInPixels: Int32, _ heightInPixels: Int32) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromColors(resourceCreator, colors, widthInPixels, heightInPixels)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfromcolors)
+    public class func createFromColors(_ resourceCreator: AnyICanvasResourceCreator!, _ colors: [UWP.Color], _ widthInPixels: Int32, _ heightInPixels: Int32, _ dpi: Float) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromColorsWithDpi(resourceCreator, colors, widthInPixels, heightInPixels, dpi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfromcolors)
+    public class func createFromColors(_ resourceCreator: AnyICanvasResourceCreator!, _ colors: [UWP.Color], _ widthInPixels: Int32, _ heightInPixels: Int32, _ dpi: Float, _ alpha: CanvasAlphaMode) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromColorsWithDpiAndAlpha(resourceCreator, colors, widthInPixels, heightInPixels, dpi, alpha)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.createfromsoftwarebitmap)
-    public class func createFromSoftwareBitmap(_ resourceCreator: AnyICanvasResourceCreator!, _ sourceBitmap: UWP.SoftwareBitmap!) -> CanvasBitmap! {
-        return try! _ICanvasBitmapStatics.CreateFromSoftwareBitmapImpl(resourceCreator, sourceBitmap)
+    public class func createFromSoftwareBitmap(_ resourceCreator: AnyICanvasResourceCreator!, _ sourceBitmap: UWP.SoftwareBitmap!) throws -> CanvasBitmap! {
+        return try _ICanvasBitmapStatics.CreateFromSoftwareBitmap(resourceCreator, sourceBitmap)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.loadasync)
-    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String) -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
-        return try! _ICanvasBitmapStatics.LoadAsyncFromHstringImpl(resourceCreator, fileName)
+    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
+        return try _ICanvasBitmapStatics.LoadAsyncFromHstring(resourceCreator, fileName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.loadasync)
-    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String, _ dpi: Float) -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
-        return try! _ICanvasBitmapStatics.LoadAsyncFromHstringWithDpiImpl(resourceCreator, fileName, dpi)
+    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String, _ dpi: Float) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
+        return try _ICanvasBitmapStatics.LoadAsyncFromHstringWithDpi(resourceCreator, fileName, dpi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.loadasync)
-    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String, _ dpi: Float, _ alpha: CanvasAlphaMode) -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
-        return try! _ICanvasBitmapStatics.LoadAsyncFromHstringWithDpiAndAlphaImpl(resourceCreator, fileName, dpi, alpha)
+    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String, _ dpi: Float, _ alpha: CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
+        return try _ICanvasBitmapStatics.LoadAsyncFromHstringWithDpiAndAlpha(resourceCreator, fileName, dpi, alpha)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.loadasync)
-    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!) -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
-        return try! _ICanvasBitmapStatics.LoadAsyncFromUriImpl(resourceCreator, uri)
+    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
+        return try _ICanvasBitmapStatics.LoadAsyncFromUri(resourceCreator, uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.loadasync)
-    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!, _ dpi: Float) -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
-        return try! _ICanvasBitmapStatics.LoadAsyncFromUriWithDpiImpl(resourceCreator, uri, dpi)
+    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!, _ dpi: Float) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
+        return try _ICanvasBitmapStatics.LoadAsyncFromUriWithDpi(resourceCreator, uri, dpi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.loadasync)
-    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!, _ dpi: Float, _ alpha: CanvasAlphaMode) -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
-        return try! _ICanvasBitmapStatics.LoadAsyncFromUriWithDpiAndAlphaImpl(resourceCreator, uri, dpi, alpha)
+    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!, _ dpi: Float, _ alpha: CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
+        return try _ICanvasBitmapStatics.LoadAsyncFromUriWithDpiAndAlpha(resourceCreator, uri, dpi, alpha)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.loadasync)
-    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!) -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
-        return try! _ICanvasBitmapStatics.LoadAsyncFromStreamImpl(resourceCreator, stream)
+    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
+        return try _ICanvasBitmapStatics.LoadAsyncFromStream(resourceCreator, stream)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.loadasync)
-    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ dpi: Float) -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
-        return try! _ICanvasBitmapStatics.LoadAsyncFromStreamWithDpiImpl(resourceCreator, stream, dpi)
+    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ dpi: Float) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
+        return try _ICanvasBitmapStatics.LoadAsyncFromStreamWithDpi(resourceCreator, stream, dpi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.loadasync)
-    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ dpi: Float, _ alpha: CanvasAlphaMode) -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
-        return try! _ICanvasBitmapStatics.LoadAsyncFromStreamWithDpiAndAlphaImpl(resourceCreator, stream, dpi, alpha)
+    public class func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ dpi: Float, _ alpha: CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasBitmap?>! {
+        return try _ICanvasBitmapStatics.LoadAsyncFromStreamWithDpiAndAlpha(resourceCreator, stream, dpi, alpha)
     }
 
     private lazy var _IGraphicsEffectSource: __ABI_Windows_Graphics_Effects.IGraphicsEffectSource! = getInterfaceForCaching()
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasImage: __ABI_Microsoft_Graphics_Canvas.ICanvasImage! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.getbounds)
     public func getBounds(_ resourceCreator: AnyICanvasResourceCreator!) throws -> WindowsFoundation.Rect {
-        try _ICanvasImage.GetBoundsImpl(resourceCreator)
+        try _ICanvasImage.GetBounds(resourceCreator)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.getbounds)
     public func getBounds(_ resourceCreator: AnyICanvasResourceCreator!, _ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
-        try _ICanvasImage.GetBoundsWithTransformImpl(resourceCreator, transform)
+        try _ICanvasImage.GetBoundsWithTransform(resourceCreator, transform)
     }
 
     private lazy var _IDirect3DSurface: __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurface! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.description)
     public var description : UWP.Direct3DSurfaceDescription {
-        get { try! _IDirect3DSurface.get_DescriptionImpl() }
+        get { try! _IDirect3DSurface.get_Description() }
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.device)
     public var device : CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.convertpixelstodips)
     public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.convertdipstopixels)
     public func convertDipsToPixels(_ dips: Float, _ dpiRounding: CanvasDpiRounding) throws -> Int32 {
-        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.dpi)
     public var dpi : Float {
-        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+        get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.saveasync)
     public func saveAsync(_ fileName: String) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SaveToFileAsyncImpl(fileName)
+        try _default.SaveToFileAsync(fileName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.saveasync)
     public func saveAsync(_ fileName: String, _ fileFormat: CanvasBitmapFileFormat) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SaveToFileWithBitmapFileFormatAsyncImpl(fileName, fileFormat)
+        try _default.SaveToFileWithBitmapFileFormatAsync(fileName, fileFormat)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.saveasync)
     public func saveAsync(_ fileName: String, _ fileFormat: CanvasBitmapFileFormat, _ quality: Float) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SaveToFileWithBitmapFileFormatAndQualityAsyncImpl(fileName, fileFormat, quality)
+        try _default.SaveToFileWithBitmapFileFormatAndQualityAsync(fileName, fileFormat, quality)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.saveasync)
     public func saveAsync(_ stream: UWP.AnyIRandomAccessStream!, _ fileFormat: CanvasBitmapFileFormat) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SaveToStreamAsyncImpl(stream, fileFormat)
+        try _default.SaveToStreamAsync(stream, fileFormat)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.saveasync)
     public func saveAsync(_ stream: UWP.AnyIRandomAccessStream!, _ fileFormat: CanvasBitmapFileFormat, _ quality: Float) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SaveToStreamWithQualityAsyncImpl(stream, fileFormat, quality)
+        try _default.SaveToStreamWithQualityAsync(stream, fileFormat, quality)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.getpixelbytes)
+    public func getPixelBytes() throws -> [UInt8] {
+        try _default.GetPixelBytes()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.getpixelbytes)
+    public func getPixelBytes(_ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws -> [UInt8] {
+        try _default.GetPixelBytesWithSubrectangle(left, top, width, height)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.getpixelbytes)
     public func getPixelBytes(_ buffer: UWP.AnyIBuffer!) throws {
-        try _default.GetPixelBytesWithBufferImpl(buffer)
+        try _default.GetPixelBytesWithBuffer(buffer)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.getpixelbytes)
     public func getPixelBytes(_ buffer: UWP.AnyIBuffer!, _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
-        try _default.GetPixelBytesWithBufferAndSubrectangleImpl(buffer, left, top, width, height)
+        try _default.GetPixelBytesWithBufferAndSubrectangle(buffer, left, top, width, height)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.getpixelcolors)
+    public func getPixelColors() throws -> [UWP.Color] {
+        try _default.GetPixelColors()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.getpixelcolors)
+    public func getPixelColors(_ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws -> [UWP.Color] {
+        try _default.GetPixelColorsWithSubrectangle(left, top, width, height)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.setpixelbytes)
+    public func setPixelBytes(_ valueElements: [UInt8]) throws {
+        try _default.SetPixelBytes(valueElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.setpixelbytes)
+    public func setPixelBytes(_ valueElements: [UInt8], _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
+        try _default.SetPixelBytesWithSubrectangle(valueElements, left, top, width, height)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.setpixelbytes)
     public func setPixelBytes(_ buffer: UWP.AnyIBuffer!) throws {
-        try _default.SetPixelBytesWithBufferImpl(buffer)
+        try _default.SetPixelBytesWithBuffer(buffer)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.setpixelbytes)
     public func setPixelBytes(_ buffer: UWP.AnyIBuffer!, _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
-        try _default.SetPixelBytesWithBufferAndSubrectangleImpl(buffer, left, top, width, height)
+        try _default.SetPixelBytesWithBufferAndSubrectangle(buffer, left, top, width, height)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.setpixelcolors)
+    public func setPixelColors(_ valueElements: [UWP.Color]) throws {
+        try _default.SetPixelColors(valueElements)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.setpixelcolors)
+    public func setPixelColors(_ valueElements: [UWP.Color], _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
+        try _default.SetPixelColorsWithSubrectangle(valueElements, left, top, width, height)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.copypixelsfrombitmap)
     public func copyPixelsFromBitmap(_ otherBitmap: CanvasBitmap!) throws {
-        try _default.CopyPixelsFromBitmapImpl(otherBitmap)
+        try _default.CopyPixelsFromBitmap(otherBitmap)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.copypixelsfrombitmap)
     public func copyPixelsFromBitmap(_ otherBitmap: CanvasBitmap!, _ destX: Int32, _ destY: Int32) throws {
-        try _default.CopyPixelsFromBitmapWithDestPointImpl(otherBitmap, destX, destY)
+        try _default.CopyPixelsFromBitmapWithDestPoint(otherBitmap, destX, destY)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.copypixelsfrombitmap)
     public func copyPixelsFromBitmap(_ otherBitmap: CanvasBitmap!, _ destX: Int32, _ destY: Int32, _ sourceRectLeft: Int32, _ sourceRectTop: Int32, _ sourceRectWidth: Int32, _ sourceRectHeight: Int32) throws {
-        try _default.CopyPixelsFromBitmapWithDestPointAndSourceRectImpl(otherBitmap, destX, destY, sourceRectLeft, sourceRectTop, sourceRectWidth, sourceRectHeight)
+        try _default.CopyPixelsFromBitmapWithDestPointAndSourceRect(otherBitmap, destX, destY, sourceRectLeft, sourceRectTop, sourceRectWidth, sourceRectHeight)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.alphamode)
     public var alphaMode : CanvasAlphaMode {
-        get { try! _default.get_AlphaModeImpl() }
+        get { try! _default.get_AlphaMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.bounds)
     public var bounds : WindowsFoundation.Rect {
-        get { try! _default.get_BoundsImpl() }
+        get { try! _default.get_Bounds() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.format)
     public var format : UWP.DirectXPixelFormat {
-        get { try! _default.get_FormatImpl() }
+        get { try! _default.get_Format() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasbitmap.sizeinpixels)
     public var sizeInPixels : UWP.BitmapSize {
-        get { try! _default.get_SizeInPixelsImpl() }
+        get { try! _default.get_SizeInPixels() }
     }
 
-    internal enum ICanvasBitmap : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = CanvasBitmap
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap
-            internal typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas.ICanvasBitmap
-        }
-    }
-    internal typealias Composable = ICanvasBitmap
     deinit {
         _IGraphicsEffectSource = nil
         _IClosable = nil
@@ -365,12 +412,6 @@ public final class CanvasCommandList : WinRTClass, UWP.IGraphicsEffectSource, Wi
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasCommandList>?) -> CanvasCommandList? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -378,37 +419,37 @@ public final class CanvasCommandList : WinRTClass, UWP.IGraphicsEffectSource, Wi
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasCommandListFactory: __ABI_Microsoft_Graphics_Canvas.ICanvasCommandListFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasCommandList"))
+    private static let _ICanvasCommandListFactory: __ABI_Microsoft_Graphics_Canvas.ICanvasCommandListFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasCommandList")
     public init(_ resourceCreator: AnyICanvasResourceCreator!) {
-        super.init(try! Self._ICanvasCommandListFactory.CreateImpl(resourceCreator))
+        super.init(try! Self._ICanvasCommandListFactory.Create(resourceCreator))
     }
 
     private lazy var _IGraphicsEffectSource: __ABI_Windows_Graphics_Effects.IGraphicsEffectSource! = getInterfaceForCaching()
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvascommandlist.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasImage: __ABI_Microsoft_Graphics_Canvas.ICanvasImage! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvascommandlist.getbounds)
     public func getBounds(_ resourceCreator: AnyICanvasResourceCreator!) throws -> WindowsFoundation.Rect {
-        try _ICanvasImage.GetBoundsImpl(resourceCreator)
+        try _ICanvasImage.GetBounds(resourceCreator)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvascommandlist.getbounds)
     public func getBounds(_ resourceCreator: AnyICanvasResourceCreator!, _ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
-        try _ICanvasImage.GetBoundsWithTransformImpl(resourceCreator, transform)
+        try _ICanvasImage.GetBoundsWithTransform(resourceCreator, transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvascommandlist.createdrawingsession)
     public func createDrawingSession() throws -> CanvasDrawingSession! {
-        try _default.CreateDrawingSessionImpl()
+        try _default.CreateDrawingSession()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvascommandlist.device)
     public var device : CanvasDevice! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
     }
 
     deinit {
@@ -433,12 +474,6 @@ public final class CanvasDevice : WinRTClass, WindowsFoundation.IClosable, ICanv
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice>?) -> CanvasDevice? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -446,110 +481,111 @@ public final class CanvasDevice : WinRTClass, WindowsFoundation.IClosable, ICanv
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasDevice")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.Graphics.Canvas.CanvasDevice")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ICanvasDeviceFactory: __ABI_Microsoft_Graphics_Canvas.ICanvasDeviceFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasDevice"))
+    private static let _ICanvasDeviceFactory: __ABI_Microsoft_Graphics_Canvas.ICanvasDeviceFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasDevice")
     public init(_ forceSoftwareRenderer: Bool) {
-        super.init(try! Self._ICanvasDeviceFactory.CreateWithForceSoftwareRendererOptionImpl(forceSoftwareRenderer))
+        super.init(try! Self._ICanvasDeviceFactory.CreateWithForceSoftwareRendererOption(forceSoftwareRenderer))
     }
 
-    private static let _ICanvasDeviceStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasDeviceStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasDevice"))
+    private static let _ICanvasDeviceStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasDeviceStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasDevice")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.createfromdirect3d11device)
-    public static func createFromDirect3D11Device(_ direct3DDevice: UWP.AnyIDirect3DDevice!) -> CanvasDevice! {
-        return try! _ICanvasDeviceStatics.CreateFromDirect3D11DeviceImpl(direct3DDevice)
+    public static func createFromDirect3D11Device(_ direct3DDevice: UWP.AnyIDirect3DDevice!) throws -> CanvasDevice! {
+        return try _ICanvasDeviceStatics.CreateFromDirect3D11Device(direct3DDevice)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.getshareddevice)
-    public static func getSharedDevice() -> CanvasDevice! {
-        return try! _ICanvasDeviceStatics.GetSharedDeviceImpl()
+    public static func getSharedDevice() throws -> CanvasDevice! {
+        return try _ICanvasDeviceStatics.GetSharedDevice()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.getshareddevice)
-    public static func getSharedDevice(_ forceSoftwareRenderer: Bool) -> CanvasDevice! {
-        return try! _ICanvasDeviceStatics.GetSharedDeviceWithForceSoftwareRendererImpl(forceSoftwareRenderer)
+    public static func getSharedDevice(_ forceSoftwareRenderer: Bool) throws -> CanvasDevice! {
+        return try _ICanvasDeviceStatics.GetSharedDeviceWithForceSoftwareRenderer(forceSoftwareRenderer)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.debuglevel)
     public static var debugLevel : CanvasDebugLevel {
-        get { try! _ICanvasDeviceStatics.get_DebugLevelImpl() }
-        set { try! _ICanvasDeviceStatics.put_DebugLevelImpl(newValue) }
+        get { try! _ICanvasDeviceStatics.get_DebugLevel() }
+        set { try! _ICanvasDeviceStatics.put_DebugLevel(newValue) }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.device)
     public var device : CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _IDirect3DDevice: __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DDevice! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.trim)
     public func trim() throws {
-        try _IDirect3DDevice.TrimImpl()
+        try _IDirect3DDevice.Trim()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.ispixelformatsupported)
     public func isPixelFormatSupported(_ pixelFormat: UWP.DirectXPixelFormat) throws -> Bool {
-        try _default.IsPixelFormatSupportedImpl(pixelFormat)
+        try _default.IsPixelFormatSupported(pixelFormat)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.isbufferprecisionsupported)
     public func isBufferPrecisionSupported(_ bufferPrecision: CanvasBufferPrecision) throws -> Bool {
-        try _default.IsBufferPrecisionSupportedImpl(bufferPrecision)
+        try _default.IsBufferPrecisionSupported(bufferPrecision)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.isdevicelost)
     public func isDeviceLost(_ hresult: Int32) throws -> Bool {
-        try _default.IsDeviceLostImpl(hresult)
+        try _default.IsDeviceLost(hresult)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.raisedevicelost)
     public func raiseDeviceLost() throws {
-        try _default.RaiseDeviceLostImpl()
+        try _default.RaiseDeviceLost()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.lock)
     public func lock() throws -> CanvasLock! {
-        try _default.LockImpl()
+        try _default.Lock()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.isdevicelost)
     public func isDeviceLost() throws -> Bool {
-        try _default.IsDeviceLost2Impl()
+        try _default.IsDeviceLost2()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.getdevicelostreason)
     public func getDeviceLostReason() throws -> Int32 {
-        try _default.GetDeviceLostReasonImpl()
+        try _default.GetDeviceLostReason()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.forcesoftwarerenderer)
     public var forceSoftwareRenderer : Bool {
-        get { try! _default.get_ForceSoftwareRendererImpl() }
+        get { try! _default.get_ForceSoftwareRenderer() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.lowpriority)
     public var lowPriority : Bool {
-        get { try! _default.get_LowPriorityImpl() }
-        set { try! _default.put_LowPriorityImpl(newValue) }
+        get { try! _default.get_LowPriority() }
+        set { try! _default.put_LowPriority(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.maximumbitmapsizeinpixels)
     public var maximumBitmapSizeInPixels : Int32 {
-        get { try! _default.get_MaximumBitmapSizeInPixelsImpl() }
+        get { try! _default.get_MaximumBitmapSizeInPixels() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.maximumcachesize)
     public var maximumCacheSize : UInt64 {
-        get { try! _default.get_MaximumCacheSizeImpl() }
-        set { try! _default.put_MaximumCacheSizeImpl(newValue) }
+        get { try! _default.get_MaximumCacheSize() }
+        set { try! _default.put_MaximumCacheSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdevice.devicelost)
@@ -557,10 +593,10 @@ public final class CanvasDevice : WinRTClass, WindowsFoundation.IClosable, ICanv
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DeviceLostImpl($0)
+          return try! this.add_DeviceLost($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DeviceLostImpl($0)
+         try? self?._default.remove_DeviceLost($0)
        }
       )
     }()
@@ -587,12 +623,6 @@ public final class CanvasDrawingSession : WinRTClass, WindowsFoundation.IClosabl
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession>?) -> CanvasDrawingSession? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -603,907 +633,922 @@ public final class CanvasDrawingSession : WinRTClass, WindowsFoundation.IClosabl
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.device)
     public var device : CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.convertpixelstodips)
     public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.convertdipstopixels)
     public func convertDipsToPixels(_ dips: Float, _ dpiRounding: CanvasDpiRounding) throws -> Int32 {
-        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.dpi)
     public var dpi : Float {
-        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+        get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.clear)
     public func clear(_ color: UWP.Color) throws {
-        try _default.ClearImpl(color)
+        try _default.Clear(color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.clear)
     public func clear(_ color: WindowsFoundation.Vector4) throws {
-        try _default.ClearHdrImpl(color)
+        try _default.ClearHdr(color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.flush)
     public func flush() throws {
-        try _default.FlushImpl()
+        try _default.Flush()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!) throws {
-        try _default.DrawImageAtOriginImpl(image)
+        try _default.DrawImageAtOrigin(image)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ offset: WindowsFoundation.Vector2) throws {
-        try _default.DrawImageAtOffsetImpl(image, offset)
+        try _default.DrawImageAtOffset(image, offset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ x: Float, _ y: Float) throws {
-        try _default.DrawImageAtCoordsImpl(image, x, y)
+        try _default.DrawImageAtCoords(image, x, y)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ bitmap: CanvasBitmap!, _ destinationRectangle: WindowsFoundation.Rect) throws {
-        try _default.DrawImageToRectImpl(bitmap, destinationRectangle)
+        try _default.DrawImageToRect(bitmap, destinationRectangle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect) throws {
-        try _default.DrawImageAtOffsetWithSourceRectImpl(image, offset, sourceRectangle)
+        try _default.DrawImageAtOffsetWithSourceRect(image, offset, sourceRectangle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect) throws {
-        try _default.DrawImageAtCoordsWithSourceRectImpl(image, x, y, sourceRectangle)
+        try _default.DrawImageAtCoordsWithSourceRect(image, x, y, sourceRectangle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect) throws {
-        try _default.DrawImageToRectWithSourceRectImpl(image, destinationRectangle, sourceRectangle)
+        try _default.DrawImageToRectWithSourceRect(image, destinationRectangle, sourceRectangle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float) throws {
-        try _default.DrawImageAtOffsetWithSourceRectAndOpacityImpl(image, offset, sourceRectangle, opacity)
+        try _default.DrawImageAtOffsetWithSourceRectAndOpacity(image, offset, sourceRectangle, opacity)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float) throws {
-        try _default.DrawImageAtCoordsWithSourceRectAndOpacityImpl(image, x, y, sourceRectangle, opacity)
+        try _default.DrawImageAtCoordsWithSourceRectAndOpacity(image, x, y, sourceRectangle, opacity)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float) throws {
-        try _default.DrawImageToRectWithSourceRectAndOpacityImpl(image, destinationRectangle, sourceRectangle, opacity)
+        try _default.DrawImageToRectWithSourceRectAndOpacity(image, destinationRectangle, sourceRectangle, opacity)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: CanvasImageInterpolation) throws {
-        try _default.DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationImpl(image, offset, sourceRectangle, opacity, interpolation)
+        try _default.DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolation(image, offset, sourceRectangle, opacity, interpolation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: CanvasImageInterpolation) throws {
-        try _default.DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationImpl(image, x, y, sourceRectangle, opacity, interpolation)
+        try _default.DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolation(image, x, y, sourceRectangle, opacity, interpolation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: CanvasImageInterpolation) throws {
-        try _default.DrawImageToRectWithSourceRectAndOpacityAndInterpolationImpl(image, destinationRectangle, sourceRectangle, opacity, interpolation)
+        try _default.DrawImageToRectWithSourceRectAndOpacityAndInterpolation(image, destinationRectangle, sourceRectangle, opacity, interpolation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: CanvasImageInterpolation, _ composite: CanvasComposite) throws {
-        try _default.DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationAndCompositeImpl(image, offset, sourceRectangle, opacity, interpolation, composite)
+        try _default.DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationAndComposite(image, offset, sourceRectangle, opacity, interpolation, composite)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: CanvasImageInterpolation, _ composite: CanvasComposite) throws {
-        try _default.DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationAndCompositeImpl(image, x, y, sourceRectangle, opacity, interpolation, composite)
+        try _default.DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationAndComposite(image, x, y, sourceRectangle, opacity, interpolation, composite)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ image: AnyICanvasImage!, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: CanvasImageInterpolation, _ composite: CanvasComposite) throws {
-        try _default.DrawImageToRectWithSourceRectAndOpacityAndInterpolationAndCompositeImpl(image, destinationRectangle, sourceRectangle, opacity, interpolation, composite)
+        try _default.DrawImageToRectWithSourceRectAndOpacityAndInterpolationAndComposite(image, destinationRectangle, sourceRectangle, opacity, interpolation, composite)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ bitmap: CanvasBitmap!, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: CanvasImageInterpolation, _ perspective: WindowsFoundation.Matrix4x4) throws {
-        try _default.DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationAndPerspectiveImpl(bitmap, offset, sourceRectangle, opacity, interpolation, perspective)
+        try _default.DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationAndPerspective(bitmap, offset, sourceRectangle, opacity, interpolation, perspective)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ bitmap: CanvasBitmap!, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: CanvasImageInterpolation, _ perspective: WindowsFoundation.Matrix4x4) throws {
-        try _default.DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationAndPerspectiveImpl(bitmap, x, y, sourceRectangle, opacity, interpolation, perspective)
+        try _default.DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationAndPerspective(bitmap, x, y, sourceRectangle, opacity, interpolation, perspective)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawimage)
     public func drawImage(_ bitmap: CanvasBitmap!, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: CanvasImageInterpolation, _ perspective: WindowsFoundation.Matrix4x4) throws {
-        try _default.DrawImageToRectWithSourceRectAndOpacityAndInterpolationAndPerspectiveImpl(bitmap, destinationRectangle, sourceRectangle, opacity, interpolation, perspective)
+        try _default.DrawImageToRectWithSourceRectAndOpacityAndInterpolationAndPerspective(bitmap, destinationRectangle, sourceRectangle, opacity, interpolation, perspective)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawLineWithBrushImpl(point0, point1, brush)
+        try _default.DrawLineWithBrush(point0, point1, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawLineAtCoordsWithBrushImpl(x0, y0, x1, y1, brush)
+        try _default.DrawLineAtCoordsWithBrush(x0, y0, x1, y1, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
-        try _default.DrawLineWithColorImpl(point0, point1, color)
+        try _default.DrawLineWithColor(point0, point1, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ color: UWP.Color) throws {
-        try _default.DrawLineAtCoordsWithColorImpl(x0, y0, x1, y1, color)
+        try _default.DrawLineAtCoordsWithColor(x0, y0, x1, y1, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawLineWithBrushAndStrokeWidthImpl(point0, point1, brush, strokeWidth)
+        try _default.DrawLineWithBrushAndStrokeWidth(point0, point1, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawLineAtCoordsWithBrushAndStrokeWidthImpl(x0, y0, x1, y1, brush, strokeWidth)
+        try _default.DrawLineAtCoordsWithBrushAndStrokeWidth(x0, y0, x1, y1, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawLineWithColorAndStrokeWidthImpl(point0, point1, color, strokeWidth)
+        try _default.DrawLineWithColorAndStrokeWidth(point0, point1, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawLineAtCoordsWithColorAndStrokeWidthImpl(x0, y0, x1, y1, color, strokeWidth)
+        try _default.DrawLineAtCoordsWithColorAndStrokeWidth(x0, y0, x1, y1, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawLineWithBrushAndStrokeWidthAndStrokeStyleImpl(point0, point1, brush, strokeWidth, strokeStyle)
+        try _default.DrawLineWithBrushAndStrokeWidthAndStrokeStyle(point0, point1, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawLineAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(x0, y0, x1, y1, brush, strokeWidth, strokeStyle)
+        try _default.DrawLineAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(x0, y0, x1, y1, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawLineWithColorAndStrokeWidthAndStrokeStyleImpl(point0, point1, color, strokeWidth, strokeStyle)
+        try _default.DrawLineWithColorAndStrokeWidthAndStrokeStyle(point0, point1, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawline)
     public func drawLine(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawLineAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(x0, y0, x1, y1, color, strokeWidth, strokeStyle)
+        try _default.DrawLineAtCoordsWithColorAndStrokeWidthAndStrokeStyle(x0, y0, x1, y1, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawRectangleWithBrushImpl(rect, brush)
+        try _default.DrawRectangleWithBrush(rect, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawRectangleAtCoordsWithBrushImpl(x, y, w, h, brush)
+        try _default.DrawRectangleAtCoordsWithBrush(x, y, w, h, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ rect: WindowsFoundation.Rect, _ color: UWP.Color) throws {
-        try _default.DrawRectangleWithColorImpl(rect, color)
+        try _default.DrawRectangleWithColor(rect, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color) throws {
-        try _default.DrawRectangleAtCoordsWithColorImpl(x, y, w, h, color)
+        try _default.DrawRectangleAtCoordsWithColor(x, y, w, h, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawRectangleWithBrushAndStrokeWidthImpl(rect, brush, strokeWidth)
+        try _default.DrawRectangleWithBrushAndStrokeWidth(rect, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawRectangleAtCoordsWithBrushAndStrokeWidthImpl(x, y, w, h, brush, strokeWidth)
+        try _default.DrawRectangleAtCoordsWithBrushAndStrokeWidth(x, y, w, h, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ rect: WindowsFoundation.Rect, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawRectangleWithColorAndStrokeWidthImpl(rect, color, strokeWidth)
+        try _default.DrawRectangleWithColorAndStrokeWidth(rect, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawRectangleAtCoordsWithColorAndStrokeWidthImpl(x, y, w, h, color, strokeWidth)
+        try _default.DrawRectangleAtCoordsWithColorAndStrokeWidth(x, y, w, h, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawRectangleWithBrushAndStrokeWidthAndStrokeStyleImpl(rect, brush, strokeWidth, strokeStyle)
+        try _default.DrawRectangleWithBrushAndStrokeWidthAndStrokeStyle(rect, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawRectangleAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(x, y, w, h, brush, strokeWidth, strokeStyle)
+        try _default.DrawRectangleAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(x, y, w, h, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ rect: WindowsFoundation.Rect, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawRectangleWithColorAndStrokeWidthAndStrokeStyleImpl(rect, color, strokeWidth, strokeStyle)
+        try _default.DrawRectangleWithColorAndStrokeWidthAndStrokeStyle(rect, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawrectangle)
     public func drawRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(x, y, w, h, color, strokeWidth, strokeStyle)
+        try _default.DrawRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyle(x, y, w, h, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillrectangle)
     public func fillRectangle(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillRectangleWithBrushImpl(rect, brush)
+        try _default.FillRectangleWithBrush(rect, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillrectangle)
     public func fillRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillRectangleAtCoordsWithBrushImpl(x, y, w, h, brush)
+        try _default.FillRectangleAtCoordsWithBrush(x, y, w, h, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillrectangle)
     public func fillRectangle(_ rect: WindowsFoundation.Rect, _ color: UWP.Color) throws {
-        try _default.FillRectangleWithColorImpl(rect, color)
+        try _default.FillRectangleWithColor(rect, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillrectangle)
     public func fillRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color) throws {
-        try _default.FillRectangleAtCoordsWithColorImpl(x, y, w, h, color)
+        try _default.FillRectangleAtCoordsWithColor(x, y, w, h, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillrectangle)
     public func fillRectangle(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush!, _ opacityBrush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillRectangleWithBrushAndOpacityBrushImpl(rect, brush, opacityBrush)
+        try _default.FillRectangleWithBrushAndOpacityBrush(rect, brush, opacityBrush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillrectangle)
     public func fillRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush!, _ opacityBrush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillRectangleAtCoordsWithBrushAndOpacityBrushImpl(x, y, w, h, brush, opacityBrush)
+        try _default.FillRectangleAtCoordsWithBrushAndOpacityBrush(x, y, w, h, brush, opacityBrush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawRoundedRectangleWithBrushImpl(rect, radiusX, radiusY, brush)
+        try _default.DrawRoundedRectangleWithBrush(rect, radiusX, radiusY, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawRoundedRectangleAtCoordsWithBrushImpl(x, y, w, h, radiusX, radiusY, brush)
+        try _default.DrawRoundedRectangleAtCoordsWithBrush(x, y, w, h, radiusX, radiusY, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
-        try _default.DrawRoundedRectangleWithColorImpl(rect, radiusX, radiusY, color)
+        try _default.DrawRoundedRectangleWithColor(rect, radiusX, radiusY, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
-        try _default.DrawRoundedRectangleAtCoordsWithColorImpl(x, y, w, h, radiusX, radiusY, color)
+        try _default.DrawRoundedRectangleAtCoordsWithColor(x, y, w, h, radiusX, radiusY, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawRoundedRectangleWithBrushAndStrokeWidthImpl(rect, radiusX, radiusY, brush, strokeWidth)
+        try _default.DrawRoundedRectangleWithBrushAndStrokeWidth(rect, radiusX, radiusY, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawRoundedRectangleAtCoordsWithBrushAndStrokeWidthImpl(x, y, w, h, radiusX, radiusY, brush, strokeWidth)
+        try _default.DrawRoundedRectangleAtCoordsWithBrushAndStrokeWidth(x, y, w, h, radiusX, radiusY, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawRoundedRectangleWithColorAndStrokeWidthImpl(rect, radiusX, radiusY, color, strokeWidth)
+        try _default.DrawRoundedRectangleWithColorAndStrokeWidth(rect, radiusX, radiusY, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawRoundedRectangleAtCoordsWithColorAndStrokeWidthImpl(x, y, w, h, radiusX, radiusY, color, strokeWidth)
+        try _default.DrawRoundedRectangleAtCoordsWithColorAndStrokeWidth(x, y, w, h, radiusX, radiusY, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawRoundedRectangleWithBrushAndStrokeWidthAndStrokeStyleImpl(rect, radiusX, radiusY, brush, strokeWidth, strokeStyle)
+        try _default.DrawRoundedRectangleWithBrushAndStrokeWidthAndStrokeStyle(rect, radiusX, radiusY, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawRoundedRectangleAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(x, y, w, h, radiusX, radiusY, brush, strokeWidth, strokeStyle)
+        try _default.DrawRoundedRectangleAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(x, y, w, h, radiusX, radiusY, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawRoundedRectangleWithColorAndStrokeWidthAndStrokeStyleImpl(rect, radiusX, radiusY, color, strokeWidth, strokeStyle)
+        try _default.DrawRoundedRectangleWithColorAndStrokeWidthAndStrokeStyle(rect, radiusX, radiusY, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawroundedrectangle)
     public func drawRoundedRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawRoundedRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(x, y, w, h, radiusX, radiusY, color, strokeWidth, strokeStyle)
+        try _default.DrawRoundedRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyle(x, y, w, h, radiusX, radiusY, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillroundedrectangle)
     public func fillRoundedRectangle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillRoundedRectangleWithBrushImpl(rect, radiusX, radiusY, brush)
+        try _default.FillRoundedRectangleWithBrush(rect, radiusX, radiusY, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillroundedrectangle)
     public func fillRoundedRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillRoundedRectangleAtCoordsWithBrushImpl(x, y, w, h, radiusX, radiusY, brush)
+        try _default.FillRoundedRectangleAtCoordsWithBrush(x, y, w, h, radiusX, radiusY, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillroundedrectangle)
     public func fillRoundedRectangle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
-        try _default.FillRoundedRectangleWithColorImpl(rect, radiusX, radiusY, color)
+        try _default.FillRoundedRectangleWithColor(rect, radiusX, radiusY, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillroundedrectangle)
     public func fillRoundedRectangle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
-        try _default.FillRoundedRectangleAtCoordsWithColorImpl(x, y, w, h, radiusX, radiusY, color)
+        try _default.FillRoundedRectangleAtCoordsWithColor(x, y, w, h, radiusX, radiusY, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawEllipseWithBrushImpl(centerPoint, radiusX, radiusY, brush)
+        try _default.DrawEllipseWithBrush(centerPoint, radiusX, radiusY, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawEllipseAtCoordsWithBrushImpl(x, y, radiusX, radiusY, brush)
+        try _default.DrawEllipseAtCoordsWithBrush(x, y, radiusX, radiusY, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
-        try _default.DrawEllipseWithColorImpl(centerPoint, radiusX, radiusY, color)
+        try _default.DrawEllipseWithColor(centerPoint, radiusX, radiusY, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
-        try _default.DrawEllipseAtCoordsWithColorImpl(x, y, radiusX, radiusY, color)
+        try _default.DrawEllipseAtCoordsWithColor(x, y, radiusX, radiusY, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawEllipseWithBrushAndStrokeWidthImpl(centerPoint, radiusX, radiusY, brush, strokeWidth)
+        try _default.DrawEllipseWithBrushAndStrokeWidth(centerPoint, radiusX, radiusY, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawEllipseAtCoordsWithBrushAndStrokeWidthImpl(x, y, radiusX, radiusY, brush, strokeWidth)
+        try _default.DrawEllipseAtCoordsWithBrushAndStrokeWidth(x, y, radiusX, radiusY, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawEllipseWithColorAndStrokeWidthImpl(centerPoint, radiusX, radiusY, color, strokeWidth)
+        try _default.DrawEllipseWithColorAndStrokeWidth(centerPoint, radiusX, radiusY, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawEllipseAtCoordsWithColorAndStrokeWidthImpl(x, y, radiusX, radiusY, color, strokeWidth)
+        try _default.DrawEllipseAtCoordsWithColorAndStrokeWidth(x, y, radiusX, radiusY, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawEllipseWithBrushAndStrokeWidthAndStrokeStyleImpl(centerPoint, radiusX, radiusY, brush, strokeWidth, strokeStyle)
+        try _default.DrawEllipseWithBrushAndStrokeWidthAndStrokeStyle(centerPoint, radiusX, radiusY, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawEllipseAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(x, y, radiusX, radiusY, brush, strokeWidth, strokeStyle)
+        try _default.DrawEllipseAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(x, y, radiusX, radiusY, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawEllipseWithColorAndStrokeWidthAndStrokeStyleImpl(centerPoint, radiusX, radiusY, color, strokeWidth, strokeStyle)
+        try _default.DrawEllipseWithColorAndStrokeWidthAndStrokeStyle(centerPoint, radiusX, radiusY, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawellipse)
     public func drawEllipse(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawEllipseAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(x, y, radiusX, radiusY, color, strokeWidth, strokeStyle)
+        try _default.DrawEllipseAtCoordsWithColorAndStrokeWidthAndStrokeStyle(x, y, radiusX, radiusY, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillellipse)
     public func fillEllipse(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillEllipseWithBrushImpl(centerPoint, radiusX, radiusY, brush)
+        try _default.FillEllipseWithBrush(centerPoint, radiusX, radiusY, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillellipse)
     public func fillEllipse(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillEllipseAtCoordsWithBrushImpl(x, y, radiusX, radiusY, brush)
+        try _default.FillEllipseAtCoordsWithBrush(x, y, radiusX, radiusY, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillellipse)
     public func fillEllipse(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
-        try _default.FillEllipseWithColorImpl(centerPoint, radiusX, radiusY, color)
+        try _default.FillEllipseWithColor(centerPoint, radiusX, radiusY, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillellipse)
     public func fillEllipse(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
-        try _default.FillEllipseAtCoordsWithColorImpl(x, y, radiusX, radiusY, color)
+        try _default.FillEllipseAtCoordsWithColor(x, y, radiusX, radiusY, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawCircleWithBrushImpl(centerPoint, radius, brush)
+        try _default.DrawCircleWithBrush(centerPoint, radius, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawCircleAtCoordsWithBrushImpl(x, y, radius, brush)
+        try _default.DrawCircleAtCoordsWithBrush(x, y, radius, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color) throws {
-        try _default.DrawCircleWithColorImpl(centerPoint, radius, color)
+        try _default.DrawCircleWithColor(centerPoint, radius, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color) throws {
-        try _default.DrawCircleAtCoordsWithColorImpl(x, y, radius, color)
+        try _default.DrawCircleAtCoordsWithColor(x, y, radius, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawCircleWithBrushAndStrokeWidthImpl(centerPoint, radius, brush, strokeWidth)
+        try _default.DrawCircleWithBrushAndStrokeWidth(centerPoint, radius, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawCircleAtCoordsWithBrushAndStrokeWidthImpl(x, y, radius, brush, strokeWidth)
+        try _default.DrawCircleAtCoordsWithBrushAndStrokeWidth(x, y, radius, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawCircleWithColorAndStrokeWidthImpl(centerPoint, radius, color, strokeWidth)
+        try _default.DrawCircleWithColorAndStrokeWidth(centerPoint, radius, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawCircleAtCoordsWithColorAndStrokeWidthImpl(x, y, radius, color, strokeWidth)
+        try _default.DrawCircleAtCoordsWithColorAndStrokeWidth(x, y, radius, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawCircleWithBrushAndStrokeWidthAndStrokeStyleImpl(centerPoint, radius, brush, strokeWidth, strokeStyle)
+        try _default.DrawCircleWithBrushAndStrokeWidthAndStrokeStyle(centerPoint, radius, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawCircleAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(x, y, radius, brush, strokeWidth, strokeStyle)
+        try _default.DrawCircleAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(x, y, radius, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawCircleWithColorAndStrokeWidthAndStrokeStyleImpl(centerPoint, radius, color, strokeWidth, strokeStyle)
+        try _default.DrawCircleWithColorAndStrokeWidthAndStrokeStyle(centerPoint, radius, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcircle)
     public func drawCircle(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawCircleAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(x, y, radius, color, strokeWidth, strokeStyle)
+        try _default.DrawCircleAtCoordsWithColorAndStrokeWidthAndStrokeStyle(x, y, radius, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillcircle)
     public func fillCircle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillCircleWithBrushImpl(centerPoint, radius, brush)
+        try _default.FillCircleWithBrush(centerPoint, radius, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillcircle)
     public func fillCircle(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillCircleAtCoordsWithBrushImpl(x, y, radius, brush)
+        try _default.FillCircleAtCoordsWithBrush(x, y, radius, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillcircle)
     public func fillCircle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color) throws {
-        try _default.FillCircleWithColorImpl(centerPoint, radius, color)
+        try _default.FillCircleWithColor(centerPoint, radius, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillcircle)
     public func fillCircle(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color) throws {
-        try _default.FillCircleAtCoordsWithColorImpl(x, y, radius, color)
+        try _default.FillCircleAtCoordsWithColor(x, y, radius, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ point: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
-        try _default.DrawTextAtPointWithColorImpl(text, point, color)
+        try _default.DrawTextAtPointWithColor(text, point, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
-        try _default.DrawTextAtPointCoordsWithColorImpl(text, x, y, color)
+        try _default.DrawTextAtPointCoordsWithColor(text, x, y, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ point: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!, _ format: Win2D.CanvasTextFormat!) throws {
-        try _default.DrawTextAtPointWithBrushAndFormatImpl(text, point, brush, format)
+        try _default.DrawTextAtPointWithBrushAndFormat(text, point, brush, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ rectangle: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush!, _ format: Win2D.CanvasTextFormat!) throws {
-        try _default.DrawTextAtRectWithBrushAndFormatImpl(text, rectangle, brush, format)
+        try _default.DrawTextAtRectWithBrushAndFormat(text, rectangle, brush, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush!, _ format: Win2D.CanvasTextFormat!) throws {
-        try _default.DrawTextAtPointCoordsWithBrushAndFormatImpl(text, x, y, brush, format)
+        try _default.DrawTextAtPointCoordsWithBrushAndFormat(text, x, y, brush, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush!, _ format: Win2D.CanvasTextFormat!) throws {
-        try _default.DrawTextAtRectCoordsWithBrushAndFormatImpl(text, x, y, w, h, brush, format)
+        try _default.DrawTextAtRectCoordsWithBrushAndFormat(text, x, y, w, h, brush, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ point: WindowsFoundation.Vector2, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat!) throws {
-        try _default.DrawTextAtPointWithColorAndFormatImpl(text, point, color, format)
+        try _default.DrawTextAtPointWithColorAndFormat(text, point, color, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ rectangle: WindowsFoundation.Rect, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat!) throws {
-        try _default.DrawTextAtRectWithColorAndFormatImpl(text, rectangle, color, format)
+        try _default.DrawTextAtRectWithColorAndFormat(text, rectangle, color, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ x: Float, _ y: Float, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat!) throws {
-        try _default.DrawTextAtPointCoordsWithColorAndFormatImpl(text, x, y, color, format)
+        try _default.DrawTextAtPointCoordsWithColorAndFormat(text, x, y, color, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtext)
     public func drawText(_ text: String, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat!) throws {
-        try _default.DrawTextAtRectCoordsWithColorAndFormatImpl(text, x, y, w, h, color, format)
+        try _default.DrawTextAtRectCoordsWithColorAndFormat(text, x, y, w, h, color, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawGeometryWithBrushImpl(geometry, offset, brush)
+        try _default.DrawGeometryWithBrush(geometry, offset, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
-        try _default.DrawGeometryWithColorImpl(geometry, offset, color)
+        try _default.DrawGeometryWithColor(geometry, offset, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawGeometryAtCoordsWithBrushImpl(geometry, x, y, brush)
+        try _default.DrawGeometryAtCoordsWithBrush(geometry, x, y, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
-        try _default.DrawGeometryAtCoordsWithColorImpl(geometry, x, y, color)
+        try _default.DrawGeometryAtCoordsWithColor(geometry, x, y, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawGeometryAtOriginWithBrushImpl(geometry, brush)
+        try _default.DrawGeometryAtOriginWithBrush(geometry, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ color: UWP.Color) throws {
-        try _default.DrawGeometryAtOriginWithColorImpl(geometry, color)
+        try _default.DrawGeometryAtOriginWithColor(geometry, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawGeometryWithBrushAndStrokeWidthImpl(geometry, offset, brush, strokeWidth)
+        try _default.DrawGeometryWithBrushAndStrokeWidth(geometry, offset, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawGeometryWithColorAndStrokeWidthImpl(geometry, offset, color, strokeWidth)
+        try _default.DrawGeometryWithColorAndStrokeWidth(geometry, offset, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawGeometryAtCoordsWithBrushAndStrokeWidthImpl(geometry, x, y, brush, strokeWidth)
+        try _default.DrawGeometryAtCoordsWithBrushAndStrokeWidth(geometry, x, y, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ x: Float, _ y: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawGeometryAtCoordsWithColorAndStrokeWidthImpl(geometry, x, y, color, strokeWidth)
+        try _default.DrawGeometryAtCoordsWithColorAndStrokeWidth(geometry, x, y, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float) throws {
-        try _default.DrawGeometryAtOriginWithBrushAndStrokeWidthImpl(geometry, brush, strokeWidth)
+        try _default.DrawGeometryAtOriginWithBrushAndStrokeWidth(geometry, brush, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ color: UWP.Color, _ strokeWidth: Float) throws {
-        try _default.DrawGeometryAtOriginWithColorAndStrokeWidthImpl(geometry, color, strokeWidth)
+        try _default.DrawGeometryAtOriginWithColorAndStrokeWidth(geometry, color, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawGeometryWithBrushAndStrokeWidthAndStrokeStyleImpl(geometry, offset, brush, strokeWidth, strokeStyle)
+        try _default.DrawGeometryWithBrushAndStrokeWidthAndStrokeStyle(geometry, offset, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawGeometryWithColorAndStrokeWidthAndStrokeStyleImpl(geometry, offset, color, strokeWidth, strokeStyle)
+        try _default.DrawGeometryWithColorAndStrokeWidthAndStrokeStyle(geometry, offset, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawGeometryAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(geometry, x, y, brush, strokeWidth, strokeStyle)
+        try _default.DrawGeometryAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(geometry, x, y, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ x: Float, _ y: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawGeometryAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(geometry, x, y, color, strokeWidth, strokeStyle)
+        try _default.DrawGeometryAtCoordsWithColorAndStrokeWidthAndStrokeStyle(geometry, x, y, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ brush: Win2D.AnyICanvasBrush!, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawGeometryAtOriginWithBrushAndStrokeWidthAndStrokeStyleImpl(geometry, brush, strokeWidth, strokeStyle)
+        try _default.DrawGeometryAtOriginWithBrushAndStrokeWidthAndStrokeStyle(geometry, brush, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgeometry)
     public func drawGeometry(_ geometry: Win2D.CanvasGeometry!, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle!) throws {
-        try _default.DrawGeometryAtOriginWithColorAndStrokeWidthAndStrokeStyleImpl(geometry, color, strokeWidth, strokeStyle)
+        try _default.DrawGeometryAtOriginWithColorAndStrokeWidthAndStrokeStyle(geometry, color, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillgeometry)
     public func fillGeometry(_ geometry: Win2D.CanvasGeometry!, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillGeometryWithBrushImpl(geometry, offset, brush)
+        try _default.FillGeometryWithBrush(geometry, offset, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillgeometry)
     public func fillGeometry(_ geometry: Win2D.CanvasGeometry!, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!, _ opacityBrush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillGeometryWithBrushAndOpacityBrushImpl(geometry, offset, brush, opacityBrush)
+        try _default.FillGeometryWithBrushAndOpacityBrush(geometry, offset, brush, opacityBrush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillgeometry)
     public func fillGeometry(_ geometry: Win2D.CanvasGeometry!, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
-        try _default.FillGeometryWithColorImpl(geometry, offset, color)
+        try _default.FillGeometryWithColor(geometry, offset, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillgeometry)
     public func fillGeometry(_ geometry: Win2D.CanvasGeometry!, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillGeometryAtCoordsWithBrushImpl(geometry, x, y, brush)
+        try _default.FillGeometryAtCoordsWithBrush(geometry, x, y, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillgeometry)
     public func fillGeometry(_ geometry: Win2D.CanvasGeometry!, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush!, _ opacityBrush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillGeometryAtCoordsWithBrushAndOpacityBrushImpl(geometry, x, y, brush, opacityBrush)
+        try _default.FillGeometryAtCoordsWithBrushAndOpacityBrush(geometry, x, y, brush, opacityBrush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillgeometry)
     public func fillGeometry(_ geometry: Win2D.CanvasGeometry!, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
-        try _default.FillGeometryAtCoordsWithColorImpl(geometry, x, y, color)
+        try _default.FillGeometryAtCoordsWithColor(geometry, x, y, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillgeometry)
     public func fillGeometry(_ geometry: Win2D.CanvasGeometry!, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillGeometryAtOriginWithBrushImpl(geometry, brush)
+        try _default.FillGeometryAtOriginWithBrush(geometry, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillgeometry)
     public func fillGeometry(_ geometry: Win2D.CanvasGeometry!, _ brush: Win2D.AnyICanvasBrush!, _ opacityBrush: Win2D.AnyICanvasBrush!) throws {
-        try _default.FillGeometryAtOriginWithBrushAndOpacityBrushImpl(geometry, brush, opacityBrush)
+        try _default.FillGeometryAtOriginWithBrushAndOpacityBrush(geometry, brush, opacityBrush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.fillgeometry)
     public func fillGeometry(_ geometry: Win2D.CanvasGeometry!, _ color: UWP.Color) throws {
-        try _default.FillGeometryAtOriginWithColorImpl(geometry, color)
+        try _default.FillGeometryAtOriginWithColor(geometry, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcachedgeometry)
     public func drawCachedGeometry(_ geometry: Win2D.CanvasCachedGeometry!, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawCachedGeometryWithBrushImpl(geometry, offset, brush)
+        try _default.DrawCachedGeometryWithBrush(geometry, offset, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcachedgeometry)
     public func drawCachedGeometry(_ geometry: Win2D.CanvasCachedGeometry!, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
-        try _default.DrawCachedGeometryWithColorImpl(geometry, offset, color)
+        try _default.DrawCachedGeometryWithColor(geometry, offset, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcachedgeometry)
     public func drawCachedGeometry(_ geometry: Win2D.CanvasCachedGeometry!, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawCachedGeometryAtCoordsWithBrushImpl(geometry, x, y, brush)
+        try _default.DrawCachedGeometryAtCoordsWithBrush(geometry, x, y, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcachedgeometry)
     public func drawCachedGeometry(_ geometry: Win2D.CanvasCachedGeometry!, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
-        try _default.DrawCachedGeometryAtCoordsWithColorImpl(geometry, x, y, color)
+        try _default.DrawCachedGeometryAtCoordsWithColor(geometry, x, y, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcachedgeometry)
     public func drawCachedGeometry(_ geometry: Win2D.CanvasCachedGeometry!, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawCachedGeometryAtOriginWithBrushImpl(geometry, brush)
+        try _default.DrawCachedGeometryAtOriginWithBrush(geometry, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawcachedgeometry)
     public func drawCachedGeometry(_ geometry: Win2D.CanvasCachedGeometry!, _ color: UWP.Color) throws {
-        try _default.DrawCachedGeometryAtOriginWithColorImpl(geometry, color)
+        try _default.DrawCachedGeometryAtOriginWithColor(geometry, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtextlayout)
     public func drawTextLayout(_ textLayout: Win2D.CanvasTextLayout!, _ point: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawTextLayoutWithBrushImpl(textLayout, point, brush)
+        try _default.DrawTextLayoutWithBrush(textLayout, point, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtextlayout)
     public func drawTextLayout(_ textLayout: Win2D.CanvasTextLayout!, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush!) throws {
-        try _default.DrawTextLayoutAtCoordsWithBrushImpl(textLayout, x, y, brush)
+        try _default.DrawTextLayoutAtCoordsWithBrush(textLayout, x, y, brush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtextlayout)
     public func drawTextLayout(_ textLayout: Win2D.CanvasTextLayout!, _ point: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
-        try _default.DrawTextLayoutWithColorImpl(textLayout, point, color)
+        try _default.DrawTextLayoutWithColor(textLayout, point, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawtextlayout)
     public func drawTextLayout(_ textLayout: Win2D.CanvasTextLayout!, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
-        try _default.DrawTextLayoutAtCoordsWithColorImpl(textLayout, x, y, color)
+        try _default.DrawTextLayoutAtCoordsWithColor(textLayout, x, y, color)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgradientmesh)
     public func drawGradientMesh(_ gradientMesh: Win2D.CanvasGradientMesh!) throws {
-        try _default.DrawGradientMeshAtOriginImpl(gradientMesh)
+        try _default.DrawGradientMeshAtOrigin(gradientMesh)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgradientmesh)
     public func drawGradientMesh(_ gradientMesh: Win2D.CanvasGradientMesh!, _ point: WindowsFoundation.Vector2) throws {
-        try _default.DrawGradientMeshImpl(gradientMesh, point)
+        try _default.DrawGradientMesh(gradientMesh, point)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawgradientmesh)
     public func drawGradientMesh(_ gradientMesh: Win2D.CanvasGradientMesh!, _ x: Float, _ y: Float) throws {
-        try _default.DrawGradientMeshAtCoordsImpl(gradientMesh, x, y)
+        try _default.DrawGradientMeshAtCoords(gradientMesh, x, y)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawsvg)
     public func drawSvg(_ svgDocument: Win2D.CanvasSvgDocument!, _ viewportSize: WindowsFoundation.Size) throws {
-        try _default.DrawSvgAtOriginImpl(svgDocument, viewportSize)
+        try _default.DrawSvgAtOrigin(svgDocument, viewportSize)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawsvg)
     public func drawSvg(_ svgDocument: Win2D.CanvasSvgDocument!, _ viewportSize: WindowsFoundation.Size, _ point: WindowsFoundation.Vector2) throws {
-        try _default.DrawSvgAtPointImpl(svgDocument, viewportSize, point)
+        try _default.DrawSvgAtPoint(svgDocument, viewportSize, point)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawsvg)
     public func drawSvg(_ svgDocument: Win2D.CanvasSvgDocument!, _ viewportSize: WindowsFoundation.Size, _ x: Float, _ y: Float) throws {
-        try _default.DrawSvgAtCoordsImpl(svgDocument, viewportSize, x, y)
+        try _default.DrawSvgAtCoords(svgDocument, viewportSize, x, y)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createlayer)
     public func createLayer(_ opacity: Float) throws -> CanvasActiveLayer! {
-        try _default.CreateLayerWithOpacityImpl(opacity)
+        try _default.CreateLayerWithOpacity(opacity)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createlayer)
     public func createLayer(_ opacityBrush: Win2D.AnyICanvasBrush!) throws -> CanvasActiveLayer! {
-        try _default.CreateLayerWithOpacityBrushImpl(opacityBrush)
+        try _default.CreateLayerWithOpacityBrush(opacityBrush)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createlayer)
     public func createLayer(_ opacity: Float, _ clipRectangle: WindowsFoundation.Rect) throws -> CanvasActiveLayer! {
-        try _default.CreateLayerWithOpacityAndClipRectangleImpl(opacity, clipRectangle)
+        try _default.CreateLayerWithOpacityAndClipRectangle(opacity, clipRectangle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createlayer)
     public func createLayer(_ opacityBrush: Win2D.AnyICanvasBrush!, _ clipRectangle: WindowsFoundation.Rect) throws -> CanvasActiveLayer! {
-        try _default.CreateLayerWithOpacityBrushAndClipRectangleImpl(opacityBrush, clipRectangle)
+        try _default.CreateLayerWithOpacityBrushAndClipRectangle(opacityBrush, clipRectangle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createlayer)
     public func createLayer(_ opacity: Float, _ clipGeometry: Win2D.CanvasGeometry!) throws -> CanvasActiveLayer! {
-        try _default.CreateLayerWithOpacityAndClipGeometryImpl(opacity, clipGeometry)
+        try _default.CreateLayerWithOpacityAndClipGeometry(opacity, clipGeometry)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createlayer)
     public func createLayer(_ opacityBrush: Win2D.AnyICanvasBrush!, _ clipGeometry: Win2D.CanvasGeometry!) throws -> CanvasActiveLayer! {
-        try _default.CreateLayerWithOpacityBrushAndClipGeometryImpl(opacityBrush, clipGeometry)
+        try _default.CreateLayerWithOpacityBrushAndClipGeometry(opacityBrush, clipGeometry)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createlayer)
     public func createLayer(_ opacity: Float, _ clipGeometry: Win2D.CanvasGeometry!, _ geometryTransform: WindowsFoundation.Matrix3x2) throws -> CanvasActiveLayer! {
-        try _default.CreateLayerWithOpacityAndClipGeometryAndTransformImpl(opacity, clipGeometry, geometryTransform)
+        try _default.CreateLayerWithOpacityAndClipGeometryAndTransform(opacity, clipGeometry, geometryTransform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createlayer)
     public func createLayer(_ opacityBrush: Win2D.AnyICanvasBrush!, _ clipGeometry: Win2D.CanvasGeometry!, _ geometryTransform: WindowsFoundation.Matrix3x2) throws -> CanvasActiveLayer! {
-        try _default.CreateLayerWithOpacityBrushAndClipGeometryAndTransformImpl(opacityBrush, clipGeometry, geometryTransform)
+        try _default.CreateLayerWithOpacityBrushAndClipGeometryAndTransform(opacityBrush, clipGeometry, geometryTransform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createlayer)
     public func createLayer(_ opacity: Float, _ opacityBrush: Win2D.AnyICanvasBrush!, _ clipRectangle: WindowsFoundation.Rect, _ clipGeometry: Win2D.CanvasGeometry!, _ geometryTransform: WindowsFoundation.Matrix3x2, _ options: CanvasLayerOptions) throws -> CanvasActiveLayer! {
-        try _default.CreateLayerWithAllOptionsImpl(opacity, opacityBrush, clipRectangle, clipGeometry, geometryTransform, options)
+        try _default.CreateLayerWithAllOptions(opacity, opacityBrush, clipRectangle, clipGeometry, geometryTransform, options)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawglyphrun)
+    public func drawGlyphRun(_ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace!, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ brush: Win2D.AnyICanvasBrush!) throws {
+        try _default.DrawGlyphRun(point, fontFace, fontSize, glyphs, isSideways, bidiLevel, brush)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawglyphrun)
+    public func drawGlyphRun(_ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace!, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ brush: Win2D.AnyICanvasBrush!, _ measuringMode: Win2D.CanvasTextMeasuringMode) throws {
+        try _default.DrawGlyphRunWithMeasuringMode(point, fontFace, fontSize, glyphs, isSideways, bidiLevel, brush, measuringMode)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.drawglyphrun)
+    public func drawGlyphRun(_ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace!, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ brush: Win2D.AnyICanvasBrush!, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ localeName: String, _ textString: String, _ clusterMapIndices: [Int32], _ textPosition: UInt32) throws {
+        try _default.DrawGlyphRunWithMeasuringModeAndDescription(point, fontFace, fontSize, glyphs, isSideways, bidiLevel, brush, measuringMode, localeName, textString, clusterMapIndices, textPosition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createspritebatch)
     public func createSpriteBatch() throws -> CanvasSpriteBatch! {
-        try _default.CreateSpriteBatchImpl()
+        try _default.CreateSpriteBatch()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createspritebatch)
     public func createSpriteBatch(_ sortMode: CanvasSpriteSortMode) throws -> CanvasSpriteBatch! {
-        try _default.CreateSpriteBatchWithSortModeImpl(sortMode)
+        try _default.CreateSpriteBatchWithSortMode(sortMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createspritebatch)
     public func createSpriteBatch(_ sortMode: CanvasSpriteSortMode, _ interpolation: CanvasImageInterpolation) throws -> CanvasSpriteBatch! {
-        try _default.CreateSpriteBatchWithSortModeAndInterpolationImpl(sortMode, interpolation)
+        try _default.CreateSpriteBatchWithSortModeAndInterpolation(sortMode, interpolation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.createspritebatch)
     public func createSpriteBatch(_ sortMode: CanvasSpriteSortMode, _ interpolation: CanvasImageInterpolation, _ options: CanvasSpriteOptions) throws -> CanvasSpriteBatch! {
-        try _default.CreateSpriteBatchWithSortModeAndInterpolationAndOptionsImpl(sortMode, interpolation, options)
+        try _default.CreateSpriteBatchWithSortModeAndInterpolationAndOptions(sortMode, interpolation, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.antialiasing)
     public var antialiasing : CanvasAntialiasing {
-        get { try! _default.get_AntialiasingImpl() }
-        set { try! _default.put_AntialiasingImpl(newValue) }
+        get { try! _default.get_Antialiasing() }
+        set { try! _default.put_Antialiasing(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.blend)
     public var blend : CanvasBlend {
-        get { try! _default.get_BlendImpl() }
-        set { try! _default.put_BlendImpl(newValue) }
+        get { try! _default.get_Blend() }
+        set { try! _default.put_Blend(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.effectbufferprecision)
     public var effectBufferPrecision : CanvasBufferPrecision? {
-        get { try! _default.get_EffectBufferPrecisionImpl() }
-        set { try! _default.put_EffectBufferPrecisionImpl(newValue) }
+        get { try! _default.get_EffectBufferPrecision() }
+        set { try! _default.put_EffectBufferPrecision(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.effecttilesize)
     public var effectTileSize : UWP.BitmapSize {
-        get { try! _default.get_EffectTileSizeImpl() }
-        set { try! _default.put_EffectTileSizeImpl(newValue) }
+        get { try! _default.get_EffectTileSize() }
+        set { try! _default.put_EffectTileSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.textantialiasing)
     public var textAntialiasing : Win2D.CanvasTextAntialiasing {
-        get { try! _default.get_TextAntialiasingImpl() }
-        set { try! _default.put_TextAntialiasingImpl(newValue) }
+        get { try! _default.get_TextAntialiasing() }
+        set { try! _default.put_TextAntialiasing(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.textrenderingparameters)
     public var textRenderingParameters : Win2D.CanvasTextRenderingParameters! {
-        get { try! _default.get_TextRenderingParametersImpl() }
-        set { try! _default.put_TextRenderingParametersImpl(newValue) }
+        get { try! _default.get_TextRenderingParameters() }
+        set { try! _default.put_TextRenderingParameters(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.transform)
     public var transform : WindowsFoundation.Matrix3x2 {
-        get { try! _default.get_TransformImpl() }
-        set { try! _default.put_TransformImpl(newValue) }
+        get { try! _default.get_Transform() }
+        set { try! _default.put_Transform(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasdrawingsession.units)
     public var units : CanvasUnits {
-        get { try! _default.get_UnitsImpl() }
-        set { try! _default.put_UnitsImpl(newValue) }
+        get { try! _default.get_Units() }
+        set { try! _default.put_Units(newValue) }
     }
 
     deinit {
@@ -1516,25 +1561,30 @@ public final class CanvasDrawingSession : WinRTClass, WindowsFoundation.IClosabl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasimage)
 public final class CanvasImage {
-    private static let _ICanvasImageStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasImageStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasImage"))
+    private static let _ICanvasImageStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasImageStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasImage")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasimage.saveasync)
-    public static func saveAsync(_ image: AnyICanvasImage!, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ fileFormat: CanvasBitmapFileFormat) -> WindowsFoundation.AnyIAsyncAction! {
-        return try! _ICanvasImageStatics.SaveAsyncImpl(image, sourceRectangle, dpi, resourceCreator, stream, fileFormat)
+    public static func saveAsync(_ image: AnyICanvasImage!, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ fileFormat: CanvasBitmapFileFormat) throws -> WindowsFoundation.AnyIAsyncAction! {
+        return try _ICanvasImageStatics.SaveAsync(image, sourceRectangle, dpi, resourceCreator, stream, fileFormat)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasimage.saveasync)
-    public static func saveAsync(_ image: AnyICanvasImage!, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ fileFormat: CanvasBitmapFileFormat, _ quality: Float) -> WindowsFoundation.AnyIAsyncAction! {
-        return try! _ICanvasImageStatics.SaveWithQualityAsyncImpl(image, sourceRectangle, dpi, resourceCreator, stream, fileFormat, quality)
+    public static func saveAsync(_ image: AnyICanvasImage!, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ fileFormat: CanvasBitmapFileFormat, _ quality: Float) throws -> WindowsFoundation.AnyIAsyncAction! {
+        return try _ICanvasImageStatics.SaveWithQualityAsync(image, sourceRectangle, dpi, resourceCreator, stream, fileFormat, quality)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasimage.saveasync)
-    public static func saveAsync(_ image: AnyICanvasImage!, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ fileFormat: CanvasBitmapFileFormat, _ quality: Float, _ bufferPrecision: CanvasBufferPrecision) -> WindowsFoundation.AnyIAsyncAction! {
-        return try! _ICanvasImageStatics.SaveWithQualityAndBufferPrecisionAsyncImpl(image, sourceRectangle, dpi, resourceCreator, stream, fileFormat, quality, bufferPrecision)
+    public static func saveAsync(_ image: AnyICanvasImage!, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ fileFormat: CanvasBitmapFileFormat, _ quality: Float, _ bufferPrecision: CanvasBufferPrecision) throws -> WindowsFoundation.AnyIAsyncAction! {
+        return try _ICanvasImageStatics.SaveWithQualityAndBufferPrecisionAsync(image, sourceRectangle, dpi, resourceCreator, stream, fileFormat, quality, bufferPrecision)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasimage.computehistogram)
+    public static func computeHistogram(_ image: AnyICanvasImage!, _ sourceRectangle: WindowsFoundation.Rect, _ resourceCreator: AnyICanvasResourceCreator!, _ channelSelect: Win2D.EffectChannelSelect, _ numberOfBins: Int32) throws -> [Float] {
+        return try _ICanvasImageStatics.ComputeHistogram(image, sourceRectangle, resourceCreator, channelSelect, numberOfBins)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasimage.ishistogramsupported)
-    public static func isHistogramSupported(_ device: CanvasDevice!) -> Bool {
-        return try! _ICanvasImageStatics.IsHistogramSupportedImpl(device)
+    public static func isHistogramSupported(_ device: CanvasDevice!) throws -> Bool {
+        return try _ICanvasImageStatics.IsHistogramSupported(device)
     }
 
 }
@@ -1553,12 +1603,6 @@ public final class CanvasLock : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasLock>?) -> CanvasLock? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1569,7 +1613,7 @@ public final class CanvasLock : WinRTClass, WindowsFoundation.IClosable {
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvaslock.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     deinit {
@@ -1592,52 +1636,46 @@ public final class CanvasRenderTarget : Win2D.CanvasBitmap {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasRenderTarget>?) -> CanvasRenderTarget? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _ICanvasRenderTargetFactory: __ABI_Microsoft_Graphics_Canvas.ICanvasRenderTargetFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasRenderTarget"))
+    private static let _ICanvasRenderTargetFactory: __ABI_Microsoft_Graphics_Canvas.ICanvasRenderTargetFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasRenderTarget")
     public init(_ resourceCreator: AnyICanvasResourceCreatorWithDpi!, _ size: WindowsFoundation.Size) {
-        super.init(fromAbi: try! Self._ICanvasRenderTargetFactory.CreateWithSizeImpl(resourceCreator, size))
+        super.init(fromAbi: try! Self._ICanvasRenderTargetFactory.CreateWithSize(resourceCreator, size))
     }
 
     public init(_ resourceCreator: AnyICanvasResourceCreatorWithDpi!, _ width: Float, _ height: Float) {
-        super.init(fromAbi: try! Self._ICanvasRenderTargetFactory.CreateWithWidthAndHeightImpl(resourceCreator, width, height))
+        super.init(fromAbi: try! Self._ICanvasRenderTargetFactory.CreateWithWidthAndHeight(resourceCreator, width, height))
     }
 
     public init(_ resourceCreator: AnyICanvasResourceCreator!, _ width: Float, _ height: Float, _ dpi: Float) {
-        super.init(fromAbi: try! Self._ICanvasRenderTargetFactory.CreateWithWidthAndHeightAndDpiImpl(resourceCreator, width, height, dpi))
+        super.init(fromAbi: try! Self._ICanvasRenderTargetFactory.CreateWithWidthAndHeightAndDpi(resourceCreator, width, height, dpi))
     }
 
     public init(_ resourceCreator: AnyICanvasResourceCreator!, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ alpha: CanvasAlphaMode) {
-        super.init(fromAbi: try! Self._ICanvasRenderTargetFactory.CreateWithWidthAndHeightAndDpiAndFormatAndAlphaImpl(resourceCreator, width, height, dpi, format, alpha))
+        super.init(fromAbi: try! Self._ICanvasRenderTargetFactory.CreateWithWidthAndHeightAndDpiAndFormatAndAlpha(resourceCreator, width, height, dpi, format, alpha))
     }
 
-    private static let _ICanvasRenderTargetStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasRenderTargetStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasRenderTarget"))
+    private static let _ICanvasRenderTargetStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasRenderTargetStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasRenderTarget")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasrendertarget.createfromdirect3d11surface)
-    override public static func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!) -> CanvasRenderTarget! {
-        return try! _ICanvasRenderTargetStatics.CreateFromDirect3D11SurfaceImpl(resourceCreator, surface)
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasrendertarget.createfromdirect3d11surface)
-    override public static func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!, _ dpi: Float) -> CanvasRenderTarget! {
-        return try! _ICanvasRenderTargetStatics.CreateFromDirect3D11SurfaceWithDpiImpl(resourceCreator, surface, dpi)
+    override public static func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!) throws -> CanvasRenderTarget! {
+        return try _ICanvasRenderTargetStatics.CreateFromDirect3D11Surface(resourceCreator, surface)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasrendertarget.createfromdirect3d11surface)
-    override public static func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!, _ dpi: Float, _ alpha: CanvasAlphaMode) -> CanvasRenderTarget! {
-        return try! _ICanvasRenderTargetStatics.CreateFromDirect3D11SurfaceWithDpiAndAlphaImpl(resourceCreator, surface, dpi, alpha)
+    override public static func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!, _ dpi: Float) throws -> CanvasRenderTarget! {
+        return try _ICanvasRenderTargetStatics.CreateFromDirect3D11SurfaceWithDpi(resourceCreator, surface, dpi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasrendertarget.createfromdirect3d11surface)
+    override public static func createFromDirect3D11Surface(_ resourceCreator: AnyICanvasResourceCreator!, _ surface: UWP.AnyIDirect3DSurface!, _ dpi: Float, _ alpha: CanvasAlphaMode) throws -> CanvasRenderTarget! {
+        return try _ICanvasRenderTargetStatics.CreateFromDirect3D11SurfaceWithDpiAndAlpha(resourceCreator, surface, dpi, alpha)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasrendertarget.createdrawingsession)
     public func createDrawingSession() throws -> CanvasDrawingSession! {
-        try _default.CreateDrawingSessionImpl()
+        try _default.CreateDrawingSession()
     }
 
     deinit {
@@ -1659,12 +1697,6 @@ public final class CanvasSpriteBatch : WinRTClass, WindowsFoundation.IClosable, 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch>?) -> CanvasSpriteBatch? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1672,128 +1704,128 @@ public final class CanvasSpriteBatch : WinRTClass, WindowsFoundation.IClosable, 
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasSpriteBatchStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasSpriteBatchStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasSpriteBatch"))
+    private static let _ICanvasSpriteBatchStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasSpriteBatchStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasSpriteBatch")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.issupported)
-    public static func isSupported(_ device: CanvasDevice!) -> Bool {
-        return try! _ICanvasSpriteBatchStatics.IsSupportedImpl(device)
+    public static func isSupported(_ device: CanvasDevice!) throws -> Bool {
+        return try _ICanvasSpriteBatchStatics.IsSupported(device)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.device)
     public var device : CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.convertpixelstodips)
     public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.convertdipstopixels)
     public func convertDipsToPixels(_ dips: Float, _ dpiRounding: CanvasDpiRounding) throws -> Int32 {
-        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.dpi)
     public var dpi : Float {
-        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+        get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.draw)
     public func draw(_ bitmap: CanvasBitmap!, _ destRect: WindowsFoundation.Rect) throws {
-        try _default.DrawToRectImpl(bitmap, destRect)
+        try _default.DrawToRect(bitmap, destRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.draw)
     public func draw(_ bitmap: CanvasBitmap!, _ offset: WindowsFoundation.Vector2) throws {
-        try _default.DrawAtOffsetImpl(bitmap, offset)
+        try _default.DrawAtOffset(bitmap, offset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.draw)
     public func draw(_ bitmap: CanvasBitmap!, _ transform: WindowsFoundation.Matrix3x2) throws {
-        try _default.DrawWithTransformImpl(bitmap, transform)
+        try _default.DrawWithTransform(bitmap, transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.draw)
     public func draw(_ bitmap: CanvasBitmap!, _ destRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
-        try _default.DrawToRectWithTintImpl(bitmap, destRect, tint)
+        try _default.DrawToRectWithTint(bitmap, destRect, tint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.draw)
     public func draw(_ bitmap: CanvasBitmap!, _ offset: WindowsFoundation.Vector2, _ tint: WindowsFoundation.Vector4) throws {
-        try _default.DrawAtOffsetWithTintImpl(bitmap, offset, tint)
+        try _default.DrawAtOffsetWithTint(bitmap, offset, tint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.draw)
     public func draw(_ bitmap: CanvasBitmap!, _ transform: WindowsFoundation.Matrix3x2, _ tint: WindowsFoundation.Vector4) throws {
-        try _default.DrawWithTransformAndTintImpl(bitmap, transform, tint)
+        try _default.DrawWithTransformAndTint(bitmap, transform, tint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.draw)
     public func draw(_ bitmap: CanvasBitmap!, _ destRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ flip: CanvasSpriteFlip) throws {
-        try _default.DrawToRectWithTintAndFlipImpl(bitmap, destRect, tint, flip)
+        try _default.DrawToRectWithTintAndFlip(bitmap, destRect, tint, flip)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.draw)
     public func draw(_ bitmap: CanvasBitmap!, _ transform: WindowsFoundation.Matrix3x2, _ tint: WindowsFoundation.Vector4, _ flip: CanvasSpriteFlip) throws {
-        try _default.DrawWithTransformAndTintAndFlipImpl(bitmap, transform, tint, flip)
+        try _default.DrawWithTransformAndTintAndFlip(bitmap, transform, tint, flip)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.draw)
     public func draw(_ bitmap: CanvasBitmap!, _ offset: WindowsFoundation.Vector2, _ tint: WindowsFoundation.Vector4, _ origin: WindowsFoundation.Vector2, _ rotation: Float, _ scale: WindowsFoundation.Vector2, _ flip: CanvasSpriteFlip) throws {
-        try _default.DrawAtOffsetWithTintAndTransformImpl(bitmap, offset, tint, origin, rotation, scale, flip)
+        try _default.DrawAtOffsetWithTintAndTransform(bitmap, offset, tint, origin, rotation, scale, flip)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.drawfromspritesheet)
     public func drawFromSpriteSheet(_ bitmap: CanvasBitmap!, _ destRect: WindowsFoundation.Rect, _ sourceRect: WindowsFoundation.Rect) throws {
-        try _default.DrawFromSpriteSheetToRectImpl(bitmap, destRect, sourceRect)
+        try _default.DrawFromSpriteSheetToRect(bitmap, destRect, sourceRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.drawfromspritesheet)
     public func drawFromSpriteSheet(_ bitmap: CanvasBitmap!, _ offset: WindowsFoundation.Vector2, _ sourceRect: WindowsFoundation.Rect) throws {
-        try _default.DrawFromSpriteSheetAtOffsetImpl(bitmap, offset, sourceRect)
+        try _default.DrawFromSpriteSheetAtOffset(bitmap, offset, sourceRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.drawfromspritesheet)
     public func drawFromSpriteSheet(_ bitmap: CanvasBitmap!, _ transform: WindowsFoundation.Matrix3x2, _ sourceRect: WindowsFoundation.Rect) throws {
-        try _default.DrawFromSpriteSheetWithTransformImpl(bitmap, transform, sourceRect)
+        try _default.DrawFromSpriteSheetWithTransform(bitmap, transform, sourceRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.drawfromspritesheet)
     public func drawFromSpriteSheet(_ bitmap: CanvasBitmap!, _ destRect: WindowsFoundation.Rect, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
-        try _default.DrawFromSpriteSheetToRectWithTintImpl(bitmap, destRect, sourceRect, tint)
+        try _default.DrawFromSpriteSheetToRectWithTint(bitmap, destRect, sourceRect, tint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.drawfromspritesheet)
     public func drawFromSpriteSheet(_ bitmap: CanvasBitmap!, _ offset: WindowsFoundation.Vector2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
-        try _default.DrawFromSpriteSheetAtOffsetWithTintImpl(bitmap, offset, sourceRect, tint)
+        try _default.DrawFromSpriteSheetAtOffsetWithTint(bitmap, offset, sourceRect, tint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.drawfromspritesheet)
     public func drawFromSpriteSheet(_ bitmap: CanvasBitmap!, _ transform: WindowsFoundation.Matrix3x2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
-        try _default.DrawFromSpriteSheetWithTransformAndTintImpl(bitmap, transform, sourceRect, tint)
+        try _default.DrawFromSpriteSheetWithTransformAndTint(bitmap, transform, sourceRect, tint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.drawfromspritesheet)
     public func drawFromSpriteSheet(_ bitmap: CanvasBitmap!, _ destRect: WindowsFoundation.Rect, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ flip: CanvasSpriteFlip) throws {
-        try _default.DrawFromSpriteSheetToRectWithTintAndFlipImpl(bitmap, destRect, sourceRect, tint, flip)
+        try _default.DrawFromSpriteSheetToRectWithTintAndFlip(bitmap, destRect, sourceRect, tint, flip)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.drawfromspritesheet)
     public func drawFromSpriteSheet(_ bitmap: CanvasBitmap!, _ transform: WindowsFoundation.Matrix3x2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ flip: CanvasSpriteFlip) throws {
-        try _default.DrawFromSpriteSheetWithTransformAndTintAndFlipImpl(bitmap, transform, sourceRect, tint, flip)
+        try _default.DrawFromSpriteSheetWithTransformAndTintAndFlip(bitmap, transform, sourceRect, tint, flip)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasspritebatch.drawfromspritesheet)
     public func drawFromSpriteSheet(_ bitmap: CanvasBitmap!, _ offset: WindowsFoundation.Vector2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ origin: WindowsFoundation.Vector2, _ rotation: Float, _ scale: WindowsFoundation.Vector2, _ flip: CanvasSpriteFlip) throws {
-        try _default.DrawFromSpriteSheetAtOffsetWithTintAndTransformImpl(bitmap, offset, sourceRect, tint, origin, rotation, scale, flip)
+        try _default.DrawFromSpriteSheetAtOffsetWithTintAndTransform(bitmap, offset, sourceRect, tint, origin, rotation, scale, flip)
     }
 
     deinit {
@@ -1818,12 +1850,6 @@ public final class CanvasSwapChain : WinRTClass, WindowsFoundation.IClosable, IC
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain>?) -> CanvasSwapChain? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1831,143 +1857,143 @@ public final class CanvasSwapChain : WinRTClass, WindowsFoundation.IClosable, IC
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasSwapChainFactory: __ABI_Microsoft_Graphics_Canvas.ICanvasSwapChainFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasSwapChain"))
+    private static let _ICanvasSwapChainFactory: __ABI_Microsoft_Graphics_Canvas.ICanvasSwapChainFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasSwapChain")
     public init(_ resourceCreator: AnyICanvasResourceCreatorWithDpi!, _ size: WindowsFoundation.Size) {
-        super.init(try! Self._ICanvasSwapChainFactory.CreateWithSizeImpl(resourceCreator, size))
+        super.init(try! Self._ICanvasSwapChainFactory.CreateWithSize(resourceCreator, size))
     }
 
     public init(_ resourceCreator: AnyICanvasResourceCreatorWithDpi!, _ width: Float, _ height: Float) {
-        super.init(try! Self._ICanvasSwapChainFactory.CreateWithWidthAndHeightImpl(resourceCreator, width, height))
+        super.init(try! Self._ICanvasSwapChainFactory.CreateWithWidthAndHeight(resourceCreator, width, height))
     }
 
     public init(_ resourceCreator: AnyICanvasResourceCreator!, _ width: Float, _ height: Float, _ dpi: Float) {
-        super.init(try! Self._ICanvasSwapChainFactory.CreateWithWidthAndHeightAndDpiImpl(resourceCreator, width, height, dpi))
+        super.init(try! Self._ICanvasSwapChainFactory.CreateWithWidthAndHeightAndDpi(resourceCreator, width, height, dpi))
     }
 
     public init(_ resourceCreator: AnyICanvasResourceCreator!, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32, _ alphaMode: CanvasAlphaMode) {
-        super.init(try! Self._ICanvasSwapChainFactory.CreateWithAllOptionsImpl(resourceCreator, width, height, dpi, format, bufferCount, alphaMode))
+        super.init(try! Self._ICanvasSwapChainFactory.CreateWithAllOptions(resourceCreator, width, height, dpi, format, bufferCount, alphaMode))
     }
 
-    private static let _ICanvasSwapChainStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasSwapChainStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasSwapChain"))
+    private static let _ICanvasSwapChainStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasSwapChainStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasSwapChain")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.createforcorewindow)
-    public static func createForCoreWindow(_ resourceCreator: AnyICanvasResourceCreator!, _ coreWindow: UWP.CoreWindow!, _ dpi: Float) -> CanvasSwapChain! {
-        return try! _ICanvasSwapChainStatics.CreateForCoreWindowWithDpiImpl(resourceCreator, coreWindow, dpi)
+    public static func createForCoreWindow(_ resourceCreator: AnyICanvasResourceCreator!, _ coreWindow: UWP.CoreWindow!, _ dpi: Float) throws -> CanvasSwapChain! {
+        return try _ICanvasSwapChainStatics.CreateForCoreWindowWithDpi(resourceCreator, coreWindow, dpi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.createforcorewindow)
-    public static func createForCoreWindow(_ resourceCreator: AnyICanvasResourceCreator!, _ coreWindow: UWP.CoreWindow!, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32) -> CanvasSwapChain! {
-        return try! _ICanvasSwapChainStatics.CreateForCoreWindowWithAllOptionsImpl(resourceCreator, coreWindow, width, height, dpi, format, bufferCount)
+    public static func createForCoreWindow(_ resourceCreator: AnyICanvasResourceCreator!, _ coreWindow: UWP.CoreWindow!, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32) throws -> CanvasSwapChain! {
+        return try _ICanvasSwapChainStatics.CreateForCoreWindowWithAllOptions(resourceCreator, coreWindow, width, height, dpi, format, bufferCount)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.device)
     public var device : CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.convertpixelstodips)
     public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.convertdipstopixels)
     public func convertDipsToPixels(_ dips: Float, _ dpiRounding: CanvasDpiRounding) throws -> Int32 {
-        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.dpi)
     public var dpi : Float {
-        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+        get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.present)
     public func present() throws {
-        try _default.PresentImpl()
+        try _default.Present()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.present)
     public func present(_ syncInterval: Int32) throws {
-        try _default.PresentWithSyncIntervalImpl(syncInterval)
+        try _default.PresentWithSyncInterval(syncInterval)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.resizebuffers)
     public func resizeBuffers(_ newSize: WindowsFoundation.Size) throws {
-        try _default.ResizeBuffersWithSizeImpl(newSize)
+        try _default.ResizeBuffersWithSize(newSize)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.resizebuffers)
     public func resizeBuffers(_ newWidth: Float, _ newHeight: Float) throws {
-        try _default.ResizeBuffersWithWidthAndHeightImpl(newWidth, newHeight)
+        try _default.ResizeBuffersWithWidthAndHeight(newWidth, newHeight)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.resizebuffers)
     public func resizeBuffers(_ newWidth: Float, _ newHeight: Float, _ newDpi: Float) throws {
-        try _default.ResizeBuffersWithWidthAndHeightAndDpiImpl(newWidth, newHeight, newDpi)
+        try _default.ResizeBuffersWithWidthAndHeightAndDpi(newWidth, newHeight, newDpi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.resizebuffers)
     public func resizeBuffers(_ newWidth: Float, _ newHeight: Float, _ newDpi: Float, _ newFormat: UWP.DirectXPixelFormat, _ bufferCount: Int32) throws {
-        try _default.ResizeBuffersWithAllOptionsImpl(newWidth, newHeight, newDpi, newFormat, bufferCount)
+        try _default.ResizeBuffersWithAllOptions(newWidth, newHeight, newDpi, newFormat, bufferCount)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.createdrawingsession)
     public func createDrawingSession(_ clearColor: UWP.Color) throws -> CanvasDrawingSession! {
-        try _default.CreateDrawingSessionImpl(clearColor)
+        try _default.CreateDrawingSession(clearColor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.waitforverticalblank)
     public func waitForVerticalBlank() throws {
-        try _default.WaitForVerticalBlankImpl()
+        try _default.WaitForVerticalBlank()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.alphamode)
     public var alphaMode : CanvasAlphaMode {
-        get { try! _default.get_AlphaModeImpl() }
+        get { try! _default.get_AlphaMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.buffercount)
     public var bufferCount : Int32 {
-        get { try! _default.get_BufferCountImpl() }
+        get { try! _default.get_BufferCount() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.format)
     public var format : UWP.DirectXPixelFormat {
-        get { try! _default.get_FormatImpl() }
+        get { try! _default.get_Format() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.rotation)
     public var rotation : CanvasSwapChainRotation {
-        get { try! _default.get_RotationImpl() }
-        set { try! _default.put_RotationImpl(newValue) }
+        get { try! _default.get_Rotation() }
+        set { try! _default.put_Rotation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.sizeinpixels)
     public var sizeInPixels : UWP.BitmapSize {
-        get { try! _default.get_SizeInPixelsImpl() }
+        get { try! _default.get_SizeInPixels() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.sourcesize)
     public var sourceSize : WindowsFoundation.Size {
-        get { try! _default.get_SourceSizeImpl() }
-        set { try! _default.put_SourceSizeImpl(newValue) }
+        get { try! _default.get_SourceSize() }
+        set { try! _default.put_SourceSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.transformmatrix)
     public var transformMatrix : WindowsFoundation.Matrix3x2 {
-        get { try! _default.get_TransformMatrixImpl() }
-        set { try! _default.put_TransformMatrixImpl(newValue) }
+        get { try! _default.get_TransformMatrix() }
+        set { try! _default.put_TransformMatrix(newValue) }
     }
 
     deinit {
@@ -1992,12 +2018,6 @@ public final class CanvasVirtualBitmap : WinRTClass, WindowsFoundation.IClosable
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmap>?) -> CanvasVirtualBitmap? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2005,93 +2025,93 @@ public final class CanvasVirtualBitmap : WinRTClass, WindowsFoundation.IClosable
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasVirtualBitmapStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasVirtualBitmapStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.CanvasVirtualBitmap"))
+    private static let _ICanvasVirtualBitmapStatics: __ABI_Microsoft_Graphics_Canvas.ICanvasVirtualBitmapStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.CanvasVirtualBitmap")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.loadasync)
-    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String) -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
-        return try! _ICanvasVirtualBitmapStatics.LoadAsyncFromFileNameImpl(resourceCreator, fileName)
+    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
+        return try _ICanvasVirtualBitmapStatics.LoadAsyncFromFileName(resourceCreator, fileName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.loadasync)
-    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String, _ options: CanvasVirtualBitmapOptions) -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
-        return try! _ICanvasVirtualBitmapStatics.LoadAsyncFromFileNameWithOptionsImpl(resourceCreator, fileName, options)
+    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String, _ options: CanvasVirtualBitmapOptions) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
+        return try _ICanvasVirtualBitmapStatics.LoadAsyncFromFileNameWithOptions(resourceCreator, fileName, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.loadasync)
-    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String, _ options: CanvasVirtualBitmapOptions, _ alpha: CanvasAlphaMode) -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
-        return try! _ICanvasVirtualBitmapStatics.LoadAsyncFromFileNameWithOptionsAndAlphaImpl(resourceCreator, fileName, options, alpha)
+    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ fileName: String, _ options: CanvasVirtualBitmapOptions, _ alpha: CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
+        return try _ICanvasVirtualBitmapStatics.LoadAsyncFromFileNameWithOptionsAndAlpha(resourceCreator, fileName, options, alpha)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.loadasync)
-    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!) -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
-        return try! _ICanvasVirtualBitmapStatics.LoadAsyncFromUriImpl(resourceCreator, uri)
+    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
+        return try _ICanvasVirtualBitmapStatics.LoadAsyncFromUri(resourceCreator, uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.loadasync)
-    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!, _ options: CanvasVirtualBitmapOptions) -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
-        return try! _ICanvasVirtualBitmapStatics.LoadAsyncFromUriWithOptionsImpl(resourceCreator, uri, options)
+    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!, _ options: CanvasVirtualBitmapOptions) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
+        return try _ICanvasVirtualBitmapStatics.LoadAsyncFromUriWithOptions(resourceCreator, uri, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.loadasync)
-    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!, _ options: CanvasVirtualBitmapOptions, _ alpha: CanvasAlphaMode) -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
-        return try! _ICanvasVirtualBitmapStatics.LoadAsyncFromUriWithOptionsAndAlphaImpl(resourceCreator, uri, options, alpha)
+    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ uri: WindowsFoundation.Uri!, _ options: CanvasVirtualBitmapOptions, _ alpha: CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
+        return try _ICanvasVirtualBitmapStatics.LoadAsyncFromUriWithOptionsAndAlpha(resourceCreator, uri, options, alpha)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.loadasync)
-    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!) -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
-        return try! _ICanvasVirtualBitmapStatics.LoadAsyncFromStreamImpl(resourceCreator, stream)
+    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
+        return try _ICanvasVirtualBitmapStatics.LoadAsyncFromStream(resourceCreator, stream)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.loadasync)
-    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ options: CanvasVirtualBitmapOptions) -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
-        return try! _ICanvasVirtualBitmapStatics.LoadAsyncFromStreamWithOptionsImpl(resourceCreator, stream, options)
+    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ options: CanvasVirtualBitmapOptions) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
+        return try _ICanvasVirtualBitmapStatics.LoadAsyncFromStreamWithOptions(resourceCreator, stream, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.loadasync)
-    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ options: CanvasVirtualBitmapOptions, _ alpha: CanvasAlphaMode) -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
-        return try! _ICanvasVirtualBitmapStatics.LoadAsyncFromStreamWithOptionsAndAlphaImpl(resourceCreator, stream, options, alpha)
+    public static func loadAsync(_ resourceCreator: AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!, _ options: CanvasVirtualBitmapOptions, _ alpha: CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasVirtualBitmap?>! {
+        return try _ICanvasVirtualBitmapStatics.LoadAsyncFromStreamWithOptionsAndAlpha(resourceCreator, stream, options, alpha)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IGraphicsEffectSource: __ABI_Windows_Graphics_Effects.IGraphicsEffectSource! = getInterfaceForCaching()
     private lazy var _ICanvasImage: __ABI_Microsoft_Graphics_Canvas.ICanvasImage! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.getbounds)
     public func getBounds(_ resourceCreator: AnyICanvasResourceCreator!) throws -> WindowsFoundation.Rect {
-        try _ICanvasImage.GetBoundsImpl(resourceCreator)
+        try _ICanvasImage.GetBounds(resourceCreator)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.getbounds)
     public func getBounds(_ resourceCreator: AnyICanvasResourceCreator!, _ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
-        try _ICanvasImage.GetBoundsWithTransformImpl(resourceCreator, transform)
+        try _ICanvasImage.GetBoundsWithTransform(resourceCreator, transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.bounds)
     public var bounds : WindowsFoundation.Rect {
-        get { try! _default.get_BoundsImpl() }
+        get { try! _default.get_Bounds() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.device)
     public var device : CanvasDevice! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.iscachedondemand)
     public var isCachedOnDemand : Bool {
-        get { try! _default.get_IsCachedOnDemandImpl() }
+        get { try! _default.get_IsCachedOnDemand() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasvirtualbitmap.sizeinpixels)
     public var sizeInPixels : UWP.BitmapSize {
-        get { try! _default.get_SizeInPixelsImpl() }
+        get { try! _default.get_SizeInPixels() }
     }
 
     deinit {
@@ -2182,7 +2202,7 @@ extension Win2D.CanvasAlphaMode {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode_Ignore
     }
 }
-extension Win2D.CanvasAlphaMode: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasAlphaMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasAntialiasing {
     public static var antialiased : Win2D.CanvasAntialiasing {
@@ -2192,7 +2212,7 @@ extension Win2D.CanvasAntialiasing {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAntialiasing_Aliased
     }
 }
-extension Win2D.CanvasAntialiasing: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasAntialiasing: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasBitmapFileFormat {
     public static var auto : Win2D.CanvasBitmapFileFormat {
@@ -2217,7 +2237,7 @@ extension Win2D.CanvasBitmapFileFormat {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasBitmapFileFormat_JpegXR
     }
 }
-extension Win2D.CanvasBitmapFileFormat: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasBitmapFileFormat: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasBlend {
     public static var sourceOver : Win2D.CanvasBlend {
@@ -2233,7 +2253,7 @@ extension Win2D.CanvasBlend {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasBlend_Add
     }
 }
-extension Win2D.CanvasBlend: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasBlend: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasBufferPrecision {
     public static var precision8UIntNormalized : Win2D.CanvasBufferPrecision {
@@ -2252,7 +2272,7 @@ extension Win2D.CanvasBufferPrecision {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasBufferPrecision_Precision32Float
     }
 }
-extension Win2D.CanvasBufferPrecision: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasBufferPrecision: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasColorSpace {
     public static var custom : Win2D.CanvasColorSpace {
@@ -2265,7 +2285,7 @@ extension Win2D.CanvasColorSpace {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasColorSpace_ScRgb
     }
 }
-extension Win2D.CanvasColorSpace: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasColorSpace: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasComposite {
     public static var sourceOver : Win2D.CanvasComposite {
@@ -2308,7 +2328,7 @@ extension Win2D.CanvasComposite {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasComposite_MaskInvert
     }
 }
-extension Win2D.CanvasComposite: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasComposite: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasDebugLevel {
     public static var none : Win2D.CanvasDebugLevel {
@@ -2324,7 +2344,7 @@ extension Win2D.CanvasDebugLevel {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasDebugLevel_Information
     }
 }
-extension Win2D.CanvasDebugLevel: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasDebugLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasDpiRounding {
     public static var floor : Win2D.CanvasDpiRounding {
@@ -2337,7 +2357,7 @@ extension Win2D.CanvasDpiRounding {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasDpiRounding_Ceiling
     }
 }
-extension Win2D.CanvasDpiRounding: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasDpiRounding: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasEdgeBehavior {
     public static var clamp : Win2D.CanvasEdgeBehavior {
@@ -2350,7 +2370,7 @@ extension Win2D.CanvasEdgeBehavior {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasEdgeBehavior_Mirror
     }
 }
-extension Win2D.CanvasEdgeBehavior: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasEdgeBehavior: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasImageInterpolation {
     public static var nearestNeighbor : Win2D.CanvasImageInterpolation {
@@ -2372,7 +2392,7 @@ extension Win2D.CanvasImageInterpolation {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasImageInterpolation_HighQualityCubic
     }
 }
-extension Win2D.CanvasImageInterpolation: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasImageInterpolation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasLayerOptions {
     public static var none : Win2D.CanvasLayerOptions {
@@ -2385,7 +2405,7 @@ extension Win2D.CanvasLayerOptions {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasLayerOptions_IgnoreAlpha
     }
 }
-extension Win2D.CanvasLayerOptions: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasLayerOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSpriteFlip {
     public static var none : Win2D.CanvasSpriteFlip {
@@ -2401,7 +2421,7 @@ extension Win2D.CanvasSpriteFlip {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasSpriteFlip_Both
     }
 }
-extension Win2D.CanvasSpriteFlip: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSpriteFlip: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSpriteOptions {
     public static var none : Win2D.CanvasSpriteOptions {
@@ -2411,7 +2431,7 @@ extension Win2D.CanvasSpriteOptions {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasSpriteOptions_ClampToSourceRect
     }
 }
-extension Win2D.CanvasSpriteOptions: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSpriteOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSpriteSortMode {
     public static var none : Win2D.CanvasSpriteSortMode {
@@ -2421,7 +2441,7 @@ extension Win2D.CanvasSpriteSortMode {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasSpriteSortMode_Bitmap
     }
 }
-extension Win2D.CanvasSpriteSortMode: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSpriteSortMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSwapChainRotation {
     public static var none : Win2D.CanvasSwapChainRotation {
@@ -2437,7 +2457,7 @@ extension Win2D.CanvasSwapChainRotation {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasSwapChainRotation_Rotate270
     }
 }
-extension Win2D.CanvasSwapChainRotation: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSwapChainRotation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasUnits {
     public static var dips : Win2D.CanvasUnits {
@@ -2447,7 +2467,7 @@ extension Win2D.CanvasUnits {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasUnits_Pixels
     }
 }
-extension Win2D.CanvasUnits: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasUnits: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasVirtualBitmapOptions {
     public static var none : Win2D.CanvasVirtualBitmapOptions {
@@ -2460,5 +2480,5 @@ extension Win2D.CanvasVirtualBitmapOptions {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasVirtualBitmapOptions_CacheOnDemand
     }
 }
-extension Win2D.CanvasVirtualBitmapOptions: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasVirtualBitmapOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

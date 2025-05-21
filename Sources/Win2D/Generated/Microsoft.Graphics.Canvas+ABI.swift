@@ -105,6 +105,7 @@ private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmapStatic
     .init(Data1: 0xB2F1F8E9, Data2: 0x0770, Data3: 0x4DD4, Data4: ( 0x95,0x6D,0x78,0xD9,0x11,0x39,0x09,0x57 ))// B2F1F8E9-0770-4DD4-956D-78D911390957
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasActiveLayer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasActiveLayer }
@@ -114,7 +115,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasBitmap: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap }
 
-        internal func get_SizeInPixelsImpl() throws -> UWP.BitmapSize {
+        public func get_SizeInPixels() throws -> UWP.BitmapSize {
             var size: __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SizeInPixels(pThis, &size))
@@ -122,7 +123,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: size)
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Size {
+        public func get_Size() throws -> WindowsFoundation.Size {
             var size: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &size))
@@ -130,7 +131,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: size)
         }
 
-        internal func get_BoundsImpl() throws -> WindowsFoundation.Rect {
+        public func get_Bounds() throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bounds(pThis, &bounds))
@@ -138,7 +139,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: bounds)
         }
 
-        internal func get_FormatImpl() throws -> UWP.DirectXPixelFormat {
+        public func get_Format() throws -> UWP.DirectXPixelFormat {
             var value: __x_ABI_CWindows_CGraphics_CDirectX_CDirectXPixelFormat = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Format(pThis, &value))
@@ -146,7 +147,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func get_AlphaModeImpl() throws -> Win2D.CanvasAlphaMode {
+        public func get_AlphaMode() throws -> Win2D.CanvasAlphaMode {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlphaMode(pThis, &value))
@@ -154,7 +155,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func SaveToFileAsyncImpl(_ fileName: String) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SaveToFileAsync(_ fileName: String) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
                 let _fileName = try! HString(fileName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
@@ -164,7 +165,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncAction)
         }
 
-        internal func SaveToFileWithBitmapFileFormatAsyncImpl(_ fileName: String, _ fileFormat: Win2D.CanvasBitmapFileFormat) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SaveToFileWithBitmapFileFormatAsync(_ fileName: String, _ fileFormat: Win2D.CanvasBitmapFileFormat) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
                 let _fileName = try! HString(fileName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
@@ -174,7 +175,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncAction)
         }
 
-        internal func SaveToFileWithBitmapFileFormatAndQualityAsyncImpl(_ fileName: String, _ fileFormat: Win2D.CanvasBitmapFileFormat, _ quality: Float) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SaveToFileWithBitmapFileFormatAndQualityAsync(_ fileName: String, _ fileFormat: Win2D.CanvasBitmapFileFormat, _ quality: Float) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
                 let _fileName = try! HString(fileName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
@@ -184,7 +185,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncAction)
         }
 
-        internal func SaveToStreamAsyncImpl(_ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SaveToStreamAsync(_ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
                 let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
                 let _stream = try! streamWrapper?.toABI { $0 }
@@ -195,7 +196,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncAction)
         }
 
-        internal func SaveToStreamWithQualityAsyncImpl(_ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat, _ quality: Float) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SaveToStreamWithQualityAsync(_ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat, _ quality: Float) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
                 let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
                 let _stream = try! streamWrapper?.toABI { $0 }
@@ -206,7 +207,27 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncAction)
         }
 
-        internal func GetPixelBytesWithBufferImpl(_ buffer: UWP.AnyIBuffer?) throws {
+        public func GetPixelBytes() throws -> [UInt8] {
+            var valueElements: WinRTArrayAbi<UINT8> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPixelBytes(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetPixelBytesWithSubrectangle(_ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws -> [UInt8] {
+            var valueElements: WinRTArrayAbi<UINT8> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPixelBytesWithSubrectangle(pThis, left, top, width, height, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetPixelBytesWithBuffer(_ buffer: UWP.AnyIBuffer?) throws {
             let bufferWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(buffer)
             let _buffer = try! bufferWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
@@ -214,7 +235,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func GetPixelBytesWithBufferAndSubrectangleImpl(_ buffer: UWP.AnyIBuffer?, _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
+        public func GetPixelBytesWithBufferAndSubrectangle(_ buffer: UWP.AnyIBuffer?, _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
             let bufferWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(buffer)
             let _buffer = try! bufferWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
@@ -222,7 +243,43 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func SetPixelBytesWithBufferImpl(_ buffer: UWP.AnyIBuffer?) throws {
+        public func GetPixelColors() throws -> [UWP.Color] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CWindows_CUI_CColor> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPixelColors(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetPixelColorsWithSubrectangle(_ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws -> [UWP.Color] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CWindows_CUI_CColor> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPixelColorsWithSubrectangle(pThis, left, top, width, height, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func SetPixelBytes(_ valueElements: [UInt8]) throws {
+            try valueElements.toABI { _valueElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetPixelBytes(pThis, _valueElements.count, _valueElements.start))
+                }
+            }
+        }
+
+        public func SetPixelBytesWithSubrectangle(_ valueElements: [UInt8], _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
+            try valueElements.toABI { _valueElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetPixelBytesWithSubrectangle(pThis, _valueElements.count, _valueElements.start, left, top, width, height))
+                }
+            }
+        }
+
+        public func SetPixelBytesWithBuffer(_ buffer: UWP.AnyIBuffer?) throws {
             let bufferWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(buffer)
             let _buffer = try! bufferWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
@@ -230,7 +287,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func SetPixelBytesWithBufferAndSubrectangleImpl(_ buffer: UWP.AnyIBuffer?, _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
+        public func SetPixelBytesWithBufferAndSubrectangle(_ buffer: UWP.AnyIBuffer?, _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
             let bufferWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(buffer)
             let _buffer = try! bufferWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
@@ -238,19 +295,35 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func CopyPixelsFromBitmapImpl(_ otherBitmap: Win2D.CanvasBitmap?) throws {
+        public func SetPixelColors(_ valueElements: [UWP.Color]) throws {
+            try valueElements.toABI { _valueElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetPixelColors(pThis, _valueElements.count, _valueElements.start))
+                }
+            }
+        }
+
+        public func SetPixelColorsWithSubrectangle(_ valueElements: [UWP.Color], _ left: Int32, _ top: Int32, _ width: Int32, _ height: Int32) throws {
+            try valueElements.toABI { _valueElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetPixelColorsWithSubrectangle(pThis, _valueElements.count, _valueElements.start, left, top, width, height))
+                }
+            }
+        }
+
+        public func CopyPixelsFromBitmap(_ otherBitmap: Win2D.CanvasBitmap?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CopyPixelsFromBitmap(pThis, RawPointer(otherBitmap)))
             }
         }
 
-        internal func CopyPixelsFromBitmapWithDestPointImpl(_ otherBitmap: Win2D.CanvasBitmap?, _ destX: Int32, _ destY: Int32) throws {
+        public func CopyPixelsFromBitmapWithDestPoint(_ otherBitmap: Win2D.CanvasBitmap?, _ destX: Int32, _ destY: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CopyPixelsFromBitmapWithDestPoint(pThis, RawPointer(otherBitmap), destX, destY))
             }
         }
 
-        internal func CopyPixelsFromBitmapWithDestPointAndSourceRectImpl(_ otherBitmap: Win2D.CanvasBitmap?, _ destX: Int32, _ destY: Int32, _ sourceRectLeft: Int32, _ sourceRectTop: Int32, _ sourceRectWidth: Int32, _ sourceRectHeight: Int32) throws {
+        public func CopyPixelsFromBitmapWithDestPointAndSourceRect(_ otherBitmap: Win2D.CanvasBitmap?, _ destX: Int32, _ destY: Int32, _ sourceRectLeft: Int32, _ sourceRectTop: Int32, _ sourceRectWidth: Int32, _ sourceRectHeight: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CopyPixelsFromBitmapWithDestPointAndSourceRect(pThis, RawPointer(otherBitmap), destX, destY, sourceRectLeft, sourceRectTop, sourceRectWidth, sourceRectHeight))
             }
@@ -266,7 +339,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasBitmapStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmapStatics }
 
-        internal func CreateFromDirect3D11SurfaceImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?) throws -> Win2D.CanvasBitmap? {
+        public func CreateFromDirect3D11Surface(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?) throws -> Win2D.CanvasBitmap? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -276,10 +349,10 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromDirect3D11Surface(pThis, _resourceCreator, _surface, &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
         }
 
-        internal func CreateFromDirect3D11SurfaceWithDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?, _ dpi: Float) throws -> Win2D.CanvasBitmap? {
+        public func CreateFromDirect3D11SurfaceWithDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?, _ dpi: Float) throws -> Win2D.CanvasBitmap? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -289,10 +362,10 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromDirect3D11SurfaceWithDpi(pThis, _resourceCreator, _surface, dpi, &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
         }
 
-        internal func CreateFromDirect3D11SurfaceWithDpiAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> Win2D.CanvasBitmap? {
+        public func CreateFromDirect3D11SurfaceWithDpiAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> Win2D.CanvasBitmap? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -302,10 +375,49 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromDirect3D11SurfaceWithDpiAndAlpha(pThis, _resourceCreator, _surface, dpi, alpha, &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
         }
 
-        internal func CreateFromBytesWithBufferImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ buffer: UWP.AnyIBuffer?, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat) throws -> Win2D.CanvasBitmap? {
+        public func CreateFromBytes(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ bytes: [UInt8], _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat) throws -> Win2D.CanvasBitmap? {
+            let (bitmap) = try ComPtrs.initialize { bitmapAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try bytes.toABI { _bytes in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmapStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromBytes(pThis, _resourceCreator, _bytes.count, _bytes.start, widthInPixels, heightInPixels, format, &bitmapAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
+        }
+
+        public func CreateFromBytesWithDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ bytes: [UInt8], _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float) throws -> Win2D.CanvasBitmap? {
+            let (bitmap) = try ComPtrs.initialize { bitmapAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try bytes.toABI { _bytes in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmapStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromBytesWithDpi(pThis, _resourceCreator, _bytes.count, _bytes.start, widthInPixels, heightInPixels, format, dpi, &bitmapAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
+        }
+
+        public func CreateFromBytesWithDpiAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ bytes: [UInt8], _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> Win2D.CanvasBitmap? {
+            let (bitmap) = try ComPtrs.initialize { bitmapAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try bytes.toABI { _bytes in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmapStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromBytesWithDpiAndAlpha(pThis, _resourceCreator, _bytes.count, _bytes.start, widthInPixels, heightInPixels, format, dpi, alpha, &bitmapAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
+        }
+
+        public func CreateFromBytesWithBuffer(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ buffer: UWP.AnyIBuffer?, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat) throws -> Win2D.CanvasBitmap? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -315,10 +427,10 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromBytesWithBuffer(pThis, _resourceCreator, _buffer, widthInPixels, heightInPixels, format, &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
         }
 
-        internal func CreateFromBytesWithBufferAndDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ buffer: UWP.AnyIBuffer?, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float) throws -> Win2D.CanvasBitmap? {
+        public func CreateFromBytesWithBufferAndDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ buffer: UWP.AnyIBuffer?, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float) throws -> Win2D.CanvasBitmap? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -328,10 +440,10 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromBytesWithBufferAndDpi(pThis, _resourceCreator, _buffer, widthInPixels, heightInPixels, format, dpi, &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
         }
 
-        internal func CreateFromBytesWithBufferAndDpiAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ buffer: UWP.AnyIBuffer?, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> Win2D.CanvasBitmap? {
+        public func CreateFromBytesWithBufferAndDpiAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ buffer: UWP.AnyIBuffer?, _ widthInPixels: Int32, _ heightInPixels: Int32, _ format: UWP.DirectXPixelFormat, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> Win2D.CanvasBitmap? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -341,10 +453,49 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromBytesWithBufferAndDpiAndAlpha(pThis, _resourceCreator, _buffer, widthInPixels, heightInPixels, format, dpi, alpha, &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
         }
 
-        internal func CreateFromSoftwareBitmapImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ sourceBitmap: UWP.SoftwareBitmap?) throws -> Win2D.CanvasBitmap? {
+        public func CreateFromColors(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ colors: [UWP.Color], _ widthInPixels: Int32, _ heightInPixels: Int32) throws -> Win2D.CanvasBitmap? {
+            let (bitmap) = try ComPtrs.initialize { bitmapAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try colors.toABI { _colors in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmapStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromColors(pThis, _resourceCreator, _colors.count, _colors.start, widthInPixels, heightInPixels, &bitmapAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
+        }
+
+        public func CreateFromColorsWithDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ colors: [UWP.Color], _ widthInPixels: Int32, _ heightInPixels: Int32, _ dpi: Float) throws -> Win2D.CanvasBitmap? {
+            let (bitmap) = try ComPtrs.initialize { bitmapAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try colors.toABI { _colors in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmapStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromColorsWithDpi(pThis, _resourceCreator, _colors.count, _colors.start, widthInPixels, heightInPixels, dpi, &bitmapAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
+        }
+
+        public func CreateFromColorsWithDpiAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ colors: [UWP.Color], _ widthInPixels: Int32, _ heightInPixels: Int32, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> Win2D.CanvasBitmap? {
+            let (bitmap) = try ComPtrs.initialize { bitmapAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                try colors.toABI { _colors in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmapStatics.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromColorsWithDpiAndAlpha(pThis, _resourceCreator, _colors.count, _colors.start, widthInPixels, heightInPixels, dpi, alpha, &bitmapAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
+        }
+
+        public func CreateFromSoftwareBitmap(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ sourceBitmap: UWP.SoftwareBitmap?) throws -> Win2D.CanvasBitmap? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -352,10 +503,10 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromSoftwareBitmap(pThis, _resourceCreator, RawPointer(sourceBitmap), &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasBitmapBridge.from(abi: bitmap)
         }
 
-        internal func LoadAsyncFromHstringImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
+        public func LoadAsyncFromHstring(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
             let (canvasBitmap) = try ComPtrs.initialize { canvasBitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -367,7 +518,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBitmapWrapper.unwrapFrom(abi: canvasBitmap)
         }
 
-        internal func LoadAsyncFromHstringWithDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String, _ dpi: Float) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
+        public func LoadAsyncFromHstringWithDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String, _ dpi: Float) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
             let (canvasBitmap) = try ComPtrs.initialize { canvasBitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -379,7 +530,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBitmapWrapper.unwrapFrom(abi: canvasBitmap)
         }
 
-        internal func LoadAsyncFromHstringWithDpiAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
+        public func LoadAsyncFromHstringWithDpiAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
             let (canvasBitmap) = try ComPtrs.initialize { canvasBitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -391,7 +542,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBitmapWrapper.unwrapFrom(abi: canvasBitmap)
         }
 
-        internal func LoadAsyncFromUriImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
+        public func LoadAsyncFromUri(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
             let (canvasBitmap) = try ComPtrs.initialize { canvasBitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -402,7 +553,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBitmapWrapper.unwrapFrom(abi: canvasBitmap)
         }
 
-        internal func LoadAsyncFromUriWithDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?, _ dpi: Float) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
+        public func LoadAsyncFromUriWithDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?, _ dpi: Float) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
             let (canvasBitmap) = try ComPtrs.initialize { canvasBitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -413,7 +564,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBitmapWrapper.unwrapFrom(abi: canvasBitmap)
         }
 
-        internal func LoadAsyncFromUriWithDpiAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
+        public func LoadAsyncFromUriWithDpiAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
             let (canvasBitmap) = try ComPtrs.initialize { canvasBitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -424,7 +575,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBitmapWrapper.unwrapFrom(abi: canvasBitmap)
         }
 
-        internal func LoadAsyncFromStreamImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
+        public func LoadAsyncFromStream(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
             let (canvasBitmap) = try ComPtrs.initialize { canvasBitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -437,7 +588,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBitmapWrapper.unwrapFrom(abi: canvasBitmap)
         }
 
-        internal func LoadAsyncFromStreamWithDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ dpi: Float) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
+        public func LoadAsyncFromStreamWithDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ dpi: Float) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
             let (canvasBitmap) = try ComPtrs.initialize { canvasBitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -450,7 +601,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBitmapWrapper.unwrapFrom(abi: canvasBitmap)
         }
 
-        internal func LoadAsyncFromStreamWithDpiAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
+        public func LoadAsyncFromStreamWithDpiAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasBitmap?>? {
             let (canvasBitmap) = try ComPtrs.initialize { canvasBitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -468,22 +619,22 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasCommandList: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasCommandList }
 
-        internal func CreateDrawingSessionImpl() throws -> Win2D.CanvasDrawingSession? {
+        public func CreateDrawingSession() throws -> Win2D.CanvasDrawingSession? {
             let (drawingSession) = try ComPtrs.initialize { drawingSessionAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasCommandList.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDrawingSession(pThis, &drawingSessionAbi))
                 }
             }
-            return .from(abi: drawingSession)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDrawingSessionBridge.from(abi: drawingSession)
         }
 
-        internal func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasCommandList.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
     }
@@ -491,7 +642,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasCommandListFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasCommandListFactory }
 
-        internal func CreateImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> ICanvasCommandList {
+        public func Create(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> ICanvasCommandList {
             let (commandList) = try ComPtrs.initialize { commandListAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -507,7 +658,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasDevice: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice }
 
-        internal func get_ForceSoftwareRendererImpl() throws -> Bool {
+        public func get_ForceSoftwareRenderer() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForceSoftwareRenderer(pThis, &value))
@@ -515,7 +666,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .init(from: value)
         }
 
-        internal func get_MaximumBitmapSizeInPixelsImpl() throws -> Int32 {
+        public func get_MaximumBitmapSizeInPixels() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaximumBitmapSizeInPixels(pThis, &value))
@@ -523,7 +674,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func IsPixelFormatSupportedImpl(_ pixelFormat: UWP.DirectXPixelFormat) throws -> Bool {
+        public func IsPixelFormatSupported(_ pixelFormat: UWP.DirectXPixelFormat) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsPixelFormatSupported(pThis, pixelFormat, &value))
@@ -531,7 +682,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .init(from: value)
         }
 
-        internal func IsBufferPrecisionSupportedImpl(_ bufferPrecision: Win2D.CanvasBufferPrecision) throws -> Bool {
+        public func IsBufferPrecisionSupported(_ bufferPrecision: Win2D.CanvasBufferPrecision) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsBufferPrecisionSupported(pThis, bufferPrecision, &value))
@@ -539,7 +690,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .init(from: value)
         }
 
-        internal func get_MaximumCacheSizeImpl() throws -> UInt64 {
+        public func get_MaximumCacheSize() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaximumCacheSize(pThis, &value))
@@ -547,13 +698,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func put_MaximumCacheSizeImpl(_ value: UInt64) throws {
+        public func put_MaximumCacheSize(_ value: UInt64) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaximumCacheSize(pThis, value))
             }
         }
 
-        internal func get_LowPriorityImpl() throws -> Bool {
+        public func get_LowPriority() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LowPriority(pThis, &value))
@@ -561,13 +712,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .init(from: value)
         }
 
-        internal func put_LowPriorityImpl(_ value: Bool) throws {
+        public func put_LowPriority(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LowPriority(pThis, .init(from: value)))
             }
         }
 
-        internal func add_DeviceLostImpl(_ value: TypedEventHandler<Win2D.CanvasDevice?, Any?>?) throws -> EventRegistrationToken {
+        public func add_DeviceLost(_ value: TypedEventHandler<Win2D.CanvasDevice?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasDevice_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -577,13 +728,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return token
         }
 
-        internal func remove_DeviceLostImpl(_ token: EventRegistrationToken) throws {
+        public func remove_DeviceLost(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DeviceLost(pThis, token))
             }
         }
 
-        internal func IsDeviceLostImpl(_ hresult: Int32) throws -> Bool {
+        public func IsDeviceLost(_ hresult: Int32) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsDeviceLost(pThis, hresult, &value))
@@ -591,22 +742,22 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .init(from: value)
         }
 
-        internal func RaiseDeviceLostImpl() throws {
+        public func RaiseDeviceLost() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseDeviceLost(pThis))
             }
         }
 
-        internal func LockImpl() throws -> Win2D.CanvasLock? {
+        public func Lock() throws -> Win2D.CanvasLock? {
             let (lock) = try ComPtrs.initialize { lockAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Lock(pThis, &lockAbi))
                 }
             }
-            return .from(abi: lock)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasLockBridge.from(abi: lock)
         }
 
-        internal func IsDeviceLost2Impl() throws -> Bool {
+        public func IsDeviceLost2() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsDeviceLost2(pThis, &value))
@@ -614,7 +765,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .init(from: value)
         }
 
-        internal func GetDeviceLostReasonImpl() throws -> Int32 {
+        public func GetDeviceLostReason() throws -> Int32 {
             var hresult: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeviceLostReason(pThis, &hresult))
@@ -627,7 +778,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasDeviceFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDeviceFactory }
 
-        internal func CreateWithForceSoftwareRendererOptionImpl(_ forceSoftwareRenderer: Bool) throws -> ICanvasDevice {
+        public func CreateWithForceSoftwareRendererOption(_ forceSoftwareRenderer: Bool) throws -> ICanvasDevice {
             let (canvasDevice) = try ComPtrs.initialize { canvasDeviceAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDeviceFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithForceSoftwareRendererOption(pThis, .init(from: forceSoftwareRenderer), &canvasDeviceAbi))
@@ -641,7 +792,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasDeviceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDeviceStatics }
 
-        internal func CreateFromDirect3D11DeviceImpl(_ direct3DDevice: UWP.AnyIDirect3DDevice?) throws -> Win2D.CanvasDevice? {
+        public func CreateFromDirect3D11Device(_ direct3DDevice: UWP.AnyIDirect3DDevice?) throws -> Win2D.CanvasDevice? {
             let (canvasDevice) = try ComPtrs.initialize { canvasDeviceAbi in
                 let direct3DDeviceWrapper = __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DDeviceWrapper(direct3DDevice)
                 let _direct3DDevice = try! direct3DDeviceWrapper?.toABI { $0 }
@@ -649,34 +800,34 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromDirect3D11Device(pThis, _direct3DDevice, &canvasDeviceAbi))
                 }
             }
-            return .from(abi: canvasDevice)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: canvasDevice)
         }
 
-        internal func GetSharedDeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func GetSharedDevice() throws -> Win2D.CanvasDevice? {
             let (canvasDevice) = try ComPtrs.initialize { canvasDeviceAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDeviceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSharedDevice(pThis, &canvasDeviceAbi))
                 }
             }
-            return .from(abi: canvasDevice)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: canvasDevice)
         }
 
-        internal func GetSharedDeviceWithForceSoftwareRendererImpl(_ forceSoftwareRenderer: Bool) throws -> Win2D.CanvasDevice? {
+        public func GetSharedDeviceWithForceSoftwareRenderer(_ forceSoftwareRenderer: Bool) throws -> Win2D.CanvasDevice? {
             let (canvasDevice) = try ComPtrs.initialize { canvasDeviceAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDeviceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSharedDeviceWithForceSoftwareRenderer(pThis, .init(from: forceSoftwareRenderer), &canvasDeviceAbi))
                 }
             }
-            return .from(abi: canvasDevice)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: canvasDevice)
         }
 
-        internal func put_DebugLevelImpl(_ value: Win2D.CanvasDebugLevel) throws {
+        public func put_DebugLevel(_ value: Win2D.CanvasDebugLevel) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDeviceStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DebugLevel(pThis, value))
             }
         }
 
-        internal func get_DebugLevelImpl() throws -> Win2D.CanvasDebugLevel {
+        public func get_DebugLevel() throws -> Win2D.CanvasDebugLevel {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasDebugLevel = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDeviceStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DebugLevel(pThis, &value))
@@ -689,25 +840,25 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasDrawingSession: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession }
 
-        internal func ClearImpl(_ color: UWP.Color) throws {
+        public func Clear(_ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis, .from(swift: color)))
             }
         }
 
-        internal func ClearHdrImpl(_ color: WindowsFoundation.Vector4) throws {
+        public func ClearHdr(_ color: WindowsFoundation.Vector4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ClearHdr(pThis, .from(swift: color)))
             }
         }
 
-        internal func FlushImpl() throws {
+        public func Flush() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Flush(pThis))
             }
         }
 
-        internal func DrawImageAtOriginImpl(_ image: Win2D.AnyICanvasImage?) throws {
+        public func DrawImageAtOrigin(_ image: Win2D.AnyICanvasImage?) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -715,7 +866,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtOffsetImpl(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2) throws {
+        public func DrawImageAtOffset(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -723,7 +874,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtCoordsImpl(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float) throws {
+        public func DrawImageAtCoords(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -731,13 +882,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageToRectImpl(_ bitmap: Win2D.CanvasBitmap?, _ destinationRectangle: WindowsFoundation.Rect) throws {
+        public func DrawImageToRect(_ bitmap: Win2D.CanvasBitmap?, _ destinationRectangle: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawImageToRect(pThis, RawPointer(bitmap), .from(swift: destinationRectangle)))
             }
         }
 
-        internal func DrawImageAtOffsetWithSourceRectImpl(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect) throws {
+        public func DrawImageAtOffsetWithSourceRect(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -745,7 +896,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtCoordsWithSourceRectImpl(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect) throws {
+        public func DrawImageAtCoordsWithSourceRect(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -753,7 +904,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageToRectWithSourceRectImpl(_ image: Win2D.AnyICanvasImage?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect) throws {
+        public func DrawImageToRectWithSourceRect(_ image: Win2D.AnyICanvasImage?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -761,7 +912,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtOffsetWithSourceRectAndOpacityImpl(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float) throws {
+        public func DrawImageAtOffsetWithSourceRectAndOpacity(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -769,7 +920,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtCoordsWithSourceRectAndOpacityImpl(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float) throws {
+        public func DrawImageAtCoordsWithSourceRectAndOpacity(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -777,7 +928,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageToRectWithSourceRectAndOpacityImpl(_ image: Win2D.AnyICanvasImage?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float) throws {
+        public func DrawImageToRectWithSourceRectAndOpacity(_ image: Win2D.AnyICanvasImage?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -785,7 +936,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationImpl(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation) throws {
+        public func DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolation(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -793,7 +944,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationImpl(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation) throws {
+        public func DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolation(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -801,7 +952,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageToRectWithSourceRectAndOpacityAndInterpolationImpl(_ image: Win2D.AnyICanvasImage?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation) throws {
+        public func DrawImageToRectWithSourceRectAndOpacityAndInterpolation(_ image: Win2D.AnyICanvasImage?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -809,7 +960,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationAndCompositeImpl(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ composite: Win2D.CanvasComposite) throws {
+        public func DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationAndComposite(_ image: Win2D.AnyICanvasImage?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ composite: Win2D.CanvasComposite) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -817,7 +968,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationAndCompositeImpl(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ composite: Win2D.CanvasComposite) throws {
+        public func DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationAndComposite(_ image: Win2D.AnyICanvasImage?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ composite: Win2D.CanvasComposite) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -825,7 +976,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageToRectWithSourceRectAndOpacityAndInterpolationAndCompositeImpl(_ image: Win2D.AnyICanvasImage?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ composite: Win2D.CanvasComposite) throws {
+        public func DrawImageToRectWithSourceRectAndOpacityAndInterpolationAndComposite(_ image: Win2D.AnyICanvasImage?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ composite: Win2D.CanvasComposite) throws {
             let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
             let _image = try! imageWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -833,25 +984,25 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationAndPerspectiveImpl(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ perspective: WindowsFoundation.Matrix4x4) throws {
+        public func DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationAndPerspective(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ perspective: WindowsFoundation.Matrix4x4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawImageAtOffsetWithSourceRectAndOpacityAndInterpolationAndPerspective(pThis, RawPointer(bitmap), .from(swift: offset), .from(swift: sourceRectangle), opacity, interpolation, .from(swift: perspective)))
             }
         }
 
-        internal func DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationAndPerspectiveImpl(_ bitmap: Win2D.CanvasBitmap?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ perspective: WindowsFoundation.Matrix4x4) throws {
+        public func DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationAndPerspective(_ bitmap: Win2D.CanvasBitmap?, _ x: Float, _ y: Float, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ perspective: WindowsFoundation.Matrix4x4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawImageAtCoordsWithSourceRectAndOpacityAndInterpolationAndPerspective(pThis, RawPointer(bitmap), x, y, .from(swift: sourceRectangle), opacity, interpolation, .from(swift: perspective)))
             }
         }
 
-        internal func DrawImageToRectWithSourceRectAndOpacityAndInterpolationAndPerspectiveImpl(_ bitmap: Win2D.CanvasBitmap?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ perspective: WindowsFoundation.Matrix4x4) throws {
+        public func DrawImageToRectWithSourceRectAndOpacityAndInterpolationAndPerspective(_ bitmap: Win2D.CanvasBitmap?, _ destinationRectangle: WindowsFoundation.Rect, _ sourceRectangle: WindowsFoundation.Rect, _ opacity: Float, _ interpolation: Win2D.CanvasImageInterpolation, _ perspective: WindowsFoundation.Matrix4x4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawImageToRectWithSourceRectAndOpacityAndInterpolationAndPerspective(pThis, RawPointer(bitmap), .from(swift: destinationRectangle), .from(swift: sourceRectangle), opacity, interpolation, .from(swift: perspective)))
             }
         }
 
-        internal func DrawLineWithBrushImpl(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawLineWithBrush(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -859,7 +1010,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawLineAtCoordsWithBrushImpl(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawLineAtCoordsWithBrush(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -867,19 +1018,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawLineWithColorImpl(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
+        public func DrawLineWithColor(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawLineWithColor(pThis, .from(swift: point0), .from(swift: point1), .from(swift: color)))
             }
         }
 
-        internal func DrawLineAtCoordsWithColorImpl(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ color: UWP.Color) throws {
+        public func DrawLineAtCoordsWithColor(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawLineAtCoordsWithColor(pThis, x0, y0, x1, y1, .from(swift: color)))
             }
         }
 
-        internal func DrawLineWithBrushAndStrokeWidthImpl(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawLineWithBrushAndStrokeWidth(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -887,7 +1038,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawLineAtCoordsWithBrushAndStrokeWidthImpl(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawLineAtCoordsWithBrushAndStrokeWidth(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -895,19 +1046,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawLineWithColorAndStrokeWidthImpl(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawLineWithColorAndStrokeWidth(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawLineWithColorAndStrokeWidth(pThis, .from(swift: point0), .from(swift: point1), .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawLineAtCoordsWithColorAndStrokeWidthImpl(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawLineAtCoordsWithColorAndStrokeWidth(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawLineAtCoordsWithColorAndStrokeWidth(pThis, x0, y0, x1, y1, .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawLineWithBrushAndStrokeWidthAndStrokeStyleImpl(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawLineWithBrushAndStrokeWidthAndStrokeStyle(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -915,7 +1066,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawLineAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawLineAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -923,19 +1074,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawLineWithColorAndStrokeWidthAndStrokeStyleImpl(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawLineWithColorAndStrokeWidthAndStrokeStyle(_ point0: WindowsFoundation.Vector2, _ point1: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawLineWithColorAndStrokeWidthAndStrokeStyle(pThis, .from(swift: point0), .from(swift: point1), .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func DrawLineAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawLineAtCoordsWithColorAndStrokeWidthAndStrokeStyle(_ x0: Float, _ y0: Float, _ x1: Float, _ y1: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawLineAtCoordsWithColorAndStrokeWidthAndStrokeStyle(pThis, x0, y0, x1, y1, .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func DrawRectangleWithBrushImpl(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawRectangleWithBrush(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -943,7 +1094,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRectangleAtCoordsWithBrushImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawRectangleAtCoordsWithBrush(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -951,19 +1102,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRectangleWithColorImpl(_ rect: WindowsFoundation.Rect, _ color: UWP.Color) throws {
+        public func DrawRectangleWithColor(_ rect: WindowsFoundation.Rect, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRectangleWithColor(pThis, .from(swift: rect), .from(swift: color)))
             }
         }
 
-        internal func DrawRectangleAtCoordsWithColorImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color) throws {
+        public func DrawRectangleAtCoordsWithColor(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRectangleAtCoordsWithColor(pThis, x, y, w, h, .from(swift: color)))
             }
         }
 
-        internal func DrawRectangleWithBrushAndStrokeWidthImpl(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawRectangleWithBrushAndStrokeWidth(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -971,7 +1122,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRectangleAtCoordsWithBrushAndStrokeWidthImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawRectangleAtCoordsWithBrushAndStrokeWidth(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -979,19 +1130,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRectangleWithColorAndStrokeWidthImpl(_ rect: WindowsFoundation.Rect, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawRectangleWithColorAndStrokeWidth(_ rect: WindowsFoundation.Rect, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRectangleWithColorAndStrokeWidth(pThis, .from(swift: rect), .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawRectangleAtCoordsWithColorAndStrokeWidthImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawRectangleAtCoordsWithColorAndStrokeWidth(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRectangleAtCoordsWithColorAndStrokeWidth(pThis, x, y, w, h, .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawRectangleWithBrushAndStrokeWidthAndStrokeStyleImpl(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawRectangleWithBrushAndStrokeWidthAndStrokeStyle(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -999,7 +1150,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRectangleAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawRectangleAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1007,19 +1158,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRectangleWithColorAndStrokeWidthAndStrokeStyleImpl(_ rect: WindowsFoundation.Rect, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawRectangleWithColorAndStrokeWidthAndStrokeStyle(_ rect: WindowsFoundation.Rect, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRectangleWithColorAndStrokeWidthAndStrokeStyle(pThis, .from(swift: rect), .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func DrawRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyle(pThis, x, y, w, h, .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func FillRectangleWithBrushImpl(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillRectangleWithBrush(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1027,7 +1178,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillRectangleAtCoordsWithBrushImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillRectangleAtCoordsWithBrush(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1035,19 +1186,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillRectangleWithColorImpl(_ rect: WindowsFoundation.Rect, _ color: UWP.Color) throws {
+        public func FillRectangleWithColor(_ rect: WindowsFoundation.Rect, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillRectangleWithColor(pThis, .from(swift: rect), .from(swift: color)))
             }
         }
 
-        internal func FillRectangleAtCoordsWithColorImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color) throws {
+        public func FillRectangleAtCoordsWithColor(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillRectangleAtCoordsWithColor(pThis, x, y, w, h, .from(swift: color)))
             }
         }
 
-        internal func FillRectangleWithBrushAndOpacityBrushImpl(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
+        public func FillRectangleWithBrushAndOpacityBrush(_ rect: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
@@ -1057,7 +1208,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillRectangleAtCoordsWithBrushAndOpacityBrushImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
+        public func FillRectangleAtCoordsWithBrushAndOpacityBrush(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
@@ -1067,7 +1218,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRoundedRectangleWithBrushImpl(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawRoundedRectangleWithBrush(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1075,7 +1226,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRoundedRectangleAtCoordsWithBrushImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawRoundedRectangleAtCoordsWithBrush(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1083,19 +1234,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRoundedRectangleWithColorImpl(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
+        public func DrawRoundedRectangleWithColor(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRoundedRectangleWithColor(pThis, .from(swift: rect), radiusX, radiusY, .from(swift: color)))
             }
         }
 
-        internal func DrawRoundedRectangleAtCoordsWithColorImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
+        public func DrawRoundedRectangleAtCoordsWithColor(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRoundedRectangleAtCoordsWithColor(pThis, x, y, w, h, radiusX, radiusY, .from(swift: color)))
             }
         }
 
-        internal func DrawRoundedRectangleWithBrushAndStrokeWidthImpl(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawRoundedRectangleWithBrushAndStrokeWidth(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1103,7 +1254,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRoundedRectangleAtCoordsWithBrushAndStrokeWidthImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawRoundedRectangleAtCoordsWithBrushAndStrokeWidth(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1111,19 +1262,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRoundedRectangleWithColorAndStrokeWidthImpl(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawRoundedRectangleWithColorAndStrokeWidth(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRoundedRectangleWithColorAndStrokeWidth(pThis, .from(swift: rect), radiusX, radiusY, .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawRoundedRectangleAtCoordsWithColorAndStrokeWidthImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawRoundedRectangleAtCoordsWithColorAndStrokeWidth(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRoundedRectangleAtCoordsWithColorAndStrokeWidth(pThis, x, y, w, h, radiusX, radiusY, .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawRoundedRectangleWithBrushAndStrokeWidthAndStrokeStyleImpl(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawRoundedRectangleWithBrushAndStrokeWidthAndStrokeStyle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1131,7 +1282,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRoundedRectangleAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawRoundedRectangleAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1139,19 +1290,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawRoundedRectangleWithColorAndStrokeWidthAndStrokeStyleImpl(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawRoundedRectangleWithColorAndStrokeWidthAndStrokeStyle(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRoundedRectangleWithColorAndStrokeWidthAndStrokeStyle(pThis, .from(swift: rect), radiusX, radiusY, .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func DrawRoundedRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawRoundedRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyle(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawRoundedRectangleAtCoordsWithColorAndStrokeWidthAndStrokeStyle(pThis, x, y, w, h, radiusX, radiusY, .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func FillRoundedRectangleWithBrushImpl(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillRoundedRectangleWithBrush(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1159,7 +1310,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillRoundedRectangleAtCoordsWithBrushImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillRoundedRectangleAtCoordsWithBrush(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1167,19 +1318,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillRoundedRectangleWithColorImpl(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
+        public func FillRoundedRectangleWithColor(_ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillRoundedRectangleWithColor(pThis, .from(swift: rect), radiusX, radiusY, .from(swift: color)))
             }
         }
 
-        internal func FillRoundedRectangleAtCoordsWithColorImpl(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
+        public func FillRoundedRectangleAtCoordsWithColor(_ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillRoundedRectangleAtCoordsWithColor(pThis, x, y, w, h, radiusX, radiusY, .from(swift: color)))
             }
         }
 
-        internal func DrawEllipseWithBrushImpl(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawEllipseWithBrush(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1187,7 +1338,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawEllipseAtCoordsWithBrushImpl(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawEllipseAtCoordsWithBrush(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1195,19 +1346,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawEllipseWithColorImpl(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
+        public func DrawEllipseWithColor(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawEllipseWithColor(pThis, .from(swift: centerPoint), radiusX, radiusY, .from(swift: color)))
             }
         }
 
-        internal func DrawEllipseAtCoordsWithColorImpl(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
+        public func DrawEllipseAtCoordsWithColor(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawEllipseAtCoordsWithColor(pThis, x, y, radiusX, radiusY, .from(swift: color)))
             }
         }
 
-        internal func DrawEllipseWithBrushAndStrokeWidthImpl(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawEllipseWithBrushAndStrokeWidth(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1215,7 +1366,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawEllipseAtCoordsWithBrushAndStrokeWidthImpl(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawEllipseAtCoordsWithBrushAndStrokeWidth(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1223,19 +1374,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawEllipseWithColorAndStrokeWidthImpl(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawEllipseWithColorAndStrokeWidth(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawEllipseWithColorAndStrokeWidth(pThis, .from(swift: centerPoint), radiusX, radiusY, .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawEllipseAtCoordsWithColorAndStrokeWidthImpl(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawEllipseAtCoordsWithColorAndStrokeWidth(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawEllipseAtCoordsWithColorAndStrokeWidth(pThis, x, y, radiusX, radiusY, .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawEllipseWithBrushAndStrokeWidthAndStrokeStyleImpl(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawEllipseWithBrushAndStrokeWidthAndStrokeStyle(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1243,7 +1394,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawEllipseAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawEllipseAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1251,19 +1402,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawEllipseWithColorAndStrokeWidthAndStrokeStyleImpl(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawEllipseWithColorAndStrokeWidthAndStrokeStyle(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawEllipseWithColorAndStrokeWidthAndStrokeStyle(pThis, .from(swift: centerPoint), radiusX, radiusY, .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func DrawEllipseAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawEllipseAtCoordsWithColorAndStrokeWidthAndStrokeStyle(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawEllipseAtCoordsWithColorAndStrokeWidthAndStrokeStyle(pThis, x, y, radiusX, radiusY, .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func FillEllipseWithBrushImpl(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillEllipseWithBrush(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1271,7 +1422,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillEllipseAtCoordsWithBrushImpl(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillEllipseAtCoordsWithBrush(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1279,19 +1430,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillEllipseWithColorImpl(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
+        public func FillEllipseWithColor(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillEllipseWithColor(pThis, .from(swift: centerPoint), radiusX, radiusY, .from(swift: color)))
             }
         }
 
-        internal func FillEllipseAtCoordsWithColorImpl(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
+        public func FillEllipseAtCoordsWithColor(_ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillEllipseAtCoordsWithColor(pThis, x, y, radiusX, radiusY, .from(swift: color)))
             }
         }
 
-        internal func DrawCircleWithBrushImpl(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawCircleWithBrush(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1299,7 +1450,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawCircleAtCoordsWithBrushImpl(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawCircleAtCoordsWithBrush(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1307,19 +1458,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawCircleWithColorImpl(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color) throws {
+        public func DrawCircleWithColor(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawCircleWithColor(pThis, .from(swift: centerPoint), radius, .from(swift: color)))
             }
         }
 
-        internal func DrawCircleAtCoordsWithColorImpl(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color) throws {
+        public func DrawCircleAtCoordsWithColor(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawCircleAtCoordsWithColor(pThis, x, y, radius, .from(swift: color)))
             }
         }
 
-        internal func DrawCircleWithBrushAndStrokeWidthImpl(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawCircleWithBrushAndStrokeWidth(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1327,7 +1478,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawCircleAtCoordsWithBrushAndStrokeWidthImpl(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawCircleAtCoordsWithBrushAndStrokeWidth(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1335,19 +1486,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawCircleWithColorAndStrokeWidthImpl(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawCircleWithColorAndStrokeWidth(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawCircleWithColorAndStrokeWidth(pThis, .from(swift: centerPoint), radius, .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawCircleAtCoordsWithColorAndStrokeWidthImpl(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawCircleAtCoordsWithColorAndStrokeWidth(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawCircleAtCoordsWithColorAndStrokeWidth(pThis, x, y, radius, .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawCircleWithBrushAndStrokeWidthAndStrokeStyleImpl(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawCircleWithBrushAndStrokeWidthAndStrokeStyle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1355,7 +1506,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawCircleAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawCircleAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1363,19 +1514,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawCircleWithColorAndStrokeWidthAndStrokeStyleImpl(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawCircleWithColorAndStrokeWidthAndStrokeStyle(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawCircleWithColorAndStrokeWidthAndStrokeStyle(pThis, .from(swift: centerPoint), radius, .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func DrawCircleAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawCircleAtCoordsWithColorAndStrokeWidthAndStrokeStyle(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawCircleAtCoordsWithColorAndStrokeWidthAndStrokeStyle(pThis, x, y, radius, .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func FillCircleWithBrushImpl(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillCircleWithBrush(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1383,7 +1534,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillCircleAtCoordsWithBrushImpl(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillCircleAtCoordsWithBrush(_ x: Float, _ y: Float, _ radius: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1391,33 +1542,33 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillCircleWithColorImpl(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color) throws {
+        public func FillCircleWithColor(_ centerPoint: WindowsFoundation.Vector2, _ radius: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillCircleWithColor(pThis, .from(swift: centerPoint), radius, .from(swift: color)))
             }
         }
 
-        internal func FillCircleAtCoordsWithColorImpl(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color) throws {
+        public func FillCircleAtCoordsWithColor(_ x: Float, _ y: Float, _ radius: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillCircleAtCoordsWithColor(pThis, x, y, radius, .from(swift: color)))
             }
         }
 
-        internal func DrawTextAtPointWithColorImpl(_ text: String, _ point: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
+        public func DrawTextAtPointWithColor(_ text: String, _ point: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
             let _text = try! HString(text)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawTextAtPointWithColor(pThis, _text.get(), .from(swift: point), .from(swift: color)))
             }
         }
 
-        internal func DrawTextAtPointCoordsWithColorImpl(_ text: String, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
+        public func DrawTextAtPointCoordsWithColor(_ text: String, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
             let _text = try! HString(text)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawTextAtPointCoordsWithColor(pThis, _text.get(), x, y, .from(swift: color)))
             }
         }
 
-        internal func DrawTextAtPointWithBrushAndFormatImpl(_ text: String, _ point: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ format: Win2D.CanvasTextFormat?) throws {
+        public func DrawTextAtPointWithBrushAndFormat(_ text: String, _ point: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ format: Win2D.CanvasTextFormat?) throws {
             let _text = try! HString(text)
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
@@ -1426,7 +1577,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawTextAtRectWithBrushAndFormatImpl(_ text: String, _ rectangle: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?, _ format: Win2D.CanvasTextFormat?) throws {
+        public func DrawTextAtRectWithBrushAndFormat(_ text: String, _ rectangle: WindowsFoundation.Rect, _ brush: Win2D.AnyICanvasBrush?, _ format: Win2D.CanvasTextFormat?) throws {
             let _text = try! HString(text)
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
@@ -1435,7 +1586,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawTextAtPointCoordsWithBrushAndFormatImpl(_ text: String, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?, _ format: Win2D.CanvasTextFormat?) throws {
+        public func DrawTextAtPointCoordsWithBrushAndFormat(_ text: String, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?, _ format: Win2D.CanvasTextFormat?) throws {
             let _text = try! HString(text)
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
@@ -1444,7 +1595,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawTextAtRectCoordsWithBrushAndFormatImpl(_ text: String, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?, _ format: Win2D.CanvasTextFormat?) throws {
+        public func DrawTextAtRectCoordsWithBrushAndFormat(_ text: String, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ brush: Win2D.AnyICanvasBrush?, _ format: Win2D.CanvasTextFormat?) throws {
             let _text = try! HString(text)
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
@@ -1453,35 +1604,35 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawTextAtPointWithColorAndFormatImpl(_ text: String, _ point: WindowsFoundation.Vector2, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat?) throws {
+        public func DrawTextAtPointWithColorAndFormat(_ text: String, _ point: WindowsFoundation.Vector2, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat?) throws {
             let _text = try! HString(text)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawTextAtPointWithColorAndFormat(pThis, _text.get(), .from(swift: point), .from(swift: color), RawPointer(format)))
             }
         }
 
-        internal func DrawTextAtRectWithColorAndFormatImpl(_ text: String, _ rectangle: WindowsFoundation.Rect, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat?) throws {
+        public func DrawTextAtRectWithColorAndFormat(_ text: String, _ rectangle: WindowsFoundation.Rect, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat?) throws {
             let _text = try! HString(text)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawTextAtRectWithColorAndFormat(pThis, _text.get(), .from(swift: rectangle), .from(swift: color), RawPointer(format)))
             }
         }
 
-        internal func DrawTextAtPointCoordsWithColorAndFormatImpl(_ text: String, _ x: Float, _ y: Float, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat?) throws {
+        public func DrawTextAtPointCoordsWithColorAndFormat(_ text: String, _ x: Float, _ y: Float, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat?) throws {
             let _text = try! HString(text)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawTextAtPointCoordsWithColorAndFormat(pThis, _text.get(), x, y, .from(swift: color), RawPointer(format)))
             }
         }
 
-        internal func DrawTextAtRectCoordsWithColorAndFormatImpl(_ text: String, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat?) throws {
+        public func DrawTextAtRectCoordsWithColorAndFormat(_ text: String, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ color: UWP.Color, _ format: Win2D.CanvasTextFormat?) throws {
             let _text = try! HString(text)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawTextAtRectCoordsWithColorAndFormat(pThis, _text.get(), x, y, w, h, .from(swift: color), RawPointer(format)))
             }
         }
 
-        internal func DrawGeometryWithBrushImpl(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawGeometryWithBrush(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1489,13 +1640,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawGeometryWithColorImpl(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
+        public func DrawGeometryWithColor(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGeometryWithColor(pThis, RawPointer(geometry), .from(swift: offset), .from(swift: color)))
             }
         }
 
-        internal func DrawGeometryAtCoordsWithBrushImpl(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawGeometryAtCoordsWithBrush(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1503,13 +1654,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawGeometryAtCoordsWithColorImpl(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
+        public func DrawGeometryAtCoordsWithColor(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGeometryAtCoordsWithColor(pThis, RawPointer(geometry), x, y, .from(swift: color)))
             }
         }
 
-        internal func DrawGeometryAtOriginWithBrushImpl(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawGeometryAtOriginWithBrush(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1517,13 +1668,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawGeometryAtOriginWithColorImpl(_ geometry: Win2D.CanvasGeometry?, _ color: UWP.Color) throws {
+        public func DrawGeometryAtOriginWithColor(_ geometry: Win2D.CanvasGeometry?, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGeometryAtOriginWithColor(pThis, RawPointer(geometry), .from(swift: color)))
             }
         }
 
-        internal func DrawGeometryWithBrushAndStrokeWidthImpl(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawGeometryWithBrushAndStrokeWidth(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1531,13 +1682,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawGeometryWithColorAndStrokeWidthImpl(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawGeometryWithColorAndStrokeWidth(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGeometryWithColorAndStrokeWidth(pThis, RawPointer(geometry), .from(swift: offset), .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawGeometryAtCoordsWithBrushAndStrokeWidthImpl(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawGeometryAtCoordsWithBrushAndStrokeWidth(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1545,13 +1696,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawGeometryAtCoordsWithColorAndStrokeWidthImpl(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawGeometryAtCoordsWithColorAndStrokeWidth(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGeometryAtCoordsWithColorAndStrokeWidth(pThis, RawPointer(geometry), x, y, .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawGeometryAtOriginWithBrushAndStrokeWidthImpl(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
+        public func DrawGeometryAtOriginWithBrushAndStrokeWidth(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1559,13 +1710,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawGeometryAtOriginWithColorAndStrokeWidthImpl(_ geometry: Win2D.CanvasGeometry?, _ color: UWP.Color, _ strokeWidth: Float) throws {
+        public func DrawGeometryAtOriginWithColorAndStrokeWidth(_ geometry: Win2D.CanvasGeometry?, _ color: UWP.Color, _ strokeWidth: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGeometryAtOriginWithColorAndStrokeWidth(pThis, RawPointer(geometry), .from(swift: color), strokeWidth))
             }
         }
 
-        internal func DrawGeometryWithBrushAndStrokeWidthAndStrokeStyleImpl(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawGeometryWithBrushAndStrokeWidthAndStrokeStyle(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1573,13 +1724,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawGeometryWithColorAndStrokeWidthAndStrokeStyleImpl(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawGeometryWithColorAndStrokeWidthAndStrokeStyle(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGeometryWithColorAndStrokeWidthAndStrokeStyle(pThis, RawPointer(geometry), .from(swift: offset), .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func DrawGeometryAtCoordsWithBrushAndStrokeWidthAndStrokeStyleImpl(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawGeometryAtCoordsWithBrushAndStrokeWidthAndStrokeStyle(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1587,13 +1738,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawGeometryAtCoordsWithColorAndStrokeWidthAndStrokeStyleImpl(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawGeometryAtCoordsWithColorAndStrokeWidthAndStrokeStyle(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGeometryAtCoordsWithColorAndStrokeWidthAndStrokeStyle(pThis, RawPointer(geometry), x, y, .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func DrawGeometryAtOriginWithBrushAndStrokeWidthAndStrokeStyleImpl(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawGeometryAtOriginWithBrushAndStrokeWidthAndStrokeStyle(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1601,13 +1752,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawGeometryAtOriginWithColorAndStrokeWidthAndStrokeStyleImpl(_ geometry: Win2D.CanvasGeometry?, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
+        public func DrawGeometryAtOriginWithColorAndStrokeWidthAndStrokeStyle(_ geometry: Win2D.CanvasGeometry?, _ color: UWP.Color, _ strokeWidth: Float, _ strokeStyle: Win2D.CanvasStrokeStyle?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGeometryAtOriginWithColorAndStrokeWidthAndStrokeStyle(pThis, RawPointer(geometry), .from(swift: color), strokeWidth, RawPointer(strokeStyle)))
             }
         }
 
-        internal func FillGeometryWithBrushImpl(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillGeometryWithBrush(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1615,7 +1766,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillGeometryWithBrushAndOpacityBrushImpl(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
+        public func FillGeometryWithBrushAndOpacityBrush(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
@@ -1625,13 +1776,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillGeometryWithColorImpl(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
+        public func FillGeometryWithColor(_ geometry: Win2D.CanvasGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillGeometryWithColor(pThis, RawPointer(geometry), .from(swift: offset), .from(swift: color)))
             }
         }
 
-        internal func FillGeometryAtCoordsWithBrushImpl(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillGeometryAtCoordsWithBrush(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1639,7 +1790,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillGeometryAtCoordsWithBrushAndOpacityBrushImpl(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
+        public func FillGeometryAtCoordsWithBrushAndOpacityBrush(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
@@ -1649,13 +1800,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillGeometryAtCoordsWithColorImpl(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
+        public func FillGeometryAtCoordsWithColor(_ geometry: Win2D.CanvasGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillGeometryAtCoordsWithColor(pThis, RawPointer(geometry), x, y, .from(swift: color)))
             }
         }
 
-        internal func FillGeometryAtOriginWithBrushImpl(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func FillGeometryAtOriginWithBrush(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1663,7 +1814,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillGeometryAtOriginWithBrushAndOpacityBrushImpl(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
+        public func FillGeometryAtOriginWithBrushAndOpacityBrush(_ geometry: Win2D.CanvasGeometry?, _ brush: Win2D.AnyICanvasBrush?, _ opacityBrush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
@@ -1673,13 +1824,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func FillGeometryAtOriginWithColorImpl(_ geometry: Win2D.CanvasGeometry?, _ color: UWP.Color) throws {
+        public func FillGeometryAtOriginWithColor(_ geometry: Win2D.CanvasGeometry?, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FillGeometryAtOriginWithColor(pThis, RawPointer(geometry), .from(swift: color)))
             }
         }
 
-        internal func DrawCachedGeometryWithBrushImpl(_ geometry: Win2D.CanvasCachedGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawCachedGeometryWithBrush(_ geometry: Win2D.CanvasCachedGeometry?, _ offset: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1687,13 +1838,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawCachedGeometryWithColorImpl(_ geometry: Win2D.CanvasCachedGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
+        public func DrawCachedGeometryWithColor(_ geometry: Win2D.CanvasCachedGeometry?, _ offset: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawCachedGeometryWithColor(pThis, RawPointer(geometry), .from(swift: offset), .from(swift: color)))
             }
         }
 
-        internal func DrawCachedGeometryAtCoordsWithBrushImpl(_ geometry: Win2D.CanvasCachedGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawCachedGeometryAtCoordsWithBrush(_ geometry: Win2D.CanvasCachedGeometry?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1701,13 +1852,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawCachedGeometryAtCoordsWithColorImpl(_ geometry: Win2D.CanvasCachedGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
+        public func DrawCachedGeometryAtCoordsWithColor(_ geometry: Win2D.CanvasCachedGeometry?, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawCachedGeometryAtCoordsWithColor(pThis, RawPointer(geometry), x, y, .from(swift: color)))
             }
         }
 
-        internal func DrawCachedGeometryAtOriginWithBrushImpl(_ geometry: Win2D.CanvasCachedGeometry?, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawCachedGeometryAtOriginWithBrush(_ geometry: Win2D.CanvasCachedGeometry?, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1715,13 +1866,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawCachedGeometryAtOriginWithColorImpl(_ geometry: Win2D.CanvasCachedGeometry?, _ color: UWP.Color) throws {
+        public func DrawCachedGeometryAtOriginWithColor(_ geometry: Win2D.CanvasCachedGeometry?, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawCachedGeometryAtOriginWithColor(pThis, RawPointer(geometry), .from(swift: color)))
             }
         }
 
-        internal func DrawTextLayoutWithBrushImpl(_ textLayout: Win2D.CanvasTextLayout?, _ point: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawTextLayoutWithBrush(_ textLayout: Win2D.CanvasTextLayout?, _ point: WindowsFoundation.Vector2, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1729,7 +1880,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawTextLayoutAtCoordsWithBrushImpl(_ textLayout: Win2D.CanvasTextLayout?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func DrawTextLayoutAtCoordsWithBrush(_ textLayout: Win2D.CanvasTextLayout?, _ x: Float, _ y: Float, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1737,55 +1888,55 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func DrawTextLayoutWithColorImpl(_ textLayout: Win2D.CanvasTextLayout?, _ point: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
+        public func DrawTextLayoutWithColor(_ textLayout: Win2D.CanvasTextLayout?, _ point: WindowsFoundation.Vector2, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawTextLayoutWithColor(pThis, RawPointer(textLayout), .from(swift: point), .from(swift: color)))
             }
         }
 
-        internal func DrawTextLayoutAtCoordsWithColorImpl(_ textLayout: Win2D.CanvasTextLayout?, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
+        public func DrawTextLayoutAtCoordsWithColor(_ textLayout: Win2D.CanvasTextLayout?, _ x: Float, _ y: Float, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawTextLayoutAtCoordsWithColor(pThis, RawPointer(textLayout), x, y, .from(swift: color)))
             }
         }
 
-        internal func DrawGradientMeshAtOriginImpl(_ gradientMesh: Win2D.CanvasGradientMesh?) throws {
+        public func DrawGradientMeshAtOrigin(_ gradientMesh: Win2D.CanvasGradientMesh?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGradientMeshAtOrigin(pThis, RawPointer(gradientMesh)))
             }
         }
 
-        internal func DrawGradientMeshImpl(_ gradientMesh: Win2D.CanvasGradientMesh?, _ point: WindowsFoundation.Vector2) throws {
+        public func DrawGradientMesh(_ gradientMesh: Win2D.CanvasGradientMesh?, _ point: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGradientMesh(pThis, RawPointer(gradientMesh), .from(swift: point)))
             }
         }
 
-        internal func DrawGradientMeshAtCoordsImpl(_ gradientMesh: Win2D.CanvasGradientMesh?, _ x: Float, _ y: Float) throws {
+        public func DrawGradientMeshAtCoords(_ gradientMesh: Win2D.CanvasGradientMesh?, _ x: Float, _ y: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGradientMeshAtCoords(pThis, RawPointer(gradientMesh), x, y))
             }
         }
 
-        internal func DrawSvgAtOriginImpl(_ svgDocument: Win2D.CanvasSvgDocument?, _ viewportSize: WindowsFoundation.Size) throws {
+        public func DrawSvgAtOrigin(_ svgDocument: Win2D.CanvasSvgDocument?, _ viewportSize: WindowsFoundation.Size) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawSvgAtOrigin(pThis, RawPointer(svgDocument), .from(swift: viewportSize)))
             }
         }
 
-        internal func DrawSvgAtPointImpl(_ svgDocument: Win2D.CanvasSvgDocument?, _ viewportSize: WindowsFoundation.Size, _ point: WindowsFoundation.Vector2) throws {
+        public func DrawSvgAtPoint(_ svgDocument: Win2D.CanvasSvgDocument?, _ viewportSize: WindowsFoundation.Size, _ point: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawSvgAtPoint(pThis, RawPointer(svgDocument), .from(swift: viewportSize), .from(swift: point)))
             }
         }
 
-        internal func DrawSvgAtCoordsImpl(_ svgDocument: Win2D.CanvasSvgDocument?, _ viewportSize: WindowsFoundation.Size, _ x: Float, _ y: Float) throws {
+        public func DrawSvgAtCoords(_ svgDocument: Win2D.CanvasSvgDocument?, _ viewportSize: WindowsFoundation.Size, _ x: Float, _ y: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawSvgAtCoords(pThis, RawPointer(svgDocument), .from(swift: viewportSize), x, y))
             }
         }
 
-        internal func get_AntialiasingImpl() throws -> Win2D.CanvasAntialiasing {
+        public func get_Antialiasing() throws -> Win2D.CanvasAntialiasing {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAntialiasing = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Antialiasing(pThis, &value))
@@ -1793,13 +1944,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func put_AntialiasingImpl(_ value: Win2D.CanvasAntialiasing) throws {
+        public func put_Antialiasing(_ value: Win2D.CanvasAntialiasing) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Antialiasing(pThis, value))
             }
         }
 
-        internal func get_BlendImpl() throws -> Win2D.CanvasBlend {
+        public func get_Blend() throws -> Win2D.CanvasBlend {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasBlend = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Blend(pThis, &value))
@@ -1807,13 +1958,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func put_BlendImpl(_ value: Win2D.CanvasBlend) throws {
+        public func put_Blend(_ value: Win2D.CanvasBlend) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Blend(pThis, value))
             }
         }
 
-        internal func get_TextAntialiasingImpl() throws -> Win2D.CanvasTextAntialiasing {
+        public func get_TextAntialiasing() throws -> Win2D.CanvasTextAntialiasing {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextAntialiasing = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextAntialiasing(pThis, &value))
@@ -1821,28 +1972,28 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func put_TextAntialiasingImpl(_ value: Win2D.CanvasTextAntialiasing) throws {
+        public func put_TextAntialiasing(_ value: Win2D.CanvasTextAntialiasing) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextAntialiasing(pThis, value))
             }
         }
 
-        internal func get_TextRenderingParametersImpl() throws -> Win2D.CanvasTextRenderingParameters? {
+        public func get_TextRenderingParameters() throws -> Win2D.CanvasTextRenderingParameters? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextRenderingParameters(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas_Text.CanvasTextRenderingParametersBridge.from(abi: value)
         }
 
-        internal func put_TextRenderingParametersImpl(_ value: Win2D.CanvasTextRenderingParameters?) throws {
+        public func put_TextRenderingParameters(_ value: Win2D.CanvasTextRenderingParameters?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextRenderingParameters(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_TransformImpl() throws -> WindowsFoundation.Matrix3x2 {
+        public func get_Transform() throws -> WindowsFoundation.Matrix3x2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Transform(pThis, &value))
@@ -1850,13 +2001,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: value)
         }
 
-        internal func put_TransformImpl(_ value: WindowsFoundation.Matrix3x2) throws {
+        public func put_Transform(_ value: WindowsFoundation.Matrix3x2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Transform(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_UnitsImpl() throws -> Win2D.CanvasUnits {
+        public func get_Units() throws -> Win2D.CanvasUnits {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasUnits = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Units(pThis, &value))
@@ -1864,13 +2015,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func put_UnitsImpl(_ value: Win2D.CanvasUnits) throws {
+        public func put_Units(_ value: Win2D.CanvasUnits) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Units(pThis, value))
             }
         }
 
-        internal func get_EffectBufferPrecisionImpl() throws -> Win2D.CanvasBufferPrecision? {
+        public func get_EffectBufferPrecision() throws -> Win2D.CanvasBufferPrecision? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EffectBufferPrecision(pThis, &valueAbi))
@@ -1879,7 +2030,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIReference_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBufferPrecisionWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_EffectBufferPrecisionImpl(_ value: Win2D.CanvasBufferPrecision?) throws {
+        public func put_EffectBufferPrecision(_ value: Win2D.CanvasBufferPrecision?) throws {
             let valueWrapper = Win2D.__x_ABI_C__FIReference_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasBufferPrecisionWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
@@ -1887,7 +2038,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             }
         }
 
-        internal func get_EffectTileSizeImpl() throws -> UWP.BitmapSize {
+        public func get_EffectTileSize() throws -> UWP.BitmapSize {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EffectTileSize(pThis, &value))
@@ -1895,22 +2046,22 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: value)
         }
 
-        internal func put_EffectTileSizeImpl(_ value: UWP.BitmapSize) throws {
+        public func put_EffectTileSize(_ value: UWP.BitmapSize) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EffectTileSize(pThis, .from(swift: value)))
             }
         }
 
-        internal func CreateLayerWithOpacityImpl(_ opacity: Float) throws -> Win2D.CanvasActiveLayer? {
+        public func CreateLayerWithOpacity(_ opacity: Float) throws -> Win2D.CanvasActiveLayer? {
             let (layer) = try ComPtrs.initialize { layerAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerWithOpacity(pThis, opacity, &layerAbi))
                 }
             }
-            return .from(abi: layer)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasActiveLayerBridge.from(abi: layer)
         }
 
-        internal func CreateLayerWithOpacityBrushImpl(_ opacityBrush: Win2D.AnyICanvasBrush?) throws -> Win2D.CanvasActiveLayer? {
+        public func CreateLayerWithOpacityBrush(_ opacityBrush: Win2D.AnyICanvasBrush?) throws -> Win2D.CanvasActiveLayer? {
             let (layer) = try ComPtrs.initialize { layerAbi in
                 let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
                 let _opacityBrush = try! opacityBrushWrapper?.toABI { $0 }
@@ -1918,19 +2069,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerWithOpacityBrush(pThis, _opacityBrush, &layerAbi))
                 }
             }
-            return .from(abi: layer)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasActiveLayerBridge.from(abi: layer)
         }
 
-        internal func CreateLayerWithOpacityAndClipRectangleImpl(_ opacity: Float, _ clipRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasActiveLayer? {
+        public func CreateLayerWithOpacityAndClipRectangle(_ opacity: Float, _ clipRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasActiveLayer? {
             let (layer) = try ComPtrs.initialize { layerAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerWithOpacityAndClipRectangle(pThis, opacity, .from(swift: clipRectangle), &layerAbi))
                 }
             }
-            return .from(abi: layer)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasActiveLayerBridge.from(abi: layer)
         }
 
-        internal func CreateLayerWithOpacityBrushAndClipRectangleImpl(_ opacityBrush: Win2D.AnyICanvasBrush?, _ clipRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasActiveLayer? {
+        public func CreateLayerWithOpacityBrushAndClipRectangle(_ opacityBrush: Win2D.AnyICanvasBrush?, _ clipRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasActiveLayer? {
             let (layer) = try ComPtrs.initialize { layerAbi in
                 let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
                 let _opacityBrush = try! opacityBrushWrapper?.toABI { $0 }
@@ -1938,19 +2089,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerWithOpacityBrushAndClipRectangle(pThis, _opacityBrush, .from(swift: clipRectangle), &layerAbi))
                 }
             }
-            return .from(abi: layer)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasActiveLayerBridge.from(abi: layer)
         }
 
-        internal func CreateLayerWithOpacityAndClipGeometryImpl(_ opacity: Float, _ clipGeometry: Win2D.CanvasGeometry?) throws -> Win2D.CanvasActiveLayer? {
+        public func CreateLayerWithOpacityAndClipGeometry(_ opacity: Float, _ clipGeometry: Win2D.CanvasGeometry?) throws -> Win2D.CanvasActiveLayer? {
             let (layer) = try ComPtrs.initialize { layerAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerWithOpacityAndClipGeometry(pThis, opacity, RawPointer(clipGeometry), &layerAbi))
                 }
             }
-            return .from(abi: layer)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasActiveLayerBridge.from(abi: layer)
         }
 
-        internal func CreateLayerWithOpacityBrushAndClipGeometryImpl(_ opacityBrush: Win2D.AnyICanvasBrush?, _ clipGeometry: Win2D.CanvasGeometry?) throws -> Win2D.CanvasActiveLayer? {
+        public func CreateLayerWithOpacityBrushAndClipGeometry(_ opacityBrush: Win2D.AnyICanvasBrush?, _ clipGeometry: Win2D.CanvasGeometry?) throws -> Win2D.CanvasActiveLayer? {
             let (layer) = try ComPtrs.initialize { layerAbi in
                 let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
                 let _opacityBrush = try! opacityBrushWrapper?.toABI { $0 }
@@ -1958,19 +2109,19 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerWithOpacityBrushAndClipGeometry(pThis, _opacityBrush, RawPointer(clipGeometry), &layerAbi))
                 }
             }
-            return .from(abi: layer)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasActiveLayerBridge.from(abi: layer)
         }
 
-        internal func CreateLayerWithOpacityAndClipGeometryAndTransformImpl(_ opacity: Float, _ clipGeometry: Win2D.CanvasGeometry?, _ geometryTransform: WindowsFoundation.Matrix3x2) throws -> Win2D.CanvasActiveLayer? {
+        public func CreateLayerWithOpacityAndClipGeometryAndTransform(_ opacity: Float, _ clipGeometry: Win2D.CanvasGeometry?, _ geometryTransform: WindowsFoundation.Matrix3x2) throws -> Win2D.CanvasActiveLayer? {
             let (layer) = try ComPtrs.initialize { layerAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerWithOpacityAndClipGeometryAndTransform(pThis, opacity, RawPointer(clipGeometry), .from(swift: geometryTransform), &layerAbi))
                 }
             }
-            return .from(abi: layer)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasActiveLayerBridge.from(abi: layer)
         }
 
-        internal func CreateLayerWithOpacityBrushAndClipGeometryAndTransformImpl(_ opacityBrush: Win2D.AnyICanvasBrush?, _ clipGeometry: Win2D.CanvasGeometry?, _ geometryTransform: WindowsFoundation.Matrix3x2) throws -> Win2D.CanvasActiveLayer? {
+        public func CreateLayerWithOpacityBrushAndClipGeometryAndTransform(_ opacityBrush: Win2D.AnyICanvasBrush?, _ clipGeometry: Win2D.CanvasGeometry?, _ geometryTransform: WindowsFoundation.Matrix3x2) throws -> Win2D.CanvasActiveLayer? {
             let (layer) = try ComPtrs.initialize { layerAbi in
                 let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
                 let _opacityBrush = try! opacityBrushWrapper?.toABI { $0 }
@@ -1978,10 +2129,10 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerWithOpacityBrushAndClipGeometryAndTransform(pThis, _opacityBrush, RawPointer(clipGeometry), .from(swift: geometryTransform), &layerAbi))
                 }
             }
-            return .from(abi: layer)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasActiveLayerBridge.from(abi: layer)
         }
 
-        internal func CreateLayerWithAllOptionsImpl(_ opacity: Float, _ opacityBrush: Win2D.AnyICanvasBrush?, _ clipRectangle: WindowsFoundation.Rect, _ clipGeometry: Win2D.CanvasGeometry?, _ geometryTransform: WindowsFoundation.Matrix3x2, _ options: Win2D.CanvasLayerOptions) throws -> Win2D.CanvasActiveLayer? {
+        public func CreateLayerWithAllOptions(_ opacity: Float, _ opacityBrush: Win2D.AnyICanvasBrush?, _ clipRectangle: WindowsFoundation.Rect, _ clipGeometry: Win2D.CanvasGeometry?, _ geometryTransform: WindowsFoundation.Matrix3x2, _ options: Win2D.CanvasLayerOptions) throws -> Win2D.CanvasActiveLayer? {
             let (layer) = try ComPtrs.initialize { layerAbi in
                 let opacityBrushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(opacityBrush)
                 let _opacityBrush = try! opacityBrushWrapper?.toABI { $0 }
@@ -1989,43 +2140,77 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLayerWithAllOptions(pThis, opacity, _opacityBrush, .from(swift: clipRectangle), RawPointer(clipGeometry), .from(swift: geometryTransform), options, &layerAbi))
                 }
             }
-            return .from(abi: layer)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasActiveLayerBridge.from(abi: layer)
         }
 
-        internal func CreateSpriteBatchImpl() throws -> Win2D.CanvasSpriteBatch? {
+        public func DrawGlyphRun(_ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ brush: Win2D.AnyICanvasBrush?) throws {
+            try glyphs.toABI { _glyphs in
+                let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
+                let _brush = try! brushWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGlyphRun(pThis, .from(swift: point), RawPointer(fontFace), fontSize, _glyphs.count, _glyphs.start, .init(from: isSideways), bidiLevel, _brush))
+                }
+            }
+        }
+
+        public func DrawGlyphRunWithMeasuringMode(_ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ brush: Win2D.AnyICanvasBrush?, _ measuringMode: Win2D.CanvasTextMeasuringMode) throws {
+            try glyphs.toABI { _glyphs in
+                let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
+                let _brush = try! brushWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGlyphRunWithMeasuringMode(pThis, .from(swift: point), RawPointer(fontFace), fontSize, _glyphs.count, _glyphs.start, .init(from: isSideways), bidiLevel, _brush, measuringMode))
+                }
+            }
+        }
+
+        public func DrawGlyphRunWithMeasuringModeAndDescription(_ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ brush: Win2D.AnyICanvasBrush?, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ localeName: String, _ textString: String, _ clusterMapIndices: [Int32], _ textPosition: UInt32) throws {
+            try glyphs.toABI { _glyphs in
+                let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
+                let _brush = try! brushWrapper?.toABI { $0 }
+                let _localeName = try! HString(localeName)
+                let _textString = try! HString(textString)
+                try clusterMapIndices.toABI { _clusterMapIndices in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGlyphRunWithMeasuringModeAndDescription(pThis, .from(swift: point), RawPointer(fontFace), fontSize, _glyphs.count, _glyphs.start, .init(from: isSideways), bidiLevel, _brush, measuringMode, _localeName.get(), _textString.get(), _clusterMapIndices.count, _clusterMapIndices.start, textPosition))
+                }
+            }
+            }
+        }
+
+        public func CreateSpriteBatch() throws -> Win2D.CanvasSpriteBatch? {
             let (spriteBatch) = try ComPtrs.initialize { spriteBatchAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpriteBatch(pThis, &spriteBatchAbi))
                 }
             }
-            return .from(abi: spriteBatch)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasSpriteBatchBridge.from(abi: spriteBatch)
         }
 
-        internal func CreateSpriteBatchWithSortModeImpl(_ sortMode: Win2D.CanvasSpriteSortMode) throws -> Win2D.CanvasSpriteBatch? {
+        public func CreateSpriteBatchWithSortMode(_ sortMode: Win2D.CanvasSpriteSortMode) throws -> Win2D.CanvasSpriteBatch? {
             let (spriteBatch) = try ComPtrs.initialize { spriteBatchAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpriteBatchWithSortMode(pThis, sortMode, &spriteBatchAbi))
                 }
             }
-            return .from(abi: spriteBatch)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasSpriteBatchBridge.from(abi: spriteBatch)
         }
 
-        internal func CreateSpriteBatchWithSortModeAndInterpolationImpl(_ sortMode: Win2D.CanvasSpriteSortMode, _ interpolation: Win2D.CanvasImageInterpolation) throws -> Win2D.CanvasSpriteBatch? {
+        public func CreateSpriteBatchWithSortModeAndInterpolation(_ sortMode: Win2D.CanvasSpriteSortMode, _ interpolation: Win2D.CanvasImageInterpolation) throws -> Win2D.CanvasSpriteBatch? {
             let (spriteBatch) = try ComPtrs.initialize { spriteBatchAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpriteBatchWithSortModeAndInterpolation(pThis, sortMode, interpolation, &spriteBatchAbi))
                 }
             }
-            return .from(abi: spriteBatch)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasSpriteBatchBridge.from(abi: spriteBatch)
         }
 
-        internal func CreateSpriteBatchWithSortModeAndInterpolationAndOptionsImpl(_ sortMode: Win2D.CanvasSpriteSortMode, _ interpolation: Win2D.CanvasImageInterpolation, _ options: Win2D.CanvasSpriteOptions) throws -> Win2D.CanvasSpriteBatch? {
+        public func CreateSpriteBatchWithSortModeAndInterpolationAndOptions(_ sortMode: Win2D.CanvasSpriteSortMode, _ interpolation: Win2D.CanvasImageInterpolation, _ options: Win2D.CanvasSpriteOptions) throws -> Win2D.CanvasSpriteBatch? {
             let (spriteBatch) = try ComPtrs.initialize { spriteBatchAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSpriteBatchWithSortModeAndInterpolationAndOptions(pThis, sortMode, interpolation, options, &spriteBatchAbi))
                 }
             }
-            return .from(abi: spriteBatch)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasSpriteBatchBridge.from(abi: spriteBatch)
         }
 
     }
@@ -2033,7 +2218,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasImage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasImage }
 
-        open func GetBoundsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> WindowsFoundation.Rect {
+        open func GetBounds(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
             let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2043,7 +2228,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: bounds)
         }
 
-        open func GetBoundsWithTransformImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
+        open func GetBoundsWithTransform(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
             let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2092,7 +2277,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                 let bounds = try __unwrapped__instance.getBounds(resourceCreator)
                 $2?.initialize(to: .from(swift: bounds))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetBoundsWithTransform: {
@@ -2103,7 +2288,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                 let bounds = try __unwrapped__instance.getBounds(resourceCreator, transform)
                 $3?.initialize(to: .from(swift: bounds))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -2111,7 +2296,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasImageStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasImageStatics }
 
-        internal func SaveAsyncImpl(_ image: Win2D.AnyICanvasImage?, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SaveAsync(_ image: Win2D.AnyICanvasImage?, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (action) = try ComPtrs.initialize { actionAbi in
                 let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
                 let _image = try! imageWrapper?.toABI { $0 }
@@ -2126,7 +2311,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: action)
         }
 
-        internal func SaveWithQualityAsyncImpl(_ image: Win2D.AnyICanvasImage?, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat, _ quality: Float) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SaveWithQualityAsync(_ image: Win2D.AnyICanvasImage?, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat, _ quality: Float) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (action) = try ComPtrs.initialize { actionAbi in
                 let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
                 let _image = try! imageWrapper?.toABI { $0 }
@@ -2141,7 +2326,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: action)
         }
 
-        internal func SaveWithQualityAndBufferPrecisionAsyncImpl(_ image: Win2D.AnyICanvasImage?, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat, _ quality: Float, _ bufferPrecision: Win2D.CanvasBufferPrecision) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SaveWithQualityAndBufferPrecisionAsync(_ image: Win2D.AnyICanvasImage?, _ sourceRectangle: WindowsFoundation.Rect, _ dpi: Float, _ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ fileFormat: Win2D.CanvasBitmapFileFormat, _ quality: Float, _ bufferPrecision: Win2D.CanvasBufferPrecision) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (action) = try ComPtrs.initialize { actionAbi in
                 let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
                 let _image = try! imageWrapper?.toABI { $0 }
@@ -2156,7 +2341,21 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: action)
         }
 
-        internal func IsHistogramSupportedImpl(_ device: Win2D.CanvasDevice?) throws -> Bool {
+        public func ComputeHistogram(_ image: Win2D.AnyICanvasImage?, _ sourceRectangle: WindowsFoundation.Rect, _ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ channelSelect: Win2D.EffectChannelSelect, _ numberOfBins: Int32) throws -> [Float] {
+            var valueElements: WinRTArrayAbi<FLOAT> = (0, nil)
+            let imageWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasImageWrapper(image)
+            let _image = try! imageWrapper?.toABI { $0 }
+            let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+            let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasImageStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ComputeHistogram(pThis, _image, .from(swift: sourceRectangle), _resourceCreator, channelSelect, numberOfBins, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func IsHistogramSupported(_ device: Win2D.CanvasDevice?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasImageStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsHistogramSupported(pThis, RawPointer(device), &result))
@@ -2174,13 +2373,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasRenderTarget: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasRenderTarget }
 
-        internal func CreateDrawingSessionImpl() throws -> Win2D.CanvasDrawingSession? {
+        public func CreateDrawingSession() throws -> Win2D.CanvasDrawingSession? {
             let (drawingSession) = try ComPtrs.initialize { drawingSessionAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasRenderTarget.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDrawingSession(pThis, &drawingSessionAbi))
                 }
             }
-            return .from(abi: drawingSession)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDrawingSessionBridge.from(abi: drawingSession)
         }
 
     }
@@ -2188,7 +2387,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasRenderTargetFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasRenderTargetFactory }
 
-        internal func CreateWithSizeImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ size: WindowsFoundation.Size) throws -> ICanvasRenderTarget {
+        public func CreateWithSize(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ size: WindowsFoundation.Size) throws -> ICanvasRenderTarget {
             let (renderTarget) = try ComPtrs.initialize { renderTargetAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2199,7 +2398,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return ICanvasRenderTarget(renderTarget!)
         }
 
-        internal func CreateWithWidthAndHeightImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ width: Float, _ height: Float) throws -> ICanvasRenderTarget {
+        public func CreateWithWidthAndHeight(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ width: Float, _ height: Float) throws -> ICanvasRenderTarget {
             let (renderTarget) = try ComPtrs.initialize { renderTargetAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2210,7 +2409,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return ICanvasRenderTarget(renderTarget!)
         }
 
-        internal func CreateWithWidthAndHeightAndDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float) throws -> ICanvasRenderTarget {
+        public func CreateWithWidthAndHeightAndDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float) throws -> ICanvasRenderTarget {
             let (renderTarget) = try ComPtrs.initialize { renderTargetAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2221,7 +2420,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return ICanvasRenderTarget(renderTarget!)
         }
 
-        internal func CreateWithWidthAndHeightAndDpiAndFormatAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ alpha: Win2D.CanvasAlphaMode) throws -> ICanvasRenderTarget {
+        public func CreateWithWidthAndHeightAndDpiAndFormatAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ alpha: Win2D.CanvasAlphaMode) throws -> ICanvasRenderTarget {
             let (renderTarget) = try ComPtrs.initialize { renderTargetAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2237,7 +2436,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasRenderTargetStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasRenderTargetStatics }
 
-        internal func CreateFromDirect3D11SurfaceImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?) throws -> Win2D.CanvasRenderTarget? {
+        public func CreateFromDirect3D11Surface(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?) throws -> Win2D.CanvasRenderTarget? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2247,10 +2446,10 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromDirect3D11Surface(pThis, _resourceCreator, _surface, &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasRenderTargetBridge.from(abi: bitmap)
         }
 
-        internal func CreateFromDirect3D11SurfaceWithDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?, _ dpi: Float) throws -> Win2D.CanvasRenderTarget? {
+        public func CreateFromDirect3D11SurfaceWithDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?, _ dpi: Float) throws -> Win2D.CanvasRenderTarget? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2260,10 +2459,10 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromDirect3D11SurfaceWithDpi(pThis, _resourceCreator, _surface, dpi, &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasRenderTargetBridge.from(abi: bitmap)
         }
 
-        internal func CreateFromDirect3D11SurfaceWithDpiAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> Win2D.CanvasRenderTarget? {
+        public func CreateFromDirect3D11SurfaceWithDpiAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ surface: UWP.AnyIDirect3DSurface?, _ dpi: Float, _ alpha: Win2D.CanvasAlphaMode) throws -> Win2D.CanvasRenderTarget? {
             let (bitmap) = try ComPtrs.initialize { bitmapAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2273,7 +2472,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromDirect3D11SurfaceWithDpiAndAlpha(pThis, _resourceCreator, _surface, dpi, alpha, &bitmapAbi))
                 }
             }
-            return .from(abi: bitmap)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasRenderTargetBridge.from(abi: bitmap)
         }
 
     }
@@ -2281,13 +2480,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasResourceCreator: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreator }
 
-        open func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        open func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreator.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
     }
@@ -2332,7 +2531,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasResourceCreatorWithDpi: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreatorWithDpi }
 
-        open func get_DpiImpl() throws -> Float {
+        open func get_Dpi() throws -> Float {
             var dpi: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreatorWithDpi.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Dpi(pThis, &dpi))
@@ -2340,7 +2539,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return dpi
         }
 
-        open func ConvertPixelsToDipsImpl(_ pixels: Int32) throws -> Float {
+        open func ConvertPixelsToDips(_ pixels: Int32) throws -> Float {
             var dips: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreatorWithDpi.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ConvertPixelsToDips(pThis, pixels, &dips))
@@ -2348,7 +2547,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return dips
         }
 
-        open func ConvertDipsToPixelsImpl(_ dips: Float, _ dpiRounding: Win2D.CanvasDpiRounding) throws -> Int32 {
+        open func ConvertDipsToPixels(_ dips: Float, _ dpiRounding: Win2D.CanvasDpiRounding) throws -> Int32 {
             var pixels: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreatorWithDpi.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ConvertDipsToPixels(pThis, dips, dpiRounding, &pixels))
@@ -2401,7 +2600,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                 let dips = try __unwrapped__instance.convertPixelsToDips(pixels)
                 $2?.initialize(to: dips)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ConvertDipsToPixels: {
@@ -2412,7 +2611,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                 let pixels = try __unwrapped__instance.convertDipsToPixels(dips, dpiRounding)
                 $3?.initialize(to: pixels)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -2420,109 +2619,109 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasSpriteBatch: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch }
 
-        internal func DrawToRectImpl(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect) throws {
+        public func DrawToRect(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawToRect(pThis, RawPointer(bitmap), .from(swift: destRect)))
             }
         }
 
-        internal func DrawAtOffsetImpl(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2) throws {
+        public func DrawAtOffset(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawAtOffset(pThis, RawPointer(bitmap), .from(swift: offset)))
             }
         }
 
-        internal func DrawWithTransformImpl(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2) throws {
+        public func DrawWithTransform(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawWithTransform(pThis, RawPointer(bitmap), .from(swift: transform)))
             }
         }
 
-        internal func DrawToRectWithTintImpl(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
+        public func DrawToRectWithTint(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawToRectWithTint(pThis, RawPointer(bitmap), .from(swift: destRect), .from(swift: tint)))
             }
         }
 
-        internal func DrawAtOffsetWithTintImpl(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ tint: WindowsFoundation.Vector4) throws {
+        public func DrawAtOffsetWithTint(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ tint: WindowsFoundation.Vector4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawAtOffsetWithTint(pThis, RawPointer(bitmap), .from(swift: offset), .from(swift: tint)))
             }
         }
 
-        internal func DrawWithTransformAndTintImpl(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ tint: WindowsFoundation.Vector4) throws {
+        public func DrawWithTransformAndTint(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ tint: WindowsFoundation.Vector4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawWithTransformAndTint(pThis, RawPointer(bitmap), .from(swift: transform), .from(swift: tint)))
             }
         }
 
-        internal func DrawToRectWithTintAndFlipImpl(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ flip: Win2D.CanvasSpriteFlip) throws {
+        public func DrawToRectWithTintAndFlip(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ flip: Win2D.CanvasSpriteFlip) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawToRectWithTintAndFlip(pThis, RawPointer(bitmap), .from(swift: destRect), .from(swift: tint), flip))
             }
         }
 
-        internal func DrawWithTransformAndTintAndFlipImpl(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ tint: WindowsFoundation.Vector4, _ flip: Win2D.CanvasSpriteFlip) throws {
+        public func DrawWithTransformAndTintAndFlip(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ tint: WindowsFoundation.Vector4, _ flip: Win2D.CanvasSpriteFlip) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawWithTransformAndTintAndFlip(pThis, RawPointer(bitmap), .from(swift: transform), .from(swift: tint), flip))
             }
         }
 
-        internal func DrawAtOffsetWithTintAndTransformImpl(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ tint: WindowsFoundation.Vector4, _ origin: WindowsFoundation.Vector2, _ rotation: Float, _ scale: WindowsFoundation.Vector2, _ flip: Win2D.CanvasSpriteFlip) throws {
+        public func DrawAtOffsetWithTintAndTransform(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ tint: WindowsFoundation.Vector4, _ origin: WindowsFoundation.Vector2, _ rotation: Float, _ scale: WindowsFoundation.Vector2, _ flip: Win2D.CanvasSpriteFlip) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawAtOffsetWithTintAndTransform(pThis, RawPointer(bitmap), .from(swift: offset), .from(swift: tint), .from(swift: origin), rotation, .from(swift: scale), flip))
             }
         }
 
-        internal func DrawFromSpriteSheetToRectImpl(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ sourceRect: WindowsFoundation.Rect) throws {
+        public func DrawFromSpriteSheetToRect(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ sourceRect: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawFromSpriteSheetToRect(pThis, RawPointer(bitmap), .from(swift: destRect), .from(swift: sourceRect)))
             }
         }
 
-        internal func DrawFromSpriteSheetAtOffsetImpl(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ sourceRect: WindowsFoundation.Rect) throws {
+        public func DrawFromSpriteSheetAtOffset(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ sourceRect: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawFromSpriteSheetAtOffset(pThis, RawPointer(bitmap), .from(swift: offset), .from(swift: sourceRect)))
             }
         }
 
-        internal func DrawFromSpriteSheetWithTransformImpl(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ sourceRect: WindowsFoundation.Rect) throws {
+        public func DrawFromSpriteSheetWithTransform(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ sourceRect: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawFromSpriteSheetWithTransform(pThis, RawPointer(bitmap), .from(swift: transform), .from(swift: sourceRect)))
             }
         }
 
-        internal func DrawFromSpriteSheetToRectWithTintImpl(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
+        public func DrawFromSpriteSheetToRectWithTint(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawFromSpriteSheetToRectWithTint(pThis, RawPointer(bitmap), .from(swift: destRect), .from(swift: sourceRect), .from(swift: tint)))
             }
         }
 
-        internal func DrawFromSpriteSheetAtOffsetWithTintImpl(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
+        public func DrawFromSpriteSheetAtOffsetWithTint(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawFromSpriteSheetAtOffsetWithTint(pThis, RawPointer(bitmap), .from(swift: offset), .from(swift: sourceRect), .from(swift: tint)))
             }
         }
 
-        internal func DrawFromSpriteSheetWithTransformAndTintImpl(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
+        public func DrawFromSpriteSheetWithTransformAndTint(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawFromSpriteSheetWithTransformAndTint(pThis, RawPointer(bitmap), .from(swift: transform), .from(swift: sourceRect), .from(swift: tint)))
             }
         }
 
-        internal func DrawFromSpriteSheetToRectWithTintAndFlipImpl(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ flip: Win2D.CanvasSpriteFlip) throws {
+        public func DrawFromSpriteSheetToRectWithTintAndFlip(_ bitmap: Win2D.CanvasBitmap?, _ destRect: WindowsFoundation.Rect, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ flip: Win2D.CanvasSpriteFlip) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawFromSpriteSheetToRectWithTintAndFlip(pThis, RawPointer(bitmap), .from(swift: destRect), .from(swift: sourceRect), .from(swift: tint), flip))
             }
         }
 
-        internal func DrawFromSpriteSheetWithTransformAndTintAndFlipImpl(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ flip: Win2D.CanvasSpriteFlip) throws {
+        public func DrawFromSpriteSheetWithTransformAndTintAndFlip(_ bitmap: Win2D.CanvasBitmap?, _ transform: WindowsFoundation.Matrix3x2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ flip: Win2D.CanvasSpriteFlip) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawFromSpriteSheetWithTransformAndTintAndFlip(pThis, RawPointer(bitmap), .from(swift: transform), .from(swift: sourceRect), .from(swift: tint), flip))
             }
         }
 
-        internal func DrawFromSpriteSheetAtOffsetWithTintAndTransformImpl(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ origin: WindowsFoundation.Vector2, _ rotation: Float, _ scale: WindowsFoundation.Vector2, _ flip: Win2D.CanvasSpriteFlip) throws {
+        public func DrawFromSpriteSheetAtOffsetWithTintAndTransform(_ bitmap: Win2D.CanvasBitmap?, _ offset: WindowsFoundation.Vector2, _ sourceRect: WindowsFoundation.Rect, _ tint: WindowsFoundation.Vector4, _ origin: WindowsFoundation.Vector2, _ rotation: Float, _ scale: WindowsFoundation.Vector2, _ flip: Win2D.CanvasSpriteFlip) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DrawFromSpriteSheetAtOffsetWithTintAndTransform(pThis, RawPointer(bitmap), .from(swift: offset), .from(swift: sourceRect), .from(swift: tint), .from(swift: origin), rotation, .from(swift: scale), flip))
             }
@@ -2533,7 +2732,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasSpriteBatchStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatchStatics }
 
-        internal func IsSupportedImpl(_ device: Win2D.CanvasDevice?) throws -> Bool {
+        public func IsSupported(_ device: Win2D.CanvasDevice?) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatchStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsSupported(pThis, RawPointer(device), &value))
@@ -2546,43 +2745,43 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasSwapChain: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain }
 
-        internal func PresentImpl() throws {
+        public func Present() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Present(pThis))
             }
         }
 
-        internal func PresentWithSyncIntervalImpl(_ syncInterval: Int32) throws {
+        public func PresentWithSyncInterval(_ syncInterval: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.PresentWithSyncInterval(pThis, syncInterval))
             }
         }
 
-        internal func ResizeBuffersWithSizeImpl(_ newSize: WindowsFoundation.Size) throws {
+        public func ResizeBuffersWithSize(_ newSize: WindowsFoundation.Size) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResizeBuffersWithSize(pThis, .from(swift: newSize)))
             }
         }
 
-        internal func ResizeBuffersWithWidthAndHeightImpl(_ newWidth: Float, _ newHeight: Float) throws {
+        public func ResizeBuffersWithWidthAndHeight(_ newWidth: Float, _ newHeight: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResizeBuffersWithWidthAndHeight(pThis, newWidth, newHeight))
             }
         }
 
-        internal func ResizeBuffersWithWidthAndHeightAndDpiImpl(_ newWidth: Float, _ newHeight: Float, _ newDpi: Float) throws {
+        public func ResizeBuffersWithWidthAndHeightAndDpi(_ newWidth: Float, _ newHeight: Float, _ newDpi: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResizeBuffersWithWidthAndHeightAndDpi(pThis, newWidth, newHeight, newDpi))
             }
         }
 
-        internal func ResizeBuffersWithAllOptionsImpl(_ newWidth: Float, _ newHeight: Float, _ newDpi: Float, _ newFormat: UWP.DirectXPixelFormat, _ bufferCount: Int32) throws {
+        public func ResizeBuffersWithAllOptions(_ newWidth: Float, _ newHeight: Float, _ newDpi: Float, _ newFormat: UWP.DirectXPixelFormat, _ bufferCount: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResizeBuffersWithAllOptions(pThis, newWidth, newHeight, newDpi, newFormat, bufferCount))
             }
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Size {
+        public func get_Size() throws -> WindowsFoundation.Size {
             var size: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &size))
@@ -2590,7 +2789,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: size)
         }
 
-        internal func get_SizeInPixelsImpl() throws -> UWP.BitmapSize {
+        public func get_SizeInPixels() throws -> UWP.BitmapSize {
             var size: __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SizeInPixels(pThis, &size))
@@ -2598,7 +2797,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: size)
         }
 
-        internal func get_FormatImpl() throws -> UWP.DirectXPixelFormat {
+        public func get_Format() throws -> UWP.DirectXPixelFormat {
             var value: __x_ABI_CWindows_CGraphics_CDirectX_CDirectXPixelFormat = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Format(pThis, &value))
@@ -2606,7 +2805,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func get_BufferCountImpl() throws -> Int32 {
+        public func get_BufferCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BufferCount(pThis, &value))
@@ -2614,7 +2813,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func get_AlphaModeImpl() throws -> Win2D.CanvasAlphaMode {
+        public func get_AlphaMode() throws -> Win2D.CanvasAlphaMode {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlphaMode(pThis, &value))
@@ -2622,7 +2821,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func get_RotationImpl() throws -> Win2D.CanvasSwapChainRotation {
+        public func get_Rotation() throws -> Win2D.CanvasSwapChainRotation {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasSwapChainRotation = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Rotation(pThis, &value))
@@ -2630,13 +2829,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return value
         }
 
-        internal func put_RotationImpl(_ value: Win2D.CanvasSwapChainRotation) throws {
+        public func put_Rotation(_ value: Win2D.CanvasSwapChainRotation) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Rotation(pThis, value))
             }
         }
 
-        internal func get_SourceSizeImpl() throws -> WindowsFoundation.Size {
+        public func get_SourceSize() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourceSize(pThis, &value))
@@ -2644,13 +2843,13 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: value)
         }
 
-        internal func put_SourceSizeImpl(_ value: WindowsFoundation.Size) throws {
+        public func put_SourceSize(_ value: WindowsFoundation.Size) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SourceSize(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_TransformMatrixImpl() throws -> WindowsFoundation.Matrix3x2 {
+        public func get_TransformMatrix() throws -> WindowsFoundation.Matrix3x2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransformMatrix(pThis, &value))
@@ -2658,22 +2857,22 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: value)
         }
 
-        internal func put_TransformMatrixImpl(_ value: WindowsFoundation.Matrix3x2) throws {
+        public func put_TransformMatrix(_ value: WindowsFoundation.Matrix3x2) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TransformMatrix(pThis, .from(swift: value)))
             }
         }
 
-        internal func CreateDrawingSessionImpl(_ clearColor: UWP.Color) throws -> Win2D.CanvasDrawingSession? {
+        public func CreateDrawingSession(_ clearColor: UWP.Color) throws -> Win2D.CanvasDrawingSession? {
             let (drawingSession) = try ComPtrs.initialize { drawingSessionAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDrawingSession(pThis, .from(swift: clearColor), &drawingSessionAbi))
                 }
             }
-            return .from(abi: drawingSession)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDrawingSessionBridge.from(abi: drawingSession)
         }
 
-        internal func WaitForVerticalBlankImpl() throws {
+        public func WaitForVerticalBlank() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.WaitForVerticalBlank(pThis))
             }
@@ -2684,7 +2883,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasSwapChainFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChainFactory }
 
-        internal func CreateWithSizeImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ size: WindowsFoundation.Size) throws -> ICanvasSwapChain {
+        public func CreateWithSize(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ size: WindowsFoundation.Size) throws -> ICanvasSwapChain {
             let (swapChain) = try ComPtrs.initialize { swapChainAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2695,7 +2894,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return ICanvasSwapChain(swapChain!)
         }
 
-        internal func CreateWithWidthAndHeightImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ width: Float, _ height: Float) throws -> ICanvasSwapChain {
+        public func CreateWithWidthAndHeight(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ width: Float, _ height: Float) throws -> ICanvasSwapChain {
             let (swapChain) = try ComPtrs.initialize { swapChainAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2706,7 +2905,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return ICanvasSwapChain(swapChain!)
         }
 
-        internal func CreateWithWidthAndHeightAndDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float) throws -> ICanvasSwapChain {
+        public func CreateWithWidthAndHeightAndDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float) throws -> ICanvasSwapChain {
             let (swapChain) = try ComPtrs.initialize { swapChainAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2717,7 +2916,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return ICanvasSwapChain(swapChain!)
         }
 
-        internal func CreateWithAllOptionsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32, _ alphaMode: Win2D.CanvasAlphaMode) throws -> ICanvasSwapChain {
+        public func CreateWithAllOptions(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32, _ alphaMode: Win2D.CanvasAlphaMode) throws -> ICanvasSwapChain {
             let (swapChain) = try ComPtrs.initialize { swapChainAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2733,7 +2932,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasSwapChainStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChainStatics }
 
-        internal func CreateForCoreWindowWithDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ coreWindow: UWP.CoreWindow?, _ dpi: Float) throws -> Win2D.CanvasSwapChain? {
+        public func CreateForCoreWindowWithDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ coreWindow: UWP.CoreWindow?, _ dpi: Float) throws -> Win2D.CanvasSwapChain? {
             let (swapChain) = try ComPtrs.initialize { swapChainAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2741,10 +2940,10 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForCoreWindowWithDpi(pThis, _resourceCreator, RawPointer(coreWindow), dpi, &swapChainAbi))
                 }
             }
-            return .from(abi: swapChain)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasSwapChainBridge.from(abi: swapChain)
         }
 
-        internal func CreateForCoreWindowWithAllOptionsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ coreWindow: UWP.CoreWindow?, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32) throws -> Win2D.CanvasSwapChain? {
+        public func CreateForCoreWindowWithAllOptions(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ coreWindow: UWP.CoreWindow?, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32) throws -> Win2D.CanvasSwapChain? {
             let (swapChain) = try ComPtrs.initialize { swapChainAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2752,7 +2951,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForCoreWindowWithAllOptions(pThis, _resourceCreator, RawPointer(coreWindow), width, height, dpi, format, bufferCount, &swapChainAbi))
                 }
             }
-            return .from(abi: swapChain)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasSwapChainBridge.from(abi: swapChain)
         }
 
     }
@@ -2760,16 +2959,16 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasVirtualBitmap: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmap }
 
-        internal func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
-        internal func get_IsCachedOnDemandImpl() throws -> Bool {
+        public func get_IsCachedOnDemand() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCachedOnDemand(pThis, &value))
@@ -2777,7 +2976,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .init(from: value)
         }
 
-        internal func get_SizeInPixelsImpl() throws -> UWP.BitmapSize {
+        public func get_SizeInPixels() throws -> UWP.BitmapSize {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SizeInPixels(pThis, &value))
@@ -2785,7 +2984,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: value)
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Size {
+        public func get_Size() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -2793,7 +2992,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return .from(abi: value)
         }
 
-        internal func get_BoundsImpl() throws -> WindowsFoundation.Rect {
+        public func get_Bounds() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bounds(pThis, &value))
@@ -2806,7 +3005,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
     public class ICanvasVirtualBitmapStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmapStatics }
 
-        internal func LoadAsyncFromFileNameImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
+        public func LoadAsyncFromFileName(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2818,7 +3017,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasVirtualBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        internal func LoadAsyncFromFileNameWithOptionsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String, _ options: Win2D.CanvasVirtualBitmapOptions) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
+        public func LoadAsyncFromFileNameWithOptions(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String, _ options: Win2D.CanvasVirtualBitmapOptions) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2830,7 +3029,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasVirtualBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        internal func LoadAsyncFromFileNameWithOptionsAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String, _ options: Win2D.CanvasVirtualBitmapOptions, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
+        public func LoadAsyncFromFileNameWithOptionsAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ fileName: String, _ options: Win2D.CanvasVirtualBitmapOptions, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2842,7 +3041,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasVirtualBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        internal func LoadAsyncFromUriImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
+        public func LoadAsyncFromUri(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2853,7 +3052,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasVirtualBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        internal func LoadAsyncFromUriWithOptionsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?, _ options: Win2D.CanvasVirtualBitmapOptions) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
+        public func LoadAsyncFromUriWithOptions(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?, _ options: Win2D.CanvasVirtualBitmapOptions) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2864,7 +3063,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasVirtualBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        internal func LoadAsyncFromUriWithOptionsAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?, _ options: Win2D.CanvasVirtualBitmapOptions, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
+        public func LoadAsyncFromUriWithOptionsAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ uri: WindowsFoundation.Uri?, _ options: Win2D.CanvasVirtualBitmapOptions, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2875,7 +3074,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasVirtualBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        internal func LoadAsyncFromStreamImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
+        public func LoadAsyncFromStream(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2888,7 +3087,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasVirtualBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        internal func LoadAsyncFromStreamWithOptionsImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ options: Win2D.CanvasVirtualBitmapOptions) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
+        public func LoadAsyncFromStreamWithOptions(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ options: Win2D.CanvasVirtualBitmapOptions) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -2901,7 +3100,7 @@ public enum __ABI_Microsoft_Graphics_Canvas {
             return Win2D.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CCanvasVirtualBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        internal func LoadAsyncFromStreamWithOptionsAndAlphaImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ options: Win2D.CanvasVirtualBitmapOptions, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
+        public func LoadAsyncFromStreamWithOptionsAndAlpha(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ stream: UWP.AnyIRandomAccessStream?, _ options: Win2D.CanvasVirtualBitmapOptions, _ alpha: Win2D.CanvasAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<Win2D.CanvasVirtualBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }

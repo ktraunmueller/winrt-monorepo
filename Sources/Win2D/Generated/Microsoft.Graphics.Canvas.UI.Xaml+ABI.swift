@@ -67,11 +67,12 @@ private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualIm
     .init(Data1: 0x2FE755A1, Data2: 0x307A, Data3: 0x4623, Data4: ( 0x92,0x50,0x29,0x59,0x04,0x85,0xBD,0xB6 ))// 2FE755A1-307A-4623-9250-29590485BDB6
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasAnimatedControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl }
 
-        open func add_CreateResourcesImpl(_ value: TypedEventHandler<Win2D.CanvasAnimatedControl?, Win2D.CanvasCreateResourcesEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_CreateResources(_ value: TypedEventHandler<Win2D.CanvasAnimatedControl?, Win2D.CanvasCreateResourcesEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -81,13 +82,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        open func remove_CreateResourcesImpl(_ token: EventRegistrationToken) throws {
+        open func remove_CreateResources(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CreateResources(pThis, token))
             }
         }
 
-        open func add_UpdateImpl(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Win2D.CanvasAnimatedUpdateEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_Update(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Win2D.CanvasAnimatedUpdateEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedUpdateEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -97,13 +98,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        open func remove_UpdateImpl(_ token: EventRegistrationToken) throws {
+        open func remove_Update(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Update(pThis, token))
             }
         }
 
-        open func add_DrawImpl(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Win2D.CanvasAnimatedDrawEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_Draw(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Win2D.CanvasAnimatedDrawEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasAnimatedDrawEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -113,13 +114,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        open func remove_DrawImpl(_ token: EventRegistrationToken) throws {
+        open func remove_Draw(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Draw(pThis, token))
             }
         }
 
-        open func add_GameLoopStartingImpl(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Any?>?) throws -> EventRegistrationToken {
+        open func add_GameLoopStarting(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -129,13 +130,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        open func remove_GameLoopStartingImpl(_ token: EventRegistrationToken) throws {
+        open func remove_GameLoopStarting(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_GameLoopStarting(pThis, token))
             }
         }
 
-        open func add_GameLoopStoppedImpl(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Any?>?) throws -> EventRegistrationToken {
+        open func add_GameLoopStopped(_ value: TypedEventHandler<Win2D.AnyICanvasAnimatedControl?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CICanvasAnimatedControl_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -145,13 +146,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        open func remove_GameLoopStoppedImpl(_ token: EventRegistrationToken) throws {
+        open func remove_GameLoopStopped(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_GameLoopStopped(pThis, token))
             }
         }
 
-        open func get_ReadyToDrawImpl() throws -> Bool {
+        open func get_ReadyToDraw() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReadyToDraw(pThis, &value))
@@ -159,13 +160,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        open func put_IsFixedTimeStepImpl(_ value: Bool) throws {
+        open func put_IsFixedTimeStep(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsFixedTimeStep(pThis, .init(from: value)))
             }
         }
 
-        open func get_IsFixedTimeStepImpl() throws -> Bool {
+        open func get_IsFixedTimeStep() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFixedTimeStep(pThis, &value))
@@ -173,13 +174,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        open func put_TargetElapsedTimeImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        open func put_TargetElapsedTime(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetElapsedTime(pThis, .from(swift: value)))
             }
         }
 
-        open func get_TargetElapsedTimeImpl() throws -> WindowsFoundation.TimeSpan {
+        open func get_TargetElapsedTime() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetElapsedTime(pThis, &value))
@@ -187,13 +188,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: value)
         }
 
-        open func put_PausedImpl(_ value: Bool) throws {
+        open func put_Paused(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Paused(pThis, .init(from: value)))
             }
         }
 
-        open func get_PausedImpl() throws -> Bool {
+        open func get_Paused() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Paused(pThis, &value))
@@ -201,13 +202,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        open func put_ClearColorImpl(_ value: UWP.Color) throws {
+        open func put_ClearColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClearColor(pThis, .from(swift: value)))
             }
         }
 
-        open func get_ClearColorImpl() throws -> UWP.Color {
+        open func get_ClearColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClearColor(pThis, &value))
@@ -215,7 +216,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: value)
         }
 
-        open func get_SizeImpl() throws -> WindowsFoundation.Size {
+        open func get_Size() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -223,34 +224,34 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: value)
         }
 
-        open func InvalidateImpl() throws {
+        open func Invalidate() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invalidate(pThis))
             }
         }
 
-        open func ResetElapsedTimeImpl() throws {
+        open func ResetElapsedTime() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResetElapsedTime(pThis))
             }
         }
 
-        open func CreateCoreIndependentInputSourceImpl(_ deviceTypes: WinAppSDK.InputPointerSourceDeviceKinds) throws -> WinAppSDK.InputPointerSource? {
+        open func CreateCoreIndependentInputSource(_ deviceTypes: WinAppSDK.InputPointerSourceDeviceKinds) throws -> WinAppSDK.InputPointerSource? {
             let (returnValue) = try ComPtrs.initialize { returnValueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCoreIndependentInputSource(pThis, deviceTypes, &returnValueAbi))
                 }
             }
-            return .from(abi: returnValue)
+            return __IMPL_Microsoft_UI_Input.InputPointerSourceBridge.from(abi: returnValue)
         }
 
-        open func RemoveFromVisualTreeImpl() throws {
+        open func RemoveFromVisualTree() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveFromVisualTree(pThis))
             }
         }
 
-        open func get_HasGameLoopThreadAccessImpl() throws -> Bool {
+        open func get_HasGameLoopThreadAccess() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasGameLoopThreadAccess(pThis, &value))
@@ -258,7 +259,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        open func RunOnGameLoopThreadAsyncImpl(_ agileCallback: WinAppSDK.DispatcherQueueHandler?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        open func RunOnGameLoopThreadAsync(_ agileCallback: WinAppSDK.DispatcherQueueHandler?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
                 let agileCallbackWrapper = __ABI_Microsoft_UI_Dispatching.DispatcherQueueHandlerWrapper(agileCallback)
                 let _agileCallback = try! agileCallbackWrapper?.toABI { $0 }
@@ -269,7 +270,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncAction)
         }
 
-        open func get_UseSharedDeviceImpl() throws -> Bool {
+        open func get_UseSharedDevice() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UseSharedDevice(pThis, &value))
@@ -277,13 +278,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        open func put_UseSharedDeviceImpl(_ value: Bool) throws {
+        open func put_UseSharedDevice(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_UseSharedDevice(pThis, .init(from: value)))
             }
         }
 
-        open func get_ForceSoftwareRendererImpl() throws -> Bool {
+        open func get_ForceSoftwareRenderer() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForceSoftwareRenderer(pThis, &value))
@@ -291,28 +292,28 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        open func put_ForceSoftwareRendererImpl(_ value: Bool) throws {
+        open func put_ForceSoftwareRenderer(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ForceSoftwareRenderer(pThis, .init(from: value)))
             }
         }
 
-        open func get_CustomDeviceImpl() throws -> Win2D.CanvasDevice? {
+        open func get_CustomDevice() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomDevice(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
-        open func put_CustomDeviceImpl(_ value: Win2D.CanvasDevice?) throws {
+        open func put_CustomDevice(_ value: Win2D.CanvasDevice?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CustomDevice(pThis, RawPointer(value)))
             }
         }
 
-        open func get_DpiScaleImpl() throws -> Float {
+        open func get_DpiScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DpiScale(pThis, &value))
@@ -320,7 +321,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return value
         }
 
-        open func put_DpiScaleImpl(_ ratio: Float) throws {
+        open func put_DpiScale(_ ratio: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DpiScale(pThis, ratio))
             }
@@ -508,7 +509,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
                 guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.invalidate()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ResetElapsedTime: {
@@ -516,7 +517,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
                 guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.resetElapsedTime()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         CreateCoreIndependentInputSource: {
@@ -526,7 +527,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
                 let returnValue = try __unwrapped__instance.createCoreIndependentInputSource(deviceTypes)
                 returnValue?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         RemoveFromVisualTree: {
@@ -534,7 +535,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
                 guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.removeFromVisualTree()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         get_HasGameLoopThreadAccess: {
@@ -552,7 +553,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
                 let asyncActionWrapper = __ABI_Windows_Foundation.IAsyncActionWrapper(asyncAction)
                 asyncActionWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         get_UseSharedDevice: {
@@ -592,7 +593,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
 
         put_CustomDevice: {
             guard let __unwrapped__instance = ICanvasAnimatedControlWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value: Win2D.CanvasDevice? = .from(abi: ComPtr($1))
+            let value: Win2D.CanvasDevice? = __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: ComPtr($1))
             __unwrapped__instance.customDevice = value
             return S_OK
         },
@@ -616,16 +617,16 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasAnimatedDrawEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs }
 
-        internal func get_DrawingSessionImpl() throws -> Win2D.CanvasDrawingSession? {
+        public func get_DrawingSession() throws -> Win2D.CanvasDrawingSession? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DrawingSession(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDrawingSessionBridge.from(abi: value)
         }
 
-        internal func get_TimingImpl() throws -> Win2D.CanvasTimingInformation {
+        public func get_Timing() throws -> Win2D.CanvasTimingInformation {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Timing(pThis, &value))
@@ -638,7 +639,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasAnimatedDrawEventArgsFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory }
 
-        internal func CreateImpl(_ canvasDrawingSession: Win2D.CanvasDrawingSession?, _ timingInformation: Win2D.CanvasTimingInformation) throws -> ICanvasAnimatedDrawEventArgs {
+        public func Create(_ canvasDrawingSession: Win2D.CanvasDrawingSession?, _ timingInformation: Win2D.CanvasTimingInformation) throws -> ICanvasAnimatedDrawEventArgs {
             let (animatedControlDrawEventArgs) = try ComPtrs.initialize { animatedControlDrawEventArgsAbi in
                 let _timingInformation = __ABI_Microsoft_Graphics_Canvas_UI._ABI_CanvasTimingInformation(from: timingInformation)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgsFactory.self) { pThis in
@@ -653,7 +654,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasAnimatedUpdateEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs }
 
-        internal func get_TimingImpl() throws -> Win2D.CanvasTimingInformation {
+        public func get_Timing() throws -> Win2D.CanvasTimingInformation {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Timing(pThis, &value))
@@ -666,7 +667,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasAnimatedUpdateEventArgsFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory }
 
-        internal func CreateImpl(_ timingInformation: Win2D.CanvasTimingInformation) throws -> ICanvasAnimatedUpdateEventArgs {
+        public func Create(_ timingInformation: Win2D.CanvasTimingInformation) throws -> ICanvasAnimatedUpdateEventArgs {
             let (updateEventArgs) = try ComPtrs.initialize { updateEventArgsAbi in
                 let _timingInformation = __ABI_Microsoft_Graphics_Canvas_UI._ABI_CanvasTimingInformation(from: timingInformation)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgsFactory.self) { pThis in
@@ -681,7 +682,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl }
 
-        internal func add_CreateResourcesImpl(_ value: TypedEventHandler<Win2D.CanvasControl?, Win2D.CanvasCreateResourcesEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_CreateResources(_ value: TypedEventHandler<Win2D.CanvasControl?, Win2D.CanvasCreateResourcesEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -691,13 +692,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        internal func remove_CreateResourcesImpl(_ token: EventRegistrationToken) throws {
+        public func remove_CreateResources(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CreateResources(pThis, token))
             }
         }
 
-        internal func get_ReadyToDrawImpl() throws -> Bool {
+        public func get_ReadyToDraw() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReadyToDraw(pThis, &value))
@@ -705,7 +706,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        internal func add_DrawImpl(_ value: TypedEventHandler<Win2D.CanvasControl?, Win2D.CanvasDrawEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Draw(_ value: TypedEventHandler<Win2D.CanvasControl?, Win2D.CanvasDrawEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasDrawEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -715,19 +716,19 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        internal func remove_DrawImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Draw(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Draw(pThis, token))
             }
         }
 
-        internal func put_ClearColorImpl(_ value: UWP.Color) throws {
+        public func put_ClearColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClearColor(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ClearColorImpl() throws -> UWP.Color {
+        public func get_ClearColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClearColor(pThis, &value))
@@ -735,13 +736,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: value)
         }
 
-        internal func InvalidateImpl() throws {
+        public func Invalidate() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invalidate(pThis))
             }
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Size {
+        public func get_Size() throws -> WindowsFoundation.Size {
             var size: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &size))
@@ -749,13 +750,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: size)
         }
 
-        internal func RemoveFromVisualTreeImpl() throws {
+        public func RemoveFromVisualTree() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveFromVisualTree(pThis))
             }
         }
 
-        internal func get_UseSharedDeviceImpl() throws -> Bool {
+        public func get_UseSharedDevice() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UseSharedDevice(pThis, &value))
@@ -763,13 +764,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        internal func put_UseSharedDeviceImpl(_ value: Bool) throws {
+        public func put_UseSharedDevice(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_UseSharedDevice(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ForceSoftwareRendererImpl() throws -> Bool {
+        public func get_ForceSoftwareRenderer() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForceSoftwareRenderer(pThis, &value))
@@ -777,28 +778,28 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        internal func put_ForceSoftwareRendererImpl(_ value: Bool) throws {
+        public func put_ForceSoftwareRenderer(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ForceSoftwareRenderer(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CustomDeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func get_CustomDevice() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomDevice(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
-        internal func put_CustomDeviceImpl(_ value: Win2D.CanvasDevice?) throws {
+        public func put_CustomDevice(_ value: Win2D.CanvasDevice?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CustomDevice(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_DpiScaleImpl() throws -> Float {
+        public func get_DpiScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DpiScale(pThis, &value))
@@ -806,7 +807,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return value
         }
 
-        internal func put_DpiScaleImpl(_ ratio: Float) throws {
+        public func put_DpiScale(_ ratio: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DpiScale(pThis, ratio))
             }
@@ -817,13 +818,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasDrawEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasDrawEventArgs }
 
-        internal func get_DrawingSessionImpl() throws -> Win2D.CanvasDrawingSession? {
+        public func get_DrawingSession() throws -> Win2D.CanvasDrawingSession? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasDrawEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DrawingSession(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDrawingSessionBridge.from(abi: value)
         }
 
     }
@@ -831,7 +832,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasDrawEventArgsFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasDrawEventArgsFactory }
 
-        internal func CreateImpl(_ canvasDrawingSession: Win2D.CanvasDrawingSession?) throws -> ICanvasDrawEventArgs {
+        public func Create(_ canvasDrawingSession: Win2D.CanvasDrawingSession?) throws -> ICanvasDrawEventArgs {
             let (drawEventArgs) = try ComPtrs.initialize { drawEventArgsAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasDrawEventArgsFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(canvasDrawingSession), &drawEventArgsAbi))
@@ -845,25 +846,25 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasImageSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource }
 
-        internal func CreateDrawingSessionImpl(_ clearColor: UWP.Color) throws -> Win2D.CanvasDrawingSession? {
+        public func CreateDrawingSession(_ clearColor: UWP.Color) throws -> Win2D.CanvasDrawingSession? {
             let (drawingSession) = try ComPtrs.initialize { drawingSessionAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDrawingSession(pThis, .from(swift: clearColor), &drawingSessionAbi))
                 }
             }
-            return .from(abi: drawingSession)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDrawingSessionBridge.from(abi: drawingSession)
         }
 
-        internal func CreateDrawingSessionWithUpdateRectangleImpl(_ clearColor: UWP.Color, _ updateRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasDrawingSession? {
+        public func CreateDrawingSessionWithUpdateRectangle(_ clearColor: UWP.Color, _ updateRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasDrawingSession? {
             let (drawingSession) = try ComPtrs.initialize { drawingSessionAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDrawingSessionWithUpdateRectangle(pThis, .from(swift: clearColor), .from(swift: updateRectangle), &drawingSessionAbi))
                 }
             }
-            return .from(abi: drawingSession)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDrawingSessionBridge.from(abi: drawingSession)
         }
 
-        internal func RecreateImpl(_ value: Win2D.AnyICanvasResourceCreator?) throws {
+        public func Recreate(_ value: Win2D.AnyICanvasResourceCreator?) throws {
             let valueWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource.self) { pThis in
@@ -871,7 +872,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             }
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Size {
+        public func get_Size() throws -> WindowsFoundation.Size {
             var size: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &size))
@@ -879,7 +880,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: size)
         }
 
-        internal func get_SizeInPixelsImpl() throws -> UWP.BitmapSize {
+        public func get_SizeInPixels() throws -> UWP.BitmapSize {
             var size: __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SizeInPixels(pThis, &size))
@@ -887,7 +888,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: size)
         }
 
-        internal func get_AlphaModeImpl() throws -> Win2D.CanvasAlphaMode {
+        public func get_AlphaMode() throws -> Win2D.CanvasAlphaMode {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlphaMode(pThis, &value))
@@ -900,7 +901,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasImageSourceFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSourceFactory }
 
-        internal func CreateWithSizeImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ size: WindowsFoundation.Size) throws -> ICanvasImageSource {
+        public func CreateWithSize(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ size: WindowsFoundation.Size) throws -> ICanvasImageSource {
             let (imageSource) = try ComPtrs.initialize { imageSourceAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -911,7 +912,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return ICanvasImageSource(imageSource!)
         }
 
-        internal func CreateWithWidthAndHeightImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ width: Float, _ height: Float) throws -> ICanvasImageSource {
+        public func CreateWithWidthAndHeight(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ width: Float, _ height: Float) throws -> ICanvasImageSource {
             let (imageSource) = try ComPtrs.initialize { imageSourceAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -922,7 +923,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return ICanvasImageSource(imageSource!)
         }
 
-        internal func CreateWithWidthAndHeightAndDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float) throws -> ICanvasImageSource {
+        public func CreateWithWidthAndHeightAndDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float) throws -> ICanvasImageSource {
             let (imageSource) = try ComPtrs.initialize { imageSourceAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -933,7 +934,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return ICanvasImageSource(imageSource!)
         }
 
-        internal func CreateWithWidthAndHeightAndDpiAndAlphaModeImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float, _ alphaMode: Win2D.CanvasAlphaMode) throws -> ICanvasImageSource {
+        public func CreateWithWidthAndHeightAndDpiAndAlphaMode(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float, _ alphaMode: Win2D.CanvasAlphaMode) throws -> ICanvasImageSource {
             let (imageSource) = try ComPtrs.initialize { imageSourceAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -949,7 +950,17 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasRegionsInvalidatedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasRegionsInvalidatedEventArgs }
 
-        internal func get_VisibleRegionImpl() throws -> WindowsFoundation.Rect {
+        public func get_InvalidatedRegions() throws -> [WindowsFoundation.Rect] {
+            var value: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CRect> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasRegionsInvalidatedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InvalidatedRegions(pThis, &value.count, &value.start))
+            }
+            defer { CoTaskMemFree(value.start) }
+            return .from(abi: value)
+
+        }
+
+        public func get_VisibleRegion() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasRegionsInvalidatedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VisibleRegion(pThis, &value))
@@ -962,22 +973,22 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasSwapChainPanel: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasSwapChainPanel }
 
-        internal func put_SwapChainImpl(_ value: Win2D.CanvasSwapChain?) throws {
+        public func put_SwapChain(_ value: Win2D.CanvasSwapChain?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasSwapChainPanel.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SwapChain(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_SwapChainImpl() throws -> Win2D.CanvasSwapChain? {
+        public func get_SwapChain() throws -> Win2D.CanvasSwapChain? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasSwapChainPanel.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SwapChain(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasSwapChainBridge.from(abi: value)
         }
 
-        internal func RemoveFromVisualTreeImpl() throws {
+        public func RemoveFromVisualTree() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasSwapChainPanel.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveFromVisualTree(pThis))
             }
@@ -988,7 +999,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasVirtualControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl }
 
-        internal func add_CreateResourcesImpl(_ value: TypedEventHandler<Win2D.CanvasVirtualControl?, Win2D.CanvasCreateResourcesEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_CreateResources(_ value: TypedEventHandler<Win2D.CanvasVirtualControl?, Win2D.CanvasCreateResourcesEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasVirtualControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CCanvasCreateResourcesEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -998,13 +1009,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        internal func remove_CreateResourcesImpl(_ token: EventRegistrationToken) throws {
+        public func remove_CreateResources(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CreateResources(pThis, token))
             }
         }
 
-        internal func get_ReadyToDrawImpl() throws -> Bool {
+        public func get_ReadyToDraw() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReadyToDraw(pThis, &value))
@@ -1012,7 +1023,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        internal func add_RegionsInvalidatedImpl(_ value: TypedEventHandler<Win2D.CanvasVirtualControl?, Win2D.CanvasRegionsInvalidatedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_RegionsInvalidated(_ value: TypedEventHandler<Win2D.CanvasVirtualControl?, Win2D.CanvasRegionsInvalidatedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasVirtualControl___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasRegionsInvalidatedEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1022,19 +1033,19 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        internal func remove_RegionsInvalidatedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_RegionsInvalidated(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RegionsInvalidated(pThis, token))
             }
         }
 
-        internal func put_ClearColorImpl(_ value: UWP.Color) throws {
+        public func put_ClearColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClearColor(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ClearColorImpl() throws -> UWP.Color {
+        public func get_ClearColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClearColor(pThis, &value))
@@ -1042,40 +1053,40 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: value)
         }
 
-        internal func CreateDrawingSessionImpl(_ updateRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasDrawingSession? {
+        public func CreateDrawingSession(_ updateRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasDrawingSession? {
             let (drawingSession) = try ComPtrs.initialize { drawingSessionAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDrawingSession(pThis, .from(swift: updateRectangle), &drawingSessionAbi))
                 }
             }
-            return .from(abi: drawingSession)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDrawingSessionBridge.from(abi: drawingSession)
         }
 
-        internal func SuspendDrawingSessionImpl(_ drawingSession: Win2D.CanvasDrawingSession?) throws {
+        public func SuspendDrawingSession(_ drawingSession: Win2D.CanvasDrawingSession?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SuspendDrawingSession(pThis, RawPointer(drawingSession)))
             }
         }
 
-        internal func ResumeDrawingSessionImpl(_ drawingSession: Win2D.CanvasDrawingSession?) throws {
+        public func ResumeDrawingSession(_ drawingSession: Win2D.CanvasDrawingSession?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResumeDrawingSession(pThis, RawPointer(drawingSession)))
             }
         }
 
-        internal func InvalidateImpl() throws {
+        public func Invalidate() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invalidate(pThis))
             }
         }
 
-        internal func InvalidateRegionImpl(_ region: WindowsFoundation.Rect) throws {
+        public func InvalidateRegion(_ region: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InvalidateRegion(pThis, .from(swift: region)))
             }
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Size {
+        public func get_Size() throws -> WindowsFoundation.Size {
             var size: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &size))
@@ -1083,13 +1094,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: size)
         }
 
-        internal func RemoveFromVisualTreeImpl() throws {
+        public func RemoveFromVisualTree() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveFromVisualTree(pThis))
             }
         }
 
-        internal func get_UseSharedDeviceImpl() throws -> Bool {
+        public func get_UseSharedDevice() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UseSharedDevice(pThis, &value))
@@ -1097,13 +1108,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        internal func put_UseSharedDeviceImpl(_ value: Bool) throws {
+        public func put_UseSharedDevice(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_UseSharedDevice(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ForceSoftwareRendererImpl() throws -> Bool {
+        public func get_ForceSoftwareRenderer() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForceSoftwareRenderer(pThis, &value))
@@ -1111,28 +1122,28 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .init(from: value)
         }
 
-        internal func put_ForceSoftwareRendererImpl(_ value: Bool) throws {
+        public func put_ForceSoftwareRenderer(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ForceSoftwareRenderer(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CustomDeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func get_CustomDevice() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomDevice(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
-        internal func put_CustomDeviceImpl(_ value: Win2D.CanvasDevice?) throws {
+        public func put_CustomDevice(_ value: Win2D.CanvasDevice?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CustomDevice(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_DpiScaleImpl() throws -> Float {
+        public func get_DpiScale() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DpiScale(pThis, &value))
@@ -1140,7 +1151,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return value
         }
 
-        internal func put_DpiScaleImpl(_ ratio: Float) throws {
+        public func put_DpiScale(_ ratio: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DpiScale(pThis, ratio))
             }
@@ -1151,55 +1162,55 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasVirtualImageSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource }
 
-        internal func get_SourceImpl() throws -> WinUI.VirtualSurfaceImageSource? {
+        public func get_Source() throws -> WinUI.VirtualSurfaceImageSource? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Source(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Imaging.VirtualSurfaceImageSourceBridge.from(abi: value)
         }
 
-        internal func CreateDrawingSessionImpl(_ clearColor: UWP.Color, _ updateRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasDrawingSession? {
+        public func CreateDrawingSession(_ clearColor: UWP.Color, _ updateRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasDrawingSession? {
             let (drawingSession) = try ComPtrs.initialize { drawingSessionAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDrawingSession(pThis, .from(swift: clearColor), .from(swift: updateRectangle), &drawingSessionAbi))
                 }
             }
-            return .from(abi: drawingSession)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDrawingSessionBridge.from(abi: drawingSession)
         }
 
-        internal func SuspendDrawingSessionImpl(_ drawingSession: Win2D.CanvasDrawingSession?) throws {
+        public func SuspendDrawingSession(_ drawingSession: Win2D.CanvasDrawingSession?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SuspendDrawingSession(pThis, RawPointer(drawingSession)))
             }
         }
 
-        internal func ResumeDrawingSessionImpl(_ drawingSession: Win2D.CanvasDrawingSession?) throws {
+        public func ResumeDrawingSession(_ drawingSession: Win2D.CanvasDrawingSession?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResumeDrawingSession(pThis, RawPointer(drawingSession)))
             }
         }
 
-        internal func InvalidateImpl() throws {
+        public func Invalidate() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invalidate(pThis))
             }
         }
 
-        internal func InvalidateRegionImpl(_ region: WindowsFoundation.Rect) throws {
+        public func InvalidateRegion(_ region: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InvalidateRegion(pThis, .from(swift: region)))
             }
         }
 
-        internal func RaiseRegionsInvalidatedIfAnyImpl() throws {
+        public func RaiseRegionsInvalidatedIfAny() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseRegionsInvalidatedIfAny(pThis))
             }
         }
 
-        internal func add_RegionsInvalidatedImpl(_ value: TypedEventHandler<Win2D.CanvasVirtualImageSource?, Win2D.CanvasRegionsInvalidatedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_RegionsInvalidated(_ value: TypedEventHandler<Win2D.CanvasVirtualImageSource?, Win2D.CanvasRegionsInvalidatedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = Win2D.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasVirtualImageSource___x_ABI_CMicrosoft__CGraphics__CCanvas__CUI__CXaml__CCanvasRegionsInvalidatedEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1209,31 +1220,31 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return token
         }
 
-        internal func remove_RegionsInvalidatedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_RegionsInvalidated(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RegionsInvalidated(pThis, token))
             }
         }
 
-        internal func ResizeWithSizeImpl(_ size: WindowsFoundation.Size) throws {
+        public func ResizeWithSize(_ size: WindowsFoundation.Size) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResizeWithSize(pThis, .from(swift: size)))
             }
         }
 
-        internal func ResizeWithWidthAndHeightImpl(_ width: Float, _ height: Float) throws {
+        public func ResizeWithWidthAndHeight(_ width: Float, _ height: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResizeWithWidthAndHeight(pThis, width, height))
             }
         }
 
-        internal func ResizeWithWidthAndHeightAndDpiImpl(_ width: Float, _ height: Float, _ dpi: Float) throws {
+        public func ResizeWithWidthAndHeightAndDpi(_ width: Float, _ height: Float, _ dpi: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ResizeWithWidthAndHeightAndDpi(pThis, width, height, dpi))
             }
         }
 
-        internal func RecreateImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws {
+        public func Recreate(_ resourceCreator: Win2D.AnyICanvasResourceCreator?) throws {
             let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
             let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
@@ -1241,7 +1252,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             }
         }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Size {
+        public func get_Size() throws -> WindowsFoundation.Size {
             var size: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &size))
@@ -1249,7 +1260,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: size)
         }
 
-        internal func get_SizeInPixelsImpl() throws -> UWP.BitmapSize {
+        public func get_SizeInPixels() throws -> UWP.BitmapSize {
             var size: __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SizeInPixels(pThis, &size))
@@ -1257,7 +1268,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return .from(abi: size)
         }
 
-        internal func get_AlphaModeImpl() throws -> Win2D.CanvasAlphaMode {
+        public func get_AlphaMode() throws -> Win2D.CanvasAlphaMode {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasAlphaMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlphaMode(pThis, &value))
@@ -1270,7 +1281,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
     public class ICanvasVirtualImageSourceFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSourceFactory }
 
-        internal func CreateWithSizeImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ size: WindowsFoundation.Size) throws -> ICanvasVirtualImageSource {
+        public func CreateWithSize(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ size: WindowsFoundation.Size) throws -> ICanvasVirtualImageSource {
             let (imageSource) = try ComPtrs.initialize { imageSourceAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -1281,7 +1292,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return ICanvasVirtualImageSource(imageSource!)
         }
 
-        internal func CreateWithWidthAndHeightImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ width: Float, _ height: Float) throws -> ICanvasVirtualImageSource {
+        public func CreateWithWidthAndHeight(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi?, _ width: Float, _ height: Float) throws -> ICanvasVirtualImageSource {
             let (imageSource) = try ComPtrs.initialize { imageSourceAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -1292,7 +1303,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return ICanvasVirtualImageSource(imageSource!)
         }
 
-        internal func CreateWithWidthAndHeightAndDpiImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float) throws -> ICanvasVirtualImageSource {
+        public func CreateWithWidthAndHeightAndDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float) throws -> ICanvasVirtualImageSource {
             let (imageSource) = try ComPtrs.initialize { imageSourceAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -1303,7 +1314,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_UI_Xaml {
             return ICanvasVirtualImageSource(imageSource!)
         }
 
-        internal func CreateWithWidthAndHeightAndDpiAndAlphaModeImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float, _ alphaMode: Win2D.CanvasAlphaMode) throws -> ICanvasVirtualImageSource {
+        public func CreateWithWidthAndHeightAndDpiAndAlphaMode(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ width: Float, _ height: Float, _ dpi: Float, _ alphaMode: Win2D.CanvasAlphaMode) throws -> ICanvasVirtualImageSource {
             let (imageSource) = try ComPtrs.initialize { imageSourceAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }

@@ -1,7 +1,11 @@
 -output E:\sandbox\ktraunmueller\winrt\swift-win2d\.generated
 -include Microsoft.Graphics.Canvas
--include Microsoft.Graphics.Canvas.Text.CanvasFontFace
--include Microsoft.Graphics.Canvas.Text.CanvasFontSet
+-include Microsoft.Graphics.Canvas.Brushes
+-include Microsoft.Graphics.Canvas.Effects
+-include Microsoft.Graphics.Canvas.Geometry
+-include Microsoft.Graphics.Canvas.Text
+-include Microsoft.Graphics.Canvas.UI
+-include Microsoft.Graphics.Canvas.UI.Composition
 -include Microsoft.Graphics.Canvas.UI.Xaml
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\net45\Microsoft.Graphics.Canvas.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-win2d\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\uap10.0\Microsoft.Graphics.Canvas.winmd

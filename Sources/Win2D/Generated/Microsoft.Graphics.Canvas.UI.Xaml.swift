@@ -21,12 +21,6 @@ public final class CanvasAnimatedControl : WinUI.UserControl, Win2D.ICanvasResou
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl>?) -> CanvasAnimatedControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -34,118 +28,119 @@ public final class CanvasAnimatedControl : WinUI.UserControl, Win2D.ICanvasResou
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.convertpixelstodips)
     public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.convertdipstopixels)
     public func convertDipsToPixels(_ dips: Float, _ dpiRounding: Win2D.CanvasDpiRounding) throws -> Int32 {
-        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.dpi)
     public var dpi : Float {
-        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+        get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.invalidate)
     public func invalidate() throws {
-        try _default.InvalidateImpl()
+        try _default.Invalidate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.resetelapsedtime)
     public func resetElapsedTime() throws {
-        try _default.ResetElapsedTimeImpl()
+        try _default.ResetElapsedTime()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.createcoreindependentinputsource)
     public func createCoreIndependentInputSource(_ deviceTypes: WinAppSDK.InputPointerSourceDeviceKinds) throws -> WinAppSDK.InputPointerSource! {
-        try _default.CreateCoreIndependentInputSourceImpl(deviceTypes)
+        try _default.CreateCoreIndependentInputSource(deviceTypes)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.removefromvisualtree)
     public func removeFromVisualTree() throws {
-        try _default.RemoveFromVisualTreeImpl()
+        try _default.RemoveFromVisualTree()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.runongameloopthreadasync)
     public func runOnGameLoopThreadAsync(_ agileCallback: WinAppSDK.DispatcherQueueHandler!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.RunOnGameLoopThreadAsyncImpl(agileCallback)
+        try _default.RunOnGameLoopThreadAsync(agileCallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.clearcolor)
     public var clearColor : UWP.Color {
-        get { try! _default.get_ClearColorImpl() }
-        set { try! _default.put_ClearColorImpl(newValue) }
+        get { try! _default.get_ClearColor() }
+        set { try! _default.put_ClearColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.customdevice)
     public var customDevice : Win2D.CanvasDevice! {
-        get { try! _default.get_CustomDeviceImpl() }
-        set { try! _default.put_CustomDeviceImpl(newValue) }
+        get { try! _default.get_CustomDevice() }
+        set { try! _default.put_CustomDevice(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.dpiscale)
     public var dpiScale : Float {
-        get { try! _default.get_DpiScaleImpl() }
-        set { try! _default.put_DpiScaleImpl(newValue) }
+        get { try! _default.get_DpiScale() }
+        set { try! _default.put_DpiScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.forcesoftwarerenderer)
     public var forceSoftwareRenderer : Bool {
-        get { try! _default.get_ForceSoftwareRendererImpl() }
-        set { try! _default.put_ForceSoftwareRendererImpl(newValue) }
+        get { try! _default.get_ForceSoftwareRenderer() }
+        set { try! _default.put_ForceSoftwareRenderer(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.hasgameloopthreadaccess)
     public var hasGameLoopThreadAccess : Bool {
-        get { try! _default.get_HasGameLoopThreadAccessImpl() }
+        get { try! _default.get_HasGameLoopThreadAccess() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.isfixedtimestep)
     public var isFixedTimeStep : Bool {
-        get { try! _default.get_IsFixedTimeStepImpl() }
-        set { try! _default.put_IsFixedTimeStepImpl(newValue) }
+        get { try! _default.get_IsFixedTimeStep() }
+        set { try! _default.put_IsFixedTimeStep(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.paused)
     public var paused : Bool {
-        get { try! _default.get_PausedImpl() }
-        set { try! _default.put_PausedImpl(newValue) }
+        get { try! _default.get_Paused() }
+        set { try! _default.put_Paused(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.readytodraw)
     public var readyToDraw : Bool {
-        get { try! _default.get_ReadyToDrawImpl() }
+        get { try! _default.get_ReadyToDraw() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.targetelapsedtime)
     public var targetElapsedTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_TargetElapsedTimeImpl() }
-        set { try! _default.put_TargetElapsedTimeImpl(newValue) }
+        get { try! _default.get_TargetElapsedTime() }
+        set { try! _default.put_TargetElapsedTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.useshareddevice)
     public var useSharedDevice : Bool {
-        get { try! _default.get_UseSharedDeviceImpl() }
-        set { try! _default.put_UseSharedDeviceImpl(newValue) }
+        get { try! _default.get_UseSharedDevice() }
+        set { try! _default.put_UseSharedDevice(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedcontrol.createresources)
@@ -153,10 +148,10 @@ public final class CanvasAnimatedControl : WinUI.UserControl, Win2D.ICanvasResou
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CreateResourcesImpl($0)
+          return try! this.add_CreateResources($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CreateResourcesImpl($0)
+         try? self?._default.remove_CreateResources($0)
        }
       )
     }()
@@ -166,10 +161,10 @@ public final class CanvasAnimatedControl : WinUI.UserControl, Win2D.ICanvasResou
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DrawImpl($0)
+          return try! this.add_Draw($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DrawImpl($0)
+         try? self?._default.remove_Draw($0)
        }
       )
     }()
@@ -179,10 +174,10 @@ public final class CanvasAnimatedControl : WinUI.UserControl, Win2D.ICanvasResou
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_GameLoopStartingImpl($0)
+          return try! this.add_GameLoopStarting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_GameLoopStartingImpl($0)
+         try? self?._default.remove_GameLoopStarting($0)
        }
       )
     }()
@@ -192,10 +187,10 @@ public final class CanvasAnimatedControl : WinUI.UserControl, Win2D.ICanvasResou
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_GameLoopStoppedImpl($0)
+          return try! this.add_GameLoopStopped($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_GameLoopStoppedImpl($0)
+         try? self?._default.remove_GameLoopStopped($0)
        }
       )
     }()
@@ -205,25 +200,14 @@ public final class CanvasAnimatedControl : WinUI.UserControl, Win2D.ICanvasResou
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_UpdateImpl($0)
+          return try! this.add_Update($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_UpdateImpl($0)
+         try? self?._default.remove_Update($0)
        }
       )
     }()
 
-    internal enum IControlOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
-        internal typealias Class = CanvasAnimatedControl
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedControl
-            internal typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedControl
-        }
-    }
-    internal typealias Composable = IControlOverrides
     deinit {
         _ICanvasResourceCreator = nil
         _ICanvasResourceCreatorWithDpi = nil
@@ -245,29 +229,23 @@ public final class CanvasAnimatedDrawEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedDrawEventArgs>?) -> CanvasAnimatedDrawEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICanvasAnimatedDrawEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedDrawEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedDrawEventArgs"))
+    private static let _ICanvasAnimatedDrawEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedDrawEventArgsFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedDrawEventArgs")
     public init(_ canvasDrawingSession: Win2D.CanvasDrawingSession!, _ timingInformation: Win2D.CanvasTimingInformation) {
-        super.init(try! Self._ICanvasAnimatedDrawEventArgsFactory.CreateImpl(canvasDrawingSession, timingInformation))
+        super.init(try! Self._ICanvasAnimatedDrawEventArgsFactory.Create(canvasDrawingSession, timingInformation))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimateddraweventargs.drawingsession)
     public var drawingSession : Win2D.CanvasDrawingSession! {
-        get { try! _default.get_DrawingSessionImpl() }
+        get { try! _default.get_DrawingSession() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimateddraweventargs.timing)
     public var timing : Win2D.CanvasTimingInformation {
-        get { try! _default.get_TimingImpl() }
+        get { try! _default.get_Timing() }
     }
 
     deinit {
@@ -289,24 +267,18 @@ public final class CanvasAnimatedUpdateEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasAnimatedUpdateEventArgs>?) -> CanvasAnimatedUpdateEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICanvasAnimatedUpdateEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedUpdateEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedUpdateEventArgs"))
+    private static let _ICanvasAnimatedUpdateEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasAnimatedUpdateEventArgsFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedUpdateEventArgs")
     public init(_ timingInformation: Win2D.CanvasTimingInformation) {
-        super.init(try! Self._ICanvasAnimatedUpdateEventArgsFactory.CreateImpl(timingInformation))
+        super.init(try! Self._ICanvasAnimatedUpdateEventArgsFactory.Create(timingInformation))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasanimatedupdateeventargs.timing)
     public var timing : Win2D.CanvasTimingInformation {
-        get { try! _default.get_TimingImpl() }
+        get { try! _default.get_Timing() }
     }
 
     deinit {
@@ -328,12 +300,6 @@ public final class CanvasControl : WinUI.UserControl, Win2D.ICanvasResourceCreat
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl>?) -> CanvasControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -341,80 +307,81 @@ public final class CanvasControl : WinUI.UserControl, Win2D.ICanvasResourceCreat
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.convertpixelstodips)
     public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.convertdipstopixels)
     public func convertDipsToPixels(_ dips: Float, _ dpiRounding: Win2D.CanvasDpiRounding) throws -> Int32 {
-        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.dpi)
     public var dpi : Float {
-        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+        get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.invalidate)
     public func invalidate() throws {
-        try _default.InvalidateImpl()
+        try _default.Invalidate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.removefromvisualtree)
     public func removeFromVisualTree() throws {
-        try _default.RemoveFromVisualTreeImpl()
+        try _default.RemoveFromVisualTree()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.clearcolor)
     public var clearColor : UWP.Color {
-        get { try! _default.get_ClearColorImpl() }
-        set { try! _default.put_ClearColorImpl(newValue) }
+        get { try! _default.get_ClearColor() }
+        set { try! _default.put_ClearColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.customdevice)
     public var customDevice : Win2D.CanvasDevice! {
-        get { try! _default.get_CustomDeviceImpl() }
-        set { try! _default.put_CustomDeviceImpl(newValue) }
+        get { try! _default.get_CustomDevice() }
+        set { try! _default.put_CustomDevice(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.dpiscale)
     public var dpiScale : Float {
-        get { try! _default.get_DpiScaleImpl() }
-        set { try! _default.put_DpiScaleImpl(newValue) }
+        get { try! _default.get_DpiScale() }
+        set { try! _default.put_DpiScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.forcesoftwarerenderer)
     public var forceSoftwareRenderer : Bool {
-        get { try! _default.get_ForceSoftwareRendererImpl() }
-        set { try! _default.put_ForceSoftwareRendererImpl(newValue) }
+        get { try! _default.get_ForceSoftwareRenderer() }
+        set { try! _default.put_ForceSoftwareRenderer(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.readytodraw)
     public var readyToDraw : Bool {
-        get { try! _default.get_ReadyToDrawImpl() }
+        get { try! _default.get_ReadyToDraw() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.useshareddevice)
     public var useSharedDevice : Bool {
-        get { try! _default.get_UseSharedDeviceImpl() }
-        set { try! _default.put_UseSharedDeviceImpl(newValue) }
+        get { try! _default.get_UseSharedDevice() }
+        set { try! _default.put_UseSharedDevice(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvascontrol.createresources)
@@ -422,10 +389,10 @@ public final class CanvasControl : WinUI.UserControl, Win2D.ICanvasResourceCreat
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CreateResourcesImpl($0)
+          return try! this.add_CreateResources($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CreateResourcesImpl($0)
+         try? self?._default.remove_CreateResources($0)
        }
       )
     }()
@@ -435,25 +402,14 @@ public final class CanvasControl : WinUI.UserControl, Win2D.ICanvasResourceCreat
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DrawImpl($0)
+          return try! this.add_Draw($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DrawImpl($0)
+         try? self?._default.remove_Draw($0)
        }
       )
     }()
 
-    internal enum IControlOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
-        internal typealias Class = CanvasControl
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasControl
-            internal typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasControl
-        }
-    }
-    internal typealias Composable = IControlOverrides
     deinit {
         _ICanvasResourceCreator = nil
         _ICanvasResourceCreatorWithDpi = nil
@@ -475,24 +431,18 @@ public final class CanvasDrawEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasDrawEventArgs>?) -> CanvasDrawEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICanvasDrawEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasDrawEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasDrawEventArgs"))
+    private static let _ICanvasDrawEventArgsFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasDrawEventArgsFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.Xaml.CanvasDrawEventArgs")
     public init(_ canvasDrawingSession: Win2D.CanvasDrawingSession!) {
-        super.init(try! Self._ICanvasDrawEventArgsFactory.CreateImpl(canvasDrawingSession))
+        super.init(try! Self._ICanvasDrawEventArgsFactory.Create(canvasDrawingSession))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasdraweventargs.drawingsession)
     public var drawingSession : Win2D.CanvasDrawingSession! {
-        get { try! _default.get_DrawingSessionImpl() }
+        get { try! _default.get_DrawingSession() }
     }
 
     deinit {
@@ -514,12 +464,6 @@ public final class CanvasImageSource : WinUI.SurfaceImageSource, Win2D.ICanvasRe
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasImageSource>?) -> CanvasImageSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -527,73 +471,73 @@ public final class CanvasImageSource : WinUI.SurfaceImageSource, Win2D.ICanvasRe
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasImageSourceFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasImageSourceFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasImageSource"))
+    private static let _ICanvasImageSourceFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasImageSourceFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.Xaml.CanvasImageSource")
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi!, _ size: WindowsFoundation.Size) {
-        super.init(fromAbi: try! Self._ICanvasImageSourceFactory.CreateWithSizeImpl(resourceCreator, size))
+        super.init(fromAbi: try! Self._ICanvasImageSourceFactory.CreateWithSize(resourceCreator, size))
     }
 
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi!, _ width: Float, _ height: Float) {
-        super.init(fromAbi: try! Self._ICanvasImageSourceFactory.CreateWithWidthAndHeightImpl(resourceCreator, width, height))
+        super.init(fromAbi: try! Self._ICanvasImageSourceFactory.CreateWithWidthAndHeight(resourceCreator, width, height))
     }
 
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ width: Float, _ height: Float, _ dpi: Float) {
-        super.init(fromAbi: try! Self._ICanvasImageSourceFactory.CreateWithWidthAndHeightAndDpiImpl(resourceCreator, width, height, dpi))
+        super.init(fromAbi: try! Self._ICanvasImageSourceFactory.CreateWithWidthAndHeightAndDpi(resourceCreator, width, height, dpi))
     }
 
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ width: Float, _ height: Float, _ dpi: Float, _ alphaMode: Win2D.CanvasAlphaMode) {
-        super.init(fromAbi: try! Self._ICanvasImageSourceFactory.CreateWithWidthAndHeightAndDpiAndAlphaModeImpl(resourceCreator, width, height, dpi, alphaMode))
+        super.init(fromAbi: try! Self._ICanvasImageSourceFactory.CreateWithWidthAndHeightAndDpiAndAlphaMode(resourceCreator, width, height, dpi, alphaMode))
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.convertpixelstodips)
     public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.convertdipstopixels)
     public func convertDipsToPixels(_ dips: Float, _ dpiRounding: Win2D.CanvasDpiRounding) throws -> Int32 {
-        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.dpi)
     public var dpi : Float {
-        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+        get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.createdrawingsession)
     public func createDrawingSession(_ clearColor: UWP.Color) throws -> Win2D.CanvasDrawingSession! {
-        try _default.CreateDrawingSessionImpl(clearColor)
+        try _default.CreateDrawingSession(clearColor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.createdrawingsession)
     public func createDrawingSession(_ clearColor: UWP.Color, _ updateRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasDrawingSession! {
-        try _default.CreateDrawingSessionWithUpdateRectangleImpl(clearColor, updateRectangle)
+        try _default.CreateDrawingSessionWithUpdateRectangle(clearColor, updateRectangle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.recreate)
     public func recreate(_ value: Win2D.AnyICanvasResourceCreator!) throws {
-        try _default.RecreateImpl(value)
+        try _default.Recreate(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.alphamode)
     public var alphaMode : Win2D.CanvasAlphaMode {
-        get { try! _default.get_AlphaModeImpl() }
+        get { try! _default.get_AlphaMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasimagesource.sizeinpixels)
     public var sizeInPixels : UWP.BitmapSize {
-        get { try! _default.get_SizeInPixelsImpl() }
+        get { try! _default.get_SizeInPixels() }
     }
 
     deinit {
@@ -617,19 +561,18 @@ public final class CanvasRegionsInvalidatedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasRegionsInvalidatedEventArgs>?) -> CanvasRegionsInvalidatedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasregionsinvalidatedeventargs.invalidatedregions)
+    public var invalidatedRegions : [WindowsFoundation.Rect] {
+        get { try! _default.get_InvalidatedRegions() }
+    }
+
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasregionsinvalidatedeventargs.visibleregion)
     public var visibleRegion : WindowsFoundation.Rect {
-        get { try! _default.get_VisibleRegionImpl() }
+        get { try! _default.get_VisibleRegion() }
     }
 
     deinit {
@@ -651,42 +594,26 @@ public final class CanvasSwapChainPanel : WinUI.SwapChainPanel {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasSwapChainPanel>?) -> CanvasSwapChainPanel? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.Xaml.CanvasSwapChainPanel")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasSwapChainPanel")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasswapchainpanel.removefromvisualtree)
     public func removeFromVisualTree() throws {
-        try _default.RemoveFromVisualTreeImpl()
+        try _default.RemoveFromVisualTree()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasswapchainpanel.swapchain)
     public var swapChain : Win2D.CanvasSwapChain! {
-        get { try! _default.get_SwapChainImpl() }
-        set { try! _default.put_SwapChainImpl(newValue) }
+        get { try! _default.get_SwapChain() }
+        set { try! _default.put_SwapChain(newValue) }
     }
 
-    internal enum IFrameworkElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
-        internal typealias Class = CanvasSwapChainPanel
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasSwapChainPanel
-            internal typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasSwapChainPanel
-        }
-    }
-    internal typealias Composable = IFrameworkElementOverrides
     deinit {
         _default = nil
     }
@@ -706,12 +633,6 @@ public final class CanvasVirtualControl : WinUI.UserControl, Win2D.ICanvasResour
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl>?) -> CanvasVirtualControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -719,100 +640,101 @@ public final class CanvasVirtualControl : WinUI.UserControl, Win2D.ICanvasResour
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.Xaml.CanvasVirtualControl")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasVirtualControl")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.convertpixelstodips)
     public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.convertdipstopixels)
     public func convertDipsToPixels(_ dips: Float, _ dpiRounding: Win2D.CanvasDpiRounding) throws -> Int32 {
-        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.dpi)
     public var dpi : Float {
-        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+        get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.createdrawingsession)
     public func createDrawingSession(_ updateRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasDrawingSession! {
-        try _default.CreateDrawingSessionImpl(updateRectangle)
+        try _default.CreateDrawingSession(updateRectangle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.suspenddrawingsession)
     public func suspendDrawingSession(_ drawingSession: Win2D.CanvasDrawingSession!) throws {
-        try _default.SuspendDrawingSessionImpl(drawingSession)
+        try _default.SuspendDrawingSession(drawingSession)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.resumedrawingsession)
     public func resumeDrawingSession(_ drawingSession: Win2D.CanvasDrawingSession!) throws {
-        try _default.ResumeDrawingSessionImpl(drawingSession)
+        try _default.ResumeDrawingSession(drawingSession)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.invalidate)
     public func invalidate() throws {
-        try _default.InvalidateImpl()
+        try _default.Invalidate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.invalidate)
     public func invalidate(_ region: WindowsFoundation.Rect) throws {
-        try _default.InvalidateRegionImpl(region)
+        try _default.InvalidateRegion(region)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.removefromvisualtree)
     public func removeFromVisualTree() throws {
-        try _default.RemoveFromVisualTreeImpl()
+        try _default.RemoveFromVisualTree()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.clearcolor)
     public var clearColor : UWP.Color {
-        get { try! _default.get_ClearColorImpl() }
-        set { try! _default.put_ClearColorImpl(newValue) }
+        get { try! _default.get_ClearColor() }
+        set { try! _default.put_ClearColor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.customdevice)
     public var customDevice : Win2D.CanvasDevice! {
-        get { try! _default.get_CustomDeviceImpl() }
-        set { try! _default.put_CustomDeviceImpl(newValue) }
+        get { try! _default.get_CustomDevice() }
+        set { try! _default.put_CustomDevice(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.dpiscale)
     public var dpiScale : Float {
-        get { try! _default.get_DpiScaleImpl() }
-        set { try! _default.put_DpiScaleImpl(newValue) }
+        get { try! _default.get_DpiScale() }
+        set { try! _default.put_DpiScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.forcesoftwarerenderer)
     public var forceSoftwareRenderer : Bool {
-        get { try! _default.get_ForceSoftwareRendererImpl() }
-        set { try! _default.put_ForceSoftwareRendererImpl(newValue) }
+        get { try! _default.get_ForceSoftwareRenderer() }
+        set { try! _default.put_ForceSoftwareRenderer(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.readytodraw)
     public var readyToDraw : Bool {
-        get { try! _default.get_ReadyToDrawImpl() }
+        get { try! _default.get_ReadyToDraw() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.useshareddevice)
     public var useSharedDevice : Bool {
-        get { try! _default.get_UseSharedDeviceImpl() }
-        set { try! _default.put_UseSharedDeviceImpl(newValue) }
+        get { try! _default.get_UseSharedDevice() }
+        set { try! _default.put_UseSharedDevice(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualcontrol.createresources)
@@ -820,10 +742,10 @@ public final class CanvasVirtualControl : WinUI.UserControl, Win2D.ICanvasResour
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CreateResourcesImpl($0)
+          return try! this.add_CreateResources($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CreateResourcesImpl($0)
+         try? self?._default.remove_CreateResources($0)
        }
       )
     }()
@@ -833,25 +755,14 @@ public final class CanvasVirtualControl : WinUI.UserControl, Win2D.ICanvasResour
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_RegionsInvalidatedImpl($0)
+          return try! this.add_RegionsInvalidated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_RegionsInvalidatedImpl($0)
+         try? self?._default.remove_RegionsInvalidated($0)
        }
       )
     }()
 
-    internal enum IControlOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
-        internal typealias Class = CanvasVirtualControl
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualControl
-            internal typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasVirtualControl
-        }
-    }
-    internal typealias Composable = IControlOverrides
     deinit {
         _ICanvasResourceCreator = nil
         _ICanvasResourceCreatorWithDpi = nil
@@ -873,12 +784,6 @@ public final class CanvasVirtualImageSource : WinRTClass, Win2D.ICanvasResourceC
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CXaml_CICanvasVirtualImageSource>?) -> CanvasVirtualImageSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -886,113 +791,113 @@ public final class CanvasVirtualImageSource : WinRTClass, Win2D.ICanvasResourceC
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasVirtualImageSourceFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasVirtualImageSourceFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.UI.Xaml.CanvasVirtualImageSource"))
+    private static let _ICanvasVirtualImageSourceFactory: __ABI_Microsoft_Graphics_Canvas_UI_Xaml.ICanvasVirtualImageSourceFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.UI.Xaml.CanvasVirtualImageSource")
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi!, _ size: WindowsFoundation.Size) {
-        super.init(try! Self._ICanvasVirtualImageSourceFactory.CreateWithSizeImpl(resourceCreator, size))
+        super.init(try! Self._ICanvasVirtualImageSourceFactory.CreateWithSize(resourceCreator, size))
     }
 
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreatorWithDpi!, _ width: Float, _ height: Float) {
-        super.init(try! Self._ICanvasVirtualImageSourceFactory.CreateWithWidthAndHeightImpl(resourceCreator, width, height))
+        super.init(try! Self._ICanvasVirtualImageSourceFactory.CreateWithWidthAndHeight(resourceCreator, width, height))
     }
 
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ width: Float, _ height: Float, _ dpi: Float) {
-        super.init(try! Self._ICanvasVirtualImageSourceFactory.CreateWithWidthAndHeightAndDpiImpl(resourceCreator, width, height, dpi))
+        super.init(try! Self._ICanvasVirtualImageSourceFactory.CreateWithWidthAndHeightAndDpi(resourceCreator, width, height, dpi))
     }
 
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ width: Float, _ height: Float, _ dpi: Float, _ alphaMode: Win2D.CanvasAlphaMode) {
-        super.init(try! Self._ICanvasVirtualImageSourceFactory.CreateWithWidthAndHeightAndDpiAndAlphaModeImpl(resourceCreator, width, height, dpi, alphaMode))
+        super.init(try! Self._ICanvasVirtualImageSourceFactory.CreateWithWidthAndHeightAndDpiAndAlphaMode(resourceCreator, width, height, dpi, alphaMode))
     }
 
     private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+        get { try! _ICanvasResourceCreator.get_Device() }
     }
 
     private lazy var _ICanvasResourceCreatorWithDpi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.convertpixelstodips)
     public func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDipsImpl(pixels)
+        try _ICanvasResourceCreatorWithDpi.ConvertPixelsToDips(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.convertdipstopixels)
     public func convertDipsToPixels(_ dips: Float, _ dpiRounding: Win2D.CanvasDpiRounding) throws -> Int32 {
-        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixelsImpl(dips, dpiRounding)
+        try _ICanvasResourceCreatorWithDpi.ConvertDipsToPixels(dips, dpiRounding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.dpi)
     public var dpi : Float {
-        get { try! _ICanvasResourceCreatorWithDpi.get_DpiImpl() }
+        get { try! _ICanvasResourceCreatorWithDpi.get_Dpi() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.createdrawingsession)
     public func createDrawingSession(_ clearColor: UWP.Color, _ updateRectangle: WindowsFoundation.Rect) throws -> Win2D.CanvasDrawingSession! {
-        try _default.CreateDrawingSessionImpl(clearColor, updateRectangle)
+        try _default.CreateDrawingSession(clearColor, updateRectangle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.suspenddrawingsession)
     public func suspendDrawingSession(_ drawingSession: Win2D.CanvasDrawingSession!) throws {
-        try _default.SuspendDrawingSessionImpl(drawingSession)
+        try _default.SuspendDrawingSession(drawingSession)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.resumedrawingsession)
     public func resumeDrawingSession(_ drawingSession: Win2D.CanvasDrawingSession!) throws {
-        try _default.ResumeDrawingSessionImpl(drawingSession)
+        try _default.ResumeDrawingSession(drawingSession)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.invalidate)
     public func invalidate() throws {
-        try _default.InvalidateImpl()
+        try _default.Invalidate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.invalidate)
     public func invalidate(_ region: WindowsFoundation.Rect) throws {
-        try _default.InvalidateRegionImpl(region)
+        try _default.InvalidateRegion(region)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.raiseregionsinvalidatedifany)
     public func raiseRegionsInvalidatedIfAny() throws {
-        try _default.RaiseRegionsInvalidatedIfAnyImpl()
+        try _default.RaiseRegionsInvalidatedIfAny()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.resize)
     public func resize(_ size: WindowsFoundation.Size) throws {
-        try _default.ResizeWithSizeImpl(size)
+        try _default.ResizeWithSize(size)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.resize)
     public func resize(_ width: Float, _ height: Float) throws {
-        try _default.ResizeWithWidthAndHeightImpl(width, height)
+        try _default.ResizeWithWidthAndHeight(width, height)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.resize)
     public func resize(_ width: Float, _ height: Float, _ dpi: Float) throws {
-        try _default.ResizeWithWidthAndHeightAndDpiImpl(width, height, dpi)
+        try _default.ResizeWithWidthAndHeightAndDpi(width, height, dpi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.recreate)
     public func recreate(_ resourceCreator: Win2D.AnyICanvasResourceCreator!) throws {
-        try _default.RecreateImpl(resourceCreator)
+        try _default.Recreate(resourceCreator)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.alphamode)
     public var alphaMode : Win2D.CanvasAlphaMode {
-        get { try! _default.get_AlphaModeImpl() }
+        get { try! _default.get_AlphaMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.sizeinpixels)
     public var sizeInPixels : UWP.BitmapSize {
-        get { try! _default.get_SizeInPixelsImpl() }
+        get { try! _default.get_SizeInPixels() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.source)
     public var source : WinUI.VirtualSurfaceImageSource! {
-        get { try! _default.get_SourceImpl() }
+        get { try! _default.get_Source() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.ui.xaml.canvasvirtualimagesource.regionsinvalidated)
@@ -1000,10 +905,10 @@ public final class CanvasVirtualImageSource : WinRTClass, Win2D.ICanvasResourceC
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_RegionsInvalidatedImpl($0)
+          return try! this.add_RegionsInvalidated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_RegionsInvalidatedImpl($0)
+         try? self?._default.remove_RegionsInvalidated($0)
        }
       )
     }()

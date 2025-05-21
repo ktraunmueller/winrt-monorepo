@@ -37,12 +37,6 @@ public final class CanvasSvgDocument : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgDocument>?) -> CanvasSvgDocument? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -50,92 +44,107 @@ public final class CanvasSvgDocument : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasSvgDocumentFactory: __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgDocumentFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Svg.CanvasSvgDocument"))
+    private static let _ICanvasSvgDocumentFactory: __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgDocumentFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Svg.CanvasSvgDocument")
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreator!) {
-        super.init(try! Self._ICanvasSvgDocumentFactory.CreateEmptyImpl(resourceCreator))
+        super.init(try! Self._ICanvasSvgDocumentFactory.CreateEmpty(resourceCreator))
     }
 
-    private static let _ICanvasSvgDocumentStatics: __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgDocumentStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Svg.CanvasSvgDocument"))
+    private static let _ICanvasSvgDocumentStatics: __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgDocumentStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Svg.CanvasSvgDocument")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.loadfromxml)
-    public static func loadFromXml(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ xmlString: String) -> CanvasSvgDocument! {
-        return try! _ICanvasSvgDocumentStatics.LoadFromXmlImpl(resourceCreator, xmlString)
+    public static func loadFromXml(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ xmlString: String) throws -> CanvasSvgDocument! {
+        return try _ICanvasSvgDocumentStatics.LoadFromXml(resourceCreator, xmlString)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.loadasync)
-    public static func loadAsync(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!) -> WindowsFoundation.AnyIAsyncOperation<CanvasSvgDocument?>! {
-        return try! _ICanvasSvgDocumentStatics.LoadAsyncImpl(resourceCreator, stream)
+    public static func loadAsync(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ stream: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasSvgDocument?>! {
+        return try _ICanvasSvgDocumentStatics.LoadAsync(resourceCreator, stream)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.issupported)
-    public static func isSupported(_ device: Win2D.CanvasDevice!) -> Bool {
-        return try! _ICanvasSvgDocumentStatics.IsSupportedImpl(device)
+    public static func isSupported(_ device: Win2D.CanvasDevice!) throws -> Bool {
+        return try _ICanvasSvgDocumentStatics.IsSupported(device)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.getxml)
     public func getXml() throws -> String {
-        try _default.GetXmlImpl()
+        try _default.GetXml()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.saveasync)
     public func saveAsync(_ stream: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SaveAsyncImpl(stream)
+        try _default.SaveAsync(stream)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.findelementbyid)
     public func findElementById(_ id: String) throws -> CanvasSvgNamedElement! {
-        try _default.FindElementByIdImpl(id)
+        try _default.FindElementById(id)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.createpaintattribute)
     public func createPaintAttribute() throws -> CanvasSvgPaintAttribute! {
-        try _default.CreatePaintAttributeWithDefaultsImpl()
+        try _default.CreatePaintAttributeWithDefaults()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.createpaintattribute)
     public func createPaintAttribute(_ paintType: CanvasSvgPaintType, _ color: UWP.Color, _ id: String) throws -> CanvasSvgPaintAttribute! {
-        try _default.CreatePaintAttributeImpl(paintType, color, id)
+        try _default.CreatePaintAttribute(paintType, color, id)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.createpathattribute)
     public func createPathAttribute() throws -> CanvasSvgPathAttribute! {
-        try _default.CreatePathAttributeWithDefaultsImpl()
+        try _default.CreatePathAttributeWithDefaults()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.createpathattribute)
+    public func createPathAttribute(_ segmentData: [Float], _ commands: [CanvasSvgPathCommand]) throws -> CanvasSvgPathAttribute! {
+        try _default.CreatePathAttribute(segmentData, commands)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.createpointsattribute)
     public func createPointsAttribute() throws -> CanvasSvgPointsAttribute! {
-        try _default.CreatePointsAttributeWithDefaultsImpl()
+        try _default.CreatePointsAttributeWithDefaults()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.createpointsattribute)
+    public func createPointsAttribute(_ points: [WindowsFoundation.Vector2]) throws -> CanvasSvgPointsAttribute! {
+        try _default.CreatePointsAttribute(points)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.createstrokedasharrayattribute)
     public func createStrokeDashArrayAttribute() throws -> CanvasSvgStrokeDashArrayAttribute! {
-        try _default.CreateStrokeDashArrayAttributeWithDefaultsImpl()
+        try _default.CreateStrokeDashArrayAttributeWithDefaults()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.createstrokedasharrayattribute)
+    public func createStrokeDashArrayAttribute(_ dashValues: [Float], _ unitValues: [CanvasSvgLengthUnits]) throws -> CanvasSvgStrokeDashArrayAttribute! {
+        try _default.CreateStrokeDashArrayAttribute(dashValues, unitValues)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.loadelementfromxml)
     public func loadElementFromXml(_ xmlString: String) throws -> CanvasSvgNamedElement! {
-        try _default.LoadElementFromXmlImpl(xmlString)
+        try _default.LoadElementFromXml(xmlString)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.loadelementasync)
     public func loadElementAsync(_ stream: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncOperation<CanvasSvgNamedElement?>! {
-        try _default.LoadElementAsyncImpl(stream)
+        try _default.LoadElementAsync(stream)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgdocument.root)
     public var root : CanvasSvgNamedElement! {
-        get { try! _default.get_RootImpl() }
-        set { try! _default.put_RootImpl(newValue) }
+        get { try! _default.get_Root() }
+        set { try! _default.put_Root(newValue) }
     }
 
     deinit {
@@ -158,12 +167,6 @@ public final class CanvasSvgNamedElement : WinRTClass, WindowsFoundation.IClosab
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgNamedElement>?) -> CanvasSvgNamedElement? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -174,268 +177,273 @@ public final class CanvasSvgNamedElement : WinRTClass, WindowsFoundation.IClosab
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasSvgElement: __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgElement! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.containingdocument)
     public var containingDocument : CanvasSvgDocument! {
-        get { try! _ICanvasSvgElement.get_ContainingDocumentImpl() }
+        get { try! _ICanvasSvgElement.get_ContainingDocument() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasSvgElement.get_DeviceImpl() }
+        get { try! _ICanvasSvgElement.get_Device() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.parent)
     public var parent : CanvasSvgNamedElement! {
-        get { try! _ICanvasSvgElement.get_ParentImpl() }
+        get { try! _ICanvasSvgElement.get_Parent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.appendchild)
     public func appendChild(_ child: AnyICanvasSvgElement!) throws {
-        try _default.AppendChildImpl(child)
+        try _default.AppendChild(child)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.createandappendnamedchildelement)
     public func createAndAppendNamedChildElement(_ childName: String) throws -> CanvasSvgNamedElement! {
-        try _default.CreateAndAppendNamedChildElementImpl(childName)
+        try _default.CreateAndAppendNamedChildElement(childName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.createandappendtextchildelement)
     public func createAndAppendTextChildElement(_ textContent: String) throws -> CanvasSvgTextElement! {
-        try _default.CreateAndAppendTextChildElementImpl(textContent)
+        try _default.CreateAndAppendTextChildElement(textContent)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getprevioussibling)
     public func getPreviousSibling(_ child: AnyICanvasSvgElement!) throws -> AnyICanvasSvgElement! {
-        try _default.GetPreviousSiblingImpl(child)
+        try _default.GetPreviousSibling(child)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getnextsibling)
     public func getNextSibling(_ child: AnyICanvasSvgElement!) throws -> AnyICanvasSvgElement! {
-        try _default.GetNextSiblingImpl(child)
+        try _default.GetNextSibling(child)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.insertchildbefore)
     public func insertChildBefore(_ child: AnyICanvasSvgElement!, _ referenceChild: AnyICanvasSvgElement!) throws {
-        try _default.InsertChildBeforeImpl(child, referenceChild)
+        try _default.InsertChildBefore(child, referenceChild)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.isattributespecified)
     public func isAttributeSpecified(_ attributeName: String) throws -> Bool {
-        try _default.IsAttributeSpecifiedImpl(attributeName)
+        try _default.IsAttributeSpecified(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.isattributespecified)
     public func isAttributeSpecified(_ attributeName: String, _ inherited: Bool) throws -> Bool {
-        try _default.IsAttributeSpecifiedWithInherhitedImpl(attributeName, inherited)
+        try _default.IsAttributeSpecifiedWithInherhited(attributeName, inherited)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.removeattribute)
     public func removeAttribute(_ attributeName: String) throws {
-        try _default.RemoveAttributeImpl(attributeName)
+        try _default.RemoveAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.removechild)
     public func removeChild(_ child: AnyICanvasSvgElement!) throws {
-        try _default.RemoveChildImpl(child)
+        try _default.RemoveChild(child)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.replacechild)
     public func replaceChild(_ newChild: AnyICanvasSvgElement!, _ oldChild: AnyICanvasSvgElement!) throws {
-        try _default.ReplaceChildImpl(newChild, oldChild)
+        try _default.ReplaceChild(newChild, oldChild)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setstringattribute)
     public func setStringAttribute(_ attributeName: String, _ attributeValue: String) throws {
-        try _default.SetStringAttributeImpl(attributeName, attributeValue)
+        try _default.SetStringAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getstringattribute)
     public func getStringAttribute(_ attributeName: String) throws -> String {
-        try _default.GetStringAttributeImpl(attributeName)
+        try _default.GetStringAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setattribute)
     public func setAttribute(_ attributeName: String, _ attributeValue: AnyICanvasSvgAttribute!) throws {
-        try _default.SetAttributeImpl(attributeName, attributeValue)
+        try _default.SetAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getattribute)
     public func getAttribute(_ attributeName: String) throws -> AnyICanvasSvgAttribute! {
-        try _default.GetAttributeImpl(attributeName)
+        try _default.GetAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setidattribute)
     public func setIdAttribute(_ attributeName: String, _ attributeValue: String) throws {
-        try _default.SetIdAttributeImpl(attributeName, attributeValue)
+        try _default.SetIdAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getidattribute)
     public func getIdAttribute(_ attributeName: String) throws -> String {
-        try _default.GetIdAttributeImpl(attributeName)
+        try _default.GetIdAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setfloatattribute)
     public func setFloatAttribute(_ attributeName: String, _ attributeValue: Float) throws {
-        try _default.SetFloatAttributeImpl(attributeName, attributeValue)
+        try _default.SetFloatAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getfloatattribute)
     public func getFloatAttribute(_ attributeName: String) throws -> Float {
-        try _default.GetFloatAttributeImpl(attributeName)
+        try _default.GetFloatAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setcolorattribute)
     public func setColorAttribute(_ attributeName: String, _ attributeValue: UWP.Color) throws {
-        try _default.SetColorAttributeImpl(attributeName, attributeValue)
+        try _default.SetColorAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getcolorattribute)
     public func getColorAttribute(_ attributeName: String) throws -> UWP.Color {
-        try _default.GetColorAttributeImpl(attributeName)
+        try _default.GetColorAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setfilledregiondeterminationattribute)
     public func setFilledRegionDeterminationAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasFilledRegionDetermination) throws {
-        try _default.SetFilledRegionDeterminationAttributeImpl(attributeName, attributeValue)
+        try _default.SetFilledRegionDeterminationAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getfilledregiondeterminationattribute)
     public func getFilledRegionDeterminationAttribute(_ attributeName: String) throws -> Win2D.CanvasFilledRegionDetermination {
-        try _default.GetFilledRegionDeterminationAttributeImpl(attributeName)
+        try _default.GetFilledRegionDeterminationAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setdisplayattribute)
     public func setDisplayAttribute(_ attributeName: String, _ attributeValue: CanvasSvgDisplay) throws {
-        try _default.SetDisplayAttributeImpl(attributeName, attributeValue)
+        try _default.SetDisplayAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getdisplayattribute)
     public func getDisplayAttribute(_ attributeName: String) throws -> CanvasSvgDisplay {
-        try _default.GetDisplayAttributeImpl(attributeName)
+        try _default.GetDisplayAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setoverflowattribute)
     public func setOverflowAttribute(_ attributeName: String, _ attributeValue: CanvasSvgOverflow) throws {
-        try _default.SetOverflowAttributeImpl(attributeName, attributeValue)
+        try _default.SetOverflowAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getoverflowattribute)
     public func getOverflowAttribute(_ attributeName: String) throws -> CanvasSvgOverflow {
-        try _default.GetOverflowAttributeImpl(attributeName)
+        try _default.GetOverflowAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setcapstyleattribute)
     public func setCapStyleAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasCapStyle) throws {
-        try _default.SetCapStyleAttributeImpl(attributeName, attributeValue)
+        try _default.SetCapStyleAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getcapstyleattribute)
     public func getCapStyleAttribute(_ attributeName: String) throws -> Win2D.CanvasCapStyle {
-        try _default.GetCapStyleAttributeImpl(attributeName)
+        try _default.GetCapStyleAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setlinejoinattribute)
     public func setLineJoinAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasLineJoin) throws {
-        try _default.SetLineJoinAttributeImpl(attributeName, attributeValue)
+        try _default.SetLineJoinAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getlinejoinattribute)
     public func getLineJoinAttribute(_ attributeName: String) throws -> Win2D.CanvasLineJoin {
-        try _default.GetLineJoinAttributeImpl(attributeName)
+        try _default.GetLineJoinAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setvisibilityattribute)
     public func setVisibilityAttribute(_ attributeName: String, _ attributeValue: CanvasSvgVisibility) throws {
-        try _default.SetVisibilityAttributeImpl(attributeName, attributeValue)
+        try _default.SetVisibilityAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getvisibilityattribute)
     public func getVisibilityAttribute(_ attributeName: String) throws -> CanvasSvgVisibility {
-        try _default.GetVisibilityAttributeImpl(attributeName)
+        try _default.GetVisibilityAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.settransformattribute)
     public func setTransformAttribute(_ attributeName: String, _ attributeValue: WindowsFoundation.Matrix3x2) throws {
-        try _default.SetTransformAttributeImpl(attributeName, attributeValue)
+        try _default.SetTransformAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.gettransformattribute)
     public func getTransformAttribute(_ attributeName: String) throws -> WindowsFoundation.Matrix3x2 {
-        try _default.GetTransformAttributeImpl(attributeName)
+        try _default.GetTransformAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setunitsattribute)
     public func setUnitsAttribute(_ attributeName: String, _ attributeValue: CanvasSvgUnits) throws {
-        try _default.SetUnitsAttributeImpl(attributeName, attributeValue)
+        try _default.SetUnitsAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getunitsattribute)
     public func getUnitsAttribute(_ attributeName: String) throws -> CanvasSvgUnits {
-        try _default.GetUnitsAttributeImpl(attributeName)
+        try _default.GetUnitsAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setedgebehaviorattribute)
     public func setEdgeBehaviorAttribute(_ attributeName: String, _ attributeValue: Win2D.CanvasEdgeBehavior) throws {
-        try _default.SetEdgeBehaviorAttributeImpl(attributeName, attributeValue)
+        try _default.SetEdgeBehaviorAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getedgebehaviorattribute)
     public func getEdgeBehaviorAttribute(_ attributeName: String) throws -> Win2D.CanvasEdgeBehavior {
-        try _default.GetEdgeBehaviorAttributeImpl(attributeName)
+        try _default.GetEdgeBehaviorAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setrectangleattribute)
     public func setRectangleAttribute(_ attributeName: String, _ attributeValue: WindowsFoundation.Rect) throws {
-        try _default.SetRectangleAttributeImpl(attributeName, attributeValue)
+        try _default.SetRectangleAttribute(attributeName, attributeValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getrectangleattribute)
     public func getRectangleAttribute(_ attributeName: String) throws -> WindowsFoundation.Rect {
-        try _default.GetRectangleAttributeImpl(attributeName)
+        try _default.GetRectangleAttribute(attributeName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setlengthattribute)
     public func setLengthAttribute(_ attributeName: String, _ value: Float, _ units: CanvasSvgLengthUnits) throws {
-        try _default.SetLengthAttributeImpl(attributeName, value, units)
+        try _default.SetLengthAttribute(attributeName, value, units)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getlengthattribute)
     public func getLengthAttribute(_ attributeName: String, _ units: inout CanvasSvgLengthUnits) throws -> Float {
-        try _default.GetLengthAttributeImpl(attributeName, &units)
+        try _default.GetLengthAttribute(attributeName, &units)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.setaspectratioattribute)
     public func setAspectRatioAttribute(_ attributeName: String, _ alignment: CanvasSvgAspectAlignment, _ meetOrSlice: CanvasSvgAspectScaling) throws {
-        try _default.SetAspectRatioAttributeImpl(attributeName, alignment, meetOrSlice)
+        try _default.SetAspectRatioAttribute(attributeName, alignment, meetOrSlice)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.getaspectratioattribute)
     public func getAspectRatioAttribute(_ attributeName: String, _ meetOrSlice: inout CanvasSvgAspectScaling) throws -> CanvasSvgAspectAlignment {
-        try _default.GetAspectRatioAttributeImpl(attributeName, &meetOrSlice)
+        try _default.GetAspectRatioAttribute(attributeName, &meetOrSlice)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.firstchild)
     public var firstChild : AnyICanvasSvgElement! {
-        get { try! _default.get_FirstChildImpl() }
+        get { try! _default.get_FirstChild() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.haschildren)
     public var hasChildren : Bool {
-        get { try! _default.get_HasChildrenImpl() }
+        get { try! _default.get_HasChildren() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.lastchild)
     public var lastChild : AnyICanvasSvgElement! {
-        get { try! _default.get_LastChildImpl() }
+        get { try! _default.get_LastChild() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.specifiedattributes)
+    public var specifiedAttributes : [String] {
+        get { try! _default.get_SpecifiedAttributes() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgnamedelement.tag)
     public var tag : String {
-        get { try! _default.get_TagImpl() }
+        get { try! _default.get_Tag() }
     }
 
     deinit {
@@ -459,12 +467,6 @@ public final class CanvasSvgPaintAttribute : WinRTClass, WindowsFoundation.IClos
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPaintAttribute>?) -> CanvasSvgPaintAttribute? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -475,41 +477,41 @@ public final class CanvasSvgPaintAttribute : WinRTClass, WindowsFoundation.IClos
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpaintattribute.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasSvgAttribute: __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgAttribute! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpaintattribute.clone)
     public func clone() throws -> AnyICanvasSvgAttribute! {
-        try _ICanvasSvgAttribute.CloneImpl()
+        try _ICanvasSvgAttribute.Clone()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpaintattribute.getelement)
     public func getElement() throws -> CanvasSvgNamedElement! {
-        try _ICanvasSvgAttribute.GetElementImpl()
+        try _ICanvasSvgAttribute.GetElement()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpaintattribute.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasSvgAttribute.get_DeviceImpl() }
+        get { try! _ICanvasSvgAttribute.get_Device() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpaintattribute.color)
     public var color : UWP.Color {
-        get { try! _default.get_ColorImpl() }
-        set { try! _default.put_ColorImpl(newValue) }
+        get { try! _default.get_Color() }
+        set { try! _default.put_Color(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpaintattribute.id)
     public var id : String {
-        get { try! _default.get_IdImpl() }
-        set { try! _default.put_IdImpl(newValue) }
+        get { try! _default.get_Id() }
+        set { try! _default.put_Id(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpaintattribute.painttype)
     public var paintType : CanvasSvgPaintType {
-        get { try! _default.get_PaintTypeImpl() }
-        set { try! _default.put_PaintTypeImpl(newValue) }
+        get { try! _default.get_PaintType() }
+        set { try! _default.put_PaintType(newValue) }
     }
 
     deinit {
@@ -533,12 +535,6 @@ public final class CanvasSvgPathAttribute : WinRTClass, WindowsFoundation.IClosa
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPathAttribute>?) -> CanvasSvgPathAttribute? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -549,43 +545,73 @@ public final class CanvasSvgPathAttribute : WinRTClass, WindowsFoundation.IClosa
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasSvgAttribute: __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgAttribute! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.clone)
     public func clone() throws -> AnyICanvasSvgAttribute! {
-        try _ICanvasSvgAttribute.CloneImpl()
+        try _ICanvasSvgAttribute.Clone()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.getelement)
     public func getElement() throws -> CanvasSvgNamedElement! {
-        try _ICanvasSvgAttribute.GetElementImpl()
+        try _ICanvasSvgAttribute.GetElement()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasSvgAttribute.get_DeviceImpl() }
+        get { try! _ICanvasSvgAttribute.get_Device() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.createpathgeometry)
     public func createPathGeometry() throws -> Win2D.CanvasGeometry! {
-        try _default.CreatePathGeometryImpl()
+        try _default.CreatePathGeometry()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.createpathgeometry)
     public func createPathGeometry(_ fill: Win2D.CanvasFilledRegionDetermination) throws -> Win2D.CanvasGeometry! {
-        try _default.CreatePathGeometryWithFillImpl(fill)
+        try _default.CreatePathGeometryWithFill(fill)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.getcommands)
+    public func getCommands(_ startIndex: Int32, _ elementCount: Int32) throws -> [CanvasSvgPathCommand] {
+        try _default.GetCommands(startIndex, elementCount)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.getsegmentdata)
+    public func getSegmentData(_ startIndex: Int32, _ elementCount: Int32) throws -> [Float] {
+        try _default.GetSegmentData(startIndex, elementCount)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.removecommandsatend)
     public func removeCommandsAtEnd(_ commandsCount: Int32) throws {
-        try _default.RemoveCommandsAtEndImpl(commandsCount)
+        try _default.RemoveCommandsAtEnd(commandsCount)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.removesegmentdataatend)
     public func removeSegmentDataAtEnd(_ commandsCount: Int32) throws {
-        try _default.RemoveSegmentDataAtEndImpl(commandsCount)
+        try _default.RemoveSegmentDataAtEnd(commandsCount)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.setcommands)
+    public func setCommands(_ startIndex: Int32, _ commands: [CanvasSvgPathCommand]) throws {
+        try _default.SetCommands(startIndex, commands)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.setsegmentdata)
+    public func setSegmentData(_ startIndex: Int32, _ segmentData: [Float]) throws {
+        try _default.SetSegmentData(startIndex, segmentData)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.commands)
+    public var commands : [CanvasSvgPathCommand] {
+        get { try! _default.get_Commands() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpathattribute.segmentdata)
+    public var segmentData : [Float] {
+        get { try! _default.get_SegmentData() }
     }
 
     deinit {
@@ -609,12 +635,6 @@ public final class CanvasSvgPointsAttribute : WinRTClass, WindowsFoundation.IClo
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgPointsAttribute>?) -> CanvasSvgPointsAttribute? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -625,28 +645,43 @@ public final class CanvasSvgPointsAttribute : WinRTClass, WindowsFoundation.IClo
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpointsattribute.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasSvgAttribute: __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgAttribute! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpointsattribute.clone)
     public func clone() throws -> AnyICanvasSvgAttribute! {
-        try _ICanvasSvgAttribute.CloneImpl()
+        try _ICanvasSvgAttribute.Clone()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpointsattribute.getelement)
     public func getElement() throws -> CanvasSvgNamedElement! {
-        try _ICanvasSvgAttribute.GetElementImpl()
+        try _ICanvasSvgAttribute.GetElement()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpointsattribute.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasSvgAttribute.get_DeviceImpl() }
+        get { try! _ICanvasSvgAttribute.get_Device() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpointsattribute.getpoints)
+    public func getPoints(_ startIndex: Int32, _ elementCount: Int32) throws -> [WindowsFoundation.Vector2] {
+        try _default.GetPoints(startIndex, elementCount)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpointsattribute.removepointsatend)
     public func removePointsAtEnd(_ pointCount: Int32) throws {
-        try _default.RemovePointsAtEndImpl(pointCount)
+        try _default.RemovePointsAtEnd(pointCount)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpointsattribute.setpoints)
+    public func setPoints(_ startIndex: Int32, _ points: [WindowsFoundation.Vector2]) throws {
+        try _default.SetPoints(startIndex, points)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgpointsattribute.points)
+    public var points : [WindowsFoundation.Vector2] {
+        get { try! _default.get_Points() }
     }
 
     deinit {
@@ -670,12 +705,6 @@ public final class CanvasSvgStrokeDashArrayAttribute : WinRTClass, WindowsFounda
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgStrokeDashArrayAttribute>?) -> CanvasSvgStrokeDashArrayAttribute? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -686,28 +715,53 @@ public final class CanvasSvgStrokeDashArrayAttribute : WinRTClass, WindowsFounda
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _ICanvasSvgAttribute: __ABI_Microsoft_Graphics_Canvas_Svg.ICanvasSvgAttribute! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.clone)
     public func clone() throws -> AnyICanvasSvgAttribute! {
-        try _ICanvasSvgAttribute.CloneImpl()
+        try _ICanvasSvgAttribute.Clone()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.getelement)
     public func getElement() throws -> CanvasSvgNamedElement! {
-        try _ICanvasSvgAttribute.GetElementImpl()
+        try _ICanvasSvgAttribute.GetElement()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _ICanvasSvgAttribute.get_DeviceImpl() }
+        get { try! _ICanvasSvgAttribute.get_Device() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.getdashes)
+    public func getDashes() throws -> [Float] {
+        try _default.GetDashes()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.getdashes)
+    public func getDashes(_ startIndex: Int32, _ elementCount: Int32, _ outputUnitsElements: inout [CanvasSvgLengthUnits]) throws -> [Float] {
+        try _default.GetDashesWithUnits(startIndex, elementCount, &outputUnitsElements)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.removedashesatend)
     public func removeDashesAtEnd(_ dashCount: Int32) throws {
-        try _default.RemoveDashesAtEndImpl(dashCount)
+        try _default.RemoveDashesAtEnd(dashCount)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.setdashes)
+    public func setDashes(_ startIndex: Int32, _ dashes: [Float]) throws {
+        try _default.SetDashes(startIndex, dashes)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.setdashes)
+    public func setDashes(_ startIndex: Int32, _ dashes: [Float], _ units: CanvasSvgLengthUnits) throws {
+        try _default.SetDashesWithUnit(startIndex, dashes, units)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgstrokedasharrayattribute.setdashes)
+    public func setDashes(_ startIndex: Int32, _ dashValues: [Float], _ unitValues: [CanvasSvgLengthUnits]) throws {
+        try _default.SetDashesWithUnits(startIndex, dashValues, unitValues)
     }
 
     deinit {
@@ -731,12 +785,6 @@ public final class CanvasSvgTextElement : WinRTClass, WindowsFoundation.IClosabl
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CICanvasSvgTextElement>?) -> CanvasSvgTextElement? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -747,13 +795,13 @@ public final class CanvasSvgTextElement : WinRTClass, WindowsFoundation.IClosabl
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgtextelement.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.svg.canvassvgtextelement.text)
     public var text : String {
-        get { try! _default.get_TextImpl() }
-        set { try! _default.put_TextImpl(newValue) }
+        get { try! _default.get_Text() }
+        set { try! _default.put_Text(newValue) }
     }
 
     deinit {
@@ -844,7 +892,7 @@ extension Win2D.CanvasSvgAspectAlignment {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgAspectAlignment_XMaxYMax
     }
 }
-extension Win2D.CanvasSvgAspectAlignment: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSvgAspectAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSvgAspectScaling {
     public static var meet : Win2D.CanvasSvgAspectScaling {
@@ -854,7 +902,7 @@ extension Win2D.CanvasSvgAspectScaling {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgAspectScaling_Slice
     }
 }
-extension Win2D.CanvasSvgAspectScaling: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSvgAspectScaling: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSvgDisplay {
     public static var inline : Win2D.CanvasSvgDisplay {
@@ -864,7 +912,7 @@ extension Win2D.CanvasSvgDisplay {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgDisplay_None
     }
 }
-extension Win2D.CanvasSvgDisplay: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSvgDisplay: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSvgLengthUnits {
     public static var number : Win2D.CanvasSvgLengthUnits {
@@ -874,7 +922,7 @@ extension Win2D.CanvasSvgLengthUnits {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgLengthUnits_Percentage
     }
 }
-extension Win2D.CanvasSvgLengthUnits: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSvgLengthUnits: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSvgOverflow {
     public static var doNotClipToViewport : Win2D.CanvasSvgOverflow {
@@ -884,7 +932,7 @@ extension Win2D.CanvasSvgOverflow {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgOverflow_ClipToViewport
     }
 }
-extension Win2D.CanvasSvgOverflow: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSvgOverflow: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSvgPaintType {
     public static var none : Win2D.CanvasSvgPaintType {
@@ -909,7 +957,7 @@ extension Win2D.CanvasSvgPaintType {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgPaintType_UriThenCurrentColor
     }
 }
-extension Win2D.CanvasSvgPaintType: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSvgPaintType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSvgPathCommand {
     public static var closePath : Win2D.CanvasSvgPathCommand {
@@ -970,7 +1018,7 @@ extension Win2D.CanvasSvgPathCommand {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgPathCommand_QuadraticSmoothRelative
     }
 }
-extension Win2D.CanvasSvgPathCommand: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSvgPathCommand: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSvgUnits {
     public static var userSpaceOnUse : Win2D.CanvasSvgUnits {
@@ -980,7 +1028,7 @@ extension Win2D.CanvasSvgUnits {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgUnits_ObjectBoundingBox
     }
 }
-extension Win2D.CanvasSvgUnits: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSvgUnits: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSvgVisibility {
     public static var visible : Win2D.CanvasSvgVisibility {
@@ -990,5 +1038,5 @@ extension Win2D.CanvasSvgVisibility {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CSvg_CCanvasSvgVisibility_Hidden
     }
 }
-extension Win2D.CanvasSvgVisibility: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSvgVisibility: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

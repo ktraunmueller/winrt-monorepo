@@ -5,6 +5,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_Graphics_Canvas {
     public enum ICanvasImageBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasImage
@@ -31,19 +32,19 @@ public enum __IMPL_Microsoft_Graphics_Canvas {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.icanvasimage.getbounds)
         fileprivate func getBounds(_ resourceCreator: AnyICanvasResourceCreator!) throws -> WindowsFoundation.Rect {
-            try _default.GetBoundsImpl(resourceCreator)
+            try _default.GetBounds(resourceCreator)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.icanvasimage.getbounds)
         fileprivate func getBounds(_ resourceCreator: AnyICanvasResourceCreator!, _ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
-            try _default.GetBoundsWithTransformImpl(resourceCreator, transform)
+            try _default.GetBoundsWithTransform(resourceCreator, transform)
         }
 
         private lazy var _IGraphicsEffectSource: __ABI_Windows_Graphics_Effects.IGraphicsEffectSource! = getInterfaceForCaching()
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.icanvasimage.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
@@ -73,7 +74,7 @@ public enum __IMPL_Microsoft_Graphics_Canvas {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.icanvasresourcecreator.device)
         fileprivate var device : CanvasDevice! {
-            get { try! _default.get_DeviceImpl() }
+            get { try! _default.get_Device() }
         }
 
     }
@@ -103,25 +104,221 @@ public enum __IMPL_Microsoft_Graphics_Canvas {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.icanvasresourcecreatorwithdpi.convertpixelstodips)
         fileprivate func convertPixelsToDips(_ pixels: Int32) throws -> Float {
-            try _default.ConvertPixelsToDipsImpl(pixels)
+            try _default.ConvertPixelsToDips(pixels)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.icanvasresourcecreatorwithdpi.convertdipstopixels)
         fileprivate func convertDipsToPixels(_ dips: Float, _ dpiRounding: CanvasDpiRounding) throws -> Int32 {
-            try _default.ConvertDipsToPixelsImpl(dips, dpiRounding)
+            try _default.ConvertDipsToPixels(dips, dpiRounding)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.icanvasresourcecreatorwithdpi.dpi)
         fileprivate var dpi : Float {
-            get { try! _default.get_DpiImpl() }
+            get { try! _default.get_Dpi() }
         }
 
         private lazy var _ICanvasResourceCreator: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.icanvasresourcecreatorwithdpi.device)
         fileprivate var device : CanvasDevice! {
-            get { try! _ICanvasResourceCreator.get_DeviceImpl() }
+            get { try! _ICanvasResourceCreator.get_Device() }
         }
 
     }
 
+    public enum CanvasActiveLayerBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasActiveLayer
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasActiveLayer
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasActiveLayer>?) -> CanvasActiveLayer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasBitmapBridge: ComposableBridge {
+        public typealias SwiftProjection = CanvasBitmap
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap>?) -> CanvasBitmap? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ICanvasBitmap : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = CanvasBitmap
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasBitmap
+                public typealias SwiftABI = __ABI_Microsoft_Graphics_Canvas.ICanvasBitmap
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ICanvasBitmap
+    }
+
+    public enum CanvasCommandListBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasCommandList
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasCommandList
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasCommandList>?) -> CanvasCommandList? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasDevice
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDevice>?) -> CanvasDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasDrawingSessionBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasDrawingSession
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasDrawingSession>?) -> CanvasDrawingSession? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasLockBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasLock
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasLock
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasLock>?) -> CanvasLock? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasRenderTargetBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasRenderTarget
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasRenderTarget
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasRenderTarget>?) -> CanvasRenderTarget? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasSpriteBatchBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasSpriteBatch
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSpriteBatch>?) -> CanvasSpriteBatch? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasSwapChainBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasSwapChain
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain>?) -> CanvasSwapChain? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CanvasVirtualBitmapBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasVirtualBitmap
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmap
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasVirtualBitmap>?) -> CanvasVirtualBitmap? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ICanvasImageMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICanvasImage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_Graphics_Canvas.ICanvasImage = try! abi.QueryInterface()
+        return __IMPL_Microsoft_Graphics_Canvas.ICanvasImageBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ICanvasResourceCreatorMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICanvasResourceCreator
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreator = try! abi.QueryInterface()
+        return __IMPL_Microsoft_Graphics_Canvas.ICanvasResourceCreatorBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ICanvasResourceCreatorWithDpiMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICanvasResourceCreatorWithDpi
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpi = try! abi.QueryInterface()
+        return __IMPL_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWithDpiBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasActiveLayerMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasActiveLayer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasActiveLayer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasBitmapMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasBitmap
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasBitmap(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasCommandListMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasCommandList
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasCommandList(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasDrawingSessionMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasDrawingSession
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasDrawingSession(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasLockMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasLock
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasLock(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasRenderTargetMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasRenderTarget
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasRenderTarget(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasSpriteBatchMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasSpriteBatch
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasSpriteBatch(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasSwapChainMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasSwapChain
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasSwapChain(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CanvasVirtualBitmapMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasVirtualBitmap
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasVirtualBitmap(fromAbi: abi)
+    }
 }

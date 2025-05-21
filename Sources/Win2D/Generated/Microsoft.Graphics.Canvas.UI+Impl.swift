@@ -4,5 +4,33 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_Graphics_Canvas_UI {
+    public enum CanvasCreateResourcesEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CanvasCreateResourcesEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CICanvasCreateResourcesEventArgs>?) -> CanvasCreateResourcesEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension CanvasTimingInformation: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CGraphics_CCanvas_CUI_CCanvasTimingInformation
+    public static func from(abi: ABI) -> Self {
+        .init(updateCount: abi.UpdateCount, totalTime: .from(abi: abi.TotalTime), elapsedTime: .from(abi: abi.ElapsedTime), isRunningSlowly: .init(from: abi.IsRunningSlowly))
+    }
+    public func toABI() -> ABI {
+        __ABI_Microsoft_Graphics_Canvas_UI._ABI_CanvasTimingInformation(from: self).detach()
+    }
+}
+
+@_spi(WinRTInternal)
+public class CanvasCreateResourcesEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CanvasCreateResourcesEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CanvasCreateResourcesEventArgs(fromAbi: abi)
+    }
 }

@@ -21,6 +21,30 @@ private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetStatic
     .init(Data1: 0x5F4275CE, Data2: 0xBCFA, Data3: 0x48C5, Data4: ( 0x9E,0x67,0xFB,0xE9,0x86,0x6D,0x49,0x24 ))// 5F4275CE-BCFA-48C5-9E67-FBE9866D4924
 }
 
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasNumberSubstitution: WindowsFoundation.IID {
+    .init(Data1: 0xC81A67AD, Data2: 0x0639, Data3: 0x4F8F, Data4: ( 0x87,0x8B,0xD9,0x37,0xF8,0xA1,0x42,0x93 ))// C81A67AD-0639-4F8F-878B-D937F8A14293
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasNumberSubstitutionFactory: WindowsFoundation.IID {
+    .init(Data1: 0x7496A822, Data2: 0xC781, Data3: 0x4EB0, Data4: ( 0xAA,0xFB,0xC0,0x78,0xE7,0xFA,0x8E,0x24 ))// 7496A822-C781-4EB0-AAFB-C078E7FA8E24
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasScaledFont: WindowsFoundation.IID {
+    .init(Data1: 0xBBC4F8D2, Data2: 0xEB2B, Data3: 0x45F1, Data4: ( 0xAC,0x2A,0xCF,0xC1,0xF5,0x98,0xBA,0xE3 ))// BBC4F8D2-EB2B-45F1-AC2A-CFC1F598BAE3
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer: WindowsFoundation.IID {
+    .init(Data1: 0x4298F3D1, Data2: 0x645B, Data3: 0x40E3, Data4: ( 0xB9,0x1B,0x81,0x98,0x6D,0x76,0x7F,0xC0 ))// 4298F3D1-645B-40E3-B91B-81986D767FC0
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerFactory: WindowsFoundation.IID {
+    .init(Data1: 0x521E433F, Data2: 0xF698, Data3: 0x44C0, Data4: ( 0x8D,0x7F,0xFE,0x37,0x4F,0xE5,0x39,0xE1 ))// 521E433F-F698-44C0-8D7F-FE374FE539E1
+}
+
+private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerOptions: WindowsFoundation.IID {
+    .init(Data1: 0x31F2406A, Data2: 0x8C5F, Data3: 0x4E12, Data4: ( 0x8B,0xD6,0xCF,0xBB,0xC7,0x21,0x4D,0x02 ))// 31F2406A-8C5F-4E12-8BD6-CFBBC7214D02
+}
+
 private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat: WindowsFoundation.IID {
     .init(Data1: 0xAF61BFDC, Data2: 0xEABB, Data3: 0x4D38, Data4: ( 0xBA,0x1B,0xAF,0xB3,0x40,0x61,0x2D,0x33 ))// AF61BFDC-EABB-4D38-BA1B-AFB340612D33
 }
@@ -61,11 +85,12 @@ private var IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTypography: W
     .init(Data1: 0xF15BC312, Data2: 0x447F, Data3: 0x44ED, Data4: ( 0x8B,0xEC,0x7E,0x40,0xF4,0xA4,0xDF,0xC8 ))// F15BC312-447F-44ED-8BEC-7E40F4A4DFC8
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasFontFace: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace }
 
-        internal func GetRecommendedRenderingModeImpl(_ fontSize: Float, _ dpi: Float, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ renderingParameters: Win2D.CanvasTextRenderingParameters?) throws -> Win2D.CanvasTextRenderingMode {
+        public func GetRecommendedRenderingMode(_ fontSize: Float, _ dpi: Float, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ renderingParameters: Win2D.CanvasTextRenderingParameters?) throws -> Win2D.CanvasTextRenderingMode {
             var renderingMode: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextRenderingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetRecommendedRenderingMode(pThis, fontSize, dpi, measuringMode, RawPointer(renderingParameters), &renderingMode))
@@ -73,7 +98,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return renderingMode
         }
 
-        internal func GetRecommendedRenderingModeWithAllOptionsImpl(_ fontSize: Float, _ dpi: Float, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ renderingParameters: Win2D.CanvasTextRenderingParameters?, _ transform: WindowsFoundation.Matrix3x2, _ isSideways: Bool, _ outlineThreshold: Win2D.CanvasAntialiasing) throws -> Win2D.CanvasTextRenderingMode {
+        public func GetRecommendedRenderingModeWithAllOptions(_ fontSize: Float, _ dpi: Float, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ renderingParameters: Win2D.CanvasTextRenderingParameters?, _ transform: WindowsFoundation.Matrix3x2, _ isSideways: Bool, _ outlineThreshold: Win2D.CanvasAntialiasing) throws -> Win2D.CanvasTextRenderingMode {
             var renderingMode: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextRenderingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetRecommendedRenderingModeWithAllOptions(pThis, fontSize, dpi, measuringMode, RawPointer(renderingParameters), .from(swift: transform), .init(from: isSideways), outlineThreshold, &renderingMode))
@@ -81,7 +106,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return renderingMode
         }
 
-        internal func GetRecommendedGridFitImpl(_ fontSize: Float, _ dpi: Float, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ renderingParameters: Win2D.CanvasTextRenderingParameters?, _ transform: WindowsFoundation.Matrix3x2, _ isSideways: Bool, _ outlineThreshold: Win2D.CanvasAntialiasing) throws -> Win2D.CanvasTextGridFit {
+        public func GetRecommendedGridFit(_ fontSize: Float, _ dpi: Float, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ renderingParameters: Win2D.CanvasTextRenderingParameters?, _ transform: WindowsFoundation.Matrix3x2, _ isSideways: Bool, _ outlineThreshold: Win2D.CanvasAntialiasing) throws -> Win2D.CanvasTextGridFit {
             var gridFit: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextGridFit = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetRecommendedGridFit(pThis, fontSize, dpi, measuringMode, RawPointer(renderingParameters), .from(swift: transform), .init(from: isSideways), outlineThreshold, &gridFit))
@@ -89,7 +114,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return gridFit
         }
 
-        internal func get_GlyphBoxImpl() throws -> WindowsFoundation.Rect {
+        public func get_GlyphBox() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GlyphBox(pThis, &value))
@@ -97,7 +122,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        internal func get_SubscriptPositionImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_SubscriptPosition() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SubscriptPosition(pThis, &value))
@@ -105,7 +130,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        internal func get_SubscriptSizeImpl() throws -> WindowsFoundation.Size {
+        public func get_SubscriptSize() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SubscriptSize(pThis, &value))
@@ -113,7 +138,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        internal func get_SuperscriptPositionImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_SuperscriptPosition() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SuperscriptPosition(pThis, &value))
@@ -121,7 +146,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        internal func get_SuperscriptSizeImpl() throws -> WindowsFoundation.Size {
+        public func get_SuperscriptSize() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SuperscriptSize(pThis, &value))
@@ -129,7 +154,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        internal func get_HasTypographicMetricsImpl() throws -> Bool {
+        public func get_HasTypographicMetrics() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasTypographicMetrics(pThis, &value))
@@ -137,7 +162,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func get_AscentImpl() throws -> Float {
+        public func get_Ascent() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Ascent(pThis, &value))
@@ -145,7 +170,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_DescentImpl() throws -> Float {
+        public func get_Descent() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Descent(pThis, &value))
@@ -153,7 +178,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_LineGapImpl() throws -> Float {
+        public func get_LineGap() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineGap(pThis, &value))
@@ -161,7 +186,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_CapHeightImpl() throws -> Float {
+        public func get_CapHeight() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CapHeight(pThis, &value))
@@ -169,7 +194,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_LowercaseLetterHeightImpl() throws -> Float {
+        public func get_LowercaseLetterHeight() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LowercaseLetterHeight(pThis, &value))
@@ -177,7 +202,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_UnderlinePositionImpl() throws -> Float {
+        public func get_UnderlinePosition() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UnderlinePosition(pThis, &value))
@@ -185,7 +210,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_UnderlineThicknessImpl() throws -> Float {
+        public func get_UnderlineThickness() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UnderlineThickness(pThis, &value))
@@ -193,7 +218,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_StrikethroughPositionImpl() throws -> Float {
+        public func get_StrikethroughPosition() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrikethroughPosition(pThis, &value))
@@ -201,7 +226,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_StrikethroughThicknessImpl() throws -> Float {
+        public func get_StrikethroughThickness() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrikethroughThickness(pThis, &value))
@@ -209,7 +234,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_CaretSlopeRiseImpl() throws -> Float {
+        public func get_CaretSlopeRise() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CaretSlopeRise(pThis, &value))
@@ -217,7 +242,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_CaretSlopeRunImpl() throws -> Float {
+        public func get_CaretSlopeRun() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CaretSlopeRun(pThis, &value))
@@ -225,7 +250,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_CaretOffsetImpl() throws -> Float {
+        public func get_CaretOffset() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CaretOffset(pThis, &value))
@@ -233,7 +258,17 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_IsMonospacedImpl() throws -> Bool {
+        public func get_UnicodeRanges() throws -> [Win2D.CanvasUnicodeRange] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasUnicodeRange> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UnicodeRanges(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func get_IsMonospaced() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsMonospaced(pThis, &value))
@@ -241,7 +276,19 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func get_HasVerticalGlyphVariantsImpl() throws -> Bool {
+        public func GetVerticalGlyphVariants(_ inputElements: [Int32]) throws -> [Int32] {
+            var outputElements: WinRTArrayAbi<INT32> = (0, nil)
+            try inputElements.toABI { _inputElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetVerticalGlyphVariants(pThis, _inputElements.count, _inputElements.start, &outputElements.count, &outputElements.start))
+                }
+            }
+            defer { CoTaskMemFree(outputElements.start) }
+            return .from(abi: outputElements)
+
+        }
+
+        public func get_HasVerticalGlyphVariants() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasVerticalGlyphVariants(pThis, &value))
@@ -249,7 +296,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func get_FileFormatTypeImpl() throws -> Win2D.CanvasFontFileFormatType {
+        public func get_FileFormatType() throws -> Win2D.CanvasFontFileFormatType {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontFileFormatType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileFormatType(pThis, &value))
@@ -257,7 +304,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_SimulationsImpl() throws -> Win2D.CanvasFontSimulations {
+        public func get_Simulations() throws -> Win2D.CanvasFontSimulations {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontSimulations = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Simulations(pThis, &value))
@@ -265,7 +312,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_IsSymbolFontImpl() throws -> Bool {
+        public func get_IsSymbolFont() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsSymbolFont(pThis, &value))
@@ -273,7 +320,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func get_GlyphCountImpl() throws -> UInt32 {
+        public func get_GlyphCount() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GlyphCount(pThis, &value))
@@ -281,7 +328,43 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_WeightImpl() throws -> UWP.FontWeight {
+        public func GetGlyphIndices(_ inputElements: [UInt32]) throws -> [Int32] {
+            var outputElements: WinRTArrayAbi<INT32> = (0, nil)
+            try inputElements.toABI { _inputElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphIndices(pThis, _inputElements.count, _inputElements.start, &outputElements.count, &outputElements.start))
+                }
+            }
+            defer { CoTaskMemFree(outputElements.start) }
+            return .from(abi: outputElements)
+
+        }
+
+        public func GetGlyphMetrics(_ inputElements: [Int32], _ isSideways: Bool) throws -> [Win2D.CanvasGlyphMetrics] {
+            var outputElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphMetrics> = (0, nil)
+            try inputElements.toABI { _inputElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphMetrics(pThis, _inputElements.count, _inputElements.start, .init(from: isSideways), &outputElements.count, &outputElements.start))
+                }
+            }
+            defer { CoTaskMemFree(outputElements.start) }
+            return .from(abi: outputElements)
+
+        }
+
+        public func GetGdiCompatibleGlyphMetrics(_ fontSize: Float, _ dpi: Float, _ transform: WindowsFoundation.Matrix3x2, _ useGdiNatural: Bool, _ inputElements: [Int32], _ isSideways: Bool) throws -> [Win2D.CanvasGlyphMetrics] {
+            var outputElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphMetrics> = (0, nil)
+            try inputElements.toABI { _inputElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetGdiCompatibleGlyphMetrics(pThis, fontSize, dpi, .from(swift: transform), .init(from: useGdiNatural), _inputElements.count, _inputElements.start, .init(from: isSideways), &outputElements.count, &outputElements.start))
+                }
+            }
+            defer { CoTaskMemFree(outputElements.start) }
+            return .from(abi: outputElements)
+
+        }
+
+        public func get_Weight() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Weight(pThis, &value))
@@ -289,7 +372,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        internal func get_StretchImpl() throws -> UWP.FontStretch {
+        public func get_Stretch() throws -> UWP.FontStretch {
             var value: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Stretch(pThis, &value))
@@ -297,7 +380,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_StyleImpl() throws -> UWP.FontStyle {
+        public func get_Style() throws -> UWP.FontStyle {
             var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Style(pThis, &value))
@@ -305,7 +388,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_FamilyNamesImpl() throws -> WindowsFoundation.AnyIMapView<String, String>? {
+        public func get_FamilyNames() throws -> WindowsFoundation.AnyIMapView<String, String>? {
             let (values) = try ComPtrs.initialize { valuesAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FamilyNames(pThis, &valuesAbi))
@@ -314,7 +397,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return Win2D.__x_ABI_C__FIMapView_2_HSTRING_HSTRINGWrapper.unwrapFrom(abi: values)
         }
 
-        internal func get_FaceNamesImpl() throws -> WindowsFoundation.AnyIMapView<String, String>? {
+        public func get_FaceNames() throws -> WindowsFoundation.AnyIMapView<String, String>? {
             let (values) = try ComPtrs.initialize { valuesAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FaceNames(pThis, &valuesAbi))
@@ -323,7 +406,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return Win2D.__x_ABI_C__FIMapView_2_HSTRING_HSTRINGWrapper.unwrapFrom(abi: values)
         }
 
-        internal func GetInformationalStringsImpl(_ fontInformation: Win2D.CanvasFontInformation) throws -> WindowsFoundation.AnyIMapView<String, String>? {
+        public func GetInformationalStrings(_ fontInformation: Win2D.CanvasFontInformation) throws -> WindowsFoundation.AnyIMapView<String, String>? {
             let (values) = try ComPtrs.initialize { valuesAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetInformationalStrings(pThis, fontInformation, &valuesAbi))
@@ -332,7 +415,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return Win2D.__x_ABI_C__FIMapView_2_HSTRING_HSTRINGWrapper.unwrapFrom(abi: values)
         }
 
-        internal func HasCharacterImpl(_ unicodeValue: UInt32) throws -> Bool {
+        public func HasCharacter(_ unicodeValue: UInt32) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.HasCharacter(pThis, unicodeValue, &value))
@@ -340,12 +423,88 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
+        public func GetGlyphRunBounds(_ drawingSession: Win2D.CanvasDrawingSession?, _ point: WindowsFoundation.Vector2, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32) throws -> WindowsFoundation.Rect {
+            var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
+            try glyphs.toABI { _glyphs in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphRunBounds(pThis, RawPointer(drawingSession), .from(swift: point), fontSize, _glyphs.count, _glyphs.start, .init(from: isSideways), bidiLevel, &bounds))
+                }
+            }
+            return .from(abi: bounds)
+        }
+
+        public func GetGlyphRunBoundsWithMeasuringMode(_ drawingSession: Win2D.CanvasDrawingSession?, _ point: WindowsFoundation.Vector2, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ measuringMode: Win2D.CanvasTextMeasuringMode) throws -> WindowsFoundation.Rect {
+            var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
+            try glyphs.toABI { _glyphs in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphRunBoundsWithMeasuringMode(pThis, RawPointer(drawingSession), .from(swift: point), fontSize, _glyphs.count, _glyphs.start, .init(from: isSideways), bidiLevel, measuringMode, &bounds))
+                }
+            }
+            return .from(abi: bounds)
+        }
+
+        public func get_Panose() throws -> [UInt8] {
+            var valueElements: WinRTArrayAbi<UINT8> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Panose(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetSupportedTypographicFeatureNames(_ script: Win2D.CanvasAnalyzedScript) throws -> [Win2D.CanvasTypographyFeatureName] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTypographyFeatureName> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSupportedTypographicFeatureNames(pThis, .from(swift: script), &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetSupportedTypographicFeatureNamesWithLocale(_ script: Win2D.CanvasAnalyzedScript, _ locale: String) throws -> [Win2D.CanvasTypographyFeatureName] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTypographyFeatureName> = (0, nil)
+            let _locale = try! HString(locale)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSupportedTypographicFeatureNamesWithLocale(pThis, .from(swift: script), _locale.get(), &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetTypographicFeatureGlyphSupport(_ script: Win2D.CanvasAnalyzedScript, _ typographicFeatureName: Win2D.CanvasTypographyFeatureName, _ glyphsElements: [Win2D.CanvasGlyph]) throws -> [Bool] {
+            var valueElements: WinRTArrayAbi<boolean> = (0, nil)
+            try glyphsElements.toABI { _glyphsElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetTypographicFeatureGlyphSupport(pThis, .from(swift: script), typographicFeatureName, _glyphsElements.count, _glyphsElements.start, &valueElements.count, &valueElements.start))
+                }
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetTypographicFeatureGlyphSupportWithLocale(_ script: Win2D.CanvasAnalyzedScript, _ typographicFeatureName: Win2D.CanvasTypographyFeatureName, _ glyphsElements: [Win2D.CanvasGlyph], _ locale: String) throws -> [Bool] {
+            var valueElements: WinRTArrayAbi<boolean> = (0, nil)
+            try glyphsElements.toABI { _glyphsElements in
+                let _locale = try! HString(locale)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontFace.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetTypographicFeatureGlyphSupportWithLocale(pThis, .from(swift: script), typographicFeatureName, _glyphsElements.count, _glyphsElements.start, _locale.get(), &valueElements.count, &valueElements.start))
+                }
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
     }
 
     public class ICanvasFontSet: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet }
 
-        internal func get_FontsImpl() throws -> WindowsFoundation.AnyIVectorView<Win2D.CanvasFontFace?>? {
+        public func get_Fonts() throws -> WindowsFoundation.AnyIVectorView<Win2D.CanvasFontFace?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Fonts(pThis, &valueAbi))
@@ -354,7 +513,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasFontFaceWrapper.unwrapFrom(abi: value)
         }
 
-        internal func TryFindFontFaceImpl(_ fontFace: Win2D.CanvasFontFace?, _ index: inout Int32) throws -> Bool {
+        public func TryFindFontFace(_ fontFace: Win2D.CanvasFontFace?, _ index: inout Int32) throws -> Bool {
             var succeeded: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryFindFontFace(pThis, RawPointer(fontFace), &index, &succeeded))
@@ -362,17 +521,28 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: succeeded)
         }
 
-        internal func GetMatchingFontsFromWwsFamilyImpl(_ familyName: String, _ weight: UWP.FontWeight, _ stretch: UWP.FontStretch, _ style: UWP.FontStyle) throws -> Win2D.CanvasFontSet? {
+        public func GetMatchingFontsFromProperties(_ propertyElements: [Win2D.CanvasFontProperty]) throws -> Win2D.CanvasFontSet? {
+            let (matchingFonts) = try ComPtrs.initialize { matchingFontsAbi in
+                try propertyElements.toABI { _propertyElements in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.GetMatchingFontsFromProperties(pThis, _propertyElements.count, _propertyElements.start, &matchingFontsAbi))
+                    }
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Text.CanvasFontSetBridge.from(abi: matchingFonts)
+        }
+
+        public func GetMatchingFontsFromWwsFamily(_ familyName: String, _ weight: UWP.FontWeight, _ stretch: UWP.FontStretch, _ style: UWP.FontStyle) throws -> Win2D.CanvasFontSet? {
             let (matchingFonts) = try ComPtrs.initialize { matchingFontsAbi in
                 let _familyName = try! HString(familyName)
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetMatchingFontsFromWwsFamily(pThis, _familyName.get(), .from(swift: weight), stretch, style, &matchingFontsAbi))
                 }
             }
-            return .from(abi: matchingFonts)
+            return __IMPL_Microsoft_Graphics_Canvas_Text.CanvasFontSetBridge.from(abi: matchingFonts)
         }
 
-        internal func CountFontsMatchingPropertyImpl(_ property: Win2D.CanvasFontProperty) throws -> UInt32 {
+        public func CountFontsMatchingProperty(_ property: Win2D.CanvasFontProperty) throws -> UInt32 {
             var count: UINT32 = 0
             let _property = __ABI_Microsoft_Graphics_Canvas_Text._ABI_CanvasFontProperty(from: property)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
@@ -381,7 +551,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return count
         }
 
-        internal func GetPropertyValuesFromIndexImpl(_ fontIndex: UInt32, _ propertyIdentifier: Win2D.CanvasFontPropertyIdentifier) throws -> WindowsFoundation.AnyIMapView<String, String>? {
+        public func GetPropertyValuesFromIndex(_ fontIndex: UInt32, _ propertyIdentifier: Win2D.CanvasFontPropertyIdentifier) throws -> WindowsFoundation.AnyIMapView<String, String>? {
             let (values) = try ComPtrs.initialize { valuesAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPropertyValuesFromIndex(pThis, fontIndex, propertyIdentifier, &valuesAbi))
@@ -390,12 +560,33 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return Win2D.__x_ABI_C__FIMapView_2_HSTRING_HSTRINGWrapper.unwrapFrom(abi: values)
         }
 
+        public func GetPropertyValuesFromIdentifier(_ propertyIdentifier: Win2D.CanvasFontPropertyIdentifier, _ preferredLocaleNames: String) throws -> [Win2D.CanvasFontProperty] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontProperty> = (0, nil)
+            let _preferredLocaleNames = try! HString(preferredLocaleNames)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPropertyValuesFromIdentifier(pThis, propertyIdentifier, _preferredLocaleNames.get(), &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetPropertyValues(_ propertyIdentifier: Win2D.CanvasFontPropertyIdentifier) throws -> [Win2D.CanvasFontProperty] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontProperty> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPropertyValues(pThis, propertyIdentifier, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
     }
 
     public class ICanvasFontSetFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetFactory }
 
-        internal func CreateImpl(_ uri: WindowsFoundation.Uri?) throws -> ICanvasFontSet {
+        public func Create(_ uri: WindowsFoundation.Uri?) throws -> ICanvasFontSet {
             let (fontSet) = try ComPtrs.initialize { fontSetAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(uri), &fontSetAbi))
@@ -409,21 +600,442 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasFontSetStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetStatics }
 
-        internal func GetSystemFontSetImpl() throws -> Win2D.CanvasFontSet? {
+        public func GetSystemFontSet() throws -> Win2D.CanvasFontSet? {
             let (fontSet) = try ComPtrs.initialize { fontSetAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasFontSetStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSystemFontSet(pThis, &fontSetAbi))
                 }
             }
-            return .from(abi: fontSet)
+            return __IMPL_Microsoft_Graphics_Canvas_Text.CanvasFontSetBridge.from(abi: fontSet)
         }
 
     }
 
+    public class ICanvasNumberSubstitution: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasNumberSubstitution }
+
+    }
+
+    public class ICanvasNumberSubstitutionFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasNumberSubstitutionFactory }
+
+        public func Create(_ method: Win2D.CanvasNumberSubstitutionMethod) throws -> ICanvasNumberSubstitution {
+            let (canvasNumberSubstitution) = try ComPtrs.initialize { canvasNumberSubstitutionAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasNumberSubstitutionFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, method, &canvasNumberSubstitutionAbi))
+                }
+            }
+            return ICanvasNumberSubstitution(canvasNumberSubstitution!)
+        }
+
+        public func CreateWithLocaleAndIgnoreOverrides(_ method: Win2D.CanvasNumberSubstitutionMethod, _ localeName: String, _ ignoreEnvironmentOverrides: Bool) throws -> ICanvasNumberSubstitution {
+            let (canvasNumberSubstitution) = try ComPtrs.initialize { canvasNumberSubstitutionAbi in
+                let _localeName = try! HString(localeName)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasNumberSubstitutionFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithLocaleAndIgnoreOverrides(pThis, method, _localeName.get(), .init(from: ignoreEnvironmentOverrides), &canvasNumberSubstitutionAbi))
+                }
+            }
+            return ICanvasNumberSubstitution(canvasNumberSubstitution!)
+        }
+
+    }
+
+    public class ICanvasScaledFont: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasScaledFont }
+
+        public func get_FontFace() throws -> Win2D.CanvasFontFace? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasScaledFont.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontFace(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Text.CanvasFontFaceBridge.from(abi: value)
+        }
+
+        public func get_ScaleFactor() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasScaledFont.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleFactor(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    public class ICanvasTextAnalyzer: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer }
+
+        public func GetFontsUsingSystemFontSet(_ textFormat: Win2D.CanvasTextFormat?) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasScaledFont?>?>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFontsUsingSystemFontSet(pThis, RawPointer(textFormat), &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasScaledFontWrapper.unwrapFrom(abi: values)
+        }
+
+        public func GetFonts(_ textFormat: Win2D.CanvasTextFormat?, _ fontSet: Win2D.CanvasFontSet?) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasScaledFont?>?>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFonts(pThis, RawPointer(textFormat), RawPointer(fontSet), &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasScaledFontWrapper.unwrapFrom(abi: values)
+        }
+
+        public func GetBidi() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasAnalyzedBidi>?>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetBidi(pThis, &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasAnalyzedBidiWrapper.unwrapFrom(abi: values)
+        }
+
+        public func GetBidiWithLocale(_ locale: String) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasAnalyzedBidi>?>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                let _locale = try! HString(locale)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetBidiWithLocale(pThis, _locale.get(), &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasAnalyzedBidiWrapper.unwrapFrom(abi: values)
+        }
+
+        public func GetBreakpoints() throws -> [Win2D.CanvasAnalyzedBreakpoint] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedBreakpoint> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetBreakpoints(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetBreakpointsWithLocale(_ locale: String) throws -> [Win2D.CanvasAnalyzedBreakpoint] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedBreakpoint> = (0, nil)
+            let _locale = try! HString(locale)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetBreakpointsWithLocale(pThis, _locale.get(), &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetNumberSubstitutions() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasNumberSubstitution?>?>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetNumberSubstitutions(pThis, &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasNumberSubstitutionWrapper.unwrapFrom(abi: values)
+        }
+
+        public func GetScript() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasAnalyzedScript>?>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetScript(pThis, &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasAnalyzedScriptWrapper.unwrapFrom(abi: values)
+        }
+
+        public func GetScriptWithLocale(_ locale: String) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasAnalyzedScript>?>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                let _locale = try! HString(locale)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetScriptWithLocale(pThis, _locale.get(), &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasAnalyzedScriptWrapper.unwrapFrom(abi: values)
+        }
+
+        public func GetGlyphOrientations() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasAnalyzedGlyphOrientation>?>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphOrientations(pThis, &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasAnalyzedGlyphOrientationWrapper.unwrapFrom(abi: values)
+        }
+
+        public func GetGlyphOrientationsWithLocale(_ locale: String) throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasAnalyzedGlyphOrientation>?>? {
+            let (values) = try ComPtrs.initialize { valuesAbi in
+                let _locale = try! HString(locale)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphOrientationsWithLocale(pThis, _locale.get(), &valuesAbi))
+                }
+            }
+            return Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasAnalyzedGlyphOrientationWrapper.unwrapFrom(abi: values)
+        }
+
+        public func GetScriptProperties(_ analyzedScript: Win2D.CanvasAnalyzedScript) throws -> Win2D.CanvasScriptProperties {
+            var scriptProperties: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasScriptProperties = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetScriptProperties(pThis, .from(swift: analyzedScript), &scriptProperties))
+            }
+            return .from(abi: scriptProperties)
+        }
+
+        public func GetGlyphs(_ characterRange: Win2D.CanvasCharacterRange, _ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ isSideways: Bool, _ isRightToLeft: Bool, _ script: Win2D.CanvasAnalyzedScript) throws -> [Win2D.CanvasGlyph] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyph> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphs(pThis, .from(swift: characterRange), RawPointer(fontFace), fontSize, .init(from: isSideways), .init(from: isRightToLeft), .from(swift: script), &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetGlyphsWithAllOptions(_ characterRange: Win2D.CanvasCharacterRange, _ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ isSideways: Bool, _ isRightToLeft: Bool, _ script: Win2D.CanvasAnalyzedScript, _ locale: String, _ numberSubstitution: Win2D.CanvasNumberSubstitution?, _ typographyRanges: WindowsFoundation.AnyIVectorView<WindowsFoundation.AnyIKeyValuePair<Win2D.CanvasCharacterRange, Win2D.CanvasTypography?>?>?, _ clusterMapIndicesElements: inout [Int32], _ isShapedAloneGlyphsElements: inout [Bool], _ glyphShapingResultsElements: inout [Win2D.CanvasGlyphShaping]) throws -> [Win2D.CanvasGlyph] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyph> = (0, nil)
+            let _locale = try! HString(locale)
+            let typographyRangesWrapper = Win2D.__x_ABI_C__FIVectorView_1___x_ABI_C__FIKeyValuePair_2___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasCharacterRange___x_ABI_CMicrosoft__CGraphics__CCanvas__CText__CCanvasTypographyWrapper(typographyRanges)
+            let _typographyRanges = try! typographyRangesWrapper?.toABI { $0 }
+            var _clusterMapIndicesElements: WinRTArrayAbi<INT32> = (0, nil)
+            var _isShapedAloneGlyphsElements: WinRTArrayAbi<boolean> = (0, nil)
+            var _glyphShapingResultsElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphShaping> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphsWithAllOptions(pThis, .from(swift: characterRange), RawPointer(fontFace), fontSize, .init(from: isSideways), .init(from: isRightToLeft), .from(swift: script), _locale.get(), RawPointer(numberSubstitution), _typographyRanges, &_clusterMapIndicesElements.count, &_clusterMapIndicesElements.start, &_isShapedAloneGlyphsElements.count, &_isShapedAloneGlyphsElements.start, &_glyphShapingResultsElements.count, &_glyphShapingResultsElements.start, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(_glyphShapingResultsElements.start) }
+            glyphShapingResultsElements = .from(abi: _glyphShapingResultsElements)
+            defer { CoTaskMemFree(_isShapedAloneGlyphsElements.start) }
+            isShapedAloneGlyphsElements = .from(abi: _isShapedAloneGlyphsElements)
+            defer { CoTaskMemFree(_clusterMapIndicesElements.start) }
+            clusterMapIndicesElements = .from(abi: _clusterMapIndicesElements)
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetJustificationOpportunities(_ characterRange: Win2D.CanvasCharacterRange, _ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ script: Win2D.CanvasAnalyzedScript, _ clusterMapIndicesElements: [Int32], _ glyphShapingResultsElements: [Win2D.CanvasGlyphShaping]) throws -> [Win2D.CanvasJustificationOpportunity] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasJustificationOpportunity> = (0, nil)
+            try clusterMapIndicesElements.toABI { _clusterMapIndicesElements in
+                try glyphShapingResultsElements.toABI { _glyphShapingResultsElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetJustificationOpportunities(pThis, .from(swift: characterRange), RawPointer(fontFace), fontSize, .from(swift: script), _clusterMapIndicesElements.count, _clusterMapIndicesElements.start, _glyphShapingResultsElements.count, _glyphShapingResultsElements.start, &valueElements.count, &valueElements.start))
+                }
+            }
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func ApplyJustificationOpportunities(_ lineWidth: Float, _ justificationOpportunitiesElements: [Win2D.CanvasJustificationOpportunity], _ sourceGlyphsElements: [Win2D.CanvasGlyph]) throws -> [Win2D.CanvasGlyph] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyph> = (0, nil)
+            try justificationOpportunitiesElements.toABI { _justificationOpportunitiesElements in
+                try sourceGlyphsElements.toABI { _sourceGlyphsElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ApplyJustificationOpportunities(pThis, lineWidth, _justificationOpportunitiesElements.count, _justificationOpportunitiesElements.start, _sourceGlyphsElements.count, _sourceGlyphsElements.start, &valueElements.count, &valueElements.start))
+                }
+            }
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func AddGlyphsAfterJustification(_ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ script: Win2D.CanvasAnalyzedScript, _ clusterMapIndicesElements: [Int32], _ originalGlyphsElements: [Win2D.CanvasGlyph], _ justifiedGlyphsElements: [Win2D.CanvasGlyph], _ glyphShapingResultsElements: [Win2D.CanvasGlyphShaping]) throws -> [Win2D.CanvasGlyph] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyph> = (0, nil)
+            try clusterMapIndicesElements.toABI { _clusterMapIndicesElements in
+                try originalGlyphsElements.toABI { _originalGlyphsElements in
+                try justifiedGlyphsElements.toABI { _justifiedGlyphsElements in
+                try glyphShapingResultsElements.toABI { _glyphShapingResultsElements in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.AddGlyphsAfterJustification(pThis, RawPointer(fontFace), fontSize, .from(swift: script), _clusterMapIndicesElements.count, _clusterMapIndicesElements.start, _originalGlyphsElements.count, _originalGlyphsElements.start, _justifiedGlyphsElements.count, _justifiedGlyphsElements.start, _glyphShapingResultsElements.count, _glyphShapingResultsElements.start, &valueElements.count, &valueElements.start))
+                }
+            }
+            }
+            }
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func AddGlyphsAfterJustificationWithClusterMap(_ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ script: Win2D.CanvasAnalyzedScript, _ clusterMapIndicesElements: [Int32], _ originalGlyphsElements: [Win2D.CanvasGlyph], _ justifiedGlyphsElements: [Win2D.CanvasGlyph], _ glyphShapingResultsElements: [Win2D.CanvasGlyphShaping], _ outputClusterMapIndicesElements: inout [Int32]) throws -> [Win2D.CanvasGlyph] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyph> = (0, nil)
+            try clusterMapIndicesElements.toABI { _clusterMapIndicesElements in
+                try originalGlyphsElements.toABI { _originalGlyphsElements in
+                try justifiedGlyphsElements.toABI { _justifiedGlyphsElements in
+                try glyphShapingResultsElements.toABI { _glyphShapingResultsElements in
+                var _outputClusterMapIndicesElements: WinRTArrayAbi<INT32> = (0, nil)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.AddGlyphsAfterJustificationWithClusterMap(pThis, RawPointer(fontFace), fontSize, .from(swift: script), _clusterMapIndicesElements.count, _clusterMapIndicesElements.start, _originalGlyphsElements.count, _originalGlyphsElements.start, _justifiedGlyphsElements.count, _justifiedGlyphsElements.start, _glyphShapingResultsElements.count, _glyphShapingResultsElements.start, &_outputClusterMapIndicesElements.count, &_outputClusterMapIndicesElements.start, &valueElements.count, &valueElements.start))
+                }
+                            defer { CoTaskMemFree(_outputClusterMapIndicesElements.start) }
+                            outputClusterMapIndicesElements = .from(abi: _outputClusterMapIndicesElements)
+            }
+            }
+            }
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+    }
+
+    public class ICanvasTextAnalyzerFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerFactory }
+
+        public func Create(_ text: String, _ textDirection: Win2D.CanvasTextDirection) throws -> ICanvasTextAnalyzer {
+            let (canvasTextAnalyzer) = try ComPtrs.initialize { canvasTextAnalyzerAbi in
+                let _text = try! HString(text)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, _text.get(), textDirection, &canvasTextAnalyzerAbi))
+                }
+            }
+            return ICanvasTextAnalyzer(canvasTextAnalyzer!)
+        }
+
+        public func CreateWithNumberSubstitutionAndVerticalGlyphOrientationAndBidiLevel(_ text: String, _ textDirection: Win2D.CanvasTextDirection, _ numberSubstitution: Win2D.CanvasNumberSubstitution?, _ verticalGlyphOrientation: Win2D.CanvasVerticalGlyphOrientation, _ bidiLevel: UInt32) throws -> ICanvasTextAnalyzer {
+            let (canvasTextAnalyzer) = try ComPtrs.initialize { canvasTextAnalyzerAbi in
+                let _text = try! HString(text)
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithNumberSubstitutionAndVerticalGlyphOrientationAndBidiLevel(pThis, _text.get(), textDirection, RawPointer(numberSubstitution), verticalGlyphOrientation, bidiLevel, &canvasTextAnalyzerAbi))
+                }
+            }
+            return ICanvasTextAnalyzer(canvasTextAnalyzer!)
+        }
+
+        public func CreateWithOptions(_ text: String, _ textDirection: Win2D.CanvasTextDirection, _ options: Win2D.AnyICanvasTextAnalyzerOptions?) throws -> ICanvasTextAnalyzer {
+            let (canvasTextAnalyzer) = try ComPtrs.initialize { canvasTextAnalyzerAbi in
+                let _text = try! HString(text)
+                let optionsWrapper = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextAnalyzerOptionsWrapper(options)
+                let _options = try! optionsWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithOptions(pThis, _text.get(), textDirection, _options, &canvasTextAnalyzerAbi))
+                }
+            }
+            return ICanvasTextAnalyzer(canvasTextAnalyzer!)
+        }
+
+    }
+
+    public class ICanvasTextAnalyzerOptions: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerOptions }
+
+        open func GetLocaleName(_ characterIndex: Int32, _ characterCount: inout Int32) throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocaleName(pThis, characterIndex, &characterCount, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func GetNumberSubstitution(_ characterIndex: Int32, _ characterCount: inout Int32) throws -> Win2D.CanvasNumberSubstitution? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerOptions.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetNumberSubstitution(pThis, characterIndex, &characterCount, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas_Text.CanvasNumberSubstitutionBridge.from(abi: value)
+        }
+
+        open func GetVerticalGlyphOrientation(_ characterIndex: Int32, _ characterCount: inout Int32) throws -> Win2D.CanvasVerticalGlyphOrientation {
+            var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasVerticalGlyphOrientation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetVerticalGlyphOrientation(pThis, characterIndex, &characterCount, &value))
+            }
+            return value
+        }
+
+        open func GetBidiLevel(_ characterIndex: Int32, _ characterCount: inout Int32) throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetBidiLevel(pThis, characterIndex, &characterCount, &value))
+            }
+            return value
+        }
+
+    }
+
+    internal static var ICanvasTextAnalyzerOptionsVTable: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextAnalyzerOptionsVtbl = .init(
+        QueryInterface: { ICanvasTextAnalyzerOptionsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ICanvasTextAnalyzerOptionsWrapper.addRef($0) },
+        Release: { ICanvasTextAnalyzerOptionsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextAnalyzerOptionsWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Microsoft.Graphics.Canvas.Text.ICanvasTextAnalyzerOptions").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        GetLocaleName: {
+            do {
+                guard let __unwrapped__instance = ICanvasTextAnalyzerOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let characterIndex: Int32 = $1
+                var characterCount: Int32 = 0
+                let value = try __unwrapped__instance.getLocaleName(characterIndex, &characterCount)
+                $2?.initialize(to: characterCount)
+                $3?.initialize(to: try! HString(value).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetNumberSubstitution: {
+            do {
+                guard let __unwrapped__instance = ICanvasTextAnalyzerOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let characterIndex: Int32 = $1
+                var characterCount: Int32 = 0
+                let value = try __unwrapped__instance.getNumberSubstitution(characterIndex, &characterCount)
+                $2?.initialize(to: characterCount)
+                value?.copyTo($3)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetVerticalGlyphOrientation: {
+            do {
+                guard let __unwrapped__instance = ICanvasTextAnalyzerOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let characterIndex: Int32 = $1
+                var characterCount: Int32 = 0
+                let value = try __unwrapped__instance.getVerticalGlyphOrientation(characterIndex, &characterCount)
+                $2?.initialize(to: characterCount)
+                $3?.initialize(to: value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetBidiLevel: {
+            do {
+                guard let __unwrapped__instance = ICanvasTextAnalyzerOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let characterIndex: Int32 = $1
+                var characterCount: Int32 = 0
+                let value = try __unwrapped__instance.getBidiLevel(characterIndex, &characterCount)
+                $2?.initialize(to: characterCount)
+                $3?.initialize(to: value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias ICanvasTextAnalyzerOptionsWrapper = InterfaceWrapperBase<__IMPL_Microsoft_Graphics_Canvas_Text.ICanvasTextAnalyzerOptionsBridge>
     public class ICanvasTextFormat: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat }
 
-        internal func get_DirectionImpl() throws -> Win2D.CanvasTextDirection {
+        public func get_Direction() throws -> Win2D.CanvasTextDirection {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextDirection = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
@@ -431,13 +1043,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_DirectionImpl(_ value: Win2D.CanvasTextDirection) throws {
+        public func put_Direction(_ value: Win2D.CanvasTextDirection) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Direction(pThis, value))
             }
         }
 
-        internal func get_FontFamilyImpl() throws -> String {
+        public func get_FontFamily() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontFamily(pThis, &value))
@@ -445,14 +1057,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func put_FontFamilyImpl(_ value: String) throws {
+        public func put_FontFamily(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontFamily(pThis, _value.get()))
             }
         }
 
-        internal func get_FontSizeImpl() throws -> Float {
+        public func get_FontSize() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontSize(pThis, &value))
@@ -460,13 +1072,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_FontSizeImpl(_ value: Float) throws {
+        public func put_FontSize(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontSize(pThis, value))
             }
         }
 
-        internal func get_FontStretchImpl() throws -> UWP.FontStretch {
+        public func get_FontStretch() throws -> UWP.FontStretch {
             var value: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStretch(pThis, &value))
@@ -474,13 +1086,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_FontStretchImpl(_ value: UWP.FontStretch) throws {
+        public func put_FontStretch(_ value: UWP.FontStretch) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStretch(pThis, value))
             }
         }
 
-        internal func get_FontStyleImpl() throws -> UWP.FontStyle {
+        public func get_FontStyle() throws -> UWP.FontStyle {
             var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStyle(pThis, &value))
@@ -488,13 +1100,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_FontStyleImpl(_ value: UWP.FontStyle) throws {
+        public func put_FontStyle(_ value: UWP.FontStyle) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStyle(pThis, value))
             }
         }
 
-        internal func get_FontWeightImpl() throws -> UWP.FontWeight {
+        public func get_FontWeight() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontWeight(pThis, &value))
@@ -502,13 +1114,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        internal func put_FontWeightImpl(_ value: UWP.FontWeight) throws {
+        public func put_FontWeight(_ value: UWP.FontWeight) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontWeight(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_IncrementalTabStopImpl() throws -> Float {
+        public func get_IncrementalTabStop() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IncrementalTabStop(pThis, &value))
@@ -516,13 +1128,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_IncrementalTabStopImpl(_ value: Float) throws {
+        public func put_IncrementalTabStop(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IncrementalTabStop(pThis, value))
             }
         }
 
-        internal func get_LineSpacingImpl() throws -> Float {
+        public func get_LineSpacing() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacing(pThis, &value))
@@ -530,13 +1142,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_LineSpacingImpl(_ value: Float) throws {
+        public func put_LineSpacing(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineSpacing(pThis, value))
             }
         }
 
-        internal func get_LineSpacingBaselineImpl() throws -> Float {
+        public func get_LineSpacingBaseline() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacingBaseline(pThis, &value))
@@ -544,13 +1156,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_LineSpacingBaselineImpl(_ value: Float) throws {
+        public func put_LineSpacingBaseline(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineSpacingBaseline(pThis, value))
             }
         }
 
-        internal func get_LocaleNameImpl() throws -> String {
+        public func get_LocaleName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LocaleName(pThis, &value))
@@ -558,14 +1170,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func put_LocaleNameImpl(_ value: String) throws {
+        public func put_LocaleName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LocaleName(pThis, _value.get()))
             }
         }
 
-        internal func get_VerticalAlignmentImpl() throws -> Win2D.CanvasVerticalAlignment {
+        public func get_VerticalAlignment() throws -> Win2D.CanvasVerticalAlignment {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasVerticalAlignment = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalAlignment(pThis, &value))
@@ -573,13 +1185,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_VerticalAlignmentImpl(_ value: Win2D.CanvasVerticalAlignment) throws {
+        public func put_VerticalAlignment(_ value: Win2D.CanvasVerticalAlignment) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalAlignment(pThis, value))
             }
         }
 
-        internal func get_HorizontalAlignmentImpl() throws -> Win2D.CanvasHorizontalAlignment {
+        public func get_HorizontalAlignment() throws -> Win2D.CanvasHorizontalAlignment {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasHorizontalAlignment = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalAlignment(pThis, &value))
@@ -587,13 +1199,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_HorizontalAlignmentImpl(_ value: Win2D.CanvasHorizontalAlignment) throws {
+        public func put_HorizontalAlignment(_ value: Win2D.CanvasHorizontalAlignment) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalAlignment(pThis, value))
             }
         }
 
-        internal func get_TrimmingGranularityImpl() throws -> Win2D.CanvasTextTrimmingGranularity {
+        public func get_TrimmingGranularity() throws -> Win2D.CanvasTextTrimmingGranularity {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextTrimmingGranularity = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimmingGranularity(pThis, &value))
@@ -601,13 +1213,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_TrimmingGranularityImpl(_ value: Win2D.CanvasTextTrimmingGranularity) throws {
+        public func put_TrimmingGranularity(_ value: Win2D.CanvasTextTrimmingGranularity) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimmingGranularity(pThis, value))
             }
         }
 
-        internal func get_TrimmingDelimiterImpl() throws -> String {
+        public func get_TrimmingDelimiter() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimmingDelimiter(pThis, &value))
@@ -615,14 +1227,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func put_TrimmingDelimiterImpl(_ value: String) throws {
+        public func put_TrimmingDelimiter(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimmingDelimiter(pThis, _value.get()))
             }
         }
 
-        internal func get_TrimmingDelimiterCountImpl() throws -> Int32 {
+        public func get_TrimmingDelimiterCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimmingDelimiterCount(pThis, &value))
@@ -630,13 +1242,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_TrimmingDelimiterCountImpl(_ value: Int32) throws {
+        public func put_TrimmingDelimiterCount(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimmingDelimiterCount(pThis, value))
             }
         }
 
-        internal func get_WordWrappingImpl() throws -> Win2D.CanvasWordWrapping {
+        public func get_WordWrapping() throws -> Win2D.CanvasWordWrapping {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasWordWrapping = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_WordWrapping(pThis, &value))
@@ -644,13 +1256,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_WordWrappingImpl(_ value: Win2D.CanvasWordWrapping) throws {
+        public func put_WordWrapping(_ value: Win2D.CanvasWordWrapping) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_WordWrapping(pThis, value))
             }
         }
 
-        internal func get_OptionsImpl() throws -> Win2D.CanvasDrawTextOptions {
+        public func get_Options() throws -> Win2D.CanvasDrawTextOptions {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasDrawTextOptions = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Options(pThis, &value))
@@ -658,13 +1270,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_OptionsImpl(_ value: Win2D.CanvasDrawTextOptions) throws {
+        public func put_Options(_ value: Win2D.CanvasDrawTextOptions) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Options(pThis, value))
             }
         }
 
-        internal func get_VerticalGlyphOrientationImpl() throws -> Win2D.CanvasVerticalGlyphOrientation {
+        public func get_VerticalGlyphOrientation() throws -> Win2D.CanvasVerticalGlyphOrientation {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasVerticalGlyphOrientation = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalGlyphOrientation(pThis, &value))
@@ -672,13 +1284,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_VerticalGlyphOrientationImpl(_ value: Win2D.CanvasVerticalGlyphOrientation) throws {
+        public func put_VerticalGlyphOrientation(_ value: Win2D.CanvasVerticalGlyphOrientation) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalGlyphOrientation(pThis, value))
             }
         }
 
-        internal func get_OpticalAlignmentImpl() throws -> Win2D.CanvasOpticalAlignment {
+        public func get_OpticalAlignment() throws -> Win2D.CanvasOpticalAlignment {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasOpticalAlignment = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpticalAlignment(pThis, &value))
@@ -686,13 +1298,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_OpticalAlignmentImpl(_ value: Win2D.CanvasOpticalAlignment) throws {
+        public func put_OpticalAlignment(_ value: Win2D.CanvasOpticalAlignment) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OpticalAlignment(pThis, value))
             }
         }
 
-        internal func get_LastLineWrappingImpl() throws -> Bool {
+        public func get_LastLineWrapping() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastLineWrapping(pThis, &value))
@@ -700,13 +1312,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func put_LastLineWrappingImpl(_ value: Bool) throws {
+        public func put_LastLineWrapping(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LastLineWrapping(pThis, .init(from: value)))
             }
         }
 
-        internal func get_LineSpacingModeImpl() throws -> Win2D.CanvasLineSpacingMode {
+        public func get_LineSpacingMode() throws -> Win2D.CanvasLineSpacingMode {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineSpacingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacingMode(pThis, &value))
@@ -714,13 +1326,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_LineSpacingModeImpl(_ value: Win2D.CanvasLineSpacingMode) throws {
+        public func put_LineSpacingMode(_ value: Win2D.CanvasLineSpacingMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineSpacingMode(pThis, value))
             }
         }
 
-        internal func get_TrimmingSignImpl() throws -> Win2D.CanvasTrimmingSign {
+        public func get_TrimmingSign() throws -> Win2D.CanvasTrimmingSign {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTrimmingSign = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimmingSign(pThis, &value))
@@ -728,13 +1340,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_TrimmingSignImpl(_ value: Win2D.CanvasTrimmingSign) throws {
+        public func put_TrimmingSign(_ value: Win2D.CanvasTrimmingSign) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimmingSign(pThis, value))
             }
         }
 
-        internal func get_CustomTrimmingSignImpl() throws -> Win2D.AnyICanvasTextInlineObject? {
+        public func get_CustomTrimmingSign() throws -> Win2D.AnyICanvasTextInlineObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomTrimmingSign(pThis, &valueAbi))
@@ -743,7 +1355,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextInlineObjectWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_CustomTrimmingSignImpl(_ value: Win2D.AnyICanvasTextInlineObject?) throws {
+        public func put_CustomTrimmingSign(_ value: Win2D.AnyICanvasTextInlineObject?) throws {
             let valueWrapper = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextInlineObjectWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormat.self) { pThis in
@@ -756,12 +1368,34 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasTextFormatStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormatStatics }
 
+        public func GetSystemFontFamilies() throws -> [String] {
+            var valueElements: WinRTArrayAbi<HSTRING?> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormatStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSystemFontFamilies(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func GetSystemFontFamiliesFromLocaleList(_ localeList: WindowsFoundation.AnyIVectorView<String>?) throws -> [String] {
+            var valueElements: WinRTArrayAbi<HSTRING?> = (0, nil)
+            let localeListWrapper = Win2D.__x_ABI_C__FIVectorView_1_HSTRINGWrapper(localeList)
+            let _localeList = try! localeListWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextFormatStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSystemFontFamiliesFromLocaleList(pThis, _localeList, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
     }
 
     public class ICanvasTextInlineObject: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextInlineObject }
 
-        open func DrawImpl(_ textRenderer: Win2D.AnyICanvasTextRenderer?, _ point: WindowsFoundation.Vector2, _ isSideways: Bool, _ isRightToLeft: Bool, _ brush: Any?) throws {
+        open func Draw(_ textRenderer: Win2D.AnyICanvasTextRenderer?, _ point: WindowsFoundation.Vector2, _ isSideways: Bool, _ isRightToLeft: Bool, _ brush: Any?) throws {
             let textRendererWrapper = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextRendererWrapper(textRenderer)
             let _textRenderer = try! textRendererWrapper?.toABI { $0 }
             let brushWrapper = __ABI_.AnyWrapper(brush)
@@ -771,7 +1405,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        open func get_SizeImpl() throws -> WindowsFoundation.Size {
+        open func get_Size() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextInlineObject.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -779,7 +1413,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        open func get_BaselineImpl() throws -> Float {
+        open func get_Baseline() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextInlineObject.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Baseline(pThis, &value))
@@ -787,7 +1421,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        open func get_SupportsSidewaysImpl() throws -> Bool {
+        open func get_SupportsSideways() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextInlineObject.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SupportsSideways(pThis, &value))
@@ -795,7 +1429,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        open func get_DrawBoundsImpl() throws -> WindowsFoundation.Rect {
+        open func get_DrawBounds() throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextInlineObject.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DrawBounds(pThis, &bounds))
@@ -803,7 +1437,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: bounds)
         }
 
-        open func get_BreakBeforeImpl() throws -> Win2D.CanvasLineBreakCondition {
+        open func get_BreakBefore() throws -> Win2D.CanvasLineBreakCondition {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineBreakCondition = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextInlineObject.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BreakBefore(pThis, &value))
@@ -811,7 +1445,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        open func get_BreakAfterImpl() throws -> Win2D.CanvasLineBreakCondition {
+        open func get_BreakAfter() throws -> Win2D.CanvasLineBreakCondition {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineBreakCondition = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextInlineObject.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BreakAfter(pThis, &value))
@@ -859,7 +1493,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
                 let brush: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($5))
                 try __unwrapped__instance.draw(textRenderer, point, isSideways, isRightToLeft, brush)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         get_Size: {
@@ -909,7 +1543,17 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasTextLayout: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout }
 
-        internal func get_DirectionImpl() throws -> Win2D.CanvasTextDirection {
+        public func GetFormatChangeIndices() throws -> [Int32] {
+            var stops: WinRTArrayAbi<INT32> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetFormatChangeIndices(pThis, &stops.count, &stops.start))
+            }
+            defer { CoTaskMemFree(stops.start) }
+            return .from(abi: stops)
+
+        }
+
+        public func get_Direction() throws -> Win2D.CanvasTextDirection {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextDirection = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
@@ -917,13 +1561,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_DirectionImpl(_ value: Win2D.CanvasTextDirection) throws {
+        public func put_Direction(_ value: Win2D.CanvasTextDirection) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Direction(pThis, value))
             }
         }
 
-        internal func get_DefaultFontFamilyImpl() throws -> String {
+        public func get_DefaultFontFamily() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultFontFamily(pThis, &value))
@@ -931,7 +1575,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func get_DefaultFontSizeImpl() throws -> Float {
+        public func get_DefaultFontSize() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultFontSize(pThis, &value))
@@ -939,7 +1583,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_DefaultFontStretchImpl() throws -> UWP.FontStretch {
+        public func get_DefaultFontStretch() throws -> UWP.FontStretch {
             var value: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultFontStretch(pThis, &value))
@@ -947,7 +1591,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_DefaultFontStyleImpl() throws -> UWP.FontStyle {
+        public func get_DefaultFontStyle() throws -> UWP.FontStyle {
             var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultFontStyle(pThis, &value))
@@ -955,7 +1599,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_DefaultFontWeightImpl() throws -> UWP.FontWeight {
+        public func get_DefaultFontWeight() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultFontWeight(pThis, &value))
@@ -963,7 +1607,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        internal func get_IncrementalTabStopImpl() throws -> Float {
+        public func get_IncrementalTabStop() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IncrementalTabStop(pThis, &value))
@@ -971,13 +1615,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_IncrementalTabStopImpl(_ value: Float) throws {
+        public func put_IncrementalTabStop(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IncrementalTabStop(pThis, value))
             }
         }
 
-        internal func get_LineSpacingImpl() throws -> Float {
+        public func get_LineSpacing() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacing(pThis, &value))
@@ -985,13 +1629,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_LineSpacingImpl(_ value: Float) throws {
+        public func put_LineSpacing(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineSpacing(pThis, value))
             }
         }
 
-        internal func get_LineSpacingBaselineImpl() throws -> Float {
+        public func get_LineSpacingBaseline() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacingBaseline(pThis, &value))
@@ -999,13 +1643,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_LineSpacingBaselineImpl(_ value: Float) throws {
+        public func put_LineSpacingBaseline(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineSpacingBaseline(pThis, value))
             }
         }
 
-        internal func get_DefaultLocaleNameImpl() throws -> String {
+        public func get_DefaultLocaleName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultLocaleName(pThis, &value))
@@ -1013,7 +1657,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func get_VerticalAlignmentImpl() throws -> Win2D.CanvasVerticalAlignment {
+        public func get_VerticalAlignment() throws -> Win2D.CanvasVerticalAlignment {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasVerticalAlignment = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalAlignment(pThis, &value))
@@ -1021,13 +1665,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_VerticalAlignmentImpl(_ value: Win2D.CanvasVerticalAlignment) throws {
+        public func put_VerticalAlignment(_ value: Win2D.CanvasVerticalAlignment) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalAlignment(pThis, value))
             }
         }
 
-        internal func get_HorizontalAlignmentImpl() throws -> Win2D.CanvasHorizontalAlignment {
+        public func get_HorizontalAlignment() throws -> Win2D.CanvasHorizontalAlignment {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasHorizontalAlignment = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalAlignment(pThis, &value))
@@ -1035,13 +1679,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_HorizontalAlignmentImpl(_ value: Win2D.CanvasHorizontalAlignment) throws {
+        public func put_HorizontalAlignment(_ value: Win2D.CanvasHorizontalAlignment) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalAlignment(pThis, value))
             }
         }
 
-        internal func get_TrimmingGranularityImpl() throws -> Win2D.CanvasTextTrimmingGranularity {
+        public func get_TrimmingGranularity() throws -> Win2D.CanvasTextTrimmingGranularity {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextTrimmingGranularity = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimmingGranularity(pThis, &value))
@@ -1049,13 +1693,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_TrimmingGranularityImpl(_ value: Win2D.CanvasTextTrimmingGranularity) throws {
+        public func put_TrimmingGranularity(_ value: Win2D.CanvasTextTrimmingGranularity) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimmingGranularity(pThis, value))
             }
         }
 
-        internal func get_TrimmingDelimiterImpl() throws -> String {
+        public func get_TrimmingDelimiter() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimmingDelimiter(pThis, &value))
@@ -1063,14 +1707,14 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func put_TrimmingDelimiterImpl(_ value: String) throws {
+        public func put_TrimmingDelimiter(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimmingDelimiter(pThis, _value.get()))
             }
         }
 
-        internal func get_TrimmingDelimiterCountImpl() throws -> Int32 {
+        public func get_TrimmingDelimiterCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimmingDelimiterCount(pThis, &value))
@@ -1078,13 +1722,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_TrimmingDelimiterCountImpl(_ value: Int32) throws {
+        public func put_TrimmingDelimiterCount(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimmingDelimiterCount(pThis, value))
             }
         }
 
-        internal func get_WordWrappingImpl() throws -> Win2D.CanvasWordWrapping {
+        public func get_WordWrapping() throws -> Win2D.CanvasWordWrapping {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasWordWrapping = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_WordWrapping(pThis, &value))
@@ -1092,13 +1736,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_WordWrappingImpl(_ value: Win2D.CanvasWordWrapping) throws {
+        public func put_WordWrapping(_ value: Win2D.CanvasWordWrapping) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_WordWrapping(pThis, value))
             }
         }
 
-        internal func get_OptionsImpl() throws -> Win2D.CanvasDrawTextOptions {
+        public func get_Options() throws -> Win2D.CanvasDrawTextOptions {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasDrawTextOptions = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Options(pThis, &value))
@@ -1106,13 +1750,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_OptionsImpl(_ value: Win2D.CanvasDrawTextOptions) throws {
+        public func put_Options(_ value: Win2D.CanvasDrawTextOptions) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Options(pThis, value))
             }
         }
 
-        internal func get_LineSpacingModeImpl() throws -> Win2D.CanvasLineSpacingMode {
+        public func get_LineSpacingMode() throws -> Win2D.CanvasLineSpacingMode {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineSpacingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacingMode(pThis, &value))
@@ -1120,13 +1764,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_LineSpacingModeImpl(_ value: Win2D.CanvasLineSpacingMode) throws {
+        public func put_LineSpacingMode(_ value: Win2D.CanvasLineSpacingMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineSpacingMode(pThis, value))
             }
         }
 
-        internal func get_TrimmingSignImpl() throws -> Win2D.CanvasTrimmingSign {
+        public func get_TrimmingSign() throws -> Win2D.CanvasTrimmingSign {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTrimmingSign = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrimmingSign(pThis, &value))
@@ -1134,13 +1778,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_TrimmingSignImpl(_ value: Win2D.CanvasTrimmingSign) throws {
+        public func put_TrimmingSign(_ value: Win2D.CanvasTrimmingSign) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrimmingSign(pThis, value))
             }
         }
 
-        internal func get_CustomTrimmingSignImpl() throws -> Win2D.AnyICanvasTextInlineObject? {
+        public func get_CustomTrimmingSign() throws -> Win2D.AnyICanvasTextInlineObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomTrimmingSign(pThis, &valueAbi))
@@ -1149,7 +1793,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextInlineObjectWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_CustomTrimmingSignImpl(_ value: Win2D.AnyICanvasTextInlineObject?) throws {
+        public func put_CustomTrimmingSign(_ value: Win2D.AnyICanvasTextInlineObject?) throws {
             let valueWrapper = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextInlineObjectWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
@@ -1157,7 +1801,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        internal func get_RequestedSizeImpl() throws -> WindowsFoundation.Size {
+        public func get_RequestedSize() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedSize(pThis, &value))
@@ -1165,13 +1809,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        internal func put_RequestedSizeImpl(_ value: WindowsFoundation.Size) throws {
+        public func put_RequestedSize(_ value: WindowsFoundation.Size) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RequestedSize(pThis, .from(swift: value)))
             }
         }
 
-        internal func GetMinimumLineLengthImpl() throws -> Float {
+        public func GetMinimumLineLength() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetMinimumLineLength(pThis, &value))
@@ -1179,7 +1823,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func GetBrushImpl(_ characterIndex: Int32) throws -> Win2D.AnyICanvasBrush? {
+        public func GetBrush(_ characterIndex: Int32) throws -> Win2D.AnyICanvasBrush? {
             let (brush) = try ComPtrs.initialize { brushAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetBrush(pThis, characterIndex, &brushAbi))
@@ -1188,7 +1832,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper.unwrapFrom(abi: brush)
         }
 
-        internal func GetCustomBrushImpl(_ characterIndex: Int32) throws -> Any? {
+        public func GetCustomBrush(_ characterIndex: Int32) throws -> Any? {
             let (brush) = try ComPtrs.initialize { brushAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetCustomBrush(pThis, characterIndex, &brushAbi))
@@ -1197,7 +1841,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return __ABI_.AnyWrapper.unwrapFrom(abi: brush)
         }
 
-        internal func GetFontFamilyImpl(_ characterIndex: Int32) throws -> String {
+        public func GetFontFamily(_ characterIndex: Int32) throws -> String {
             var fontFamily: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFontFamily(pThis, characterIndex, &fontFamily))
@@ -1205,7 +1849,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: fontFamily)
         }
 
-        internal func GetFontSizeImpl(_ characterIndex: Int32) throws -> Float {
+        public func GetFontSize(_ characterIndex: Int32) throws -> Float {
             var fontSize: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFontSize(pThis, characterIndex, &fontSize))
@@ -1213,7 +1857,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return fontSize
         }
 
-        internal func GetFontStretchImpl(_ characterIndex: Int32) throws -> UWP.FontStretch {
+        public func GetFontStretch(_ characterIndex: Int32) throws -> UWP.FontStretch {
             var fontStretch: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFontStretch(pThis, characterIndex, &fontStretch))
@@ -1221,7 +1865,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return fontStretch
         }
 
-        internal func GetFontStyleImpl(_ characterIndex: Int32) throws -> UWP.FontStyle {
+        public func GetFontStyle(_ characterIndex: Int32) throws -> UWP.FontStyle {
             var fontStyle: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFontStyle(pThis, characterIndex, &fontStyle))
@@ -1229,7 +1873,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return fontStyle
         }
 
-        internal func GetFontWeightImpl(_ characterIndex: Int32) throws -> UWP.FontWeight {
+        public func GetFontWeight(_ characterIndex: Int32) throws -> UWP.FontWeight {
             var fontWeight: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFontWeight(pThis, characterIndex, &fontWeight))
@@ -1237,7 +1881,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: fontWeight)
         }
 
-        internal func GetLocaleNameImpl(_ characterIndex: Int32) throws -> String {
+        public func GetLocaleName(_ characterIndex: Int32) throws -> String {
             var localeName: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocaleName(pThis, characterIndex, &localeName))
@@ -1245,7 +1889,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: localeName)
         }
 
-        internal func GetStrikethroughImpl(_ characterIndex: Int32) throws -> Bool {
+        public func GetStrikethrough(_ characterIndex: Int32) throws -> Bool {
             var hasStrikethrough: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetStrikethrough(pThis, characterIndex, &hasStrikethrough))
@@ -1253,7 +1897,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: hasStrikethrough)
         }
 
-        internal func GetUnderlineImpl(_ characterIndex: Int32) throws -> Bool {
+        public func GetUnderline(_ characterIndex: Int32) throws -> Bool {
             var hasUnderline: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetUnderline(pThis, characterIndex, &hasUnderline))
@@ -1261,7 +1905,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: hasUnderline)
         }
 
-        internal func GetInlineObjectImpl(_ characterIndex: Int32) throws -> Win2D.AnyICanvasTextInlineObject? {
+        public func GetInlineObject(_ characterIndex: Int32) throws -> Win2D.AnyICanvasTextInlineObject? {
             let (inlineObject) = try ComPtrs.initialize { inlineObjectAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetInlineObject(pThis, characterIndex, &inlineObjectAbi))
@@ -1270,13 +1914,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextInlineObjectWrapper.unwrapFrom(abi: inlineObject)
         }
 
-        internal func SetColorImpl(_ characterIndex: Int32, _ characterCount: Int32, _ color: UWP.Color) throws {
+        public func SetColor(_ characterIndex: Int32, _ characterCount: Int32, _ color: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetColor(pThis, characterIndex, characterCount, .from(swift: color)))
             }
         }
 
-        internal func SetBrushImpl(_ characterIndex: Int32, _ characterCount: Int32, _ brush: Win2D.AnyICanvasBrush?) throws {
+        public func SetBrush(_ characterIndex: Int32, _ characterCount: Int32, _ brush: Win2D.AnyICanvasBrush?) throws {
             let brushWrapper = __ABI_Microsoft_Graphics_Canvas_Brushes.ICanvasBrushWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
@@ -1284,7 +1928,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        internal func SetCustomBrushImpl(_ characterIndex: Int32, _ characterCount: Int32, _ brush: Any?) throws {
+        public func SetCustomBrush(_ characterIndex: Int32, _ characterCount: Int32, _ brush: Any?) throws {
             let brushWrapper = __ABI_.AnyWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
@@ -1292,57 +1936,57 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        internal func SetFontFamilyImpl(_ characterIndex: Int32, _ characterCount: Int32, _ fontFamily: String) throws {
+        public func SetFontFamily(_ characterIndex: Int32, _ characterCount: Int32, _ fontFamily: String) throws {
             let _fontFamily = try! HString(fontFamily)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFontFamily(pThis, characterIndex, characterCount, _fontFamily.get()))
             }
         }
 
-        internal func SetFontSizeImpl(_ characterIndex: Int32, _ characterCount: Int32, _ fontSize: Float) throws {
+        public func SetFontSize(_ characterIndex: Int32, _ characterCount: Int32, _ fontSize: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFontSize(pThis, characterIndex, characterCount, fontSize))
             }
         }
 
-        internal func SetFontStretchImpl(_ characterIndex: Int32, _ characterCount: Int32, _ fontStretch: UWP.FontStretch) throws {
+        public func SetFontStretch(_ characterIndex: Int32, _ characterCount: Int32, _ fontStretch: UWP.FontStretch) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFontStretch(pThis, characterIndex, characterCount, fontStretch))
             }
         }
 
-        internal func SetFontStyleImpl(_ characterIndex: Int32, _ characterCount: Int32, _ fontStyle: UWP.FontStyle) throws {
+        public func SetFontStyle(_ characterIndex: Int32, _ characterCount: Int32, _ fontStyle: UWP.FontStyle) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFontStyle(pThis, characterIndex, characterCount, fontStyle))
             }
         }
 
-        internal func SetFontWeightImpl(_ characterIndex: Int32, _ characterCount: Int32, _ fontWeight: UWP.FontWeight) throws {
+        public func SetFontWeight(_ characterIndex: Int32, _ characterCount: Int32, _ fontWeight: UWP.FontWeight) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFontWeight(pThis, characterIndex, characterCount, .from(swift: fontWeight)))
             }
         }
 
-        internal func SetLocaleNameImpl(_ characterIndex: Int32, _ characterCount: Int32, _ name: String) throws {
+        public func SetLocaleName(_ characterIndex: Int32, _ characterCount: Int32, _ name: String) throws {
             let _name = try! HString(name)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetLocaleName(pThis, characterIndex, characterCount, _name.get()))
             }
         }
 
-        internal func SetStrikethroughImpl(_ characterIndex: Int32, _ characterCount: Int32, _ hasStrikethrough: Bool) throws {
+        public func SetStrikethrough(_ characterIndex: Int32, _ characterCount: Int32, _ hasStrikethrough: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetStrikethrough(pThis, characterIndex, characterCount, .init(from: hasStrikethrough)))
             }
         }
 
-        internal func SetUnderlineImpl(_ characterIndex: Int32, _ characterCount: Int32, _ hasUnderline: Bool) throws {
+        public func SetUnderline(_ characterIndex: Int32, _ characterCount: Int32, _ hasUnderline: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetUnderline(pThis, characterIndex, characterCount, .init(from: hasUnderline)))
             }
         }
 
-        internal func SetInlineObjectImpl(_ characterIndex: Int32, _ characterCount: Int32, _ inlineObject: Win2D.AnyICanvasTextInlineObject?) throws {
+        public func SetInlineObject(_ characterIndex: Int32, _ characterCount: Int32, _ inlineObject: Win2D.AnyICanvasTextInlineObject?) throws {
             let inlineObjectWrapper = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextInlineObjectWrapper(inlineObject)
             let _inlineObject = try! inlineObjectWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
@@ -1350,7 +1994,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        internal func DrawToTextRendererImpl(_ textRenderer: Win2D.AnyICanvasTextRenderer?, _ position: WindowsFoundation.Vector2) throws {
+        public func DrawToTextRenderer(_ textRenderer: Win2D.AnyICanvasTextRenderer?, _ position: WindowsFoundation.Vector2) throws {
             let textRendererWrapper = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextRendererWrapper(textRenderer)
             let _textRenderer = try! textRendererWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
@@ -1358,7 +2002,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        internal func DrawToTextRendererWithCoordsImpl(_ textRenderer: Win2D.AnyICanvasTextRenderer?, _ x: Float, _ y: Float) throws {
+        public func DrawToTextRendererWithCoords(_ textRenderer: Win2D.AnyICanvasTextRenderer?, _ x: Float, _ y: Float) throws {
             let textRendererWrapper = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextRendererWrapper(textRenderer)
             let _textRenderer = try! textRendererWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
@@ -1366,22 +2010,42 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        internal func SetTypographyImpl(_ characterIndex: Int32, _ characterCount: Int32, _ typography: Win2D.CanvasTypography?) throws {
+        public func get_LineMetrics() throws -> [Win2D.CanvasLineMetrics] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasLineMetrics> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineMetrics(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func get_ClusterMetrics() throws -> [Win2D.CanvasClusterMetrics] {
+            var valueElements: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasClusterMetrics> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClusterMetrics(pThis, &valueElements.count, &valueElements.start))
+            }
+            defer { CoTaskMemFree(valueElements.start) }
+            return .from(abi: valueElements)
+
+        }
+
+        public func SetTypography(_ characterIndex: Int32, _ characterCount: Int32, _ typography: Win2D.CanvasTypography?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetTypography(pThis, characterIndex, characterCount, RawPointer(typography)))
             }
         }
 
-        internal func GetTypographyImpl(_ characterIndex: Int32) throws -> Win2D.CanvasTypography? {
+        public func GetTypography(_ characterIndex: Int32) throws -> Win2D.CanvasTypography? {
             let (typography) = try ComPtrs.initialize { typographyAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetTypography(pThis, characterIndex, &typographyAbi))
                 }
             }
-            return .from(abi: typography)
+            return __IMPL_Microsoft_Graphics_Canvas_Text.CanvasTypographyBridge.from(abi: typography)
         }
 
-        internal func get_LayoutBoundsImpl() throws -> WindowsFoundation.Rect {
+        public func get_LayoutBounds() throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LayoutBounds(pThis, &bounds))
@@ -1389,7 +2053,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: bounds)
         }
 
-        internal func get_LayoutBoundsIncludingTrailingWhitespaceImpl() throws -> WindowsFoundation.Rect {
+        public func get_LayoutBoundsIncludingTrailingWhitespace() throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LayoutBoundsIncludingTrailingWhitespace(pThis, &bounds))
@@ -1397,7 +2061,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: bounds)
         }
 
-        internal func get_LineCountImpl() throws -> Int32 {
+        public func get_LineCount() throws -> Int32 {
             var lineCount: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineCount(pThis, &lineCount))
@@ -1405,7 +2069,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return lineCount
         }
 
-        internal func get_MaximumBidiReorderingDepthImpl() throws -> Int32 {
+        public func get_MaximumBidiReorderingDepth() throws -> Int32 {
             var depth: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaximumBidiReorderingDepth(pThis, &depth))
@@ -1413,7 +2077,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return depth
         }
 
-        internal func get_DrawBoundsImpl() throws -> WindowsFoundation.Rect {
+        public func get_DrawBounds() throws -> WindowsFoundation.Rect {
             var bounds: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DrawBounds(pThis, &bounds))
@@ -1421,7 +2085,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: bounds)
         }
 
-        internal func HitTestImpl(_ point: WindowsFoundation.Vector2) throws -> Bool {
+        public func HitTest(_ point: WindowsFoundation.Vector2) throws -> Bool {
             var isHit: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.HitTest(pThis, .from(swift: point), &isHit))
@@ -1429,7 +2093,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: isHit)
         }
 
-        internal func HitTestWithCoordsImpl(_ x: Float, _ y: Float) throws -> Bool {
+        public func HitTestWithCoords(_ x: Float, _ y: Float) throws -> Bool {
             var isHit: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.HitTestWithCoords(pThis, x, y, &isHit))
@@ -1437,7 +2101,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: isHit)
         }
 
-        internal func HitTestWithDescriptionImpl(_ point: WindowsFoundation.Vector2, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion) throws -> Bool {
+        public func HitTestWithDescription(_ point: WindowsFoundation.Vector2, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion) throws -> Bool {
             var isHit: boolean = 0
             var _textLayoutRegion: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextLayoutRegion = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
@@ -1447,7 +2111,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: isHit)
         }
 
-        internal func HitTestWithDescriptionAndCoordsImpl(_ x: Float, _ y: Float, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion) throws -> Bool {
+        public func HitTestWithDescriptionAndCoords(_ x: Float, _ y: Float, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion) throws -> Bool {
             var isHit: boolean = 0
             var _textLayoutRegion: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextLayoutRegion = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
@@ -1457,7 +2121,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: isHit)
         }
 
-        internal func HitTestWithDescriptionAndTrailingSideImpl(_ point: WindowsFoundation.Vector2, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion, _ trailingSideOfCharacter: inout Bool) throws -> Bool {
+        public func HitTestWithDescriptionAndTrailingSide(_ point: WindowsFoundation.Vector2, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion, _ trailingSideOfCharacter: inout Bool) throws -> Bool {
             var isHit: boolean = 0
             var _textLayoutRegion: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextLayoutRegion = .init()
             var _trailingSideOfCharacter: boolean = .init()
@@ -1469,7 +2133,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: isHit)
         }
 
-        internal func HitTestWithDescriptionAndCoordsAndTrailingSideImpl(_ x: Float, _ y: Float, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion, _ trailingSideOfCharacter: inout Bool) throws -> Bool {
+        public func HitTestWithDescriptionAndCoordsAndTrailingSide(_ x: Float, _ y: Float, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion, _ trailingSideOfCharacter: inout Bool) throws -> Bool {
             var isHit: boolean = 0
             var _textLayoutRegion: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextLayoutRegion = .init()
             var _trailingSideOfCharacter: boolean = .init()
@@ -1481,7 +2145,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: isHit)
         }
 
-        internal func GetCaretPositionImpl(_ characterIndex: Int32, _ trailingSideOfCharacter: Bool) throws -> WindowsFoundation.Vector2 {
+        public func GetCaretPosition(_ characterIndex: Int32, _ trailingSideOfCharacter: Bool) throws -> WindowsFoundation.Vector2 {
             var location: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCaretPosition(pThis, characterIndex, .init(from: trailingSideOfCharacter), &location))
@@ -1489,7 +2153,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: location)
         }
 
-        internal func GetCaretPositionWithDescriptionImpl(_ characterIndex: Int32, _ trailingSideOfCharacter: Bool, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion) throws -> WindowsFoundation.Vector2 {
+        public func GetCaretPositionWithDescription(_ characterIndex: Int32, _ trailingSideOfCharacter: Bool, _ textLayoutRegion: inout Win2D.CanvasTextLayoutRegion) throws -> WindowsFoundation.Vector2 {
             var location: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             var _textLayoutRegion: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextLayoutRegion = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
@@ -1499,7 +2163,17 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: location)
         }
 
-        internal func GetPairKerningImpl(_ characterIndex: Int32) throws -> Bool {
+        public func GetCharacterRegions(_ characterIndex: Int32, _ characterCount: Int32) throws -> [Win2D.CanvasTextLayoutRegion] {
+            var hitTestDescriptions: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextLayoutRegion> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetCharacterRegions(pThis, characterIndex, characterCount, &hitTestDescriptions.count, &hitTestDescriptions.start))
+            }
+            defer { CoTaskMemFree(hitTestDescriptions.start) }
+            return .from(abi: hitTestDescriptions)
+
+        }
+
+        public func GetPairKerning(_ characterIndex: Int32) throws -> Bool {
             var hasPairKerning: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPairKerning(pThis, characterIndex, &hasPairKerning))
@@ -1507,13 +2181,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: hasPairKerning)
         }
 
-        internal func SetPairKerningImpl(_ characterIndex: Int32, _ characterCount: Int32, _ hasPairKerning: Bool) throws {
+        public func SetPairKerning(_ characterIndex: Int32, _ characterCount: Int32, _ hasPairKerning: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetPairKerning(pThis, characterIndex, characterCount, .init(from: hasPairKerning)))
             }
         }
 
-        internal func GetLeadingCharacterSpacingImpl(_ characterIndex: Int32) throws -> Float {
+        public func GetLeadingCharacterSpacing(_ characterIndex: Int32) throws -> Float {
             var leadingSpacing: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLeadingCharacterSpacing(pThis, characterIndex, &leadingSpacing))
@@ -1521,7 +2195,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return leadingSpacing
         }
 
-        internal func GetTrailingCharacterSpacingImpl(_ characterIndex: Int32) throws -> Float {
+        public func GetTrailingCharacterSpacing(_ characterIndex: Int32) throws -> Float {
             var trailingSpacing: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetTrailingCharacterSpacing(pThis, characterIndex, &trailingSpacing))
@@ -1529,7 +2203,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return trailingSpacing
         }
 
-        internal func GetMinimumCharacterAdvanceImpl(_ characterIndex: Int32) throws -> Float {
+        public func GetMinimumCharacterAdvance(_ characterIndex: Int32) throws -> Float {
             var minimumAdvance: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetMinimumCharacterAdvance(pThis, characterIndex, &minimumAdvance))
@@ -1537,13 +2211,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return minimumAdvance
         }
 
-        internal func SetCharacterSpacingImpl(_ characterIndex: Int32, _ characterCount: Int32, _ leadingSpacing: Float, _ trailingSpacing: Float, _ minimumAdvance: Float) throws {
+        public func SetCharacterSpacing(_ characterIndex: Int32, _ characterCount: Int32, _ leadingSpacing: Float, _ trailingSpacing: Float, _ minimumAdvance: Float) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetCharacterSpacing(pThis, characterIndex, characterCount, leadingSpacing, trailingSpacing, minimumAdvance))
             }
         }
 
-        internal func get_VerticalGlyphOrientationImpl() throws -> Win2D.CanvasVerticalGlyphOrientation {
+        public func get_VerticalGlyphOrientation() throws -> Win2D.CanvasVerticalGlyphOrientation {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasVerticalGlyphOrientation = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalGlyphOrientation(pThis, &value))
@@ -1551,13 +2225,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_VerticalGlyphOrientationImpl(_ value: Win2D.CanvasVerticalGlyphOrientation) throws {
+        public func put_VerticalGlyphOrientation(_ value: Win2D.CanvasVerticalGlyphOrientation) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalGlyphOrientation(pThis, value))
             }
         }
 
-        internal func get_OpticalAlignmentImpl() throws -> Win2D.CanvasOpticalAlignment {
+        public func get_OpticalAlignment() throws -> Win2D.CanvasOpticalAlignment {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasOpticalAlignment = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpticalAlignment(pThis, &value))
@@ -1565,13 +2239,13 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func put_OpticalAlignmentImpl(_ value: Win2D.CanvasOpticalAlignment) throws {
+        public func put_OpticalAlignment(_ value: Win2D.CanvasOpticalAlignment) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OpticalAlignment(pThis, value))
             }
         }
 
-        internal func get_LastLineWrappingImpl() throws -> Bool {
+        public func get_LastLineWrapping() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastLineWrapping(pThis, &value))
@@ -1579,19 +2253,19 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        internal func put_LastLineWrappingImpl(_ value: Bool) throws {
+        public func put_LastLineWrapping(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LastLineWrapping(pThis, .init(from: value)))
             }
         }
 
-        internal func get_DeviceImpl() throws -> Win2D.CanvasDevice? {
+        public func get_Device() throws -> Win2D.CanvasDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayout.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasDeviceBridge.from(abi: value)
         }
 
     }
@@ -1599,7 +2273,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasTextLayoutFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayoutFactory }
 
-        internal func CreateImpl(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ textString: String, _ textFormat: Win2D.CanvasTextFormat?, _ requestedWidth: Float, _ requestedHeight: Float) throws -> ICanvasTextLayout {
+        public func Create(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ textString: String, _ textFormat: Win2D.CanvasTextFormat?, _ requestedWidth: Float, _ requestedHeight: Float) throws -> ICanvasTextLayout {
             let (canvasTextLayout) = try ComPtrs.initialize { canvasTextLayoutAbi in
                 let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
@@ -1616,7 +2290,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasTextLayoutStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayoutStatics }
 
-        internal func GetGlyphOrientationTransformImpl(_ glyphOrientation: Win2D.CanvasGlyphOrientation, _ isSideways: Bool, _ position: WindowsFoundation.Vector2) throws -> WindowsFoundation.Matrix3x2 {
+        public func GetGlyphOrientationTransform(_ glyphOrientation: Win2D.CanvasGlyphOrientation, _ isSideways: Bool, _ position: WindowsFoundation.Vector2) throws -> WindowsFoundation.Matrix3x2 {
             var transform: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextLayoutStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphOrientationTransform(pThis, glyphOrientation, .init(from: isSideways), .from(swift: position), &transform))
@@ -1629,7 +2303,21 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasTextRenderer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderer }
 
-        open func DrawStrikethroughImpl(_ point: WindowsFoundation.Vector2, _ strikethroughWidth: Float, _ strikethroughThickness: Float, _ strikethroughOffset: Float, _ textDirection: Win2D.CanvasTextDirection, _ brush: Any?, _ textMeasuringMode: Win2D.CanvasTextMeasuringMode, _ localeName: String, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws {
+        open func DrawGlyphRun(_ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace?, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ brush: Any?, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ localeName: String, _ textString: String, _ clusterMapIndices: [Int32], _ characterIndex: UInt32, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws {
+            try glyphs.toABI { _glyphs in
+                let brushWrapper = __ABI_.AnyWrapper(brush)
+                let _brush = try! brushWrapper?.toABI { $0 }
+                let _localeName = try! HString(localeName)
+                let _textString = try! HString(textString)
+                try clusterMapIndices.toABI { _clusterMapIndices in
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.DrawGlyphRun(pThis, .from(swift: point), RawPointer(fontFace), fontSize, _glyphs.count, _glyphs.start, .init(from: isSideways), bidiLevel, _brush, measuringMode, _localeName.get(), _textString.get(), _clusterMapIndices.count, _clusterMapIndices.start, characterIndex, glyphOrientation))
+                }
+            }
+            }
+        }
+
+        open func DrawStrikethrough(_ point: WindowsFoundation.Vector2, _ strikethroughWidth: Float, _ strikethroughThickness: Float, _ strikethroughOffset: Float, _ textDirection: Win2D.CanvasTextDirection, _ brush: Any?, _ textMeasuringMode: Win2D.CanvasTextMeasuringMode, _ localeName: String, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws {
             let brushWrapper = __ABI_.AnyWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             let _localeName = try! HString(localeName)
@@ -1638,7 +2326,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        open func DrawUnderlineImpl(_ point: WindowsFoundation.Vector2, _ underlineWidth: Float, _ underlineThickness: Float, _ underlineOffset: Float, _ runHeight: Float, _ textDirection: Win2D.CanvasTextDirection, _ brush: Any?, _ textMeasuringMode: Win2D.CanvasTextMeasuringMode, _ localeName: String, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws {
+        open func DrawUnderline(_ point: WindowsFoundation.Vector2, _ underlineWidth: Float, _ underlineThickness: Float, _ underlineOffset: Float, _ runHeight: Float, _ textDirection: Win2D.CanvasTextDirection, _ brush: Any?, _ textMeasuringMode: Win2D.CanvasTextMeasuringMode, _ localeName: String, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws {
             let brushWrapper = __ABI_.AnyWrapper(brush)
             let _brush = try! brushWrapper?.toABI { $0 }
             let _localeName = try! HString(localeName)
@@ -1647,7 +2335,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        open func DrawInlineObjectImpl(_ point: WindowsFoundation.Vector2, _ inlineObject: Win2D.AnyICanvasTextInlineObject?, _ isSideways: Bool, _ isRightToLeft: Bool, _ brush: Any?, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws {
+        open func DrawInlineObject(_ point: WindowsFoundation.Vector2, _ inlineObject: Win2D.AnyICanvasTextInlineObject?, _ isSideways: Bool, _ isRightToLeft: Bool, _ brush: Any?, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws {
             let inlineObjectWrapper = __ABI_Microsoft_Graphics_Canvas_Text.ICanvasTextInlineObjectWrapper(inlineObject)
             let _inlineObject = try! inlineObjectWrapper?.toABI { $0 }
             let brushWrapper = __ABI_.AnyWrapper(brush)
@@ -1657,7 +2345,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             }
         }
 
-        open func get_PixelSnappingDisabledImpl() throws -> Bool {
+        open func get_PixelSnappingDisabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelSnappingDisabled(pThis, &value))
@@ -1665,7 +2353,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .init(from: value)
         }
 
-        open func get_TransformImpl() throws -> WindowsFoundation.Matrix3x2 {
+        open func get_Transform() throws -> WindowsFoundation.Matrix3x2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Transform(pThis, &value))
@@ -1673,7 +2361,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return .from(abi: value)
         }
 
-        open func get_DpiImpl() throws -> Float {
+        open func get_Dpi() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Dpi(pThis, &value))
@@ -1711,7 +2399,26 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return S_OK
         },
 
-        DrawGlyphRun: { _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ in return failWith(err: E_NOTIMPL) },
+        DrawGlyphRun: {
+            do {
+                guard let __unwrapped__instance = ICanvasTextRendererWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let point: WindowsFoundation.Vector2 = .from(abi: $1)
+                let fontFace: Win2D.CanvasFontFace? = __IMPL_Microsoft_Graphics_Canvas_Text.CanvasFontFaceBridge.from(abi: ComPtr($2))
+                let fontSize: Float = $3
+                let glyphs: [Win2D.CanvasGlyph] = .from(abi: (count: $4, start: $5))
+                let isSideways: Bool = .init(from: $6)
+                let bidiLevel: UInt32 = $7
+                let brush: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($8))
+                let measuringMode: Win2D.CanvasTextMeasuringMode = $9
+                let localeName: String = .init(from: $10)
+                let textString: String = .init(from: $11)
+                let clusterMapIndices: [Int32] = .from(abi: (count: $12, start: $13))
+                let characterIndex: UInt32 = $14
+                let glyphOrientation: Win2D.CanvasGlyphOrientation = $15
+                try __unwrapped__instance.drawGlyphRun(point, fontFace, fontSize, glyphs, isSideways, bidiLevel, brush, measuringMode, localeName, textString, clusterMapIndices, characterIndex, glyphOrientation)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
         DrawStrikethrough: {
             do {
@@ -1727,7 +2434,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
                 let glyphOrientation: Win2D.CanvasGlyphOrientation = $9
                 try __unwrapped__instance.drawStrikethrough(point, strikethroughWidth, strikethroughThickness, strikethroughOffset, textDirection, brush, textMeasuringMode, localeName, glyphOrientation)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         DrawUnderline: {
@@ -1745,7 +2452,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
                 let glyphOrientation: Win2D.CanvasGlyphOrientation = $10
                 try __unwrapped__instance.drawUnderline(point, underlineWidth, underlineThickness, underlineOffset, runHeight, textDirection, brush, textMeasuringMode, localeName, glyphOrientation)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         DrawInlineObject: {
@@ -1759,7 +2466,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
                 let glyphOrientation: Win2D.CanvasGlyphOrientation = $6
                 try __unwrapped__instance.drawInlineObject(point, inlineObject, isSideways, isRightToLeft, brush, glyphOrientation)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         get_PixelSnappingDisabled: {
@@ -1788,7 +2495,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasTextRenderingParameters: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderingParameters }
 
-        internal func get_RenderingModeImpl() throws -> Win2D.CanvasTextRenderingMode {
+        public func get_RenderingMode() throws -> Win2D.CanvasTextRenderingMode {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextRenderingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RenderingMode(pThis, &value))
@@ -1796,7 +2503,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
             return value
         }
 
-        internal func get_GridFitImpl() throws -> Win2D.CanvasTextGridFit {
+        public func get_GridFit() throws -> Win2D.CanvasTextGridFit {
             var value: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextGridFit = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GridFit(pThis, &value))
@@ -1809,7 +2516,7 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasTextRenderingParametersFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderingParametersFactory }
 
-        internal func CreateImpl(_ textRenderingMode: Win2D.CanvasTextRenderingMode, _ gridFit: Win2D.CanvasTextGridFit) throws -> ICanvasTextRenderingParameters {
+        public func Create(_ textRenderingMode: Win2D.CanvasTextRenderingMode, _ gridFit: Win2D.CanvasTextGridFit) throws -> ICanvasTextRenderingParameters {
             let (textRenderingParameters) = try ComPtrs.initialize { textRenderingParametersAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderingParametersFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, textRenderingMode, gridFit, &textRenderingParametersAbi))
@@ -1823,20 +2530,66 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
     public class ICanvasTypography: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTypography }
 
-        internal func AddFeatureImpl(_ feature: Win2D.CanvasTypographyFeature) throws {
+        public func AddFeature(_ feature: Win2D.CanvasTypographyFeature) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTypography.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddFeature(pThis, .from(swift: feature)))
             }
         }
 
-        internal func AddFeatureWithNameAndParameterImpl(_ name: Win2D.CanvasTypographyFeatureName, _ parameter: UInt32) throws {
+        public func AddFeatureWithNameAndParameter(_ name: Win2D.CanvasTypographyFeatureName, _ parameter: UInt32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTypography.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddFeatureWithNameAndParameter(pThis, name, parameter))
             }
         }
 
+        public func GetFeatures() throws -> [Win2D.CanvasTypographyFeature] {
+            var features: WinRTArrayAbi<__x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTypographyFeature> = (0, nil)
+            _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTypography.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetFeatures(pThis, &features.count, &features.start))
+            }
+            defer { CoTaskMemFree(features.start) }
+            return .from(abi: features)
+
+        }
+
     }
 
+    public class _ABI_CanvasAnalyzedBreakpoint {
+        public var val: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedBreakpoint = .init()
+        public init() { }
+        public init(from swift: Win2D.CanvasAnalyzedBreakpoint) {
+            val.BreakBefore = swift.breakBefore
+            val.BreakAfter = swift.breakAfter
+            val.IsWhitespace = .init(from: swift.isWhitespace)
+            val.IsSoftHyphen = .init(from: swift.isSoftHyphen)
+        }
+
+        public func detach() -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedBreakpoint {
+            let result = val
+            return result
+        }
+
+        deinit {
+        }
+    }
+    public class _ABI_CanvasAnalyzedGlyphOrientation {
+        public var val: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedGlyphOrientation = .init()
+        public init() { }
+        public init(from swift: Win2D.CanvasAnalyzedGlyphOrientation) {
+            val.GlyphOrientation = swift.glyphOrientation
+            val.AdjustedBidiLevel = swift.adjustedBidiLevel
+            val.IsSideways = .init(from: swift.isSideways)
+            val.IsRightToLeft = .init(from: swift.isRightToLeft)
+        }
+
+        public func detach() -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedGlyphOrientation {
+            let result = val
+            return result
+        }
+
+        deinit {
+        }
+    }
     public class _ABI_CanvasFontProperty {
         public var val: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasFontProperty = .init()
         public init() { }
@@ -1856,6 +2609,47 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
         deinit {
             WindowsDeleteString(val.Value)
             WindowsDeleteString(val.Locale)
+        }
+    }
+    public class _ABI_CanvasGlyphShaping {
+        public var val: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphShaping = .init()
+        public init() { }
+        public init(from swift: Win2D.CanvasGlyphShaping) {
+            val.Justification = swift.justification
+            val.IsClusterStart = .init(from: swift.isClusterStart)
+            val.IsDiacritic = .init(from: swift.isDiacritic)
+            val.IsZeroWidthSpace = .init(from: swift.isZeroWidthSpace)
+        }
+
+        public func detach() -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasGlyphShaping {
+            let result = val
+            return result
+        }
+
+        deinit {
+        }
+    }
+    public class _ABI_CanvasJustificationOpportunity {
+        public var val: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasJustificationOpportunity = .init()
+        public init() { }
+        public init(from swift: Win2D.CanvasJustificationOpportunity) {
+            val.ExpansionMinimum = swift.expansionMinimum
+            val.ExpansionMaximum = swift.expansionMaximum
+            val.CompressionMaximum = swift.compressionMaximum
+            val.ExpansionPriority = swift.expansionPriority
+            val.CompressionPriority = swift.compressionPriority
+            val.AllowResidualExpansion = .init(from: swift.allowResidualExpansion)
+            val.AllowResidualCompression = .init(from: swift.allowResidualCompression)
+            val.ApplyToLeadingEdge = .init(from: swift.applyToLeadingEdge)
+            val.ApplyToTrailingEdge = .init(from: swift.applyToTrailingEdge)
+        }
+
+        public func detach() -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasJustificationOpportunity {
+            let result = val
+            return result
+        }
+
+        deinit {
         }
     }
     public class _ABI_CanvasLineMetrics {
@@ -1880,10 +2674,49 @@ public enum __ABI_Microsoft_Graphics_Canvas_Text {
         deinit {
         }
     }
+    public class _ABI_CanvasScriptProperties {
+        public var val: __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasScriptProperties = .init()
+        public init() { }
+        public init(from swift: Win2D.CanvasScriptProperties) {
+            val.IsoScriptCode = try! HString(swift.isoScriptCode).detach()
+            val.IsoScriptNumber = swift.isoScriptNumber
+            val.ClusterLookahead = swift.clusterLookahead
+            val.JustificationCharacter = try! HString(swift.justificationCharacter).detach()
+            val.RestrictCaretToClusters = .init(from: swift.restrictCaretToClusters)
+            val.UsesWordDividers = .init(from: swift.usesWordDividers)
+            val.IsDiscreteWriting = .init(from: swift.isDiscreteWriting)
+            val.IsBlockWriting = .init(from: swift.isBlockWriting)
+            val.IsDistributedWithinCluster = .init(from: swift.isDistributedWithinCluster)
+            val.IsConnectedWriting = .init(from: swift.isConnectedWriting)
+            val.IsCursiveWriting = .init(from: swift.isCursiveWriting)
+        }
+
+        public func detach() -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasScriptProperties {
+            let result = val
+            val.IsoScriptCode = nil
+            val.JustificationCharacter = nil
+            return result
+        }
+
+        deinit {
+            WindowsDeleteString(val.IsoScriptCode)
+            WindowsDeleteString(val.JustificationCharacter)
+        }
+    }
 }
-extension __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedScript {
+extension __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedBidi {
+        public static func from(swift: Win2D.CanvasAnalyzedBidi) -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedBidi {
+            .init(ExplicitLevel: swift.explicitLevel, ResolvedLevel: swift.resolvedLevel)
+        }
+    }
+    extension __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedScript {
         public static func from(swift: Win2D.CanvasAnalyzedScript) -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasAnalyzedScript {
             .init(ScriptIdentifier: swift.scriptIdentifier, Shape: swift.shape)
+        }
+    }
+    extension __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasCharacterRange {
+        public static func from(swift: Win2D.CanvasCharacterRange) -> __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasCharacterRange {
+            .init(CharacterIndex: swift.characterIndex, CharacterCount: swift.characterCount)
         }
     }
     extension __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasClusterMetrics {

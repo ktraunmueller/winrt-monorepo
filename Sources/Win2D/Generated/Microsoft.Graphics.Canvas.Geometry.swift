@@ -47,12 +47,6 @@ public final class CanvasCachedGeometry : WinRTClass, WindowsFoundation.IClosabl
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasCachedGeometry>?) -> CanvasCachedGeometry? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -60,41 +54,41 @@ public final class CanvasCachedGeometry : WinRTClass, WindowsFoundation.IClosabl
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasCachedGeometryStatics: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasCachedGeometryStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Geometry.CanvasCachedGeometry"))
+    private static let _ICanvasCachedGeometryStatics: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasCachedGeometryStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Geometry.CanvasCachedGeometry")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvascachedgeometry.createfill)
-    public static func createFill(_ geometry: CanvasGeometry!) -> CanvasCachedGeometry! {
-        return try! _ICanvasCachedGeometryStatics.CreateFillImpl(geometry)
+    public static func createFill(_ geometry: CanvasGeometry!) throws -> CanvasCachedGeometry! {
+        return try _ICanvasCachedGeometryStatics.CreateFill(geometry)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvascachedgeometry.createfill)
-    public static func createFill(_ geometry: CanvasGeometry!, _ flatteningTolerance: Float) -> CanvasCachedGeometry! {
-        return try! _ICanvasCachedGeometryStatics.CreateFillWithFlatteningToleranceImpl(geometry, flatteningTolerance)
+    public static func createFill(_ geometry: CanvasGeometry!, _ flatteningTolerance: Float) throws -> CanvasCachedGeometry! {
+        return try _ICanvasCachedGeometryStatics.CreateFillWithFlatteningTolerance(geometry, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvascachedgeometry.createstroke)
-    public static func createStroke(_ geometry: CanvasGeometry!, _ strokeWidth: Float) -> CanvasCachedGeometry! {
-        return try! _ICanvasCachedGeometryStatics.CreateStrokeImpl(geometry, strokeWidth)
+    public static func createStroke(_ geometry: CanvasGeometry!, _ strokeWidth: Float) throws -> CanvasCachedGeometry! {
+        return try _ICanvasCachedGeometryStatics.CreateStroke(geometry, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvascachedgeometry.createstroke)
-    public static func createStroke(_ geometry: CanvasGeometry!, _ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!) -> CanvasCachedGeometry! {
-        return try! _ICanvasCachedGeometryStatics.CreateStrokeWithStrokeStyleImpl(geometry, strokeWidth, strokeStyle)
+    public static func createStroke(_ geometry: CanvasGeometry!, _ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!) throws -> CanvasCachedGeometry! {
+        return try _ICanvasCachedGeometryStatics.CreateStrokeWithStrokeStyle(geometry, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvascachedgeometry.createstroke)
-    public static func createStroke(_ geometry: CanvasGeometry!, _ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!, _ flatteningTolerance: Float) -> CanvasCachedGeometry! {
-        return try! _ICanvasCachedGeometryStatics.CreateStrokeWithStrokeStyleAndFlatteningToleranceImpl(geometry, strokeWidth, strokeStyle, flatteningTolerance)
+    public static func createStroke(_ geometry: CanvasGeometry!, _ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!, _ flatteningTolerance: Float) throws -> CanvasCachedGeometry! {
+        return try _ICanvasCachedGeometryStatics.CreateStrokeWithStrokeStyleAndFlatteningTolerance(geometry, strokeWidth, strokeStyle, flatteningTolerance)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvascachedgeometry.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvascachedgeometry.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
     }
 
     deinit {
@@ -117,12 +111,6 @@ public final class CanvasGeometry : WinRTClass, WindowsFoundation.IClosable, UWP
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGeometry>?) -> CanvasGeometry? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -130,231 +118,261 @@ public final class CanvasGeometry : WinRTClass, WindowsFoundation.IClosable, UWP
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasGeometryStatics: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasGeometryStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Geometry.CanvasGeometry"))
+    private static let _ICanvasGeometryStatics: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasGeometryStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Geometry.CanvasGeometry")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createrectangle)
-    public static func createRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ rect: WindowsFoundation.Rect) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreateRectangleImpl(resourceCreator, rect)
+    public static func createRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ rect: WindowsFoundation.Rect) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateRectangle(resourceCreator, rect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createrectangle)
-    public static func createRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ x: Float, _ y: Float, _ w: Float, _ h: Float) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreateRectangleAtCoordsImpl(resourceCreator, x, y, w, h)
+    public static func createRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ x: Float, _ y: Float, _ w: Float, _ h: Float) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateRectangleAtCoords(resourceCreator, x, y, w, h)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createroundedrectangle)
-    public static func createRoundedRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreateRoundedRectangleImpl(resourceCreator, rect, radiusX, radiusY)
+    public static func createRoundedRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ rect: WindowsFoundation.Rect, _ radiusX: Float, _ radiusY: Float) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateRoundedRectangle(resourceCreator, rect, radiusX, radiusY)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createroundedrectangle)
-    public static func createRoundedRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreateRoundedRectangleAtCoordsImpl(resourceCreator, x, y, w, h, radiusX, radiusY)
+    public static func createRoundedRectangle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ x: Float, _ y: Float, _ w: Float, _ h: Float, _ radiusX: Float, _ radiusY: Float) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateRoundedRectangleAtCoords(resourceCreator, x, y, w, h, radiusX, radiusY)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createellipse)
-    public static func createEllipse(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreateEllipseImpl(resourceCreator, centerPoint, radiusX, radiusY)
+    public static func createEllipse(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateEllipse(resourceCreator, centerPoint, radiusX, radiusY)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createellipse)
-    public static func createEllipse(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreateEllipseAtCoordsImpl(resourceCreator, x, y, radiusX, radiusY)
+    public static func createEllipse(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ x: Float, _ y: Float, _ radiusX: Float, _ radiusY: Float) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateEllipseAtCoords(resourceCreator, x, y, radiusX, radiusY)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createcircle)
-    public static func createCircle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ centerPoint: WindowsFoundation.Vector2, _ radius: Float) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreateCircleImpl(resourceCreator, centerPoint, radius)
+    public static func createCircle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ centerPoint: WindowsFoundation.Vector2, _ radius: Float) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateCircle(resourceCreator, centerPoint, radius)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createcircle)
-    public static func createCircle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ x: Float, _ y: Float, _ radius: Float) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreateCircleAtCoordsImpl(resourceCreator, x, y, radius)
+    public static func createCircle(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ x: Float, _ y: Float, _ radius: Float) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateCircleAtCoords(resourceCreator, x, y, radius)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createpath)
-    public static func createPath(_ pathBuilder: CanvasPathBuilder!) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreatePathImpl(pathBuilder)
+    public static func createPath(_ pathBuilder: CanvasPathBuilder!) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreatePath(pathBuilder)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createpolygon)
+    public static func createPolygon(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ points: [WindowsFoundation.Vector2]) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreatePolygon(resourceCreator, points)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.creategroup)
+    public static func createGroup(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ geometries: [CanvasGeometry?]) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateGroup(resourceCreator, geometries)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.creategroup)
+    public static func createGroup(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ geometries: [CanvasGeometry?], _ filledRegionDetermination: CanvasFilledRegionDetermination) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateGroupWithFilledRegionDetermination(resourceCreator, geometries, filledRegionDetermination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createtext)
-    public static func createText(_ textLayout: Win2D.CanvasTextLayout!) -> CanvasGeometry! {
-        return try! _ICanvasGeometryStatics.CreateTextImpl(textLayout)
+    public static func createText(_ textLayout: Win2D.CanvasTextLayout!) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateText(textLayout)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.createglyphrun)
+    public static func createGlyphRun(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ point: WindowsFoundation.Vector2, _ fontFace: Win2D.CanvasFontFace!, _ fontSize: Float, _ glyphs: [Win2D.CanvasGlyph], _ isSideways: Bool, _ bidiLevel: UInt32, _ measuringMode: Win2D.CanvasTextMeasuringMode, _ glyphOrientation: Win2D.CanvasGlyphOrientation) throws -> CanvasGeometry! {
+        return try _ICanvasGeometryStatics.CreateGlyphRun(resourceCreator, point, fontFace, fontSize, glyphs, isSideways, bidiLevel, measuringMode, glyphOrientation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computeflatteningtolerance)
-    public static func computeFlatteningTolerance(_ dpi: Float, _ maximumZoomFactor: Float) -> Float {
-        return try! _ICanvasGeometryStatics.ComputeFlatteningToleranceImpl(dpi, maximumZoomFactor)
+    public static func computeFlatteningTolerance(_ dpi: Float, _ maximumZoomFactor: Float) throws -> Float {
+        return try _ICanvasGeometryStatics.ComputeFlatteningTolerance(dpi, maximumZoomFactor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computeflatteningtolerance)
-    public static func computeFlatteningTolerance(_ dpi: Float, _ maximumZoomFactor: Float, _ expectedGeometryTransform: WindowsFoundation.Matrix3x2) -> Float {
-        return try! _ICanvasGeometryStatics.ComputeFlatteningToleranceWithTransformImpl(dpi, maximumZoomFactor, expectedGeometryTransform)
+    public static func computeFlatteningTolerance(_ dpi: Float, _ maximumZoomFactor: Float, _ expectedGeometryTransform: WindowsFoundation.Matrix3x2) throws -> Float {
+        return try _ICanvasGeometryStatics.ComputeFlatteningToleranceWithTransform(dpi, maximumZoomFactor, expectedGeometryTransform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.defaultflatteningtolerance)
     public static var defaultFlatteningTolerance : Float {
-        get { try! _ICanvasGeometryStatics.get_DefaultFlatteningToleranceImpl() }
+        get { try! _ICanvasGeometryStatics.get_DefaultFlatteningTolerance() }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.combinewith)
     public func combineWith(_ otherGeometry: CanvasGeometry!, _ otherGeometryTransform: WindowsFoundation.Matrix3x2, _ combine: CanvasGeometryCombine) throws -> CanvasGeometry! {
-        try _default.CombineWithImpl(otherGeometry, otherGeometryTransform, combine)
+        try _default.CombineWith(otherGeometry, otherGeometryTransform, combine)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.combinewith)
     public func combineWith(_ otherGeometry: CanvasGeometry!, _ otherGeometryTransform: WindowsFoundation.Matrix3x2, _ combine: CanvasGeometryCombine, _ flatteningTolerance: Float) throws -> CanvasGeometry! {
-        try _default.CombineWithUsingFlatteningToleranceImpl(otherGeometry, otherGeometryTransform, combine, flatteningTolerance)
+        try _default.CombineWithUsingFlatteningTolerance(otherGeometry, otherGeometryTransform, combine, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.stroke)
     public func stroke(_ strokeWidth: Float) throws -> CanvasGeometry! {
-        try _default.StrokeImpl(strokeWidth)
+        try _default.Stroke(strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.stroke)
     public func stroke(_ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!) throws -> CanvasGeometry! {
-        try _default.StrokeWithStrokeStyleImpl(strokeWidth, strokeStyle)
+        try _default.StrokeWithStrokeStyle(strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.stroke)
     public func stroke(_ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> CanvasGeometry! {
-        try _default.StrokeWithAllOptionsImpl(strokeWidth, strokeStyle, transform, flatteningTolerance)
+        try _default.StrokeWithAllOptions(strokeWidth, strokeStyle, transform, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.outline)
     public func outline() throws -> CanvasGeometry! {
-        try _default.OutlineImpl()
+        try _default.Outline()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.outline)
     public func outline(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> CanvasGeometry! {
-        try _default.OutlineWithTransformAndFlatteningToleranceImpl(transform, flatteningTolerance)
+        try _default.OutlineWithTransformAndFlatteningTolerance(transform, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.simplify)
     public func simplify(_ simplification: CanvasGeometrySimplification) throws -> CanvasGeometry! {
-        try _default.SimplifyImpl(simplification)
+        try _default.Simplify(simplification)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.simplify)
     public func simplify(_ simplification: CanvasGeometrySimplification, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> CanvasGeometry! {
-        try _default.SimplifyWithTransformAndFlatteningToleranceImpl(simplification, transform, flatteningTolerance)
+        try _default.SimplifyWithTransformAndFlatteningTolerance(simplification, transform, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.transform)
     public func transform(_ transform: WindowsFoundation.Matrix3x2) throws -> CanvasGeometry! {
-        try _default.TransformImpl(transform)
+        try _default.Transform(transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.comparewith)
     public func compareWith(_ otherGeometry: CanvasGeometry!) throws -> CanvasGeometryRelation {
-        try _default.CompareWithImpl(otherGeometry)
+        try _default.CompareWith(otherGeometry)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.comparewith)
     public func compareWith(_ otherGeometry: CanvasGeometry!, _ otherGeometryTransform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> CanvasGeometryRelation {
-        try _default.CompareWithUsingTransformAndFlatteningToleranceImpl(otherGeometry, otherGeometryTransform, flatteningTolerance)
+        try _default.CompareWithUsingTransformAndFlatteningTolerance(otherGeometry, otherGeometryTransform, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computearea)
     public func computeArea() throws -> Float {
-        try _default.ComputeAreaImpl()
+        try _default.ComputeArea()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computearea)
     public func computeArea(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Float {
-        try _default.ComputeAreaWithTransformAndFlatteningToleranceImpl(transform, flatteningTolerance)
+        try _default.ComputeAreaWithTransformAndFlatteningTolerance(transform, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computepathlength)
     public func computePathLength() throws -> Float {
-        try _default.ComputePathLengthImpl()
+        try _default.ComputePathLength()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computepathlength)
     public func computePathLength(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Float {
-        try _default.ComputePathLengthWithTransformAndFlatteningToleranceImpl(transform, flatteningTolerance)
+        try _default.ComputePathLengthWithTransformAndFlatteningTolerance(transform, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computepointonpath)
     public func computePointOnPath(_ distance: Float) throws -> WindowsFoundation.Vector2 {
-        try _default.ComputePointOnPathImpl(distance)
+        try _default.ComputePointOnPath(distance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computepointonpath)
     public func computePointOnPath(_ distance: Float, _ tangent: inout WindowsFoundation.Vector2) throws -> WindowsFoundation.Vector2 {
-        try _default.ComputePointOnPathWithTangentImpl(distance, &tangent)
+        try _default.ComputePointOnPathWithTangent(distance, &tangent)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computepointonpath)
     public func computePointOnPath(_ length: Float, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float, _ tangent: inout WindowsFoundation.Vector2) throws -> WindowsFoundation.Vector2 {
-        try _default.ComputePointOnPathWithTransformAndFlatteningToleranceAndTangentImpl(length, transform, flatteningTolerance, &tangent)
+        try _default.ComputePointOnPathWithTransformAndFlatteningToleranceAndTangent(length, transform, flatteningTolerance, &tangent)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.fillcontainspoint)
     public func fillContainsPoint(_ point: WindowsFoundation.Vector2) throws -> Bool {
-        try _default.FillContainsPointImpl(point)
+        try _default.FillContainsPoint(point)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.fillcontainspoint)
     public func fillContainsPoint(_ point: WindowsFoundation.Vector2, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Bool {
-        try _default.FillContainsPointWithTransformAndFlatteningToleranceImpl(point, transform, flatteningTolerance)
+        try _default.FillContainsPointWithTransformAndFlatteningTolerance(point, transform, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computebounds)
     public func computeBounds() throws -> WindowsFoundation.Rect {
-        try _default.ComputeBoundsImpl()
+        try _default.ComputeBounds()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computebounds)
     public func computeBounds(_ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
-        try _default.ComputeBoundsWithTransformImpl(transform)
+        try _default.ComputeBoundsWithTransform(transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computestrokebounds)
     public func computeStrokeBounds(_ strokeWidth: Float) throws -> WindowsFoundation.Rect {
-        try _default.ComputeStrokeBoundsImpl(strokeWidth)
+        try _default.ComputeStrokeBounds(strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computestrokebounds)
     public func computeStrokeBounds(_ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!) throws -> WindowsFoundation.Rect {
-        try _default.ComputeStrokeBoundsWithStrokeStyleImpl(strokeWidth, strokeStyle)
+        try _default.ComputeStrokeBoundsWithStrokeStyle(strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.computestrokebounds)
     public func computeStrokeBounds(_ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> WindowsFoundation.Rect {
-        try _default.ComputeStrokeBoundsWithAllOptionsImpl(strokeWidth, strokeStyle, transform, flatteningTolerance)
+        try _default.ComputeStrokeBoundsWithAllOptions(strokeWidth, strokeStyle, transform, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.strokecontainspoint)
     public func strokeContainsPoint(_ point: WindowsFoundation.Vector2, _ strokeWidth: Float) throws -> Bool {
-        try _default.StrokeContainsPointImpl(point, strokeWidth)
+        try _default.StrokeContainsPoint(point, strokeWidth)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.strokecontainspoint)
     public func strokeContainsPoint(_ point: WindowsFoundation.Vector2, _ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!) throws -> Bool {
-        try _default.StrokeContainsPointWithStrokeStyleImpl(point, strokeWidth, strokeStyle)
+        try _default.StrokeContainsPointWithStrokeStyle(point, strokeWidth, strokeStyle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.strokecontainspoint)
     public func strokeContainsPoint(_ point: WindowsFoundation.Vector2, _ strokeWidth: Float, _ strokeStyle: CanvasStrokeStyle!, _ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> Bool {
-        try _default.StrokeContainsPointWithAllOptionsImpl(point, strokeWidth, strokeStyle, transform, flatteningTolerance)
+        try _default.StrokeContainsPointWithAllOptions(point, strokeWidth, strokeStyle, transform, flatteningTolerance)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.tessellate)
+    public func tessellate() throws -> [CanvasTriangleVertices] {
+        try _default.Tessellate()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.tessellate)
+    public func tessellate(_ transform: WindowsFoundation.Matrix3x2, _ flatteningTolerance: Float) throws -> [CanvasTriangleVertices] {
+        try _default.TessellateWithTransformAndFlatteningTolerance(transform, flatteningTolerance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.sendpathto)
     public func sendPathTo(_ streamReader: AnyICanvasPathReceiver!) throws {
-        try _default.SendPathToImpl(streamReader)
+        try _default.SendPathTo(streamReader)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgeometry.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
     }
 
     private lazy var _IGeometrySource2D: __ABI_Windows_Graphics.IGeometrySource2D! = getInterfaceForCaching()
@@ -379,12 +397,6 @@ public final class CanvasGradientMesh : WinRTClass, WindowsFoundation.IClosable 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasGradientMesh>?) -> CanvasGradientMesh? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -392,27 +404,46 @@ public final class CanvasGradientMesh : WinRTClass, WindowsFoundation.IClosable 
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasGradientMeshFactory: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasGradientMeshFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Geometry.CanvasGradientMesh"))
-    private static let _ICanvasGradientMeshStatics: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasGradientMeshStatics = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Geometry.CanvasGradientMesh"))
+    private static let _ICanvasGradientMeshFactory: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasGradientMeshFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Geometry.CanvasGradientMesh")
+    public init(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ patchElements: [CanvasGradientMeshPatch]) {
+        super.init(try! Self._ICanvasGradientMeshFactory.Create(resourceCreator, patchElements))
+    }
+
+    private static let _ICanvasGradientMeshStatics: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasGradientMeshStatics = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Geometry.CanvasGradientMesh")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmesh.createcoonspatch)
+    public static func createCoonsPatch(_ points: [WindowsFoundation.Vector2], _ colors: [WindowsFoundation.Vector4], _ edges: [CanvasGradientMeshPatchEdge]) throws -> CanvasGradientMeshPatch {
+        return try _ICanvasGradientMeshStatics.CreateCoonsPatch(points, colors, edges)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmesh.createtensorpatch)
+    public static func createTensorPatch(_ points: [WindowsFoundation.Vector2], _ colors: [WindowsFoundation.Vector4], _ edges: [CanvasGradientMeshPatchEdge]) throws -> CanvasGradientMeshPatch {
+        return try _ICanvasGradientMeshStatics.CreateTensorPatch(points, colors, edges)
+    }
+
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmesh.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmesh.getbounds)
     public func getBounds(_ resourceCreator: Win2D.AnyICanvasResourceCreator!) throws -> WindowsFoundation.Rect {
-        try _default.GetBoundsImpl(resourceCreator)
+        try _default.GetBounds(resourceCreator)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmesh.getbounds)
     public func getBounds(_ resourceCreator: Win2D.AnyICanvasResourceCreator!, _ transform: WindowsFoundation.Matrix3x2) throws -> WindowsFoundation.Rect {
-        try _default.GetBoundsWithTransformImpl(resourceCreator, transform)
+        try _default.GetBoundsWithTransform(resourceCreator, transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmesh.device)
     public var device : Win2D.CanvasDevice! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmesh.patches)
+    public var patches : [CanvasGradientMeshPatch] {
+        get { try! _default.get_Patches() }
     }
 
     deinit {
@@ -435,12 +466,6 @@ public final class CanvasPathBuilder : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasPathBuilder>?) -> CanvasPathBuilder? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -448,85 +473,85 @@ public final class CanvasPathBuilder : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICanvasPathBuilderFactory: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasPathBuilderFactory = try! RoGetActivationFactory(HString("Microsoft.Graphics.Canvas.Geometry.CanvasPathBuilder"))
+    private static let _ICanvasPathBuilderFactory: __ABI_Microsoft_Graphics_Canvas_Geometry.ICanvasPathBuilderFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Geometry.CanvasPathBuilder")
     public init(_ resourceCreator: Win2D.AnyICanvasResourceCreator!) {
-        super.init(try! Self._ICanvasPathBuilderFactory.CreateImpl(resourceCreator))
+        super.init(try! Self._ICanvasPathBuilderFactory.Create(resourceCreator))
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.beginfigure)
     public func beginFigure(_ startPoint: WindowsFoundation.Vector2, _ figureFill: CanvasFigureFill) throws {
-        try _default.BeginFigureWithFigureFillImpl(startPoint, figureFill)
+        try _default.BeginFigureWithFigureFill(startPoint, figureFill)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.beginfigure)
     public func beginFigure(_ startPoint: WindowsFoundation.Vector2) throws {
-        try _default.BeginFigureImpl(startPoint)
+        try _default.BeginFigure(startPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.beginfigure)
     public func beginFigure(_ startX: Float, _ startY: Float, _ figureFill: CanvasFigureFill) throws {
-        try _default.BeginFigureAtCoordsWithFigureFillImpl(startX, startY, figureFill)
+        try _default.BeginFigureAtCoordsWithFigureFill(startX, startY, figureFill)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.beginfigure)
     public func beginFigure(_ startX: Float, _ startY: Float) throws {
-        try _default.BeginFigureAtCoordsImpl(startX, startY)
+        try _default.BeginFigureAtCoords(startX, startY)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.addarc)
     public func addArc(_ endPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ rotationAngle: Float, _ sweepDirection: CanvasSweepDirection, _ arcSize: CanvasArcSize) throws {
-        try _default.AddArcToPointImpl(endPoint, radiusX, radiusY, rotationAngle, sweepDirection, arcSize)
+        try _default.AddArcToPoint(endPoint, radiusX, radiusY, rotationAngle, sweepDirection, arcSize)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.addarc)
     public func addArc(_ centerPoint: WindowsFoundation.Vector2, _ radiusX: Float, _ radiusY: Float, _ startAngle: Float, _ sweepAngle: Float) throws {
-        try _default.AddArcAroundEllipseImpl(centerPoint, radiusX, radiusY, startAngle, sweepAngle)
+        try _default.AddArcAroundEllipse(centerPoint, radiusX, radiusY, startAngle, sweepAngle)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.addcubicbezier)
     public func addCubicBezier(_ controlPoint1: WindowsFoundation.Vector2, _ controlPoint2: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
-        try _default.AddCubicBezierImpl(controlPoint1, controlPoint2, endPoint)
+        try _default.AddCubicBezier(controlPoint1, controlPoint2, endPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.addline)
     public func addLine(_ endPoint: WindowsFoundation.Vector2) throws {
-        try _default.AddLineImpl(endPoint)
+        try _default.AddLine(endPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.addline)
     public func addLine(_ x: Float, _ y: Float) throws {
-        try _default.AddLineWithCoordsImpl(x, y)
+        try _default.AddLineWithCoords(x, y)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.addquadraticbezier)
     public func addQuadraticBezier(_ controlPoint: WindowsFoundation.Vector2, _ endPoint: WindowsFoundation.Vector2) throws {
-        try _default.AddQuadraticBezierImpl(controlPoint, endPoint)
+        try _default.AddQuadraticBezier(controlPoint, endPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.setfilledregiondetermination)
     public func setFilledRegionDetermination(_ filledRegionDetermination: CanvasFilledRegionDetermination) throws {
-        try _default.SetFilledRegionDeterminationImpl(filledRegionDetermination)
+        try _default.SetFilledRegionDetermination(filledRegionDetermination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.setsegmentoptions)
     public func setSegmentOptions(_ figureSegmentOptions: CanvasFigureSegmentOptions) throws {
-        try _default.SetSegmentOptionsImpl(figureSegmentOptions)
+        try _default.SetSegmentOptions(figureSegmentOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.endfigure)
     public func endFigure(_ figureLoop: CanvasFigureLoop) throws {
-        try _default.EndFigureImpl(figureLoop)
+        try _default.EndFigure(figureLoop)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvaspathbuilder.addgeometry)
     public func addGeometry(_ geometry: CanvasGeometry!) throws {
-        try _default.AddGeometryImpl(geometry)
+        try _default.AddGeometry(geometry)
     }
 
     deinit {
@@ -549,12 +574,6 @@ public final class CanvasStrokeStyle : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CICanvasStrokeStyle>?) -> CanvasStrokeStyle? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -562,62 +581,69 @@ public final class CanvasStrokeStyle : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.Graphics.Canvas.Geometry.CanvasStrokeStyle")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.Graphics.Canvas.Geometry.CanvasStrokeStyle")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.customdashstyle)
+    public var customDashStyle : [Float] {
+        get { try! _default.get_CustomDashStyle() }
+        set { try! _default.put_CustomDashStyle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.dashcap)
     public var dashCap : CanvasCapStyle {
-        get { try! _default.get_DashCapImpl() }
-        set { try! _default.put_DashCapImpl(newValue) }
+        get { try! _default.get_DashCap() }
+        set { try! _default.put_DashCap(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.dashoffset)
     public var dashOffset : Float {
-        get { try! _default.get_DashOffsetImpl() }
-        set { try! _default.put_DashOffsetImpl(newValue) }
+        get { try! _default.get_DashOffset() }
+        set { try! _default.put_DashOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.dashstyle)
     public var dashStyle : CanvasDashStyle {
-        get { try! _default.get_DashStyleImpl() }
-        set { try! _default.put_DashStyleImpl(newValue) }
+        get { try! _default.get_DashStyle() }
+        set { try! _default.put_DashStyle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.endcap)
     public var endCap : CanvasCapStyle {
-        get { try! _default.get_EndCapImpl() }
-        set { try! _default.put_EndCapImpl(newValue) }
+        get { try! _default.get_EndCap() }
+        set { try! _default.put_EndCap(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.linejoin)
     public var lineJoin : CanvasLineJoin {
-        get { try! _default.get_LineJoinImpl() }
-        set { try! _default.put_LineJoinImpl(newValue) }
+        get { try! _default.get_LineJoin() }
+        set { try! _default.put_LineJoin(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.miterlimit)
     public var miterLimit : Float {
-        get { try! _default.get_MiterLimitImpl() }
-        set { try! _default.put_MiterLimitImpl(newValue) }
+        get { try! _default.get_MiterLimit() }
+        set { try! _default.put_MiterLimit(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.startcap)
     public var startCap : CanvasCapStyle {
-        get { try! _default.get_StartCapImpl() }
-        set { try! _default.put_StartCapImpl(newValue) }
+        get { try! _default.get_StartCap() }
+        set { try! _default.put_StartCap(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasstrokestyle.transformbehavior)
     public var transformBehavior : CanvasStrokeTransformBehavior {
-        get { try! _default.get_TransformBehaviorImpl() }
-        set { try! _default.put_TransformBehaviorImpl(newValue) }
+        get { try! _default.get_TransformBehavior() }
+        set { try! _default.put_TransformBehavior(newValue) }
     }
 
     deinit {
@@ -627,7 +653,7 @@ public final class CanvasStrokeStyle : WinRTClass, WindowsFoundation.IClosable {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmeshpatch)
-public struct CanvasGradientMeshPatch: Hashable, Codable {
+public struct CanvasGradientMeshPatch: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmeshpatch.point00)
     public var point00: WindowsFoundation.Vector2 = .init()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvasgradientmeshpatch.point01)
@@ -703,13 +729,10 @@ public struct CanvasGradientMeshPatch: Hashable, Codable {
         self.edge33To30 = edge33To30
         self.edge30To00 = edge30To00
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGradientMeshPatch) -> CanvasGradientMeshPatch {
-        .init(point00: .from(abi: abi.Point00), point01: .from(abi: abi.Point01), point02: .from(abi: abi.Point02), point03: .from(abi: abi.Point03), point10: .from(abi: abi.Point10), point11: .from(abi: abi.Point11), point12: .from(abi: abi.Point12), point13: .from(abi: abi.Point13), point20: .from(abi: abi.Point20), point21: .from(abi: abi.Point21), point22: .from(abi: abi.Point22), point23: .from(abi: abi.Point23), point30: .from(abi: abi.Point30), point31: .from(abi: abi.Point31), point32: .from(abi: abi.Point32), point33: .from(abi: abi.Point33), color00: .from(abi: abi.Color00), color03: .from(abi: abi.Color03), color30: .from(abi: abi.Color30), color33: .from(abi: abi.Color33), edge00To03: abi.Edge00To03, edge03To33: abi.Edge03To33, edge33To30: abi.Edge33To30, edge30To00: abi.Edge30To00)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvastrianglevertices)
-public struct CanvasTriangleVertices: Hashable, Codable {
+public struct CanvasTriangleVertices: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvastrianglevertices.vertex1)
     public var vertex1: WindowsFoundation.Vector2 = .init()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.geometry.canvastrianglevertices.vertex2)
@@ -721,9 +744,6 @@ public struct CanvasTriangleVertices: Hashable, Codable {
         self.vertex1 = vertex1
         self.vertex2 = vertex2
         self.vertex3 = vertex3
-    }
-    public static func from(abi: __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasTriangleVertices) -> CanvasTriangleVertices {
-        .init(vertex1: .from(abi: abi.Vertex1), vertex2: .from(abi: abi.Vertex2), vertex3: .from(abi: abi.Vertex3))
     }
 }
 
@@ -767,7 +787,7 @@ extension Win2D.CanvasArcSize {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasArcSize_Large
     }
 }
-extension Win2D.CanvasArcSize: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasArcSize: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasCapStyle {
     public static var flat : Win2D.CanvasCapStyle {
@@ -783,7 +803,7 @@ extension Win2D.CanvasCapStyle {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasCapStyle_Triangle
     }
 }
-extension Win2D.CanvasCapStyle: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasCapStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasDashStyle {
     public static var solid : Win2D.CanvasDashStyle {
@@ -802,7 +822,7 @@ extension Win2D.CanvasDashStyle {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasDashStyle_DashDotDot
     }
 }
-extension Win2D.CanvasDashStyle: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasDashStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasFigureFill {
     public static var `default` : Win2D.CanvasFigureFill {
@@ -812,7 +832,7 @@ extension Win2D.CanvasFigureFill {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasFigureFill_DoesNotAffectFills
     }
 }
-extension Win2D.CanvasFigureFill: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasFigureFill: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasFigureLoop {
     public static var open : Win2D.CanvasFigureLoop {
@@ -822,7 +842,7 @@ extension Win2D.CanvasFigureLoop {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasFigureLoop_Closed
     }
 }
-extension Win2D.CanvasFigureLoop: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasFigureLoop: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasFigureSegmentOptions {
     public static var none : Win2D.CanvasFigureSegmentOptions {
@@ -835,7 +855,7 @@ extension Win2D.CanvasFigureSegmentOptions {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasFigureSegmentOptions_ForceRoundLineJoin
     }
 }
-extension Win2D.CanvasFigureSegmentOptions: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasFigureSegmentOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasFilledRegionDetermination {
     public static var alternate : Win2D.CanvasFilledRegionDetermination {
@@ -845,7 +865,7 @@ extension Win2D.CanvasFilledRegionDetermination {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasFilledRegionDetermination_Winding
     }
 }
-extension Win2D.CanvasFilledRegionDetermination: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasFilledRegionDetermination: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasGeometryCombine {
     public static var union : Win2D.CanvasGeometryCombine {
@@ -861,7 +881,7 @@ extension Win2D.CanvasGeometryCombine {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGeometryCombine_Exclude
     }
 }
-extension Win2D.CanvasGeometryCombine: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasGeometryCombine: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasGeometryRelation {
     public static var disjoint : Win2D.CanvasGeometryRelation {
@@ -877,7 +897,7 @@ extension Win2D.CanvasGeometryRelation {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGeometryRelation_Overlap
     }
 }
-extension Win2D.CanvasGeometryRelation: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasGeometryRelation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasGeometrySimplification {
     public static var cubicsAndLines : Win2D.CanvasGeometrySimplification {
@@ -887,7 +907,7 @@ extension Win2D.CanvasGeometrySimplification {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGeometrySimplification_Lines
     }
 }
-extension Win2D.CanvasGeometrySimplification: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasGeometrySimplification: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasGradientMeshPatchEdge {
     public static var aliased : Win2D.CanvasGradientMeshPatchEdge {
@@ -900,7 +920,7 @@ extension Win2D.CanvasGradientMeshPatchEdge {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasGradientMeshPatchEdge_AliasedAndInflated
     }
 }
-extension Win2D.CanvasGradientMeshPatchEdge: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasGradientMeshPatchEdge: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasLineJoin {
     public static var miter : Win2D.CanvasLineJoin {
@@ -916,7 +936,7 @@ extension Win2D.CanvasLineJoin {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasLineJoin_MiterOrBevel
     }
 }
-extension Win2D.CanvasLineJoin: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasLineJoin: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasStrokeTransformBehavior {
     public static var normal : Win2D.CanvasStrokeTransformBehavior {
@@ -929,7 +949,7 @@ extension Win2D.CanvasStrokeTransformBehavior {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasStrokeTransformBehavior_Hairline
     }
 }
-extension Win2D.CanvasStrokeTransformBehavior: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasStrokeTransformBehavior: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension Win2D.CanvasSweepDirection {
     public static var counterClockwise : Win2D.CanvasSweepDirection {
@@ -939,5 +959,5 @@ extension Win2D.CanvasSweepDirection {
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CGeometry_CCanvasSweepDirection_Clockwise
     }
 }
-extension Win2D.CanvasSweepDirection: @retroactive Hashable, @retroactive Codable {}
+extension Win2D.CanvasSweepDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

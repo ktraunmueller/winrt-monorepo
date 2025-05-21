@@ -1,5 +1,5 @@
 {
-  "swift-winrt": "0.5.0",
+  "swift-winrt": "0.6.0",
   "project": "Win2D",
   "package": {
     "id": "Microsoft.Graphics.Win2D",
@@ -11,8 +11,12 @@
   ],
   "include": [
     "Microsoft.Graphics.Canvas",
-    "Microsoft.Graphics.Canvas.Text.CanvasFontFace",
-    "Microsoft.Graphics.Canvas.Text.CanvasFontSet",
+    "Microsoft.Graphics.Canvas.Brushes",
+    "Microsoft.Graphics.Canvas.Effects",
+    "Microsoft.Graphics.Canvas.Geometry",
+    "Microsoft.Graphics.Canvas.Text",
+    "Microsoft.Graphics.Canvas.UI",
+    "Microsoft.Graphics.Canvas.UI.Composition",
     "Microsoft.Graphics.Canvas.UI.Xaml"
   ],
   "exclude": [
