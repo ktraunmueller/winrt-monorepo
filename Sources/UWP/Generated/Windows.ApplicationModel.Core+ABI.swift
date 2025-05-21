@@ -96,20 +96,21 @@ private var IID___x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledErrorDetecte
     .init(Data1: 0x679AB78B, Data2: 0xB336, Data3: 0x4822, Data4: ( 0xAC,0x40,0x0D,0x75,0x0F,0x0B,0x7A,0x2B ))// 679AB78B-B336-4822-AC40-0D750F0B7A2B
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_ApplicationModel_Core {
     public class IAppListEntry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry }
 
-        internal func get_DisplayInfoImpl() throws -> UWP.AppDisplayInfo? {
+        public func get_DisplayInfo() throws -> UWP.AppDisplayInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayInfo(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel.AppDisplayInfoBridge.from(abi: value)
         }
 
-        internal func LaunchAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchAsync(pThis, &operationAbi))
@@ -123,7 +124,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class IAppListEntry2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry2 }
 
-        internal func get_AppUserModelIdImpl() throws -> String {
+        public func get_AppUserModelId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AppUserModelId(pThis, &value))
@@ -136,7 +137,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class IAppListEntry3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry3 }
 
-        internal func LaunchForUserAsyncImpl(_ user: UWP.User?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchForUserAsync(_ user: UWP.User?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchForUserAsync(pThis, RawPointer(user), &operationAbi))
@@ -150,7 +151,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class ICoreApplicationUnhandledError: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationUnhandledError }
 
-        open func add_UnhandledErrorDetectedImpl(_ handler: EventHandler<UWP.UnhandledErrorDetectedEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_UnhandledErrorDetected(_ handler: EventHandler<UWP.UnhandledErrorDetectedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FIEventHandler_1___x_ABI_CWindows__CApplicationModel__CCore__CUnhandledErrorDetectedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -160,7 +161,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return token
         }
 
-        open func remove_UnhandledErrorDetectedImpl(_ token: EventRegistrationToken) throws {
+        open func remove_UnhandledErrorDetected(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationUnhandledError.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_UnhandledErrorDetected(pThis, token))
             }
@@ -216,16 +217,16 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class ICoreApplicationView: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView }
 
-        internal func get_CoreWindowImpl() throws -> UWP.CoreWindow? {
+        public func get_CoreWindow() throws -> UWP.CoreWindow? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CoreWindow(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI_Core.CoreWindowBridge.from(abi: value)
         }
 
-        internal func add_ActivatedImpl(_ handler: TypedEventHandler<UWP.CoreApplicationView?, UWP.AnyIActivatedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Activated(_ handler: TypedEventHandler<UWP.CoreApplicationView?, UWP.AnyIActivatedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CCore__CCoreApplicationView___x_ABI_CWindows__CApplicationModel__CActivation__CIActivatedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -235,13 +236,13 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return token
         }
 
-        internal func remove_ActivatedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Activated(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Activated(pThis, token))
             }
         }
 
-        internal func get_IsMainImpl() throws -> Bool {
+        public func get_IsMain() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsMain(pThis, &value))
@@ -249,7 +250,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return .init(from: value)
         }
 
-        internal func get_IsHostedImpl() throws -> Bool {
+        public func get_IsHosted() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsHosted(pThis, &value))
@@ -262,13 +263,13 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class ICoreApplicationView2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView2 }
 
-        internal func get_DispatcherImpl() throws -> UWP.CoreDispatcher? {
+        public func get_Dispatcher() throws -> UWP.CoreDispatcher? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Dispatcher(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI_Core.CoreDispatcherBridge.from(abi: value)
         }
 
     }
@@ -276,7 +277,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class ICoreApplicationView3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView3 }
 
-        internal func get_IsComponentImpl() throws -> Bool {
+        public func get_IsComponent() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsComponent(pThis, &value))
@@ -284,16 +285,16 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return .init(from: value)
         }
 
-        internal func get_TitleBarImpl() throws -> UWP.CoreApplicationViewTitleBar? {
+        public func get_TitleBar() throws -> UWP.CoreApplicationViewTitleBar? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TitleBar(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_Core.CoreApplicationViewTitleBarBridge.from(abi: value)
         }
 
-        internal func add_HostedViewClosingImpl(_ handler: TypedEventHandler<UWP.CoreApplicationView?, UWP.HostedViewClosingEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_HostedViewClosing(_ handler: TypedEventHandler<UWP.CoreApplicationView?, UWP.HostedViewClosingEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CCore__CCoreApplicationView___x_ABI_CWindows__CApplicationModel__CCore__CHostedViewClosingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -303,7 +304,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return token
         }
 
-        internal func remove_HostedViewClosingImpl(_ token: EventRegistrationToken) throws {
+        public func remove_HostedViewClosing(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_HostedViewClosing(pThis, token))
             }
@@ -314,7 +315,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class ICoreApplicationView5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView5 }
 
-        internal func get_PropertiesImpl() throws -> WindowsFoundation.AnyIPropertySet? {
+        public func get_Properties() throws -> WindowsFoundation.AnyIPropertySet? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
@@ -328,13 +329,13 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class ICoreApplicationView6: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView6 }
 
-        internal func get_DispatcherQueueImpl() throws -> UWP.DispatcherQueue? {
+        public func get_DispatcherQueue() throws -> UWP.DispatcherQueue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView6.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DispatcherQueue(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System.DispatcherQueueBridge.from(abi: value)
         }
 
     }
@@ -342,13 +343,13 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class ICoreApplicationViewTitleBar: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar }
 
-        internal func put_ExtendViewIntoTitleBarImpl(_ value: Bool) throws {
+        public func put_ExtendViewIntoTitleBar(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExtendViewIntoTitleBar(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ExtendViewIntoTitleBarImpl() throws -> Bool {
+        public func get_ExtendViewIntoTitleBar() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendViewIntoTitleBar(pThis, &value))
@@ -356,7 +357,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return .init(from: value)
         }
 
-        internal func get_SystemOverlayLeftInsetImpl() throws -> Double {
+        public func get_SystemOverlayLeftInset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SystemOverlayLeftInset(pThis, &value))
@@ -364,7 +365,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return value
         }
 
-        internal func get_SystemOverlayRightInsetImpl() throws -> Double {
+        public func get_SystemOverlayRightInset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SystemOverlayRightInset(pThis, &value))
@@ -372,7 +373,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return value
         }
 
-        internal func get_HeightImpl() throws -> Double {
+        public func get_Height() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Height(pThis, &value))
@@ -380,7 +381,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return value
         }
 
-        internal func add_LayoutMetricsChangedImpl(_ handler: TypedEventHandler<UWP.CoreApplicationViewTitleBar?, Any?>?) throws -> EventRegistrationToken {
+        public func add_LayoutMetricsChanged(_ handler: TypedEventHandler<UWP.CoreApplicationViewTitleBar?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CCore__CCoreApplicationViewTitleBar_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -390,13 +391,13 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return token
         }
 
-        internal func remove_LayoutMetricsChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_LayoutMetricsChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_LayoutMetricsChanged(pThis, token))
             }
         }
 
-        internal func get_IsVisibleImpl() throws -> Bool {
+        public func get_IsVisible() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsVisible(pThis, &value))
@@ -404,7 +405,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return .init(from: value)
         }
 
-        internal func add_IsVisibleChangedImpl(_ handler: TypedEventHandler<UWP.CoreApplicationViewTitleBar?, Any?>?) throws -> EventRegistrationToken {
+        public func add_IsVisibleChanged(_ handler: TypedEventHandler<UWP.CoreApplicationViewTitleBar?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CCore__CCoreApplicationViewTitleBar_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -414,7 +415,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return token
         }
 
-        internal func remove_IsVisibleChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_IsVisibleChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_IsVisibleChanged(pThis, token))
             }
@@ -425,32 +426,32 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class IFrameworkView: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkView }
 
-        open func InitializeImpl(_ applicationView: UWP.CoreApplicationView?) throws {
+        open func Initialize(_ applicationView: UWP.CoreApplicationView?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Initialize(pThis, RawPointer(applicationView)))
             }
         }
 
-        open func SetWindowImpl(_ window: UWP.CoreWindow?) throws {
+        open func SetWindow(_ window: UWP.CoreWindow?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetWindow(pThis, RawPointer(window)))
             }
         }
 
-        open func LoadImpl(_ entryPoint: String) throws {
+        open func Load(_ entryPoint: String) throws {
             let _entryPoint = try! HString(entryPoint)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Load(pThis, _entryPoint.get()))
             }
         }
 
-        open func RunImpl() throws {
+        open func Run() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Run(pThis))
             }
         }
 
-        open func UninitializeImpl() throws {
+        open func Uninitialize() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Uninitialize(pThis))
             }
@@ -489,19 +490,19 @@ public enum __ABI_Windows_ApplicationModel_Core {
         Initialize: {
             do {
                 guard let __unwrapped__instance = IFrameworkViewWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let applicationView: UWP.CoreApplicationView? = .from(abi: ComPtr($1))
+                let applicationView: UWP.CoreApplicationView? = __IMPL_Windows_ApplicationModel_Core.CoreApplicationViewBridge.from(abi: ComPtr($1))
                 try __unwrapped__instance.initialize(applicationView)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetWindow: {
             do {
                 guard let __unwrapped__instance = IFrameworkViewWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let window: UWP.CoreWindow? = .from(abi: ComPtr($1))
+                let window: UWP.CoreWindow? = __IMPL_Windows_UI_Core.CoreWindowBridge.from(abi: ComPtr($1))
                 try __unwrapped__instance.setWindow(window)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Load: {
@@ -510,7 +511,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
                 let entryPoint: String = .init(from: $1)
                 try __unwrapped__instance.load(entryPoint)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Run: {
@@ -518,7 +519,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
                 guard let __unwrapped__instance = IFrameworkViewWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.run()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Uninitialize: {
@@ -526,7 +527,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
                 guard let __unwrapped__instance = IFrameworkViewWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.uninitialize()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -534,7 +535,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class IFrameworkViewSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkViewSource }
 
-        open func CreateViewImpl() throws -> UWP.AnyIFrameworkView? {
+        open func CreateView() throws -> UWP.AnyIFrameworkView? {
             let (viewProvider) = try ComPtrs.initialize { viewProviderAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkViewSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateView(pThis, &viewProviderAbi))
@@ -580,7 +581,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
                 let viewProviderWrapper = __ABI_Windows_ApplicationModel_Core.IFrameworkViewWrapper(viewProvider)
                 viewProviderWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -588,13 +589,13 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class IHostedViewClosingEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIHostedViewClosingEventArgs }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIHostedViewClosingEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: result)
         }
 
     }
@@ -602,7 +603,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class IUnhandledError: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledError }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledError.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -610,7 +611,7 @@ public enum __ABI_Windows_ApplicationModel_Core {
             return .init(from: value)
         }
 
-        internal func PropagateImpl() throws {
+        public func Propagate() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledError.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Propagate(pThis))
             }
@@ -621,13 +622,13 @@ public enum __ABI_Windows_ApplicationModel_Core {
     public class IUnhandledErrorDetectedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledErrorDetectedEventArgs }
 
-        internal func get_UnhandledErrorImpl() throws -> UWP.UnhandledError? {
+        public func get_UnhandledError() throws -> UWP.UnhandledError? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledErrorDetectedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_UnhandledError(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_Core.UnhandledErrorBridge.from(abi: value)
         }
 
     }

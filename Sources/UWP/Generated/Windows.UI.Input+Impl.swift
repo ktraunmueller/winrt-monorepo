@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_UI_Input {
     public enum IPointerPointTransformBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CUI_CInput_CIPointerPointTransform
@@ -30,19 +31,59 @@ public enum __IMPL_Windows_UI_Input {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.ipointerpointtransform.trytransform)
         fileprivate func tryTransform(_ inPoint: WindowsFoundation.Point, _ outPoint: inout WindowsFoundation.Point) throws -> Bool {
-            try _default.TryTransformImpl(inPoint, &outPoint)
+            try _default.TryTransform(inPoint, &outPoint)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.ipointerpointtransform.transformbounds)
         fileprivate func transformBounds(_ rect: WindowsFoundation.Rect) throws -> WindowsFoundation.Rect {
-            try _default.TransformBoundsImpl(rect)
+            try _default.TransformBounds(rect)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.ipointerpointtransform.inverse)
         fileprivate var inverse : AnyIPointerPointTransform! {
-            get { try! _default.get_InverseImpl() }
+            get { try! _default.get_Inverse() }
         }
 
     }
 
+    public enum PointerPointBridge: AbiBridge {
+        public typealias SwiftProjection = PointerPoint
+        public typealias CABI = __x_ABI_CWindows_CUI_CInput_CIPointerPoint
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CInput_CIPointerPoint>?) -> PointerPoint? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointerPointPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = PointerPointProperties
+        public typealias CABI = __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CInput_CIPointerPointProperties>?) -> PointerPointProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IPointerPointTransformMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIPointerPointTransform
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Input.IPointerPointTransform = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Input.IPointerPointTransformBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class PointerPointMaker: MakeFromAbi {
+    public typealias SwiftType = PointerPoint
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerPoint(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointerPointPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = PointerPointProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerPointProperties(fromAbi: abi)
+    }
 }

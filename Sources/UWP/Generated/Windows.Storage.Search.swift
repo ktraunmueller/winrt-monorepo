@@ -30,103 +30,98 @@ public final class QueryOptions : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CSearch_CIQueryOptions>?) -> QueryOptions? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Storage.Search.QueryOptions")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Storage.Search.QueryOptions")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IQueryOptionsFactory: __ABI_Windows_Storage_Search.IQueryOptionsFactory = try! RoGetActivationFactory(HString("Windows.Storage.Search.QueryOptions"))
+    private static let _IQueryOptionsFactory: __ABI_Windows_Storage_Search.IQueryOptionsFactory = try! RoGetActivationFactory("Windows.Storage.Search.QueryOptions")
     public init(_ query: CommonFileQuery, _ fileTypeFilter: WindowsFoundation.AnyIIterable<String>!) {
-        super.init(try! Self._IQueryOptionsFactory.CreateCommonFileQueryImpl(query, fileTypeFilter))
+        super.init(try! Self._IQueryOptionsFactory.CreateCommonFileQuery(query, fileTypeFilter))
     }
 
     public init(_ query: CommonFolderQuery) {
-        super.init(try! Self._IQueryOptionsFactory.CreateCommonFolderQueryImpl(query))
+        super.init(try! Self._IQueryOptionsFactory.CreateCommonFolderQuery(query))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.savetostring)
     public func saveToString() throws -> String {
-        try _default.SaveToStringImpl()
+        try _default.SaveToString()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.loadfromstring)
     public func loadFromString(_ value: String) throws {
-        try _default.LoadFromStringImpl(value)
+        try _default.LoadFromString(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.setthumbnailprefetch)
     public func setThumbnailPrefetch(_ mode: UWP.ThumbnailMode, _ requestedSize: UInt32, _ options: UWP.ThumbnailOptions) throws {
-        try _default.SetThumbnailPrefetchImpl(mode, requestedSize, options)
+        try _default.SetThumbnailPrefetch(mode, requestedSize, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.setpropertyprefetch)
     public func setPropertyPrefetch(_ options: UWP.PropertyPrefetchOptions, _ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>!) throws {
-        try _default.SetPropertyPrefetchImpl(options, propertiesToRetrieve)
+        try _default.SetPropertyPrefetch(options, propertiesToRetrieve)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.applicationsearchfilter)
     public var applicationSearchFilter : String {
-        get { try! _default.get_ApplicationSearchFilterImpl() }
-        set { try! _default.put_ApplicationSearchFilterImpl(newValue) }
+        get { try! _default.get_ApplicationSearchFilter() }
+        set { try! _default.put_ApplicationSearchFilter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.datestackoption)
     public var dateStackOption : DateStackOption {
-        get { try! _default.get_DateStackOptionImpl() }
+        get { try! _default.get_DateStackOption() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.filetypefilter)
     public var fileTypeFilter : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_FileTypeFilterImpl() }
+        get { try! _default.get_FileTypeFilter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.folderdepth)
     public var folderDepth : FolderDepth {
-        get { try! _default.get_FolderDepthImpl() }
-        set { try! _default.put_FolderDepthImpl(newValue) }
+        get { try! _default.get_FolderDepth() }
+        set { try! _default.put_FolderDepth(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.grouppropertyname)
     public var groupPropertyName : String {
-        get { try! _default.get_GroupPropertyNameImpl() }
+        get { try! _default.get_GroupPropertyName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.indexeroption)
     public var indexerOption : IndexerOption {
-        get { try! _default.get_IndexerOptionImpl() }
-        set { try! _default.put_IndexerOptionImpl(newValue) }
+        get { try! _default.get_IndexerOption() }
+        set { try! _default.put_IndexerOption(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.language)
     public var language : String {
-        get { try! _default.get_LanguageImpl() }
-        set { try! _default.put_LanguageImpl(newValue) }
+        get { try! _default.get_Language() }
+        set { try! _default.put_Language(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.sortorder)
     public var sortOrder : WindowsFoundation.AnyIVector<SortEntry>! {
-        get { try! _default.get_SortOrderImpl() }
+        get { try! _default.get_SortOrder() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.usersearchfilter)
     public var userSearchFilter : String {
-        get { try! _default.get_UserSearchFilterImpl() }
-        set { try! _default.put_UserSearchFilterImpl(newValue) }
+        get { try! _default.get_UserSearchFilter() }
+        set { try! _default.put_UserSearchFilter(newValue) }
     }
 
     private lazy var _IQueryOptionsWithProviderFilter: __ABI_Windows_Storage_Search.IQueryOptionsWithProviderFilter! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.queryoptions.storageprovideridfilter)
     public var storageProviderIdFilter : WindowsFoundation.AnyIVector<String>! {
-        get { try! _IQueryOptionsWithProviderFilter.get_StorageProviderIdFilterImpl() }
+        get { try! _IQueryOptionsWithProviderFilter.get_StorageProviderIdFilter() }
     }
 
     deinit {
@@ -149,12 +144,6 @@ public final class StorageFileQueryResult : WinRTClass, IStorageQueryResultBase 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CSearch_CIStorageFileQueryResult>?) -> StorageFileQueryResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -165,27 +154,27 @@ public final class StorageFileQueryResult : WinRTClass, IStorageQueryResultBase 
     private lazy var _IStorageQueryResultBase: __ABI_Windows_Storage_Search.IStorageQueryResultBase! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefilequeryresult.getitemcountasync)
     public func getItemCountAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UInt32>! {
-        try _IStorageQueryResultBase.GetItemCountAsyncImpl()
+        try _IStorageQueryResultBase.GetItemCountAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefilequeryresult.findstartindexasync)
     public func findStartIndexAsync(_ value: Any!) throws -> WindowsFoundation.AnyIAsyncOperation<UInt32>! {
-        try _IStorageQueryResultBase.FindStartIndexAsyncImpl(value)
+        try _IStorageQueryResultBase.FindStartIndexAsync(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefilequeryresult.getcurrentqueryoptions)
     public func getCurrentQueryOptions() throws -> QueryOptions! {
-        try _IStorageQueryResultBase.GetCurrentQueryOptionsImpl()
+        try _IStorageQueryResultBase.GetCurrentQueryOptions()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefilequeryresult.applynewqueryoptions)
     public func applyNewQueryOptions(_ newQueryOptions: QueryOptions!) throws {
-        try _IStorageQueryResultBase.ApplyNewQueryOptionsImpl(newQueryOptions)
+        try _IStorageQueryResultBase.ApplyNewQueryOptions(newQueryOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefilequeryresult.folder)
     public var folder : UWP.StorageFolder! {
-        get { try! _IStorageQueryResultBase.get_FolderImpl() }
+        get { try! _IStorageQueryResultBase.get_Folder() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefilequeryresult.contentschanged)
@@ -193,10 +182,10 @@ public final class StorageFileQueryResult : WinRTClass, IStorageQueryResultBase 
       .init(
         add: { [weak self] in
           guard let this = self?._IStorageQueryResultBase else { return .init() }
-          return try! this.add_ContentsChangedImpl($0)
+          return try! this.add_ContentsChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IStorageQueryResultBase.remove_ContentsChangedImpl($0)
+         try? self?._IStorageQueryResultBase.remove_ContentsChanged($0)
        }
       )
     }()
@@ -206,28 +195,28 @@ public final class StorageFileQueryResult : WinRTClass, IStorageQueryResultBase 
       .init(
         add: { [weak self] in
           guard let this = self?._IStorageQueryResultBase else { return .init() }
-          return try! this.add_OptionsChangedImpl($0)
+          return try! this.add_OptionsChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IStorageQueryResultBase.remove_OptionsChangedImpl($0)
+         try? self?._IStorageQueryResultBase.remove_OptionsChanged($0)
        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefilequeryresult.getfilesasync)
     public func getFilesAsync(_ startIndex: UInt32, _ maxNumberOfItems: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFile?>?>! {
-        try _default.GetFilesAsyncImpl(startIndex, maxNumberOfItems)
+        try _default.GetFilesAsync(startIndex, maxNumberOfItems)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefilequeryresult.getfilesasync)
     public func getFilesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFile?>?>! {
-        try _default.GetFilesAsyncDefaultStartAndCountImpl()
+        try _default.GetFilesAsyncDefaultStartAndCount()
     }
 
     private lazy var _IStorageFileQueryResult2: __ABI_Windows_Storage_Search.IStorageFileQueryResult2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefilequeryresult.getmatchingpropertieswithranges)
     public func getMatchingPropertiesWithRanges(_ file: UWP.StorageFile!) throws -> WindowsFoundation.AnyIMap<String, WindowsFoundation.AnyIVectorView<UWP.TextSegment>?>! {
-        try _IStorageFileQueryResult2.GetMatchingPropertiesWithRangesImpl(file)
+        try _IStorageFileQueryResult2.GetMatchingPropertiesWithRanges(file)
     }
 
     deinit {
@@ -251,12 +240,6 @@ public final class StorageFolderQueryResult : WinRTClass, IStorageQueryResultBas
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CSearch_CIStorageFolderQueryResult>?) -> StorageFolderQueryResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -267,27 +250,27 @@ public final class StorageFolderQueryResult : WinRTClass, IStorageQueryResultBas
     private lazy var _IStorageQueryResultBase: __ABI_Windows_Storage_Search.IStorageQueryResultBase! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefolderqueryresult.getitemcountasync)
     public func getItemCountAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UInt32>! {
-        try _IStorageQueryResultBase.GetItemCountAsyncImpl()
+        try _IStorageQueryResultBase.GetItemCountAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefolderqueryresult.findstartindexasync)
     public func findStartIndexAsync(_ value: Any!) throws -> WindowsFoundation.AnyIAsyncOperation<UInt32>! {
-        try _IStorageQueryResultBase.FindStartIndexAsyncImpl(value)
+        try _IStorageQueryResultBase.FindStartIndexAsync(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefolderqueryresult.getcurrentqueryoptions)
     public func getCurrentQueryOptions() throws -> QueryOptions! {
-        try _IStorageQueryResultBase.GetCurrentQueryOptionsImpl()
+        try _IStorageQueryResultBase.GetCurrentQueryOptions()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefolderqueryresult.applynewqueryoptions)
     public func applyNewQueryOptions(_ newQueryOptions: QueryOptions!) throws {
-        try _IStorageQueryResultBase.ApplyNewQueryOptionsImpl(newQueryOptions)
+        try _IStorageQueryResultBase.ApplyNewQueryOptions(newQueryOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefolderqueryresult.folder)
     public var folder : UWP.StorageFolder! {
-        get { try! _IStorageQueryResultBase.get_FolderImpl() }
+        get { try! _IStorageQueryResultBase.get_Folder() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefolderqueryresult.contentschanged)
@@ -295,10 +278,10 @@ public final class StorageFolderQueryResult : WinRTClass, IStorageQueryResultBas
       .init(
         add: { [weak self] in
           guard let this = self?._IStorageQueryResultBase else { return .init() }
-          return try! this.add_ContentsChangedImpl($0)
+          return try! this.add_ContentsChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IStorageQueryResultBase.remove_ContentsChangedImpl($0)
+         try? self?._IStorageQueryResultBase.remove_ContentsChanged($0)
        }
       )
     }()
@@ -308,22 +291,22 @@ public final class StorageFolderQueryResult : WinRTClass, IStorageQueryResultBas
       .init(
         add: { [weak self] in
           guard let this = self?._IStorageQueryResultBase else { return .init() }
-          return try! this.add_OptionsChangedImpl($0)
+          return try! this.add_OptionsChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IStorageQueryResultBase.remove_OptionsChangedImpl($0)
+         try? self?._IStorageQueryResultBase.remove_OptionsChanged($0)
        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefolderqueryresult.getfoldersasync)
     public func getFoldersAsync(_ startIndex: UInt32, _ maxNumberOfItems: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFolder?>?>! {
-        try _default.GetFoldersAsyncImpl(startIndex, maxNumberOfItems)
+        try _default.GetFoldersAsync(startIndex, maxNumberOfItems)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storagefolderqueryresult.getfoldersasync)
     public func getFoldersAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFolder?>?>! {
-        try _default.GetFoldersAsyncDefaultStartAndCountImpl()
+        try _default.GetFoldersAsyncDefaultStartAndCount()
     }
 
     deinit {
@@ -346,12 +329,6 @@ public final class StorageItemQueryResult : WinRTClass, IStorageQueryResultBase 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CSearch_CIStorageItemQueryResult>?) -> StorageItemQueryResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -362,27 +339,27 @@ public final class StorageItemQueryResult : WinRTClass, IStorageQueryResultBase 
     private lazy var _IStorageQueryResultBase: __ABI_Windows_Storage_Search.IStorageQueryResultBase! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storageitemqueryresult.getitemcountasync)
     public func getItemCountAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UInt32>! {
-        try _IStorageQueryResultBase.GetItemCountAsyncImpl()
+        try _IStorageQueryResultBase.GetItemCountAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storageitemqueryresult.findstartindexasync)
     public func findStartIndexAsync(_ value: Any!) throws -> WindowsFoundation.AnyIAsyncOperation<UInt32>! {
-        try _IStorageQueryResultBase.FindStartIndexAsyncImpl(value)
+        try _IStorageQueryResultBase.FindStartIndexAsync(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storageitemqueryresult.getcurrentqueryoptions)
     public func getCurrentQueryOptions() throws -> QueryOptions! {
-        try _IStorageQueryResultBase.GetCurrentQueryOptionsImpl()
+        try _IStorageQueryResultBase.GetCurrentQueryOptions()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storageitemqueryresult.applynewqueryoptions)
     public func applyNewQueryOptions(_ newQueryOptions: QueryOptions!) throws {
-        try _IStorageQueryResultBase.ApplyNewQueryOptionsImpl(newQueryOptions)
+        try _IStorageQueryResultBase.ApplyNewQueryOptions(newQueryOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storageitemqueryresult.folder)
     public var folder : UWP.StorageFolder! {
-        get { try! _IStorageQueryResultBase.get_FolderImpl() }
+        get { try! _IStorageQueryResultBase.get_Folder() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storageitemqueryresult.contentschanged)
@@ -390,10 +367,10 @@ public final class StorageItemQueryResult : WinRTClass, IStorageQueryResultBase 
       .init(
         add: { [weak self] in
           guard let this = self?._IStorageQueryResultBase else { return .init() }
-          return try! this.add_ContentsChangedImpl($0)
+          return try! this.add_ContentsChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IStorageQueryResultBase.remove_ContentsChangedImpl($0)
+         try? self?._IStorageQueryResultBase.remove_ContentsChanged($0)
        }
       )
     }()
@@ -403,22 +380,22 @@ public final class StorageItemQueryResult : WinRTClass, IStorageQueryResultBase 
       .init(
         add: { [weak self] in
           guard let this = self?._IStorageQueryResultBase else { return .init() }
-          return try! this.add_OptionsChangedImpl($0)
+          return try! this.add_OptionsChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IStorageQueryResultBase.remove_OptionsChangedImpl($0)
+         try? self?._IStorageQueryResultBase.remove_OptionsChanged($0)
        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storageitemqueryresult.getitemsasync)
     public func getItemsAsync(_ startIndex: UInt32, _ maxNumberOfItems: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>?>! {
-        try _default.GetItemsAsyncImpl(startIndex, maxNumberOfItems)
+        try _default.GetItemsAsync(startIndex, maxNumberOfItems)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.storageitemqueryresult.getitemsasync)
     public func getItemsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>?>! {
-        try _default.GetItemsAsyncDefaultStartAndCountImpl()
+        try _default.GetItemsAsyncDefaultStartAndCount()
     }
 
     deinit {
@@ -428,7 +405,7 @@ public final class StorageItemQueryResult : WinRTClass, IStorageQueryResultBase 
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.sortentry)
-public struct SortEntry: Hashable, Codable {
+public struct SortEntry: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.sortentry.propertyname)
     public var propertyName: String = ""
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.sortentry.ascendingorder)
@@ -437,9 +414,6 @@ public struct SortEntry: Hashable, Codable {
     public init(propertyName: String, ascendingOrder: Bool) {
         self.propertyName = propertyName
         self.ascendingOrder = ascendingOrder
-    }
-    public static func from(abi: __x_ABI_CWindows_CStorage_CSearch_CSortEntry) -> SortEntry {
-        .init(propertyName: .init(from: abi.PropertyName), ascendingOrder: .init(from: abi.AscendingOrder))
     }
 }
 
@@ -543,7 +517,7 @@ extension UWP.CommonFileQuery {
         __x_ABI_CWindows_CStorage_CSearch_CCommonFileQuery_OrderByDate
     }
 }
-extension UWP.CommonFileQuery: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CommonFileQuery: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CommonFolderQuery {
     public static var defaultQuery : UWP.CommonFolderQuery {
@@ -586,7 +560,7 @@ extension UWP.CommonFolderQuery {
         __x_ABI_CWindows_CStorage_CSearch_CCommonFolderQuery_GroupByType
     }
 }
-extension UWP.CommonFolderQuery: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CommonFolderQuery: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.DateStackOption {
     public static var none : UWP.DateStackOption {
@@ -599,7 +573,7 @@ extension UWP.DateStackOption {
         __x_ABI_CWindows_CStorage_CSearch_CDateStackOption_Month
     }
 }
-extension UWP.DateStackOption: @retroactive Hashable, @retroactive Codable {}
+extension UWP.DateStackOption: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.FolderDepth {
     public static var shallow : UWP.FolderDepth {
@@ -609,7 +583,7 @@ extension UWP.FolderDepth {
         __x_ABI_CWindows_CStorage_CSearch_CFolderDepth_Deep
     }
 }
-extension UWP.FolderDepth: @retroactive Hashable, @retroactive Codable {}
+extension UWP.FolderDepth: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.IndexedState {
     public static var unknown : UWP.IndexedState {
@@ -625,7 +599,7 @@ extension UWP.IndexedState {
         __x_ABI_CWindows_CStorage_CSearch_CIndexedState_FullyIndexed
     }
 }
-extension UWP.IndexedState: @retroactive Hashable, @retroactive Codable {}
+extension UWP.IndexedState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.IndexerOption {
     public static var useIndexerWhenAvailable : UWP.IndexerOption {
@@ -641,5 +615,5 @@ extension UWP.IndexerOption {
         __x_ABI_CWindows_CStorage_CSearch_CIndexerOption_OnlyUseIndexerAndOptimizeForIndexedProperties
     }
 }
-extension UWP.IndexerOption: @retroactive Hashable, @retroactive Codable {}
+extension UWP.IndexerOption: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

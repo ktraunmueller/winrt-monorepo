@@ -32,11 +32,12 @@ private var IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollB
     .init(Data1: 0x87AFD4B2, Data2: 0x9146, Data3: 0x5F02, Data4: ( 0x8F,0x6B,0x06,0xD4,0x54,0x17,0x4C,0x0F ))// 87AFD4B2-9146-5F02-8F6B-06D454174C0F
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_UI_ViewManagement {
     public class IActivationViewSwitcher: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher }
 
-        internal func ShowAsStandaloneAsyncImpl(_ viewId: Int32) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func ShowAsStandaloneAsync(_ viewId: Int32) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.ShowAsStandaloneAsync(pThis, viewId, &operationAbi))
@@ -45,7 +46,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func ShowAsStandaloneWithSizePreferenceAsyncImpl(_ viewId: Int32, _ sizePreference: UWP.ViewSizePreference) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func ShowAsStandaloneWithSizePreferenceAsync(_ viewId: Int32, _ sizePreference: UWP.ViewSizePreference) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.ShowAsStandaloneWithSizePreferenceAsync(pThis, viewId, sizePreference, &operationAbi))
@@ -54,7 +55,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func IsViewPresentedOnActivationVirtualDesktopImpl(_ viewId: Int32) throws -> Bool {
+        public func IsViewPresentedOnActivationVirtualDesktop(_ viewId: Int32) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsViewPresentedOnActivationVirtualDesktop(pThis, viewId, &value))
@@ -67,7 +68,7 @@ public enum __ABI_Windows_UI_ViewManagement {
     public class IUISettings: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings }
 
-        internal func get_HandPreferenceImpl() throws -> UWP.HandPreference {
+        public func get_HandPreference() throws -> UWP.HandPreference {
             var value: __x_ABI_CWindows_CUI_CViewManagement_CHandPreference = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HandPreference(pThis, &value))
@@ -75,7 +76,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return value
         }
 
-        internal func get_CursorSizeImpl() throws -> WindowsFoundation.Size {
+        public func get_CursorSize() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CursorSize(pThis, &value))
@@ -83,7 +84,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return .from(abi: value)
         }
 
-        internal func get_ScrollBarSizeImpl() throws -> WindowsFoundation.Size {
+        public func get_ScrollBarSize() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollBarSize(pThis, &value))
@@ -91,7 +92,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return .from(abi: value)
         }
 
-        internal func get_ScrollBarArrowSizeImpl() throws -> WindowsFoundation.Size {
+        public func get_ScrollBarArrowSize() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollBarArrowSize(pThis, &value))
@@ -99,7 +100,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return .from(abi: value)
         }
 
-        internal func get_ScrollBarThumbBoxSizeImpl() throws -> WindowsFoundation.Size {
+        public func get_ScrollBarThumbBoxSize() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollBarThumbBoxSize(pThis, &value))
@@ -107,7 +108,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return .from(abi: value)
         }
 
-        internal func get_MessageDurationImpl() throws -> UInt32 {
+        public func get_MessageDuration() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MessageDuration(pThis, &value))
@@ -115,7 +116,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return value
         }
 
-        internal func get_AnimationsEnabledImpl() throws -> Bool {
+        public func get_AnimationsEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AnimationsEnabled(pThis, &value))
@@ -123,7 +124,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return .init(from: value)
         }
 
-        internal func get_CaretBrowsingEnabledImpl() throws -> Bool {
+        public func get_CaretBrowsingEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CaretBrowsingEnabled(pThis, &value))
@@ -131,7 +132,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return .init(from: value)
         }
 
-        internal func get_CaretBlinkRateImpl() throws -> UInt32 {
+        public func get_CaretBlinkRate() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CaretBlinkRate(pThis, &value))
@@ -139,7 +140,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return value
         }
 
-        internal func get_CaretWidthImpl() throws -> UInt32 {
+        public func get_CaretWidth() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CaretWidth(pThis, &value))
@@ -147,7 +148,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return value
         }
 
-        internal func get_DoubleClickTimeImpl() throws -> UInt32 {
+        public func get_DoubleClickTime() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DoubleClickTime(pThis, &value))
@@ -155,7 +156,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return value
         }
 
-        internal func get_MouseHoverTimeImpl() throws -> UInt32 {
+        public func get_MouseHoverTime() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MouseHoverTime(pThis, &value))
@@ -163,7 +164,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return value
         }
 
-        internal func UIElementColorImpl(_ desiredElement: UWP.UIElementType) throws -> UWP.Color {
+        public func UIElementColor(_ desiredElement: UWP.UIElementType) throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.UIElementColor(pThis, desiredElement, &value))
@@ -176,7 +177,7 @@ public enum __ABI_Windows_UI_ViewManagement {
     public class IUISettings2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 }
 
-        internal func get_TextScaleFactorImpl() throws -> Double {
+        public func get_TextScaleFactor() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextScaleFactor(pThis, &value))
@@ -184,7 +185,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return value
         }
 
-        internal func add_TextScaleFactorChangedImpl(_ handler: TypedEventHandler<UWP.UISettings?, Any?>?) throws -> EventRegistrationToken {
+        public func add_TextScaleFactorChanged(_ handler: TypedEventHandler<UWP.UISettings?, Any?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CViewManagement__CUISettings_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -194,7 +195,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return cookie
         }
 
-        internal func remove_TextScaleFactorChangedImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_TextScaleFactorChanged(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TextScaleFactorChanged(pThis, cookie))
             }
@@ -205,7 +206,7 @@ public enum __ABI_Windows_UI_ViewManagement {
     public class IUISettings3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings3 }
 
-        internal func GetColorValueImpl(_ desiredColor: UWP.UIColorType) throws -> UWP.Color {
+        public func GetColorValue(_ desiredColor: UWP.UIColorType) throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetColorValue(pThis, desiredColor, &value))
@@ -213,7 +214,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return .from(abi: value)
         }
 
-        internal func add_ColorValuesChangedImpl(_ handler: TypedEventHandler<UWP.UISettings?, Any?>?) throws -> EventRegistrationToken {
+        public func add_ColorValuesChanged(_ handler: TypedEventHandler<UWP.UISettings?, Any?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CViewManagement__CUISettings_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -223,7 +224,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return cookie
         }
 
-        internal func remove_ColorValuesChangedImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_ColorValuesChanged(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ColorValuesChanged(pThis, cookie))
             }
@@ -234,7 +235,7 @@ public enum __ABI_Windows_UI_ViewManagement {
     public class IUISettings4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 }
 
-        internal func get_AdvancedEffectsEnabledImpl() throws -> Bool {
+        public func get_AdvancedEffectsEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AdvancedEffectsEnabled(pThis, &value))
@@ -242,7 +243,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return .init(from: value)
         }
 
-        internal func add_AdvancedEffectsEnabledChangedImpl(_ handler: TypedEventHandler<UWP.UISettings?, Any?>?) throws -> EventRegistrationToken {
+        public func add_AdvancedEffectsEnabledChanged(_ handler: TypedEventHandler<UWP.UISettings?, Any?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CViewManagement__CUISettings_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -252,7 +253,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return cookie
         }
 
-        internal func remove_AdvancedEffectsEnabledChangedImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_AdvancedEffectsEnabledChanged(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AdvancedEffectsEnabledChanged(pThis, cookie))
             }
@@ -263,7 +264,7 @@ public enum __ABI_Windows_UI_ViewManagement {
     public class IUISettings5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 }
 
-        internal func get_AutoHideScrollBarsImpl() throws -> Bool {
+        public func get_AutoHideScrollBars() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoHideScrollBars(pThis, &value))
@@ -271,7 +272,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return .init(from: value)
         }
 
-        internal func add_AutoHideScrollBarsChangedImpl(_ handler: TypedEventHandler<UWP.UISettings?, UWP.UISettingsAutoHideScrollBarsChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_AutoHideScrollBarsChanged(_ handler: TypedEventHandler<UWP.UISettings?, UWP.UISettingsAutoHideScrollBarsChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CViewManagement__CUISettings___x_ABI_CWindows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -281,7 +282,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return token
         }
 
-        internal func remove_AutoHideScrollBarsChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_AutoHideScrollBarsChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AutoHideScrollBarsChanged(pThis, token))
             }

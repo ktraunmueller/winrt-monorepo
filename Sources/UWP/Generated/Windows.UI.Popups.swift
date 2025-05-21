@@ -23,5 +23,5 @@ extension UWP.Placement {
         __x_ABI_CWindows_CUI_CPopups_CPlacement_Right
     }
 }
-extension UWP.Placement: @retroactive Hashable, @retroactive Codable {}
+extension UWP.Placement: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

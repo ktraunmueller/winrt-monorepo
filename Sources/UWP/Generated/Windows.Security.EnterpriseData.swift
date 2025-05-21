@@ -17,5 +17,5 @@ extension UWP.ProtectionPolicyEvaluationResult {
         __x_ABI_CWindows_CSecurity_CEnterpriseData_CProtectionPolicyEvaluationResult_ConsentRequired
     }
 }
-extension UWP.ProtectionPolicyEvaluationResult: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ProtectionPolicyEvaluationResult: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

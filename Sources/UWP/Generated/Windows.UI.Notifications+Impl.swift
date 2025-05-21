@@ -4,40 +4,22 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_UI_Notifications {
-    public enum IAdaptiveNotificationContentBridge : AbiInterfaceBridge {
-        public typealias CABI = __x_ABI_CWindows_CUI_CNotifications_CIAdaptiveNotificationContent
-        public typealias SwiftABI = __ABI_Windows_UI_Notifications.IAdaptiveNotificationContent
-        public typealias SwiftProjection = AnyIAdaptiveNotificationContent
-        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+    public enum ShownTileNotificationBridge: AbiBridge {
+        public typealias SwiftProjection = ShownTileNotification
+        public typealias CABI = __x_ABI_CWindows_CUI_CNotifications_CIShownTileNotification
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CNotifications_CIShownTileNotification>?) -> ShownTileNotification? {
             guard let abi = abi else { return nil }
-            return IAdaptiveNotificationContentImpl(abi)
-        }
-
-        public static func makeAbi() -> CABI {
-            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_UI_Notifications.IAdaptiveNotificationContentVTable) { $0 }
-            return .init(lpVtbl: vtblPtr)
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
         }
     }
 
-    fileprivate class IAdaptiveNotificationContentImpl: IAdaptiveNotificationContent, WinRTAbiImpl {
-        fileprivate typealias Bridge = IAdaptiveNotificationContentBridge
-        fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
-            _default = Bridge.SwiftABI(fromAbi)
-        }
-
-        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.notifications.iadaptivenotificationcontent.hints)
-        fileprivate var hints : WindowsFoundation.AnyIMap<String, String>! {
-            get { try! _default.get_HintsImpl() }
-        }
-
-        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.notifications.iadaptivenotificationcontent.kind)
-        fileprivate var kind : AdaptiveNotificationContentKind {
-            get { try! _default.get_KindImpl() }
-        }
-
+}
+@_spi(WinRTInternal)
+public class ShownTileNotificationMaker: MakeFromAbi {
+    public typealias SwiftType = ShownTileNotification
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShownTileNotification(fromAbi: abi)
     }
-
 }

@@ -4,5 +4,33 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_UI_Text {
+    public enum FontWeightsBridge: AbiBridge {
+        public typealias SwiftProjection = FontWeights
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CIFontWeights
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CText_CIFontWeights>?) -> FontWeights? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension FontWeight: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CUI_CText_CFontWeight
+    public static func from(abi: ABI) -> Self {
+        .init(weight: abi.Weight)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class FontWeightsMaker: MakeFromAbi {
+    public typealias SwiftType = FontWeights
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FontWeights(fromAbi: abi)
+    }
 }

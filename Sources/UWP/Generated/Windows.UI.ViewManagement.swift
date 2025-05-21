@@ -26,29 +26,23 @@ public final class ActivationViewSwitcher : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher>?) -> ActivationViewSwitcher? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.activationviewswitcher.showasstandaloneasync)
     public func showAsStandaloneAsync(_ viewId: Int32) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.ShowAsStandaloneAsyncImpl(viewId)
+        try _default.ShowAsStandaloneAsync(viewId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.activationviewswitcher.showasstandaloneasync)
     public func showAsStandaloneAsync(_ viewId: Int32, _ sizePreference: ViewSizePreference) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.ShowAsStandaloneWithSizePreferenceAsyncImpl(viewId, sizePreference)
+        try _default.ShowAsStandaloneWithSizePreferenceAsync(viewId, sizePreference)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.activationviewswitcher.isviewpresentedonactivationvirtualdesktop)
     public func isViewPresentedOnActivationVirtualDesktop(_ viewId: Int32) throws -> Bool {
-        try _default.IsViewPresentedOnActivationVirtualDesktopImpl(viewId)
+        try _default.IsViewPresentedOnActivationVirtualDesktop(viewId)
     }
 
     deinit {
@@ -70,89 +64,84 @@ public final class UISettings : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CViewManagement_CIUISettings>?) -> UISettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.UI.ViewManagement.UISettings")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.UI.ViewManagement.UISettings")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.uielementcolor)
     public func uiElementColor(_ desiredElement: UIElementType) throws -> UWP.Color {
-        try _default.UIElementColorImpl(desiredElement)
+        try _default.UIElementColor(desiredElement)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.animationsenabled)
     public var animationsEnabled : Bool {
-        get { try! _default.get_AnimationsEnabledImpl() }
+        get { try! _default.get_AnimationsEnabled() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.caretblinkrate)
     public var caretBlinkRate : UInt32 {
-        get { try! _default.get_CaretBlinkRateImpl() }
+        get { try! _default.get_CaretBlinkRate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.caretbrowsingenabled)
     public var caretBrowsingEnabled : Bool {
-        get { try! _default.get_CaretBrowsingEnabledImpl() }
+        get { try! _default.get_CaretBrowsingEnabled() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.caretwidth)
     public var caretWidth : UInt32 {
-        get { try! _default.get_CaretWidthImpl() }
+        get { try! _default.get_CaretWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.cursorsize)
     public var cursorSize : WindowsFoundation.Size {
-        get { try! _default.get_CursorSizeImpl() }
+        get { try! _default.get_CursorSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.doubleclicktime)
     public var doubleClickTime : UInt32 {
-        get { try! _default.get_DoubleClickTimeImpl() }
+        get { try! _default.get_DoubleClickTime() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.handpreference)
     public var handPreference : HandPreference {
-        get { try! _default.get_HandPreferenceImpl() }
+        get { try! _default.get_HandPreference() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.messageduration)
     public var messageDuration : UInt32 {
-        get { try! _default.get_MessageDurationImpl() }
+        get { try! _default.get_MessageDuration() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.mousehovertime)
     public var mouseHoverTime : UInt32 {
-        get { try! _default.get_MouseHoverTimeImpl() }
+        get { try! _default.get_MouseHoverTime() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.scrollbararrowsize)
     public var scrollBarArrowSize : WindowsFoundation.Size {
-        get { try! _default.get_ScrollBarArrowSizeImpl() }
+        get { try! _default.get_ScrollBarArrowSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.scrollbarsize)
     public var scrollBarSize : WindowsFoundation.Size {
-        get { try! _default.get_ScrollBarSizeImpl() }
+        get { try! _default.get_ScrollBarSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.scrollbarthumbboxsize)
     public var scrollBarThumbBoxSize : WindowsFoundation.Size {
-        get { try! _default.get_ScrollBarThumbBoxSizeImpl() }
+        get { try! _default.get_ScrollBarThumbBoxSize() }
     }
 
     private lazy var _IUISettings2: __ABI_Windows_UI_ViewManagement.IUISettings2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.textscalefactor)
     public var textScaleFactor : Double {
-        get { try! _IUISettings2.get_TextScaleFactorImpl() }
+        get { try! _IUISettings2.get_TextScaleFactor() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.textscalefactorchanged)
@@ -160,10 +149,10 @@ public final class UISettings : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IUISettings2 else { return .init() }
-          return try! this.add_TextScaleFactorChangedImpl($0)
+          return try! this.add_TextScaleFactorChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IUISettings2.remove_TextScaleFactorChangedImpl($0)
+         try? self?._IUISettings2.remove_TextScaleFactorChanged($0)
        }
       )
     }()
@@ -171,7 +160,7 @@ public final class UISettings : WinRTClass {
     private lazy var _IUISettings3: __ABI_Windows_UI_ViewManagement.IUISettings3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.getcolorvalue)
     public func getColorValue(_ desiredColor: UIColorType) throws -> UWP.Color {
-        try _IUISettings3.GetColorValueImpl(desiredColor)
+        try _IUISettings3.GetColorValue(desiredColor)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.colorvalueschanged)
@@ -179,10 +168,10 @@ public final class UISettings : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IUISettings3 else { return .init() }
-          return try! this.add_ColorValuesChangedImpl($0)
+          return try! this.add_ColorValuesChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IUISettings3.remove_ColorValuesChangedImpl($0)
+         try? self?._IUISettings3.remove_ColorValuesChanged($0)
        }
       )
     }()
@@ -190,7 +179,7 @@ public final class UISettings : WinRTClass {
     private lazy var _IUISettings4: __ABI_Windows_UI_ViewManagement.IUISettings4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabled)
     public var advancedEffectsEnabled : Bool {
-        get { try! _IUISettings4.get_AdvancedEffectsEnabledImpl() }
+        get { try! _IUISettings4.get_AdvancedEffectsEnabled() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabledchanged)
@@ -198,10 +187,10 @@ public final class UISettings : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IUISettings4 else { return .init() }
-          return try! this.add_AdvancedEffectsEnabledChangedImpl($0)
+          return try! this.add_AdvancedEffectsEnabledChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IUISettings4.remove_AdvancedEffectsEnabledChangedImpl($0)
+         try? self?._IUISettings4.remove_AdvancedEffectsEnabledChanged($0)
        }
       )
     }()
@@ -209,7 +198,7 @@ public final class UISettings : WinRTClass {
     private lazy var _IUISettings5: __ABI_Windows_UI_ViewManagement.IUISettings5! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.autohidescrollbars)
     public var autoHideScrollBars : Bool {
-        get { try! _IUISettings5.get_AutoHideScrollBarsImpl() }
+        get { try! _IUISettings5.get_AutoHideScrollBars() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.autohidescrollbarschanged)
@@ -217,10 +206,10 @@ public final class UISettings : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IUISettings5 else { return .init() }
-          return try! this.add_AutoHideScrollBarsChangedImpl($0)
+          return try! this.add_AutoHideScrollBarsChanged($0)
         },
         remove: { [weak self] in
-         try? self?._IUISettings5.remove_AutoHideScrollBarsChangedImpl($0)
+         try? self?._IUISettings5.remove_AutoHideScrollBarsChanged($0)
        }
       )
     }()
@@ -248,12 +237,6 @@ public final class UISettingsAutoHideScrollBarsChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs>?) -> UISettingsAutoHideScrollBarsChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -271,7 +254,7 @@ extension UWP.HandPreference {
         __x_ABI_CWindows_CUI_CViewManagement_CHandPreference_RightHanded
     }
 }
-extension UWP.HandPreference: @retroactive Hashable, @retroactive Codable {}
+extension UWP.HandPreference: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.UIColorType {
     public static var background : UWP.UIColorType {
@@ -305,7 +288,7 @@ extension UWP.UIColorType {
         __x_ABI_CWindows_CUI_CViewManagement_CUIColorType_Complement
     }
 }
-extension UWP.UIColorType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.UIColorType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.UIElementType {
     public static var activeCaption : UWP.UIElementType {
@@ -387,7 +370,7 @@ extension UWP.UIElementType {
         __x_ABI_CWindows_CUI_CViewManagement_CUIElementType_OverlayOutsidePopup
     }
 }
-extension UWP.UIElementType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.UIElementType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ViewSizePreference {
     public static var `default` : UWP.ViewSizePreference {
@@ -412,5 +395,5 @@ extension UWP.ViewSizePreference {
         __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_Custom
     }
 }
-extension UWP.ViewSizePreference: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ViewSizePreference: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -18,12 +18,6 @@ public final class UIContext : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CIUIContext>?) -> UIContext? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -34,7 +28,7 @@ public final class UIContext : WinRTClass {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.color)
-public struct Color: Hashable, Codable {
+public struct Color: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.color.a)
     public var a: UInt8 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.color.r)
@@ -49,9 +43,6 @@ public struct Color: Hashable, Codable {
         self.r = r
         self.g = g
         self.b = b
-    }
-    public static func from(abi: __x_ABI_CWindows_CUI_CColor) -> Color {
-        .init(a: abi.A, r: abi.R, g: abi.G, b: abi.B)
     }
 }
 

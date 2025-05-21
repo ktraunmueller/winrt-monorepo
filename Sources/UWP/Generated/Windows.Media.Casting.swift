@@ -18,20 +18,14 @@ public final class CastingSource : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingSource>?) -> CastingSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingsource.preferredsourceuri)
     public var preferredSourceUri : WindowsFoundation.Uri! {
-        get { try! _default.get_PreferredSourceUriImpl() }
-        set { try! _default.put_PreferredSourceUriImpl(newValue) }
+        get { try! _default.get_PreferredSourceUri() }
+        set { try! _default.put_PreferredSourceUri(newValue) }
     }
 
     deinit {

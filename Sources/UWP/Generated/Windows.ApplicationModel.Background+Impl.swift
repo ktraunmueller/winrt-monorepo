@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_ApplicationModel_Background {
     public enum IBackgroundTaskInstanceBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance
@@ -30,33 +31,33 @@ public enum __IMPL_Windows_ApplicationModel_Background {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.getdeferral)
         fileprivate func getDeferral() throws -> BackgroundTaskDeferral! {
-            try _default.GetDeferralImpl()
+            try _default.GetDeferral()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.instanceid)
         fileprivate var instanceId : Foundation.UUID {
-            get { try! _default.get_InstanceIdImpl() }
+            get { try! _default.get_InstanceId() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.progress)
         fileprivate var progress : UInt32 {
-            get { try! _default.get_ProgressImpl() }
-            set { try! _default.put_ProgressImpl(newValue) }
+            get { try! _default.get_Progress() }
+            set { try! _default.put_Progress(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.suspendedcount)
         fileprivate var suspendedCount : UInt32 {
-            get { try! _default.get_SuspendedCountImpl() }
+            get { try! _default.get_SuspendedCount() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.task)
         fileprivate var task : BackgroundTaskRegistration! {
-            get { try! _default.get_TaskImpl() }
+            get { try! _default.get_Task() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.triggerdetails)
         fileprivate var triggerDetails : Any! {
-            get { try! _default.get_TriggerDetailsImpl() }
+            get { try! _default.get_TriggerDetails() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.canceled)
@@ -64,10 +65,10 @@ public enum __IMPL_Windows_ApplicationModel_Background {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_CanceledImpl($0)
+              return try! this.add_Canceled($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_CanceledImpl($0)
+             try? self?._default.remove_Canceled($0)
            }
           )
         }()
@@ -99,17 +100,17 @@ public enum __IMPL_Windows_ApplicationModel_Background {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration.unregister)
         fileprivate func unregister(_ cancelTask: Bool) throws {
-            try _default.UnregisterImpl(cancelTask)
+            try _default.Unregister(cancelTask)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration.name)
         fileprivate var name : String {
-            get { try! _default.get_NameImpl() }
+            get { try! _default.get_Name() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration.taskid)
         fileprivate var taskId : Foundation.UUID {
-            get { try! _default.get_TaskIdImpl() }
+            get { try! _default.get_TaskId() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration.completed)
@@ -117,10 +118,10 @@ public enum __IMPL_Windows_ApplicationModel_Background {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_CompletedImpl($0)
+              return try! this.add_Completed($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_CompletedImpl($0)
+             try? self?._default.remove_Completed($0)
            }
           )
         }()
@@ -130,10 +131,10 @@ public enum __IMPL_Windows_ApplicationModel_Background {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_ProgressImpl($0)
+              return try! this.add_Progress($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_ProgressImpl($0)
+             try? self?._default.remove_Progress($0)
            }
           )
         }()
@@ -165,23 +166,23 @@ public enum __IMPL_Windows_ApplicationModel_Background {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration2.trigger)
         fileprivate var trigger : AnyIBackgroundTrigger! {
-            get { try! _default.get_TriggerImpl() }
+            get { try! _default.get_Trigger() }
         }
 
         private lazy var _IBackgroundTaskRegistration: __ABI_Windows_ApplicationModel_Background.IBackgroundTaskRegistration! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration2.unregister)
         fileprivate func unregister(_ cancelTask: Bool) throws {
-            try _IBackgroundTaskRegistration.UnregisterImpl(cancelTask)
+            try _IBackgroundTaskRegistration.Unregister(cancelTask)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration2.name)
         fileprivate var name : String {
-            get { try! _IBackgroundTaskRegistration.get_NameImpl() }
+            get { try! _IBackgroundTaskRegistration.get_Name() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration2.taskid)
         fileprivate var taskId : Foundation.UUID {
-            get { try! _IBackgroundTaskRegistration.get_TaskIdImpl() }
+            get { try! _IBackgroundTaskRegistration.get_TaskId() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration2.completed)
@@ -189,10 +190,10 @@ public enum __IMPL_Windows_ApplicationModel_Background {
           .init(
             add: { [weak self] in
               guard let this = self?._IBackgroundTaskRegistration else { return .init() }
-              return try! this.add_CompletedImpl($0)
+              return try! this.add_Completed($0)
             },
             remove: { [weak self] in
-             try? self?._IBackgroundTaskRegistration.remove_CompletedImpl($0)
+             try? self?._IBackgroundTaskRegistration.remove_Completed($0)
            }
           )
         }()
@@ -202,10 +203,10 @@ public enum __IMPL_Windows_ApplicationModel_Background {
           .init(
             add: { [weak self] in
               guard let this = self?._IBackgroundTaskRegistration else { return .init() }
-              return try! this.add_ProgressImpl($0)
+              return try! this.add_Progress($0)
             },
             remove: { [weak self] in
-             try? self?._IBackgroundTaskRegistration.remove_ProgressImpl($0)
+             try? self?._IBackgroundTaskRegistration.remove_Progress($0)
            }
           )
         }()
@@ -237,23 +238,23 @@ public enum __IMPL_Windows_ApplicationModel_Background {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration3.taskgroup)
         fileprivate var taskGroup : BackgroundTaskRegistrationGroup! {
-            get { try! _default.get_TaskGroupImpl() }
+            get { try! _default.get_TaskGroup() }
         }
 
         private lazy var _IBackgroundTaskRegistration: __ABI_Windows_ApplicationModel_Background.IBackgroundTaskRegistration! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration3.unregister)
         fileprivate func unregister(_ cancelTask: Bool) throws {
-            try _IBackgroundTaskRegistration.UnregisterImpl(cancelTask)
+            try _IBackgroundTaskRegistration.Unregister(cancelTask)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration3.name)
         fileprivate var name : String {
-            get { try! _IBackgroundTaskRegistration.get_NameImpl() }
+            get { try! _IBackgroundTaskRegistration.get_Name() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration3.taskid)
         fileprivate var taskId : Foundation.UUID {
-            get { try! _IBackgroundTaskRegistration.get_TaskIdImpl() }
+            get { try! _IBackgroundTaskRegistration.get_TaskId() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskregistration3.completed)
@@ -261,10 +262,10 @@ public enum __IMPL_Windows_ApplicationModel_Background {
           .init(
             add: { [weak self] in
               guard let this = self?._IBackgroundTaskRegistration else { return .init() }
-              return try! this.add_CompletedImpl($0)
+              return try! this.add_Completed($0)
             },
             remove: { [weak self] in
-             try? self?._IBackgroundTaskRegistration.remove_CompletedImpl($0)
+             try? self?._IBackgroundTaskRegistration.remove_Completed($0)
            }
           )
         }()
@@ -274,10 +275,10 @@ public enum __IMPL_Windows_ApplicationModel_Background {
           .init(
             add: { [weak self] in
               guard let this = self?._IBackgroundTaskRegistration else { return .init() }
-              return try! this.add_ProgressImpl($0)
+              return try! this.add_Progress($0)
             },
             remove: { [weak self] in
-             try? self?._IBackgroundTaskRegistration.remove_ProgressImpl($0)
+             try? self?._IBackgroundTaskRegistration.remove_Progress($0)
            }
           )
         }()
@@ -318,7 +319,7 @@ public enum __IMPL_Windows_ApplicationModel_Background {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, reason) in
-                try! _default.InvokeImpl(sender, reason)
+                try _default.Invoke(sender, reason)
             }
             return handler
         }
@@ -332,7 +333,7 @@ public enum __IMPL_Windows_ApplicationModel_Background {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, args) in
-                try! _default.InvokeImpl(sender, args)
+                try _default.Invoke(sender, args)
             }
             return handler
         }
@@ -346,9 +347,129 @@ public enum __IMPL_Windows_ApplicationModel_Background {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, args) in
-                try! _default.InvokeImpl(sender, args)
+                try _default.Invoke(sender, args)
             }
             return handler
         }
+    }
+    public enum BackgroundTaskCompletedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = BackgroundTaskCompletedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventArgs>?) -> BackgroundTaskCompletedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BackgroundTaskDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = BackgroundTaskDeferral
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskDeferral
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskDeferral>?) -> BackgroundTaskDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BackgroundTaskProgressEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = BackgroundTaskProgressEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventArgs>?) -> BackgroundTaskProgressEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BackgroundTaskRegistrationBridge: AbiBridge {
+        public typealias SwiftProjection = BackgroundTaskRegistration
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration>?) -> BackgroundTaskRegistration? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BackgroundTaskRegistrationGroupBridge: AbiBridge {
+        public typealias SwiftProjection = BackgroundTaskRegistrationGroup
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup>?) -> BackgroundTaskRegistrationGroup? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IBackgroundTaskInstanceMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBackgroundTaskInstance
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Background.IBackgroundTaskInstance = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Background.IBackgroundTaskInstanceBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IBackgroundTaskRegistrationMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBackgroundTaskRegistration
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Background.IBackgroundTaskRegistration = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Background.IBackgroundTaskRegistrationBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IBackgroundTaskRegistration2Maker: MakeFromAbi {
+    public typealias SwiftType = AnyIBackgroundTaskRegistration2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Background.IBackgroundTaskRegistration2 = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Background.IBackgroundTaskRegistration2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IBackgroundTaskRegistration3Maker: MakeFromAbi {
+    public typealias SwiftType = AnyIBackgroundTaskRegistration3
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Background.IBackgroundTaskRegistration3 = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Background.IBackgroundTaskRegistration3Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IBackgroundTriggerMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBackgroundTrigger
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Background.IBackgroundTrigger = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Background.IBackgroundTriggerBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class BackgroundTaskCompletedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = BackgroundTaskCompletedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackgroundTaskCompletedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BackgroundTaskDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = BackgroundTaskDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackgroundTaskDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BackgroundTaskProgressEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = BackgroundTaskProgressEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackgroundTaskProgressEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BackgroundTaskRegistrationMaker: MakeFromAbi {
+    public typealias SwiftType = BackgroundTaskRegistration
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackgroundTaskRegistration(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BackgroundTaskRegistrationGroupMaker: MakeFromAbi {
+    public typealias SwiftType = BackgroundTaskRegistrationGroup
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackgroundTaskRegistrationGroup(fromAbi: abi)
     }
 }

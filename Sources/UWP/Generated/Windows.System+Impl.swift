@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_System {
     public enum ILauncherViewOptionsBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CSystem_CILauncherViewOptions
@@ -30,8 +31,8 @@ public enum __IMPL_Windows_System {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.ilauncherviewoptions.desiredremainingview)
         fileprivate var desiredRemainingView : UWP.ViewSizePreference {
-            get { try! _default.get_DesiredRemainingViewImpl() }
-            set { try! _default.put_DesiredRemainingViewImpl(newValue) }
+            get { try! _default.get_DesiredRemainingView() }
+            set { try! _default.put_DesiredRemainingView(newValue) }
         }
 
     }
@@ -45,9 +46,209 @@ public enum __IMPL_Windows_System {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { () in
-                try! _default.InvokeImpl()
+                try _default.Invoke()
             }
             return handler
         }
+    }
+    public enum DispatcherQueueBridge: AbiBridge {
+        public typealias SwiftProjection = DispatcherQueue
+        public typealias CABI = __x_ABI_CWindows_CSystem_CIDispatcherQueue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIDispatcherQueue>?) -> DispatcherQueue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DispatcherQueueShutdownStartingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = DispatcherQueueShutdownStartingEventArgs
+        public typealias CABI = __x_ABI_CWindows_CSystem_CIDispatcherQueueShutdownStartingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIDispatcherQueueShutdownStartingEventArgs>?) -> DispatcherQueueShutdownStartingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DispatcherQueueTimerBridge: AbiBridge {
+        public typealias SwiftProjection = DispatcherQueueTimer
+        public typealias CABI = __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIDispatcherQueueTimer>?) -> DispatcherQueueTimer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FolderLauncherOptionsBridge: AbiBridge {
+        public typealias SwiftProjection = FolderLauncherOptions
+        public typealias CABI = __x_ABI_CWindows_CSystem_CIFolderLauncherOptions
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIFolderLauncherOptions>?) -> FolderLauncherOptions? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LaunchUriResultBridge: AbiBridge {
+        public typealias SwiftProjection = LaunchUriResult
+        public typealias CABI = __x_ABI_CWindows_CSystem_CILaunchUriResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CILaunchUriResult>?) -> LaunchUriResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LauncherOptionsBridge: AbiBridge {
+        public typealias SwiftProjection = LauncherOptions
+        public typealias CABI = __x_ABI_CWindows_CSystem_CILauncherOptions
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CILauncherOptions>?) -> LauncherOptions? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LauncherUIOptionsBridge: AbiBridge {
+        public typealias SwiftProjection = LauncherUIOptions
+        public typealias CABI = __x_ABI_CWindows_CSystem_CILauncherUIOptions
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CILauncherUIOptions>?) -> LauncherUIOptions? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum UserBridge: AbiBridge {
+        public typealias SwiftProjection = User
+        public typealias CABI = __x_ABI_CWindows_CSystem_CIUser
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUser>?) -> User? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum UserAuthenticationStatusChangeDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = UserAuthenticationStatusChangeDeferral
+        public typealias CABI = __x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangeDeferral
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangeDeferral>?) -> UserAuthenticationStatusChangeDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum UserAuthenticationStatusChangingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = UserAuthenticationStatusChangingEventArgs
+        public typealias CABI = __x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs>?) -> UserAuthenticationStatusChangingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum UserChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = UserChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CSystem_CIUserChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUserChangedEventArgs>?) -> UserChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum UserWatcherBridge: AbiBridge {
+        public typealias SwiftProjection = UserWatcher
+        public typealias CABI = __x_ABI_CWindows_CSystem_CIUserWatcher
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUserWatcher>?) -> UserWatcher? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ILauncherViewOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyILauncherViewOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_System.ILauncherViewOptions = try! abi.QueryInterface()
+        return __IMPL_Windows_System.ILauncherViewOptionsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class DispatcherQueueMaker: MakeFromAbi {
+    public typealias SwiftType = DispatcherQueue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DispatcherQueue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DispatcherQueueShutdownStartingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DispatcherQueueShutdownStartingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DispatcherQueueShutdownStartingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DispatcherQueueTimerMaker: MakeFromAbi {
+    public typealias SwiftType = DispatcherQueueTimer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DispatcherQueueTimer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FolderLauncherOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = FolderLauncherOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FolderLauncherOptions(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LaunchUriResultMaker: MakeFromAbi {
+    public typealias SwiftType = LaunchUriResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LaunchUriResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LauncherOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = LauncherOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LauncherOptions(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LauncherUIOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = LauncherUIOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LauncherUIOptions(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class UserMaker: MakeFromAbi {
+    public typealias SwiftType = User
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return User(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class UserAuthenticationStatusChangeDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = UserAuthenticationStatusChangeDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return UserAuthenticationStatusChangeDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class UserAuthenticationStatusChangingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = UserAuthenticationStatusChangingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return UserAuthenticationStatusChangingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class UserChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = UserChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return UserChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class UserWatcherMaker: MakeFromAbi {
+    public typealias SwiftType = UserWatcher
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return UserWatcher(fromAbi: abi)
     }
 }

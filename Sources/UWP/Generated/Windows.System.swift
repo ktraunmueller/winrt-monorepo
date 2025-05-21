@@ -12,8 +12,6 @@ public typealias LaunchQuerySupportStatus = __x_ABI_CWindows_CSystem_CLaunchQuer
 public typealias LaunchQuerySupportType = __x_ABI_CWindows_CSystem_CLaunchQuerySupportType
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launchuristatus)
 public typealias LaunchUriStatus = __x_ABI_CWindows_CSystem_CLaunchUriStatus
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.processorarchitecture)
-public typealias ProcessorArchitecture = __x_ABI_CWindows_CSystem_CProcessorArchitecture
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userauthenticationstatus)
 public typealias UserAuthenticationStatus = __x_ABI_CWindows_CSystem_CUserAuthenticationStatus
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userpicturesize)
@@ -40,35 +38,29 @@ public final class DispatcherQueue : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIDispatcherQueue>?) -> DispatcherQueue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IDispatcherQueueStatics: __ABI_Windows_System.IDispatcherQueueStatics = try! RoGetActivationFactory(HString("Windows.System.DispatcherQueue"))
+    private static let _IDispatcherQueueStatics: __ABI_Windows_System.IDispatcherQueueStatics = try! RoGetActivationFactory("Windows.System.DispatcherQueue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueue.getforcurrentthread)
-    public static func getForCurrentThread() -> DispatcherQueue! {
-        return try! _IDispatcherQueueStatics.GetForCurrentThreadImpl()
+    public static func getForCurrentThread() throws -> DispatcherQueue! {
+        return try _IDispatcherQueueStatics.GetForCurrentThread()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueue.createtimer)
     public func createTimer() throws -> DispatcherQueueTimer! {
-        try _default.CreateTimerImpl()
+        try _default.CreateTimer()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueue.tryenqueue)
     public func tryEnqueue(_ callback: DispatcherQueueHandler!) throws -> Bool {
-        try _default.TryEnqueueImpl(callback)
+        try _default.TryEnqueue(callback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueue.tryenqueue)
     public func tryEnqueue(_ priority: DispatcherQueuePriority, _ callback: DispatcherQueueHandler!) throws -> Bool {
-        try _default.TryEnqueueWithPriorityImpl(priority, callback)
+        try _default.TryEnqueueWithPriority(priority, callback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueue.shutdowncompleted)
@@ -76,10 +68,10 @@ public final class DispatcherQueue : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ShutdownCompletedImpl($0)
+          return try! this.add_ShutdownCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ShutdownCompletedImpl($0)
+         try? self?._default.remove_ShutdownCompleted($0)
        }
       )
     }()
@@ -89,10 +81,10 @@ public final class DispatcherQueue : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ShutdownStartingImpl($0)
+          return try! this.add_ShutdownStarting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ShutdownStartingImpl($0)
+         try? self?._default.remove_ShutdownStarting($0)
        }
       )
     }()
@@ -100,7 +92,7 @@ public final class DispatcherQueue : WinRTClass {
     private lazy var _IDispatcherQueue2: __ABI_Windows_System.IDispatcherQueue2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueue.hasthreadaccess)
     public var hasThreadAccess : Bool {
-        get { try! _IDispatcherQueue2.get_HasThreadAccessImpl() }
+        get { try! _IDispatcherQueue2.get_HasThreadAccess() }
     }
 
     deinit {
@@ -123,19 +115,13 @@ public final class DispatcherQueueShutdownStartingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIDispatcherQueueShutdownStartingEventArgs>?) -> DispatcherQueueShutdownStartingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueueshutdownstartingeventargs.getdeferral)
     public func getDeferral() throws -> WindowsFoundation.Deferral! {
-        try _default.GetDeferralImpl()
+        try _default.GetDeferral()
     }
 
     deinit {
@@ -157,41 +143,35 @@ public final class DispatcherQueueTimer : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIDispatcherQueueTimer>?) -> DispatcherQueueTimer? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueuetimer.start)
     public func start() throws {
-        try _default.StartImpl()
+        try _default.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueuetimer.stop)
     public func stop() throws {
-        try _default.StopImpl()
+        try _default.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueuetimer.interval)
     public var interval : WindowsFoundation.TimeSpan {
-        get { try! _default.get_IntervalImpl() }
-        set { try! _default.put_IntervalImpl(newValue) }
+        get { try! _default.get_Interval() }
+        set { try! _default.put_Interval(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueuetimer.isrepeating)
     public var isRepeating : Bool {
-        get { try! _default.get_IsRepeatingImpl() }
-        set { try! _default.put_IsRepeatingImpl(newValue) }
+        get { try! _default.get_IsRepeating() }
+        set { try! _default.put_IsRepeating(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueuetimer.isrunning)
     public var isRunning : Bool {
-        get { try! _default.get_IsRunningImpl() }
+        get { try! _default.get_IsRunning() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueuetimer.tick)
@@ -199,10 +179,10 @@ public final class DispatcherQueueTimer : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_TickImpl($0)
+          return try! this.add_Tick($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_TickImpl($0)
+         try? self?._default.remove_Tick($0)
        }
       )
     }()
@@ -226,12 +206,6 @@ public final class FolderLauncherOptions : WinRTClass, ILauncherViewOptions {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIFolderLauncherOptions>?) -> FolderLauncherOptions? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -239,20 +213,21 @@ public final class FolderLauncherOptions : WinRTClass, ILauncherViewOptions {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.System.FolderLauncherOptions")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.System.FolderLauncherOptions")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.folderlauncheroptions.itemstoselect)
     public var itemsToSelect : WindowsFoundation.AnyIVector<UWP.AnyIStorageItem?>! {
-        get { try! _default.get_ItemsToSelectImpl() }
+        get { try! _default.get_ItemsToSelect() }
     }
 
     private lazy var _ILauncherViewOptions: __ABI_Windows_System.ILauncherViewOptions! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.folderlauncheroptions.desiredremainingview)
     public var desiredRemainingView : UWP.ViewSizePreference {
-        get { try! _ILauncherViewOptions.get_DesiredRemainingViewImpl() }
-        set { try! _ILauncherViewOptions.put_DesiredRemainingViewImpl(newValue) }
+        get { try! _ILauncherViewOptions.get_DesiredRemainingView() }
+        set { try! _ILauncherViewOptions.put_DesiredRemainingView(newValue) }
     }
 
     deinit {
@@ -275,24 +250,18 @@ public final class LaunchUriResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CILaunchUriResult>?) -> LaunchUriResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launchuriresult.result)
     public var result : WindowsFoundation.ValueSet! {
-        get { try! _default.get_ResultImpl() }
+        get { try! _default.get_Result() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launchuriresult.status)
     public var status : LaunchUriStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     deinit {
@@ -302,149 +271,149 @@ public final class LaunchUriResult : WinRTClass {
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher)
 public final class Launcher {
-    private static let _ILauncherStatics: __ABI_Windows_System.ILauncherStatics = try! RoGetActivationFactory(HString("Windows.System.Launcher"))
+    private static let _ILauncherStatics: __ABI_Windows_System.ILauncherStatics = try! RoGetActivationFactory("Windows.System.Launcher")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchfileasync)
-    public static func launchFileAsync(_ file: UWP.AnyIStorageFile!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics.LaunchFileAsyncImpl(file)
+    public static func launchFileAsync(_ file: UWP.AnyIStorageFile!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics.LaunchFileAsync(file)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchfileasync)
-    public static func launchFileAsync(_ file: UWP.AnyIStorageFile!, _ options: LauncherOptions!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics.LaunchFileWithOptionsAsyncImpl(file, options)
+    public static func launchFileAsync(_ file: UWP.AnyIStorageFile!, _ options: LauncherOptions!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics.LaunchFileWithOptionsAsync(file, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)
-    public static func launchUriAsync(_ uri: WindowsFoundation.Uri!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics.LaunchUriAsyncImpl(uri)
+    public static func launchUriAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics.LaunchUriAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)
-    public static func launchUriAsync(_ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics.LaunchUriWithOptionsAsyncImpl(uri, options)
+    public static func launchUriAsync(_ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics.LaunchUriWithOptionsAsync(uri, options)
     }
 
-    private static let _ILauncherStatics2: __ABI_Windows_System.ILauncherStatics2 = try! RoGetActivationFactory(HString("Windows.System.Launcher"))
+    private static let _ILauncherStatics2: __ABI_Windows_System.ILauncherStatics2 = try! RoGetActivationFactory("Windows.System.Launcher")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsasync)
-    public static func launchUriForResultsAsync(_ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!) -> WindowsFoundation.AnyIAsyncOperation<LaunchUriResult?>! {
-        return try! _ILauncherStatics2.LaunchUriForResultsAsyncImpl(uri, options)
+    public static func launchUriForResultsAsync(_ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchUriResult?>! {
+        return try _ILauncherStatics2.LaunchUriForResultsAsync(uri, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsasync)
-    public static func launchUriForResultsAsync(_ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!, _ inputData: WindowsFoundation.ValueSet!) -> WindowsFoundation.AnyIAsyncOperation<LaunchUriResult?>! {
-        return try! _ILauncherStatics2.LaunchUriForResultsWithDataAsyncImpl(uri, options, inputData)
+    public static func launchUriForResultsAsync(_ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!, _ inputData: WindowsFoundation.ValueSet!) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchUriResult?>! {
+        return try _ILauncherStatics2.LaunchUriForResultsWithDataAsync(uri, options, inputData)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)
-    public static func launchUriAsync(_ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!, _ inputData: WindowsFoundation.ValueSet!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics2.LaunchUriWithDataAsyncImpl(uri, options, inputData)
+    public static func launchUriAsync(_ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!, _ inputData: WindowsFoundation.ValueSet!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics2.LaunchUriWithDataAsync(uri, options, inputData)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.queryurisupportasync)
-    public static func queryUriSupportAsync(_ uri: WindowsFoundation.Uri!, _ launchQuerySupportType: LaunchQuerySupportType) -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
-        return try! _ILauncherStatics2.QueryUriSupportAsyncImpl(uri, launchQuerySupportType)
+    public static func queryUriSupportAsync(_ uri: WindowsFoundation.Uri!, _ launchQuerySupportType: LaunchQuerySupportType) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
+        return try _ILauncherStatics2.QueryUriSupportAsync(uri, launchQuerySupportType)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.queryurisupportasync)
-    public static func queryUriSupportAsync(_ uri: WindowsFoundation.Uri!, _ launchQuerySupportType: LaunchQuerySupportType, _ packageFamilyName: String) -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
-        return try! _ILauncherStatics2.QueryUriSupportWithPackageFamilyNameAsyncImpl(uri, launchQuerySupportType, packageFamilyName)
+    public static func queryUriSupportAsync(_ uri: WindowsFoundation.Uri!, _ launchQuerySupportType: LaunchQuerySupportType, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
+        return try _ILauncherStatics2.QueryUriSupportWithPackageFamilyNameAsync(uri, launchQuerySupportType, packageFamilyName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.queryfilesupportasync)
-    public static func queryFileSupportAsync(_ file: UWP.StorageFile!) -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
-        return try! _ILauncherStatics2.QueryFileSupportAsyncImpl(file)
+    public static func queryFileSupportAsync(_ file: UWP.StorageFile!) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
+        return try _ILauncherStatics2.QueryFileSupportAsync(file)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.queryfilesupportasync)
-    public static func queryFileSupportAsync(_ file: UWP.StorageFile!, _ packageFamilyName: String) -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
-        return try! _ILauncherStatics2.QueryFileSupportWithPackageFamilyNameAsyncImpl(file, packageFamilyName)
+    public static func queryFileSupportAsync(_ file: UWP.StorageFile!, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
+        return try _ILauncherStatics2.QueryFileSupportWithPackageFamilyNameAsync(file, packageFamilyName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.findurischemehandlersasync)
-    public static func findUriSchemeHandlersAsync(_ scheme: String) -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>! {
-        return try! _ILauncherStatics2.FindUriSchemeHandlersAsyncImpl(scheme)
+    public static func findUriSchemeHandlersAsync(_ scheme: String) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>! {
+        return try _ILauncherStatics2.FindUriSchemeHandlersAsync(scheme)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.findurischemehandlersasync)
-    public static func findUriSchemeHandlersAsync(_ scheme: String, _ launchQuerySupportType: LaunchQuerySupportType) -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>! {
-        return try! _ILauncherStatics2.FindUriSchemeHandlersWithLaunchUriTypeAsyncImpl(scheme, launchQuerySupportType)
+    public static func findUriSchemeHandlersAsync(_ scheme: String, _ launchQuerySupportType: LaunchQuerySupportType) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>! {
+        return try _ILauncherStatics2.FindUriSchemeHandlersWithLaunchUriTypeAsync(scheme, launchQuerySupportType)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.findfilehandlersasync)
-    public static func findFileHandlersAsync(_ `extension`: String) -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>! {
-        return try! _ILauncherStatics2.FindFileHandlersAsyncImpl(`extension`)
+    public static func findFileHandlersAsync(_ `extension`: String) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>! {
+        return try _ILauncherStatics2.FindFileHandlersAsync(`extension`)
     }
 
-    private static let _ILauncherStatics3: __ABI_Windows_System.ILauncherStatics3 = try! RoGetActivationFactory(HString("Windows.System.Launcher"))
+    private static let _ILauncherStatics3: __ABI_Windows_System.ILauncherStatics3 = try! RoGetActivationFactory("Windows.System.Launcher")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchfolderasync)
-    public static func launchFolderAsync(_ folder: UWP.AnyIStorageFolder!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics3.LaunchFolderAsyncImpl(folder)
+    public static func launchFolderAsync(_ folder: UWP.AnyIStorageFolder!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics3.LaunchFolderAsync(folder)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchfolderasync)
-    public static func launchFolderAsync(_ folder: UWP.AnyIStorageFolder!, _ options: FolderLauncherOptions!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics3.LaunchFolderWithOptionsAsyncImpl(folder, options)
+    public static func launchFolderAsync(_ folder: UWP.AnyIStorageFolder!, _ options: FolderLauncherOptions!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics3.LaunchFolderWithOptionsAsync(folder, options)
     }
 
-    private static let _ILauncherStatics4: __ABI_Windows_System.ILauncherStatics4 = try! RoGetActivationFactory(HString("Windows.System.Launcher"))
+    private static let _ILauncherStatics4: __ABI_Windows_System.ILauncherStatics4 = try! RoGetActivationFactory("Windows.System.Launcher")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.queryappurisupportasync)
-    public static func queryAppUriSupportAsync(_ uri: WindowsFoundation.Uri!) -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
-        return try! _ILauncherStatics4.QueryAppUriSupportAsyncImpl(uri)
+    public static func queryAppUriSupportAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
+        return try _ILauncherStatics4.QueryAppUriSupportAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.queryappurisupportasync)
-    public static func queryAppUriSupportAsync(_ uri: WindowsFoundation.Uri!, _ packageFamilyName: String) -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
-        return try! _ILauncherStatics4.QueryAppUriSupportWithPackageFamilyNameAsyncImpl(uri, packageFamilyName)
+    public static func queryAppUriSupportAsync(_ uri: WindowsFoundation.Uri!, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchQuerySupportStatus>! {
+        return try _ILauncherStatics4.QueryAppUriSupportWithPackageFamilyNameAsync(uri, packageFamilyName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.findappurihandlersasync)
-    public static func findAppUriHandlersAsync(_ uri: WindowsFoundation.Uri!) -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>! {
-        return try! _ILauncherStatics4.FindAppUriHandlersAsyncImpl(uri)
+    public static func findAppUriHandlersAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>! {
+        return try _ILauncherStatics4.FindAppUriHandlersAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriforuserasync)
-    public static func launchUriForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!) -> WindowsFoundation.AnyIAsyncOperation<LaunchUriStatus>! {
-        return try! _ILauncherStatics4.LaunchUriForUserAsyncImpl(user, uri)
+    public static func launchUriForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchUriStatus>! {
+        return try _ILauncherStatics4.LaunchUriForUserAsync(user, uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriforuserasync)
-    public static func launchUriForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!) -> WindowsFoundation.AnyIAsyncOperation<LaunchUriStatus>! {
-        return try! _ILauncherStatics4.LaunchUriWithOptionsForUserAsyncImpl(user, uri, options)
+    public static func launchUriForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchUriStatus>! {
+        return try _ILauncherStatics4.LaunchUriWithOptionsForUserAsync(user, uri, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriforuserasync)
-    public static func launchUriForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!, _ inputData: WindowsFoundation.ValueSet!) -> WindowsFoundation.AnyIAsyncOperation<LaunchUriStatus>! {
-        return try! _ILauncherStatics4.LaunchUriWithDataForUserAsyncImpl(user, uri, options, inputData)
+    public static func launchUriForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!, _ inputData: WindowsFoundation.ValueSet!) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchUriStatus>! {
+        return try _ILauncherStatics4.LaunchUriWithDataForUserAsync(user, uri, options, inputData)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsforuserasync)
-    public static func launchUriForResultsForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!) -> WindowsFoundation.AnyIAsyncOperation<LaunchUriResult?>! {
-        return try! _ILauncherStatics4.LaunchUriForResultsForUserAsyncImpl(user, uri, options)
+    public static func launchUriForResultsForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchUriResult?>! {
+        return try _ILauncherStatics4.LaunchUriForResultsForUserAsync(user, uri, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchuriforresultsforuserasync)
-    public static func launchUriForResultsForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!, _ inputData: WindowsFoundation.ValueSet!) -> WindowsFoundation.AnyIAsyncOperation<LaunchUriResult?>! {
-        return try! _ILauncherStatics4.LaunchUriForResultsWithDataForUserAsyncImpl(user, uri, options, inputData)
+    public static func launchUriForResultsForUserAsync(_ user: User!, _ uri: WindowsFoundation.Uri!, _ options: LauncherOptions!, _ inputData: WindowsFoundation.ValueSet!) throws -> WindowsFoundation.AnyIAsyncOperation<LaunchUriResult?>! {
+        return try _ILauncherStatics4.LaunchUriForResultsWithDataForUserAsync(user, uri, options, inputData)
     }
 
-    private static let _ILauncherStatics5: __ABI_Windows_System.ILauncherStatics5 = try! RoGetActivationFactory(HString("Windows.System.Launcher"))
+    private static let _ILauncherStatics5: __ABI_Windows_System.ILauncherStatics5 = try! RoGetActivationFactory("Windows.System.Launcher")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchfolderpathasync)
-    public static func launchFolderPathAsync(_ path: String) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics5.LaunchFolderPathAsyncImpl(path)
+    public static func launchFolderPathAsync(_ path: String) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics5.LaunchFolderPathAsync(path)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchfolderpathasync)
-    public static func launchFolderPathAsync(_ path: String, _ options: FolderLauncherOptions!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics5.LaunchFolderPathWithOptionsAsyncImpl(path, options)
+    public static func launchFolderPathAsync(_ path: String, _ options: FolderLauncherOptions!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics5.LaunchFolderPathWithOptionsAsync(path, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchfolderpathforuserasync)
-    public static func launchFolderPathForUserAsync(_ user: User!, _ path: String) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics5.LaunchFolderPathForUserAsyncImpl(user, path)
+    public static func launchFolderPathForUserAsync(_ user: User!, _ path: String) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics5.LaunchFolderPathForUserAsync(user, path)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcher.launchfolderpathforuserasync)
-    public static func launchFolderPathForUserAsync(_ user: User!, _ path: String, _ options: FolderLauncherOptions!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ILauncherStatics5.LaunchFolderPathWithOptionsForUserAsyncImpl(user, path, options)
+    public static func launchFolderPathForUserAsync(_ user: User!, _ path: String, _ options: FolderLauncherOptions!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ILauncherStatics5.LaunchFolderPathWithOptionsForUserAsync(user, path, options)
     }
 
 }
@@ -463,12 +432,6 @@ public final class LauncherOptions : WinRTClass, ILauncherViewOptions {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CILauncherOptions>?) -> LauncherOptions? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -476,83 +439,84 @@ public final class LauncherOptions : WinRTClass, ILauncherViewOptions {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.System.LauncherOptions")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.System.LauncherOptions")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     private lazy var _ILauncherOptions2: __ABI_Windows_System.ILauncherOptions2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.neighboringfilesquery)
     public var neighboringFilesQuery : UWP.StorageFileQueryResult! {
-        get { try! _ILauncherOptions2.get_NeighboringFilesQueryImpl() }
-        set { try! _ILauncherOptions2.put_NeighboringFilesQueryImpl(newValue) }
+        get { try! _ILauncherOptions2.get_NeighboringFilesQuery() }
+        set { try! _ILauncherOptions2.put_NeighboringFilesQuery(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.targetapplicationpackagefamilyname)
     public var targetApplicationPackageFamilyName : String {
-        get { try! _ILauncherOptions2.get_TargetApplicationPackageFamilyNameImpl() }
-        set { try! _ILauncherOptions2.put_TargetApplicationPackageFamilyNameImpl(newValue) }
+        get { try! _ILauncherOptions2.get_TargetApplicationPackageFamilyName() }
+        set { try! _ILauncherOptions2.put_TargetApplicationPackageFamilyName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.contenttype)
     public var contentType : String {
-        get { try! _default.get_ContentTypeImpl() }
-        set { try! _default.put_ContentTypeImpl(newValue) }
+        get { try! _default.get_ContentType() }
+        set { try! _default.put_ContentType(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.displayapplicationpicker)
     public var displayApplicationPicker : Bool {
-        get { try! _default.get_DisplayApplicationPickerImpl() }
-        set { try! _default.put_DisplayApplicationPickerImpl(newValue) }
+        get { try! _default.get_DisplayApplicationPicker() }
+        set { try! _default.put_DisplayApplicationPicker(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.fallbackuri)
     public var fallbackUri : WindowsFoundation.Uri! {
-        get { try! _default.get_FallbackUriImpl() }
-        set { try! _default.put_FallbackUriImpl(newValue) }
+        get { try! _default.get_FallbackUri() }
+        set { try! _default.put_FallbackUri(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationdisplayname)
     public var preferredApplicationDisplayName : String {
-        get { try! _default.get_PreferredApplicationDisplayNameImpl() }
-        set { try! _default.put_PreferredApplicationDisplayNameImpl(newValue) }
+        get { try! _default.get_PreferredApplicationDisplayName() }
+        set { try! _default.put_PreferredApplicationDisplayName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname)
     public var preferredApplicationPackageFamilyName : String {
-        get { try! _default.get_PreferredApplicationPackageFamilyNameImpl() }
-        set { try! _default.put_PreferredApplicationPackageFamilyNameImpl(newValue) }
+        get { try! _default.get_PreferredApplicationPackageFamilyName() }
+        set { try! _default.put_PreferredApplicationPackageFamilyName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.treatasuntrusted)
     public var treatAsUntrusted : Bool {
-        get { try! _default.get_TreatAsUntrustedImpl() }
-        set { try! _default.put_TreatAsUntrustedImpl(newValue) }
+        get { try! _default.get_TreatAsUntrusted() }
+        set { try! _default.put_TreatAsUntrusted(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.ui)
     public var ui : LauncherUIOptions! {
-        get { try! _default.get_UIImpl() }
+        get { try! _default.get_UI() }
     }
 
     private lazy var _ILauncherOptions3: __ABI_Windows_System.ILauncherOptions3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.ignoreappurihandlers)
     public var ignoreAppUriHandlers : Bool {
-        get { try! _ILauncherOptions3.get_IgnoreAppUriHandlersImpl() }
-        set { try! _ILauncherOptions3.put_IgnoreAppUriHandlersImpl(newValue) }
+        get { try! _ILauncherOptions3.get_IgnoreAppUriHandlers() }
+        set { try! _ILauncherOptions3.put_IgnoreAppUriHandlers(newValue) }
     }
 
     private lazy var _ILauncherOptions4: __ABI_Windows_System.ILauncherOptions4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.limitpickertocurrentappandappurihandlers)
     public var limitPickerToCurrentAppAndAppUriHandlers : Bool {
-        get { try! _ILauncherOptions4.get_LimitPickerToCurrentAppAndAppUriHandlersImpl() }
-        set { try! _ILauncherOptions4.put_LimitPickerToCurrentAppAndAppUriHandlersImpl(newValue) }
+        get { try! _ILauncherOptions4.get_LimitPickerToCurrentAppAndAppUriHandlers() }
+        set { try! _ILauncherOptions4.put_LimitPickerToCurrentAppAndAppUriHandlers(newValue) }
     }
 
     private lazy var _ILauncherViewOptions: __ABI_Windows_System.ILauncherViewOptions! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview)
     public var desiredRemainingView : UWP.ViewSizePreference {
-        get { try! _ILauncherViewOptions.get_DesiredRemainingViewImpl() }
-        set { try! _ILauncherViewOptions.put_DesiredRemainingViewImpl(newValue) }
+        get { try! _ILauncherViewOptions.get_DesiredRemainingView() }
+        set { try! _ILauncherViewOptions.put_DesiredRemainingView(newValue) }
     }
 
     deinit {
@@ -578,32 +542,26 @@ public final class LauncherUIOptions : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CILauncherUIOptions>?) -> LauncherUIOptions? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheruioptions.invocationpoint)
     public var invocationPoint : WindowsFoundation.Point? {
-        get { try! _default.get_InvocationPointImpl() }
-        set { try! _default.put_InvocationPointImpl(newValue) }
+        get { try! _default.get_InvocationPoint() }
+        set { try! _default.put_InvocationPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheruioptions.preferredplacement)
     public var preferredPlacement : UWP.Placement {
-        get { try! _default.get_PreferredPlacementImpl() }
-        set { try! _default.put_PreferredPlacementImpl(newValue) }
+        get { try! _default.get_PreferredPlacement() }
+        set { try! _default.put_PreferredPlacement(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheruioptions.selectionrect)
     public var selectionRect : WindowsFoundation.Rect? {
-        get { try! _default.get_SelectionRectImpl() }
-        set { try! _default.put_SelectionRectImpl(newValue) }
+        get { try! _default.get_SelectionRect() }
+        set { try! _default.put_SelectionRect(newValue) }
     }
 
     deinit {
@@ -625,70 +583,64 @@ public final class User : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUser>?) -> User? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IUserStatics: __ABI_Windows_System.IUserStatics = try! RoGetActivationFactory(HString("Windows.System.User"))
+    private static let _IUserStatics: __ABI_Windows_System.IUserStatics = try! RoGetActivationFactory("Windows.System.User")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.createwatcher)
-    public static func createWatcher() -> UserWatcher! {
-        return try! _IUserStatics.CreateWatcherImpl()
+    public static func createWatcher() throws -> UserWatcher! {
+        return try _IUserStatics.CreateWatcher()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.findallasync)
-    public static func findAllAsync() -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<User?>?>! {
-        return try! _IUserStatics.FindAllAsyncImpl()
+    public static func findAllAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<User?>?>! {
+        return try _IUserStatics.FindAllAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.findallasync)
-    public static func findAllAsync(_ type: UserType) -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<User?>?>! {
-        return try! _IUserStatics.FindAllAsyncByTypeImpl(type)
+    public static func findAllAsync(_ type: UserType) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<User?>?>! {
+        return try _IUserStatics.FindAllAsyncByType(type)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.findallasync)
-    public static func findAllAsync(_ type: UserType, _ status: UserAuthenticationStatus) -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<User?>?>! {
-        return try! _IUserStatics.FindAllAsyncByTypeAndStatusImpl(type, status)
+    public static func findAllAsync(_ type: UserType, _ status: UserAuthenticationStatus) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<User?>?>! {
+        return try _IUserStatics.FindAllAsyncByTypeAndStatus(type, status)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.getfromid)
-    public static func getFromId(_ nonRoamableId: String) -> User! {
-        return try! _IUserStatics.GetFromIdImpl(nonRoamableId)
+    public static func getFromId(_ nonRoamableId: String) throws -> User! {
+        return try _IUserStatics.GetFromId(nonRoamableId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.getpropertyasync)
     public func getPropertyAsync(_ value: String) throws -> WindowsFoundation.AnyIAsyncOperation<Any?>! {
-        try _default.GetPropertyAsyncImpl(value)
+        try _default.GetPropertyAsync(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.getpropertiesasync)
     public func getPropertiesAsync(_ values: WindowsFoundation.AnyIVectorView<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIPropertySet?>! {
-        try _default.GetPropertiesAsyncImpl(values)
+        try _default.GetPropertiesAsync(values)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.getpictureasync)
     public func getPictureAsync(_ desiredSize: UserPictureSize) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIRandomAccessStreamReference?>! {
-        try _default.GetPictureAsyncImpl(desiredSize)
+        try _default.GetPictureAsync(desiredSize)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.authenticationstatus)
     public var authenticationStatus : UserAuthenticationStatus {
-        get { try! _default.get_AuthenticationStatusImpl() }
+        get { try! _default.get_AuthenticationStatus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.nonroamableid)
     public var nonRoamableId : String {
-        get { try! _default.get_NonRoamableIdImpl() }
+        get { try! _default.get_NonRoamableId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user.type)
     public var type : UserType {
-        get { try! _default.get_TypeImpl() }
+        get { try! _default.get_Type() }
     }
 
     deinit {
@@ -710,19 +662,13 @@ public final class UserAuthenticationStatusChangeDeferral : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangeDeferral>?) -> UserAuthenticationStatusChangeDeferral? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userauthenticationstatuschangedeferral.complete)
     public func complete() throws {
-        try _default.CompleteImpl()
+        try _default.Complete()
     }
 
     deinit {
@@ -744,34 +690,28 @@ public final class UserAuthenticationStatusChangingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs>?) -> UserAuthenticationStatusChangingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userauthenticationstatuschangingeventargs.getdeferral)
     public func getDeferral() throws -> UserAuthenticationStatusChangeDeferral! {
-        try _default.GetDeferralImpl()
+        try _default.GetDeferral()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userauthenticationstatuschangingeventargs.currentstatus)
     public var currentStatus : UserAuthenticationStatus {
-        get { try! _default.get_CurrentStatusImpl() }
+        get { try! _default.get_CurrentStatus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userauthenticationstatuschangingeventargs.newstatus)
     public var newStatus : UserAuthenticationStatus {
-        get { try! _default.get_NewStatusImpl() }
+        get { try! _default.get_NewStatus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userauthenticationstatuschangingeventargs.user)
     public var user : User! {
-        get { try! _default.get_UserImpl() }
+        get { try! _default.get_User() }
     }
 
     deinit {
@@ -793,19 +733,13 @@ public final class UserChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUserChangedEventArgs>?) -> UserChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userchangedeventargs.user)
     public var user : User! {
-        get { try! _default.get_UserImpl() }
+        get { try! _default.get_User() }
     }
 
     deinit {
@@ -827,29 +761,23 @@ public final class UserWatcher : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CIUserWatcher>?) -> UserWatcher? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userwatcher.start)
     public func start() throws {
-        try _default.StartImpl()
+        try _default.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userwatcher.stop)
     public func stop() throws {
-        try _default.StopImpl()
+        try _default.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userwatcher.status)
     public var status : UserWatcherStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userwatcher.added)
@@ -857,10 +785,10 @@ public final class UserWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AddedImpl($0)
+          return try! this.add_Added($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AddedImpl($0)
+         try? self?._default.remove_Added($0)
        }
       )
     }()
@@ -870,10 +798,10 @@ public final class UserWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AuthenticationStatusChangedImpl($0)
+          return try! this.add_AuthenticationStatusChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AuthenticationStatusChangedImpl($0)
+         try? self?._default.remove_AuthenticationStatusChanged($0)
        }
       )
     }()
@@ -883,10 +811,10 @@ public final class UserWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AuthenticationStatusChangingImpl($0)
+          return try! this.add_AuthenticationStatusChanging($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AuthenticationStatusChangingImpl($0)
+         try? self?._default.remove_AuthenticationStatusChanging($0)
        }
       )
     }()
@@ -896,10 +824,10 @@ public final class UserWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_EnumerationCompletedImpl($0)
+          return try! this.add_EnumerationCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_EnumerationCompletedImpl($0)
+         try? self?._default.remove_EnumerationCompleted($0)
        }
       )
     }()
@@ -909,10 +837,10 @@ public final class UserWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_RemovedImpl($0)
+          return try! this.add_Removed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_RemovedImpl($0)
+         try? self?._default.remove_Removed($0)
        }
       )
     }()
@@ -922,10 +850,10 @@ public final class UserWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_StoppedImpl($0)
+          return try! this.add_Stopped($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_StoppedImpl($0)
+         try? self?._default.remove_Stopped($0)
        }
       )
     }()
@@ -935,10 +863,10 @@ public final class UserWatcher : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_UpdatedImpl($0)
+          return try! this.add_Updated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_UpdatedImpl($0)
+         try? self?._default.remove_Updated($0)
        }
       )
     }()
@@ -948,7 +876,7 @@ public final class UserWatcher : WinRTClass {
     }
 }
 
-public typealias DispatcherQueueHandler = () -> ()
+public typealias DispatcherQueueHandler = () throws -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.ilauncherviewoptions)
 public protocol ILauncherViewOptions : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.ilauncherviewoptions.desiredremainingview)
@@ -978,7 +906,7 @@ extension UWP.DispatcherQueuePriority {
         __x_ABI_CWindows_CSystem_CDispatcherQueuePriority_High
     }
 }
-extension UWP.DispatcherQueuePriority: @retroactive Hashable, @retroactive Codable {}
+extension UWP.DispatcherQueuePriority: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.LaunchQuerySupportStatus {
     public static var available : UWP.LaunchQuerySupportStatus {
@@ -997,7 +925,7 @@ extension UWP.LaunchQuerySupportStatus {
         __x_ABI_CWindows_CSystem_CLaunchQuerySupportStatus_Unknown
     }
 }
-extension UWP.LaunchQuerySupportStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.LaunchQuerySupportStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.LaunchQuerySupportType {
     public static var uri : UWP.LaunchQuerySupportType {
@@ -1007,7 +935,7 @@ extension UWP.LaunchQuerySupportType {
         __x_ABI_CWindows_CSystem_CLaunchQuerySupportType_UriForResults
     }
 }
-extension UWP.LaunchQuerySupportType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.LaunchQuerySupportType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.LaunchUriStatus {
     public static var success : UWP.LaunchUriStatus {
@@ -1023,32 +951,7 @@ extension UWP.LaunchUriStatus {
         __x_ABI_CWindows_CSystem_CLaunchUriStatus_Unknown
     }
 }
-extension UWP.LaunchUriStatus: @retroactive Hashable, @retroactive Codable {}
-
-extension UWP.ProcessorArchitecture {
-    public static var x86 : UWP.ProcessorArchitecture {
-        __x_ABI_CWindows_CSystem_CProcessorArchitecture_X86
-    }
-    public static var arm : UWP.ProcessorArchitecture {
-        __x_ABI_CWindows_CSystem_CProcessorArchitecture_Arm
-    }
-    public static var x64 : UWP.ProcessorArchitecture {
-        __x_ABI_CWindows_CSystem_CProcessorArchitecture_X64
-    }
-    public static var neutral : UWP.ProcessorArchitecture {
-        __x_ABI_CWindows_CSystem_CProcessorArchitecture_Neutral
-    }
-    public static var arm64 : UWP.ProcessorArchitecture {
-        __x_ABI_CWindows_CSystem_CProcessorArchitecture_Arm64
-    }
-    public static var x86OnArm64 : UWP.ProcessorArchitecture {
-        __x_ABI_CWindows_CSystem_CProcessorArchitecture_X86OnArm64
-    }
-    public static var unknown : UWP.ProcessorArchitecture {
-        __x_ABI_CWindows_CSystem_CProcessorArchitecture_Unknown
-    }
-}
-extension UWP.ProcessorArchitecture: @retroactive Hashable, @retroactive Codable {}
+extension UWP.LaunchUriStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.UserAuthenticationStatus {
     public static var unauthenticated : UWP.UserAuthenticationStatus {
@@ -1061,7 +964,7 @@ extension UWP.UserAuthenticationStatus {
         __x_ABI_CWindows_CSystem_CUserAuthenticationStatus_RemotelyAuthenticated
     }
 }
-extension UWP.UserAuthenticationStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.UserAuthenticationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.UserPictureSize {
     public static var size64x64 : UWP.UserPictureSize {
@@ -1077,7 +980,7 @@ extension UWP.UserPictureSize {
         __x_ABI_CWindows_CSystem_CUserPictureSize_Size1080x1080
     }
 }
-extension UWP.UserPictureSize: @retroactive Hashable, @retroactive Codable {}
+extension UWP.UserPictureSize: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.UserType {
     public static var localUser : UWP.UserType {
@@ -1093,7 +996,7 @@ extension UWP.UserType {
         __x_ABI_CWindows_CSystem_CUserType_RemoteGuest
     }
 }
-extension UWP.UserType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.UserType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.UserWatcherStatus {
     public static var created : UWP.UserWatcherStatus {
@@ -1115,7 +1018,7 @@ extension UWP.UserWatcherStatus {
         __x_ABI_CWindows_CSystem_CUserWatcherStatus_Aborted
     }
 }
-extension UWP.UserWatcherStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.UserWatcherStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.VirtualKey {
     public static var none : UWP.VirtualKey {
@@ -1629,7 +1532,7 @@ extension UWP.VirtualKey {
         __x_ABI_CWindows_CSystem_CVirtualKey_GamepadRightThumbstickLeft
     }
 }
-extension UWP.VirtualKey: @retroactive Hashable, @retroactive Codable {}
+extension UWP.VirtualKey: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.VirtualKeyModifiers {
     public static var none : UWP.VirtualKeyModifiers {
@@ -1648,5 +1551,5 @@ extension UWP.VirtualKeyModifiers {
         __x_ABI_CWindows_CSystem_CVirtualKeyModifiers_Windows
     }
 }
-extension UWP.VirtualKeyModifiers: @retroactive Hashable, @retroactive Codable {}
+extension UWP.VirtualKeyModifiers: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

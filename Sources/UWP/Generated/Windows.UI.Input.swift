@@ -20,75 +20,69 @@ public final class PointerPoint : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CInput_CIPointerPoint>?) -> PointerPoint? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IPointerPointStatics: __ABI_Windows_UI_Input.IPointerPointStatics = try! RoGetActivationFactory(HString("Windows.UI.Input.PointerPoint"))
+    private static let _IPointerPointStatics: __ABI_Windows_UI_Input.IPointerPointStatics = try! RoGetActivationFactory("Windows.UI.Input.PointerPoint")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.getcurrentpoint)
-    public static func getCurrentPoint(_ pointerId: UInt32) -> PointerPoint! {
-        return try! _IPointerPointStatics.GetCurrentPointImpl(pointerId)
+    public static func getCurrentPoint(_ pointerId: UInt32) throws -> PointerPoint! {
+        return try _IPointerPointStatics.GetCurrentPoint(pointerId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.getintermediatepoints)
-    public static func getIntermediatePoints(_ pointerId: UInt32) -> WindowsFoundation.AnyIVector<PointerPoint?>! {
-        return try! _IPointerPointStatics.GetIntermediatePointsImpl(pointerId)
+    public static func getIntermediatePoints(_ pointerId: UInt32) throws -> WindowsFoundation.AnyIVector<PointerPoint?>! {
+        return try _IPointerPointStatics.GetIntermediatePoints(pointerId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.getcurrentpoint)
-    public static func getCurrentPoint(_ pointerId: UInt32, _ transform: AnyIPointerPointTransform!) -> PointerPoint! {
-        return try! _IPointerPointStatics.GetCurrentPointTransformedImpl(pointerId, transform)
+    public static func getCurrentPoint(_ pointerId: UInt32, _ transform: AnyIPointerPointTransform!) throws -> PointerPoint! {
+        return try _IPointerPointStatics.GetCurrentPointTransformed(pointerId, transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.getintermediatepoints)
-    public static func getIntermediatePoints(_ pointerId: UInt32, _ transform: AnyIPointerPointTransform!) -> WindowsFoundation.AnyIVector<PointerPoint?>! {
-        return try! _IPointerPointStatics.GetIntermediatePointsTransformedImpl(pointerId, transform)
+    public static func getIntermediatePoints(_ pointerId: UInt32, _ transform: AnyIPointerPointTransform!) throws -> WindowsFoundation.AnyIVector<PointerPoint?>! {
+        return try _IPointerPointStatics.GetIntermediatePointsTransformed(pointerId, transform)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.frameid)
     public var frameId : UInt32 {
-        get { try! _default.get_FrameIdImpl() }
+        get { try! _default.get_FrameId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.isincontact)
     public var isInContact : Bool {
-        get { try! _default.get_IsInContactImpl() }
+        get { try! _default.get_IsInContact() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.pointerdevice)
     public var pointerDevice : UWP.PointerDevice! {
-        get { try! _default.get_PointerDeviceImpl() }
+        get { try! _default.get_PointerDevice() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.pointerid)
     public var pointerId : UInt32 {
-        get { try! _default.get_PointerIdImpl() }
+        get { try! _default.get_PointerId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.properties)
     public var properties : PointerPointProperties! {
-        get { try! _default.get_PropertiesImpl() }
+        get { try! _default.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.rawposition)
     public var rawPosition : WindowsFoundation.Point {
-        get { try! _default.get_RawPositionImpl() }
+        get { try! _default.get_RawPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint.timestamp)
     public var timestamp : UInt64 {
-        get { try! _default.get_TimestampImpl() }
+        get { try! _default.get_Timestamp() }
     }
 
     deinit {
@@ -110,140 +104,134 @@ public final class PointerPointProperties : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CInput_CIPointerPointProperties>?) -> PointerPointProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.hasusage)
     public func hasUsage(_ usagePage: UInt32, _ usageId: UInt32) throws -> Bool {
-        try _default.HasUsageImpl(usagePage, usageId)
+        try _default.HasUsage(usagePage, usageId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.getusagevalue)
     public func getUsageValue(_ usagePage: UInt32, _ usageId: UInt32) throws -> Int32 {
-        try _default.GetUsageValueImpl(usagePage, usageId)
+        try _default.GetUsageValue(usagePage, usageId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.contactrect)
     public var contactRect : WindowsFoundation.Rect {
-        get { try! _default.get_ContactRectImpl() }
+        get { try! _default.get_ContactRect() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.contactrectraw)
     public var contactRectRaw : WindowsFoundation.Rect {
-        get { try! _default.get_ContactRectRawImpl() }
+        get { try! _default.get_ContactRectRaw() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.isbarrelbuttonpressed)
     public var isBarrelButtonPressed : Bool {
-        get { try! _default.get_IsBarrelButtonPressedImpl() }
+        get { try! _default.get_IsBarrelButtonPressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.iscanceled)
     public var isCanceled : Bool {
-        get { try! _default.get_IsCanceledImpl() }
+        get { try! _default.get_IsCanceled() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.iseraser)
     public var isEraser : Bool {
-        get { try! _default.get_IsEraserImpl() }
+        get { try! _default.get_IsEraser() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.ishorizontalmousewheel)
     public var isHorizontalMouseWheel : Bool {
-        get { try! _default.get_IsHorizontalMouseWheelImpl() }
+        get { try! _default.get_IsHorizontalMouseWheel() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.isinrange)
     public var isInRange : Bool {
-        get { try! _default.get_IsInRangeImpl() }
+        get { try! _default.get_IsInRange() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.isinverted)
     public var isInverted : Bool {
-        get { try! _default.get_IsInvertedImpl() }
+        get { try! _default.get_IsInverted() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.isleftbuttonpressed)
     public var isLeftButtonPressed : Bool {
-        get { try! _default.get_IsLeftButtonPressedImpl() }
+        get { try! _default.get_IsLeftButtonPressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.ismiddlebuttonpressed)
     public var isMiddleButtonPressed : Bool {
-        get { try! _default.get_IsMiddleButtonPressedImpl() }
+        get { try! _default.get_IsMiddleButtonPressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.isprimary)
     public var isPrimary : Bool {
-        get { try! _default.get_IsPrimaryImpl() }
+        get { try! _default.get_IsPrimary() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.isrightbuttonpressed)
     public var isRightButtonPressed : Bool {
-        get { try! _default.get_IsRightButtonPressedImpl() }
+        get { try! _default.get_IsRightButtonPressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.isxbutton1pressed)
     public var isXButton1Pressed : Bool {
-        get { try! _default.get_IsXButton1PressedImpl() }
+        get { try! _default.get_IsXButton1Pressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.isxbutton2pressed)
     public var isXButton2Pressed : Bool {
-        get { try! _default.get_IsXButton2PressedImpl() }
+        get { try! _default.get_IsXButton2Pressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.mousewheeldelta)
     public var mouseWheelDelta : Int32 {
-        get { try! _default.get_MouseWheelDeltaImpl() }
+        get { try! _default.get_MouseWheelDelta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.orientation)
     public var orientation : Float {
-        get { try! _default.get_OrientationImpl() }
+        get { try! _default.get_Orientation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.pointerupdatekind)
     public var pointerUpdateKind : PointerUpdateKind {
-        get { try! _default.get_PointerUpdateKindImpl() }
+        get { try! _default.get_PointerUpdateKind() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.pressure)
     public var pressure : Float {
-        get { try! _default.get_PressureImpl() }
+        get { try! _default.get_Pressure() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.touchconfidence)
     public var touchConfidence : Bool {
-        get { try! _default.get_TouchConfidenceImpl() }
+        get { try! _default.get_TouchConfidence() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.twist)
     public var twist : Float {
-        get { try! _default.get_TwistImpl() }
+        get { try! _default.get_Twist() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.xtilt)
     public var xtilt : Float {
-        get { try! _default.get_XTiltImpl() }
+        get { try! _default.get_XTilt() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.ytilt)
     public var ytilt : Float {
-        get { try! _default.get_YTiltImpl() }
+        get { try! _default.get_YTilt() }
     }
 
     private lazy var _IPointerPointProperties2: __ABI_Windows_UI_Input.IPointerPointProperties2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties.zdistance)
     public var zdistance : Float? {
-        get { try! _IPointerPointProperties2.get_ZDistanceImpl() }
+        get { try! _IPointerPointProperties2.get_ZDistance() }
     }
 
     deinit {
@@ -309,5 +297,5 @@ extension UWP.PointerUpdateKind {
         __x_ABI_CWindows_CUI_CInput_CPointerUpdateKind_XButton2Released
     }
 }
-extension UWP.PointerUpdateKind: @retroactive Hashable, @retroactive Codable {}
+extension UWP.PointerUpdateKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_ApplicationModel {
     public enum IEnteredBackgroundEventArgsBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs
@@ -30,7 +31,7 @@ public enum __IMPL_Windows_ApplicationModel {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ienteredbackgroundeventargs.getdeferral)
         fileprivate func getDeferral() throws -> WindowsFoundation.Deferral! {
-            try _default.GetDeferralImpl()
+            try _default.GetDeferral()
         }
 
     }
@@ -60,7 +61,7 @@ public enum __IMPL_Windows_ApplicationModel {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ileavingbackgroundeventargs.getdeferral)
         fileprivate func getDeferral() throws -> WindowsFoundation.Deferral! {
-            try _default.GetDeferralImpl()
+            try _default.GetDeferral()
         }
 
     }
@@ -90,7 +91,7 @@ public enum __IMPL_Windows_ApplicationModel {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingdeferral.complete)
         fileprivate func complete() throws {
-            try _default.CompleteImpl()
+            try _default.Complete()
         }
 
     }
@@ -120,7 +121,7 @@ public enum __IMPL_Windows_ApplicationModel {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingeventargs.suspendingoperation)
         fileprivate var suspendingOperation : SuspendingOperation! {
-            get { try! _default.get_SuspendingOperationImpl() }
+            get { try! _default.get_SuspendingOperation() }
         }
 
     }
@@ -150,14 +151,166 @@ public enum __IMPL_Windows_ApplicationModel {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation.getdeferral)
         fileprivate func getDeferral() throws -> SuspendingDeferral! {
-            try _default.GetDeferralImpl()
+            try _default.GetDeferral()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation.deadline)
         fileprivate var deadline : WindowsFoundation.DateTime {
-            get { try! _default.get_DeadlineImpl() }
+            get { try! _default.get_Deadline() }
         }
 
     }
 
+    public enum AppDisplayInfoBridge: AbiBridge {
+        public typealias SwiftProjection = AppDisplayInfo
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo>?) -> AppDisplayInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AppInfoBridge: AbiBridge {
+        public typealias SwiftProjection = AppInfo
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppInfo
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CIAppInfo>?) -> AppInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum EnteredBackgroundEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = EnteredBackgroundEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs>?) -> EnteredBackgroundEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LeavingBackgroundEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = LeavingBackgroundEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs>?) -> LeavingBackgroundEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SuspendingDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = SuspendingDeferral
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingDeferral
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CISuspendingDeferral>?) -> SuspendingDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SuspendingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SuspendingEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs>?) -> SuspendingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SuspendingOperationBridge: AbiBridge {
+        public typealias SwiftProjection = SuspendingOperation
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingOperation
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CISuspendingOperation>?) -> SuspendingOperation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IEnteredBackgroundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIEnteredBackgroundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.IEnteredBackgroundEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ILeavingBackgroundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyILeavingBackgroundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.ILeavingBackgroundEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ISuspendingDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISuspendingDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.ISuspendingDeferral = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.ISuspendingDeferralBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ISuspendingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISuspendingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.ISuspendingEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.ISuspendingEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ISuspendingOperationMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISuspendingOperation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.ISuspendingOperation = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.ISuspendingOperationBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class AppDisplayInfoMaker: MakeFromAbi {
+    public typealias SwiftType = AppDisplayInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppDisplayInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AppInfoMaker: MakeFromAbi {
+    public typealias SwiftType = AppInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class EnteredBackgroundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = EnteredBackgroundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return EnteredBackgroundEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LeavingBackgroundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = LeavingBackgroundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LeavingBackgroundEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SuspendingDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = SuspendingDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SuspendingDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SuspendingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SuspendingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SuspendingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SuspendingOperationMaker: MakeFromAbi {
+    public typealias SwiftType = SuspendingOperation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SuspendingOperation(fromAbi: abi)
+    }
 }

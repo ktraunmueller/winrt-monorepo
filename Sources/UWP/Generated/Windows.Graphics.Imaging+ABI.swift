@@ -84,11 +84,12 @@ private var IID___x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapStatics: Win
     .init(Data1: 0xDF0385DB, Data2: 0x672F, Data3: 0x4A9D, Data4: ( 0x80,0x6E,0xC2,0x44,0x2F,0x34,0x3E,0x86 ))// DF0385DB-672F-4A9D-806E-C2442F343E86
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapBuffer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapBuffer }
 
-        internal func GetPlaneCountImpl() throws -> Int32 {
+        public func GetPlaneCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapBuffer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPlaneCount(pThis, &value))
@@ -96,7 +97,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func GetPlaneDescriptionImpl(_ index: Int32) throws -> UWP.BitmapPlaneDescription {
+        public func GetPlaneDescription(_ index: Int32) throws -> UWP.BitmapPlaneDescription {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapPlaneDescription = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapBuffer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPlaneDescription(pThis, index, &value))
@@ -109,7 +110,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapCodecInformation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapCodecInformation }
 
-        internal func get_CodecIdImpl() throws -> Foundation.UUID {
+        public func get_CodecId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapCodecInformation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CodecId(pThis, &value))
@@ -117,7 +118,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_FileExtensionsImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_FileExtensions() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapCodecInformation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileExtensions(pThis, &valueAbi))
@@ -126,7 +127,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_FriendlyNameImpl() throws -> String {
+        public func get_FriendlyName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapCodecInformation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FriendlyName(pThis, &value))
@@ -134,7 +135,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_MimeTypesImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_MimeTypes() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapCodecInformation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MimeTypes(pThis, &valueAbi))
@@ -148,25 +149,25 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapDecoder: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoder }
 
-        internal func get_BitmapContainerPropertiesImpl() throws -> UWP.BitmapPropertiesView? {
+        public func get_BitmapContainerProperties() throws -> UWP.BitmapPropertiesView? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapContainerProperties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.BitmapPropertiesViewBridge.from(abi: value)
         }
 
-        internal func get_DecoderInformationImpl() throws -> UWP.BitmapCodecInformation? {
+        public func get_DecoderInformation() throws -> UWP.BitmapCodecInformation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DecoderInformation(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.BitmapCodecInformationBridge.from(abi: value)
         }
 
-        internal func get_FrameCountImpl() throws -> UInt32 {
+        public func get_FrameCount() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FrameCount(pThis, &value))
@@ -174,7 +175,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func GetPreviewAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ImageStream?>? {
+        public func GetPreviewAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ImageStream?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPreviewAsync(pThis, &asyncInfoAbi))
@@ -183,7 +184,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CImageStreamWrapper.unwrapFrom(abi: asyncInfo)
         }
 
-        internal func GetFrameAsyncImpl(_ frameIndex: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapFrame?>? {
+        public func GetFrameAsync(_ frameIndex: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapFrame?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetFrameAsync(pThis, frameIndex, &asyncInfoAbi))
@@ -197,7 +198,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapDecoderStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics }
 
-        internal func get_BmpDecoderIdImpl() throws -> Foundation.UUID {
+        public func get_BmpDecoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BmpDecoderId(pThis, &value))
@@ -205,7 +206,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_JpegDecoderIdImpl() throws -> Foundation.UUID {
+        public func get_JpegDecoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_JpegDecoderId(pThis, &value))
@@ -213,7 +214,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_PngDecoderIdImpl() throws -> Foundation.UUID {
+        public func get_PngDecoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PngDecoderId(pThis, &value))
@@ -221,7 +222,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_TiffDecoderIdImpl() throws -> Foundation.UUID {
+        public func get_TiffDecoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TiffDecoderId(pThis, &value))
@@ -229,7 +230,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_GifDecoderIdImpl() throws -> Foundation.UUID {
+        public func get_GifDecoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GifDecoderId(pThis, &value))
@@ -237,7 +238,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_JpegXRDecoderIdImpl() throws -> Foundation.UUID {
+        public func get_JpegXRDecoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_JpegXRDecoderId(pThis, &value))
@@ -245,7 +246,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_IcoDecoderIdImpl() throws -> Foundation.UUID {
+        public func get_IcoDecoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IcoDecoderId(pThis, &value))
@@ -253,7 +254,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func GetDecoderInformationEnumeratorImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.BitmapCodecInformation?>? {
+        public func GetDecoderInformationEnumerator() throws -> WindowsFoundation.AnyIVectorView<UWP.BitmapCodecInformation?>? {
             let (decoderInformationEnumerator) = try ComPtrs.initialize { decoderInformationEnumeratorAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDecoderInformationEnumerator(pThis, &decoderInformationEnumeratorAbi))
@@ -262,7 +263,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGraphics__CImaging__CBitmapCodecInformationWrapper.unwrapFrom(abi: decoderInformationEnumerator)
         }
 
-        internal func CreateAsyncImpl(_ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapDecoder?>? {
+        public func CreateAsync(_ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapDecoder?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
                 let _stream = try! streamWrapper?.toABI { $0 }
@@ -273,7 +274,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CBitmapDecoderWrapper.unwrapFrom(abi: asyncInfo)
         }
 
-        internal func CreateWithIdAsyncImpl(_ decoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapDecoder?>? {
+        public func CreateWithIdAsync(_ decoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapDecoder?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
                 let _stream = try! streamWrapper?.toABI { $0 }
@@ -289,7 +290,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapDecoderStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics2 }
 
-        internal func get_HeifDecoderIdImpl() throws -> Foundation.UUID {
+        public func get_HeifDecoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeifDecoderId(pThis, &value))
@@ -297,7 +298,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_WebpDecoderIdImpl() throws -> Foundation.UUID {
+        public func get_WebpDecoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_WebpDecoderId(pThis, &value))
@@ -310,34 +311,34 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapEncoder: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder }
 
-        internal func get_EncoderInformationImpl() throws -> UWP.BitmapCodecInformation? {
+        public func get_EncoderInformation() throws -> UWP.BitmapCodecInformation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EncoderInformation(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.BitmapCodecInformationBridge.from(abi: value)
         }
 
-        internal func get_BitmapPropertiesImpl() throws -> UWP.BitmapProperties? {
+        public func get_BitmapProperties() throws -> UWP.BitmapProperties? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapProperties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.BitmapPropertiesBridge.from(abi: value)
         }
 
-        internal func get_BitmapContainerPropertiesImpl() throws -> UWP.BitmapProperties? {
+        public func get_BitmapContainerProperties() throws -> UWP.BitmapProperties? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapContainerProperties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.BitmapPropertiesBridge.from(abi: value)
         }
 
-        internal func get_IsThumbnailGeneratedImpl() throws -> Bool {
+        public func get_IsThumbnailGenerated() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsThumbnailGenerated(pThis, &value))
@@ -345,13 +346,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func put_IsThumbnailGeneratedImpl(_ value: Bool) throws {
+        public func put_IsThumbnailGenerated(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsThumbnailGenerated(pThis, .init(from: value)))
             }
         }
 
-        internal func get_GeneratedThumbnailWidthImpl() throws -> UInt32 {
+        public func get_GeneratedThumbnailWidth() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GeneratedThumbnailWidth(pThis, &value))
@@ -359,13 +360,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func put_GeneratedThumbnailWidthImpl(_ value: UInt32) throws {
+        public func put_GeneratedThumbnailWidth(_ value: UInt32) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_GeneratedThumbnailWidth(pThis, value))
             }
         }
 
-        internal func get_GeneratedThumbnailHeightImpl() throws -> UInt32 {
+        public func get_GeneratedThumbnailHeight() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GeneratedThumbnailHeight(pThis, &value))
@@ -373,22 +374,30 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func put_GeneratedThumbnailHeightImpl(_ value: UInt32) throws {
+        public func put_GeneratedThumbnailHeight(_ value: UInt32) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_GeneratedThumbnailHeight(pThis, value))
             }
         }
 
-        internal func get_BitmapTransformImpl() throws -> UWP.BitmapTransform? {
+        public func get_BitmapTransform() throws -> UWP.BitmapTransform? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapTransform(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.BitmapTransformBridge.from(abi: value)
         }
 
-        internal func GoToNextFrameAsyncImpl() throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SetPixelData(_ pixelFormat: UWP.BitmapPixelFormat, _ alphaMode: UWP.BitmapAlphaMode, _ width: UInt32, _ height: UInt32, _ dpiX: Double, _ dpiY: Double, _ pixels: [UInt8]) throws {
+            try pixels.toABI { _pixels in
+                _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetPixelData(pThis, pixelFormat, alphaMode, width, height, dpiX, dpiY, _pixels.count, _pixels.start))
+                }
+            }
+        }
+
+        public func GoToNextFrameAsync() throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GoToNextFrameAsync(pThis, &asyncInfoAbi))
@@ -397,7 +406,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncInfo)
         }
 
-        internal func GoToNextFrameWithEncodingOptionsAsyncImpl(_ encodingOptions: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, UWP.BitmapTypedValue?>?>?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func GoToNextFrameWithEncodingOptionsAsync(_ encodingOptions: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, UWP.BitmapTypedValue?>?>?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 let encodingOptionsWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CGraphics__CImaging__CBitmapTypedValueWrapper(encodingOptions)
                 let _encodingOptions = try! encodingOptionsWrapper?.toABI { $0 }
@@ -408,7 +417,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncInfo)
         }
 
-        internal func FlushAsyncImpl() throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func FlushAsync() throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FlushAsync(pThis, &asyncInfoAbi))
@@ -422,7 +431,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapEncoderStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics }
 
-        internal func get_BmpEncoderIdImpl() throws -> Foundation.UUID {
+        public func get_BmpEncoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BmpEncoderId(pThis, &value))
@@ -430,7 +439,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_JpegEncoderIdImpl() throws -> Foundation.UUID {
+        public func get_JpegEncoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_JpegEncoderId(pThis, &value))
@@ -438,7 +447,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_PngEncoderIdImpl() throws -> Foundation.UUID {
+        public func get_PngEncoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PngEncoderId(pThis, &value))
@@ -446,7 +455,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_TiffEncoderIdImpl() throws -> Foundation.UUID {
+        public func get_TiffEncoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TiffEncoderId(pThis, &value))
@@ -454,7 +463,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_GifEncoderIdImpl() throws -> Foundation.UUID {
+        public func get_GifEncoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GifEncoderId(pThis, &value))
@@ -462,7 +471,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func get_JpegXREncoderIdImpl() throws -> Foundation.UUID {
+        public func get_JpegXREncoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_JpegXREncoderId(pThis, &value))
@@ -470,7 +479,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func GetEncoderInformationEnumeratorImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.BitmapCodecInformation?>? {
+        public func GetEncoderInformationEnumerator() throws -> WindowsFoundation.AnyIVectorView<UWP.BitmapCodecInformation?>? {
             let (encoderInformationEnumerator) = try ComPtrs.initialize { encoderInformationEnumeratorAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetEncoderInformationEnumerator(pThis, &encoderInformationEnumeratorAbi))
@@ -479,7 +488,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGraphics__CImaging__CBitmapCodecInformationWrapper.unwrapFrom(abi: encoderInformationEnumerator)
         }
 
-        internal func CreateAsyncImpl(_ encoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapEncoder?>? {
+        public func CreateAsync(_ encoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapEncoder?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
                 let _stream = try! streamWrapper?.toABI { $0 }
@@ -490,7 +499,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CBitmapEncoderWrapper.unwrapFrom(abi: asyncInfo)
         }
 
-        internal func CreateWithEncodingOptionsAsyncImpl(_ encoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream?, _ encodingOptions: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, UWP.BitmapTypedValue?>?>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapEncoder?>? {
+        public func CreateWithEncodingOptionsAsync(_ encoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream?, _ encodingOptions: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, UWP.BitmapTypedValue?>?>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapEncoder?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
                 let _stream = try! streamWrapper?.toABI { $0 }
@@ -503,7 +512,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CBitmapEncoderWrapper.unwrapFrom(abi: asyncInfo)
         }
 
-        internal func CreateForTranscodingAsyncImpl(_ stream: UWP.AnyIRandomAccessStream?, _ bitmapDecoder: UWP.BitmapDecoder?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapEncoder?>? {
+        public func CreateForTranscodingAsync(_ stream: UWP.AnyIRandomAccessStream?, _ bitmapDecoder: UWP.BitmapDecoder?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapEncoder?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
                 let _stream = try! streamWrapper?.toABI { $0 }
@@ -514,7 +523,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CBitmapEncoderWrapper.unwrapFrom(abi: asyncInfo)
         }
 
-        internal func CreateForInPlacePropertyEncodingAsyncImpl(_ bitmapDecoder: UWP.BitmapDecoder?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapEncoder?>? {
+        public func CreateForInPlacePropertyEncodingAsync(_ bitmapDecoder: UWP.BitmapDecoder?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapEncoder?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForInPlacePropertyEncodingAsync(pThis, RawPointer(bitmapDecoder), &asyncInfoAbi))
@@ -528,7 +537,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapEncoderStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics2 }
 
-        internal func get_HeifEncoderIdImpl() throws -> Foundation.UUID {
+        public func get_HeifEncoderId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeifEncoderId(pThis, &value))
@@ -541,7 +550,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapEncoderWithSoftwareBitmap: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderWithSoftwareBitmap }
 
-        internal func SetSoftwareBitmapImpl(_ bitmap: UWP.SoftwareBitmap?) throws {
+        public func SetSoftwareBitmap(_ bitmap: UWP.SoftwareBitmap?) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderWithSoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetSoftwareBitmap(pThis, RawPointer(bitmap)))
             }
@@ -552,7 +561,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame }
 
-        open func GetThumbnailAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ImageStream?>? {
+        open func GetThumbnailAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ImageStream?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetThumbnailAsync(pThis, &asyncInfoAbi))
@@ -561,16 +570,16 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CImageStreamWrapper.unwrapFrom(abi: asyncInfo)
         }
 
-        open func get_BitmapPropertiesImpl() throws -> UWP.BitmapPropertiesView? {
+        open func get_BitmapProperties() throws -> UWP.BitmapPropertiesView? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapProperties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.BitmapPropertiesViewBridge.from(abi: value)
         }
 
-        open func get_BitmapPixelFormatImpl() throws -> UWP.BitmapPixelFormat {
+        open func get_BitmapPixelFormat() throws -> UWP.BitmapPixelFormat {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapPixelFormat = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapPixelFormat(pThis, &value))
@@ -578,7 +587,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        open func get_BitmapAlphaModeImpl() throws -> UWP.BitmapAlphaMode {
+        open func get_BitmapAlphaMode() throws -> UWP.BitmapAlphaMode {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapAlphaMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapAlphaMode(pThis, &value))
@@ -586,7 +595,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        open func get_DpiXImpl() throws -> Double {
+        open func get_DpiX() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DpiX(pThis, &value))
@@ -594,7 +603,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        open func get_DpiYImpl() throws -> Double {
+        open func get_DpiY() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DpiY(pThis, &value))
@@ -602,7 +611,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        open func get_PixelWidthImpl() throws -> UInt32 {
+        open func get_PixelWidth() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelWidth(pThis, &value))
@@ -610,7 +619,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        open func get_PixelHeightImpl() throws -> UInt32 {
+        open func get_PixelHeight() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelHeight(pThis, &value))
@@ -618,7 +627,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        open func get_OrientedPixelWidthImpl() throws -> UInt32 {
+        open func get_OrientedPixelWidth() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OrientedPixelWidth(pThis, &value))
@@ -626,7 +635,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        open func get_OrientedPixelHeightImpl() throws -> UInt32 {
+        open func get_OrientedPixelHeight() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OrientedPixelHeight(pThis, &value))
@@ -634,7 +643,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        open func GetPixelDataAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.PixelDataProvider?>? {
+        open func GetPixelDataAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.PixelDataProvider?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPixelDataAsync(pThis, &asyncInfoAbi))
@@ -643,7 +652,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CPixelDataProviderWrapper.unwrapFrom(abi: asyncInfo)
         }
 
-        open func GetPixelDataTransformedAsyncImpl(_ pixelFormat: UWP.BitmapPixelFormat, _ alphaMode: UWP.BitmapAlphaMode, _ transform: UWP.BitmapTransform?, _ exifOrientationMode: UWP.ExifOrientationMode, _ colorManagementMode: UWP.ColorManagementMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.PixelDataProvider?>? {
+        open func GetPixelDataTransformedAsync(_ pixelFormat: UWP.BitmapPixelFormat, _ alphaMode: UWP.BitmapAlphaMode, _ transform: UWP.BitmapTransform?, _ exifOrientationMode: UWP.ExifOrientationMode, _ colorManagementMode: UWP.ColorManagementMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.PixelDataProvider?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPixelDataTransformedAsync(pThis, pixelFormat, alphaMode, RawPointer(transform), exifOrientationMode, colorManagementMode, &asyncInfoAbi))
@@ -689,7 +698,7 @@ public enum __ABI_Windows_Graphics_Imaging {
                 let asyncInfoWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CImageStreamWrapper(asyncInfo)
                 asyncInfoWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         get_BitmapProperties: {
@@ -762,7 +771,7 @@ public enum __ABI_Windows_Graphics_Imaging {
                 let asyncInfoWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CPixelDataProviderWrapper(asyncInfo)
                 asyncInfoWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetPixelDataTransformedAsync: {
@@ -770,14 +779,14 @@ public enum __ABI_Windows_Graphics_Imaging {
                 guard let __unwrapped__instance = IBitmapFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let pixelFormat: UWP.BitmapPixelFormat = $1
                 let alphaMode: UWP.BitmapAlphaMode = $2
-                let transform: UWP.BitmapTransform? = .from(abi: ComPtr($3))
+                let transform: UWP.BitmapTransform? = __IMPL_Windows_Graphics_Imaging.BitmapTransformBridge.from(abi: ComPtr($3))
                 let exifOrientationMode: UWP.ExifOrientationMode = $4
                 let colorManagementMode: UWP.ColorManagementMode = $5
                 let asyncInfo = try __unwrapped__instance.getPixelDataAsync(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
                 let asyncInfoWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CPixelDataProviderWrapper(asyncInfo)
                 asyncInfoWrapper?.copyTo($6)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -785,7 +794,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapFrameWithSoftwareBitmap: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrameWithSoftwareBitmap }
 
-        open func GetSoftwareBitmapAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
+        open func GetSoftwareBitmapAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrameWithSoftwareBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSoftwareBitmapAsync(pThis, &valueAbi))
@@ -794,7 +803,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CSoftwareBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        open func GetSoftwareBitmapConvertedAsyncImpl(_ pixelFormat: UWP.BitmapPixelFormat, _ alphaMode: UWP.BitmapAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
+        open func GetSoftwareBitmapConvertedAsync(_ pixelFormat: UWP.BitmapPixelFormat, _ alphaMode: UWP.BitmapAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrameWithSoftwareBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSoftwareBitmapConvertedAsync(pThis, pixelFormat, alphaMode, &valueAbi))
@@ -803,7 +812,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CSoftwareBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        open func GetSoftwareBitmapTransformedAsyncImpl(_ pixelFormat: UWP.BitmapPixelFormat, _ alphaMode: UWP.BitmapAlphaMode, _ transform: UWP.BitmapTransform?, _ exifOrientationMode: UWP.ExifOrientationMode, _ colorManagementMode: UWP.ColorManagementMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
+        open func GetSoftwareBitmapTransformedAsync(_ pixelFormat: UWP.BitmapPixelFormat, _ alphaMode: UWP.BitmapAlphaMode, _ transform: UWP.BitmapTransform?, _ exifOrientationMode: UWP.ExifOrientationMode, _ colorManagementMode: UWP.ColorManagementMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrameWithSoftwareBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSoftwareBitmapTransformedAsync(pThis, pixelFormat, alphaMode, RawPointer(transform), exifOrientationMode, colorManagementMode, &valueAbi))
@@ -850,7 +859,7 @@ public enum __ABI_Windows_Graphics_Imaging {
                 let valueWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CSoftwareBitmapWrapper(value)
                 valueWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetSoftwareBitmapConvertedAsync: {
@@ -862,7 +871,7 @@ public enum __ABI_Windows_Graphics_Imaging {
                 let valueWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CSoftwareBitmapWrapper(value)
                 valueWrapper?.copyTo($3)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetSoftwareBitmapTransformedAsync: {
@@ -870,14 +879,14 @@ public enum __ABI_Windows_Graphics_Imaging {
                 guard let __unwrapped__instance = IBitmapFrameWithSoftwareBitmapWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let pixelFormat: UWP.BitmapPixelFormat = $1
                 let alphaMode: UWP.BitmapAlphaMode = $2
-                let transform: UWP.BitmapTransform? = .from(abi: ComPtr($3))
+                let transform: UWP.BitmapTransform? = __IMPL_Windows_Graphics_Imaging.BitmapTransformBridge.from(abi: ComPtr($3))
                 let exifOrientationMode: UWP.ExifOrientationMode = $4
                 let colorManagementMode: UWP.ColorManagementMode = $5
                 let value = try __unwrapped__instance.getSoftwareBitmapAsync(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
                 let valueWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CSoftwareBitmapWrapper(value)
                 valueWrapper?.copyTo($6)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -885,7 +894,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapProperties: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapProperties }
 
-        internal func SetPropertiesAsyncImpl(_ propertiesToSet: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, UWP.BitmapTypedValue?>?>?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SetPropertiesAsync(_ propertiesToSet: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, UWP.BitmapTypedValue?>?>?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 let propertiesToSetWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CGraphics__CImaging__CBitmapTypedValueWrapper(propertiesToSet)
                 let _propertiesToSet = try! propertiesToSetWrapper?.toABI { $0 }
@@ -901,7 +910,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapPropertiesView: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapPropertiesView }
 
-        open func GetPropertiesAsyncImpl(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapPropertySet?>? {
+        open func GetPropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapPropertySet?>? {
             let (asyncInfo) = try ComPtrs.initialize { asyncInfoAbi in
                 let propertiesToRetrieveWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(propertiesToRetrieve)
                 let _propertiesToRetrieve = try! propertiesToRetrieveWrapper?.toABI { $0 }
@@ -950,7 +959,7 @@ public enum __ABI_Windows_Graphics_Imaging {
                 let asyncInfoWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CBitmapPropertySetWrapper(asyncInfo)
                 asyncInfoWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -958,7 +967,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapTransform: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform }
 
-        internal func get_ScaledWidthImpl() throws -> UInt32 {
+        public func get_ScaledWidth() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaledWidth(pThis, &value))
@@ -966,13 +975,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func put_ScaledWidthImpl(_ value: UInt32) throws {
+        public func put_ScaledWidth(_ value: UInt32) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ScaledWidth(pThis, value))
             }
         }
 
-        internal func get_ScaledHeightImpl() throws -> UInt32 {
+        public func get_ScaledHeight() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaledHeight(pThis, &value))
@@ -980,13 +989,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func put_ScaledHeightImpl(_ value: UInt32) throws {
+        public func put_ScaledHeight(_ value: UInt32) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ScaledHeight(pThis, value))
             }
         }
 
-        internal func get_InterpolationModeImpl() throws -> UWP.BitmapInterpolationMode {
+        public func get_InterpolationMode() throws -> UWP.BitmapInterpolationMode {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapInterpolationMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InterpolationMode(pThis, &value))
@@ -994,13 +1003,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func put_InterpolationModeImpl(_ value: UWP.BitmapInterpolationMode) throws {
+        public func put_InterpolationMode(_ value: UWP.BitmapInterpolationMode) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_InterpolationMode(pThis, value))
             }
         }
 
-        internal func get_FlipImpl() throws -> UWP.BitmapFlip {
+        public func get_Flip() throws -> UWP.BitmapFlip {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapFlip = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Flip(pThis, &value))
@@ -1008,13 +1017,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func put_FlipImpl(_ value: UWP.BitmapFlip) throws {
+        public func put_Flip(_ value: UWP.BitmapFlip) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Flip(pThis, value))
             }
         }
 
-        internal func get_RotationImpl() throws -> UWP.BitmapRotation {
+        public func get_Rotation() throws -> UWP.BitmapRotation {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapRotation = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Rotation(pThis, &value))
@@ -1022,13 +1031,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func put_RotationImpl(_ value: UWP.BitmapRotation) throws {
+        public func put_Rotation(_ value: UWP.BitmapRotation) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Rotation(pThis, value))
             }
         }
 
-        internal func get_BoundsImpl() throws -> UWP.BitmapBounds {
+        public func get_Bounds() throws -> UWP.BitmapBounds {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapBounds = .init()
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bounds(pThis, &value))
@@ -1036,7 +1045,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .from(abi: value)
         }
 
-        internal func put_BoundsImpl(_ value: UWP.BitmapBounds) throws {
+        public func put_Bounds(_ value: UWP.BitmapBounds) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Bounds(pThis, .from(swift: value)))
             }
@@ -1047,7 +1056,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapTypedValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapTypedValue }
 
-        internal func get_ValueImpl() throws -> Any? {
+        public func get_Value() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTypedValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &valueAbi))
@@ -1056,7 +1065,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_TypeImpl() throws -> WindowsFoundation.PropertyType {
+        public func get_Type() throws -> WindowsFoundation.PropertyType {
             var value: __x_ABI_CWindows_CFoundation_CPropertyType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTypedValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
@@ -1069,7 +1078,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IBitmapTypedValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapTypedValueFactory }
 
-        internal func CreateImpl(_ value: Any?, _ type: WindowsFoundation.PropertyType) throws -> IBitmapTypedValue {
+        public func Create(_ value: Any?, _ type: WindowsFoundation.PropertyType) throws -> IBitmapTypedValue {
             let (bitmapTypedValue) = try ComPtrs.initialize { bitmapTypedValueAbi in
                 let valueWrapper = __ABI_.AnyWrapper(value)
                 let _value = try! valueWrapper?.toABI { $0 }
@@ -1085,12 +1094,22 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class IPixelDataProvider: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIPixelDataProvider }
 
+        public func DetachPixelData() throws -> [UInt8] {
+            var pixelData: WinRTArrayAbi<UINT8> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIPixelDataProvider.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DetachPixelData(pThis, &pixelData.count, &pixelData.start))
+            }
+            defer { CoTaskMemFree(pixelData.start) }
+            return .from(abi: pixelData)
+
+        }
+
     }
 
     public class ISoftwareBitmap: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap }
 
-        internal func get_BitmapPixelFormatImpl() throws -> UWP.BitmapPixelFormat {
+        public func get_BitmapPixelFormat() throws -> UWP.BitmapPixelFormat {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapPixelFormat = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapPixelFormat(pThis, &value))
@@ -1098,7 +1117,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func get_BitmapAlphaModeImpl() throws -> UWP.BitmapAlphaMode {
+        public func get_BitmapAlphaMode() throws -> UWP.BitmapAlphaMode {
             var value: __x_ABI_CWindows_CGraphics_CImaging_CBitmapAlphaMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitmapAlphaMode(pThis, &value))
@@ -1106,7 +1125,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func get_PixelWidthImpl() throws -> Int32 {
+        public func get_PixelWidth() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelWidth(pThis, &value))
@@ -1114,7 +1133,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func get_PixelHeightImpl() throws -> Int32 {
+        public func get_PixelHeight() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelHeight(pThis, &value))
@@ -1122,7 +1141,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func get_IsReadOnlyImpl() throws -> Bool {
+        public func get_IsReadOnly() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsReadOnly(pThis, &value))
@@ -1130,13 +1149,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             return .init(from: value)
         }
 
-        internal func put_DpiXImpl(_ value: Double) throws {
+        public func put_DpiX(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DpiX(pThis, value))
             }
         }
 
-        internal func get_DpiXImpl() throws -> Double {
+        public func get_DpiX() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DpiX(pThis, &value))
@@ -1144,13 +1163,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func put_DpiYImpl(_ value: Double) throws {
+        public func put_DpiY(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DpiY(pThis, value))
             }
         }
 
-        internal func get_DpiYImpl() throws -> Double {
+        public func get_DpiY() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DpiY(pThis, &value))
@@ -1158,22 +1177,22 @@ public enum __ABI_Windows_Graphics_Imaging {
             return value
         }
 
-        internal func LockBufferImpl(_ mode: UWP.BitmapBufferAccessMode) throws -> UWP.BitmapBuffer? {
+        public func LockBuffer(_ mode: UWP.BitmapBufferAccessMode) throws -> UWP.BitmapBuffer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LockBuffer(pThis, mode, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.BitmapBufferBridge.from(abi: value)
         }
 
-        internal func CopyToImpl(_ bitmap: UWP.SoftwareBitmap?) throws {
+        public func CopyTo(_ bitmap: UWP.SoftwareBitmap?) throws {
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CopyTo(pThis, RawPointer(bitmap)))
             }
         }
 
-        internal func CopyFromBufferImpl(_ buffer: UWP.AnyIBuffer?) throws {
+        public func CopyFromBuffer(_ buffer: UWP.AnyIBuffer?) throws {
             let bufferWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(buffer)
             let _buffer = try! bufferWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
@@ -1181,7 +1200,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             }
         }
 
-        internal func CopyToBufferImpl(_ buffer: UWP.AnyIBuffer?) throws {
+        public func CopyToBuffer(_ buffer: UWP.AnyIBuffer?) throws {
             let bufferWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(buffer)
             let _buffer = try! bufferWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
@@ -1189,13 +1208,13 @@ public enum __ABI_Windows_Graphics_Imaging {
             }
         }
 
-        internal func GetReadOnlyViewImpl() throws -> UWP.SoftwareBitmap? {
+        public func GetReadOnlyView() throws -> UWP.SoftwareBitmap? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetReadOnlyView(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.SoftwareBitmapBridge.from(abi: value)
         }
 
     }
@@ -1203,7 +1222,7 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class ISoftwareBitmapFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapFactory }
 
-        internal func CreateImpl(_ format: UWP.BitmapPixelFormat, _ width: Int32, _ height: Int32) throws -> ISoftwareBitmap {
+        public func Create(_ format: UWP.BitmapPixelFormat, _ width: Int32, _ height: Int32) throws -> ISoftwareBitmap {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, format, width, height, &valueAbi))
@@ -1212,7 +1231,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return ISoftwareBitmap(value!)
         }
 
-        internal func CreateWithAlphaImpl(_ format: UWP.BitmapPixelFormat, _ width: Int32, _ height: Int32, _ alpha: UWP.BitmapAlphaMode) throws -> ISoftwareBitmap {
+        public func CreateWithAlpha(_ format: UWP.BitmapPixelFormat, _ width: Int32, _ height: Int32, _ alpha: UWP.BitmapAlphaMode) throws -> ISoftwareBitmap {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithAlpha(pThis, format, width, height, alpha, &valueAbi))
@@ -1226,34 +1245,34 @@ public enum __ABI_Windows_Graphics_Imaging {
     public class ISoftwareBitmapStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapStatics }
 
-        internal func CopyImpl(_ source: UWP.SoftwareBitmap?) throws -> UWP.SoftwareBitmap? {
+        public func Copy(_ source: UWP.SoftwareBitmap?) throws -> UWP.SoftwareBitmap? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Copy(pThis, RawPointer(source), &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.SoftwareBitmapBridge.from(abi: value)
         }
 
-        internal func ConvertImpl(_ source: UWP.SoftwareBitmap?, _ format: UWP.BitmapPixelFormat) throws -> UWP.SoftwareBitmap? {
+        public func Convert(_ source: UWP.SoftwareBitmap?, _ format: UWP.BitmapPixelFormat) throws -> UWP.SoftwareBitmap? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Convert(pThis, RawPointer(source), format, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.SoftwareBitmapBridge.from(abi: value)
         }
 
-        internal func ConvertWithAlphaImpl(_ source: UWP.SoftwareBitmap?, _ format: UWP.BitmapPixelFormat, _ alpha: UWP.BitmapAlphaMode) throws -> UWP.SoftwareBitmap? {
+        public func ConvertWithAlpha(_ source: UWP.SoftwareBitmap?, _ format: UWP.BitmapPixelFormat, _ alpha: UWP.BitmapAlphaMode) throws -> UWP.SoftwareBitmap? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.ConvertWithAlpha(pThis, RawPointer(source), format, alpha, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.SoftwareBitmapBridge.from(abi: value)
         }
 
-        internal func CreateCopyFromBufferImpl(_ source: UWP.AnyIBuffer?, _ format: UWP.BitmapPixelFormat, _ width: Int32, _ height: Int32) throws -> UWP.SoftwareBitmap? {
+        public func CreateCopyFromBuffer(_ source: UWP.AnyIBuffer?, _ format: UWP.BitmapPixelFormat, _ width: Int32, _ height: Int32) throws -> UWP.SoftwareBitmap? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let sourceWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(source)
                 let _source = try! sourceWrapper?.toABI { $0 }
@@ -1261,10 +1280,10 @@ public enum __ABI_Windows_Graphics_Imaging {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCopyFromBuffer(pThis, _source, format, width, height, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.SoftwareBitmapBridge.from(abi: value)
         }
 
-        internal func CreateCopyWithAlphaFromBufferImpl(_ source: UWP.AnyIBuffer?, _ format: UWP.BitmapPixelFormat, _ width: Int32, _ height: Int32, _ alpha: UWP.BitmapAlphaMode) throws -> UWP.SoftwareBitmap? {
+        public func CreateCopyWithAlphaFromBuffer(_ source: UWP.AnyIBuffer?, _ format: UWP.BitmapPixelFormat, _ width: Int32, _ height: Int32, _ alpha: UWP.BitmapAlphaMode) throws -> UWP.SoftwareBitmap? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let sourceWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(source)
                 let _source = try! sourceWrapper?.toABI { $0 }
@@ -1272,10 +1291,10 @@ public enum __ABI_Windows_Graphics_Imaging {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCopyWithAlphaFromBuffer(pThis, _source, format, width, height, alpha, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Graphics_Imaging.SoftwareBitmapBridge.from(abi: value)
         }
 
-        internal func CreateCopyFromSurfaceAsyncImpl(_ surface: UWP.AnyIDirect3DSurface?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
+        public func CreateCopyFromSurfaceAsync(_ surface: UWP.AnyIDirect3DSurface?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let surfaceWrapper = __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceWrapper(surface)
                 let _surface = try! surfaceWrapper?.toABI { $0 }
@@ -1286,7 +1305,7 @@ public enum __ABI_Windows_Graphics_Imaging {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CGraphics__CImaging__CSoftwareBitmapWrapper.unwrapFrom(abi: value)
         }
 
-        internal func CreateCopyWithAlphaFromSurfaceAsyncImpl(_ surface: UWP.AnyIDirect3DSurface?, _ alpha: UWP.BitmapAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
+        public func CreateCopyWithAlphaFromSurfaceAsync(_ surface: UWP.AnyIDirect3DSurface?, _ alpha: UWP.BitmapAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let surfaceWrapper = __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceWrapper(surface)
                 let _surface = try! surfaceWrapper?.toABI { $0 }

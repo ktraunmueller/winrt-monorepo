@@ -24,70 +24,64 @@ public final class FontWeights : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CText_CIFontWeights>?) -> FontWeights? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IFontWeightsStatics: __ABI_Windows_UI_Text.IFontWeightsStatics = try! RoGetActivationFactory(HString("Windows.UI.Text.FontWeights"))
+    private static let _IFontWeightsStatics: __ABI_Windows_UI_Text.IFontWeightsStatics = try! RoGetActivationFactory("Windows.UI.Text.FontWeights")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.black)
     public static var black : FontWeight {
-        get { try! _IFontWeightsStatics.get_BlackImpl() }
+        get { try! _IFontWeightsStatics.get_Black() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.bold)
     public static var bold : FontWeight {
-        get { try! _IFontWeightsStatics.get_BoldImpl() }
+        get { try! _IFontWeightsStatics.get_Bold() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.extrablack)
     public static var extraBlack : FontWeight {
-        get { try! _IFontWeightsStatics.get_ExtraBlackImpl() }
+        get { try! _IFontWeightsStatics.get_ExtraBlack() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.extrabold)
     public static var extraBold : FontWeight {
-        get { try! _IFontWeightsStatics.get_ExtraBoldImpl() }
+        get { try! _IFontWeightsStatics.get_ExtraBold() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.extralight)
     public static var extraLight : FontWeight {
-        get { try! _IFontWeightsStatics.get_ExtraLightImpl() }
+        get { try! _IFontWeightsStatics.get_ExtraLight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.light)
     public static var light : FontWeight {
-        get { try! _IFontWeightsStatics.get_LightImpl() }
+        get { try! _IFontWeightsStatics.get_Light() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.medium)
     public static var medium : FontWeight {
-        get { try! _IFontWeightsStatics.get_MediumImpl() }
+        get { try! _IFontWeightsStatics.get_Medium() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.normal)
     public static var normal : FontWeight {
-        get { try! _IFontWeightsStatics.get_NormalImpl() }
+        get { try! _IFontWeightsStatics.get_Normal() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.semibold)
     public static var semiBold : FontWeight {
-        get { try! _IFontWeightsStatics.get_SemiBoldImpl() }
+        get { try! _IFontWeightsStatics.get_SemiBold() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.semilight)
     public static var semiLight : FontWeight {
-        get { try! _IFontWeightsStatics.get_SemiLightImpl() }
+        get { try! _IFontWeightsStatics.get_SemiLight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights.thin)
     public static var thin : FontWeight {
-        get { try! _IFontWeightsStatics.get_ThinImpl() }
+        get { try! _IFontWeightsStatics.get_Thin() }
     }
 
     deinit {
@@ -96,15 +90,12 @@ public final class FontWeights : WinRTClass {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweight)
-public struct FontWeight: Hashable, Codable {
+public struct FontWeight: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweight.weight)
     public var weight: UInt16 = 0
     public init() {}
     public init(weight: UInt16) {
         self.weight = weight
-    }
-    public static func from(abi: __x_ABI_CWindows_CUI_CText_CFontWeight) -> FontWeight {
-        .init(weight: abi.Weight)
     }
 }
 
@@ -140,7 +131,7 @@ extension UWP.FontStretch {
         __x_ABI_CWindows_CUI_CText_CFontStretch_UltraExpanded
     }
 }
-extension UWP.FontStretch: @retroactive Hashable, @retroactive Codable {}
+extension UWP.FontStretch: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.FontStyle {
     public static var normal : UWP.FontStyle {
@@ -153,7 +144,7 @@ extension UWP.FontStyle {
         __x_ABI_CWindows_CUI_CText_CFontStyle_Italic
     }
 }
-extension UWP.FontStyle: @retroactive Hashable, @retroactive Codable {}
+extension UWP.FontStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.TextDecorations {
     public static var none : UWP.TextDecorations {
@@ -166,5 +157,5 @@ extension UWP.TextDecorations {
         __x_ABI_CWindows_CUI_CText_CTextDecorations_Strikethrough
     }
 }
-extension UWP.TextDecorations: @retroactive Hashable, @retroactive Codable {}
+extension UWP.TextDecorations: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

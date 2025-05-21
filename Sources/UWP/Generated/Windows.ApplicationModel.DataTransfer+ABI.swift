@@ -200,11 +200,12 @@ private var IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider
     .init(Data1: 0xE7F9D9BA, Data2: 0xE1BA, Data3: 0x4E4D, Data4: ( 0xBD,0x65,0xD4,0x38,0x45,0xD3,0x21,0x2F ))// E7F9D9BA-E1BA-4E4D-BD65-D43845D3212F
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IClipboardContentOptions: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions }
 
-        internal func get_IsRoamableImpl() throws -> Bool {
+        public func get_IsRoamable() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRoamable(pThis, &value))
@@ -212,13 +213,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func put_IsRoamableImpl(_ value: Bool) throws {
+        public func put_IsRoamable(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsRoamable(pThis, .init(from: value)))
             }
         }
 
-        internal func get_IsAllowedInHistoryImpl() throws -> Bool {
+        public func get_IsAllowedInHistory() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAllowedInHistory(pThis, &value))
@@ -226,13 +227,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func put_IsAllowedInHistoryImpl(_ value: Bool) throws {
+        public func put_IsAllowedInHistory(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsAllowedInHistory(pThis, .init(from: value)))
             }
         }
 
-        internal func get_RoamingFormatsImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_RoamingFormats() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RoamingFormats(pThis, &valueAbi))
@@ -241,7 +242,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_HistoryFormatsImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_HistoryFormats() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_HistoryFormats(pThis, &valueAbi))
@@ -260,7 +261,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IClipboardHistoryItem: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem }
 
-        internal func get_IdImpl() throws -> String {
+        public func get_Id() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
@@ -268,7 +269,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_TimestampImpl() throws -> WindowsFoundation.DateTime {
+        public func get_Timestamp() throws -> WindowsFoundation.DateTime {
             var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Timestamp(pThis, &value))
@@ -276,13 +277,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .from(abi: value)
         }
 
-        internal func get_ContentImpl() throws -> UWP.DataPackageView? {
+        public func get_Content() throws -> UWP.DataPackageView? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Content(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: value)
         }
 
     }
@@ -290,7 +291,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IClipboardHistoryItemsResult: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItemsResult }
 
-        internal func get_StatusImpl() throws -> UWP.ClipboardHistoryItemsResultStatus {
+        public func get_Status() throws -> UWP.ClipboardHistoryItemsResultStatus {
             var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CClipboardHistoryItemsResultStatus = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItemsResult.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
@@ -298,7 +299,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return value
         }
 
-        internal func get_ItemsImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.ClipboardHistoryItem?>? {
+        public func get_Items() throws -> WindowsFoundation.AnyIVectorView<UWP.ClipboardHistoryItem?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItemsResult.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Items(pThis, &valueAbi))
@@ -312,34 +313,34 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IClipboardStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics }
 
-        internal func GetContentImpl() throws -> UWP.DataPackageView? {
+        public func GetContent() throws -> UWP.DataPackageView? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetContent(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: result)
         }
 
-        internal func SetContentImpl(_ content: UWP.DataPackage?) throws {
+        public func SetContent(_ content: UWP.DataPackage?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetContent(pThis, RawPointer(content)))
             }
         }
 
-        internal func FlushImpl() throws {
+        public func Flush() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Flush(pThis))
             }
         }
 
-        internal func ClearImpl() throws {
+        public func Clear() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
             }
         }
 
-        internal func add_ContentChangedImpl(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+        public func add_ContentChanged(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -349,7 +350,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return token
         }
 
-        internal func remove_ContentChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ContentChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ContentChanged(pThis, token))
             }
@@ -360,7 +361,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IClipboardStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2 }
 
-        internal func GetHistoryItemsAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ClipboardHistoryItemsResult?>? {
+        public func GetHistoryItemsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ClipboardHistoryItemsResult?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetHistoryItemsAsync(pThis, &operationAbi))
@@ -369,7 +370,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CClipboardHistoryItemsResultWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func ClearHistoryImpl() throws -> Bool {
+        public func ClearHistory() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ClearHistory(pThis, &result))
@@ -377,7 +378,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: result)
         }
 
-        internal func DeleteItemFromHistoryImpl(_ item: UWP.ClipboardHistoryItem?) throws -> Bool {
+        public func DeleteItemFromHistory(_ item: UWP.ClipboardHistoryItem?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DeleteItemFromHistory(pThis, RawPointer(item), &result))
@@ -385,7 +386,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: result)
         }
 
-        internal func SetHistoryItemAsContentImpl(_ item: UWP.ClipboardHistoryItem?) throws -> UWP.SetHistoryItemAsContentStatus {
+        public func SetHistoryItemAsContent(_ item: UWP.ClipboardHistoryItem?) throws -> UWP.SetHistoryItemAsContentStatus {
             var result: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CSetHistoryItemAsContentStatus = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetHistoryItemAsContent(pThis, RawPointer(item), &result))
@@ -393,7 +394,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return result
         }
 
-        internal func IsHistoryEnabledImpl() throws -> Bool {
+        public func IsHistoryEnabled() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsHistoryEnabled(pThis, &result))
@@ -401,7 +402,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: result)
         }
 
-        internal func IsRoamingEnabledImpl() throws -> Bool {
+        public func IsRoamingEnabled() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsRoamingEnabled(pThis, &result))
@@ -409,7 +410,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: result)
         }
 
-        internal func SetContentWithOptionsImpl(_ content: UWP.DataPackage?, _ options: UWP.ClipboardContentOptions?) throws -> Bool {
+        public func SetContentWithOptions(_ content: UWP.DataPackage?, _ options: UWP.ClipboardContentOptions?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetContentWithOptions(pThis, RawPointer(content), RawPointer(options), &result))
@@ -417,7 +418,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: result)
         }
 
-        internal func add_HistoryChangedImpl(_ handler: EventHandler<UWP.ClipboardHistoryChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_HistoryChanged(_ handler: EventHandler<UWP.ClipboardHistoryChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FIEventHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CClipboardHistoryChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -427,13 +428,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return token
         }
 
-        internal func remove_HistoryChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_HistoryChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_HistoryChanged(pThis, token))
             }
         }
 
-        internal func add_RoamingEnabledChangedImpl(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+        public func add_RoamingEnabledChanged(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -443,13 +444,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return token
         }
 
-        internal func remove_RoamingEnabledChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_RoamingEnabledChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RoamingEnabledChanged(pThis, token))
             }
         }
 
-        internal func add_HistoryEnabledChangedImpl(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+        public func add_HistoryEnabledChanged(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -459,7 +460,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return token
         }
 
-        internal func remove_HistoryEnabledChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_HistoryEnabledChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_HistoryEnabledChanged(pThis, token))
             }
@@ -470,25 +471,25 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage }
 
-        internal func GetViewImpl() throws -> UWP.DataPackageView? {
+        public func GetView() throws -> UWP.DataPackageView? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: value)
         }
 
-        internal func get_PropertiesImpl() throws -> UWP.DataPackagePropertySet? {
+        public func get_Properties() throws -> UWP.DataPackagePropertySet? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackagePropertySetBridge.from(abi: value)
         }
 
-        internal func get_RequestedOperationImpl() throws -> UWP.DataPackageOperation {
+        public func get_RequestedOperation() throws -> UWP.DataPackageOperation {
             var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedOperation(pThis, &value))
@@ -496,13 +497,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return value
         }
 
-        internal func put_RequestedOperationImpl(_ value: UWP.DataPackageOperation) throws {
+        public func put_RequestedOperation(_ value: UWP.DataPackageOperation) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RequestedOperation(pThis, value))
             }
         }
 
-        internal func add_OperationCompletedImpl(_ handler: TypedEventHandler<UWP.DataPackage?, UWP.OperationCompletedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_OperationCompleted(_ handler: TypedEventHandler<UWP.DataPackage?, UWP.OperationCompletedEventArgs?>?) throws -> EventRegistrationToken {
             var eventCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackage___x_ABI_CWindows__CApplicationModel__CDataTransfer__COperationCompletedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -512,13 +513,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return eventCookie
         }
 
-        internal func remove_OperationCompletedImpl(_ eventCookie: EventRegistrationToken) throws {
+        public func remove_OperationCompleted(_ eventCookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_OperationCompleted(pThis, eventCookie))
             }
         }
 
-        internal func add_DestroyedImpl(_ handler: TypedEventHandler<UWP.DataPackage?, Any?>?) throws -> EventRegistrationToken {
+        public func add_Destroyed(_ handler: TypedEventHandler<UWP.DataPackage?, Any?>?) throws -> EventRegistrationToken {
             var eventCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackage_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -528,13 +529,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return eventCookie
         }
 
-        internal func remove_DestroyedImpl(_ eventCookie: EventRegistrationToken) throws {
+        public func remove_Destroyed(_ eventCookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Destroyed(pThis, eventCookie))
             }
         }
 
-        internal func SetDataImpl(_ formatId: String, _ value: Any?) throws {
+        public func SetData(_ formatId: String, _ value: Any?) throws {
             let _formatId = try! HString(formatId)
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -543,7 +544,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             }
         }
 
-        internal func SetDataProviderImpl(_ formatId: String, _ delayRenderer: UWP.DataProviderHandler?) throws {
+        public func SetDataProvider(_ formatId: String, _ delayRenderer: UWP.DataProviderHandler?) throws {
             let _formatId = try! HString(formatId)
             let delayRendererWrapper = __ABI_Windows_ApplicationModel_DataTransfer.DataProviderHandlerWrapper(delayRenderer)
             let _delayRenderer = try! delayRendererWrapper?.toABI { $0 }
@@ -552,27 +553,27 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             }
         }
 
-        internal func SetTextImpl(_ value: String) throws {
+        public func SetText(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetText(pThis, _value.get()))
             }
         }
 
-        internal func SetUriImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func SetUri(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetUri(pThis, RawPointer(value)))
             }
         }
 
-        internal func SetHtmlFormatImpl(_ value: String) throws {
+        public func SetHtmlFormat(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetHtmlFormat(pThis, _value.get()))
             }
         }
 
-        internal func get_ResourceMapImpl() throws -> WindowsFoundation.AnyIMap<String, UWP.RandomAccessStreamReference?>? {
+        public func get_ResourceMap() throws -> WindowsFoundation.AnyIMap<String, UWP.RandomAccessStreamReference?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceMap(pThis, &valueAbi))
@@ -581,20 +582,20 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CStorage__CStreams__CRandomAccessStreamReferenceWrapper.unwrapFrom(abi: value)
         }
 
-        internal func SetRtfImpl(_ value: String) throws {
+        public func SetRtf(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetRtf(pThis, _value.get()))
             }
         }
 
-        internal func SetBitmapImpl(_ value: UWP.RandomAccessStreamReference?) throws {
+        public func SetBitmap(_ value: UWP.RandomAccessStreamReference?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetBitmap(pThis, RawPointer(value)))
             }
         }
 
-        internal func SetStorageItemsReadOnlyImpl(_ value: WindowsFoundation.AnyIIterable<UWP.AnyIStorageItem?>?) throws {
+        public func SetStorageItemsReadOnly(_ value: WindowsFoundation.AnyIIterable<UWP.AnyIStorageItem?>?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CStorage__CIStorageItemWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
@@ -602,7 +603,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             }
         }
 
-        internal func SetStorageItemsImpl(_ value: WindowsFoundation.AnyIIterable<UWP.AnyIStorageItem?>?, _ readOnly: Bool) throws {
+        public func SetStorageItems(_ value: WindowsFoundation.AnyIIterable<UWP.AnyIStorageItem?>?, _ readOnly: Bool) throws {
             let valueWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CStorage__CIStorageItemWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
@@ -615,13 +616,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackage2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage2 }
 
-        internal func SetApplicationLinkImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func SetApplicationLink(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetApplicationLink(pThis, RawPointer(value)))
             }
         }
 
-        internal func SetWebLinkImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func SetWebLink(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetWebLink(pThis, RawPointer(value)))
             }
@@ -632,7 +633,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackage3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage3 }
 
-        internal func add_ShareCompletedImpl(_ handler: TypedEventHandler<UWP.DataPackage?, UWP.ShareCompletedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ShareCompleted(_ handler: TypedEventHandler<UWP.DataPackage?, UWP.ShareCompletedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackage___x_ABI_CWindows__CApplicationModel__CDataTransfer__CShareCompletedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -642,7 +643,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return token
         }
 
-        internal func remove_ShareCompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ShareCompleted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShareCompleted(pThis, token))
             }
@@ -653,7 +654,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackagePropertySet: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet }
 
-        internal func get_TitleImpl() throws -> String {
+        public func get_Title() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
@@ -661,14 +662,14 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func put_TitleImpl(_ value: String) throws {
+        public func put_Title(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Title(pThis, _value.get()))
             }
         }
 
-        internal func get_DescriptionImpl() throws -> String {
+        public func get_Description() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
@@ -676,14 +677,14 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func put_DescriptionImpl(_ value: String) throws {
+        public func put_Description(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Description(pThis, _value.get()))
             }
         }
 
-        internal func get_ThumbnailImpl() throws -> UWP.AnyIRandomAccessStreamReference? {
+        public func get_Thumbnail() throws -> UWP.AnyIRandomAccessStreamReference? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thumbnail(pThis, &valueAbi))
@@ -692,7 +693,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ThumbnailImpl(_ value: UWP.AnyIRandomAccessStreamReference?) throws {
+        public func put_Thumbnail(_ value: UWP.AnyIRandomAccessStreamReference?) throws {
             let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
@@ -700,7 +701,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             }
         }
 
-        internal func get_FileTypesImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_FileTypes() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileTypes(pThis, &valueAbi))
@@ -709,7 +710,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ApplicationNameImpl() throws -> String {
+        public func get_ApplicationName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationName(pThis, &value))
@@ -717,23 +718,23 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func put_ApplicationNameImpl(_ value: String) throws {
+        public func put_ApplicationName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ApplicationName(pThis, _value.get()))
             }
         }
 
-        internal func get_ApplicationListingUriImpl() throws -> WindowsFoundation.Uri? {
+        public func get_ApplicationListingUri() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationListingUri(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_ApplicationListingUriImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_ApplicationListingUri(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ApplicationListingUri(pThis, RawPointer(value)))
             }
@@ -744,37 +745,37 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackagePropertySet2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2 }
 
-        internal func get_ContentSourceWebLinkImpl() throws -> WindowsFoundation.Uri? {
+        public func get_ContentSourceWebLink() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceWebLink(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_ContentSourceWebLinkImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_ContentSourceWebLink(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentSourceWebLink(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ContentSourceApplicationLinkImpl() throws -> WindowsFoundation.Uri? {
+        public func get_ContentSourceApplicationLink() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceApplicationLink(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_ContentSourceApplicationLinkImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_ContentSourceApplicationLink(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentSourceApplicationLink(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_PackageFamilyNameImpl() throws -> String {
+        public func get_PackageFamilyName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PackageFamilyName(pThis, &value))
@@ -782,14 +783,14 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func put_PackageFamilyNameImpl(_ value: String) throws {
+        public func put_PackageFamilyName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PackageFamilyName(pThis, _value.get()))
             }
         }
 
-        internal func get_Square30x30LogoImpl() throws -> UWP.AnyIRandomAccessStreamReference? {
+        public func get_Square30x30Logo() throws -> UWP.AnyIRandomAccessStreamReference? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Square30x30Logo(pThis, &valueAbi))
@@ -798,7 +799,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_Square30x30LogoImpl(_ value: UWP.AnyIRandomAccessStreamReference?) throws {
+        public func put_Square30x30Logo(_ value: UWP.AnyIRandomAccessStreamReference?) throws {
             let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
@@ -806,7 +807,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             }
         }
 
-        internal func get_LogoBackgroundColorImpl() throws -> UWP.Color {
+        public func get_LogoBackgroundColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LogoBackgroundColor(pThis, &value))
@@ -814,7 +815,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .from(abi: value)
         }
 
-        internal func put_LogoBackgroundColorImpl(_ value: UWP.Color) throws {
+        public func put_LogoBackgroundColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LogoBackgroundColor(pThis, .from(swift: value)))
             }
@@ -825,7 +826,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackagePropertySet3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet3 }
 
-        internal func get_EnterpriseIdImpl() throws -> String {
+        public func get_EnterpriseId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnterpriseId(pThis, &value))
@@ -833,7 +834,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func put_EnterpriseIdImpl(_ value: String) throws {
+        public func put_EnterpriseId(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnterpriseId(pThis, _value.get()))
@@ -845,7 +846,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackagePropertySet4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet4 }
 
-        internal func get_ContentSourceUserActivityJsonImpl() throws -> String {
+        public func get_ContentSourceUserActivityJson() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceUserActivityJson(pThis, &value))
@@ -853,7 +854,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func put_ContentSourceUserActivityJsonImpl(_ value: String) throws {
+        public func put_ContentSourceUserActivityJson(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentSourceUserActivityJson(pThis, _value.get()))
@@ -865,7 +866,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackagePropertySetView: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView }
 
-        internal func get_TitleImpl() throws -> String {
+        public func get_Title() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
@@ -873,7 +874,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_DescriptionImpl() throws -> String {
+        public func get_Description() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
@@ -881,16 +882,16 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_ThumbnailImpl() throws -> UWP.RandomAccessStreamReference? {
+        public func get_Thumbnail() throws -> UWP.RandomAccessStreamReference? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thumbnail(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Storage_Streams.RandomAccessStreamReferenceBridge.from(abi: value)
         }
 
-        internal func get_FileTypesImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_FileTypes() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileTypes(pThis, &valueAbi))
@@ -899,7 +900,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ApplicationNameImpl() throws -> String {
+        public func get_ApplicationName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationName(pThis, &value))
@@ -907,13 +908,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_ApplicationListingUriImpl() throws -> WindowsFoundation.Uri? {
+        public func get_ApplicationListingUri() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationListingUri(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
     }
@@ -921,7 +922,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackagePropertySetView2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2 }
 
-        internal func get_PackageFamilyNameImpl() throws -> String {
+        public func get_PackageFamilyName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PackageFamilyName(pThis, &value))
@@ -929,25 +930,25 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_ContentSourceWebLinkImpl() throws -> WindowsFoundation.Uri? {
+        public func get_ContentSourceWebLink() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceWebLink(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func get_ContentSourceApplicationLinkImpl() throws -> WindowsFoundation.Uri? {
+        public func get_ContentSourceApplicationLink() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceApplicationLink(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func get_Square30x30LogoImpl() throws -> UWP.AnyIRandomAccessStreamReference? {
+        public func get_Square30x30Logo() throws -> UWP.AnyIRandomAccessStreamReference? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Square30x30Logo(pThis, &valueAbi))
@@ -956,7 +957,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_LogoBackgroundColorImpl() throws -> UWP.Color {
+        public func get_LogoBackgroundColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LogoBackgroundColor(pThis, &value))
@@ -969,7 +970,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackagePropertySetView3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView3 }
 
-        internal func get_EnterpriseIdImpl() throws -> String {
+        public func get_EnterpriseId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnterpriseId(pThis, &value))
@@ -982,7 +983,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackagePropertySetView4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView4 }
 
-        internal func get_ContentSourceUserActivityJsonImpl() throws -> String {
+        public func get_ContentSourceUserActivityJson() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceUserActivityJson(pThis, &value))
@@ -995,7 +996,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackagePropertySetView5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView5 }
 
-        internal func get_IsFromRoamingClipboardImpl() throws -> Bool {
+        public func get_IsFromRoamingClipboard() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFromRoamingClipboard(pThis, &value))
@@ -1008,16 +1009,16 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackageView: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView }
 
-        internal func get_PropertiesImpl() throws -> UWP.DataPackagePropertySetView? {
+        public func get_Properties() throws -> UWP.DataPackagePropertySetView? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackagePropertySetViewBridge.from(abi: value)
         }
 
-        internal func get_RequestedOperationImpl() throws -> UWP.DataPackageOperation {
+        public func get_RequestedOperation() throws -> UWP.DataPackageOperation {
             var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedOperation(pThis, &value))
@@ -1025,13 +1026,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return value
         }
 
-        internal func ReportOperationCompletedImpl(_ value: UWP.DataPackageOperation) throws {
+        public func ReportOperationCompleted(_ value: UWP.DataPackageOperation) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ReportOperationCompleted(pThis, value))
             }
         }
 
-        internal func get_AvailableFormatsImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_AvailableFormats() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (formatIds) = try ComPtrs.initialize { formatIdsAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AvailableFormats(pThis, &formatIdsAbi))
@@ -1040,7 +1041,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: formatIds)
         }
 
-        internal func ContainsImpl(_ formatId: String) throws -> Bool {
+        public func Contains(_ formatId: String) throws -> Bool {
             var value: boolean = 0
             let _formatId = try! HString(formatId)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
@@ -1049,7 +1050,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func GetDataAsyncImpl(_ formatId: String) throws -> WindowsFoundation.AnyIAsyncOperation<Any?>? {
+        public func GetDataAsync(_ formatId: String) throws -> WindowsFoundation.AnyIAsyncOperation<Any?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _formatId = try! HString(formatId)
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
@@ -1059,7 +1060,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1_IInspectableWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetTextAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
+        public func GetTextAsync() throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetTextAsync(pThis, &operationAbi))
@@ -1068,7 +1069,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1_HSTRINGWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetCustomTextAsyncImpl(_ formatId: String) throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
+        public func GetCustomTextAsync(_ formatId: String) throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _formatId = try! HString(formatId)
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
@@ -1078,7 +1079,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1_HSTRINGWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetUriAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.Uri?>? {
+        public func GetUriAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.Uri?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetUriAsync(pThis, &operationAbi))
@@ -1087,7 +1088,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CFoundation__CUriWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetHtmlFormatAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
+        public func GetHtmlFormatAsync() throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetHtmlFormatAsync(pThis, &operationAbi))
@@ -1096,7 +1097,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1_HSTRINGWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetResourceMapAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMapView<String, UWP.RandomAccessStreamReference?>?>? {
+        public func GetResourceMapAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMapView<String, UWP.RandomAccessStreamReference?>?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetResourceMapAsync(pThis, &operationAbi))
@@ -1105,7 +1106,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CStorage__CStreams__CRandomAccessStreamReferenceWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetRtfAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
+        public func GetRtfAsync() throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetRtfAsync(pThis, &operationAbi))
@@ -1114,7 +1115,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1_HSTRINGWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetBitmapAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.RandomAccessStreamReference?>? {
+        public func GetBitmapAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.RandomAccessStreamReference?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetBitmapAsync(pThis, &operationAbi))
@@ -1123,7 +1124,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CStreams__CRandomAccessStreamReferenceWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetStorageItemsAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>?>? {
+        public func GetStorageItemsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetStorageItemsAsync(pThis, &operationAbi))
@@ -1137,7 +1138,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackageView2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView2 }
 
-        internal func GetApplicationLinkAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.Uri?>? {
+        public func GetApplicationLinkAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.Uri?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetApplicationLinkAsync(pThis, &operationAbi))
@@ -1146,7 +1147,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CFoundation__CUriWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetWebLinkAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.Uri?>? {
+        public func GetWebLinkAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.Uri?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetWebLinkAsync(pThis, &operationAbi))
@@ -1160,7 +1161,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackageView3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView3 }
 
-        internal func RequestAccessAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ProtectionPolicyEvaluationResult>? {
+        public func RequestAccessAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ProtectionPolicyEvaluationResult>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.RequestAccessAsync(pThis, &operationAbi))
@@ -1169,7 +1170,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSecurity__CEnterpriseData__CProtectionPolicyEvaluationResultWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func RequestAccessWithEnterpriseIdAsyncImpl(_ enterpriseId: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ProtectionPolicyEvaluationResult>? {
+        public func RequestAccessWithEnterpriseIdAsync(_ enterpriseId: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ProtectionPolicyEvaluationResult>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _enterpriseId = try! HString(enterpriseId)
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView3.self) { pThis in
@@ -1179,7 +1180,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSecurity__CEnterpriseData__CProtectionPolicyEvaluationResultWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func UnlockAndAssumeEnterpriseIdentityImpl() throws -> UWP.ProtectionPolicyEvaluationResult {
+        public func UnlockAndAssumeEnterpriseIdentity() throws -> UWP.ProtectionPolicyEvaluationResult {
             var result: __x_ABI_CWindows_CSecurity_CEnterpriseData_CProtectionPolicyEvaluationResult = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.UnlockAndAssumeEnterpriseIdentity(pThis, &result))
@@ -1192,7 +1193,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataPackageView4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView4 }
 
-        internal func SetAcceptedFormatIdImpl(_ formatId: String) throws {
+        public func SetAcceptedFormatId(_ formatId: String) throws {
             let _formatId = try! HString(formatId)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetAcceptedFormatId(pThis, _formatId.get()))
@@ -1204,7 +1205,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataProviderDeferral: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderDeferral }
 
-        internal func CompleteImpl() throws {
+        public func Complete() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderDeferral.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
             }
@@ -1215,7 +1216,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataProviderRequest: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest }
 
-        internal func get_FormatIdImpl() throws -> String {
+        public func get_FormatId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FormatId(pThis, &value))
@@ -1223,7 +1224,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_DeadlineImpl() throws -> WindowsFoundation.DateTime {
+        public func get_Deadline() throws -> WindowsFoundation.DateTime {
             var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Deadline(pThis, &value))
@@ -1231,16 +1232,16 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .from(abi: value)
         }
 
-        internal func GetDeferralImpl() throws -> UWP.DataProviderDeferral? {
+        public func GetDeferral() throws -> UWP.DataProviderDeferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataProviderDeferralBridge.from(abi: value)
         }
 
-        internal func SetDataImpl(_ value: Any?) throws {
+        public func SetData(_ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest.self) { pThis in
@@ -1253,22 +1254,22 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataRequest: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest }
 
-        internal func get_DataImpl() throws -> UWP.DataPackage? {
+        public func get_Data() throws -> UWP.DataPackage? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageBridge.from(abi: value)
         }
 
-        internal func put_DataImpl(_ value: UWP.DataPackage?) throws {
+        public func put_Data(_ value: UWP.DataPackage?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Data(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_DeadlineImpl() throws -> WindowsFoundation.DateTime {
+        public func get_Deadline() throws -> WindowsFoundation.DateTime {
             var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Deadline(pThis, &value))
@@ -1276,20 +1277,20 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .from(abi: value)
         }
 
-        internal func FailWithDisplayTextImpl(_ value: String) throws {
+        public func FailWithDisplayText(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FailWithDisplayText(pThis, _value.get()))
             }
         }
 
-        internal func GetDeferralImpl() throws -> UWP.DataRequestDeferral? {
+        public func GetDeferral() throws -> UWP.DataRequestDeferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataRequestDeferralBridge.from(abi: value)
         }
 
     }
@@ -1297,7 +1298,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataRequestDeferral: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestDeferral }
 
-        internal func CompleteImpl() throws {
+        public func Complete() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestDeferral.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
             }
@@ -1308,13 +1309,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataRequestedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestedEventArgs }
 
-        internal func get_RequestImpl() throws -> UWP.DataRequest? {
+        public func get_Request() throws -> UWP.DataRequest? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Request(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataRequestBridge.from(abi: value)
         }
 
     }
@@ -1322,7 +1323,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataTransferManager: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager }
 
-        internal func add_DataRequestedImpl(_ eventHandler: TypedEventHandler<UWP.DataTransferManager?, UWP.DataRequestedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_DataRequested(_ eventHandler: TypedEventHandler<UWP.DataTransferManager?, UWP.DataRequestedEventArgs?>?) throws -> EventRegistrationToken {
             var eventCookie: EventRegistrationToken = .init()
             let eventHandlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataTransferManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataRequestedEventArgsWrapper(eventHandler)
             let _eventHandler = try! eventHandlerWrapper?.toABI { $0 }
@@ -1332,13 +1333,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return eventCookie
         }
 
-        internal func remove_DataRequestedImpl(_ eventCookie: EventRegistrationToken) throws {
+        public func remove_DataRequested(_ eventCookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DataRequested(pThis, eventCookie))
             }
         }
 
-        internal func add_TargetApplicationChosenImpl(_ eventHandler: TypedEventHandler<UWP.DataTransferManager?, UWP.TargetApplicationChosenEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_TargetApplicationChosen(_ eventHandler: TypedEventHandler<UWP.DataTransferManager?, UWP.TargetApplicationChosenEventArgs?>?) throws -> EventRegistrationToken {
             var eventCookie: EventRegistrationToken = .init()
             let eventHandlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataTransferManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CTargetApplicationChosenEventArgsWrapper(eventHandler)
             let _eventHandler = try! eventHandlerWrapper?.toABI { $0 }
@@ -1348,7 +1349,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return eventCookie
         }
 
-        internal func remove_TargetApplicationChosenImpl(_ eventCookie: EventRegistrationToken) throws {
+        public func remove_TargetApplicationChosen(_ eventCookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TargetApplicationChosen(pThis, eventCookie))
             }
@@ -1359,7 +1360,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataTransferManager2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager2 }
 
-        internal func add_ShareProvidersRequestedImpl(_ handler: TypedEventHandler<UWP.DataTransferManager?, UWP.ShareProvidersRequestedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ShareProvidersRequested(_ handler: TypedEventHandler<UWP.DataTransferManager?, UWP.ShareProvidersRequestedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataTransferManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CShareProvidersRequestedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1369,7 +1370,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return token
         }
 
-        internal func remove_ShareProvidersRequestedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ShareProvidersRequested(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShareProvidersRequested(pThis, token))
             }
@@ -1380,19 +1381,19 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataTransferManagerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics }
 
-        internal func ShowShareUIImpl() throws {
+        public func ShowShareUI() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ShowShareUI(pThis))
             }
         }
 
-        internal func GetForCurrentViewImpl() throws -> UWP.DataTransferManager? {
+        public func GetForCurrentView() throws -> UWP.DataTransferManager? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentView(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataTransferManagerBridge.from(abi: value)
         }
 
     }
@@ -1400,7 +1401,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataTransferManagerStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics2 }
 
-        internal func IsSupportedImpl() throws -> Bool {
+        public func IsSupported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsSupported(pThis, &value))
@@ -1413,7 +1414,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IDataTransferManagerStatics3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics3 }
 
-        internal func ShowShareUIWithOptionsImpl(_ options: UWP.ShareUIOptions?) throws {
+        public func ShowShareUIWithOptions(_ options: UWP.ShareUIOptions?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ShowShareUIWithOptions(pThis, RawPointer(options)))
             }
@@ -1424,7 +1425,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IHtmlFormatHelperStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIHtmlFormatHelperStatics }
 
-        internal func GetStaticFragmentImpl(_ htmlFormat: String) throws -> String {
+        public func GetStaticFragment(_ htmlFormat: String) throws -> String {
             var htmlFragment: HSTRING?
             let _htmlFormat = try! HString(htmlFormat)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIHtmlFormatHelperStatics.self) { pThis in
@@ -1433,7 +1434,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: htmlFragment)
         }
 
-        internal func CreateHtmlFormatImpl(_ htmlFragment: String) throws -> String {
+        public func CreateHtmlFormat(_ htmlFragment: String) throws -> String {
             var htmlFormat: HSTRING?
             let _htmlFragment = try! HString(htmlFragment)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIHtmlFormatHelperStatics.self) { pThis in
@@ -1447,7 +1448,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IOperationCompletedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs }
 
-        internal func get_OperationImpl() throws -> UWP.DataPackageOperation {
+        public func get_Operation() throws -> UWP.DataPackageOperation {
             var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Operation(pThis, &value))
@@ -1460,7 +1461,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IOperationCompletedEventArgs2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs2 }
 
-        internal func get_AcceptedFormatIdImpl() throws -> String {
+        public func get_AcceptedFormatId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptedFormatId(pThis, &value))
@@ -1473,13 +1474,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IShareCompletedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareCompletedEventArgs }
 
-        internal func get_ShareTargetImpl() throws -> UWP.ShareTargetInfo? {
+        public func get_ShareTarget() throws -> UWP.ShareTargetInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareCompletedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShareTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.ShareTargetInfoBridge.from(abi: value)
         }
 
     }
@@ -1487,7 +1488,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IShareProvider: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider }
 
-        internal func get_TitleImpl() throws -> String {
+        public func get_Title() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
@@ -1495,16 +1496,16 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_DisplayIconImpl() throws -> UWP.RandomAccessStreamReference? {
+        public func get_DisplayIcon() throws -> UWP.RandomAccessStreamReference? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayIcon(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Storage_Streams.RandomAccessStreamReferenceBridge.from(abi: value)
         }
 
-        internal func get_BackgroundColorImpl() throws -> UWP.Color {
+        public func get_BackgroundColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackgroundColor(pThis, &value))
@@ -1512,7 +1513,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .from(abi: value)
         }
 
-        internal func get_TagImpl() throws -> Any? {
+        public func get_Tag() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Tag(pThis, &valueAbi))
@@ -1521,7 +1522,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_TagImpl(_ value: Any?) throws {
+        public func put_Tag(_ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
@@ -1534,7 +1535,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IShareProviderFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderFactory }
 
-        internal func CreateImpl(_ title: String, _ displayIcon: UWP.RandomAccessStreamReference?, _ backgroundColor: UWP.Color, _ handler: UWP.ShareProviderHandler?) throws -> IShareProvider {
+        public func Create(_ title: String, _ displayIcon: UWP.RandomAccessStreamReference?, _ backgroundColor: UWP.Color, _ handler: UWP.ShareProviderHandler?) throws -> IShareProvider {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _title = try! HString(title)
                 let handlerWrapper = __ABI_Windows_ApplicationModel_DataTransfer.ShareProviderHandlerWrapper(handler)
@@ -1551,25 +1552,25 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IShareProviderOperation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation }
 
-        internal func get_DataImpl() throws -> UWP.DataPackageView? {
+        public func get_Data() throws -> UWP.DataPackageView? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: value)
         }
 
-        internal func get_ProviderImpl() throws -> UWP.ShareProvider? {
+        public func get_Provider() throws -> UWP.ShareProvider? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Provider(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.ShareProviderBridge.from(abi: value)
         }
 
-        internal func ReportCompletedImpl() throws {
+        public func ReportCompleted() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ReportCompleted(pThis))
             }
@@ -1580,7 +1581,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IShareProvidersRequestedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs }
 
-        internal func get_ProvidersImpl() throws -> WindowsFoundation.AnyIVector<UWP.ShareProvider?>? {
+        public func get_Providers() throws -> WindowsFoundation.AnyIVector<UWP.ShareProvider?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Providers(pThis, &valueAbi))
@@ -1589,22 +1590,22 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CShareProviderWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_DataImpl() throws -> UWP.DataPackageView? {
+        public func get_Data() throws -> UWP.DataPackageView? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: value)
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1612,7 +1613,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IShareTargetInfo: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareTargetInfo }
 
-        internal func get_AppUserModelIdImpl() throws -> String {
+        public func get_AppUserModelId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareTargetInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AppUserModelId(pThis, &value))
@@ -1620,13 +1621,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_ShareProviderImpl() throws -> UWP.ShareProvider? {
+        public func get_ShareProvider() throws -> UWP.ShareProvider? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareTargetInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShareProvider(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_DataTransfer.ShareProviderBridge.from(abi: value)
         }
 
     }
@@ -1634,7 +1635,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IShareUIOptions: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions }
 
-        internal func get_ThemeImpl() throws -> UWP.ShareUITheme {
+        public func get_Theme() throws -> UWP.ShareUITheme {
             var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareUITheme = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Theme(pThis, &value))
@@ -1642,13 +1643,13 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return value
         }
 
-        internal func put_ThemeImpl(_ value: UWP.ShareUITheme) throws {
+        public func put_Theme(_ value: UWP.ShareUITheme) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Theme(pThis, value))
             }
         }
 
-        internal func get_SelectionRectImpl() throws -> WindowsFoundation.Rect? {
+        public func get_SelectionRect() throws -> WindowsFoundation.Rect? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionRect(pThis, &valueAbi))
@@ -1657,7 +1658,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_SelectionRectImpl(_ value: WindowsFoundation.Rect?) throws {
+        public func put_SelectionRect(_ value: WindowsFoundation.Rect?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions.self) { pThis in
@@ -1670,7 +1671,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class ISharedStorageAccessManagerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CISharedStorageAccessManagerStatics }
 
-        internal func AddFileImpl(_ file: UWP.AnyIStorageFile?) throws -> String {
+        public func AddFile(_ file: UWP.AnyIStorageFile?) throws -> String {
             var outToken: HSTRING?
             let fileWrapper = __ABI_Windows_Storage.IStorageFileWrapper(file)
             let _file = try! fileWrapper?.toABI { $0 }
@@ -1680,7 +1681,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: outToken)
         }
 
-        internal func RedeemTokenForFileAsyncImpl(_ token: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>? {
+        public func RedeemTokenForFileAsync(_ token: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _token = try! HString(token)
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CISharedStorageAccessManagerStatics.self) { pThis in
@@ -1690,7 +1691,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CStorageFileWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func RemoveFileImpl(_ token: String) throws {
+        public func RemoveFile(_ token: String) throws {
             let _token = try! HString(token)
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CISharedStorageAccessManagerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveFile(pThis, _token.get()))
@@ -1702,7 +1703,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IStandardDataFormatsStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics }
 
-        internal func get_TextImpl() throws -> String {
+        public func get_Text() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
@@ -1710,7 +1711,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_UriImpl() throws -> String {
+        public func get_Uri() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Uri(pThis, &value))
@@ -1718,7 +1719,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_HtmlImpl() throws -> String {
+        public func get_Html() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Html(pThis, &value))
@@ -1726,7 +1727,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_RtfImpl() throws -> String {
+        public func get_Rtf() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Rtf(pThis, &value))
@@ -1734,7 +1735,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_BitmapImpl() throws -> String {
+        public func get_Bitmap() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bitmap(pThis, &value))
@@ -1742,7 +1743,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_StorageItemsImpl() throws -> String {
+        public func get_StorageItems() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StorageItems(pThis, &value))
@@ -1755,7 +1756,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IStandardDataFormatsStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics2 }
 
-        internal func get_WebLinkImpl() throws -> String {
+        public func get_WebLink() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_WebLink(pThis, &value))
@@ -1763,7 +1764,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
             return .init(from: value)
         }
 
-        internal func get_ApplicationLinkImpl() throws -> String {
+        public func get_ApplicationLink() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationLink(pThis, &value))
@@ -1776,7 +1777,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class IStandardDataFormatsStatics3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics3 }
 
-        internal func get_UserActivityJsonArrayImpl() throws -> String {
+        public func get_UserActivityJsonArray() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserActivityJsonArray(pThis, &value))
@@ -1789,7 +1790,7 @@ public enum __ABI_Windows_ApplicationModel_DataTransfer {
     public class ITargetApplicationChosenEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CITargetApplicationChosenEventArgs }
 
-        internal func get_ApplicationNameImpl() throws -> String {
+        public func get_ApplicationName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CITargetApplicationChosenEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationName(pThis, &value))
@@ -1805,7 +1806,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer {
     public class DataProviderHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderHandler }
 
-        open func InvokeImpl(_ request: UWP.DataProviderRequest?) throws {
+        open func Invoke(_ request: UWP.DataProviderRequest?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(request)))
             }
@@ -1820,10 +1821,12 @@ extension __ABI_Windows_ApplicationModel_DataTransfer {
         AddRef: { DataProviderHandlerWrapper.addRef($0) },
         Release: { DataProviderHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = DataProviderHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let request: UWP.DataProviderRequest? = .from(abi: ComPtr($1))
-            __unwrapped__instance(request)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = DataProviderHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let request: UWP.DataProviderRequest? = __IMPL_Windows_ApplicationModel_DataTransfer.DataProviderRequestBridge.from(abi: ComPtr($1))
+                try __unwrapped__instance(request)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -1839,7 +1842,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer {
     public class ShareProviderHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderHandler }
 
-        open func InvokeImpl(_ operation: UWP.ShareProviderOperation?) throws {
+        open func Invoke(_ operation: UWP.ShareProviderOperation?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(operation)))
             }
@@ -1854,10 +1857,12 @@ extension __ABI_Windows_ApplicationModel_DataTransfer {
         AddRef: { ShareProviderHandlerWrapper.addRef($0) },
         Release: { ShareProviderHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = ShareProviderHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let operation: UWP.ShareProviderOperation? = .from(abi: ComPtr($1))
-            __unwrapped__instance(operation)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = ShareProviderHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let operation: UWP.ShareProviderOperation? = __IMPL_Windows_ApplicationModel_DataTransfer.ShareProviderOperationBridge.from(abi: ComPtr($1))
+                try __unwrapped__instance(operation)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Graphics_Effects {
     public enum IGraphicsEffectBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffect
@@ -30,8 +31,8 @@ public enum __IMPL_Windows_Graphics_Effects {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.effects.igraphicseffect.name)
         fileprivate var name : String {
-            get { try! _default.get_NameImpl() }
-            set { try! _default.put_NameImpl(newValue) }
+            get { try! _default.get_Name() }
+            set { try! _default.put_Name(newValue) }
         }
 
         private lazy var _IGraphicsEffectSource: __ABI_Windows_Graphics_Effects.IGraphicsEffectSource! = getInterfaceForCaching()
@@ -62,4 +63,20 @@ public enum __IMPL_Windows_Graphics_Effects {
 
     }
 
+}
+@_spi(WinRTInternal)
+public class IGraphicsEffectMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIGraphicsEffect
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Graphics_Effects.IGraphicsEffect = try! abi.QueryInterface()
+        return __IMPL_Windows_Graphics_Effects.IGraphicsEffectBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IGraphicsEffectSourceMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIGraphicsEffectSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Graphics_Effects.IGraphicsEffectSource = try! abi.QueryInterface()
+        return __IMPL_Windows_Graphics_Effects.IGraphicsEffectSourceBridge.from(abi: RawPointer(swiftAbi))!
+    }
 }

@@ -20,36 +20,30 @@ public final class AppListEntry : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry>?) -> AppListEntry? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.applistentry.launchasync)
     public func launchAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        try _default.LaunchAsyncImpl()
+        try _default.LaunchAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.applistentry.displayinfo)
     public var displayInfo : UWP.AppDisplayInfo! {
-        get { try! _default.get_DisplayInfoImpl() }
+        get { try! _default.get_DisplayInfo() }
     }
 
     private lazy var _IAppListEntry2: __ABI_Windows_ApplicationModel_Core.IAppListEntry2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.applistentry.appusermodelid)
     public var appUserModelId : String {
-        get { try! _IAppListEntry2.get_AppUserModelIdImpl() }
+        get { try! _IAppListEntry2.get_AppUserModelId() }
     }
 
     private lazy var _IAppListEntry3: __ABI_Windows_ApplicationModel_Core.IAppListEntry3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.applistentry.launchforuserasync)
     public func launchForUserAsync(_ user: UWP.User!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        try _IAppListEntry3.LaunchForUserAsyncImpl(user)
+        try _IAppListEntry3.LaunchForUserAsync(user)
     }
 
     deinit {
@@ -73,29 +67,23 @@ public final class CoreApplicationView : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView>?) -> CoreApplicationView? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.corewindow)
     public var coreWindow : UWP.CoreWindow! {
-        get { try! _default.get_CoreWindowImpl() }
+        get { try! _default.get_CoreWindow() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.ishosted)
     public var isHosted : Bool {
-        get { try! _default.get_IsHostedImpl() }
+        get { try! _default.get_IsHosted() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.ismain)
     public var isMain : Bool {
-        get { try! _default.get_IsMainImpl() }
+        get { try! _default.get_IsMain() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.activated)
@@ -103,10 +91,10 @@ public final class CoreApplicationView : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ActivatedImpl($0)
+          return try! this.add_Activated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ActivatedImpl($0)
+         try? self?._default.remove_Activated($0)
        }
       )
     }()
@@ -114,18 +102,18 @@ public final class CoreApplicationView : WinRTClass {
     private lazy var _ICoreApplicationView2: __ABI_Windows_ApplicationModel_Core.ICoreApplicationView2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.dispatcher)
     public var dispatcher : UWP.CoreDispatcher! {
-        get { try! _ICoreApplicationView2.get_DispatcherImpl() }
+        get { try! _ICoreApplicationView2.get_Dispatcher() }
     }
 
     private lazy var _ICoreApplicationView3: __ABI_Windows_ApplicationModel_Core.ICoreApplicationView3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.iscomponent)
     public var isComponent : Bool {
-        get { try! _ICoreApplicationView3.get_IsComponentImpl() }
+        get { try! _ICoreApplicationView3.get_IsComponent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.titlebar)
     public var titleBar : CoreApplicationViewTitleBar! {
-        get { try! _ICoreApplicationView3.get_TitleBarImpl() }
+        get { try! _ICoreApplicationView3.get_TitleBar() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.hostedviewclosing)
@@ -133,10 +121,10 @@ public final class CoreApplicationView : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._ICoreApplicationView3 else { return .init() }
-          return try! this.add_HostedViewClosingImpl($0)
+          return try! this.add_HostedViewClosing($0)
         },
         remove: { [weak self] in
-         try? self?._ICoreApplicationView3.remove_HostedViewClosingImpl($0)
+         try? self?._ICoreApplicationView3.remove_HostedViewClosing($0)
        }
       )
     }()
@@ -144,13 +132,13 @@ public final class CoreApplicationView : WinRTClass {
     private lazy var _ICoreApplicationView5: __ABI_Windows_ApplicationModel_Core.ICoreApplicationView5! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.properties)
     public var properties : WindowsFoundation.AnyIPropertySet! {
-        get { try! _ICoreApplicationView5.get_PropertiesImpl() }
+        get { try! _ICoreApplicationView5.get_Properties() }
     }
 
     private lazy var _ICoreApplicationView6: __ABI_Windows_ApplicationModel_Core.ICoreApplicationView6! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.dispatcherqueue)
     public var dispatcherQueue : UWP.DispatcherQueue! {
-        get { try! _ICoreApplicationView6.get_DispatcherQueueImpl() }
+        get { try! _ICoreApplicationView6.get_DispatcherQueue() }
     }
 
     deinit {
@@ -176,40 +164,34 @@ public final class CoreApplicationViewTitleBar : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar>?) -> CoreApplicationViewTitleBar? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.extendviewintotitlebar)
     public var extendViewIntoTitleBar : Bool {
-        get { try! _default.get_ExtendViewIntoTitleBarImpl() }
-        set { try! _default.put_ExtendViewIntoTitleBarImpl(newValue) }
+        get { try! _default.get_ExtendViewIntoTitleBar() }
+        set { try! _default.put_ExtendViewIntoTitleBar(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.height)
     public var height : Double {
-        get { try! _default.get_HeightImpl() }
+        get { try! _default.get_Height() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.isvisible)
     public var isVisible : Bool {
-        get { try! _default.get_IsVisibleImpl() }
+        get { try! _default.get_IsVisible() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.systemoverlayleftinset)
     public var systemOverlayLeftInset : Double {
-        get { try! _default.get_SystemOverlayLeftInsetImpl() }
+        get { try! _default.get_SystemOverlayLeftInset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.systemoverlayrightinset)
     public var systemOverlayRightInset : Double {
-        get { try! _default.get_SystemOverlayRightInsetImpl() }
+        get { try! _default.get_SystemOverlayRightInset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.isvisiblechanged)
@@ -217,10 +199,10 @@ public final class CoreApplicationViewTitleBar : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_IsVisibleChangedImpl($0)
+          return try! this.add_IsVisibleChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_IsVisibleChangedImpl($0)
+         try? self?._default.remove_IsVisibleChanged($0)
        }
       )
     }()
@@ -230,10 +212,10 @@ public final class CoreApplicationViewTitleBar : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_LayoutMetricsChangedImpl($0)
+          return try! this.add_LayoutMetricsChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_LayoutMetricsChangedImpl($0)
+         try? self?._default.remove_LayoutMetricsChanged($0)
        }
       )
     }()
@@ -257,19 +239,13 @@ public final class HostedViewClosingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CCore_CIHostedViewClosingEventArgs>?) -> HostedViewClosingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.hostedviewclosingeventargs.getdeferral)
     public func getDeferral() throws -> WindowsFoundation.Deferral! {
-        try _default.GetDeferralImpl()
+        try _default.GetDeferral()
     }
 
     deinit {
@@ -291,24 +267,18 @@ public final class UnhandledError : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledError>?) -> UnhandledError? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.unhandlederror.propagate)
     public func propagate() throws {
-        try _default.PropagateImpl()
+        try _default.Propagate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.unhandlederror.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
+        get { try! _default.get_Handled() }
     }
 
     deinit {
@@ -330,19 +300,13 @@ public final class UnhandledErrorDetectedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledErrorDetectedEventArgs>?) -> UnhandledErrorDetectedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.unhandlederrordetectedeventargs.unhandlederror)
     public var unhandledError : UnhandledError! {
-        get { try! _default.get_UnhandledErrorImpl() }
+        get { try! _default.get_UnhandledError() }
     }
 
     deinit {
@@ -426,5 +390,5 @@ extension UWP.AppRestartFailureReason {
         __x_ABI_CWindows_CApplicationModel_CCore_CAppRestartFailureReason_Other
     }
 }
-extension UWP.AppRestartFailureReason: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AppRestartFailureReason: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

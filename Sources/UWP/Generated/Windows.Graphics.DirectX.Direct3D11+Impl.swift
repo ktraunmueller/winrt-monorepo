@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Graphics_DirectX_Direct3D11 {
     public enum IDirect3DDeviceBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DDevice
@@ -30,13 +31,13 @@ public enum __IMPL_Windows_Graphics_DirectX_Direct3D11 {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.idirect3ddevice.trim)
         fileprivate func trim() throws {
-            try _default.TrimImpl()
+            try _default.Trim()
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.idirect3ddevice.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
@@ -66,15 +67,53 @@ public enum __IMPL_Windows_Graphics_DirectX_Direct3D11 {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.idirect3dsurface.description)
         fileprivate var description : Direct3DSurfaceDescription {
-            get { try! _default.get_DescriptionImpl() }
+            get { try! _default.get_Description() }
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.idirect3dsurface.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
 
+}
+@_spi(WinRTInternal)
+extension Direct3DMultisampleDescription: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CDirect3DMultisampleDescription
+    public static func from(abi: ABI) -> Self {
+        .init(count: abi.Count, quality: abi.Quality)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension Direct3DSurfaceDescription: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CDirect3DSurfaceDescription
+    public static func from(abi: ABI) -> Self {
+        .init(width: abi.Width, height: abi.Height, format: abi.Format, multisampleDescription: .from(abi: abi.MultisampleDescription))
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class IDirect3DDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIDirect3DDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DDevice = try! abi.QueryInterface()
+        return __IMPL_Windows_Graphics_DirectX_Direct3D11.IDirect3DDeviceBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IDirect3DSurfaceMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIDirect3DSurface
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurface = try! abi.QueryInterface()
+        return __IMPL_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceBridge.from(abi: RawPointer(swiftAbi))!
+    }
 }

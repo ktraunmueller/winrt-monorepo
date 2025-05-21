@@ -12,11 +12,12 @@ private var IID___x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffectSource: Wind
     .init(Data1: 0x2D8F9DDC, Data2: 0x4339, Data3: 0x4EB9, Data4: ( 0x92,0x16,0xF9,0xDE,0xB7,0x56,0x58,0xA2 ))// 2D8F9DDC-4339-4EB9-9216-F9DEB75658A2
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Graphics_Effects {
     public class IGraphicsEffect: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffect }
 
-        open func get_NameImpl() throws -> String {
+        open func get_Name() throws -> String {
             var name: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffect.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &name))
@@ -24,7 +25,7 @@ public enum __ABI_Windows_Graphics_Effects {
             return .init(from: name)
         }
 
-        open func put_NameImpl(_ name: String) throws {
+        open func put_Name(_ name: String) throws {
             let _name = try! HString(name)
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffect.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Name(pThis, _name.get()))

@@ -34,12 +34,6 @@ public final class AcceleratorKeyEventArgs : WinRTClass, ICoreWindowEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs>?) -> AcceleratorKeyEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -50,29 +44,29 @@ public final class AcceleratorKeyEventArgs : WinRTClass, ICoreWindowEventArgs {
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.acceleratorkeyeventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.acceleratorkeyeventargs.eventtype)
     public var eventType : CoreAcceleratorKeyEventType {
-        get { try! _default.get_EventTypeImpl() }
+        get { try! _default.get_EventType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.acceleratorkeyeventargs.keystatus)
     public var keyStatus : CorePhysicalKeyStatus {
-        get { try! _default.get_KeyStatusImpl() }
+        get { try! _default.get_KeyStatus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.acceleratorkeyeventargs.virtualkey)
     public var virtualKey : UWP.VirtualKey {
-        get { try! _default.get_VirtualKeyImpl() }
+        get { try! _default.get_VirtualKey() }
     }
 
     private lazy var _IAcceleratorKeyEventArgs2: __ABI_Windows_UI_Core.IAcceleratorKeyEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.acceleratorkeyeventargs.deviceid)
     public var deviceId : String {
-        get { try! _IAcceleratorKeyEventArgs2.get_DeviceIdImpl() }
+        get { try! _IAcceleratorKeyEventArgs2.get_DeviceId() }
     }
 
     deinit {
@@ -96,12 +90,6 @@ public final class AutomationProviderRequestedEventArgs : WinRTClass, ICoreWindo
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIAutomationProviderRequestedEventArgs>?) -> AutomationProviderRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -112,14 +100,14 @@ public final class AutomationProviderRequestedEventArgs : WinRTClass, ICoreWindo
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.automationproviderrequestedeventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.automationproviderrequestedeventargs.automationprovider)
     public var automationProvider : Any! {
-        get { try! _default.get_AutomationProviderImpl() }
-        set { try! _default.put_AutomationProviderImpl(newValue) }
+        get { try! _default.get_AutomationProvider() }
+        set { try! _default.put_AutomationProvider(newValue) }
     }
 
     deinit {
@@ -142,12 +130,6 @@ public final class CharacterReceivedEventArgs : WinRTClass, ICoreWindowEventArgs
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICharacterReceivedEventArgs>?) -> CharacterReceivedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -158,18 +140,18 @@ public final class CharacterReceivedEventArgs : WinRTClass, ICoreWindowEventArgs
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.characterreceivedeventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.characterreceivedeventargs.keycode)
     public var keyCode : UInt32 {
-        get { try! _default.get_KeyCodeImpl() }
+        get { try! _default.get_KeyCode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.characterreceivedeventargs.keystatus)
     public var keyStatus : CorePhysicalKeyStatus {
-        get { try! _default.get_KeyStatusImpl() }
+        get { try! _default.get_KeyStatus() }
     }
 
     deinit {
@@ -192,30 +174,24 @@ public final class ClosestInteractiveBoundsRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs>?) -> ClosestInteractiveBoundsRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.closestinteractiveboundsrequestedeventargs.closestinteractivebounds)
     public var closestInteractiveBounds : WindowsFoundation.Rect {
-        get { try! _default.get_ClosestInteractiveBoundsImpl() }
-        set { try! _default.put_ClosestInteractiveBoundsImpl(newValue) }
+        get { try! _default.get_ClosestInteractiveBounds() }
+        set { try! _default.put_ClosestInteractiveBounds(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.closestinteractiveboundsrequestedeventargs.pointerposition)
     public var pointerPosition : WindowsFoundation.Point {
-        get { try! _default.get_PointerPositionImpl() }
+        get { try! _default.get_PointerPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.closestinteractiveboundsrequestedeventargs.searchbounds)
     public var searchBounds : WindowsFoundation.Rect {
-        get { try! _default.get_SearchBoundsImpl() }
+        get { try! _default.get_SearchBounds() }
     }
 
     deinit {
@@ -237,29 +213,23 @@ public final class CoreCursor : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICoreCursor>?) -> CoreCursor? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICoreCursorFactory: __ABI_Windows_UI_Core.ICoreCursorFactory = try! RoGetActivationFactory(HString("Windows.UI.Core.CoreCursor"))
+    private static let _ICoreCursorFactory: __ABI_Windows_UI_Core.ICoreCursorFactory = try! RoGetActivationFactory("Windows.UI.Core.CoreCursor")
     public init(_ type: CoreCursorType, _ id: UInt32) {
-        super.init(try! Self._ICoreCursorFactory.CreateCursorImpl(type, id))
+        super.init(try! Self._ICoreCursorFactory.CreateCursor(type, id))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corecursor.id)
     public var id : UInt32 {
-        get { try! _default.get_IdImpl() }
+        get { try! _default.get_Id() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corecursor.type)
     public var type : CoreCursorType {
-        get { try! _default.get_TypeImpl() }
+        get { try! _default.get_Type() }
     }
 
     deinit {
@@ -281,12 +251,6 @@ public final class CoreDispatcher : WinRTClass, ICoreAcceleratorKeys {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICoreDispatcher>?) -> CoreDispatcher? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -300,65 +264,65 @@ public final class CoreDispatcher : WinRTClass, ICoreAcceleratorKeys {
       .init(
         add: { [weak self] in
           guard let this = self?._ICoreAcceleratorKeys else { return .init() }
-          return try! this.add_AcceleratorKeyActivatedImpl($0)
+          return try! this.add_AcceleratorKeyActivated($0)
         },
         remove: { [weak self] in
-         try? self?._ICoreAcceleratorKeys.remove_AcceleratorKeyActivatedImpl($0)
+         try? self?._ICoreAcceleratorKeys.remove_AcceleratorKeyActivated($0)
        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents)
     public func processEvents(_ options: CoreProcessEventsOption) throws {
-        try _default.ProcessEventsImpl(options)
+        try _default.ProcessEvents(options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)
     public func runAsync(_ priority: CoreDispatcherPriority, _ agileCallback: DispatchedHandler!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.RunAsyncImpl(priority, agileCallback)
+        try _default.RunAsync(priority, agileCallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runidleasync)
     public func runIdleAsync(_ agileCallback: IdleDispatchedHandler!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.RunIdleAsyncImpl(agileCallback)
+        try _default.RunIdleAsync(agileCallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.hasthreadaccess)
     public var hasThreadAccess : Bool {
-        get { try! _default.get_HasThreadAccessImpl() }
+        get { try! _default.get_HasThreadAccess() }
     }
 
     private lazy var _ICoreDispatcherWithTaskPriority: __ABI_Windows_UI_Core.ICoreDispatcherWithTaskPriority! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.shouldyield)
     public func shouldYield() throws -> Bool {
-        try _ICoreDispatcherWithTaskPriority.ShouldYieldImpl()
+        try _ICoreDispatcherWithTaskPriority.ShouldYield()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.shouldyield)
     public func shouldYield(_ priority: CoreDispatcherPriority) throws -> Bool {
-        try _ICoreDispatcherWithTaskPriority.ShouldYieldToPriorityImpl(priority)
+        try _ICoreDispatcherWithTaskPriority.ShouldYieldToPriority(priority)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.stopprocessevents)
     public func stopProcessEvents() throws {
-        try _ICoreDispatcherWithTaskPriority.StopProcessEventsImpl()
+        try _ICoreDispatcherWithTaskPriority.StopProcessEvents()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.currentpriority)
     public var currentPriority : CoreDispatcherPriority {
-        get { try! _ICoreDispatcherWithTaskPriority.get_CurrentPriorityImpl() }
-        set { try! _ICoreDispatcherWithTaskPriority.put_CurrentPriorityImpl(newValue) }
+        get { try! _ICoreDispatcherWithTaskPriority.get_CurrentPriority() }
+        set { try! _ICoreDispatcherWithTaskPriority.put_CurrentPriority(newValue) }
     }
 
     private lazy var _ICoreDispatcher2: __ABI_Windows_UI_Core.ICoreDispatcher2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.tryrunasync)
     public func tryRunAsync(_ priority: CoreDispatcherPriority, _ agileCallback: DispatchedHandler!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        try _ICoreDispatcher2.TryRunAsyncImpl(priority, agileCallback)
+        try _ICoreDispatcher2.TryRunAsync(priority, agileCallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher.tryrunidleasync)
     public func tryRunIdleAsync(_ agileCallback: IdleDispatchedHandler!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        try _ICoreDispatcher2.TryRunIdleAsyncImpl(agileCallback)
+        try _ICoreDispatcher2.TryRunIdleAsync(agileCallback)
     }
 
     deinit {
@@ -383,12 +347,6 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICoreWindow>?) -> CoreWindow? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -396,88 +354,88 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ICoreWindowStatic: __ABI_Windows_UI_Core.ICoreWindowStatic = try! RoGetActivationFactory(HString("Windows.UI.Core.CoreWindow"))
+    private static let _ICoreWindowStatic: __ABI_Windows_UI_Core.ICoreWindowStatic = try! RoGetActivationFactory("Windows.UI.Core.CoreWindow")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.getforcurrentthread)
-    public static func getForCurrentThread() -> CoreWindow! {
-        return try! _ICoreWindowStatic.GetForCurrentThreadImpl()
+    public static func getForCurrentThread() throws -> CoreWindow! {
+        return try _ICoreWindowStatic.GetForCurrentThread()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.activate)
     public func activate() throws {
-        try _default.ActivateImpl()
+        try _default.Activate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.close)
     public func close() throws {
-        try _default.CloseImpl()
+        try _default.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.getasynckeystate)
     public func getAsyncKeyState(_ virtualKey: UWP.VirtualKey) throws -> CoreVirtualKeyStates {
-        try _default.GetAsyncKeyStateImpl(virtualKey)
+        try _default.GetAsyncKeyState(virtualKey)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.getkeystate)
     public func getKeyState(_ virtualKey: UWP.VirtualKey) throws -> CoreVirtualKeyStates {
-        try _default.GetKeyStateImpl(virtualKey)
+        try _default.GetKeyState(virtualKey)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.releasepointercapture)
     public func releasePointerCapture() throws {
-        try _default.ReleasePointerCaptureImpl()
+        try _default.ReleasePointerCapture()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.setpointercapture)
     public func setPointerCapture() throws {
-        try _default.SetPointerCaptureImpl()
+        try _default.SetPointerCapture()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.automationhostprovider)
     public var automationHostProvider : Any! {
-        get { try! _default.get_AutomationHostProviderImpl() }
+        get { try! _default.get_AutomationHostProvider() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.bounds)
     public var bounds : WindowsFoundation.Rect {
-        get { try! _default.get_BoundsImpl() }
+        get { try! _default.get_Bounds() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.customproperties)
     public var customProperties : WindowsFoundation.AnyIPropertySet! {
-        get { try! _default.get_CustomPropertiesImpl() }
+        get { try! _default.get_CustomProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.dispatcher)
     public var dispatcher : CoreDispatcher! {
-        get { try! _default.get_DispatcherImpl() }
+        get { try! _default.get_Dispatcher() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.flowdirection)
     public var flowDirection : CoreWindowFlowDirection {
-        get { try! _default.get_FlowDirectionImpl() }
-        set { try! _default.put_FlowDirectionImpl(newValue) }
+        get { try! _default.get_FlowDirection() }
+        set { try! _default.put_FlowDirection(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.isinputenabled)
     public var isInputEnabled : Bool {
-        get { try! _default.get_IsInputEnabledImpl() }
-        set { try! _default.put_IsInputEnabledImpl(newValue) }
+        get { try! _default.get_IsInputEnabled() }
+        set { try! _default.put_IsInputEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.pointercursor)
     public var pointerCursor : CoreCursor! {
-        get { try! _default.get_PointerCursorImpl() }
-        set { try! _default.put_PointerCursorImpl(newValue) }
+        get { try! _default.get_PointerCursor() }
+        set { try! _default.put_PointerCursor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerposition)
     public var pointerPosition : WindowsFoundation.Point {
-        get { try! _default.get_PointerPositionImpl() }
+        get { try! _default.get_PointerPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.visible)
     public var visible : Bool {
-        get { try! _default.get_VisibleImpl() }
+        get { try! _default.get_Visible() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.activated)
@@ -485,10 +443,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ActivatedImpl($0)
+          return try! this.add_Activated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ActivatedImpl($0)
+         try? self?._default.remove_Activated($0)
        }
       )
     }()
@@ -498,10 +456,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AutomationProviderRequestedImpl($0)
+          return try! this.add_AutomationProviderRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AutomationProviderRequestedImpl($0)
+         try? self?._default.remove_AutomationProviderRequested($0)
        }
       )
     }()
@@ -511,10 +469,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CharacterReceivedImpl($0)
+          return try! this.add_CharacterReceived($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CharacterReceivedImpl($0)
+         try? self?._default.remove_CharacterReceived($0)
        }
       )
     }()
@@ -524,10 +482,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ClosedImpl($0)
+          return try! this.add_Closed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ClosedImpl($0)
+         try? self?._default.remove_Closed($0)
        }
       )
     }()
@@ -537,10 +495,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_InputEnabledImpl($0)
+          return try! this.add_InputEnabled($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_InputEnabledImpl($0)
+         try? self?._default.remove_InputEnabled($0)
        }
       )
     }()
@@ -550,10 +508,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_KeyDownImpl($0)
+          return try! this.add_KeyDown($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_KeyDownImpl($0)
+         try? self?._default.remove_KeyDown($0)
        }
       )
     }()
@@ -563,10 +521,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_KeyUpImpl($0)
+          return try! this.add_KeyUp($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_KeyUpImpl($0)
+         try? self?._default.remove_KeyUp($0)
        }
       )
     }()
@@ -576,10 +534,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerCaptureLostImpl($0)
+          return try! this.add_PointerCaptureLost($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerCaptureLostImpl($0)
+         try? self?._default.remove_PointerCaptureLost($0)
        }
       )
     }()
@@ -589,10 +547,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerEnteredImpl($0)
+          return try! this.add_PointerEntered($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerEnteredImpl($0)
+         try? self?._default.remove_PointerEntered($0)
        }
       )
     }()
@@ -602,10 +560,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerExitedImpl($0)
+          return try! this.add_PointerExited($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerExitedImpl($0)
+         try? self?._default.remove_PointerExited($0)
        }
       )
     }()
@@ -615,10 +573,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerMovedImpl($0)
+          return try! this.add_PointerMoved($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerMovedImpl($0)
+         try? self?._default.remove_PointerMoved($0)
        }
       )
     }()
@@ -628,10 +586,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerPressedImpl($0)
+          return try! this.add_PointerPressed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerPressedImpl($0)
+         try? self?._default.remove_PointerPressed($0)
        }
       )
     }()
@@ -641,10 +599,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerReleasedImpl($0)
+          return try! this.add_PointerReleased($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerReleasedImpl($0)
+         try? self?._default.remove_PointerReleased($0)
        }
       )
     }()
@@ -654,10 +612,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerWheelChangedImpl($0)
+          return try! this.add_PointerWheelChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerWheelChangedImpl($0)
+         try? self?._default.remove_PointerWheelChanged($0)
        }
       )
     }()
@@ -667,10 +625,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_SizeChangedImpl($0)
+          return try! this.add_SizeChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_SizeChangedImpl($0)
+         try? self?._default.remove_SizeChanged($0)
        }
       )
     }()
@@ -680,10 +638,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_TouchHitTestingImpl($0)
+          return try! this.add_TouchHitTesting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_TouchHitTestingImpl($0)
+         try? self?._default.remove_TouchHitTesting($0)
        }
       )
     }()
@@ -693,10 +651,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_VisibilityChangedImpl($0)
+          return try! this.add_VisibilityChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_VisibilityChangedImpl($0)
+         try? self?._default.remove_VisibilityChanged($0)
        }
       )
     }()
@@ -709,10 +667,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._ICorePointerRedirector else { return .init() }
-          return try! this.add_PointerRoutedAwayImpl($0)
+          return try! this.add_PointerRoutedAway($0)
         },
         remove: { [weak self] in
-         try? self?._ICorePointerRedirector.remove_PointerRoutedAwayImpl($0)
+         try? self?._ICorePointerRedirector.remove_PointerRoutedAway($0)
        }
       )
     }()
@@ -722,10 +680,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._ICorePointerRedirector else { return .init() }
-          return try! this.add_PointerRoutedReleasedImpl($0)
+          return try! this.add_PointerRoutedReleased($0)
         },
         remove: { [weak self] in
-         try? self?._ICorePointerRedirector.remove_PointerRoutedReleasedImpl($0)
+         try? self?._ICorePointerRedirector.remove_PointerRoutedReleased($0)
        }
       )
     }()
@@ -735,10 +693,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._ICorePointerRedirector else { return .init() }
-          return try! this.add_PointerRoutedToImpl($0)
+          return try! this.add_PointerRoutedTo($0)
         },
         remove: { [weak self] in
-         try? self?._ICorePointerRedirector.remove_PointerRoutedToImpl($0)
+         try? self?._ICorePointerRedirector.remove_PointerRoutedTo($0)
        }
       )
     }()
@@ -746,7 +704,7 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
     private lazy var _ICoreWindow3: __ABI_Windows_UI_Core.ICoreWindow3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.getcurrentkeyeventdeviceid)
     public func getCurrentKeyEventDeviceId() throws -> String {
-        try _ICoreWindow3.GetCurrentKeyEventDeviceIdImpl()
+        try _ICoreWindow3.GetCurrentKeyEventDeviceId()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.closestinteractiveboundsrequested)
@@ -754,10 +712,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._ICoreWindow3 else { return .init() }
-          return try! this.add_ClosestInteractiveBoundsRequestedImpl($0)
+          return try! this.add_ClosestInteractiveBoundsRequested($0)
         },
         remove: { [weak self] in
-         try? self?._ICoreWindow3.remove_ClosestInteractiveBoundsRequestedImpl($0)
+         try? self?._ICoreWindow3.remove_ClosestInteractiveBoundsRequested($0)
        }
       )
     }()
@@ -768,10 +726,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._ICoreWindow4 else { return .init() }
-          return try! this.add_ResizeCompletedImpl($0)
+          return try! this.add_ResizeCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._ICoreWindow4.remove_ResizeCompletedImpl($0)
+         try? self?._ICoreWindow4.remove_ResizeCompleted($0)
        }
       )
     }()
@@ -781,10 +739,10 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
       .init(
         add: { [weak self] in
           guard let this = self?._ICoreWindow4 else { return .init() }
-          return try! this.add_ResizeStartedImpl($0)
+          return try! this.add_ResizeStarted($0)
         },
         remove: { [weak self] in
-         try? self?._ICoreWindow4.remove_ResizeStartedImpl($0)
+         try? self?._ICoreWindow4.remove_ResizeStarted($0)
        }
       )
     }()
@@ -792,18 +750,18 @@ public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector 
     private lazy var _ICoreWindow5: __ABI_Windows_UI_Core.ICoreWindow5! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.activationmode)
     public var activationMode : CoreWindowActivationMode {
-        get { try! _ICoreWindow5.get_ActivationModeImpl() }
+        get { try! _ICoreWindow5.get_ActivationMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.dispatcherqueue)
     public var dispatcherQueue : UWP.DispatcherQueue! {
-        get { try! _ICoreWindow5.get_DispatcherQueueImpl() }
+        get { try! _ICoreWindow5.get_DispatcherQueue() }
     }
 
     private lazy var _ICoreWindowWithContext: __ABI_Windows_UI_Core.ICoreWindowWithContext! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow.uicontext)
     public var uiContext : UWP.UIContext! {
-        get { try! _ICoreWindowWithContext.get_UIContextImpl() }
+        get { try! _ICoreWindowWithContext.get_UIContext() }
     }
 
     deinit {
@@ -831,12 +789,6 @@ public final class CoreWindowEventArgs : WinRTClass, ICoreWindowEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgs>?) -> CoreWindowEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -846,8 +798,8 @@ public final class CoreWindowEventArgs : WinRTClass, ICoreWindowEventArgs {
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindoweventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     deinit {
@@ -869,19 +821,13 @@ public final class IdleDispatchedHandlerArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs>?) -> IdleDispatchedHandlerArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.idledispatchedhandlerargs.isdispatcheridle)
     public var isDispatcherIdle : Bool {
-        get { try! _default.get_IsDispatcherIdleImpl() }
+        get { try! _default.get_IsDispatcherIdle() }
     }
 
     deinit {
@@ -903,12 +849,6 @@ public final class InputEnabledEventArgs : WinRTClass, ICoreWindowEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIInputEnabledEventArgs>?) -> InputEnabledEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -919,13 +859,13 @@ public final class InputEnabledEventArgs : WinRTClass, ICoreWindowEventArgs {
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.inputenabledeventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.inputenabledeventargs.inputenabled)
     public var inputEnabled : Bool {
-        get { try! _default.get_InputEnabledImpl() }
+        get { try! _default.get_InputEnabled() }
     }
 
     deinit {
@@ -948,12 +888,6 @@ public final class KeyEventArgs : WinRTClass, ICoreWindowEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIKeyEventArgs>?) -> KeyEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -964,24 +898,24 @@ public final class KeyEventArgs : WinRTClass, ICoreWindowEventArgs {
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.keyeventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.keyeventargs.keystatus)
     public var keyStatus : CorePhysicalKeyStatus {
-        get { try! _default.get_KeyStatusImpl() }
+        get { try! _default.get_KeyStatus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.keyeventargs.virtualkey)
     public var virtualKey : UWP.VirtualKey {
-        get { try! _default.get_VirtualKeyImpl() }
+        get { try! _default.get_VirtualKey() }
     }
 
     private lazy var _IKeyEventArgs2: __ABI_Windows_UI_Core.IKeyEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.keyeventargs.deviceid)
     public var deviceId : String {
-        get { try! _IKeyEventArgs2.get_DeviceIdImpl() }
+        get { try! _IKeyEventArgs2.get_DeviceId() }
     }
 
     deinit {
@@ -1005,12 +939,6 @@ public final class PointerEventArgs : WinRTClass, ICoreWindowEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIPointerEventArgs>?) -> PointerEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1021,23 +949,23 @@ public final class PointerEventArgs : WinRTClass, ICoreWindowEventArgs {
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.pointereventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.pointereventargs.getintermediatepoints)
     public func getIntermediatePoints() throws -> WindowsFoundation.AnyIVector<UWP.PointerPoint?>! {
-        try _default.GetIntermediatePointsImpl()
+        try _default.GetIntermediatePoints()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.pointereventargs.currentpoint)
     public var currentPoint : UWP.PointerPoint! {
-        get { try! _default.get_CurrentPointImpl() }
+        get { try! _default.get_CurrentPoint() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.pointereventargs.keymodifiers)
     public var keyModifiers : UWP.VirtualKeyModifiers {
-        get { try! _default.get_KeyModifiersImpl() }
+        get { try! _default.get_KeyModifiers() }
     }
 
     deinit {
@@ -1060,12 +988,6 @@ public final class TouchHitTestingEventArgs : WinRTClass, ICoreWindowEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs>?) -> TouchHitTestingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1076,29 +998,34 @@ public final class TouchHitTestingEventArgs : WinRTClass, ICoreWindowEventArgs {
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.touchhittestingeventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.touchhittestingeventargs.evaluateproximity)
     public func evaluateProximity(_ controlBoundingBox: WindowsFoundation.Rect) throws -> CoreProximityEvaluation {
-        try _default.EvaluateProximityToRectImpl(controlBoundingBox)
+        try _default.EvaluateProximityToRect(controlBoundingBox)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.touchhittestingeventargs.evaluateproximity)
+    public func evaluateProximity(_ controlVertices: [WindowsFoundation.Point]) throws -> CoreProximityEvaluation {
+        try _default.EvaluateProximityToPolygon(controlVertices)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.touchhittestingeventargs.boundingbox)
     public var boundingBox : WindowsFoundation.Rect {
-        get { try! _default.get_BoundingBoxImpl() }
+        get { try! _default.get_BoundingBox() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.touchhittestingeventargs.point)
     public var point : WindowsFoundation.Point {
-        get { try! _default.get_PointImpl() }
+        get { try! _default.get_Point() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.touchhittestingeventargs.proximityevaluation)
     public var proximityEvaluation : CoreProximityEvaluation {
-        get { try! _default.get_ProximityEvaluationImpl() }
-        set { try! _default.put_ProximityEvaluationImpl(newValue) }
+        get { try! _default.get_ProximityEvaluation() }
+        set { try! _default.put_ProximityEvaluation(newValue) }
     }
 
     deinit {
@@ -1121,12 +1048,6 @@ public final class VisibilityChangedEventArgs : WinRTClass, ICoreWindowEventArgs
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIVisibilityChangedEventArgs>?) -> VisibilityChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1137,13 +1058,13 @@ public final class VisibilityChangedEventArgs : WinRTClass, ICoreWindowEventArgs
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.visibilitychangedeventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.visibilitychangedeventargs.visible)
     public var visible : Bool {
-        get { try! _default.get_VisibleImpl() }
+        get { try! _default.get_Visible() }
     }
 
     deinit {
@@ -1166,12 +1087,6 @@ public final class WindowActivatedEventArgs : WinRTClass, ICoreWindowEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIWindowActivatedEventArgs>?) -> WindowActivatedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1182,13 +1097,13 @@ public final class WindowActivatedEventArgs : WinRTClass, ICoreWindowEventArgs {
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.windowactivatedeventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.windowactivatedeventargs.windowactivationstate)
     public var windowActivationState : CoreWindowActivationState {
-        get { try! _default.get_WindowActivationStateImpl() }
+        get { try! _default.get_WindowActivationState() }
     }
 
     deinit {
@@ -1211,12 +1126,6 @@ public final class WindowSizeChangedEventArgs : WinRTClass, ICoreWindowEventArgs
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIWindowSizeChangedEventArgs>?) -> WindowSizeChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1227,13 +1136,13 @@ public final class WindowSizeChangedEventArgs : WinRTClass, ICoreWindowEventArgs
     private lazy var _ICoreWindowEventArgs: __ABI_Windows_UI_Core.ICoreWindowEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.windowsizechangedeventargs.handled)
     public var handled : Bool {
-        get { try! _ICoreWindowEventArgs.get_HandledImpl() }
-        set { try! _ICoreWindowEventArgs.put_HandledImpl(newValue) }
+        get { try! _ICoreWindowEventArgs.get_Handled() }
+        set { try! _ICoreWindowEventArgs.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.windowsizechangedeventargs.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     deinit {
@@ -1242,10 +1151,10 @@ public final class WindowSizeChangedEventArgs : WinRTClass, ICoreWindowEventArgs
     }
 }
 
-public typealias DispatchedHandler = () -> ()
-public typealias IdleDispatchedHandler = (IdleDispatchedHandlerArgs?) -> ()
+public typealias DispatchedHandler = () throws -> ()
+public typealias IdleDispatchedHandler = (IdleDispatchedHandlerArgs?) throws -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corephysicalkeystatus)
-public struct CorePhysicalKeyStatus: Hashable, Codable {
+public struct CorePhysicalKeyStatus: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corephysicalkeystatus.repeatcount)
     public var repeatCount: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corephysicalkeystatus.scancode)
@@ -1267,13 +1176,10 @@ public struct CorePhysicalKeyStatus: Hashable, Codable {
         self.wasKeyDown = wasKeyDown
         self.isKeyReleased = isKeyReleased
     }
-    public static func from(abi: __x_ABI_CWindows_CUI_CCore_CCorePhysicalKeyStatus) -> CorePhysicalKeyStatus {
-        .init(repeatCount: abi.RepeatCount, scanCode: abi.ScanCode, isExtendedKey: .init(from: abi.IsExtendedKey), isMenuKeyDown: .init(from: abi.IsMenuKeyDown), wasKeyDown: .init(from: abi.WasKeyDown), isKeyReleased: .init(from: abi.IsKeyReleased))
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coreproximityevaluation)
-public struct CoreProximityEvaluation: Hashable, Codable {
+public struct CoreProximityEvaluation: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coreproximityevaluation.score)
     public var score: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coreproximityevaluation.adjustedpoint)
@@ -1282,9 +1188,6 @@ public struct CoreProximityEvaluation: Hashable, Codable {
     public init(score: Int32, adjustedPoint: WindowsFoundation.Point) {
         self.score = score
         self.adjustedPoint = adjustedPoint
-    }
-    public static func from(abi: __x_ABI_CWindows_CUI_CCore_CCoreProximityEvaluation) -> CoreProximityEvaluation {
-        .init(score: abi.Score, adjustedPoint: .from(abi: abi.AdjustedPoint))
     }
 }
 
@@ -1455,7 +1358,7 @@ extension UWP.CoreAcceleratorKeyEventType {
         __x_ABI_CWindows_CUI_CCore_CCoreAcceleratorKeyEventType_UnicodeCharacter
     }
 }
-extension UWP.CoreAcceleratorKeyEventType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CoreAcceleratorKeyEventType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CoreCursorType {
     public static var arrow : UWP.CoreCursorType {
@@ -1507,7 +1410,7 @@ extension UWP.CoreCursorType {
         __x_ABI_CWindows_CUI_CCore_CCoreCursorType_Person
     }
 }
-extension UWP.CoreCursorType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CoreCursorType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CoreDispatcherPriority {
     public static var idle : UWP.CoreDispatcherPriority {
@@ -1523,7 +1426,7 @@ extension UWP.CoreDispatcherPriority {
         __x_ABI_CWindows_CUI_CCore_CCoreDispatcherPriority_High
     }
 }
-extension UWP.CoreDispatcherPriority: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CoreDispatcherPriority: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CoreProcessEventsOption {
     public static var processOneAndAllPending : UWP.CoreProcessEventsOption {
@@ -1539,7 +1442,7 @@ extension UWP.CoreProcessEventsOption {
         __x_ABI_CWindows_CUI_CCore_CCoreProcessEventsOption_ProcessAllIfPresent
     }
 }
-extension UWP.CoreProcessEventsOption: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CoreProcessEventsOption: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CoreVirtualKeyStates {
     public static var none : UWP.CoreVirtualKeyStates {
@@ -1552,7 +1455,7 @@ extension UWP.CoreVirtualKeyStates {
         __x_ABI_CWindows_CUI_CCore_CCoreVirtualKeyStates_Locked
     }
 }
-extension UWP.CoreVirtualKeyStates: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CoreVirtualKeyStates: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CoreWindowActivationMode {
     public static var none : UWP.CoreWindowActivationMode {
@@ -1568,7 +1471,7 @@ extension UWP.CoreWindowActivationMode {
         __x_ABI_CWindows_CUI_CCore_CCoreWindowActivationMode_ActivatedInForeground
     }
 }
-extension UWP.CoreWindowActivationMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CoreWindowActivationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CoreWindowActivationState {
     public static var codeActivated : UWP.CoreWindowActivationState {
@@ -1581,7 +1484,7 @@ extension UWP.CoreWindowActivationState {
         __x_ABI_CWindows_CUI_CCore_CCoreWindowActivationState_PointerActivated
     }
 }
-extension UWP.CoreWindowActivationState: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CoreWindowActivationState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CoreWindowFlowDirection {
     public static var leftToRight : UWP.CoreWindowFlowDirection {
@@ -1591,5 +1494,5 @@ extension UWP.CoreWindowFlowDirection {
         __x_ABI_CWindows_CUI_CCore_CCoreWindowFlowDirection_RightToLeft
     }
 }
-extension UWP.CoreWindowFlowDirection: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CoreWindowFlowDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

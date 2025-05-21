@@ -22,12 +22,6 @@ public final class BackgroundActivatedEventArgs : WinRTClass, IBackgroundActivat
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs>?) -> BackgroundActivatedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -37,7 +31,7 @@ public final class BackgroundActivatedEventArgs : WinRTClass, IBackgroundActivat
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs.taskinstance)
     public var taskInstance : UWP.AnyIBackgroundTaskInstance! {
-        get { try! _default.get_TaskInstanceImpl() }
+        get { try! _default.get_TaskInstance() }
     }
 
     deinit {
@@ -59,12 +53,6 @@ public final class LaunchActivatedEventArgs : WinRTClass, IActivatedEventArgs, I
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs>?) -> LaunchActivatedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -75,57 +63,57 @@ public final class LaunchActivatedEventArgs : WinRTClass, IActivatedEventArgs, I
     private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.kind)
     public var kind : ActivationKind {
-        get { try! _IActivatedEventArgs.get_KindImpl() }
+        get { try! _IActivatedEventArgs.get_Kind() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.previousexecutionstate)
     public var previousExecutionState : ApplicationExecutionState {
-        get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+        get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.splashscreen)
     public var splashScreen : SplashScreen! {
-        get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+        get { try! _IActivatedEventArgs.get_SplashScreen() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.arguments)
     public var arguments : String {
-        get { try! _default.get_ArgumentsImpl() }
+        get { try! _default.get_Arguments() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.tileid)
     public var tileId : String {
-        get { try! _default.get_TileIdImpl() }
+        get { try! _default.get_TileId() }
     }
 
     private lazy var _IApplicationViewActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.currentlyshownapplicationviewid)
     public var currentlyShownApplicationViewId : Int32 {
-        get { try! _IApplicationViewActivatedEventArgs.get_CurrentlyShownApplicationViewIdImpl() }
+        get { try! _IApplicationViewActivatedEventArgs.get_CurrentlyShownApplicationViewId() }
     }
 
     private lazy var _IPrelaunchActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.prelaunchactivated)
     public var prelaunchActivated : Bool {
-        get { try! _IPrelaunchActivatedEventArgs.get_PrelaunchActivatedImpl() }
+        get { try! _IPrelaunchActivatedEventArgs.get_PrelaunchActivated() }
     }
 
     private lazy var _IViewSwitcherProvider: __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.viewswitcher)
     public var viewSwitcher : UWP.ActivationViewSwitcher! {
-        get { try! _IViewSwitcherProvider.get_ViewSwitcherImpl() }
+        get { try! _IViewSwitcherProvider.get_ViewSwitcher() }
     }
 
     private lazy var _ILaunchActivatedEventArgs2: __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.tileactivatedinfo)
     public var tileActivatedInfo : TileActivatedInfo! {
-        get { try! _ILaunchActivatedEventArgs2.get_TileActivatedInfoImpl() }
+        get { try! _ILaunchActivatedEventArgs2.get_TileActivatedInfo() }
     }
 
     private lazy var _IActivatedEventArgsWithUser: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.user)
     public var user : UWP.User! {
-        get { try! _IActivatedEventArgsWithUser.get_UserImpl() }
+        get { try! _IActivatedEventArgsWithUser.get_User() }
     }
 
     deinit {
@@ -153,12 +141,6 @@ public final class ProtocolActivatedEventArgs : WinRTClass, IActivatedEventArgs,
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs>?) -> ProtocolActivatedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -169,51 +151,51 @@ public final class ProtocolActivatedEventArgs : WinRTClass, IActivatedEventArgs,
     private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.kind)
     public var kind : ActivationKind {
-        get { try! _IActivatedEventArgs.get_KindImpl() }
+        get { try! _IActivatedEventArgs.get_Kind() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.previousexecutionstate)
     public var previousExecutionState : ApplicationExecutionState {
-        get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+        get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.splashscreen)
     public var splashScreen : SplashScreen! {
-        get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+        get { try! _IActivatedEventArgs.get_SplashScreen() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.uri)
     public var uri : WindowsFoundation.Uri! {
-        get { try! _default.get_UriImpl() }
+        get { try! _default.get_Uri() }
     }
 
     private lazy var _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData: __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.callerpackagefamilyname)
     public var callerPackageFamilyName : String {
-        get { try! _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.get_CallerPackageFamilyNameImpl() }
+        get { try! _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.get_CallerPackageFamilyName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.data)
     public var data : WindowsFoundation.ValueSet! {
-        get { try! _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.get_DataImpl() }
+        get { try! _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.get_Data() }
     }
 
     private lazy var _IApplicationViewActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.currentlyshownapplicationviewid)
     public var currentlyShownApplicationViewId : Int32 {
-        get { try! _IApplicationViewActivatedEventArgs.get_CurrentlyShownApplicationViewIdImpl() }
+        get { try! _IApplicationViewActivatedEventArgs.get_CurrentlyShownApplicationViewId() }
     }
 
     private lazy var _IViewSwitcherProvider: __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.viewswitcher)
     public var viewSwitcher : UWP.ActivationViewSwitcher! {
-        get { try! _IViewSwitcherProvider.get_ViewSwitcherImpl() }
+        get { try! _IViewSwitcherProvider.get_ViewSwitcher() }
     }
 
     private lazy var _IActivatedEventArgsWithUser: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.user)
     public var user : UWP.User! {
-        get { try! _IActivatedEventArgsWithUser.get_UserImpl() }
+        get { try! _IActivatedEventArgsWithUser.get_User() }
     }
 
     deinit {
@@ -240,19 +222,13 @@ public final class SplashScreen : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen>?) -> SplashScreen? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen.imagelocation)
     public var imageLocation : WindowsFoundation.Rect {
-        get { try! _default.get_ImageLocationImpl() }
+        get { try! _default.get_ImageLocation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen.dismissed)
@@ -260,10 +236,10 @@ public final class SplashScreen : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DismissedImpl($0)
+          return try! this.add_Dismissed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DismissedImpl($0)
+         try? self?._default.remove_Dismissed($0)
        }
       )
     }()
@@ -287,19 +263,13 @@ public final class TileActivatedInfo : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo>?) -> TileActivatedInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo.recentlyshownnotifications)
     public var recentlyShownNotifications : WindowsFoundation.AnyIVectorView<UWP.ShownTileNotification?>! {
-        get { try! _default.get_RecentlyShownNotificationsImpl() }
+        get { try! _default.get_RecentlyShownNotifications() }
     }
 
     deinit {
@@ -644,7 +614,7 @@ extension UWP.ActivationKind {
         __x_ABI_CWindows_CApplicationModel_CActivation_CActivationKind_BarcodeScannerProvider
     }
 }
-extension UWP.ActivationKind: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ActivationKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ApplicationExecutionState {
     public static var notRunning : UWP.ApplicationExecutionState {
@@ -663,5 +633,5 @@ extension UWP.ApplicationExecutionState {
         __x_ABI_CWindows_CApplicationModel_CActivation_CApplicationExecutionState_ClosedByUser
     }
 }
-extension UWP.ApplicationExecutionState: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ApplicationExecutionState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

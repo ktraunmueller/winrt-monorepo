@@ -48,11 +48,12 @@ private var IID___x_ABI_CWindows_CDevices_CInput_CITouchCapabilities: WindowsFou
     .init(Data1: 0x20DD55F9, Data2: 0x13F1, Data3: 0x46C8, Data4: ( 0x92,0x85,0x2C,0x05,0xFA,0x3E,0xDA,0x6F ))// 20DD55F9-13F1-46C8-9285-2C05FA3EDA6F
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Devices_Input {
     public class IKeyboardCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities }
 
-        internal func get_KeyboardPresentImpl() throws -> Int32 {
+        public func get_KeyboardPresent() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardPresent(pThis, &value))
@@ -65,7 +66,7 @@ public enum __ABI_Windows_Devices_Input {
     public class IMouseCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities }
 
-        internal func get_MousePresentImpl() throws -> Int32 {
+        public func get_MousePresent() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MousePresent(pThis, &value))
@@ -73,7 +74,7 @@ public enum __ABI_Windows_Devices_Input {
             return value
         }
 
-        internal func get_VerticalWheelPresentImpl() throws -> Int32 {
+        public func get_VerticalWheelPresent() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalWheelPresent(pThis, &value))
@@ -81,7 +82,7 @@ public enum __ABI_Windows_Devices_Input {
             return value
         }
 
-        internal func get_HorizontalWheelPresentImpl() throws -> Int32 {
+        public func get_HorizontalWheelPresent() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalWheelPresent(pThis, &value))
@@ -89,7 +90,7 @@ public enum __ABI_Windows_Devices_Input {
             return value
         }
 
-        internal func get_SwapButtonsImpl() throws -> Int32 {
+        public func get_SwapButtons() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SwapButtons(pThis, &value))
@@ -97,7 +98,7 @@ public enum __ABI_Windows_Devices_Input {
             return value
         }
 
-        internal func get_NumberOfButtonsImpl() throws -> UInt32 {
+        public func get_NumberOfButtons() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfButtons(pThis, &value))
@@ -110,7 +111,7 @@ public enum __ABI_Windows_Devices_Input {
     public class IMouseDevice: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseDevice }
 
-        internal func add_MouseMovedImpl(_ handler: TypedEventHandler<UWP.MouseDevice?, UWP.MouseEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_MouseMoved(_ handler: TypedEventHandler<UWP.MouseDevice?, UWP.MouseEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CDevices__CInput__CMouseDevice___x_ABI_CWindows__CDevices__CInput__CMouseEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -120,7 +121,7 @@ public enum __ABI_Windows_Devices_Input {
             return cookie
         }
 
-        internal func remove_MouseMovedImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_MouseMoved(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_MouseMoved(pThis, cookie))
             }
@@ -131,13 +132,13 @@ public enum __ABI_Windows_Devices_Input {
     public class IMouseDeviceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseDeviceStatics }
 
-        internal func GetForCurrentViewImpl() throws -> UWP.MouseDevice? {
+        public func GetForCurrentView() throws -> UWP.MouseDevice? {
             let (mouseDevice) = try ComPtrs.initialize { mouseDeviceAbi in
                 _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseDeviceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentView(pThis, &mouseDeviceAbi))
                 }
             }
-            return .from(abi: mouseDevice)
+            return __IMPL_Windows_Devices_Input.MouseDeviceBridge.from(abi: mouseDevice)
         }
 
     }
@@ -145,7 +146,7 @@ public enum __ABI_Windows_Devices_Input {
     public class IMouseEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs }
 
-        internal func get_MouseDeltaImpl() throws -> UWP.MouseDelta {
+        public func get_MouseDelta() throws -> UWP.MouseDelta {
             var value: __x_ABI_CWindows_CDevices_CInput_CMouseDelta = .init()
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MouseDelta(pThis, &value))
@@ -158,7 +159,7 @@ public enum __ABI_Windows_Devices_Input {
     public class IPenDevice: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPenDevice }
 
-        internal func get_PenIdImpl() throws -> Foundation.UUID {
+        public func get_PenId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPenDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PenId(pThis, &value))
@@ -171,13 +172,13 @@ public enum __ABI_Windows_Devices_Input {
     public class IPenDeviceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPenDeviceStatics }
 
-        internal func GetFromPointerIdImpl(_ pointerId: UInt32) throws -> UWP.PenDevice? {
+        public func GetFromPointerId(_ pointerId: UInt32) throws -> UWP.PenDevice? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPenDeviceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetFromPointerId(pThis, pointerId, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Devices_Input.PenDeviceBridge.from(abi: result)
         }
 
     }
@@ -185,7 +186,7 @@ public enum __ABI_Windows_Devices_Input {
     public class IPointerDevice: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPointerDevice }
 
-        internal func get_PointerDeviceTypeImpl() throws -> UWP.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> UWP.PointerDeviceType {
             var value: __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -193,7 +194,7 @@ public enum __ABI_Windows_Devices_Input {
             return value
         }
 
-        internal func get_IsIntegratedImpl() throws -> Bool {
+        public func get_IsIntegrated() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsIntegrated(pThis, &value))
@@ -201,7 +202,7 @@ public enum __ABI_Windows_Devices_Input {
             return .init(from: value)
         }
 
-        internal func get_MaxContactsImpl() throws -> UInt32 {
+        public func get_MaxContacts() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxContacts(pThis, &value))
@@ -209,7 +210,7 @@ public enum __ABI_Windows_Devices_Input {
             return value
         }
 
-        internal func get_PhysicalDeviceRectImpl() throws -> WindowsFoundation.Rect {
+        public func get_PhysicalDeviceRect() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PhysicalDeviceRect(pThis, &value))
@@ -217,7 +218,7 @@ public enum __ABI_Windows_Devices_Input {
             return .from(abi: value)
         }
 
-        internal func get_ScreenRectImpl() throws -> WindowsFoundation.Rect {
+        public func get_ScreenRect() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScreenRect(pThis, &value))
@@ -225,7 +226,7 @@ public enum __ABI_Windows_Devices_Input {
             return .from(abi: value)
         }
 
-        internal func get_SupportedUsagesImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.PointerDeviceUsage>? {
+        public func get_SupportedUsages() throws -> WindowsFoundation.AnyIVectorView<UWP.PointerDeviceUsage>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SupportedUsages(pThis, &valueAbi))
@@ -239,7 +240,7 @@ public enum __ABI_Windows_Devices_Input {
     public class IPointerDevice2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPointerDevice2 }
 
-        internal func get_MaxPointersWithZDistanceImpl() throws -> UInt32 {
+        public func get_MaxPointersWithZDistance() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxPointersWithZDistance(pThis, &value))
@@ -252,16 +253,16 @@ public enum __ABI_Windows_Devices_Input {
     public class IPointerDeviceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPointerDeviceStatics }
 
-        internal func GetPointerDeviceImpl(_ pointerId: UInt32) throws -> UWP.PointerDevice? {
+        public func GetPointerDevice(_ pointerId: UInt32) throws -> UWP.PointerDevice? {
             let (pointerDevice) = try ComPtrs.initialize { pointerDeviceAbi in
                 _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDeviceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPointerDevice(pThis, pointerId, &pointerDeviceAbi))
                 }
             }
-            return .from(abi: pointerDevice)
+            return __IMPL_Windows_Devices_Input.PointerDeviceBridge.from(abi: pointerDevice)
         }
 
-        internal func GetPointerDevicesImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.PointerDevice?>? {
+        public func GetPointerDevices() throws -> WindowsFoundation.AnyIVectorView<UWP.PointerDevice?>? {
             let (pointerDevices) = try ComPtrs.initialize { pointerDevicesAbi in
                 _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDeviceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPointerDevices(pThis, &pointerDevicesAbi))
@@ -275,7 +276,7 @@ public enum __ABI_Windows_Devices_Input {
     public class ITouchCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CITouchCapabilities }
 
-        internal func get_TouchPresentImpl() throws -> Int32 {
+        public func get_TouchPresent() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CITouchCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TouchPresent(pThis, &value))
@@ -283,7 +284,7 @@ public enum __ABI_Windows_Devices_Input {
             return value
         }
 
-        internal func get_ContactsImpl() throws -> UInt32 {
+        public func get_Contacts() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CITouchCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Contacts(pThis, &value))

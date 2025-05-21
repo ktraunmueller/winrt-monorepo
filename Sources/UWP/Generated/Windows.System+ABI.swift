@@ -104,20 +104,21 @@ private var IID___x_ABI_CWindows_CSystem_CIDispatcherQueueHandler: WindowsFounda
     .init(Data1: 0xDFA2DC9C, Data2: 0x1A2D, Data3: 0x4917, Data4: ( 0x98,0xF2,0x93,0x9A,0xF1,0xD6,0xE0,0xC8 ))// DFA2DC9C-1A2D-4917-98F2-939AF1D6E0C8
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_System {
     public class IDispatcherQueue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueue }
 
-        internal func CreateTimerImpl() throws -> UWP.DispatcherQueueTimer? {
+        public func CreateTimer() throws -> UWP.DispatcherQueueTimer? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateTimer(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_System.DispatcherQueueTimerBridge.from(abi: result)
         }
 
-        internal func TryEnqueueImpl(_ callback: UWP.DispatcherQueueHandler?) throws -> Bool {
+        public func TryEnqueue(_ callback: UWP.DispatcherQueueHandler?) throws -> Bool {
             var result: boolean = 0
             let callbackWrapper = __ABI_Windows_System.DispatcherQueueHandlerWrapper(callback)
             let _callback = try! callbackWrapper?.toABI { $0 }
@@ -127,7 +128,7 @@ public enum __ABI_Windows_System {
             return .init(from: result)
         }
 
-        internal func TryEnqueueWithPriorityImpl(_ priority: UWP.DispatcherQueuePriority, _ callback: UWP.DispatcherQueueHandler?) throws -> Bool {
+        public func TryEnqueueWithPriority(_ priority: UWP.DispatcherQueuePriority, _ callback: UWP.DispatcherQueueHandler?) throws -> Bool {
             var result: boolean = 0
             let callbackWrapper = __ABI_Windows_System.DispatcherQueueHandlerWrapper(callback)
             let _callback = try! callbackWrapper?.toABI { $0 }
@@ -137,7 +138,7 @@ public enum __ABI_Windows_System {
             return .init(from: result)
         }
 
-        internal func add_ShutdownStartingImpl(_ handler: TypedEventHandler<UWP.DispatcherQueue?, UWP.DispatcherQueueShutdownStartingEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ShutdownStarting(_ handler: TypedEventHandler<UWP.DispatcherQueue?, UWP.DispatcherQueueShutdownStartingEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CDispatcherQueue___x_ABI_CWindows__CSystem__CDispatcherQueueShutdownStartingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -147,13 +148,13 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_ShutdownStartingImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ShutdownStarting(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShutdownStarting(pThis, token))
             }
         }
 
-        internal func add_ShutdownCompletedImpl(_ handler: TypedEventHandler<UWP.DispatcherQueue?, Any?>?) throws -> EventRegistrationToken {
+        public func add_ShutdownCompleted(_ handler: TypedEventHandler<UWP.DispatcherQueue?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CDispatcherQueue_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -163,7 +164,7 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_ShutdownCompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ShutdownCompleted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShutdownCompleted(pThis, token))
             }
@@ -174,7 +175,7 @@ public enum __ABI_Windows_System {
     public class IDispatcherQueue2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueue2 }
 
-        internal func get_HasThreadAccessImpl() throws -> Bool {
+        public func get_HasThreadAccess() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueue2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasThreadAccess(pThis, &value))
@@ -187,13 +188,13 @@ public enum __ABI_Windows_System {
     public class IDispatcherQueueShutdownStartingEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueShutdownStartingEventArgs }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueShutdownStartingEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: result)
         }
 
     }
@@ -201,13 +202,13 @@ public enum __ABI_Windows_System {
     public class IDispatcherQueueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueStatics }
 
-        internal func GetForCurrentThreadImpl() throws -> UWP.DispatcherQueue? {
+        public func GetForCurrentThread() throws -> UWP.DispatcherQueue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentThread(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_System.DispatcherQueueBridge.from(abi: result)
         }
 
     }
@@ -215,7 +216,7 @@ public enum __ABI_Windows_System {
     public class IDispatcherQueueTimer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueTimer }
 
-        internal func get_IntervalImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Interval() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Interval(pThis, &value))
@@ -223,13 +224,13 @@ public enum __ABI_Windows_System {
             return .from(abi: value)
         }
 
-        internal func put_IntervalImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_Interval(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Interval(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_IsRunningImpl() throws -> Bool {
+        public func get_IsRunning() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRunning(pThis, &value))
@@ -237,7 +238,7 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func get_IsRepeatingImpl() throws -> Bool {
+        public func get_IsRepeating() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRepeating(pThis, &value))
@@ -245,25 +246,25 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func put_IsRepeatingImpl(_ value: Bool) throws {
+        public func put_IsRepeating(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsRepeating(pThis, .init(from: value)))
             }
         }
 
-        internal func StartImpl() throws {
+        public func Start() throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Start(pThis))
             }
         }
 
-        internal func StopImpl() throws {
+        public func Stop() throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Stop(pThis))
             }
         }
 
-        internal func add_TickImpl(_ handler: TypedEventHandler<UWP.DispatcherQueueTimer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_Tick(_ handler: TypedEventHandler<UWP.DispatcherQueueTimer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CDispatcherQueueTimer_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -273,7 +274,7 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_TickImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Tick(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Tick(pThis, token))
             }
@@ -284,7 +285,7 @@ public enum __ABI_Windows_System {
     public class IFolderLauncherOptions: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIFolderLauncherOptions }
 
-        internal func get_ItemsToSelectImpl() throws -> WindowsFoundation.AnyIVector<UWP.AnyIStorageItem?>? {
+        public func get_ItemsToSelect() throws -> WindowsFoundation.AnyIVector<UWP.AnyIStorageItem?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIFolderLauncherOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemsToSelect(pThis, &valueAbi))
@@ -298,7 +299,7 @@ public enum __ABI_Windows_System {
     public class ILaunchUriResult: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILaunchUriResult }
 
-        internal func get_StatusImpl() throws -> UWP.LaunchUriStatus {
+        public func get_Status() throws -> UWP.LaunchUriStatus {
             var value: __x_ABI_CWindows_CSystem_CLaunchUriStatus = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILaunchUriResult.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
@@ -306,13 +307,13 @@ public enum __ABI_Windows_System {
             return value
         }
 
-        internal func get_ResultImpl() throws -> WindowsFoundation.ValueSet? {
+        public func get_Result() throws -> WindowsFoundation.ValueSet? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILaunchUriResult.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Result(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation_Collections.ValueSetBridge.from(abi: value)
         }
 
     }
@@ -320,7 +321,7 @@ public enum __ABI_Windows_System {
     public class ILauncherOptions: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherOptions }
 
-        internal func get_TreatAsUntrustedImpl() throws -> Bool {
+        public func get_TreatAsUntrusted() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TreatAsUntrusted(pThis, &value))
@@ -328,13 +329,13 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func put_TreatAsUntrustedImpl(_ value: Bool) throws {
+        public func put_TreatAsUntrusted(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TreatAsUntrusted(pThis, .init(from: value)))
             }
         }
 
-        internal func get_DisplayApplicationPickerImpl() throws -> Bool {
+        public func get_DisplayApplicationPicker() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayApplicationPicker(pThis, &value))
@@ -342,22 +343,22 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func put_DisplayApplicationPickerImpl(_ value: Bool) throws {
+        public func put_DisplayApplicationPicker(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DisplayApplicationPicker(pThis, .init(from: value)))
             }
         }
 
-        internal func get_UIImpl() throws -> UWP.LauncherUIOptions? {
+        public func get_UI() throws -> UWP.LauncherUIOptions? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_UI(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System.LauncherUIOptionsBridge.from(abi: value)
         }
 
-        internal func get_PreferredApplicationPackageFamilyNameImpl() throws -> String {
+        public func get_PreferredApplicationPackageFamilyName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreferredApplicationPackageFamilyName(pThis, &value))
@@ -365,14 +366,14 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func put_PreferredApplicationPackageFamilyNameImpl(_ value: String) throws {
+        public func put_PreferredApplicationPackageFamilyName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PreferredApplicationPackageFamilyName(pThis, _value.get()))
             }
         }
 
-        internal func get_PreferredApplicationDisplayNameImpl() throws -> String {
+        public func get_PreferredApplicationDisplayName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreferredApplicationDisplayName(pThis, &value))
@@ -380,29 +381,29 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func put_PreferredApplicationDisplayNameImpl(_ value: String) throws {
+        public func put_PreferredApplicationDisplayName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PreferredApplicationDisplayName(pThis, _value.get()))
             }
         }
 
-        internal func get_FallbackUriImpl() throws -> WindowsFoundation.Uri? {
+        public func get_FallbackUri() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FallbackUri(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_FallbackUriImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_FallbackUri(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FallbackUri(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ContentTypeImpl() throws -> String {
+        public func get_ContentType() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentType(pThis, &value))
@@ -410,7 +411,7 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func put_ContentTypeImpl(_ value: String) throws {
+        public func put_ContentType(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentType(pThis, _value.get()))
@@ -422,7 +423,7 @@ public enum __ABI_Windows_System {
     public class ILauncherOptions2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherOptions2 }
 
-        internal func get_TargetApplicationPackageFamilyNameImpl() throws -> String {
+        public func get_TargetApplicationPackageFamilyName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetApplicationPackageFamilyName(pThis, &value))
@@ -430,23 +431,23 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func put_TargetApplicationPackageFamilyNameImpl(_ value: String) throws {
+        public func put_TargetApplicationPackageFamilyName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetApplicationPackageFamilyName(pThis, _value.get()))
             }
         }
 
-        internal func get_NeighboringFilesQueryImpl() throws -> UWP.StorageFileQueryResult? {
+        public func get_NeighboringFilesQuery() throws -> UWP.StorageFileQueryResult? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NeighboringFilesQuery(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Storage_Search.StorageFileQueryResultBridge.from(abi: value)
         }
 
-        internal func put_NeighboringFilesQueryImpl(_ value: UWP.StorageFileQueryResult?) throws {
+        public func put_NeighboringFilesQuery(_ value: UWP.StorageFileQueryResult?) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NeighboringFilesQuery(pThis, RawPointer(value)))
             }
@@ -457,7 +458,7 @@ public enum __ABI_Windows_System {
     public class ILauncherOptions3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherOptions3 }
 
-        internal func get_IgnoreAppUriHandlersImpl() throws -> Bool {
+        public func get_IgnoreAppUriHandlers() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IgnoreAppUriHandlers(pThis, &value))
@@ -465,7 +466,7 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func put_IgnoreAppUriHandlersImpl(_ value: Bool) throws {
+        public func put_IgnoreAppUriHandlers(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IgnoreAppUriHandlers(pThis, .init(from: value)))
             }
@@ -476,7 +477,7 @@ public enum __ABI_Windows_System {
     public class ILauncherOptions4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherOptions4 }
 
-        internal func get_LimitPickerToCurrentAppAndAppUriHandlersImpl() throws -> Bool {
+        public func get_LimitPickerToCurrentAppAndAppUriHandlers() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LimitPickerToCurrentAppAndAppUriHandlers(pThis, &value))
@@ -484,7 +485,7 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func put_LimitPickerToCurrentAppAndAppUriHandlersImpl(_ value: Bool) throws {
+        public func put_LimitPickerToCurrentAppAndAppUriHandlers(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LimitPickerToCurrentAppAndAppUriHandlers(pThis, .init(from: value)))
             }
@@ -495,7 +496,7 @@ public enum __ABI_Windows_System {
     public class ILauncherStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics }
 
-        internal func LaunchFileAsyncImpl(_ file: UWP.AnyIStorageFile?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchFileAsync(_ file: UWP.AnyIStorageFile?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let fileWrapper = __ABI_Windows_Storage.IStorageFileWrapper(file)
                 let _file = try! fileWrapper?.toABI { $0 }
@@ -506,7 +507,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchFileWithOptionsAsyncImpl(_ file: UWP.AnyIStorageFile?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchFileWithOptionsAsync(_ file: UWP.AnyIStorageFile?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let fileWrapper = __ABI_Windows_Storage.IStorageFileWrapper(file)
                 let _file = try! fileWrapper?.toABI { $0 }
@@ -517,7 +518,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchUriAsyncImpl(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchUriAsync(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriAsync(pThis, RawPointer(uri), &operationAbi))
@@ -526,7 +527,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchUriWithOptionsAsyncImpl(_ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchUriWithOptionsAsync(_ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriWithOptionsAsync(pThis, RawPointer(uri), RawPointer(options), &operationAbi))
@@ -540,7 +541,7 @@ public enum __ABI_Windows_System {
     public class ILauncherStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics2 }
 
-        internal func LaunchUriForResultsAsyncImpl(_ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriResult?>? {
+        public func LaunchUriForResultsAsync(_ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriResult?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriForResultsAsync(pThis, RawPointer(uri), RawPointer(options), &operationAbi))
@@ -549,7 +550,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchUriResultWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchUriForResultsWithDataAsyncImpl(_ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?, _ inputData: WindowsFoundation.ValueSet?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriResult?>? {
+        public func LaunchUriForResultsWithDataAsync(_ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?, _ inputData: WindowsFoundation.ValueSet?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriResult?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriForResultsWithDataAsync(pThis, RawPointer(uri), RawPointer(options), RawPointer(inputData), &operationAbi))
@@ -558,7 +559,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchUriResultWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchUriWithDataAsyncImpl(_ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?, _ inputData: WindowsFoundation.ValueSet?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchUriWithDataAsync(_ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?, _ inputData: WindowsFoundation.ValueSet?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriWithDataAsync(pThis, RawPointer(uri), RawPointer(options), RawPointer(inputData), &operationAbi))
@@ -567,7 +568,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func QueryUriSupportAsyncImpl(_ uri: WindowsFoundation.Uri?, _ launchQuerySupportType: UWP.LaunchQuerySupportType) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
+        public func QueryUriSupportAsync(_ uri: WindowsFoundation.Uri?, _ launchQuerySupportType: UWP.LaunchQuerySupportType) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.QueryUriSupportAsync(pThis, RawPointer(uri), launchQuerySupportType, &operationAbi))
@@ -576,7 +577,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchQuerySupportStatusWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func QueryUriSupportWithPackageFamilyNameAsyncImpl(_ uri: WindowsFoundation.Uri?, _ launchQuerySupportType: UWP.LaunchQuerySupportType, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
+        public func QueryUriSupportWithPackageFamilyNameAsync(_ uri: WindowsFoundation.Uri?, _ launchQuerySupportType: UWP.LaunchQuerySupportType, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _packageFamilyName = try! HString(packageFamilyName)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
@@ -586,7 +587,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchQuerySupportStatusWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func QueryFileSupportAsyncImpl(_ file: UWP.StorageFile?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
+        public func QueryFileSupportAsync(_ file: UWP.StorageFile?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.QueryFileSupportAsync(pThis, RawPointer(file), &operationAbi))
@@ -595,7 +596,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchQuerySupportStatusWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func QueryFileSupportWithPackageFamilyNameAsyncImpl(_ file: UWP.StorageFile?, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
+        public func QueryFileSupportWithPackageFamilyNameAsync(_ file: UWP.StorageFile?, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _packageFamilyName = try! HString(packageFamilyName)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
@@ -605,7 +606,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchQuerySupportStatusWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func FindUriSchemeHandlersAsyncImpl(_ scheme: String) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>? {
+        public func FindUriSchemeHandlersAsync(_ scheme: String) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _scheme = try! HString(scheme)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
@@ -615,7 +616,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CApplicationModel__CAppInfoWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func FindUriSchemeHandlersWithLaunchUriTypeAsyncImpl(_ scheme: String, _ launchQuerySupportType: UWP.LaunchQuerySupportType) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>? {
+        public func FindUriSchemeHandlersWithLaunchUriTypeAsync(_ scheme: String, _ launchQuerySupportType: UWP.LaunchQuerySupportType) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _scheme = try! HString(scheme)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
@@ -625,7 +626,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CApplicationModel__CAppInfoWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func FindFileHandlersAsyncImpl(_ `extension`: String) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>? {
+        public func FindFileHandlersAsync(_ `extension`: String) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _extension = try! HString(`extension`)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics2.self) { pThis in
@@ -640,7 +641,7 @@ public enum __ABI_Windows_System {
     public class ILauncherStatics3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics3 }
 
-        internal func LaunchFolderAsyncImpl(_ folder: UWP.AnyIStorageFolder?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchFolderAsync(_ folder: UWP.AnyIStorageFolder?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let folderWrapper = __ABI_Windows_Storage.IStorageFolderWrapper(folder)
                 let _folder = try! folderWrapper?.toABI { $0 }
@@ -651,7 +652,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchFolderWithOptionsAsyncImpl(_ folder: UWP.AnyIStorageFolder?, _ options: UWP.FolderLauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchFolderWithOptionsAsync(_ folder: UWP.AnyIStorageFolder?, _ options: UWP.FolderLauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let folderWrapper = __ABI_Windows_Storage.IStorageFolderWrapper(folder)
                 let _folder = try! folderWrapper?.toABI { $0 }
@@ -667,7 +668,7 @@ public enum __ABI_Windows_System {
     public class ILauncherStatics4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics4 }
 
-        internal func QueryAppUriSupportAsyncImpl(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
+        public func QueryAppUriSupportAsync(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.QueryAppUriSupportAsync(pThis, RawPointer(uri), &operationAbi))
@@ -676,7 +677,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchQuerySupportStatusWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func QueryAppUriSupportWithPackageFamilyNameAsyncImpl(_ uri: WindowsFoundation.Uri?, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
+        public func QueryAppUriSupportWithPackageFamilyNameAsync(_ uri: WindowsFoundation.Uri?, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _packageFamilyName = try! HString(packageFamilyName)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics4.self) { pThis in
@@ -686,7 +687,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchQuerySupportStatusWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func FindAppUriHandlersAsyncImpl(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>? {
+        public func FindAppUriHandlersAsync(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppInfo?>?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindAppUriHandlersAsync(pThis, RawPointer(uri), &operationAbi))
@@ -695,7 +696,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CApplicationModel__CAppInfoWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchUriForUserAsyncImpl(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriStatus>? {
+        public func LaunchUriForUserAsync(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriForUserAsync(pThis, RawPointer(user), RawPointer(uri), &operationAbi))
@@ -704,7 +705,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchUriStatusWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchUriWithOptionsForUserAsyncImpl(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriStatus>? {
+        public func LaunchUriWithOptionsForUserAsync(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriWithOptionsForUserAsync(pThis, RawPointer(user), RawPointer(uri), RawPointer(options), &operationAbi))
@@ -713,7 +714,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchUriStatusWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchUriWithDataForUserAsyncImpl(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?, _ inputData: WindowsFoundation.ValueSet?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriStatus>? {
+        public func LaunchUriWithDataForUserAsync(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?, _ inputData: WindowsFoundation.ValueSet?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriWithDataForUserAsync(pThis, RawPointer(user), RawPointer(uri), RawPointer(options), RawPointer(inputData), &operationAbi))
@@ -722,7 +723,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchUriStatusWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchUriForResultsForUserAsyncImpl(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriResult?>? {
+        public func LaunchUriForResultsForUserAsync(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriResult?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriForResultsForUserAsync(pThis, RawPointer(user), RawPointer(uri), RawPointer(options), &operationAbi))
@@ -731,7 +732,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaunchUriResultWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchUriForResultsWithDataForUserAsyncImpl(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?, _ inputData: WindowsFoundation.ValueSet?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriResult?>? {
+        public func LaunchUriForResultsWithDataForUserAsync(_ user: UWP.User?, _ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?, _ inputData: WindowsFoundation.ValueSet?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriResult?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.LaunchUriForResultsWithDataForUserAsync(pThis, RawPointer(user), RawPointer(uri), RawPointer(options), RawPointer(inputData), &operationAbi))
@@ -745,7 +746,7 @@ public enum __ABI_Windows_System {
     public class ILauncherStatics5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics5 }
 
-        internal func LaunchFolderPathAsyncImpl(_ path: String) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchFolderPathAsync(_ path: String) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _path = try! HString(path)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics5.self) { pThis in
@@ -755,7 +756,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchFolderPathWithOptionsAsyncImpl(_ path: String, _ options: UWP.FolderLauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchFolderPathWithOptionsAsync(_ path: String, _ options: UWP.FolderLauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _path = try! HString(path)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics5.self) { pThis in
@@ -765,7 +766,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchFolderPathForUserAsyncImpl(_ user: UWP.User?, _ path: String) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchFolderPathForUserAsync(_ user: UWP.User?, _ path: String) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _path = try! HString(path)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics5.self) { pThis in
@@ -775,7 +776,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func LaunchFolderPathWithOptionsForUserAsyncImpl(_ user: UWP.User?, _ path: String, _ options: UWP.FolderLauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func LaunchFolderPathWithOptionsForUserAsync(_ user: UWP.User?, _ path: String, _ options: UWP.FolderLauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _path = try! HString(path)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherStatics5.self) { pThis in
@@ -790,7 +791,7 @@ public enum __ABI_Windows_System {
     public class ILauncherUIOptions: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherUIOptions }
 
-        internal func get_InvocationPointImpl() throws -> WindowsFoundation.Point? {
+        public func get_InvocationPoint() throws -> WindowsFoundation.Point? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherUIOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_InvocationPoint(pThis, &valueAbi))
@@ -799,7 +800,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CPointWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_InvocationPointImpl(_ value: WindowsFoundation.Point?) throws {
+        public func put_InvocationPoint(_ value: WindowsFoundation.Point?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CPointWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherUIOptions.self) { pThis in
@@ -807,7 +808,7 @@ public enum __ABI_Windows_System {
             }
         }
 
-        internal func get_SelectionRectImpl() throws -> WindowsFoundation.Rect? {
+        public func get_SelectionRect() throws -> WindowsFoundation.Rect? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherUIOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionRect(pThis, &valueAbi))
@@ -816,7 +817,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_SelectionRectImpl(_ value: WindowsFoundation.Rect?) throws {
+        public func put_SelectionRect(_ value: WindowsFoundation.Rect?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherUIOptions.self) { pThis in
@@ -824,7 +825,7 @@ public enum __ABI_Windows_System {
             }
         }
 
-        internal func get_PreferredPlacementImpl() throws -> UWP.Placement {
+        public func get_PreferredPlacement() throws -> UWP.Placement {
             var value: __x_ABI_CWindows_CUI_CPopups_CPlacement = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherUIOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreferredPlacement(pThis, &value))
@@ -832,7 +833,7 @@ public enum __ABI_Windows_System {
             return value
         }
 
-        internal func put_PreferredPlacementImpl(_ value: UWP.Placement) throws {
+        public func put_PreferredPlacement(_ value: UWP.Placement) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherUIOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PreferredPlacement(pThis, value))
             }
@@ -843,7 +844,7 @@ public enum __ABI_Windows_System {
     public class ILauncherViewOptions: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherViewOptions }
 
-        open func get_DesiredRemainingViewImpl() throws -> UWP.ViewSizePreference {
+        open func get_DesiredRemainingView() throws -> UWP.ViewSizePreference {
             var value: __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherViewOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredRemainingView(pThis, &value))
@@ -851,7 +852,7 @@ public enum __ABI_Windows_System {
             return value
         }
 
-        open func put_DesiredRemainingViewImpl(_ value: UWP.ViewSizePreference) throws {
+        open func put_DesiredRemainingView(_ value: UWP.ViewSizePreference) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherViewOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredRemainingView(pThis, value))
             }
@@ -906,7 +907,7 @@ public enum __ABI_Windows_System {
     public class IUser: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUser }
 
-        internal func get_NonRoamableIdImpl() throws -> String {
+        public func get_NonRoamableId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUser.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NonRoamableId(pThis, &value))
@@ -914,7 +915,7 @@ public enum __ABI_Windows_System {
             return .init(from: value)
         }
 
-        internal func get_AuthenticationStatusImpl() throws -> UWP.UserAuthenticationStatus {
+        public func get_AuthenticationStatus() throws -> UWP.UserAuthenticationStatus {
             var value: __x_ABI_CWindows_CSystem_CUserAuthenticationStatus = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUser.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AuthenticationStatus(pThis, &value))
@@ -922,7 +923,7 @@ public enum __ABI_Windows_System {
             return value
         }
 
-        internal func get_TypeImpl() throws -> UWP.UserType {
+        public func get_Type() throws -> UWP.UserType {
             var value: __x_ABI_CWindows_CSystem_CUserType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUser.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
@@ -930,7 +931,7 @@ public enum __ABI_Windows_System {
             return value
         }
 
-        internal func GetPropertyAsyncImpl(_ value: String) throws -> WindowsFoundation.AnyIAsyncOperation<Any?>? {
+        public func GetPropertyAsync(_ value: String) throws -> WindowsFoundation.AnyIAsyncOperation<Any?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let _value = try! HString(value)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUser.self) { pThis in
@@ -940,7 +941,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1_IInspectableWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetPropertiesAsyncImpl(_ values: WindowsFoundation.AnyIVectorView<String>?) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIPropertySet?>? {
+        public func GetPropertiesAsync(_ values: WindowsFoundation.AnyIVectorView<String>?) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIPropertySet?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let valuesWrapper = UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper(values)
                 let _values = try! valuesWrapper?.toABI { $0 }
@@ -951,7 +952,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__F__CIPropertySetWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetPictureAsyncImpl(_ desiredSize: UWP.UserPictureSize) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIRandomAccessStreamReference?>? {
+        public func GetPictureAsync(_ desiredSize: UWP.UserPictureSize) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIRandomAccessStreamReference?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUser.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPictureAsync(pThis, desiredSize, &operationAbi))
@@ -965,7 +966,7 @@ public enum __ABI_Windows_System {
     public class IUserAuthenticationStatusChangeDeferral: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangeDeferral }
 
-        internal func CompleteImpl() throws {
+        public func Complete() throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangeDeferral.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
             }
@@ -976,25 +977,25 @@ public enum __ABI_Windows_System {
     public class IUserAuthenticationStatusChangingEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs }
 
-        internal func GetDeferralImpl() throws -> UWP.UserAuthenticationStatusChangeDeferral? {
+        public func GetDeferral() throws -> UWP.UserAuthenticationStatusChangeDeferral? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_System.UserAuthenticationStatusChangeDeferralBridge.from(abi: result)
         }
 
-        internal func get_UserImpl() throws -> UWP.User? {
+        public func get_User() throws -> UWP.User? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_User(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System.UserBridge.from(abi: value)
         }
 
-        internal func get_NewStatusImpl() throws -> UWP.UserAuthenticationStatus {
+        public func get_NewStatus() throws -> UWP.UserAuthenticationStatus {
             var value: __x_ABI_CWindows_CSystem_CUserAuthenticationStatus = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewStatus(pThis, &value))
@@ -1002,7 +1003,7 @@ public enum __ABI_Windows_System {
             return value
         }
 
-        internal func get_CurrentStatusImpl() throws -> UWP.UserAuthenticationStatus {
+        public func get_CurrentStatus() throws -> UWP.UserAuthenticationStatus {
             var value: __x_ABI_CWindows_CSystem_CUserAuthenticationStatus = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentStatus(pThis, &value))
@@ -1015,13 +1016,13 @@ public enum __ABI_Windows_System {
     public class IUserChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserChangedEventArgs }
 
-        internal func get_UserImpl() throws -> UWP.User? {
+        public func get_User() throws -> UWP.User? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserChangedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_User(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System.UserBridge.from(abi: value)
         }
 
     }
@@ -1029,16 +1030,16 @@ public enum __ABI_Windows_System {
     public class IUserStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserStatics }
 
-        internal func CreateWatcherImpl() throws -> UWP.UserWatcher? {
+        public func CreateWatcher() throws -> UWP.UserWatcher? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWatcher(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_System.UserWatcherBridge.from(abi: result)
         }
 
-        internal func FindAllAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.User?>?>? {
+        public func FindAllAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.User?>?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllAsync(pThis, &operationAbi))
@@ -1047,7 +1048,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSystem__CUserWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func FindAllAsyncByTypeImpl(_ type: UWP.UserType) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.User?>?>? {
+        public func FindAllAsyncByType(_ type: UWP.UserType) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.User?>?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllAsyncByType(pThis, type, &operationAbi))
@@ -1056,7 +1057,7 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSystem__CUserWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func FindAllAsyncByTypeAndStatusImpl(_ type: UWP.UserType, _ status: UWP.UserAuthenticationStatus) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.User?>?>? {
+        public func FindAllAsyncByTypeAndStatus(_ type: UWP.UserType, _ status: UWP.UserAuthenticationStatus) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.User?>?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllAsyncByTypeAndStatus(pThis, type, status, &operationAbi))
@@ -1065,14 +1066,14 @@ public enum __ABI_Windows_System {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSystem__CUserWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetFromIdImpl(_ nonRoamableId: String) throws -> UWP.User? {
+        public func GetFromId(_ nonRoamableId: String) throws -> UWP.User? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _nonRoamableId = try! HString(nonRoamableId)
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetFromId(pThis, _nonRoamableId.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_System.UserBridge.from(abi: result)
         }
 
     }
@@ -1080,7 +1081,7 @@ public enum __ABI_Windows_System {
     public class IUserWatcher: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserWatcher }
 
-        internal func get_StatusImpl() throws -> UWP.UserWatcherStatus {
+        public func get_Status() throws -> UWP.UserWatcherStatus {
             var value: __x_ABI_CWindows_CSystem_CUserWatcherStatus = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
@@ -1088,19 +1089,19 @@ public enum __ABI_Windows_System {
             return value
         }
 
-        internal func StartImpl() throws {
+        public func Start() throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Start(pThis))
             }
         }
 
-        internal func StopImpl() throws {
+        public func Stop() throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Stop(pThis))
             }
         }
 
-        internal func add_AddedImpl(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Added(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CUserWatcher___x_ABI_CWindows__CSystem__CUserChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1110,13 +1111,13 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_AddedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Added(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Added(pThis, token))
             }
         }
 
-        internal func add_RemovedImpl(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Removed(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CUserWatcher___x_ABI_CWindows__CSystem__CUserChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1126,13 +1127,13 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_RemovedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Removed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Removed(pThis, token))
             }
         }
 
-        internal func add_UpdatedImpl(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Updated(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CUserWatcher___x_ABI_CWindows__CSystem__CUserChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1142,13 +1143,13 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_UpdatedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Updated(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Updated(pThis, token))
             }
         }
 
-        internal func add_AuthenticationStatusChangedImpl(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_AuthenticationStatusChanged(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CUserWatcher___x_ABI_CWindows__CSystem__CUserChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1158,13 +1159,13 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_AuthenticationStatusChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_AuthenticationStatusChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AuthenticationStatusChanged(pThis, token))
             }
         }
 
-        internal func add_AuthenticationStatusChangingImpl(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserAuthenticationStatusChangingEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_AuthenticationStatusChanging(_ handler: TypedEventHandler<UWP.UserWatcher?, UWP.UserAuthenticationStatusChangingEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CUserWatcher___x_ABI_CWindows__CSystem__CUserAuthenticationStatusChangingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1174,13 +1175,13 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_AuthenticationStatusChangingImpl(_ token: EventRegistrationToken) throws {
+        public func remove_AuthenticationStatusChanging(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AuthenticationStatusChanging(pThis, token))
             }
         }
 
-        internal func add_EnumerationCompletedImpl(_ handler: TypedEventHandler<UWP.UserWatcher?, Any?>?) throws -> EventRegistrationToken {
+        public func add_EnumerationCompleted(_ handler: TypedEventHandler<UWP.UserWatcher?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CUserWatcher_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1190,13 +1191,13 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_EnumerationCompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_EnumerationCompleted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_EnumerationCompleted(pThis, token))
             }
         }
 
-        internal func add_StoppedImpl(_ handler: TypedEventHandler<UWP.UserWatcher?, Any?>?) throws -> EventRegistrationToken {
+        public func add_Stopped(_ handler: TypedEventHandler<UWP.UserWatcher?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CSystem__CUserWatcher_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1206,7 +1207,7 @@ public enum __ABI_Windows_System {
             return token
         }
 
-        internal func remove_StoppedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Stopped(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUserWatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Stopped(pThis, token))
             }
@@ -1220,7 +1221,7 @@ extension __ABI_Windows_System {
     public class DispatcherQueueHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueHandler }
 
-        open func InvokeImpl() throws {
+        open func Invoke() throws {
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIDispatcherQueueHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis))
             }
@@ -1229,15 +1230,17 @@ extension __ABI_Windows_System {
     }
 
 
-    typealias DispatcherQueueHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_System.DispatcherQueueHandlerBridge>
+    public typealias DispatcherQueueHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_System.DispatcherQueueHandlerBridge>
     internal static var DispatcherQueueHandlerVTable: __x_ABI_CWindows_CSystem_CIDispatcherQueueHandlerVtbl = .init(
         QueryInterface: { DispatcherQueueHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { DispatcherQueueHandlerWrapper.addRef($0) },
         Release: { DispatcherQueueHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = DispatcherQueueHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            __unwrapped__instance()
-            return S_OK
+            do {
+                guard let __unwrapped__instance = DispatcherQueueHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance()
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

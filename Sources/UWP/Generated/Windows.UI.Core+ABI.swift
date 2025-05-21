@@ -128,11 +128,12 @@ private var IID___x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandler: WindowsFound
     .init(Data1: 0xA42B0C24, Data2: 0x7F21, Data3: 0x4ABC, Data4: ( 0x99,0xC1,0x8F,0x01,0x00,0x7F,0x08,0x80 ))// A42B0C24-7F21-4ABC-99C1-8F01007F0880
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_UI_Core {
     public class IAcceleratorKeyEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs }
 
-        internal func get_EventTypeImpl() throws -> UWP.CoreAcceleratorKeyEventType {
+        public func get_EventType() throws -> UWP.CoreAcceleratorKeyEventType {
             var value: __x_ABI_CWindows_CUI_CCore_CCoreAcceleratorKeyEventType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EventType(pThis, &value))
@@ -140,7 +141,7 @@ public enum __ABI_Windows_UI_Core {
             return value
         }
 
-        internal func get_VirtualKeyImpl() throws -> UWP.VirtualKey {
+        public func get_VirtualKey() throws -> UWP.VirtualKey {
             var value: __x_ABI_CWindows_CSystem_CVirtualKey = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VirtualKey(pThis, &value))
@@ -148,7 +149,7 @@ public enum __ABI_Windows_UI_Core {
             return value
         }
 
-        internal func get_KeyStatusImpl() throws -> UWP.CorePhysicalKeyStatus {
+        public func get_KeyStatus() throws -> UWP.CorePhysicalKeyStatus {
             var value: __x_ABI_CWindows_CUI_CCore_CCorePhysicalKeyStatus = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyStatus(pThis, &value))
@@ -161,7 +162,7 @@ public enum __ABI_Windows_UI_Core {
     public class IAcceleratorKeyEventArgs2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs2 }
 
-        internal func get_DeviceIdImpl() throws -> String {
+        public func get_DeviceId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceId(pThis, &value))
@@ -174,7 +175,7 @@ public enum __ABI_Windows_UI_Core {
     public class IAutomationProviderRequestedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIAutomationProviderRequestedEventArgs }
 
-        internal func get_AutomationProviderImpl() throws -> Any? {
+        public func get_AutomationProvider() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIAutomationProviderRequestedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutomationProvider(pThis, &valueAbi))
@@ -183,7 +184,7 @@ public enum __ABI_Windows_UI_Core {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_AutomationProviderImpl(_ value: Any?) throws {
+        public func put_AutomationProvider(_ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIAutomationProviderRequestedEventArgs.self) { pThis in
@@ -196,7 +197,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICharacterReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICharacterReceivedEventArgs }
 
-        internal func get_KeyCodeImpl() throws -> UInt32 {
+        public func get_KeyCode() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICharacterReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyCode(pThis, &value))
@@ -204,7 +205,7 @@ public enum __ABI_Windows_UI_Core {
             return value
         }
 
-        internal func get_KeyStatusImpl() throws -> UWP.CorePhysicalKeyStatus {
+        public func get_KeyStatus() throws -> UWP.CorePhysicalKeyStatus {
             var value: __x_ABI_CWindows_CUI_CCore_CCorePhysicalKeyStatus = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICharacterReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyStatus(pThis, &value))
@@ -217,7 +218,7 @@ public enum __ABI_Windows_UI_Core {
     public class IClosestInteractiveBoundsRequestedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs }
 
-        internal func get_PointerPositionImpl() throws -> WindowsFoundation.Point {
+        public func get_PointerPosition() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerPosition(pThis, &value))
@@ -225,7 +226,7 @@ public enum __ABI_Windows_UI_Core {
             return .from(abi: value)
         }
 
-        internal func get_SearchBoundsImpl() throws -> WindowsFoundation.Rect {
+        public func get_SearchBounds() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SearchBounds(pThis, &value))
@@ -233,7 +234,7 @@ public enum __ABI_Windows_UI_Core {
             return .from(abi: value)
         }
 
-        internal func get_ClosestInteractiveBoundsImpl() throws -> WindowsFoundation.Rect {
+        public func get_ClosestInteractiveBounds() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosestInteractiveBounds(pThis, &value))
@@ -241,7 +242,7 @@ public enum __ABI_Windows_UI_Core {
             return .from(abi: value)
         }
 
-        internal func put_ClosestInteractiveBoundsImpl(_ value: WindowsFoundation.Rect) throws {
+        public func put_ClosestInteractiveBounds(_ value: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClosestInteractiveBounds(pThis, .from(swift: value)))
             }
@@ -252,7 +253,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreAcceleratorKeys: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreAcceleratorKeys }
 
-        open func add_AcceleratorKeyActivatedImpl(_ handler: TypedEventHandler<UWP.CoreDispatcher?, UWP.AcceleratorKeyEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_AcceleratorKeyActivated(_ handler: TypedEventHandler<UWP.CoreDispatcher?, UWP.AcceleratorKeyEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreDispatcher___x_ABI_CWindows__CUI__CCore__CAcceleratorKeyEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -262,7 +263,7 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_AcceleratorKeyActivatedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_AcceleratorKeyActivated(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreAcceleratorKeys.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AcceleratorKeyActivated(pThis, cookie))
             }
@@ -318,7 +319,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreCursor: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreCursor }
 
-        internal func get_IdImpl() throws -> UInt32 {
+        public func get_Id() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreCursor.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
@@ -326,7 +327,7 @@ public enum __ABI_Windows_UI_Core {
             return value
         }
 
-        internal func get_TypeImpl() throws -> UWP.CoreCursorType {
+        public func get_Type() throws -> UWP.CoreCursorType {
             var value: __x_ABI_CWindows_CUI_CCore_CCoreCursorType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreCursor.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
@@ -339,7 +340,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreCursorFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreCursorFactory }
 
-        internal func CreateCursorImpl(_ type: UWP.CoreCursorType, _ id: UInt32) throws -> ICoreCursor {
+        public func CreateCursor(_ type: UWP.CoreCursorType, _ id: UInt32) throws -> ICoreCursor {
             let (cursor) = try ComPtrs.initialize { cursorAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreCursorFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCursor(pThis, type, id, &cursorAbi))
@@ -353,7 +354,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreDispatcher: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreDispatcher }
 
-        internal func get_HasThreadAccessImpl() throws -> Bool {
+        public func get_HasThreadAccess() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreDispatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasThreadAccess(pThis, &value))
@@ -361,13 +362,13 @@ public enum __ABI_Windows_UI_Core {
             return .init(from: value)
         }
 
-        internal func ProcessEventsImpl(_ options: UWP.CoreProcessEventsOption) throws {
+        public func ProcessEvents(_ options: UWP.CoreProcessEventsOption) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreDispatcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ProcessEvents(pThis, options))
             }
         }
 
-        internal func RunAsyncImpl(_ priority: UWP.CoreDispatcherPriority, _ agileCallback: UWP.DispatchedHandler?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func RunAsync(_ priority: UWP.CoreDispatcherPriority, _ agileCallback: UWP.DispatchedHandler?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
                 let agileCallbackWrapper = __ABI_Windows_UI_Core.DispatchedHandlerWrapper(agileCallback)
                 let _agileCallback = try! agileCallbackWrapper?.toABI { $0 }
@@ -378,7 +379,7 @@ public enum __ABI_Windows_UI_Core {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: asyncAction)
         }
 
-        internal func RunIdleAsyncImpl(_ agileCallback: UWP.IdleDispatchedHandler?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func RunIdleAsync(_ agileCallback: UWP.IdleDispatchedHandler?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (asyncAction) = try ComPtrs.initialize { asyncActionAbi in
                 let agileCallbackWrapper = __ABI_Windows_UI_Core.IdleDispatchedHandlerWrapper(agileCallback)
                 let _agileCallback = try! agileCallbackWrapper?.toABI { $0 }
@@ -394,7 +395,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreDispatcher2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreDispatcher2 }
 
-        internal func TryRunAsyncImpl(_ priority: UWP.CoreDispatcherPriority, _ agileCallback: UWP.DispatchedHandler?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func TryRunAsync(_ priority: UWP.CoreDispatcherPriority, _ agileCallback: UWP.DispatchedHandler?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (asyncOperation) = try ComPtrs.initialize { asyncOperationAbi in
                 let agileCallbackWrapper = __ABI_Windows_UI_Core.DispatchedHandlerWrapper(agileCallback)
                 let _agileCallback = try! agileCallbackWrapper?.toABI { $0 }
@@ -405,7 +406,7 @@ public enum __ABI_Windows_UI_Core {
             return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: asyncOperation)
         }
 
-        internal func TryRunIdleAsyncImpl(_ agileCallback: UWP.IdleDispatchedHandler?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+        public func TryRunIdleAsync(_ agileCallback: UWP.IdleDispatchedHandler?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
             let (asyncOperation) = try ComPtrs.initialize { asyncOperationAbi in
                 let agileCallbackWrapper = __ABI_Windows_UI_Core.IdleDispatchedHandlerWrapper(agileCallback)
                 let _agileCallback = try! agileCallbackWrapper?.toABI { $0 }
@@ -421,7 +422,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreDispatcherWithTaskPriority: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreDispatcherWithTaskPriority }
 
-        internal func get_CurrentPriorityImpl() throws -> UWP.CoreDispatcherPriority {
+        public func get_CurrentPriority() throws -> UWP.CoreDispatcherPriority {
             var value: __x_ABI_CWindows_CUI_CCore_CCoreDispatcherPriority = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreDispatcherWithTaskPriority.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentPriority(pThis, &value))
@@ -429,13 +430,13 @@ public enum __ABI_Windows_UI_Core {
             return value
         }
 
-        internal func put_CurrentPriorityImpl(_ value: UWP.CoreDispatcherPriority) throws {
+        public func put_CurrentPriority(_ value: UWP.CoreDispatcherPriority) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreDispatcherWithTaskPriority.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CurrentPriority(pThis, value))
             }
         }
 
-        internal func ShouldYieldImpl() throws -> Bool {
+        public func ShouldYield() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreDispatcherWithTaskPriority.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ShouldYield(pThis, &value))
@@ -443,7 +444,7 @@ public enum __ABI_Windows_UI_Core {
             return .init(from: value)
         }
 
-        internal func ShouldYieldToPriorityImpl(_ priority: UWP.CoreDispatcherPriority) throws -> Bool {
+        public func ShouldYieldToPriority(_ priority: UWP.CoreDispatcherPriority) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreDispatcherWithTaskPriority.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ShouldYieldToPriority(pThis, priority, &value))
@@ -451,7 +452,7 @@ public enum __ABI_Windows_UI_Core {
             return .init(from: value)
         }
 
-        internal func StopProcessEventsImpl() throws {
+        public func StopProcessEvents() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreDispatcherWithTaskPriority.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StopProcessEvents(pThis))
             }
@@ -462,7 +463,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICorePointerRedirector: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICorePointerRedirector }
 
-        open func add_PointerRoutedAwayImpl(_ handler: TypedEventHandler<UWP.AnyICorePointerRedirector?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerRoutedAway(_ handler: TypedEventHandler<UWP.AnyICorePointerRedirector?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CICorePointerRedirector___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -472,13 +473,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerRoutedAwayImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerRoutedAway(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICorePointerRedirector.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerRoutedAway(pThis, cookie))
             }
         }
 
-        open func add_PointerRoutedToImpl(_ handler: TypedEventHandler<UWP.AnyICorePointerRedirector?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerRoutedTo(_ handler: TypedEventHandler<UWP.AnyICorePointerRedirector?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CICorePointerRedirector___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -488,13 +489,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerRoutedToImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerRoutedTo(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICorePointerRedirector.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerRoutedTo(pThis, cookie))
             }
         }
 
-        open func add_PointerRoutedReleasedImpl(_ handler: TypedEventHandler<UWP.AnyICorePointerRedirector?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerRoutedReleased(_ handler: TypedEventHandler<UWP.AnyICorePointerRedirector?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CICorePointerRedirector___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -504,7 +505,7 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerRoutedReleasedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerRoutedReleased(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICorePointerRedirector.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerRoutedReleased(pThis, cookie))
             }
@@ -590,7 +591,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreWindow: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow }
 
-        open func get_AutomationHostProviderImpl() throws -> Any? {
+        open func get_AutomationHostProvider() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutomationHostProvider(pThis, &valueAbi))
@@ -599,7 +600,7 @@ public enum __ABI_Windows_UI_Core {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        open func get_BoundsImpl() throws -> WindowsFoundation.Rect {
+        open func get_Bounds() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bounds(pThis, &value))
@@ -607,7 +608,7 @@ public enum __ABI_Windows_UI_Core {
             return .from(abi: value)
         }
 
-        open func get_CustomPropertiesImpl() throws -> WindowsFoundation.AnyIPropertySet? {
+        open func get_CustomProperties() throws -> WindowsFoundation.AnyIPropertySet? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomProperties(pThis, &valueAbi))
@@ -616,16 +617,16 @@ public enum __ABI_Windows_UI_Core {
             return __ABI_Windows_Foundation_Collections.IPropertySetWrapper.unwrapFrom(abi: value)
         }
 
-        open func get_DispatcherImpl() throws -> UWP.CoreDispatcher? {
+        open func get_Dispatcher() throws -> UWP.CoreDispatcher? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Dispatcher(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI_Core.CoreDispatcherBridge.from(abi: value)
         }
 
-        open func get_FlowDirectionImpl() throws -> UWP.CoreWindowFlowDirection {
+        open func get_FlowDirection() throws -> UWP.CoreWindowFlowDirection {
             var value: __x_ABI_CWindows_CUI_CCore_CCoreWindowFlowDirection = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FlowDirection(pThis, &value))
@@ -633,13 +634,13 @@ public enum __ABI_Windows_UI_Core {
             return value
         }
 
-        open func put_FlowDirectionImpl(_ value: UWP.CoreWindowFlowDirection) throws {
+        open func put_FlowDirection(_ value: UWP.CoreWindowFlowDirection) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FlowDirection(pThis, value))
             }
         }
 
-        open func get_IsInputEnabledImpl() throws -> Bool {
+        open func get_IsInputEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInputEnabled(pThis, &value))
@@ -647,28 +648,28 @@ public enum __ABI_Windows_UI_Core {
             return .init(from: value)
         }
 
-        open func put_IsInputEnabledImpl(_ value: Bool) throws {
+        open func put_IsInputEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsInputEnabled(pThis, .init(from: value)))
             }
         }
 
-        open func get_PointerCursorImpl() throws -> UWP.CoreCursor? {
+        open func get_PointerCursor() throws -> UWP.CoreCursor? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerCursor(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI_Core.CoreCursorBridge.from(abi: value)
         }
 
-        open func put_PointerCursorImpl(_ value: UWP.CoreCursor?) throws {
+        open func put_PointerCursor(_ value: UWP.CoreCursor?) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PointerCursor(pThis, RawPointer(value)))
             }
         }
 
-        open func get_PointerPositionImpl() throws -> WindowsFoundation.Point {
+        open func get_PointerPosition() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerPosition(pThis, &value))
@@ -676,7 +677,7 @@ public enum __ABI_Windows_UI_Core {
             return .from(abi: value)
         }
 
-        open func get_VisibleImpl() throws -> Bool {
+        open func get_Visible() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Visible(pThis, &value))
@@ -684,19 +685,19 @@ public enum __ABI_Windows_UI_Core {
             return .init(from: value)
         }
 
-        open func ActivateImpl() throws {
+        open func Activate() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Activate(pThis))
             }
         }
 
-        open func CloseImpl() throws {
+        open func Close() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Close(pThis))
             }
         }
 
-        open func GetAsyncKeyStateImpl(_ virtualKey: UWP.VirtualKey) throws -> UWP.CoreVirtualKeyStates {
+        open func GetAsyncKeyState(_ virtualKey: UWP.VirtualKey) throws -> UWP.CoreVirtualKeyStates {
             var KeyState: __x_ABI_CWindows_CUI_CCore_CCoreVirtualKeyStates = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAsyncKeyState(pThis, virtualKey, &KeyState))
@@ -704,7 +705,7 @@ public enum __ABI_Windows_UI_Core {
             return KeyState
         }
 
-        open func GetKeyStateImpl(_ virtualKey: UWP.VirtualKey) throws -> UWP.CoreVirtualKeyStates {
+        open func GetKeyState(_ virtualKey: UWP.VirtualKey) throws -> UWP.CoreVirtualKeyStates {
             var KeyState: __x_ABI_CWindows_CUI_CCore_CCoreVirtualKeyStates = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetKeyState(pThis, virtualKey, &KeyState))
@@ -712,19 +713,19 @@ public enum __ABI_Windows_UI_Core {
             return KeyState
         }
 
-        open func ReleasePointerCaptureImpl() throws {
+        open func ReleasePointerCapture() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ReleasePointerCapture(pThis))
             }
         }
 
-        open func SetPointerCaptureImpl() throws {
+        open func SetPointerCapture() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetPointerCapture(pThis))
             }
         }
 
-        open func add_ActivatedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.WindowActivatedEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_Activated(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.WindowActivatedEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CWindowActivatedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -734,13 +735,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_ActivatedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_Activated(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Activated(pThis, cookie))
             }
         }
 
-        open func add_AutomationProviderRequestedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.AutomationProviderRequestedEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_AutomationProviderRequested(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.AutomationProviderRequestedEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CAutomationProviderRequestedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -750,13 +751,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_AutomationProviderRequestedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_AutomationProviderRequested(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AutomationProviderRequested(pThis, cookie))
             }
         }
 
-        open func add_CharacterReceivedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.CharacterReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_CharacterReceived(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.CharacterReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CCharacterReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -766,13 +767,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_CharacterReceivedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_CharacterReceived(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CharacterReceived(pThis, cookie))
             }
         }
 
-        open func add_ClosedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.CoreWindowEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_Closed(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.CoreWindowEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CCoreWindowEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -782,13 +783,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_ClosedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_Closed(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Closed(pThis, cookie))
             }
         }
 
-        open func add_InputEnabledImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.InputEnabledEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_InputEnabled(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.InputEnabledEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CInputEnabledEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -798,13 +799,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_InputEnabledImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_InputEnabled(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_InputEnabled(pThis, cookie))
             }
         }
 
-        open func add_KeyDownImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.KeyEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_KeyDown(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.KeyEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CKeyEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -814,13 +815,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_KeyDownImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_KeyDown(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_KeyDown(pThis, cookie))
             }
         }
 
-        open func add_KeyUpImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.KeyEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_KeyUp(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.KeyEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CKeyEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -830,13 +831,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_KeyUpImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_KeyUp(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_KeyUp(pThis, cookie))
             }
         }
 
-        open func add_PointerCaptureLostImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerCaptureLost(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -846,13 +847,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerCaptureLostImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerCaptureLost(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerCaptureLost(pThis, cookie))
             }
         }
 
-        open func add_PointerEnteredImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerEntered(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -862,13 +863,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerEnteredImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerEntered(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerEntered(pThis, cookie))
             }
         }
 
-        open func add_PointerExitedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerExited(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -878,13 +879,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerExitedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerExited(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerExited(pThis, cookie))
             }
         }
 
-        open func add_PointerMovedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerMoved(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -894,13 +895,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerMovedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerMoved(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerMoved(pThis, cookie))
             }
         }
 
-        open func add_PointerPressedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerPressed(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -910,13 +911,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerPressedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerPressed(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerPressed(pThis, cookie))
             }
         }
 
-        open func add_PointerReleasedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerReleased(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -926,13 +927,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerReleasedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerReleased(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerReleased(pThis, cookie))
             }
         }
 
-        open func add_TouchHitTestingImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.TouchHitTestingEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_TouchHitTesting(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.TouchHitTestingEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CTouchHitTestingEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -942,13 +943,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_TouchHitTestingImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_TouchHitTesting(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TouchHitTesting(pThis, cookie))
             }
         }
 
-        open func add_PointerWheelChangedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_PointerWheelChanged(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CPointerEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -958,13 +959,13 @@ public enum __ABI_Windows_UI_Core {
             return cookie
         }
 
-        open func remove_PointerWheelChangedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_PointerWheelChanged(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PointerWheelChanged(pThis, cookie))
             }
         }
 
-        open func add_SizeChangedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.WindowSizeChangedEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_SizeChanged(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.WindowSizeChangedEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CWindowSizeChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -974,13 +975,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_SizeChangedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_SizeChanged(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SizeChanged(pThis, cookie))
             }
         }
 
-        open func add_VisibilityChangedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.VisibilityChangedEventArgs?>?) throws -> EventRegistrationToken {
+        open func add_VisibilityChanged(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.VisibilityChangedEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CVisibilityChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -990,7 +991,7 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        open func remove_VisibilityChangedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_VisibilityChanged(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_VisibilityChanged(pThis, cookie))
             }
@@ -1093,7 +1094,7 @@ public enum __ABI_Windows_UI_Core {
 
         put_PointerCursor: {
             guard let __unwrapped__instance = ICoreWindowWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value: UWP.CoreCursor? = .from(abi: ComPtr($1))
+            let value: UWP.CoreCursor? = __IMPL_Windows_UI_Core.CoreCursorBridge.from(abi: ComPtr($1))
             __unwrapped__instance.pointerCursor = value
             return S_OK
         },
@@ -1117,7 +1118,7 @@ public enum __ABI_Windows_UI_Core {
                 guard let __unwrapped__instance = ICoreWindowWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.activate()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Close: {
@@ -1125,7 +1126,7 @@ public enum __ABI_Windows_UI_Core {
                 guard let __unwrapped__instance = ICoreWindowWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.close()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetAsyncKeyState: {
@@ -1135,7 +1136,7 @@ public enum __ABI_Windows_UI_Core {
                 let KeyState = try __unwrapped__instance.getAsyncKeyState(virtualKey)
                 $2?.initialize(to: KeyState)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetKeyState: {
@@ -1145,7 +1146,7 @@ public enum __ABI_Windows_UI_Core {
                 let KeyState = try __unwrapped__instance.getKeyState(virtualKey)
                 $2?.initialize(to: KeyState)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ReleasePointerCapture: {
@@ -1153,7 +1154,7 @@ public enum __ABI_Windows_UI_Core {
                 guard let __unwrapped__instance = ICoreWindowWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.releasePointerCapture()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetPointerCapture: {
@@ -1161,7 +1162,7 @@ public enum __ABI_Windows_UI_Core {
                 guard let __unwrapped__instance = ICoreWindowWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.setPointerCapture()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         add_Activated: {
@@ -1424,7 +1425,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreWindow2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow2 }
 
-        internal func put_PointerPositionImpl(_ value: WindowsFoundation.Point) throws {
+        public func put_PointerPosition(_ value: WindowsFoundation.Point) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PointerPosition(pThis, .from(swift: value)))
             }
@@ -1435,7 +1436,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreWindow3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow3 }
 
-        internal func add_ClosestInteractiveBoundsRequestedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.ClosestInteractiveBoundsRequestedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ClosestInteractiveBoundsRequested(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.ClosestInteractiveBoundsRequestedEventArgs?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow___x_ABI_CWindows__CUI__CCore__CClosestInteractiveBoundsRequestedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1445,13 +1446,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        internal func remove_ClosestInteractiveBoundsRequestedImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_ClosestInteractiveBoundsRequested(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ClosestInteractiveBoundsRequested(pThis, cookie))
             }
         }
 
-        internal func GetCurrentKeyEventDeviceIdImpl() throws -> String {
+        public func GetCurrentKeyEventDeviceId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentKeyEventDeviceId(pThis, &value))
@@ -1464,7 +1465,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreWindow4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow4 }
 
-        internal func add_ResizeStartedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, Any?>?) throws -> EventRegistrationToken {
+        public func add_ResizeStarted(_ handler: TypedEventHandler<UWP.CoreWindow?, Any?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1474,13 +1475,13 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        internal func remove_ResizeStartedImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_ResizeStarted(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ResizeStarted(pThis, cookie))
             }
         }
 
-        internal func add_ResizeCompletedImpl(_ handler: TypedEventHandler<UWP.CoreWindow?, Any?>?) throws -> EventRegistrationToken {
+        public func add_ResizeCompleted(_ handler: TypedEventHandler<UWP.CoreWindow?, Any?>?) throws -> EventRegistrationToken {
             var pCookie: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CCoreWindow_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1490,7 +1491,7 @@ public enum __ABI_Windows_UI_Core {
             return pCookie
         }
 
-        internal func remove_ResizeCompletedImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_ResizeCompleted(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ResizeCompleted(pThis, cookie))
             }
@@ -1501,16 +1502,16 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreWindow5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow5 }
 
-        internal func get_DispatcherQueueImpl() throws -> UWP.DispatcherQueue? {
+        public func get_DispatcherQueue() throws -> UWP.DispatcherQueue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DispatcherQueue(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System.DispatcherQueueBridge.from(abi: value)
         }
 
-        internal func get_ActivationModeImpl() throws -> UWP.CoreWindowActivationMode {
+        public func get_ActivationMode() throws -> UWP.CoreWindowActivationMode {
             var value: __x_ABI_CWindows_CUI_CCore_CCoreWindowActivationMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActivationMode(pThis, &value))
@@ -1523,7 +1524,7 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreWindowEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgs }
 
-        open func get_HandledImpl() throws -> Bool {
+        open func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1531,7 +1532,7 @@ public enum __ABI_Windows_UI_Core {
             return .init(from: value)
         }
 
-        open func put_HandledImpl(_ value: Bool) throws {
+        open func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
@@ -1586,13 +1587,13 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreWindowStatic: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindowStatic }
 
-        internal func GetForCurrentThreadImpl() throws -> UWP.CoreWindow? {
+        public func GetForCurrentThread() throws -> UWP.CoreWindow? {
             let (ppWindow) = try ComPtrs.initialize { ppWindowAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindowStatic.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentThread(pThis, &ppWindowAbi))
                 }
             }
-            return .from(abi: ppWindow)
+            return __IMPL_Windows_UI_Core.CoreWindowBridge.from(abi: ppWindow)
         }
 
     }
@@ -1600,13 +1601,13 @@ public enum __ABI_Windows_UI_Core {
     public class ICoreWindowWithContext: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindowWithContext }
 
-        internal func get_UIContextImpl() throws -> UWP.UIContext? {
+        public func get_UIContext() throws -> UWP.UIContext? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindowWithContext.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_UIContext(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI.UIContextBridge.from(abi: value)
         }
 
     }
@@ -1614,7 +1615,7 @@ public enum __ABI_Windows_UI_Core {
     public class IIdleDispatchedHandlerArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs }
 
-        internal func get_IsDispatcherIdleImpl() throws -> Bool {
+        public func get_IsDispatcherIdle() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDispatcherIdle(pThis, &value))
@@ -1627,7 +1628,7 @@ public enum __ABI_Windows_UI_Core {
     public class IInputEnabledEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIInputEnabledEventArgs }
 
-        internal func get_InputEnabledImpl() throws -> Bool {
+        public func get_InputEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIInputEnabledEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InputEnabled(pThis, &value))
@@ -1640,7 +1641,7 @@ public enum __ABI_Windows_UI_Core {
     public class IKeyEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIKeyEventArgs }
 
-        internal func get_VirtualKeyImpl() throws -> UWP.VirtualKey {
+        public func get_VirtualKey() throws -> UWP.VirtualKey {
             var value: __x_ABI_CWindows_CSystem_CVirtualKey = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VirtualKey(pThis, &value))
@@ -1648,7 +1649,7 @@ public enum __ABI_Windows_UI_Core {
             return value
         }
 
-        internal func get_KeyStatusImpl() throws -> UWP.CorePhysicalKeyStatus {
+        public func get_KeyStatus() throws -> UWP.CorePhysicalKeyStatus {
             var value: __x_ABI_CWindows_CUI_CCore_CCorePhysicalKeyStatus = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIKeyEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyStatus(pThis, &value))
@@ -1661,7 +1662,7 @@ public enum __ABI_Windows_UI_Core {
     public class IKeyEventArgs2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIKeyEventArgs2 }
 
-        internal func get_DeviceIdImpl() throws -> String {
+        public func get_DeviceId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIKeyEventArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceId(pThis, &value))
@@ -1674,16 +1675,16 @@ public enum __ABI_Windows_UI_Core {
     public class IPointerEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIPointerEventArgs }
 
-        internal func get_CurrentPointImpl() throws -> UWP.PointerPoint? {
+        public func get_CurrentPoint() throws -> UWP.PointerPoint? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIPointerEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentPoint(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI_Input.PointerPointBridge.from(abi: value)
         }
 
-        internal func get_KeyModifiersImpl() throws -> UWP.VirtualKeyModifiers {
+        public func get_KeyModifiers() throws -> UWP.VirtualKeyModifiers {
             var value: __x_ABI_CWindows_CSystem_CVirtualKeyModifiers = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIPointerEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyModifiers(pThis, &value))
@@ -1691,7 +1692,7 @@ public enum __ABI_Windows_UI_Core {
             return value
         }
 
-        internal func GetIntermediatePointsImpl() throws -> WindowsFoundation.AnyIVector<UWP.PointerPoint?>? {
+        public func GetIntermediatePoints() throws -> WindowsFoundation.AnyIVector<UWP.PointerPoint?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIPointerEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetIntermediatePoints(pThis, &valueAbi))
@@ -1705,7 +1706,7 @@ public enum __ABI_Windows_UI_Core {
     public class ITouchHitTestingEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs }
 
-        internal func get_ProximityEvaluationImpl() throws -> UWP.CoreProximityEvaluation {
+        public func get_ProximityEvaluation() throws -> UWP.CoreProximityEvaluation {
             var value: __x_ABI_CWindows_CUI_CCore_CCoreProximityEvaluation = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProximityEvaluation(pThis, &value))
@@ -1713,13 +1714,13 @@ public enum __ABI_Windows_UI_Core {
             return .from(abi: value)
         }
 
-        internal func put_ProximityEvaluationImpl(_ value: UWP.CoreProximityEvaluation) throws {
+        public func put_ProximityEvaluation(_ value: UWP.CoreProximityEvaluation) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ProximityEvaluation(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_PointImpl() throws -> WindowsFoundation.Point {
+        public func get_Point() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Point(pThis, &value))
@@ -1727,7 +1728,7 @@ public enum __ABI_Windows_UI_Core {
             return .from(abi: value)
         }
 
-        internal func get_BoundingBoxImpl() throws -> WindowsFoundation.Rect {
+        public func get_BoundingBox() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BoundingBox(pThis, &value))
@@ -1735,10 +1736,20 @@ public enum __ABI_Windows_UI_Core {
             return .from(abi: value)
         }
 
-        internal func EvaluateProximityToRectImpl(_ controlBoundingBox: WindowsFoundation.Rect) throws -> UWP.CoreProximityEvaluation {
+        public func EvaluateProximityToRect(_ controlBoundingBox: WindowsFoundation.Rect) throws -> UWP.CoreProximityEvaluation {
             var proximityEvaluation: __x_ABI_CWindows_CUI_CCore_CCoreProximityEvaluation = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.EvaluateProximityToRect(pThis, .from(swift: controlBoundingBox), &proximityEvaluation))
+            }
+            return .from(abi: proximityEvaluation)
+        }
+
+        public func EvaluateProximityToPolygon(_ controlVertices: [WindowsFoundation.Point]) throws -> UWP.CoreProximityEvaluation {
+            var proximityEvaluation: __x_ABI_CWindows_CUI_CCore_CCoreProximityEvaluation = .init()
+            try controlVertices.toABI { _controlVertices in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.EvaluateProximityToPolygon(pThis, _controlVertices.count, _controlVertices.start, &proximityEvaluation))
+                }
             }
             return .from(abi: proximityEvaluation)
         }
@@ -1748,7 +1759,7 @@ public enum __ABI_Windows_UI_Core {
     public class IVisibilityChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIVisibilityChangedEventArgs }
 
-        internal func get_VisibleImpl() throws -> Bool {
+        public func get_Visible() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIVisibilityChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Visible(pThis, &value))
@@ -1761,7 +1772,7 @@ public enum __ABI_Windows_UI_Core {
     public class IWindowActivatedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIWindowActivatedEventArgs }
 
-        internal func get_WindowActivationStateImpl() throws -> UWP.CoreWindowActivationState {
+        public func get_WindowActivationState() throws -> UWP.CoreWindowActivationState {
             var value: __x_ABI_CWindows_CUI_CCore_CCoreWindowActivationState = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIWindowActivatedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_WindowActivationState(pThis, &value))
@@ -1774,7 +1785,7 @@ public enum __ABI_Windows_UI_Core {
     public class IWindowSizeChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIWindowSizeChangedEventArgs }
 
-        internal func get_SizeImpl() throws -> WindowsFoundation.Size {
+        public func get_Size() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIWindowSizeChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -1815,7 +1826,7 @@ extension __ABI_Windows_UI_Core {
     public class DispatchedHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIDispatchedHandler }
 
-        open func InvokeImpl() throws {
+        open func Invoke() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIDispatchedHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis))
             }
@@ -1830,9 +1841,11 @@ extension __ABI_Windows_UI_Core {
         AddRef: { DispatchedHandlerWrapper.addRef($0) },
         Release: { DispatchedHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = DispatchedHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            __unwrapped__instance()
-            return S_OK
+            do {
+                guard let __unwrapped__instance = DispatchedHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance()
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -1848,7 +1861,7 @@ extension __ABI_Windows_UI_Core {
     public class IdleDispatchedHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandler }
 
-        open func InvokeImpl(_ e: UWP.IdleDispatchedHandlerArgs?) throws {
+        open func Invoke(_ e: UWP.IdleDispatchedHandlerArgs?) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(e)))
             }
@@ -1863,10 +1876,12 @@ extension __ABI_Windows_UI_Core {
         AddRef: { IdleDispatchedHandlerWrapper.addRef($0) },
         Release: { IdleDispatchedHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = IdleDispatchedHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let e: UWP.IdleDispatchedHandlerArgs? = .from(abi: ComPtr($1))
-            __unwrapped__instance(e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = IdleDispatchedHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let e: UWP.IdleDispatchedHandlerArgs? = __IMPL_Windows_UI_Core.IdleDispatchedHandlerArgsBridge.from(abi: ComPtr($1))
+                try __unwrapped__instance(e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

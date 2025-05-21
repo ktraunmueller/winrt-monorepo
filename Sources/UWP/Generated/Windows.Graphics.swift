@@ -5,7 +5,7 @@ import Foundation
 import CWinRT
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.displayadapterid)
-public struct DisplayAdapterId: Hashable, Codable {
+public struct DisplayAdapterId: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.displayadapterid.lowpart)
     public var lowPart: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.displayadapterid.highpart)
@@ -15,13 +15,10 @@ public struct DisplayAdapterId: Hashable, Codable {
         self.lowPart = lowPart
         self.highPart = highPart
     }
-    public static func from(abi: __x_ABI_CWindows_CGraphics_CDisplayAdapterId) -> DisplayAdapterId {
-        .init(lowPart: abi.LowPart, highPart: abi.HighPart)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.pointint32)
-public struct PointInt32: Hashable, Codable {
+public struct PointInt32: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.pointint32.x)
     public var x: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.pointint32.y)
@@ -31,13 +28,10 @@ public struct PointInt32: Hashable, Codable {
         self.x = x
         self.y = y
     }
-    public static func from(abi: __x_ABI_CWindows_CGraphics_CPointInt32) -> PointInt32 {
-        .init(x: abi.X, y: abi.Y)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.rectint32)
-public struct RectInt32: Hashable, Codable {
+public struct RectInt32: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.rectint32.x)
     public var x: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.rectint32.y)
@@ -53,13 +47,10 @@ public struct RectInt32: Hashable, Codable {
         self.width = width
         self.height = height
     }
-    public static func from(abi: __x_ABI_CWindows_CGraphics_CRectInt32) -> RectInt32 {
-        .init(x: abi.X, y: abi.Y, width: abi.Width, height: abi.Height)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.sizeint32)
-public struct SizeInt32: Hashable, Codable {
+public struct SizeInt32: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.sizeint32.width)
     public var width: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.sizeint32.height)
@@ -68,9 +59,6 @@ public struct SizeInt32: Hashable, Codable {
     public init(width: Int32, height: Int32) {
         self.width = width
         self.height = height
-    }
-    public static func from(abi: __x_ABI_CWindows_CGraphics_CSizeInt32) -> SizeInt32 {
-        .init(width: abi.Width, height: abi.Height)
     }
 }
 

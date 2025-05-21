@@ -24,20 +24,21 @@ private var IID___x_ABI_CWindows_CUI_CInput_CIPointerPointTransform: WindowsFoun
     .init(Data1: 0x4D5FE14F, Data2: 0xB87C, Data3: 0x4028, Data4: ( 0xBC,0x9C,0x59,0xE9,0x94,0x7F,0xB0,0x56 ))// 4D5FE14F-B87C-4028-BC9C-59E9947FB056
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_UI_Input {
     public class IPointerPoint: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPoint }
 
-        internal func get_PointerDeviceImpl() throws -> UWP.PointerDevice? {
+        public func get_PointerDevice() throws -> UWP.PointerDevice? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPoint.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDevice(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Devices_Input.PointerDeviceBridge.from(abi: value)
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -45,7 +46,7 @@ public enum __ABI_Windows_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_RawPositionImpl() throws -> WindowsFoundation.Point {
+        public func get_RawPosition() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RawPosition(pThis, &value))
@@ -53,7 +54,7 @@ public enum __ABI_Windows_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_PointerIdImpl() throws -> UInt32 {
+        public func get_PointerId() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerId(pThis, &value))
@@ -61,7 +62,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func get_FrameIdImpl() throws -> UInt32 {
+        public func get_FrameId() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FrameId(pThis, &value))
@@ -69,7 +70,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func get_TimestampImpl() throws -> UInt64 {
+        public func get_Timestamp() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Timestamp(pThis, &value))
@@ -77,7 +78,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func get_IsInContactImpl() throws -> Bool {
+        public func get_IsInContact() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPoint.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInContact(pThis, &value))
@@ -85,13 +86,13 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_PropertiesImpl() throws -> UWP.PointerPointProperties? {
+        public func get_Properties() throws -> UWP.PointerPointProperties? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPoint.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI_Input.PointerPointPropertiesBridge.from(abi: value)
         }
 
     }
@@ -99,7 +100,7 @@ public enum __ABI_Windows_UI_Input {
     public class IPointerPointProperties: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPointProperties }
 
-        internal func get_PressureImpl() throws -> Float {
+        public func get_Pressure() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Pressure(pThis, &value))
@@ -107,7 +108,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func get_IsInvertedImpl() throws -> Bool {
+        public func get_IsInverted() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInverted(pThis, &value))
@@ -115,7 +116,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsEraserImpl() throws -> Bool {
+        public func get_IsEraser() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEraser(pThis, &value))
@@ -123,7 +124,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_OrientationImpl() throws -> Float {
+        public func get_Orientation() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Orientation(pThis, &value))
@@ -131,7 +132,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func get_XTiltImpl() throws -> Float {
+        public func get_XTilt() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_XTilt(pThis, &value))
@@ -139,7 +140,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func get_YTiltImpl() throws -> Float {
+        public func get_YTilt() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_YTilt(pThis, &value))
@@ -147,7 +148,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func get_TwistImpl() throws -> Float {
+        public func get_Twist() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Twist(pThis, &value))
@@ -155,7 +156,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func get_ContactRectImpl() throws -> WindowsFoundation.Rect {
+        public func get_ContactRect() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContactRect(pThis, &value))
@@ -163,7 +164,7 @@ public enum __ABI_Windows_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_ContactRectRawImpl() throws -> WindowsFoundation.Rect {
+        public func get_ContactRectRaw() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContactRectRaw(pThis, &value))
@@ -171,7 +172,7 @@ public enum __ABI_Windows_UI_Input {
             return .from(abi: value)
         }
 
-        internal func get_TouchConfidenceImpl() throws -> Bool {
+        public func get_TouchConfidence() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TouchConfidence(pThis, &value))
@@ -179,7 +180,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsLeftButtonPressedImpl() throws -> Bool {
+        public func get_IsLeftButtonPressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsLeftButtonPressed(pThis, &value))
@@ -187,7 +188,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsRightButtonPressedImpl() throws -> Bool {
+        public func get_IsRightButtonPressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRightButtonPressed(pThis, &value))
@@ -195,7 +196,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsMiddleButtonPressedImpl() throws -> Bool {
+        public func get_IsMiddleButtonPressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsMiddleButtonPressed(pThis, &value))
@@ -203,7 +204,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_MouseWheelDeltaImpl() throws -> Int32 {
+        public func get_MouseWheelDelta() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MouseWheelDelta(pThis, &value))
@@ -211,7 +212,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func get_IsHorizontalMouseWheelImpl() throws -> Bool {
+        public func get_IsHorizontalMouseWheel() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsHorizontalMouseWheel(pThis, &value))
@@ -219,7 +220,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsPrimaryImpl() throws -> Bool {
+        public func get_IsPrimary() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPrimary(pThis, &value))
@@ -227,7 +228,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsInRangeImpl() throws -> Bool {
+        public func get_IsInRange() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInRange(pThis, &value))
@@ -235,7 +236,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsCanceledImpl() throws -> Bool {
+        public func get_IsCanceled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCanceled(pThis, &value))
@@ -243,7 +244,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsBarrelButtonPressedImpl() throws -> Bool {
+        public func get_IsBarrelButtonPressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsBarrelButtonPressed(pThis, &value))
@@ -251,7 +252,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsXButton1PressedImpl() throws -> Bool {
+        public func get_IsXButton1Pressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsXButton1Pressed(pThis, &value))
@@ -259,7 +260,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_IsXButton2PressedImpl() throws -> Bool {
+        public func get_IsXButton2Pressed() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsXButton2Pressed(pThis, &value))
@@ -267,7 +268,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func get_PointerUpdateKindImpl() throws -> UWP.PointerUpdateKind {
+        public func get_PointerUpdateKind() throws -> UWP.PointerUpdateKind {
             var value: __x_ABI_CWindows_CUI_CInput_CPointerUpdateKind = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerUpdateKind(pThis, &value))
@@ -275,7 +276,7 @@ public enum __ABI_Windows_UI_Input {
             return value
         }
 
-        internal func HasUsageImpl(_ usagePage: UInt32, _ usageId: UInt32) throws -> Bool {
+        public func HasUsage(_ usagePage: UInt32, _ usageId: UInt32) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.HasUsage(pThis, usagePage, usageId, &value))
@@ -283,7 +284,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: value)
         }
 
-        internal func GetUsageValueImpl(_ usagePage: UInt32, _ usageId: UInt32) throws -> Int32 {
+        public func GetUsageValue(_ usagePage: UInt32, _ usageId: UInt32) throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetUsageValue(pThis, usagePage, usageId, &value))
@@ -296,7 +297,7 @@ public enum __ABI_Windows_UI_Input {
     public class IPointerPointProperties2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPointProperties2 }
 
-        internal func get_ZDistanceImpl() throws -> Float? {
+        public func get_ZDistance() throws -> Float? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ZDistance(pThis, &valueAbi))
@@ -310,16 +311,16 @@ public enum __ABI_Windows_UI_Input {
     public class IPointerPointStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPointStatics }
 
-        internal func GetCurrentPointImpl(_ pointerId: UInt32) throws -> UWP.PointerPoint? {
+        public func GetCurrentPoint(_ pointerId: UInt32) throws -> UWP.PointerPoint? {
             let (pointerPoint) = try ComPtrs.initialize { pointerPointAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentPoint(pThis, pointerId, &pointerPointAbi))
                 }
             }
-            return .from(abi: pointerPoint)
+            return __IMPL_Windows_UI_Input.PointerPointBridge.from(abi: pointerPoint)
         }
 
-        internal func GetIntermediatePointsImpl(_ pointerId: UInt32) throws -> WindowsFoundation.AnyIVector<UWP.PointerPoint?>? {
+        public func GetIntermediatePoints(_ pointerId: UInt32) throws -> WindowsFoundation.AnyIVector<UWP.PointerPoint?>? {
             let (pointerPoints) = try ComPtrs.initialize { pointerPointsAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetIntermediatePoints(pThis, pointerId, &pointerPointsAbi))
@@ -328,7 +329,7 @@ public enum __ABI_Windows_UI_Input {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CInput__CPointerPointWrapper.unwrapFrom(abi: pointerPoints)
         }
 
-        internal func GetCurrentPointTransformedImpl(_ pointerId: UInt32, _ transform: UWP.AnyIPointerPointTransform?) throws -> UWP.PointerPoint? {
+        public func GetCurrentPointTransformed(_ pointerId: UInt32, _ transform: UWP.AnyIPointerPointTransform?) throws -> UWP.PointerPoint? {
             let (pointerPoint) = try ComPtrs.initialize { pointerPointAbi in
                 let transformWrapper = __ABI_Windows_UI_Input.IPointerPointTransformWrapper(transform)
                 let _transform = try! transformWrapper?.toABI { $0 }
@@ -336,10 +337,10 @@ public enum __ABI_Windows_UI_Input {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentPointTransformed(pThis, pointerId, _transform, &pointerPointAbi))
                 }
             }
-            return .from(abi: pointerPoint)
+            return __IMPL_Windows_UI_Input.PointerPointBridge.from(abi: pointerPoint)
         }
 
-        internal func GetIntermediatePointsTransformedImpl(_ pointerId: UInt32, _ transform: UWP.AnyIPointerPointTransform?) throws -> WindowsFoundation.AnyIVector<UWP.PointerPoint?>? {
+        public func GetIntermediatePointsTransformed(_ pointerId: UInt32, _ transform: UWP.AnyIPointerPointTransform?) throws -> WindowsFoundation.AnyIVector<UWP.PointerPoint?>? {
             let (pointerPoints) = try ComPtrs.initialize { pointerPointsAbi in
                 let transformWrapper = __ABI_Windows_UI_Input.IPointerPointTransformWrapper(transform)
                 let _transform = try! transformWrapper?.toABI { $0 }
@@ -355,7 +356,7 @@ public enum __ABI_Windows_UI_Input {
     public class IPointerPointTransform: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPointTransform }
 
-        open func get_InverseImpl() throws -> UWP.AnyIPointerPointTransform? {
+        open func get_Inverse() throws -> UWP.AnyIPointerPointTransform? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointTransform.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Inverse(pThis, &valueAbi))
@@ -364,7 +365,7 @@ public enum __ABI_Windows_UI_Input {
             return __ABI_Windows_UI_Input.IPointerPointTransformWrapper.unwrapFrom(abi: value)
         }
 
-        open func TryTransformImpl(_ inPoint: WindowsFoundation.Point, _ outPoint: inout WindowsFoundation.Point) throws -> Bool {
+        open func TryTransform(_ inPoint: WindowsFoundation.Point, _ outPoint: inout WindowsFoundation.Point) throws -> Bool {
             var returnValue: boolean = 0
             var _outPoint: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointTransform.self) { pThis in
@@ -374,7 +375,7 @@ public enum __ABI_Windows_UI_Input {
             return .init(from: returnValue)
         }
 
-        open func TransformBoundsImpl(_ rect: WindowsFoundation.Rect) throws -> WindowsFoundation.Rect {
+        open func TransformBounds(_ rect: WindowsFoundation.Rect) throws -> WindowsFoundation.Rect {
             var returnValue: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CInput_CIPointerPointTransform.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TransformBounds(pThis, .from(swift: rect), &returnValue))
@@ -429,7 +430,7 @@ public enum __ABI_Windows_UI_Input {
                 $2?.initialize(to: .from(swift: outPoint))
                 $3?.initialize(to: .init(from: returnValue))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         TransformBounds: {
@@ -439,7 +440,7 @@ public enum __ABI_Windows_UI_Input {
                 let returnValue = try __unwrapped__instance.transformBounds(rect)
                 $2?.initialize(to: .from(swift: returnValue))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 

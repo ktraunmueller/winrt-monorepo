@@ -30,12 +30,6 @@ public final class BasicProperties : WinRTClass, IStorageItemExtraProperties {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CFileProperties_CIBasicProperties>?) -> BasicProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -45,33 +39,33 @@ public final class BasicProperties : WinRTClass, IStorageItemExtraProperties {
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.basicproperties.datemodified)
     public var dateModified : WindowsFoundation.DateTime {
-        get { try! _default.get_DateModifiedImpl() }
+        get { try! _default.get_DateModified() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.basicproperties.itemdate)
     public var itemDate : WindowsFoundation.DateTime {
-        get { try! _default.get_ItemDateImpl() }
+        get { try! _default.get_ItemDate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.basicproperties.size)
     public var size : UInt64 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IStorageItemExtraProperties: __ABI_Windows_Storage_FileProperties.IStorageItemExtraProperties! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.basicproperties.retrievepropertiesasync)
     public func retrievePropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMap<String, Any?>?>! {
-        try _IStorageItemExtraProperties.RetrievePropertiesAsyncImpl(propertiesToRetrieve)
+        try _IStorageItemExtraProperties.RetrievePropertiesAsync(propertiesToRetrieve)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.basicproperties.savepropertiesasync)
     public func savePropertiesAsync(_ propertiesToSave: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, Any?>?>!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncImpl(propertiesToSave)
+        try _IStorageItemExtraProperties.SavePropertiesAsync(propertiesToSave)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.basicproperties.savepropertiesasync)
     public func savePropertiesAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefaultImpl()
+        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefault()
     }
 
     deinit {
@@ -94,12 +88,6 @@ public final class DocumentProperties : WinRTClass, IStorageItemExtraProperties 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties>?) -> DocumentProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -110,39 +98,39 @@ public final class DocumentProperties : WinRTClass, IStorageItemExtraProperties 
     private lazy var _IStorageItemExtraProperties: __ABI_Windows_Storage_FileProperties.IStorageItemExtraProperties! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.documentproperties.retrievepropertiesasync)
     public func retrievePropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMap<String, Any?>?>! {
-        try _IStorageItemExtraProperties.RetrievePropertiesAsyncImpl(propertiesToRetrieve)
+        try _IStorageItemExtraProperties.RetrievePropertiesAsync(propertiesToRetrieve)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.documentproperties.savepropertiesasync)
     public func savePropertiesAsync(_ propertiesToSave: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, Any?>?>!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncImpl(propertiesToSave)
+        try _IStorageItemExtraProperties.SavePropertiesAsync(propertiesToSave)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.documentproperties.savepropertiesasync)
     public func savePropertiesAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefaultImpl()
+        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefault()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.documentproperties.author)
     public var author : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_AuthorImpl() }
+        get { try! _default.get_Author() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.documentproperties.comment)
     public var comment : String {
-        get { try! _default.get_CommentImpl() }
-        set { try! _default.put_CommentImpl(newValue) }
+        get { try! _default.get_Comment() }
+        set { try! _default.put_Comment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.documentproperties.keywords)
     public var keywords : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_KeywordsImpl() }
+        get { try! _default.get_Keywords() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.documentproperties.title)
     public var title : String {
-        get { try! _default.get_TitleImpl() }
-        set { try! _default.put_TitleImpl(newValue) }
+        get { try! _default.get_Title() }
+        set { try! _default.put_Title(newValue) }
     }
 
     deinit {
@@ -165,12 +153,6 @@ public final class ImageProperties : WinRTClass, IStorageItemExtraProperties {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties>?) -> ImageProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -181,82 +163,82 @@ public final class ImageProperties : WinRTClass, IStorageItemExtraProperties {
     private lazy var _IStorageItemExtraProperties: __ABI_Windows_Storage_FileProperties.IStorageItemExtraProperties! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.retrievepropertiesasync)
     public func retrievePropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMap<String, Any?>?>! {
-        try _IStorageItemExtraProperties.RetrievePropertiesAsyncImpl(propertiesToRetrieve)
+        try _IStorageItemExtraProperties.RetrievePropertiesAsync(propertiesToRetrieve)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.savepropertiesasync)
     public func savePropertiesAsync(_ propertiesToSave: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, Any?>?>!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncImpl(propertiesToSave)
+        try _IStorageItemExtraProperties.SavePropertiesAsync(propertiesToSave)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.savepropertiesasync)
     public func savePropertiesAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefaultImpl()
+        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefault()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.cameramanufacturer)
     public var cameraManufacturer : String {
-        get { try! _default.get_CameraManufacturerImpl() }
-        set { try! _default.put_CameraManufacturerImpl(newValue) }
+        get { try! _default.get_CameraManufacturer() }
+        set { try! _default.put_CameraManufacturer(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.cameramodel)
     public var cameraModel : String {
-        get { try! _default.get_CameraModelImpl() }
-        set { try! _default.put_CameraModelImpl(newValue) }
+        get { try! _default.get_CameraModel() }
+        set { try! _default.put_CameraModel(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.datetaken)
     public var dateTaken : WindowsFoundation.DateTime {
-        get { try! _default.get_DateTakenImpl() }
-        set { try! _default.put_DateTakenImpl(newValue) }
+        get { try! _default.get_DateTaken() }
+        set { try! _default.put_DateTaken(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.height)
     public var height : UInt32 {
-        get { try! _default.get_HeightImpl() }
+        get { try! _default.get_Height() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.keywords)
     public var keywords : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_KeywordsImpl() }
+        get { try! _default.get_Keywords() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.latitude)
     public var latitude : Double? {
-        get { try! _default.get_LatitudeImpl() }
+        get { try! _default.get_Latitude() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.longitude)
     public var longitude : Double? {
-        get { try! _default.get_LongitudeImpl() }
+        get { try! _default.get_Longitude() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.orientation)
     public var orientation : PhotoOrientation {
-        get { try! _default.get_OrientationImpl() }
+        get { try! _default.get_Orientation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.peoplenames)
     public var peopleNames : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_PeopleNamesImpl() }
+        get { try! _default.get_PeopleNames() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.rating)
     public var rating : UInt32 {
-        get { try! _default.get_RatingImpl() }
-        set { try! _default.put_RatingImpl(newValue) }
+        get { try! _default.get_Rating() }
+        set { try! _default.put_Rating(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.title)
     public var title : String {
-        get { try! _default.get_TitleImpl() }
-        set { try! _default.put_TitleImpl(newValue) }
+        get { try! _default.get_Title() }
+        set { try! _default.put_Title(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties.width)
     public var width : UInt32 {
-        get { try! _default.get_WidthImpl() }
+        get { try! _default.get_Width() }
     }
 
     deinit {
@@ -279,12 +261,6 @@ public final class MusicProperties : WinRTClass, IStorageItemExtraProperties {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties>?) -> MusicProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -295,106 +271,106 @@ public final class MusicProperties : WinRTClass, IStorageItemExtraProperties {
     private lazy var _IStorageItemExtraProperties: __ABI_Windows_Storage_FileProperties.IStorageItemExtraProperties! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.retrievepropertiesasync)
     public func retrievePropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMap<String, Any?>?>! {
-        try _IStorageItemExtraProperties.RetrievePropertiesAsyncImpl(propertiesToRetrieve)
+        try _IStorageItemExtraProperties.RetrievePropertiesAsync(propertiesToRetrieve)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.savepropertiesasync)
     public func savePropertiesAsync(_ propertiesToSave: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, Any?>?>!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncImpl(propertiesToSave)
+        try _IStorageItemExtraProperties.SavePropertiesAsync(propertiesToSave)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.savepropertiesasync)
     public func savePropertiesAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefaultImpl()
+        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefault()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.album)
     public var album : String {
-        get { try! _default.get_AlbumImpl() }
-        set { try! _default.put_AlbumImpl(newValue) }
+        get { try! _default.get_Album() }
+        set { try! _default.put_Album(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.albumartist)
     public var albumArtist : String {
-        get { try! _default.get_AlbumArtistImpl() }
-        set { try! _default.put_AlbumArtistImpl(newValue) }
+        get { try! _default.get_AlbumArtist() }
+        set { try! _default.put_AlbumArtist(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.artist)
     public var artist : String {
-        get { try! _default.get_ArtistImpl() }
-        set { try! _default.put_ArtistImpl(newValue) }
+        get { try! _default.get_Artist() }
+        set { try! _default.put_Artist(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.bitrate)
     public var bitrate : UInt32 {
-        get { try! _default.get_BitrateImpl() }
+        get { try! _default.get_Bitrate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.composers)
     public var composers : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_ComposersImpl() }
+        get { try! _default.get_Composers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.conductors)
     public var conductors : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_ConductorsImpl() }
+        get { try! _default.get_Conductors() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.duration)
     public var duration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DurationImpl() }
+        get { try! _default.get_Duration() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.genre)
     public var genre : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_GenreImpl() }
+        get { try! _default.get_Genre() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.producers)
     public var producers : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_ProducersImpl() }
+        get { try! _default.get_Producers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.publisher)
     public var publisher : String {
-        get { try! _default.get_PublisherImpl() }
-        set { try! _default.put_PublisherImpl(newValue) }
+        get { try! _default.get_Publisher() }
+        set { try! _default.put_Publisher(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.rating)
     public var rating : UInt32 {
-        get { try! _default.get_RatingImpl() }
-        set { try! _default.put_RatingImpl(newValue) }
+        get { try! _default.get_Rating() }
+        set { try! _default.put_Rating(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.subtitle)
     public var subtitle : String {
-        get { try! _default.get_SubtitleImpl() }
-        set { try! _default.put_SubtitleImpl(newValue) }
+        get { try! _default.get_Subtitle() }
+        set { try! _default.put_Subtitle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.title)
     public var title : String {
-        get { try! _default.get_TitleImpl() }
-        set { try! _default.put_TitleImpl(newValue) }
+        get { try! _default.get_Title() }
+        set { try! _default.put_Title(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.tracknumber)
     public var trackNumber : UInt32 {
-        get { try! _default.get_TrackNumberImpl() }
-        set { try! _default.put_TrackNumberImpl(newValue) }
+        get { try! _default.get_TrackNumber() }
+        set { try! _default.put_TrackNumber(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.writers)
     public var writers : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_WritersImpl() }
+        get { try! _default.get_Writers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties.year)
     public var year : UInt32 {
-        get { try! _default.get_YearImpl() }
-        set { try! _default.put_YearImpl(newValue) }
+        get { try! _default.get_Year() }
+        set { try! _default.put_Year(newValue) }
     }
 
     deinit {
@@ -417,12 +393,6 @@ public final class StorageItemContentProperties : WinRTClass, IStorageItemExtraP
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties>?) -> StorageItemContentProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -433,37 +403,37 @@ public final class StorageItemContentProperties : WinRTClass, IStorageItemExtraP
     private lazy var _IStorageItemExtraProperties: __ABI_Windows_Storage_FileProperties.IStorageItemExtraProperties! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.retrievepropertiesasync)
     public func retrievePropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMap<String, Any?>?>! {
-        try _IStorageItemExtraProperties.RetrievePropertiesAsyncImpl(propertiesToRetrieve)
+        try _IStorageItemExtraProperties.RetrievePropertiesAsync(propertiesToRetrieve)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.savepropertiesasync)
     public func savePropertiesAsync(_ propertiesToSave: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, Any?>?>!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncImpl(propertiesToSave)
+        try _IStorageItemExtraProperties.SavePropertiesAsync(propertiesToSave)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.savepropertiesasync)
     public func savePropertiesAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefaultImpl()
+        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefault()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.getmusicpropertiesasync)
     public func getMusicPropertiesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<MusicProperties?>! {
-        try _default.GetMusicPropertiesAsyncImpl()
+        try _default.GetMusicPropertiesAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.getvideopropertiesasync)
     public func getVideoPropertiesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<VideoProperties?>! {
-        try _default.GetVideoPropertiesAsyncImpl()
+        try _default.GetVideoPropertiesAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.getimagepropertiesasync)
     public func getImagePropertiesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<ImageProperties?>! {
-        try _default.GetImagePropertiesAsyncImpl()
+        try _default.GetImagePropertiesAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.getdocumentpropertiesasync)
     public func getDocumentPropertiesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<DocumentProperties?>! {
-        try _default.GetDocumentPropertiesAsyncImpl()
+        try _default.GetDocumentPropertiesAsync()
     }
 
     deinit {
@@ -486,12 +456,6 @@ public final class StorageItemThumbnail : WinRTClass, WindowsFoundation.IClosabl
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType>?) -> StorageItemThumbnail? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -502,93 +466,93 @@ public final class StorageItemThumbnail : WinRTClass, WindowsFoundation.IClosabl
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IInputStream: __ABI_Windows_Storage_Streams.IInputStream! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.readasync)
     public func readAsync(_ buffer: UWP.AnyIBuffer!, _ count: UInt32, _ options: UWP.InputStreamOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.AnyIBuffer?, UInt32>! {
-        try _IInputStream.ReadAsyncImpl(buffer, count, options)
+        try _IInputStream.ReadAsync(buffer, count, options)
     }
 
     private lazy var _IOutputStream: __ABI_Windows_Storage_Streams.IOutputStream! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.writeasync)
     public func writeAsync(_ buffer: UWP.AnyIBuffer!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UInt32, UInt32>! {
-        try _IOutputStream.WriteAsyncImpl(buffer)
+        try _IOutputStream.WriteAsync(buffer)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.flushasync)
     public func flushAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        try _IOutputStream.FlushAsyncImpl()
+        try _IOutputStream.FlushAsync()
     }
 
     private lazy var _IRandomAccessStream: __ABI_Windows_Storage_Streams.IRandomAccessStream! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.getinputstreamat)
     public func getInputStreamAt(_ position: UInt64) throws -> UWP.AnyIInputStream! {
-        try _IRandomAccessStream.GetInputStreamAtImpl(position)
+        try _IRandomAccessStream.GetInputStreamAt(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.getoutputstreamat)
     public func getOutputStreamAt(_ position: UInt64) throws -> UWP.AnyIOutputStream! {
-        try _IRandomAccessStream.GetOutputStreamAtImpl(position)
+        try _IRandomAccessStream.GetOutputStreamAt(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.seek)
     public func seek(_ position: UInt64) throws {
-        try _IRandomAccessStream.SeekImpl(position)
+        try _IRandomAccessStream.Seek(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.clonestream)
     public func cloneStream() throws -> UWP.AnyIRandomAccessStream! {
-        try _IRandomAccessStream.CloneStreamImpl()
+        try _IRandomAccessStream.CloneStream()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.canread)
     public var canRead : Bool {
-        get { try! _IRandomAccessStream.get_CanReadImpl() }
+        get { try! _IRandomAccessStream.get_CanRead() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.canwrite)
     public var canWrite : Bool {
-        get { try! _IRandomAccessStream.get_CanWriteImpl() }
+        get { try! _IRandomAccessStream.get_CanWrite() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.position)
     public var position : UInt64 {
-        get { try! _IRandomAccessStream.get_PositionImpl() }
+        get { try! _IRandomAccessStream.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.size)
     public var size : UInt64 {
-        get { try! _IRandomAccessStream.get_SizeImpl() }
-        set { try! _IRandomAccessStream.put_SizeImpl(newValue) }
+        get { try! _IRandomAccessStream.get_Size() }
+        set { try! _IRandomAccessStream.put_Size(newValue) }
     }
 
     private lazy var _IContentTypeProvider: __ABI_Windows_Storage_Streams.IContentTypeProvider! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.contenttype)
     public var contentType : String {
-        get { try! _IContentTypeProvider.get_ContentTypeImpl() }
+        get { try! _IContentTypeProvider.get_ContentType() }
     }
 
     private lazy var _IThumbnailProperties: __ABI_Windows_Storage_FileProperties.IThumbnailProperties! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.originalheight)
     public var originalHeight : UInt32 {
-        get { try! _IThumbnailProperties.get_OriginalHeightImpl() }
+        get { try! _IThumbnailProperties.get_OriginalHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.originalwidth)
     public var originalWidth : UInt32 {
-        get { try! _IThumbnailProperties.get_OriginalWidthImpl() }
+        get { try! _IThumbnailProperties.get_OriginalWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.returnedsmallercachedsize)
     public var returnedSmallerCachedSize : Bool {
-        get { try! _IThumbnailProperties.get_ReturnedSmallerCachedSizeImpl() }
+        get { try! _IThumbnailProperties.get_ReturnedSmallerCachedSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail.type)
     public var type : ThumbnailType {
-        get { try! _IThumbnailProperties.get_TypeImpl() }
+        get { try! _IThumbnailProperties.get_Type() }
     }
 
     deinit {
@@ -616,12 +580,6 @@ public final class VideoProperties : WinRTClass, IStorageItemExtraProperties {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties>?) -> VideoProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -632,102 +590,102 @@ public final class VideoProperties : WinRTClass, IStorageItemExtraProperties {
     private lazy var _IStorageItemExtraProperties: __ABI_Windows_Storage_FileProperties.IStorageItemExtraProperties! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.retrievepropertiesasync)
     public func retrievePropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMap<String, Any?>?>! {
-        try _IStorageItemExtraProperties.RetrievePropertiesAsyncImpl(propertiesToRetrieve)
+        try _IStorageItemExtraProperties.RetrievePropertiesAsync(propertiesToRetrieve)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.savepropertiesasync)
     public func savePropertiesAsync(_ propertiesToSave: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, Any?>?>!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncImpl(propertiesToSave)
+        try _IStorageItemExtraProperties.SavePropertiesAsync(propertiesToSave)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.savepropertiesasync)
     public func savePropertiesAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefaultImpl()
+        try _IStorageItemExtraProperties.SavePropertiesAsyncOverloadDefault()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.bitrate)
     public var bitrate : UInt32 {
-        get { try! _default.get_BitrateImpl() }
+        get { try! _default.get_Bitrate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.directors)
     public var directors : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_DirectorsImpl() }
+        get { try! _default.get_Directors() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.duration)
     public var duration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DurationImpl() }
+        get { try! _default.get_Duration() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.height)
     public var height : UInt32 {
-        get { try! _default.get_HeightImpl() }
+        get { try! _default.get_Height() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.keywords)
     public var keywords : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_KeywordsImpl() }
+        get { try! _default.get_Keywords() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.latitude)
     public var latitude : Double? {
-        get { try! _default.get_LatitudeImpl() }
+        get { try! _default.get_Latitude() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.longitude)
     public var longitude : Double? {
-        get { try! _default.get_LongitudeImpl() }
+        get { try! _default.get_Longitude() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.orientation)
     public var orientation : VideoOrientation {
-        get { try! _default.get_OrientationImpl() }
+        get { try! _default.get_Orientation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.producers)
     public var producers : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_ProducersImpl() }
+        get { try! _default.get_Producers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.publisher)
     public var publisher : String {
-        get { try! _default.get_PublisherImpl() }
-        set { try! _default.put_PublisherImpl(newValue) }
+        get { try! _default.get_Publisher() }
+        set { try! _default.put_Publisher(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.rating)
     public var rating : UInt32 {
-        get { try! _default.get_RatingImpl() }
-        set { try! _default.put_RatingImpl(newValue) }
+        get { try! _default.get_Rating() }
+        set { try! _default.put_Rating(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.subtitle)
     public var subtitle : String {
-        get { try! _default.get_SubtitleImpl() }
-        set { try! _default.put_SubtitleImpl(newValue) }
+        get { try! _default.get_Subtitle() }
+        set { try! _default.put_Subtitle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.title)
     public var title : String {
-        get { try! _default.get_TitleImpl() }
-        set { try! _default.put_TitleImpl(newValue) }
+        get { try! _default.get_Title() }
+        set { try! _default.put_Title(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.width)
     public var width : UInt32 {
-        get { try! _default.get_WidthImpl() }
+        get { try! _default.get_Width() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.writers)
     public var writers : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_WritersImpl() }
+        get { try! _default.get_Writers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties.year)
     public var year : UInt32 {
-        get { try! _default.get_YearImpl() }
-        set { try! _default.put_YearImpl(newValue) }
+        get { try! _default.get_Year() }
+        set { try! _default.put_Year(newValue) }
     }
 
     deinit {
@@ -787,7 +745,7 @@ extension UWP.PhotoOrientation {
         __x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation_Rotate90
     }
 }
-extension UWP.PhotoOrientation: @retroactive Hashable, @retroactive Codable {}
+extension UWP.PhotoOrientation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.PropertyPrefetchOptions {
     public static var none : UWP.PropertyPrefetchOptions {
@@ -809,7 +767,7 @@ extension UWP.PropertyPrefetchOptions {
         __x_ABI_CWindows_CStorage_CFileProperties_CPropertyPrefetchOptions_BasicProperties
     }
 }
-extension UWP.PropertyPrefetchOptions: @retroactive Hashable, @retroactive Codable {}
+extension UWP.PropertyPrefetchOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ThumbnailMode {
     public static var picturesView : UWP.ThumbnailMode {
@@ -831,7 +789,7 @@ extension UWP.ThumbnailMode {
         __x_ABI_CWindows_CStorage_CFileProperties_CThumbnailMode_SingleItem
     }
 }
-extension UWP.ThumbnailMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ThumbnailMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ThumbnailOptions {
     public static var none : UWP.ThumbnailOptions {
@@ -847,7 +805,7 @@ extension UWP.ThumbnailOptions {
         __x_ABI_CWindows_CStorage_CFileProperties_CThumbnailOptions_UseCurrentScale
     }
 }
-extension UWP.ThumbnailOptions: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ThumbnailOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ThumbnailType {
     public static var image : UWP.ThumbnailType {
@@ -857,7 +815,7 @@ extension UWP.ThumbnailType {
         __x_ABI_CWindows_CStorage_CFileProperties_CThumbnailType_Icon
     }
 }
-extension UWP.ThumbnailType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ThumbnailType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.VideoOrientation {
     public static var normal : UWP.VideoOrientation {
@@ -873,5 +831,5 @@ extension UWP.VideoOrientation {
         __x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation_Rotate270
     }
 }
-extension UWP.VideoOrientation: @retroactive Hashable, @retroactive Codable {}
+extension UWP.VideoOrientation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

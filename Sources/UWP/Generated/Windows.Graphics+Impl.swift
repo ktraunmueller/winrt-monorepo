@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Graphics {
     public enum IGeometrySource2DBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CGraphics_CIGeometrySource2D
@@ -30,4 +31,56 @@ public enum __IMPL_Windows_Graphics {
 
     }
 
+}
+@_spi(WinRTInternal)
+extension DisplayAdapterId: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CDisplayAdapterId
+    public static func from(abi: ABI) -> Self {
+        .init(lowPart: abi.LowPart, highPart: abi.HighPart)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension PointInt32: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CPointInt32
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension RectInt32: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CRectInt32
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y, width: abi.Width, height: abi.Height)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension SizeInt32: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CSizeInt32
+    public static func from(abi: ABI) -> Self {
+        .init(width: abi.Width, height: abi.Height)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class IGeometrySource2DMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIGeometrySource2D
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Graphics.IGeometrySource2D = try! abi.QueryInterface()
+        return __IMPL_Windows_Graphics.IGeometrySource2DBridge.from(abi: RawPointer(swiftAbi))!
+    }
 }

@@ -8,6 +8,7 @@ private var IID___x_ABI_CWindows_CUI_CIUIContext: WindowsFoundation.IID {
     .init(Data1: 0xBB5CFACD, Data2: 0x5BD8, Data3: 0x59D0, Data4: ( 0xA5,0x9E,0x1C,0x17,0xA4,0xD6,0xD2,0x43 ))// BB5CFACD-5BD8-59D0-A59E-1C17A4D6D243
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_UI {
     public class IUIContext: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CIUIContext }

@@ -23,12 +23,6 @@ public final class FileExtensionVector : WinRTClass, IVector, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1_HSTRING>?) -> FileExtensionVector? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -69,58 +63,68 @@ public final class FileExtensionVector : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.getat)
     public func getAt(_ index: UInt32) -> String {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<String>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.indexof)
     public func indexOf(_ value: String, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.setat)
     public func setAt(_ index: UInt32, _ value: String) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.insertat)
     public func insertAt(_ index: UInt32, _ value: String) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.append)
     public func append(_ value: String) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [String]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.replaceall)
+    public func replaceAll(_ items: [String]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableString! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.first)
     public func first() -> WindowsFoundation.AnyIIterator<String>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -143,97 +147,92 @@ public final class FileOpenPicker : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker>?) -> FileOpenPicker? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Storage.Pickers.FileOpenPicker")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Storage.Pickers.FileOpenPicker")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IFileOpenPickerStatics: __ABI_Windows_Storage_Pickers.IFileOpenPickerStatics = try! RoGetActivationFactory(HString("Windows.Storage.Pickers.FileOpenPicker"))
+    private static let _IFileOpenPickerStatics: __ABI_Windows_Storage_Pickers.IFileOpenPickerStatics = try! RoGetActivationFactory("Windows.Storage.Pickers.FileOpenPicker")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.resumepicksinglefileasync)
-    public static func resumePickSingleFileAsync() -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>! {
-        return try! _IFileOpenPickerStatics.ResumePickSingleFileAsyncImpl()
+    public static func resumePickSingleFileAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>! {
+        return try _IFileOpenPickerStatics.ResumePickSingleFileAsync()
     }
 
-    private static let _IFileOpenPickerStatics2: __ABI_Windows_Storage_Pickers.IFileOpenPickerStatics2 = try! RoGetActivationFactory(HString("Windows.Storage.Pickers.FileOpenPicker"))
+    private static let _IFileOpenPickerStatics2: __ABI_Windows_Storage_Pickers.IFileOpenPickerStatics2 = try! RoGetActivationFactory("Windows.Storage.Pickers.FileOpenPicker")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.createforuser)
-    public static func createForUser(_ user: UWP.User!) -> FileOpenPicker! {
-        return try! _IFileOpenPickerStatics2.CreateForUserImpl(user)
+    public static func createForUser(_ user: UWP.User!) throws -> FileOpenPicker! {
+        return try _IFileOpenPickerStatics2.CreateForUser(user)
     }
 
     private lazy var _IFileOpenPicker2: __ABI_Windows_Storage_Pickers.IFileOpenPicker2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileandcontinue)
     public func pickSingleFileAndContinue() throws {
-        try _IFileOpenPicker2.PickSingleFileAndContinueImpl()
+        try _IFileOpenPicker2.PickSingleFileAndContinue()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.pickmultiplefilesandcontinue)
     public func pickMultipleFilesAndContinue() throws {
-        try _IFileOpenPicker2.PickMultipleFilesAndContinueImpl()
+        try _IFileOpenPicker2.PickMultipleFilesAndContinue()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.continuationdata)
     public var continuationData : WindowsFoundation.ValueSet! {
-        get { try! _IFileOpenPicker2.get_ContinuationDataImpl() }
+        get { try! _IFileOpenPicker2.get_ContinuationData() }
     }
 
     private lazy var _IFileOpenPickerWithOperationId: __ABI_Windows_Storage_Pickers.IFileOpenPickerWithOperationId! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync)
     public func pickSingleFileAsync(_ pickerOperationId: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>! {
-        try _IFileOpenPickerWithOperationId.PickSingleFileAsyncImpl(pickerOperationId)
+        try _IFileOpenPickerWithOperationId.PickSingleFileAsync(pickerOperationId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync)
     public func pickSingleFileAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>! {
-        try _default.PickSingleFileAsyncImpl()
+        try _default.PickSingleFileAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.pickmultiplefilesasync)
     public func pickMultipleFilesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFile?>?>! {
-        try _default.PickMultipleFilesAsyncImpl()
+        try _default.PickMultipleFilesAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.commitbuttontext)
     public var commitButtonText : String {
-        get { try! _default.get_CommitButtonTextImpl() }
-        set { try! _default.put_CommitButtonTextImpl(newValue) }
+        get { try! _default.get_CommitButtonText() }
+        set { try! _default.put_CommitButtonText(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.filetypefilter)
     public var fileTypeFilter : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_FileTypeFilterImpl() }
+        get { try! _default.get_FileTypeFilter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.settingsidentifier)
     public var settingsIdentifier : String {
-        get { try! _default.get_SettingsIdentifierImpl() }
-        set { try! _default.put_SettingsIdentifierImpl(newValue) }
+        get { try! _default.get_SettingsIdentifier() }
+        set { try! _default.put_SettingsIdentifier(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation)
     public var suggestedStartLocation : PickerLocationId {
-        get { try! _default.get_SuggestedStartLocationImpl() }
-        set { try! _default.put_SuggestedStartLocationImpl(newValue) }
+        get { try! _default.get_SuggestedStartLocation() }
+        set { try! _default.put_SuggestedStartLocation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.viewmode)
     public var viewMode : PickerViewMode {
-        get { try! _default.get_ViewModeImpl() }
-        set { try! _default.put_ViewModeImpl(newValue) }
+        get { try! _default.get_ViewMode() }
+        set { try! _default.put_ViewMode(newValue) }
     }
 
     private lazy var _IFileOpenPicker3: __ABI_Windows_Storage_Pickers.IFileOpenPicker3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.user)
     public var user : UWP.User! {
-        get { try! _IFileOpenPicker3.get_UserImpl() }
+        get { try! _IFileOpenPicker3.get_User() }
     }
 
     deinit {
@@ -261,12 +260,6 @@ public final class FilePickerFileTypesOrderedMap : WinRTClass, IMap, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIMap_2_HSTRING___x_ABI_C__FIVector_1_HSTRING>?) -> FilePickerFileTypesOrderedMap? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -276,43 +269,43 @@ public final class FilePickerFileTypesOrderedMap : WinRTClass, IMap, IIterable {
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerfiletypesorderedmap.lookup)
     public func lookup(_ key: String) -> WindowsFoundation.AnyIVector<String>? {
-        try! _default.LookupImpl(key)
+        try! _default.Lookup(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerfiletypesorderedmap.haskey)
     public func hasKey(_ key: String) -> Bool {
-        try! _default.HasKeyImpl(key)
+        try! _default.HasKey(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerfiletypesorderedmap.getview)
     public func getView() -> WindowsFoundation.AnyIMapView<String, WindowsFoundation.AnyIVector<String>?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerfiletypesorderedmap.insert)
     public func insert(_ key: String, _ value: WindowsFoundation.AnyIVector<String>?) -> Bool {
-        try! _default.InsertImpl(key, value)
+        try! _default.Insert(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerfiletypesorderedmap.remove)
     public func remove(_ key: String) {
-        try! _default.RemoveImpl(key)
+        try! _default.Remove(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerfiletypesorderedmap.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerfiletypesorderedmap.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableIKeyValuePairString_IVectorString! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerfiletypesorderedmap.first)
     public func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, WindowsFoundation.AnyIVector<String>?>?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -333,12 +326,6 @@ public final class FilePickerSelectedFilesArray : WinRTClass, IVectorView, IIter
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CStorage__CStorageFile>?) -> FilePickerSelectedFilesArray? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -373,23 +360,28 @@ public final class FilePickerSelectedFilesArray : WinRTClass, IVectorView, IIter
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerselectedfilesarray.getat)
     public func getAt(_ index: UInt32) -> UWP.StorageFile? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerselectedfilesarray.indexof)
     public func indexOf(_ value: UWP.StorageFile?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerselectedfilesarray.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [UWP.StorageFile?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerselectedfilesarray.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableStorageFile! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerselectedfilesarray.first)
     public func first() -> WindowsFoundation.AnyIIterator<UWP.StorageFile?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -412,94 +404,89 @@ public final class FileSavePicker : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker>?) -> FileSavePicker? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Storage.Pickers.FileSavePicker")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Storage.Pickers.FileSavePicker")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IFileSavePickerStatics: __ABI_Windows_Storage_Pickers.IFileSavePickerStatics = try! RoGetActivationFactory(HString("Windows.Storage.Pickers.FileSavePicker"))
+    private static let _IFileSavePickerStatics: __ABI_Windows_Storage_Pickers.IFileSavePickerStatics = try! RoGetActivationFactory("Windows.Storage.Pickers.FileSavePicker")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.createforuser)
-    public static func createForUser(_ user: UWP.User!) -> FileSavePicker! {
-        return try! _IFileSavePickerStatics.CreateForUserImpl(user)
+    public static func createForUser(_ user: UWP.User!) throws -> FileSavePicker! {
+        return try _IFileSavePickerStatics.CreateForUser(user)
     }
 
     private lazy var _IFileSavePicker2: __ABI_Windows_Storage_Pickers.IFileSavePicker2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.picksavefileandcontinue)
     public func pickSaveFileAndContinue() throws {
-        try _IFileSavePicker2.PickSaveFileAndContinueImpl()
+        try _IFileSavePicker2.PickSaveFileAndContinue()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.continuationdata)
     public var continuationData : WindowsFoundation.ValueSet! {
-        get { try! _IFileSavePicker2.get_ContinuationDataImpl() }
+        get { try! _IFileSavePicker2.get_ContinuationData() }
     }
 
     private lazy var _IFileSavePicker3: __ABI_Windows_Storage_Pickers.IFileSavePicker3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.enterpriseid)
     public var enterpriseId : String {
-        get { try! _IFileSavePicker3.get_EnterpriseIdImpl() }
-        set { try! _IFileSavePicker3.put_EnterpriseIdImpl(newValue) }
+        get { try! _IFileSavePicker3.get_EnterpriseId() }
+        set { try! _IFileSavePicker3.put_EnterpriseId(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.picksavefileasync)
     public func pickSaveFileAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>! {
-        try _default.PickSaveFileAsyncImpl()
+        try _default.PickSaveFileAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.commitbuttontext)
     public var commitButtonText : String {
-        get { try! _default.get_CommitButtonTextImpl() }
-        set { try! _default.put_CommitButtonTextImpl(newValue) }
+        get { try! _default.get_CommitButtonText() }
+        set { try! _default.put_CommitButtonText(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.defaultfileextension)
     public var defaultFileExtension : String {
-        get { try! _default.get_DefaultFileExtensionImpl() }
-        set { try! _default.put_DefaultFileExtensionImpl(newValue) }
+        get { try! _default.get_DefaultFileExtension() }
+        set { try! _default.put_DefaultFileExtension(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.filetypechoices)
     public var fileTypeChoices : WindowsFoundation.AnyIMap<String, WindowsFoundation.AnyIVector<String>?>! {
-        get { try! _default.get_FileTypeChoicesImpl() }
+        get { try! _default.get_FileTypeChoices() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.settingsidentifier)
     public var settingsIdentifier : String {
-        get { try! _default.get_SettingsIdentifierImpl() }
-        set { try! _default.put_SettingsIdentifierImpl(newValue) }
+        get { try! _default.get_SettingsIdentifier() }
+        set { try! _default.put_SettingsIdentifier(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedfilename)
     public var suggestedFileName : String {
-        get { try! _default.get_SuggestedFileNameImpl() }
-        set { try! _default.put_SuggestedFileNameImpl(newValue) }
+        get { try! _default.get_SuggestedFileName() }
+        set { try! _default.put_SuggestedFileName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedsavefile)
     public var suggestedSaveFile : UWP.StorageFile! {
-        get { try! _default.get_SuggestedSaveFileImpl() }
-        set { try! _default.put_SuggestedSaveFileImpl(newValue) }
+        get { try! _default.get_SuggestedSaveFile() }
+        set { try! _default.put_SuggestedSaveFile(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedstartlocation)
     public var suggestedStartLocation : PickerLocationId {
-        get { try! _default.get_SuggestedStartLocationImpl() }
-        set { try! _default.put_SuggestedStartLocationImpl(newValue) }
+        get { try! _default.get_SuggestedStartLocation() }
+        set { try! _default.put_SuggestedStartLocation(newValue) }
     }
 
     private lazy var _IFileSavePicker4: __ABI_Windows_Storage_Pickers.IFileSavePicker4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.user)
     public var user : UWP.User! {
-        get { try! _IFileSavePicker4.get_UserImpl() }
+        get { try! _IFileSavePicker4.get_User() }
     }
 
     deinit {
@@ -524,75 +511,70 @@ public final class FolderPicker : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CPickers_CIFolderPicker>?) -> FolderPicker? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Storage.Pickers.FolderPicker")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Storage.Pickers.FolderPicker")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IFolderPickerStatics: __ABI_Windows_Storage_Pickers.IFolderPickerStatics = try! RoGetActivationFactory(HString("Windows.Storage.Pickers.FolderPicker"))
+    private static let _IFolderPickerStatics: __ABI_Windows_Storage_Pickers.IFolderPickerStatics = try! RoGetActivationFactory("Windows.Storage.Pickers.FolderPicker")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.createforuser)
-    public static func createForUser(_ user: UWP.User!) -> FolderPicker! {
-        return try! _IFolderPickerStatics.CreateForUserImpl(user)
+    public static func createForUser(_ user: UWP.User!) throws -> FolderPicker! {
+        return try _IFolderPickerStatics.CreateForUser(user)
     }
 
     private lazy var _IFolderPicker2: __ABI_Windows_Storage_Pickers.IFolderPicker2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.pickfolderandcontinue)
     public func pickFolderAndContinue() throws {
-        try _IFolderPicker2.PickFolderAndContinueImpl()
+        try _IFolderPicker2.PickFolderAndContinue()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.continuationdata)
     public var continuationData : WindowsFoundation.ValueSet! {
-        get { try! _IFolderPicker2.get_ContinuationDataImpl() }
+        get { try! _IFolderPicker2.get_ContinuationData() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.picksinglefolderasync)
     public func pickSingleFolderAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFolder?>! {
-        try _default.PickSingleFolderAsyncImpl()
+        try _default.PickSingleFolderAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.commitbuttontext)
     public var commitButtonText : String {
-        get { try! _default.get_CommitButtonTextImpl() }
-        set { try! _default.put_CommitButtonTextImpl(newValue) }
+        get { try! _default.get_CommitButtonText() }
+        set { try! _default.put_CommitButtonText(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.filetypefilter)
     public var fileTypeFilter : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_FileTypeFilterImpl() }
+        get { try! _default.get_FileTypeFilter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.settingsidentifier)
     public var settingsIdentifier : String {
-        get { try! _default.get_SettingsIdentifierImpl() }
-        set { try! _default.put_SettingsIdentifierImpl(newValue) }
+        get { try! _default.get_SettingsIdentifier() }
+        set { try! _default.put_SettingsIdentifier(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.suggestedstartlocation)
     public var suggestedStartLocation : PickerLocationId {
-        get { try! _default.get_SuggestedStartLocationImpl() }
-        set { try! _default.put_SuggestedStartLocationImpl(newValue) }
+        get { try! _default.get_SuggestedStartLocation() }
+        set { try! _default.put_SuggestedStartLocation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.viewmode)
     public var viewMode : PickerViewMode {
-        get { try! _default.get_ViewModeImpl() }
-        set { try! _default.put_ViewModeImpl(newValue) }
+        get { try! _default.get_ViewMode() }
+        set { try! _default.put_ViewMode(newValue) }
     }
 
     private lazy var _IFolderPicker3: __ABI_Windows_Storage_Pickers.IFolderPicker3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker.user)
     public var user : UWP.User! {
-        get { try! _IFolderPicker3.get_UserImpl() }
+        get { try! _IFolderPicker3.get_User() }
     }
 
     deinit {
@@ -634,7 +616,7 @@ extension UWP.PickerLocationId {
         __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_Unspecified
     }
 }
-extension UWP.PickerLocationId: @retroactive Hashable, @retroactive Codable {}
+extension UWP.PickerLocationId: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.PickerViewMode {
     public static var list : UWP.PickerViewMode {
@@ -644,5 +626,5 @@ extension UWP.PickerViewMode {
         __x_ABI_CWindows_CStorage_CPickers_CPickerViewMode_Thumbnail
     }
 }
-extension UWP.PickerViewMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.PickerViewMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

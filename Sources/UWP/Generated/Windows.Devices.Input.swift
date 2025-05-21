@@ -20,23 +20,18 @@ public final class KeyboardCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities>?) -> KeyboardCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Devices.Input.KeyboardCapabilities")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Devices.Input.KeyboardCapabilities")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.keyboardcapabilities.keyboardpresent)
     public var keyboardPresent : Int32 {
-        get { try! _default.get_KeyboardPresentImpl() }
+        get { try! _default.get_KeyboardPresent() }
     }
 
     deinit {
@@ -58,43 +53,38 @@ public final class MouseCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities>?) -> MouseCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Devices.Input.MouseCapabilities")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Devices.Input.MouseCapabilities")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousecapabilities.horizontalwheelpresent)
     public var horizontalWheelPresent : Int32 {
-        get { try! _default.get_HorizontalWheelPresentImpl() }
+        get { try! _default.get_HorizontalWheelPresent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousecapabilities.mousepresent)
     public var mousePresent : Int32 {
-        get { try! _default.get_MousePresentImpl() }
+        get { try! _default.get_MousePresent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousecapabilities.numberofbuttons)
     public var numberOfButtons : UInt32 {
-        get { try! _default.get_NumberOfButtonsImpl() }
+        get { try! _default.get_NumberOfButtons() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousecapabilities.swapbuttons)
     public var swapButtons : Int32 {
-        get { try! _default.get_SwapButtonsImpl() }
+        get { try! _default.get_SwapButtons() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousecapabilities.verticalwheelpresent)
     public var verticalWheelPresent : Int32 {
-        get { try! _default.get_VerticalWheelPresentImpl() }
+        get { try! _default.get_VerticalWheelPresent() }
     }
 
     deinit {
@@ -116,20 +106,14 @@ public final class MouseDevice : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIMouseDevice>?) -> MouseDevice? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IMouseDeviceStatics: __ABI_Windows_Devices_Input.IMouseDeviceStatics = try! RoGetActivationFactory(HString("Windows.Devices.Input.MouseDevice"))
+    private static let _IMouseDeviceStatics: __ABI_Windows_Devices_Input.IMouseDeviceStatics = try! RoGetActivationFactory("Windows.Devices.Input.MouseDevice")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedevice.getforcurrentview)
-    public static func getForCurrentView() -> MouseDevice! {
-        return try! _IMouseDeviceStatics.GetForCurrentViewImpl()
+    public static func getForCurrentView() throws -> MouseDevice! {
+        return try _IMouseDeviceStatics.GetForCurrentView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedevice.mousemoved)
@@ -137,10 +121,10 @@ public final class MouseDevice : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_MouseMovedImpl($0)
+          return try! this.add_MouseMoved($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_MouseMovedImpl($0)
+         try? self?._default.remove_MouseMoved($0)
        }
       )
     }()
@@ -164,19 +148,13 @@ public final class MouseEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs>?) -> MouseEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mouseeventargs.mousedelta)
     public var mouseDelta : MouseDelta {
-        get { try! _default.get_MouseDeltaImpl() }
+        get { try! _default.get_MouseDelta() }
     }
 
     deinit {
@@ -198,25 +176,19 @@ public final class PenDevice : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIPenDevice>?) -> PenDevice? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IPenDeviceStatics: __ABI_Windows_Devices_Input.IPenDeviceStatics = try! RoGetActivationFactory(HString("Windows.Devices.Input.PenDevice"))
+    private static let _IPenDeviceStatics: __ABI_Windows_Devices_Input.IPenDeviceStatics = try! RoGetActivationFactory("Windows.Devices.Input.PenDevice")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pendevice.getfrompointerid)
-    public static func getFromPointerId(_ pointerId: UInt32) -> PenDevice! {
-        return try! _IPenDeviceStatics.GetFromPointerIdImpl(pointerId)
+    public static func getFromPointerId(_ pointerId: UInt32) throws -> PenDevice! {
+        return try _IPenDeviceStatics.GetFromPointerId(pointerId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pendevice.penid)
     public var penId : Foundation.UUID {
-        get { try! _default.get_PenIdImpl() }
+        get { try! _default.get_PenId() }
     }
 
     deinit {
@@ -238,61 +210,55 @@ public final class PointerDevice : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIPointerDevice>?) -> PointerDevice? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IPointerDeviceStatics: __ABI_Windows_Devices_Input.IPointerDeviceStatics = try! RoGetActivationFactory(HString("Windows.Devices.Input.PointerDevice"))
+    private static let _IPointerDeviceStatics: __ABI_Windows_Devices_Input.IPointerDeviceStatics = try! RoGetActivationFactory("Windows.Devices.Input.PointerDevice")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice.getpointerdevice)
-    public static func getPointerDevice(_ pointerId: UInt32) -> PointerDevice! {
-        return try! _IPointerDeviceStatics.GetPointerDeviceImpl(pointerId)
+    public static func getPointerDevice(_ pointerId: UInt32) throws -> PointerDevice! {
+        return try _IPointerDeviceStatics.GetPointerDevice(pointerId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice.getpointerdevices)
-    public static func getPointerDevices() -> WindowsFoundation.AnyIVectorView<PointerDevice?>! {
-        return try! _IPointerDeviceStatics.GetPointerDevicesImpl()
+    public static func getPointerDevices() throws -> WindowsFoundation.AnyIVectorView<PointerDevice?>! {
+        return try _IPointerDeviceStatics.GetPointerDevices()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice.isintegrated)
     public var isIntegrated : Bool {
-        get { try! _default.get_IsIntegratedImpl() }
+        get { try! _default.get_IsIntegrated() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice.maxcontacts)
     public var maxContacts : UInt32 {
-        get { try! _default.get_MaxContactsImpl() }
+        get { try! _default.get_MaxContacts() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice.physicaldevicerect)
     public var physicalDeviceRect : WindowsFoundation.Rect {
-        get { try! _default.get_PhysicalDeviceRectImpl() }
+        get { try! _default.get_PhysicalDeviceRect() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice.pointerdevicetype)
     public var pointerDeviceType : PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice.screenrect)
     public var screenRect : WindowsFoundation.Rect {
-        get { try! _default.get_ScreenRectImpl() }
+        get { try! _default.get_ScreenRect() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice.supportedusages)
     public var supportedUsages : WindowsFoundation.AnyIVectorView<PointerDeviceUsage>! {
-        get { try! _default.get_SupportedUsagesImpl() }
+        get { try! _default.get_SupportedUsages() }
     }
 
     private lazy var _IPointerDevice2: __ABI_Windows_Devices_Input.IPointerDevice2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice.maxpointerswithzdistance)
     public var maxPointersWithZDistance : UInt32 {
-        get { try! _IPointerDevice2.get_MaxPointersWithZDistanceImpl() }
+        get { try! _IPointerDevice2.get_MaxPointersWithZDistance() }
     }
 
     deinit {
@@ -315,28 +281,23 @@ public final class TouchCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CITouchCapabilities>?) -> TouchCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Devices.Input.TouchCapabilities")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Devices.Input.TouchCapabilities")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.touchcapabilities.contacts)
     public var contacts : UInt32 {
-        get { try! _default.get_ContactsImpl() }
+        get { try! _default.get_Contacts() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.touchcapabilities.touchpresent)
     public var touchPresent : Int32 {
-        get { try! _default.get_TouchPresentImpl() }
+        get { try! _default.get_TouchPresent() }
     }
 
     deinit {
@@ -345,7 +306,7 @@ public final class TouchCapabilities : WinRTClass {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedelta)
-public struct MouseDelta: Hashable, Codable {
+public struct MouseDelta: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedelta.x)
     public var x: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedelta.y)
@@ -355,13 +316,10 @@ public struct MouseDelta: Hashable, Codable {
         self.x = x
         self.y = y
     }
-    public static func from(abi: __x_ABI_CWindows_CDevices_CInput_CMouseDelta) -> MouseDelta {
-        .init(x: abi.X, y: abi.Y)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage)
-public struct PointerDeviceUsage: Hashable, Codable {
+public struct PointerDeviceUsage: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.usagepage)
     public var usagePage: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.usage)
@@ -389,9 +347,6 @@ public struct PointerDeviceUsage: Hashable, Codable {
         self.unit = unit
         self.physicalMultiplier = physicalMultiplier
     }
-    public static func from(abi: __x_ABI_CWindows_CDevices_CInput_CPointerDeviceUsage) -> PointerDeviceUsage {
-        .init(usagePage: abi.UsagePage, usage: abi.Usage, minLogical: abi.MinLogical, maxLogical: abi.MaxLogical, minPhysical: abi.MinPhysical, maxPhysical: abi.MaxPhysical, unit: abi.Unit, physicalMultiplier: abi.PhysicalMultiplier)
-    }
 }
 
 extension UWP.PointerDeviceType {
@@ -405,5 +360,5 @@ extension UWP.PointerDeviceType {
         __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType_Mouse
     }
 }
-extension UWP.PointerDeviceType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.PointerDeviceType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -4,5 +4,140 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Devices_Input {
+    public enum KeyboardCapabilitiesBridge: AbiBridge {
+        public typealias SwiftProjection = KeyboardCapabilities
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities>?) -> KeyboardCapabilities? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MouseCapabilitiesBridge: AbiBridge {
+        public typealias SwiftProjection = MouseCapabilities
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities>?) -> MouseCapabilities? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MouseDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = MouseDevice
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIMouseDevice
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIMouseDevice>?) -> MouseDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MouseEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MouseEventArgs
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs>?) -> MouseEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PenDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = PenDevice
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIPenDevice
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIPenDevice>?) -> PenDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointerDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = PointerDevice
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIPointerDevice
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CIPointerDevice>?) -> PointerDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TouchCapabilitiesBridge: AbiBridge {
+        public typealias SwiftProjection = TouchCapabilities
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CITouchCapabilities
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CDevices_CInput_CITouchCapabilities>?) -> TouchCapabilities? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension MouseDelta: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CDevices_CInput_CMouseDelta
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension PointerDeviceUsage: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CDevices_CInput_CPointerDeviceUsage
+    public static func from(abi: ABI) -> Self {
+        .init(usagePage: abi.UsagePage, usage: abi.Usage, minLogical: abi.MinLogical, maxLogical: abi.MaxLogical, minPhysical: abi.MinPhysical, maxPhysical: abi.MaxPhysical, unit: abi.Unit, physicalMultiplier: abi.PhysicalMultiplier)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class KeyboardCapabilitiesMaker: MakeFromAbi {
+    public typealias SwiftType = KeyboardCapabilities
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return KeyboardCapabilities(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MouseCapabilitiesMaker: MakeFromAbi {
+    public typealias SwiftType = MouseCapabilities
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MouseCapabilities(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MouseDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = MouseDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MouseDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MouseEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MouseEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MouseEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PenDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = PenDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PenDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointerDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = PointerDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TouchCapabilitiesMaker: MakeFromAbi {
+    public typealias SwiftType = TouchCapabilities
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TouchCapabilities(fromAbi: abi)
+    }
 }

@@ -5,7 +5,7 @@ import Foundation
 import CWinRT
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.data.text.textsegment)
-public struct TextSegment: Hashable, Codable {
+public struct TextSegment: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.data.text.textsegment.startposition)
     public var startPosition: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.data.text.textsegment.length)
@@ -14,9 +14,6 @@ public struct TextSegment: Hashable, Codable {
     public init(startPosition: UInt32, length: UInt32) {
         self.startPosition = startPosition
         self.length = length
-    }
-    public static func from(abi: __x_ABI_CWindows_CData_CText_CTextSegment) -> TextSegment {
-        .init(startPosition: abi.StartPosition, length: abi.Length)
     }
 }
 

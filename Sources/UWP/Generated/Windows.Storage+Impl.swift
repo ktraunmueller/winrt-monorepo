@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Storage {
     public enum IStorageFileBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CStorage_CIStorageFile
@@ -30,125 +31,125 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.openasync)
         fileprivate func openAsync(_ accessMode: FileAccessMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIRandomAccessStream?>! {
-            try _default.OpenAsyncImpl(accessMode)
+            try _default.OpenAsync(accessMode)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.opentransactedwriteasync)
         fileprivate func openTransactedWriteAsync() throws -> WindowsFoundation.AnyIAsyncOperation<StorageStreamTransaction?>! {
-            try _default.OpenTransactedWriteAsyncImpl()
+            try _default.OpenTransactedWriteAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.copyasync)
         fileprivate func copyAsync(_ destinationFolder: AnyIStorageFolder!) throws -> WindowsFoundation.AnyIAsyncOperation<StorageFile?>! {
-            try _default.CopyOverloadDefaultNameAndOptionsImpl(destinationFolder)
+            try _default.CopyOverloadDefaultNameAndOptions(destinationFolder)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.copyasync)
         fileprivate func copyAsync(_ destinationFolder: AnyIStorageFolder!, _ desiredNewName: String) throws -> WindowsFoundation.AnyIAsyncOperation<StorageFile?>! {
-            try _default.CopyOverloadDefaultOptionsImpl(destinationFolder, desiredNewName)
+            try _default.CopyOverloadDefaultOptions(destinationFolder, desiredNewName)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.copyasync)
         fileprivate func copyAsync(_ destinationFolder: AnyIStorageFolder!, _ desiredNewName: String, _ option: NameCollisionOption) throws -> WindowsFoundation.AnyIAsyncOperation<StorageFile?>! {
-            try _default.CopyOverloadImpl(destinationFolder, desiredNewName, option)
+            try _default.CopyOverload(destinationFolder, desiredNewName, option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.copyandreplaceasync)
         fileprivate func copyAndReplaceAsync(_ fileToReplace: AnyIStorageFile!) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.CopyAndReplaceAsyncImpl(fileToReplace)
+            try _default.CopyAndReplaceAsync(fileToReplace)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.moveasync)
         fileprivate func moveAsync(_ destinationFolder: AnyIStorageFolder!) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.MoveOverloadDefaultNameAndOptionsImpl(destinationFolder)
+            try _default.MoveOverloadDefaultNameAndOptions(destinationFolder)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.moveasync)
         fileprivate func moveAsync(_ destinationFolder: AnyIStorageFolder!, _ desiredNewName: String) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.MoveOverloadDefaultOptionsImpl(destinationFolder, desiredNewName)
+            try _default.MoveOverloadDefaultOptions(destinationFolder, desiredNewName)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.moveasync)
         fileprivate func moveAsync(_ destinationFolder: AnyIStorageFolder!, _ desiredNewName: String, _ option: NameCollisionOption) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.MoveOverloadImpl(destinationFolder, desiredNewName, option)
+            try _default.MoveOverload(destinationFolder, desiredNewName, option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.moveandreplaceasync)
         fileprivate func moveAndReplaceAsync(_ fileToReplace: AnyIStorageFile!) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.MoveAndReplaceAsyncImpl(fileToReplace)
+            try _default.MoveAndReplaceAsync(fileToReplace)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.contenttype)
         fileprivate var contentType : String {
-            get { try! _default.get_ContentTypeImpl() }
+            get { try! _default.get_ContentType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.filetype)
         fileprivate var fileType : String {
-            get { try! _default.get_FileTypeImpl() }
+            get { try! _default.get_FileType() }
         }
 
         private lazy var _IStorageItem: __ABI_Windows_Storage.IStorageItem! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.renameasync)
         fileprivate func renameAsync(_ desiredName: String) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.RenameAsyncOverloadDefaultOptionsImpl(desiredName)
+            try _IStorageItem.RenameAsyncOverloadDefaultOptions(desiredName)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.renameasync)
         fileprivate func renameAsync(_ desiredName: String, _ option: NameCollisionOption) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.RenameAsyncImpl(desiredName, option)
+            try _IStorageItem.RenameAsync(desiredName, option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.deleteasync)
         fileprivate func deleteAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.DeleteAsyncOverloadDefaultOptionsImpl()
+            try _IStorageItem.DeleteAsyncOverloadDefaultOptions()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.deleteasync)
         fileprivate func deleteAsync(_ option: StorageDeleteOption) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.DeleteAsyncImpl(option)
+            try _IStorageItem.DeleteAsync(option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.getbasicpropertiesasync)
         fileprivate func getBasicPropertiesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BasicProperties?>! {
-            try _IStorageItem.GetBasicPropertiesAsyncImpl()
+            try _IStorageItem.GetBasicPropertiesAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.isoftype)
         fileprivate func isOfType(_ type: StorageItemTypes) throws -> Bool {
-            try _IStorageItem.IsOfTypeImpl(type)
+            try _IStorageItem.IsOfType(type)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.attributes)
         fileprivate var attributes : FileAttributes {
-            get { try! _IStorageItem.get_AttributesImpl() }
+            get { try! _IStorageItem.get_Attributes() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.datecreated)
         fileprivate var dateCreated : WindowsFoundation.DateTime {
-            get { try! _IStorageItem.get_DateCreatedImpl() }
+            get { try! _IStorageItem.get_DateCreated() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.name)
         fileprivate var name : String {
-            get { try! _IStorageItem.get_NameImpl() }
+            get { try! _IStorageItem.get_Name() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.path)
         fileprivate var path : String {
-            get { try! _IStorageItem.get_PathImpl() }
+            get { try! _IStorageItem.get_Path() }
         }
 
         private lazy var _IRandomAccessStreamReference: __ABI_Windows_Storage_Streams.IRandomAccessStreamReference! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.openreadasync)
         fileprivate func openReadAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIRandomAccessStreamWithContentType?>! {
-            try _IRandomAccessStreamReference.OpenReadAsyncImpl()
+            try _IRandomAccessStreamReference.OpenReadAsync()
         }
 
         private lazy var _IInputStreamReference: __ABI_Windows_Storage_Streams.IInputStreamReference! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile.opensequentialreadasync)
         fileprivate func openSequentialReadAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIInputStream?>! {
-            try _IInputStreamReference.OpenSequentialReadAsyncImpl()
+            try _IInputStreamReference.OpenSequentialReadAsync()
         }
 
     }
@@ -178,12 +179,12 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile2.openasync)
         fileprivate func openAsync(_ accessMode: FileAccessMode, _ options: StorageOpenOptions) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIRandomAccessStream?>! {
-            try _default.OpenWithOptionsAsyncImpl(accessMode, options)
+            try _default.OpenWithOptionsAsync(accessMode, options)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefile2.opentransactedwriteasync)
         fileprivate func openTransactedWriteAsync(_ options: StorageOpenOptions) throws -> WindowsFoundation.AnyIAsyncOperation<StorageStreamTransaction?>! {
-            try _default.OpenTransactedWriteWithOptionsAsyncImpl(options)
+            try _default.OpenTransactedWriteWithOptionsAsync(options)
         }
 
     }
@@ -213,7 +214,7 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefilepropertieswithavailability.isavailable)
         fileprivate var isAvailable : Bool {
-            get { try! _default.get_IsAvailableImpl() }
+            get { try! _default.get_IsAvailable() }
         }
 
     }
@@ -243,103 +244,103 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.createfileasync)
         fileprivate func createFileAsync(_ desiredName: String) throws -> WindowsFoundation.AnyIAsyncOperation<StorageFile?>! {
-            try _default.CreateFileAsyncOverloadDefaultOptionsImpl(desiredName)
+            try _default.CreateFileAsyncOverloadDefaultOptions(desiredName)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.createfileasync)
         fileprivate func createFileAsync(_ desiredName: String, _ options: CreationCollisionOption) throws -> WindowsFoundation.AnyIAsyncOperation<StorageFile?>! {
-            try _default.CreateFileAsyncImpl(desiredName, options)
+            try _default.CreateFileAsync(desiredName, options)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.createfolderasync)
         fileprivate func createFolderAsync(_ desiredName: String) throws -> WindowsFoundation.AnyIAsyncOperation<StorageFolder?>! {
-            try _default.CreateFolderAsyncOverloadDefaultOptionsImpl(desiredName)
+            try _default.CreateFolderAsyncOverloadDefaultOptions(desiredName)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.createfolderasync)
         fileprivate func createFolderAsync(_ desiredName: String, _ options: CreationCollisionOption) throws -> WindowsFoundation.AnyIAsyncOperation<StorageFolder?>! {
-            try _default.CreateFolderAsyncImpl(desiredName, options)
+            try _default.CreateFolderAsync(desiredName, options)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.getfileasync)
         fileprivate func getFileAsync(_ name: String) throws -> WindowsFoundation.AnyIAsyncOperation<StorageFile?>! {
-            try _default.GetFileAsyncImpl(name)
+            try _default.GetFileAsync(name)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.getfolderasync)
         fileprivate func getFolderAsync(_ name: String) throws -> WindowsFoundation.AnyIAsyncOperation<StorageFolder?>! {
-            try _default.GetFolderAsyncImpl(name)
+            try _default.GetFolderAsync(name)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.getitemasync)
         fileprivate func getItemAsync(_ name: String) throws -> WindowsFoundation.AnyIAsyncOperation<AnyIStorageItem?>! {
-            try _default.GetItemAsyncImpl(name)
+            try _default.GetItemAsync(name)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.getfilesasync)
         fileprivate func getFilesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<StorageFile?>?>! {
-            try _default.GetFilesAsyncOverloadDefaultOptionsStartAndCountImpl()
+            try _default.GetFilesAsyncOverloadDefaultOptionsStartAndCount()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.getfoldersasync)
         fileprivate func getFoldersAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<StorageFolder?>?>! {
-            try _default.GetFoldersAsyncOverloadDefaultOptionsStartAndCountImpl()
+            try _default.GetFoldersAsyncOverloadDefaultOptionsStartAndCount()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.getitemsasync)
         fileprivate func getItemsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<AnyIStorageItem?>?>! {
-            try _default.GetItemsAsyncOverloadDefaultStartAndCountImpl()
+            try _default.GetItemsAsyncOverloadDefaultStartAndCount()
         }
 
         private lazy var _IStorageItem: __ABI_Windows_Storage.IStorageItem! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.renameasync)
         fileprivate func renameAsync(_ desiredName: String) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.RenameAsyncOverloadDefaultOptionsImpl(desiredName)
+            try _IStorageItem.RenameAsyncOverloadDefaultOptions(desiredName)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.renameasync)
         fileprivate func renameAsync(_ desiredName: String, _ option: NameCollisionOption) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.RenameAsyncImpl(desiredName, option)
+            try _IStorageItem.RenameAsync(desiredName, option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.deleteasync)
         fileprivate func deleteAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.DeleteAsyncOverloadDefaultOptionsImpl()
+            try _IStorageItem.DeleteAsyncOverloadDefaultOptions()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.deleteasync)
         fileprivate func deleteAsync(_ option: StorageDeleteOption) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.DeleteAsyncImpl(option)
+            try _IStorageItem.DeleteAsync(option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.getbasicpropertiesasync)
         fileprivate func getBasicPropertiesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BasicProperties?>! {
-            try _IStorageItem.GetBasicPropertiesAsyncImpl()
+            try _IStorageItem.GetBasicPropertiesAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.isoftype)
         fileprivate func isOfType(_ type: StorageItemTypes) throws -> Bool {
-            try _IStorageItem.IsOfTypeImpl(type)
+            try _IStorageItem.IsOfType(type)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.attributes)
         fileprivate var attributes : FileAttributes {
-            get { try! _IStorageItem.get_AttributesImpl() }
+            get { try! _IStorageItem.get_Attributes() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.datecreated)
         fileprivate var dateCreated : WindowsFoundation.DateTime {
-            get { try! _IStorageItem.get_DateCreatedImpl() }
+            get { try! _IStorageItem.get_DateCreated() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.name)
         fileprivate var name : String {
-            get { try! _IStorageItem.get_NameImpl() }
+            get { try! _IStorageItem.get_Name() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder.path)
         fileprivate var path : String {
-            get { try! _IStorageItem.get_PathImpl() }
+            get { try! _IStorageItem.get_Path() }
         }
 
     }
@@ -369,7 +370,7 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istoragefolder2.trygetitemasync)
         fileprivate func tryGetItemAsync(_ name: String) throws -> WindowsFoundation.AnyIAsyncOperation<AnyIStorageItem?>! {
-            try _default.TryGetItemAsyncImpl(name)
+            try _default.TryGetItemAsync(name)
         }
 
     }
@@ -399,52 +400,52 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.renameasync)
         fileprivate func renameAsync(_ desiredName: String) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.RenameAsyncOverloadDefaultOptionsImpl(desiredName)
+            try _default.RenameAsyncOverloadDefaultOptions(desiredName)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.renameasync)
         fileprivate func renameAsync(_ desiredName: String, _ option: NameCollisionOption) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.RenameAsyncImpl(desiredName, option)
+            try _default.RenameAsync(desiredName, option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.deleteasync)
         fileprivate func deleteAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.DeleteAsyncOverloadDefaultOptionsImpl()
+            try _default.DeleteAsyncOverloadDefaultOptions()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.deleteasync)
         fileprivate func deleteAsync(_ option: StorageDeleteOption) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.DeleteAsyncImpl(option)
+            try _default.DeleteAsync(option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.getbasicpropertiesasync)
         fileprivate func getBasicPropertiesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BasicProperties?>! {
-            try _default.GetBasicPropertiesAsyncImpl()
+            try _default.GetBasicPropertiesAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.isoftype)
         fileprivate func isOfType(_ type: StorageItemTypes) throws -> Bool {
-            try _default.IsOfTypeImpl(type)
+            try _default.IsOfType(type)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.attributes)
         fileprivate var attributes : FileAttributes {
-            get { try! _default.get_AttributesImpl() }
+            get { try! _default.get_Attributes() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.datecreated)
         fileprivate var dateCreated : WindowsFoundation.DateTime {
-            get { try! _default.get_DateCreatedImpl() }
+            get { try! _default.get_DateCreated() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.name)
         fileprivate var name : String {
-            get { try! _default.get_NameImpl() }
+            get { try! _default.get_Name() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem.path)
         fileprivate var path : String {
-            get { try! _default.get_PathImpl() }
+            get { try! _default.get_Path() }
         }
 
     }
@@ -474,63 +475,63 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.getparentasync)
         fileprivate func getParentAsync() throws -> WindowsFoundation.AnyIAsyncOperation<StorageFolder?>! {
-            try _default.GetParentAsyncImpl()
+            try _default.GetParentAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.isequal)
         fileprivate func isEqual(_ item: AnyIStorageItem!) throws -> Bool {
-            try _default.IsEqualImpl(item)
+            try _default.IsEqual(item)
         }
 
         private lazy var _IStorageItem: __ABI_Windows_Storage.IStorageItem! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.renameasync)
         fileprivate func renameAsync(_ desiredName: String) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.RenameAsyncOverloadDefaultOptionsImpl(desiredName)
+            try _IStorageItem.RenameAsyncOverloadDefaultOptions(desiredName)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.renameasync)
         fileprivate func renameAsync(_ desiredName: String, _ option: NameCollisionOption) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.RenameAsyncImpl(desiredName, option)
+            try _IStorageItem.RenameAsync(desiredName, option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.deleteasync)
         fileprivate func deleteAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.DeleteAsyncOverloadDefaultOptionsImpl()
+            try _IStorageItem.DeleteAsyncOverloadDefaultOptions()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.deleteasync)
         fileprivate func deleteAsync(_ option: StorageDeleteOption) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _IStorageItem.DeleteAsyncImpl(option)
+            try _IStorageItem.DeleteAsync(option)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.getbasicpropertiesasync)
         fileprivate func getBasicPropertiesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BasicProperties?>! {
-            try _IStorageItem.GetBasicPropertiesAsyncImpl()
+            try _IStorageItem.GetBasicPropertiesAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.isoftype)
         fileprivate func isOfType(_ type: StorageItemTypes) throws -> Bool {
-            try _IStorageItem.IsOfTypeImpl(type)
+            try _IStorageItem.IsOfType(type)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.attributes)
         fileprivate var attributes : FileAttributes {
-            get { try! _IStorageItem.get_AttributesImpl() }
+            get { try! _IStorageItem.get_Attributes() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.datecreated)
         fileprivate var dateCreated : WindowsFoundation.DateTime {
-            get { try! _IStorageItem.get_DateCreatedImpl() }
+            get { try! _IStorageItem.get_DateCreated() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.name)
         fileprivate var name : String {
-            get { try! _IStorageItem.get_NameImpl() }
+            get { try! _IStorageItem.get_Name() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitem2.path)
         fileprivate var path : String {
-            get { try! _IStorageItem.get_PathImpl() }
+            get { try! _IStorageItem.get_Path() }
         }
 
     }
@@ -560,37 +561,37 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties.getthumbnailasync)
         fileprivate func getThumbnailAsync(_ mode: UWP.ThumbnailMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _default.GetThumbnailAsyncOverloadDefaultSizeDefaultOptionsImpl(mode)
+            try _default.GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(mode)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties.getthumbnailasync)
         fileprivate func getThumbnailAsync(_ mode: UWP.ThumbnailMode, _ requestedSize: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _default.GetThumbnailAsyncOverloadDefaultOptionsImpl(mode, requestedSize)
+            try _default.GetThumbnailAsyncOverloadDefaultOptions(mode, requestedSize)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties.getthumbnailasync)
         fileprivate func getThumbnailAsync(_ mode: UWP.ThumbnailMode, _ requestedSize: UInt32, _ options: UWP.ThumbnailOptions) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _default.GetThumbnailAsyncImpl(mode, requestedSize, options)
+            try _default.GetThumbnailAsync(mode, requestedSize, options)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties.displayname)
         fileprivate var displayName : String {
-            get { try! _default.get_DisplayNameImpl() }
+            get { try! _default.get_DisplayName() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties.displaytype)
         fileprivate var displayType : String {
-            get { try! _default.get_DisplayTypeImpl() }
+            get { try! _default.get_DisplayType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties.folderrelativeid)
         fileprivate var folderRelativeId : String {
-            get { try! _default.get_FolderRelativeIdImpl() }
+            get { try! _default.get_FolderRelativeId() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties.properties)
         fileprivate var properties : UWP.StorageItemContentProperties! {
-            get { try! _default.get_PropertiesImpl() }
+            get { try! _default.get_Properties() }
         }
 
     }
@@ -620,53 +621,53 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.getscaledimageasthumbnailasync)
         fileprivate func getScaledImageAsThumbnailAsync(_ mode: UWP.ThumbnailMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _default.GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptionsImpl(mode)
+            try _default.GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(mode)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.getscaledimageasthumbnailasync)
         fileprivate func getScaledImageAsThumbnailAsync(_ mode: UWP.ThumbnailMode, _ requestedSize: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _default.GetScaledImageAsThumbnailAsyncOverloadDefaultOptionsImpl(mode, requestedSize)
+            try _default.GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(mode, requestedSize)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.getscaledimageasthumbnailasync)
         fileprivate func getScaledImageAsThumbnailAsync(_ mode: UWP.ThumbnailMode, _ requestedSize: UInt32, _ options: UWP.ThumbnailOptions) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _default.GetScaledImageAsThumbnailAsyncImpl(mode, requestedSize, options)
+            try _default.GetScaledImageAsThumbnailAsync(mode, requestedSize, options)
         }
 
         private lazy var _IStorageItemProperties: __ABI_Windows_Storage.IStorageItemProperties! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.getthumbnailasync)
         fileprivate func getThumbnailAsync(_ mode: UWP.ThumbnailMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _IStorageItemProperties.GetThumbnailAsyncOverloadDefaultSizeDefaultOptionsImpl(mode)
+            try _IStorageItemProperties.GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(mode)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.getthumbnailasync)
         fileprivate func getThumbnailAsync(_ mode: UWP.ThumbnailMode, _ requestedSize: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _IStorageItemProperties.GetThumbnailAsyncOverloadDefaultOptionsImpl(mode, requestedSize)
+            try _IStorageItemProperties.GetThumbnailAsyncOverloadDefaultOptions(mode, requestedSize)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.getthumbnailasync)
         fileprivate func getThumbnailAsync(_ mode: UWP.ThumbnailMode, _ requestedSize: UInt32, _ options: UWP.ThumbnailOptions) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _IStorageItemProperties.GetThumbnailAsyncImpl(mode, requestedSize, options)
+            try _IStorageItemProperties.GetThumbnailAsync(mode, requestedSize, options)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.displayname)
         fileprivate var displayName : String {
-            get { try! _IStorageItemProperties.get_DisplayNameImpl() }
+            get { try! _IStorageItemProperties.get_DisplayName() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.displaytype)
         fileprivate var displayType : String {
-            get { try! _IStorageItemProperties.get_DisplayTypeImpl() }
+            get { try! _IStorageItemProperties.get_DisplayType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.folderrelativeid)
         fileprivate var folderRelativeId : String {
-            get { try! _IStorageItemProperties.get_FolderRelativeIdImpl() }
+            get { try! _IStorageItemProperties.get_FolderRelativeId() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitemproperties2.properties)
         fileprivate var properties : UWP.StorageItemContentProperties! {
-            get { try! _IStorageItemProperties.get_PropertiesImpl() }
+            get { try! _IStorageItemProperties.get_Properties() }
         }
 
     }
@@ -696,43 +697,43 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitempropertieswithprovider.provider)
         fileprivate var provider : StorageProvider! {
-            get { try! _default.get_ProviderImpl() }
+            get { try! _default.get_Provider() }
         }
 
         private lazy var _IStorageItemProperties: __ABI_Windows_Storage.IStorageItemProperties! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitempropertieswithprovider.getthumbnailasync)
         fileprivate func getThumbnailAsync(_ mode: UWP.ThumbnailMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _IStorageItemProperties.GetThumbnailAsyncOverloadDefaultSizeDefaultOptionsImpl(mode)
+            try _IStorageItemProperties.GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(mode)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitempropertieswithprovider.getthumbnailasync)
         fileprivate func getThumbnailAsync(_ mode: UWP.ThumbnailMode, _ requestedSize: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _IStorageItemProperties.GetThumbnailAsyncOverloadDefaultOptionsImpl(mode, requestedSize)
+            try _IStorageItemProperties.GetThumbnailAsyncOverloadDefaultOptions(mode, requestedSize)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitempropertieswithprovider.getthumbnailasync)
         fileprivate func getThumbnailAsync(_ mode: UWP.ThumbnailMode, _ requestedSize: UInt32, _ options: UWP.ThumbnailOptions) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>! {
-            try _IStorageItemProperties.GetThumbnailAsyncImpl(mode, requestedSize, options)
+            try _IStorageItemProperties.GetThumbnailAsync(mode, requestedSize, options)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitempropertieswithprovider.displayname)
         fileprivate var displayName : String {
-            get { try! _IStorageItemProperties.get_DisplayNameImpl() }
+            get { try! _IStorageItemProperties.get_DisplayName() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitempropertieswithprovider.displaytype)
         fileprivate var displayType : String {
-            get { try! _IStorageItemProperties.get_DisplayTypeImpl() }
+            get { try! _IStorageItemProperties.get_DisplayType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitempropertieswithprovider.folderrelativeid)
         fileprivate var folderRelativeId : String {
-            get { try! _IStorageItemProperties.get_FolderRelativeIdImpl() }
+            get { try! _IStorageItemProperties.get_FolderRelativeId() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istorageitempropertieswithprovider.properties)
         fileprivate var properties : UWP.StorageItemContentProperties! {
-            get { try! _IStorageItemProperties.get_PropertiesImpl() }
+            get { try! _IStorageItemProperties.get_Properties() }
         }
 
     }
@@ -762,7 +763,7 @@ public enum __IMPL_Windows_Storage {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.istreamedfiledatarequest.failandclose)
         fileprivate func failAndClose(_ failureMode: StreamedFileFailureMode) throws {
-            try _default.FailAndCloseImpl(failureMode)
+            try _default.FailAndClose(failureMode)
         }
 
     }
@@ -776,7 +777,7 @@ public enum __IMPL_Windows_Storage {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (setVersionRequest) in
-                try! _default.InvokeImpl(setVersionRequest)
+                try _default.Invoke(setVersionRequest)
             }
             return handler
         }
@@ -790,9 +791,289 @@ public enum __IMPL_Windows_Storage {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (stream) in
-                try! _default.InvokeImpl(stream)
+                try _default.Invoke(stream)
             }
             return handler
         }
+    }
+    public enum ApplicationDataBridge: AbiBridge {
+        public typealias SwiftProjection = ApplicationData
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIApplicationData
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIApplicationData>?) -> ApplicationData? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ApplicationDataContainerBridge: AbiBridge {
+        public typealias SwiftProjection = ApplicationDataContainer
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIApplicationDataContainer
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIApplicationDataContainer>?) -> ApplicationDataContainer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SetVersionDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = SetVersionDeferral
+        public typealias CABI = __x_ABI_CWindows_CStorage_CISetVersionDeferral
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CISetVersionDeferral>?) -> SetVersionDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SetVersionRequestBridge: AbiBridge {
+        public typealias SwiftProjection = SetVersionRequest
+        public typealias CABI = __x_ABI_CWindows_CStorage_CISetVersionRequest
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CISetVersionRequest>?) -> SetVersionRequest? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageFileBridge: AbiBridge {
+        public typealias SwiftProjection = StorageFile
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIStorageFile
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIStorageFile>?) -> StorageFile? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageFolderBridge: AbiBridge {
+        public typealias SwiftProjection = StorageFolder
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIStorageFolder
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIStorageFolder>?) -> StorageFolder? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageLibraryChangeBridge: AbiBridge {
+        public typealias SwiftProjection = StorageLibraryChange
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIStorageLibraryChange
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIStorageLibraryChange>?) -> StorageLibraryChange? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageLibraryChangeReaderBridge: AbiBridge {
+        public typealias SwiftProjection = StorageLibraryChangeReader
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader>?) -> StorageLibraryChangeReader? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageLibraryChangeTrackerBridge: AbiBridge {
+        public typealias SwiftProjection = StorageLibraryChangeTracker
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker>?) -> StorageLibraryChangeTracker? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageProviderBridge: AbiBridge {
+        public typealias SwiftProjection = StorageProvider
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIStorageProvider
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIStorageProvider>?) -> StorageProvider? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageStreamTransactionBridge: AbiBridge {
+        public typealias SwiftProjection = StorageStreamTransaction
+        public typealias CABI = __x_ABI_CWindows_CStorage_CIStorageStreamTransaction
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CIStorageStreamTransaction>?) -> StorageStreamTransaction? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StreamedFileDataRequestBridge: AbiBridge {
+        public typealias SwiftProjection = StreamedFileDataRequest
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIOutputStream
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIOutputStream>?) -> StreamedFileDataRequest? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IStorageFileMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageFile
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageFile = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageFileBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageFile2Maker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageFile2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageFile2 = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageFile2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageFilePropertiesWithAvailabilityMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageFilePropertiesWithAvailability
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageFilePropertiesWithAvailability = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageFilePropertiesWithAvailabilityBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageFolderMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageFolder
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageFolder = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageFolderBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageFolder2Maker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageFolder2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageFolder2 = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageFolder2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageItemMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageItem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageItem = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageItemBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageItem2Maker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageItem2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageItem2 = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageItem2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageItemPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageItemProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageItemProperties = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageItemPropertiesBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageItemProperties2Maker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageItemProperties2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageItemProperties2 = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageItemProperties2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageItemPropertiesWithProviderMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageItemPropertiesWithProvider
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStorageItemPropertiesWithProvider = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStorageItemPropertiesWithProviderBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStreamedFileDataRequestMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIStreamedFileDataRequest
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage.IStreamedFileDataRequest = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage.IStreamedFileDataRequestBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ApplicationDataMaker: MakeFromAbi {
+    public typealias SwiftType = ApplicationData
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ApplicationData(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ApplicationDataContainerMaker: MakeFromAbi {
+    public typealias SwiftType = ApplicationDataContainer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ApplicationDataContainer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SetVersionDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = SetVersionDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SetVersionDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SetVersionRequestMaker: MakeFromAbi {
+    public typealias SwiftType = SetVersionRequest
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SetVersionRequest(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageFileMaker: MakeFromAbi {
+    public typealias SwiftType = StorageFile
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageFile(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageFolderMaker: MakeFromAbi {
+    public typealias SwiftType = StorageFolder
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageFolder(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageLibraryChangeMaker: MakeFromAbi {
+    public typealias SwiftType = StorageLibraryChange
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageLibraryChange(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageLibraryChangeReaderMaker: MakeFromAbi {
+    public typealias SwiftType = StorageLibraryChangeReader
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageLibraryChangeReader(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageLibraryChangeTrackerMaker: MakeFromAbi {
+    public typealias SwiftType = StorageLibraryChangeTracker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageLibraryChangeTracker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageProviderMaker: MakeFromAbi {
+    public typealias SwiftType = StorageProvider
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageProvider(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageStreamTransactionMaker: MakeFromAbi {
+    public typealias SwiftType = StorageStreamTransaction
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageStreamTransaction(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StreamedFileDataRequestMaker: MakeFromAbi {
+    public typealias SwiftType = StreamedFileDataRequest
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StreamedFileDataRequest(fromAbi: abi)
     }
 }

@@ -52,10 +52,6 @@ private var IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTrigg
     .init(Data1: 0x84B3A058, Data2: 0x6027, Data3: 0x4B87, Data4: ( 0x97,0x90,0xBD,0xF3,0xF7,0x57,0xDB,0xD7 ))// 84B3A058-6027-4B87-9790-BDF3F757DBD7
 }
 
-private var IID___x_ABI_CWindows_CApplicationModel_CBackground_CIDeviceWatcherTrigger: WindowsFoundation.IID {
-    .init(Data1: 0xA4617FDD, Data2: 0x8573, Data3: 0x4260, Data4: ( 0xBE,0xFC,0x5B,0xEC,0x89,0xCB,0x69,0x3D ))// A4617FDD-8573-4260-BEFC-5BEC89CB693D
-}
-
 private var IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCanceledEventHandler: WindowsFoundation.IID {
     .init(Data1: 0xA6C4BAC0, Data2: 0x51F8, Data3: 0x4C57, Data4: ( 0xAC,0x3F,0x15,0x6D,0xD1,0x68,0x0C,0x4F ))// A6C4BAC0-51F8-4C57-AC3F-156DD1680C4F
 }
@@ -68,11 +64,12 @@ private var IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskP
     .init(Data1: 0x46E0683C, Data2: 0x8A88, Data3: 0x4C99, Data4: ( 0x80,0x4C,0x76,0x89,0x7F,0x62,0x77,0xA6 ))// 46E0683C-8A88-4C99-804C-76897F6277A6
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskCompletedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventArgs }
 
-        internal func get_InstanceIdImpl() throws -> Foundation.UUID {
+        public func get_InstanceId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InstanceId(pThis, &value))
@@ -80,7 +77,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return .init(from: value)
         }
 
-        internal func CheckResultImpl() throws {
+        public func CheckResult() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CheckResult(pThis))
             }
@@ -91,7 +88,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskDeferral: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskDeferral }
 
-        internal func CompleteImpl() throws {
+        public func Complete() throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskDeferral.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
             }
@@ -102,7 +99,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskInstance: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance }
 
-        open func get_InstanceIdImpl() throws -> Foundation.UUID {
+        open func get_InstanceId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InstanceId(pThis, &value))
@@ -110,16 +107,16 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return .init(from: value)
         }
 
-        open func get_TaskImpl() throws -> UWP.BackgroundTaskRegistration? {
+        open func get_Task() throws -> UWP.BackgroundTaskRegistration? {
             let (task) = try ComPtrs.initialize { taskAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Task(pThis, &taskAbi))
                 }
             }
-            return .from(abi: task)
+            return __IMPL_Windows_ApplicationModel_Background.BackgroundTaskRegistrationBridge.from(abi: task)
         }
 
-        open func get_ProgressImpl() throws -> UInt32 {
+        open func get_Progress() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Progress(pThis, &value))
@@ -127,13 +124,13 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return value
         }
 
-        open func put_ProgressImpl(_ value: UInt32) throws {
+        open func put_Progress(_ value: UInt32) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Progress(pThis, value))
             }
         }
 
-        open func get_TriggerDetailsImpl() throws -> Any? {
+        open func get_TriggerDetails() throws -> Any? {
             let (triggerDetails) = try ComPtrs.initialize { triggerDetailsAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TriggerDetails(pThis, &triggerDetailsAbi))
@@ -142,7 +139,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return __ABI_.AnyWrapper.unwrapFrom(abi: triggerDetails)
         }
 
-        open func add_CanceledImpl(_ cancelHandler: UWP.BackgroundTaskCanceledEventHandler?) throws -> EventRegistrationToken {
+        open func add_Canceled(_ cancelHandler: UWP.BackgroundTaskCanceledEventHandler?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let cancelHandlerWrapper = __ABI_Windows_ApplicationModel_Background.BackgroundTaskCanceledEventHandlerWrapper(cancelHandler)
             let _cancelHandler = try! cancelHandlerWrapper?.toABI { $0 }
@@ -152,13 +149,13 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return cookie
         }
 
-        open func remove_CanceledImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_Canceled(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Canceled(pThis, cookie))
             }
         }
 
-        open func get_SuspendedCountImpl() throws -> UInt32 {
+        open func get_SuspendedCount() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SuspendedCount(pThis, &value))
@@ -166,13 +163,13 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return value
         }
 
-        open func GetDeferralImpl() throws -> UWP.BackgroundTaskDeferral? {
+        open func GetDeferral() throws -> UWP.BackgroundTaskDeferral? {
             let (deferral) = try ComPtrs.initialize { deferralAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &deferralAbi))
                 }
             }
-            return .from(abi: deferral)
+            return __IMPL_Windows_ApplicationModel_Background.BackgroundTaskDeferralBridge.from(abi: deferral)
         }
 
     }
@@ -269,7 +266,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
                 let deferral = try __unwrapped__instance.getDeferral()
                 deferral?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -277,7 +274,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskProgressEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventArgs }
 
-        internal func get_InstanceIdImpl() throws -> Foundation.UUID {
+        public func get_InstanceId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InstanceId(pThis, &value))
@@ -285,7 +282,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return .init(from: value)
         }
 
-        internal func get_ProgressImpl() throws -> UInt32 {
+        public func get_Progress() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Progress(pThis, &value))
@@ -298,7 +295,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskRegistration: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration }
 
-        open func get_TaskIdImpl() throws -> Foundation.UUID {
+        open func get_TaskId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TaskId(pThis, &value))
@@ -306,7 +303,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return .init(from: value)
         }
 
-        open func get_NameImpl() throws -> String {
+        open func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -314,7 +311,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return .init(from: value)
         }
 
-        open func add_ProgressImpl(_ handler: UWP.BackgroundTaskProgressEventHandler?) throws -> EventRegistrationToken {
+        open func add_Progress(_ handler: UWP.BackgroundTaskProgressEventHandler?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Windows_ApplicationModel_Background.BackgroundTaskProgressEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -324,13 +321,13 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return cookie
         }
 
-        open func remove_ProgressImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_Progress(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Progress(pThis, cookie))
             }
         }
 
-        open func add_CompletedImpl(_ handler: UWP.BackgroundTaskCompletedEventHandler?) throws -> EventRegistrationToken {
+        open func add_Completed(_ handler: UWP.BackgroundTaskCompletedEventHandler?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Windows_ApplicationModel_Background.BackgroundTaskCompletedEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -340,13 +337,13 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return cookie
         }
 
-        open func remove_CompletedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_Completed(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Completed(pThis, cookie))
             }
         }
 
-        open func UnregisterImpl(_ cancelTask: Bool) throws {
+        open func Unregister(_ cancelTask: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Unregister(pThis, .init(from: cancelTask)))
             }
@@ -432,7 +429,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
                 let cancelTask: Bool = .init(from: $1)
                 try __unwrapped__instance.unregister(cancelTask)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -440,7 +437,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskRegistration2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration2 }
 
-        open func get_TriggerImpl() throws -> UWP.AnyIBackgroundTrigger? {
+        open func get_Trigger() throws -> UWP.AnyIBackgroundTrigger? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Trigger(pThis, &valueAbi))
@@ -493,13 +490,13 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskRegistration3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration3 }
 
-        open func get_TaskGroupImpl() throws -> UWP.BackgroundTaskRegistrationGroup? {
+        open func get_TaskGroup() throws -> UWP.BackgroundTaskRegistrationGroup? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TaskGroup(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_Background.BackgroundTaskRegistrationGroupBridge.from(abi: value)
         }
 
     }
@@ -545,7 +542,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskRegistrationGroup: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup }
 
-        internal func get_IdImpl() throws -> String {
+        public func get_Id() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
@@ -553,7 +550,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return .init(from: value)
         }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -561,7 +558,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return .init(from: value)
         }
 
-        internal func add_BackgroundActivatedImpl(_ handler: TypedEventHandler<UWP.BackgroundTaskRegistrationGroup?, UWP.BackgroundActivatedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_BackgroundActivated(_ handler: TypedEventHandler<UWP.BackgroundTaskRegistrationGroup?, UWP.BackgroundActivatedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CBackground__CBackgroundTaskRegistrationGroup___x_ABI_CWindows__CApplicationModel__CActivation__CBackgroundActivatedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -571,13 +568,13 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return token
         }
 
-        internal func remove_BackgroundActivatedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BackgroundActivated(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BackgroundActivated(pThis, token))
             }
         }
 
-        internal func get_AllTasksImpl() throws -> WindowsFoundation.AnyIMapView<Foundation.UUID, UWP.BackgroundTaskRegistration?>? {
+        public func get_AllTasks() throws -> WindowsFoundation.AnyIMapView<Foundation.UUID, UWP.BackgroundTaskRegistration?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllTasks(pThis, &valueAbi))
@@ -591,7 +588,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskRegistrationGroupFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroupFactory }
 
-        internal func CreateImpl(_ id: String) throws -> IBackgroundTaskRegistrationGroup {
+        public func Create(_ id: String) throws -> IBackgroundTaskRegistrationGroup {
             let (group) = try ComPtrs.initialize { groupAbi in
                 let _id = try! HString(id)
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroupFactory.self) { pThis in
@@ -601,7 +598,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return IBackgroundTaskRegistrationGroup(group!)
         }
 
-        internal func CreateWithNameImpl(_ id: String, _ name: String) throws -> IBackgroundTaskRegistrationGroup {
+        public func CreateWithName(_ id: String, _ name: String) throws -> IBackgroundTaskRegistrationGroup {
             let (group) = try ComPtrs.initialize { groupAbi in
                 let _id = try! HString(id)
                 let _name = try! HString(name)
@@ -617,7 +614,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskRegistrationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationStatics }
 
-        internal func get_AllTasksImpl() throws -> WindowsFoundation.AnyIMapView<Foundation.UUID, UWP.AnyIBackgroundTaskRegistration?>? {
+        public func get_AllTasks() throws -> WindowsFoundation.AnyIMapView<Foundation.UUID, UWP.AnyIBackgroundTaskRegistration?>? {
             let (tasks) = try ComPtrs.initialize { tasksAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllTasks(pThis, &tasksAbi))
@@ -631,7 +628,7 @@ public enum __ABI_Windows_ApplicationModel_Background {
     public class IBackgroundTaskRegistrationStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationStatics2 }
 
-        internal func get_AllTaskGroupsImpl() throws -> WindowsFoundation.AnyIMapView<String, UWP.BackgroundTaskRegistrationGroup?>? {
+        public func get_AllTaskGroups() throws -> WindowsFoundation.AnyIMapView<String, UWP.BackgroundTaskRegistrationGroup?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllTaskGroups(pThis, &valueAbi))
@@ -640,14 +637,14 @@ public enum __ABI_Windows_ApplicationModel_Background {
             return UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CApplicationModel__CBackground__CBackgroundTaskRegistrationGroupWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetTaskGroupImpl(_ groupId: String) throws -> UWP.BackgroundTaskRegistrationGroup? {
+        public func GetTaskGroup(_ groupId: String) throws -> UWP.BackgroundTaskRegistrationGroup? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _groupId = try! HString(groupId)
                 _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetTaskGroup(pThis, _groupId.get(), &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_ApplicationModel_Background.BackgroundTaskRegistrationGroupBridge.from(abi: value)
         }
 
     }
@@ -687,18 +684,13 @@ public enum __ABI_Windows_ApplicationModel_Background {
     )
 
     public typealias IBackgroundTriggerWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Background.IBackgroundTriggerBridge>
-    public class IDeviceWatcherTrigger: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIDeviceWatcherTrigger }
-
-    }
-
 }
 // MARK - BackgroundTaskCanceledEventHandler
 extension __ABI_Windows_ApplicationModel_Background {
     public class BackgroundTaskCanceledEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCanceledEventHandler }
 
-        open func InvokeImpl(_ sender: UWP.AnyIBackgroundTaskInstance?, _ reason: UWP.BackgroundTaskCancellationReason) throws {
+        open func Invoke(_ sender: UWP.AnyIBackgroundTaskInstance?, _ reason: UWP.BackgroundTaskCancellationReason) throws {
             let senderWrapper = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskInstanceWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCanceledEventHandler.self) { pThis in
@@ -715,11 +707,13 @@ extension __ABI_Windows_ApplicationModel_Background {
         AddRef: { BackgroundTaskCanceledEventHandlerWrapper.addRef($0) },
         Release: { BackgroundTaskCanceledEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = BackgroundTaskCanceledEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: UWP.AnyIBackgroundTaskInstance? = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskInstanceWrapper.unwrapFrom(abi: ComPtr($1))
-            let reason: UWP.BackgroundTaskCancellationReason = $2
-            __unwrapped__instance(sender, reason)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = BackgroundTaskCanceledEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: UWP.AnyIBackgroundTaskInstance? = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskInstanceWrapper.unwrapFrom(abi: ComPtr($1))
+                let reason: UWP.BackgroundTaskCancellationReason = $2
+                try __unwrapped__instance(sender, reason)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -735,7 +729,7 @@ extension __ABI_Windows_ApplicationModel_Background {
     public class BackgroundTaskCompletedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventHandler }
 
-        open func InvokeImpl(_ sender: UWP.BackgroundTaskRegistration?, _ args: UWP.BackgroundTaskCompletedEventArgs?) throws {
+        open func Invoke(_ sender: UWP.BackgroundTaskRegistration?, _ args: UWP.BackgroundTaskCompletedEventArgs?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
             }
@@ -750,11 +744,13 @@ extension __ABI_Windows_ApplicationModel_Background {
         AddRef: { BackgroundTaskCompletedEventHandlerWrapper.addRef($0) },
         Release: { BackgroundTaskCompletedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = BackgroundTaskCompletedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: UWP.BackgroundTaskRegistration? = .from(abi: ComPtr($1))
-            let args: UWP.BackgroundTaskCompletedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, args)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = BackgroundTaskCompletedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: UWP.BackgroundTaskRegistration? = __IMPL_Windows_ApplicationModel_Background.BackgroundTaskRegistrationBridge.from(abi: ComPtr($1))
+                let args: UWP.BackgroundTaskCompletedEventArgs? = __IMPL_Windows_ApplicationModel_Background.BackgroundTaskCompletedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, args)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -770,7 +766,7 @@ extension __ABI_Windows_ApplicationModel_Background {
     public class BackgroundTaskProgressEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventHandler }
 
-        open func InvokeImpl(_ sender: UWP.BackgroundTaskRegistration?, _ args: UWP.BackgroundTaskProgressEventArgs?) throws {
+        open func Invoke(_ sender: UWP.BackgroundTaskRegistration?, _ args: UWP.BackgroundTaskProgressEventArgs?) throws {
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
             }
@@ -785,11 +781,13 @@ extension __ABI_Windows_ApplicationModel_Background {
         AddRef: { BackgroundTaskProgressEventHandlerWrapper.addRef($0) },
         Release: { BackgroundTaskProgressEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = BackgroundTaskProgressEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: UWP.BackgroundTaskRegistration? = .from(abi: ComPtr($1))
-            let args: UWP.BackgroundTaskProgressEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, args)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = BackgroundTaskProgressEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: UWP.BackgroundTaskRegistration? = __IMPL_Windows_ApplicationModel_Background.BackgroundTaskRegistrationBridge.from(abi: ComPtr($1))
+                let args: UWP.BackgroundTaskProgressEventArgs? = __IMPL_Windows_ApplicationModel_Background.BackgroundTaskProgressEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, args)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

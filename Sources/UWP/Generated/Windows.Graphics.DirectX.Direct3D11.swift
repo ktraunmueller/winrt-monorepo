@@ -9,7 +9,7 @@ public typealias Direct3DBindings = __x_ABI_CWindows_CGraphics_CDirectX_CDirect3
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.direct3dusage)
 public typealias Direct3DUsage = __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CDirect3DUsage
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.direct3dmultisampledescription)
-public struct Direct3DMultisampleDescription: Hashable, Codable {
+public struct Direct3DMultisampleDescription: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.direct3dmultisampledescription.count)
     public var count: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.direct3dmultisampledescription.quality)
@@ -19,13 +19,10 @@ public struct Direct3DMultisampleDescription: Hashable, Codable {
         self.count = count
         self.quality = quality
     }
-    public static func from(abi: __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CDirect3DMultisampleDescription) -> Direct3DMultisampleDescription {
-        .init(count: abi.Count, quality: abi.Quality)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.direct3dsurfacedescription)
-public struct Direct3DSurfaceDescription: Hashable, Codable {
+public struct Direct3DSurfaceDescription: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.direct3dsurfacedescription.width)
     public var width: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.direct3d11.direct3dsurfacedescription.height)
@@ -40,9 +37,6 @@ public struct Direct3DSurfaceDescription: Hashable, Codable {
         self.height = height
         self.format = format
         self.multisampleDescription = multisampleDescription
-    }
-    public static func from(abi: __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CDirect3DSurfaceDescription) -> Direct3DSurfaceDescription {
-        .init(width: abi.Width, height: abi.Height, format: abi.Format, multisampleDescription: .from(abi: abi.MultisampleDescription))
     }
 }
 
@@ -120,7 +114,7 @@ extension UWP.Direct3DBindings {
         __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CDirect3DBindings_VideoEncoder
     }
 }
-extension UWP.Direct3DBindings: @retroactive Hashable, @retroactive Codable {}
+extension UWP.Direct3DBindings: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.Direct3DUsage {
     public static var `default` : UWP.Direct3DUsage {
@@ -136,5 +130,5 @@ extension UWP.Direct3DUsage {
         __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CDirect3DUsage_Staging
     }
 }
-extension UWP.Direct3DUsage: @retroactive Hashable, @retroactive Codable {}
+extension UWP.Direct3DUsage: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

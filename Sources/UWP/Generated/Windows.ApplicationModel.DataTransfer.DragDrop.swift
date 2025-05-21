@@ -29,5 +29,5 @@ extension UWP.DragDropModifiers {
         __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CDragDropModifiers_RightButton
     }
 }
-extension UWP.DragDropModifiers: @retroactive Hashable, @retroactive Codable {}
+extension UWP.DragDropModifiers: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

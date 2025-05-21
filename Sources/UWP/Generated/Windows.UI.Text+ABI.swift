@@ -12,6 +12,7 @@ private var IID___x_ABI_CWindows_CUI_CText_CIFontWeightsStatics: WindowsFoundati
     .init(Data1: 0xB3B579D5, Data2: 0x1BA9, Data3: 0x48EB, Data4: ( 0x9D,0xAD,0xC0,0x95,0xE8,0xC2,0x3B,0xA3 ))// B3B579D5-1BA9-48EB-9DAD-C095E8C23BA3
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_UI_Text {
     public class IFontWeights: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CIFontWeights }
@@ -21,7 +22,7 @@ public enum __ABI_Windows_UI_Text {
     public class IFontWeightsStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CIFontWeightsStatics }
 
-        internal func get_BlackImpl() throws -> UWP.FontWeight {
+        public func get_Black() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Black(pThis, &value))
@@ -29,7 +30,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_BoldImpl() throws -> UWP.FontWeight {
+        public func get_Bold() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bold(pThis, &value))
@@ -37,7 +38,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_ExtraBlackImpl() throws -> UWP.FontWeight {
+        public func get_ExtraBlack() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtraBlack(pThis, &value))
@@ -45,7 +46,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_ExtraBoldImpl() throws -> UWP.FontWeight {
+        public func get_ExtraBold() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtraBold(pThis, &value))
@@ -53,7 +54,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_ExtraLightImpl() throws -> UWP.FontWeight {
+        public func get_ExtraLight() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtraLight(pThis, &value))
@@ -61,7 +62,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_LightImpl() throws -> UWP.FontWeight {
+        public func get_Light() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Light(pThis, &value))
@@ -69,7 +70,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_MediumImpl() throws -> UWP.FontWeight {
+        public func get_Medium() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Medium(pThis, &value))
@@ -77,7 +78,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_NormalImpl() throws -> UWP.FontWeight {
+        public func get_Normal() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Normal(pThis, &value))
@@ -85,7 +86,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_SemiBoldImpl() throws -> UWP.FontWeight {
+        public func get_SemiBold() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SemiBold(pThis, &value))
@@ -93,7 +94,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_SemiLightImpl() throws -> UWP.FontWeight {
+        public func get_SemiLight() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SemiLight(pThis, &value))
@@ -101,7 +102,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_ThinImpl() throws -> UWP.FontWeight {
+        public func get_Thin() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thin(pThis, &value))

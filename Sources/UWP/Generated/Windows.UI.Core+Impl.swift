@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_UI_Core {
     public enum ICoreAcceleratorKeysBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CUI_CCore_CICoreAcceleratorKeys
@@ -33,10 +34,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_AcceleratorKeyActivatedImpl($0)
+              return try! this.add_AcceleratorKeyActivated($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_AcceleratorKeyActivatedImpl($0)
+             try? self?._default.remove_AcceleratorKeyActivated($0)
            }
           )
         }()
@@ -71,10 +72,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerRoutedAwayImpl($0)
+              return try! this.add_PointerRoutedAway($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerRoutedAwayImpl($0)
+             try? self?._default.remove_PointerRoutedAway($0)
            }
           )
         }()
@@ -84,10 +85,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerRoutedReleasedImpl($0)
+              return try! this.add_PointerRoutedReleased($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerRoutedReleasedImpl($0)
+             try? self?._default.remove_PointerRoutedReleased($0)
            }
           )
         }()
@@ -97,10 +98,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerRoutedToImpl($0)
+              return try! this.add_PointerRoutedTo($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerRoutedToImpl($0)
+             try? self?._default.remove_PointerRoutedTo($0)
            }
           )
         }()
@@ -132,80 +133,80 @@ public enum __IMPL_Windows_UI_Core {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.activate)
         fileprivate func activate() throws {
-            try _default.ActivateImpl()
+            try _default.Activate()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.close)
         fileprivate func close() throws {
-            try _default.CloseImpl()
+            try _default.Close()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.getasynckeystate)
         fileprivate func getAsyncKeyState(_ virtualKey: UWP.VirtualKey) throws -> CoreVirtualKeyStates {
-            try _default.GetAsyncKeyStateImpl(virtualKey)
+            try _default.GetAsyncKeyState(virtualKey)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.getkeystate)
         fileprivate func getKeyState(_ virtualKey: UWP.VirtualKey) throws -> CoreVirtualKeyStates {
-            try _default.GetKeyStateImpl(virtualKey)
+            try _default.GetKeyState(virtualKey)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.releasepointercapture)
         fileprivate func releasePointerCapture() throws {
-            try _default.ReleasePointerCaptureImpl()
+            try _default.ReleasePointerCapture()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.setpointercapture)
         fileprivate func setPointerCapture() throws {
-            try _default.SetPointerCaptureImpl()
+            try _default.SetPointerCapture()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.automationhostprovider)
         fileprivate var automationHostProvider : Any! {
-            get { try! _default.get_AutomationHostProviderImpl() }
+            get { try! _default.get_AutomationHostProvider() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.bounds)
         fileprivate var bounds : WindowsFoundation.Rect {
-            get { try! _default.get_BoundsImpl() }
+            get { try! _default.get_Bounds() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.customproperties)
         fileprivate var customProperties : WindowsFoundation.AnyIPropertySet! {
-            get { try! _default.get_CustomPropertiesImpl() }
+            get { try! _default.get_CustomProperties() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.dispatcher)
         fileprivate var dispatcher : CoreDispatcher! {
-            get { try! _default.get_DispatcherImpl() }
+            get { try! _default.get_Dispatcher() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.flowdirection)
         fileprivate var flowDirection : CoreWindowFlowDirection {
-            get { try! _default.get_FlowDirectionImpl() }
-            set { try! _default.put_FlowDirectionImpl(newValue) }
+            get { try! _default.get_FlowDirection() }
+            set { try! _default.put_FlowDirection(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.isinputenabled)
         fileprivate var isInputEnabled : Bool {
-            get { try! _default.get_IsInputEnabledImpl() }
-            set { try! _default.put_IsInputEnabledImpl(newValue) }
+            get { try! _default.get_IsInputEnabled() }
+            set { try! _default.put_IsInputEnabled(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.pointercursor)
         fileprivate var pointerCursor : CoreCursor! {
-            get { try! _default.get_PointerCursorImpl() }
-            set { try! _default.put_PointerCursorImpl(newValue) }
+            get { try! _default.get_PointerCursor() }
+            set { try! _default.put_PointerCursor(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.pointerposition)
         fileprivate var pointerPosition : WindowsFoundation.Point {
-            get { try! _default.get_PointerPositionImpl() }
+            get { try! _default.get_PointerPosition() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.visible)
         fileprivate var visible : Bool {
-            get { try! _default.get_VisibleImpl() }
+            get { try! _default.get_Visible() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindow.activated)
@@ -213,10 +214,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_ActivatedImpl($0)
+              return try! this.add_Activated($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_ActivatedImpl($0)
+             try? self?._default.remove_Activated($0)
            }
           )
         }()
@@ -226,10 +227,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_AutomationProviderRequestedImpl($0)
+              return try! this.add_AutomationProviderRequested($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_AutomationProviderRequestedImpl($0)
+             try? self?._default.remove_AutomationProviderRequested($0)
            }
           )
         }()
@@ -239,10 +240,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_CharacterReceivedImpl($0)
+              return try! this.add_CharacterReceived($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_CharacterReceivedImpl($0)
+             try? self?._default.remove_CharacterReceived($0)
            }
           )
         }()
@@ -252,10 +253,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_ClosedImpl($0)
+              return try! this.add_Closed($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_ClosedImpl($0)
+             try? self?._default.remove_Closed($0)
            }
           )
         }()
@@ -265,10 +266,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_InputEnabledImpl($0)
+              return try! this.add_InputEnabled($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_InputEnabledImpl($0)
+             try? self?._default.remove_InputEnabled($0)
            }
           )
         }()
@@ -278,10 +279,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_KeyDownImpl($0)
+              return try! this.add_KeyDown($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_KeyDownImpl($0)
+             try? self?._default.remove_KeyDown($0)
            }
           )
         }()
@@ -291,10 +292,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_KeyUpImpl($0)
+              return try! this.add_KeyUp($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_KeyUpImpl($0)
+             try? self?._default.remove_KeyUp($0)
            }
           )
         }()
@@ -304,10 +305,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerCaptureLostImpl($0)
+              return try! this.add_PointerCaptureLost($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerCaptureLostImpl($0)
+             try? self?._default.remove_PointerCaptureLost($0)
            }
           )
         }()
@@ -317,10 +318,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerEnteredImpl($0)
+              return try! this.add_PointerEntered($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerEnteredImpl($0)
+             try? self?._default.remove_PointerEntered($0)
            }
           )
         }()
@@ -330,10 +331,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerExitedImpl($0)
+              return try! this.add_PointerExited($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerExitedImpl($0)
+             try? self?._default.remove_PointerExited($0)
            }
           )
         }()
@@ -343,10 +344,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerMovedImpl($0)
+              return try! this.add_PointerMoved($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerMovedImpl($0)
+             try? self?._default.remove_PointerMoved($0)
            }
           )
         }()
@@ -356,10 +357,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerPressedImpl($0)
+              return try! this.add_PointerPressed($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerPressedImpl($0)
+             try? self?._default.remove_PointerPressed($0)
            }
           )
         }()
@@ -369,10 +370,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerReleasedImpl($0)
+              return try! this.add_PointerReleased($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerReleasedImpl($0)
+             try? self?._default.remove_PointerReleased($0)
            }
           )
         }()
@@ -382,10 +383,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_PointerWheelChangedImpl($0)
+              return try! this.add_PointerWheelChanged($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_PointerWheelChangedImpl($0)
+             try? self?._default.remove_PointerWheelChanged($0)
            }
           )
         }()
@@ -395,10 +396,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_SizeChangedImpl($0)
+              return try! this.add_SizeChanged($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_SizeChangedImpl($0)
+             try? self?._default.remove_SizeChanged($0)
            }
           )
         }()
@@ -408,10 +409,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_TouchHitTestingImpl($0)
+              return try! this.add_TouchHitTesting($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_TouchHitTestingImpl($0)
+             try? self?._default.remove_TouchHitTesting($0)
            }
           )
         }()
@@ -421,10 +422,10 @@ public enum __IMPL_Windows_UI_Core {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_VisibilityChangedImpl($0)
+              return try! this.add_VisibilityChanged($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_VisibilityChangedImpl($0)
+             try? self?._default.remove_VisibilityChanged($0)
            }
           )
         }()
@@ -456,8 +457,8 @@ public enum __IMPL_Windows_UI_Core {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.icorewindoweventargs.handled)
         fileprivate var handled : Bool {
-            get { try! _default.get_HandledImpl() }
-            set { try! _default.put_HandledImpl(newValue) }
+            get { try! _default.get_Handled() }
+            set { try! _default.put_Handled(newValue) }
         }
 
     }
@@ -471,7 +472,7 @@ public enum __IMPL_Windows_UI_Core {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { () in
-                try! _default.InvokeImpl()
+                try _default.Invoke()
             }
             return handler
         }
@@ -485,9 +486,319 @@ public enum __IMPL_Windows_UI_Core {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (e) in
-                try! _default.InvokeImpl(e)
+                try _default.Invoke(e)
             }
             return handler
         }
+    }
+    public enum AcceleratorKeyEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AcceleratorKeyEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs>?) -> AcceleratorKeyEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AutomationProviderRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AutomationProviderRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIAutomationProviderRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIAutomationProviderRequestedEventArgs>?) -> AutomationProviderRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CharacterReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CharacterReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CICharacterReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICharacterReceivedEventArgs>?) -> CharacterReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ClosestInteractiveBoundsRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ClosestInteractiveBoundsRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs>?) -> ClosestInteractiveBoundsRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CoreCursorBridge: AbiBridge {
+        public typealias SwiftProjection = CoreCursor
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CICoreCursor
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICoreCursor>?) -> CoreCursor? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CoreDispatcherBridge: AbiBridge {
+        public typealias SwiftProjection = CoreDispatcher
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CICoreDispatcher
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICoreDispatcher>?) -> CoreDispatcher? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CoreWindowBridge: AbiBridge {
+        public typealias SwiftProjection = CoreWindow
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CICoreWindow
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICoreWindow>?) -> CoreWindow? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CoreWindowEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CoreWindowEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgs>?) -> CoreWindowEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum IdleDispatchedHandlerArgsBridge: AbiBridge {
+        public typealias SwiftProjection = IdleDispatchedHandlerArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs>?) -> IdleDispatchedHandlerArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputEnabledEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = InputEnabledEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIInputEnabledEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIInputEnabledEventArgs>?) -> InputEnabledEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum KeyEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = KeyEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIKeyEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIKeyEventArgs>?) -> KeyEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointerEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = PointerEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIPointerEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIPointerEventArgs>?) -> PointerEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TouchHitTestingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = TouchHitTestingEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs>?) -> TouchHitTestingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VisibilityChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = VisibilityChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIVisibilityChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIVisibilityChangedEventArgs>?) -> VisibilityChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum WindowActivatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = WindowActivatedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIWindowActivatedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIWindowActivatedEventArgs>?) -> WindowActivatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum WindowSizeChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = WindowSizeChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CUI_CCore_CIWindowSizeChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CCore_CIWindowSizeChangedEventArgs>?) -> WindowSizeChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension CorePhysicalKeyStatus: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CUI_CCore_CCorePhysicalKeyStatus
+    public static func from(abi: ABI) -> Self {
+        .init(repeatCount: abi.RepeatCount, scanCode: abi.ScanCode, isExtendedKey: .init(from: abi.IsExtendedKey), isMenuKeyDown: .init(from: abi.IsMenuKeyDown), wasKeyDown: .init(from: abi.WasKeyDown), isKeyReleased: .init(from: abi.IsKeyReleased))
+    }
+    public func toABI() -> ABI {
+        __ABI_Windows_UI_Core._ABI_CorePhysicalKeyStatus(from: self).detach()
+    }
+}
+
+@_spi(WinRTInternal)
+extension CoreProximityEvaluation: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CUI_CCore_CCoreProximityEvaluation
+    public static func from(abi: ABI) -> Self {
+        .init(score: abi.Score, adjustedPoint: .from(abi: abi.AdjustedPoint))
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class ICoreAcceleratorKeysMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICoreAcceleratorKeys
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Core.ICoreAcceleratorKeys = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Core.ICoreAcceleratorKeysBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ICorePointerRedirectorMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICorePointerRedirector
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Core.ICorePointerRedirector = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Core.ICorePointerRedirectorBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ICoreWindowMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICoreWindow
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Core.ICoreWindow = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Core.ICoreWindowBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ICoreWindowEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICoreWindowEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Core.ICoreWindowEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Core.ICoreWindowEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class AcceleratorKeyEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AcceleratorKeyEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AcceleratorKeyEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AutomationProviderRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AutomationProviderRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AutomationProviderRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CharacterReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CharacterReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CharacterReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ClosestInteractiveBoundsRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ClosestInteractiveBoundsRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ClosestInteractiveBoundsRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CoreCursorMaker: MakeFromAbi {
+    public typealias SwiftType = CoreCursor
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CoreCursor(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CoreDispatcherMaker: MakeFromAbi {
+    public typealias SwiftType = CoreDispatcher
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CoreDispatcher(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CoreWindowMaker: MakeFromAbi {
+    public typealias SwiftType = CoreWindow
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CoreWindow(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CoreWindowEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CoreWindowEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CoreWindowEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class IdleDispatchedHandlerArgsMaker: MakeFromAbi {
+    public typealias SwiftType = IdleDispatchedHandlerArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return IdleDispatchedHandlerArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputEnabledEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = InputEnabledEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputEnabledEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class KeyEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = KeyEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return KeyEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointerEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = PointerEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TouchHitTestingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = TouchHitTestingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TouchHitTestingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VisibilityChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = VisibilityChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VisibilityChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class WindowActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = WindowActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WindowActivatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class WindowSizeChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = WindowSizeChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WindowSizeChangedEventArgs(fromAbi: abi)
     }
 }

@@ -4,5 +4,33 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_UI {
+    public enum UIContextBridge: AbiBridge {
+        public typealias SwiftProjection = UIContext
+        public typealias CABI = __x_ABI_CWindows_CUI_CIUIContext
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CIUIContext>?) -> UIContext? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension Color: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CUI_CColor
+    public static func from(abi: ABI) -> Self {
+        .init(a: abi.A, r: abi.R, g: abi.G, b: abi.B)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class UIContextMaker: MakeFromAbi {
+    public typealias SwiftType = UIContext
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return UIContext(fromAbi: abi)
+    }
 }

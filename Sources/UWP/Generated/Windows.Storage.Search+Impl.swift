@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Storage_Search {
     public enum IStorageFolderQueryOperationsBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CStorage_CSearch_CIStorageFolderQueryOperations
@@ -30,87 +31,87 @@ public enum __IMPL_Windows_Storage_Search {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.getindexedstateasync)
         fileprivate func getIndexedStateAsync() throws -> WindowsFoundation.AnyIAsyncOperation<IndexedState>! {
-            try _default.GetIndexedStateAsyncImpl()
+            try _default.GetIndexedStateAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.createfilequery)
         fileprivate func createFileQuery() throws -> StorageFileQueryResult! {
-            try _default.CreateFileQueryOverloadDefaultImpl()
+            try _default.CreateFileQueryOverloadDefault()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.createfilequery)
         fileprivate func createFileQuery(_ query: CommonFileQuery) throws -> StorageFileQueryResult! {
-            try _default.CreateFileQueryImpl(query)
+            try _default.CreateFileQuery(query)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.createfilequerywithoptions)
         fileprivate func createFileQueryWithOptions(_ queryOptions: QueryOptions!) throws -> StorageFileQueryResult! {
-            try _default.CreateFileQueryWithOptionsImpl(queryOptions)
+            try _default.CreateFileQueryWithOptions(queryOptions)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.createfolderquery)
         fileprivate func createFolderQuery() throws -> StorageFolderQueryResult! {
-            try _default.CreateFolderQueryOverloadDefaultImpl()
+            try _default.CreateFolderQueryOverloadDefault()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.createfolderquery)
         fileprivate func createFolderQuery(_ query: CommonFolderQuery) throws -> StorageFolderQueryResult! {
-            try _default.CreateFolderQueryImpl(query)
+            try _default.CreateFolderQuery(query)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.createfolderquerywithoptions)
         fileprivate func createFolderQueryWithOptions(_ queryOptions: QueryOptions!) throws -> StorageFolderQueryResult! {
-            try _default.CreateFolderQueryWithOptionsImpl(queryOptions)
+            try _default.CreateFolderQueryWithOptions(queryOptions)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.createitemquery)
         fileprivate func createItemQuery() throws -> StorageItemQueryResult! {
-            try _default.CreateItemQueryImpl()
+            try _default.CreateItemQuery()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.createitemquerywithoptions)
         fileprivate func createItemQueryWithOptions(_ queryOptions: QueryOptions!) throws -> StorageItemQueryResult! {
-            try _default.CreateItemQueryWithOptionsImpl(queryOptions)
+            try _default.CreateItemQueryWithOptions(queryOptions)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.getfilesasync)
         fileprivate func getFilesAsync(_ query: CommonFileQuery, _ startIndex: UInt32, _ maxItemsToRetrieve: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFile?>?>! {
-            try _default.GetFilesAsyncImpl(query, startIndex, maxItemsToRetrieve)
+            try _default.GetFilesAsync(query, startIndex, maxItemsToRetrieve)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.getfilesasync)
         fileprivate func getFilesAsync(_ query: CommonFileQuery) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFile?>?>! {
-            try _default.GetFilesAsyncOverloadDefaultStartAndCountImpl(query)
+            try _default.GetFilesAsyncOverloadDefaultStartAndCount(query)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.getfoldersasync)
         fileprivate func getFoldersAsync(_ query: CommonFolderQuery, _ startIndex: UInt32, _ maxItemsToRetrieve: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFolder?>?>! {
-            try _default.GetFoldersAsyncImpl(query, startIndex, maxItemsToRetrieve)
+            try _default.GetFoldersAsync(query, startIndex, maxItemsToRetrieve)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.getfoldersasync)
         fileprivate func getFoldersAsync(_ query: CommonFolderQuery) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFolder?>?>! {
-            try _default.GetFoldersAsyncOverloadDefaultStartAndCountImpl(query)
+            try _default.GetFoldersAsyncOverloadDefaultStartAndCount(query)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.getitemsasync)
         fileprivate func getItemsAsync(_ startIndex: UInt32, _ maxItemsToRetrieve: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>?>! {
-            try _default.GetItemsAsyncImpl(startIndex, maxItemsToRetrieve)
+            try _default.GetItemsAsync(startIndex, maxItemsToRetrieve)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.arequeryoptionssupported)
         fileprivate func areQueryOptionsSupported(_ queryOptions: QueryOptions!) throws -> Bool {
-            try _default.AreQueryOptionsSupportedImpl(queryOptions)
+            try _default.AreQueryOptionsSupported(queryOptions)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.iscommonfolderquerysupported)
         fileprivate func isCommonFolderQuerySupported(_ query: CommonFolderQuery) throws -> Bool {
-            try _default.IsCommonFolderQuerySupportedImpl(query)
+            try _default.IsCommonFolderQuerySupported(query)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragefolderqueryoperations.iscommonfilequerysupported)
         fileprivate func isCommonFileQuerySupported(_ query: CommonFileQuery) throws -> Bool {
-            try _default.IsCommonFileQuerySupportedImpl(query)
+            try _default.IsCommonFileQuerySupported(query)
         }
 
     }
@@ -140,27 +141,27 @@ public enum __IMPL_Windows_Storage_Search {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragequeryresultbase.getitemcountasync)
         fileprivate func getItemCountAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UInt32>! {
-            try _default.GetItemCountAsyncImpl()
+            try _default.GetItemCountAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragequeryresultbase.findstartindexasync)
         fileprivate func findStartIndexAsync(_ value: Any!) throws -> WindowsFoundation.AnyIAsyncOperation<UInt32>! {
-            try _default.FindStartIndexAsyncImpl(value)
+            try _default.FindStartIndexAsync(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragequeryresultbase.getcurrentqueryoptions)
         fileprivate func getCurrentQueryOptions() throws -> QueryOptions! {
-            try _default.GetCurrentQueryOptionsImpl()
+            try _default.GetCurrentQueryOptions()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragequeryresultbase.applynewqueryoptions)
         fileprivate func applyNewQueryOptions(_ newQueryOptions: QueryOptions!) throws {
-            try _default.ApplyNewQueryOptionsImpl(newQueryOptions)
+            try _default.ApplyNewQueryOptions(newQueryOptions)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragequeryresultbase.folder)
         fileprivate var folder : UWP.StorageFolder! {
-            get { try! _default.get_FolderImpl() }
+            get { try! _default.get_Folder() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.search.istoragequeryresultbase.contentschanged)
@@ -168,10 +169,10 @@ public enum __IMPL_Windows_Storage_Search {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_ContentsChangedImpl($0)
+              return try! this.add_ContentsChanged($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_ContentsChangedImpl($0)
+             try? self?._default.remove_ContentsChanged($0)
            }
           )
         }()
@@ -181,14 +182,105 @@ public enum __IMPL_Windows_Storage_Search {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_OptionsChangedImpl($0)
+              return try! this.add_OptionsChanged($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_OptionsChangedImpl($0)
+             try? self?._default.remove_OptionsChanged($0)
            }
           )
         }()
 
     }
 
+    public enum QueryOptionsBridge: AbiBridge {
+        public typealias SwiftProjection = QueryOptions
+        public typealias CABI = __x_ABI_CWindows_CStorage_CSearch_CIQueryOptions
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CSearch_CIQueryOptions>?) -> QueryOptions? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageFileQueryResultBridge: AbiBridge {
+        public typealias SwiftProjection = StorageFileQueryResult
+        public typealias CABI = __x_ABI_CWindows_CStorage_CSearch_CIStorageFileQueryResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CSearch_CIStorageFileQueryResult>?) -> StorageFileQueryResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageFolderQueryResultBridge: AbiBridge {
+        public typealias SwiftProjection = StorageFolderQueryResult
+        public typealias CABI = __x_ABI_CWindows_CStorage_CSearch_CIStorageFolderQueryResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CSearch_CIStorageFolderQueryResult>?) -> StorageFolderQueryResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum StorageItemQueryResultBridge: AbiBridge {
+        public typealias SwiftProjection = StorageItemQueryResult
+        public typealias CABI = __x_ABI_CWindows_CStorage_CSearch_CIStorageItemQueryResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CSearch_CIStorageItemQueryResult>?) -> StorageItemQueryResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension SortEntry: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CStorage_CSearch_CSortEntry
+    public static func from(abi: ABI) -> Self {
+        .init(propertyName: .init(from: abi.PropertyName), ascendingOrder: .init(from: abi.AscendingOrder))
+    }
+    public func toABI() -> ABI {
+        __ABI_Windows_Storage_Search._ABI_SortEntry(from: self).detach()
+    }
+}
+
+@_spi(WinRTInternal)
+public class IStorageFolderQueryOperationsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageFolderQueryOperations
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Search.IStorageFolderQueryOperations = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Search.IStorageFolderQueryOperationsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IStorageQueryResultBaseMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIStorageQueryResultBase
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Search.IStorageQueryResultBase = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Search.IStorageQueryResultBaseBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class QueryOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = QueryOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return QueryOptions(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageFileQueryResultMaker: MakeFromAbi {
+    public typealias SwiftType = StorageFileQueryResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageFileQueryResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageFolderQueryResultMaker: MakeFromAbi {
+    public typealias SwiftType = StorageFolderQueryResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageFolderQueryResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class StorageItemQueryResultMaker: MakeFromAbi {
+    public typealias SwiftType = StorageItemQueryResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StorageItemQueryResult(fromAbi: abi)
+    }
 }

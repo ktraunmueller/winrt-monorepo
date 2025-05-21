@@ -40,12 +40,6 @@ public final class BitmapBuffer : WinRTClass, WindowsFoundation.IClosable, Windo
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIBitmapBuffer>?) -> BitmapBuffer? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -56,23 +50,23 @@ public final class BitmapBuffer : WinRTClass, WindowsFoundation.IClosable, Windo
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IMemoryBuffer: __ABI_Windows_Foundation.IMemoryBuffer! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer.createreference)
     public func createReference() throws -> WindowsFoundation.AnyIMemoryBufferReference! {
-        try _IMemoryBuffer.CreateReferenceImpl()
+        try _IMemoryBuffer.CreateReference()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer.getplanecount)
     public func getPlaneCount() throws -> Int32 {
-        try _default.GetPlaneCountImpl()
+        try _default.GetPlaneCount()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer.getplanedescription)
     public func getPlaneDescription(_ index: Int32) throws -> BitmapPlaneDescription {
-        try _default.GetPlaneDescriptionImpl(index)
+        try _default.GetPlaneDescription(index)
     }
 
     deinit {
@@ -96,34 +90,28 @@ public final class BitmapCodecInformation : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIBitmapCodecInformation>?) -> BitmapCodecInformation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapcodecinformation.codecid)
     public var codecId : Foundation.UUID {
-        get { try! _default.get_CodecIdImpl() }
+        get { try! _default.get_CodecId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapcodecinformation.fileextensions)
     public var fileExtensions : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_FileExtensionsImpl() }
+        get { try! _default.get_FileExtensions() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapcodecinformation.friendlyname)
     public var friendlyName : String {
-        get { try! _default.get_FriendlyNameImpl() }
+        get { try! _default.get_FriendlyName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapcodecinformation.mimetypes)
     public var mimeTypes : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_MimeTypesImpl() }
+        get { try! _default.get_MimeTypes() }
     }
 
     deinit {
@@ -145,12 +133,6 @@ public final class BitmapDecoder : WinRTClass, IBitmapFrame, IBitmapFrameWithSof
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoder>?) -> BitmapDecoder? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -158,168 +140,168 @@ public final class BitmapDecoder : WinRTClass, IBitmapFrame, IBitmapFrameWithSof
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IBitmapDecoderStatics: __ABI_Windows_Graphics_Imaging.IBitmapDecoderStatics = try! RoGetActivationFactory(HString("Windows.Graphics.Imaging.BitmapDecoder"))
+    private static let _IBitmapDecoderStatics: __ABI_Windows_Graphics_Imaging.IBitmapDecoderStatics = try! RoGetActivationFactory("Windows.Graphics.Imaging.BitmapDecoder")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getdecoderinformationenumerator)
-    public static func getDecoderInformationEnumerator() -> WindowsFoundation.AnyIVectorView<BitmapCodecInformation?>! {
-        return try! _IBitmapDecoderStatics.GetDecoderInformationEnumeratorImpl()
+    public static func getDecoderInformationEnumerator() throws -> WindowsFoundation.AnyIVectorView<BitmapCodecInformation?>! {
+        return try _IBitmapDecoderStatics.GetDecoderInformationEnumerator()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.createasync)
-    public static func createAsync(_ stream: UWP.AnyIRandomAccessStream!) -> WindowsFoundation.AnyIAsyncOperation<BitmapDecoder?>! {
-        return try! _IBitmapDecoderStatics.CreateAsyncImpl(stream)
+    public static func createAsync(_ stream: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncOperation<BitmapDecoder?>! {
+        return try _IBitmapDecoderStatics.CreateAsync(stream)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.createasync)
-    public static func createAsync(_ decoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream!) -> WindowsFoundation.AnyIAsyncOperation<BitmapDecoder?>! {
-        return try! _IBitmapDecoderStatics.CreateWithIdAsyncImpl(decoderId, stream)
+    public static func createAsync(_ decoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncOperation<BitmapDecoder?>! {
+        return try _IBitmapDecoderStatics.CreateWithIdAsync(decoderId, stream)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.bmpdecoderid)
     public static var bmpDecoderId : Foundation.UUID {
-        get { try! _IBitmapDecoderStatics.get_BmpDecoderIdImpl() }
+        get { try! _IBitmapDecoderStatics.get_BmpDecoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.gifdecoderid)
     public static var gifDecoderId : Foundation.UUID {
-        get { try! _IBitmapDecoderStatics.get_GifDecoderIdImpl() }
+        get { try! _IBitmapDecoderStatics.get_GifDecoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.icodecoderid)
     public static var icoDecoderId : Foundation.UUID {
-        get { try! _IBitmapDecoderStatics.get_IcoDecoderIdImpl() }
+        get { try! _IBitmapDecoderStatics.get_IcoDecoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.jpegdecoderid)
     public static var jpegDecoderId : Foundation.UUID {
-        get { try! _IBitmapDecoderStatics.get_JpegDecoderIdImpl() }
+        get { try! _IBitmapDecoderStatics.get_JpegDecoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.jpegxrdecoderid)
     public static var jpegXRDecoderId : Foundation.UUID {
-        get { try! _IBitmapDecoderStatics.get_JpegXRDecoderIdImpl() }
+        get { try! _IBitmapDecoderStatics.get_JpegXRDecoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.pngdecoderid)
     public static var pngDecoderId : Foundation.UUID {
-        get { try! _IBitmapDecoderStatics.get_PngDecoderIdImpl() }
+        get { try! _IBitmapDecoderStatics.get_PngDecoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.tiffdecoderid)
     public static var tiffDecoderId : Foundation.UUID {
-        get { try! _IBitmapDecoderStatics.get_TiffDecoderIdImpl() }
+        get { try! _IBitmapDecoderStatics.get_TiffDecoderId() }
     }
 
-    private static let _IBitmapDecoderStatics2: __ABI_Windows_Graphics_Imaging.IBitmapDecoderStatics2 = try! RoGetActivationFactory(HString("Windows.Graphics.Imaging.BitmapDecoder"))
+    private static let _IBitmapDecoderStatics2: __ABI_Windows_Graphics_Imaging.IBitmapDecoderStatics2 = try! RoGetActivationFactory("Windows.Graphics.Imaging.BitmapDecoder")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.heifdecoderid)
     public static var heifDecoderId : Foundation.UUID {
-        get { try! _IBitmapDecoderStatics2.get_HeifDecoderIdImpl() }
+        get { try! _IBitmapDecoderStatics2.get_HeifDecoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.webpdecoderid)
     public static var webpDecoderId : Foundation.UUID {
-        get { try! _IBitmapDecoderStatics2.get_WebpDecoderIdImpl() }
+        get { try! _IBitmapDecoderStatics2.get_WebpDecoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getpreviewasync)
     public func getPreviewAsync() throws -> WindowsFoundation.AnyIAsyncOperation<ImageStream?>! {
-        try _default.GetPreviewAsyncImpl()
+        try _default.GetPreviewAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getframeasync)
     public func getFrameAsync(_ frameIndex: UInt32) throws -> WindowsFoundation.AnyIAsyncOperation<BitmapFrame?>! {
-        try _default.GetFrameAsyncImpl(frameIndex)
+        try _default.GetFrameAsync(frameIndex)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.bitmapcontainerproperties)
     public var bitmapContainerProperties : BitmapPropertiesView! {
-        get { try! _default.get_BitmapContainerPropertiesImpl() }
+        get { try! _default.get_BitmapContainerProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.decoderinformation)
     public var decoderInformation : BitmapCodecInformation! {
-        get { try! _default.get_DecoderInformationImpl() }
+        get { try! _default.get_DecoderInformation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.framecount)
     public var frameCount : UInt32 {
-        get { try! _default.get_FrameCountImpl() }
+        get { try! _default.get_FrameCount() }
     }
 
     private lazy var _IBitmapFrame: __ABI_Windows_Graphics_Imaging.IBitmapFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getthumbnailasync)
     public func getThumbnailAsync() throws -> WindowsFoundation.AnyIAsyncOperation<ImageStream?>! {
-        try _IBitmapFrame.GetThumbnailAsyncImpl()
+        try _IBitmapFrame.GetThumbnailAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getpixeldataasync)
     public func getPixelDataAsync() throws -> WindowsFoundation.AnyIAsyncOperation<PixelDataProvider?>! {
-        try _IBitmapFrame.GetPixelDataAsyncImpl()
+        try _IBitmapFrame.GetPixelDataAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getpixeldataasync)
     public func getPixelDataAsync(_ pixelFormat: BitmapPixelFormat, _ alphaMode: BitmapAlphaMode, _ transform: BitmapTransform!, _ exifOrientationMode: ExifOrientationMode, _ colorManagementMode: ColorManagementMode) throws -> WindowsFoundation.AnyIAsyncOperation<PixelDataProvider?>! {
-        try _IBitmapFrame.GetPixelDataTransformedAsyncImpl(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
+        try _IBitmapFrame.GetPixelDataTransformedAsync(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.bitmapalphamode)
     public var bitmapAlphaMode : BitmapAlphaMode {
-        get { try! _IBitmapFrame.get_BitmapAlphaModeImpl() }
+        get { try! _IBitmapFrame.get_BitmapAlphaMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.bitmappixelformat)
     public var bitmapPixelFormat : BitmapPixelFormat {
-        get { try! _IBitmapFrame.get_BitmapPixelFormatImpl() }
+        get { try! _IBitmapFrame.get_BitmapPixelFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.bitmapproperties)
     public var bitmapProperties : BitmapPropertiesView! {
-        get { try! _IBitmapFrame.get_BitmapPropertiesImpl() }
+        get { try! _IBitmapFrame.get_BitmapProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.dpix)
     public var dpiX : Double {
-        get { try! _IBitmapFrame.get_DpiXImpl() }
+        get { try! _IBitmapFrame.get_DpiX() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.dpiy)
     public var dpiY : Double {
-        get { try! _IBitmapFrame.get_DpiYImpl() }
+        get { try! _IBitmapFrame.get_DpiY() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.orientedpixelheight)
     public var orientedPixelHeight : UInt32 {
-        get { try! _IBitmapFrame.get_OrientedPixelHeightImpl() }
+        get { try! _IBitmapFrame.get_OrientedPixelHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.orientedpixelwidth)
     public var orientedPixelWidth : UInt32 {
-        get { try! _IBitmapFrame.get_OrientedPixelWidthImpl() }
+        get { try! _IBitmapFrame.get_OrientedPixelWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.pixelheight)
     public var pixelHeight : UInt32 {
-        get { try! _IBitmapFrame.get_PixelHeightImpl() }
+        get { try! _IBitmapFrame.get_PixelHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.pixelwidth)
     public var pixelWidth : UInt32 {
-        get { try! _IBitmapFrame.get_PixelWidthImpl() }
+        get { try! _IBitmapFrame.get_PixelWidth() }
     }
 
     private lazy var _IBitmapFrameWithSoftwareBitmap: __ABI_Windows_Graphics_Imaging.IBitmapFrameWithSoftwareBitmap! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getsoftwarebitmapasync)
     public func getSoftwareBitmapAsync() throws -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
-        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapAsyncImpl()
+        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getsoftwarebitmapasync)
     public func getSoftwareBitmapAsync(_ pixelFormat: BitmapPixelFormat, _ alphaMode: BitmapAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
-        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapConvertedAsyncImpl(pixelFormat, alphaMode)
+        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapConvertedAsync(pixelFormat, alphaMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder.getsoftwarebitmapasync)
     public func getSoftwareBitmapAsync(_ pixelFormat: BitmapPixelFormat, _ alphaMode: BitmapAlphaMode, _ transform: BitmapTransform!, _ exifOrientationMode: ExifOrientationMode, _ colorManagementMode: ColorManagementMode) throws -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
-        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapTransformedAsyncImpl(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
+        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapTransformedAsync(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
     }
 
     deinit {
@@ -343,135 +325,134 @@ public final class BitmapEncoder : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder>?) -> BitmapEncoder? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IBitmapEncoderStatics: __ABI_Windows_Graphics_Imaging.IBitmapEncoderStatics = try! RoGetActivationFactory(HString("Windows.Graphics.Imaging.BitmapEncoder"))
+    private static let _IBitmapEncoderStatics: __ABI_Windows_Graphics_Imaging.IBitmapEncoderStatics = try! RoGetActivationFactory("Windows.Graphics.Imaging.BitmapEncoder")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.getencoderinformationenumerator)
-    public static func getEncoderInformationEnumerator() -> WindowsFoundation.AnyIVectorView<BitmapCodecInformation?>! {
-        return try! _IBitmapEncoderStatics.GetEncoderInformationEnumeratorImpl()
+    public static func getEncoderInformationEnumerator() throws -> WindowsFoundation.AnyIVectorView<BitmapCodecInformation?>! {
+        return try _IBitmapEncoderStatics.GetEncoderInformationEnumerator()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.createasync)
-    public static func createAsync(_ encoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream!) -> WindowsFoundation.AnyIAsyncOperation<BitmapEncoder?>! {
-        return try! _IBitmapEncoderStatics.CreateAsyncImpl(encoderId, stream)
+    public static func createAsync(_ encoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncOperation<BitmapEncoder?>! {
+        return try _IBitmapEncoderStatics.CreateAsync(encoderId, stream)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.createasync)
-    public static func createAsync(_ encoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream!, _ encodingOptions: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, BitmapTypedValue?>?>!) -> WindowsFoundation.AnyIAsyncOperation<BitmapEncoder?>! {
-        return try! _IBitmapEncoderStatics.CreateWithEncodingOptionsAsyncImpl(encoderId, stream, encodingOptions)
+    public static func createAsync(_ encoderId: Foundation.UUID, _ stream: UWP.AnyIRandomAccessStream!, _ encodingOptions: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, BitmapTypedValue?>?>!) throws -> WindowsFoundation.AnyIAsyncOperation<BitmapEncoder?>! {
+        return try _IBitmapEncoderStatics.CreateWithEncodingOptionsAsync(encoderId, stream, encodingOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.createfortranscodingasync)
-    public static func createForTranscodingAsync(_ stream: UWP.AnyIRandomAccessStream!, _ bitmapDecoder: BitmapDecoder!) -> WindowsFoundation.AnyIAsyncOperation<BitmapEncoder?>! {
-        return try! _IBitmapEncoderStatics.CreateForTranscodingAsyncImpl(stream, bitmapDecoder)
+    public static func createForTranscodingAsync(_ stream: UWP.AnyIRandomAccessStream!, _ bitmapDecoder: BitmapDecoder!) throws -> WindowsFoundation.AnyIAsyncOperation<BitmapEncoder?>! {
+        return try _IBitmapEncoderStatics.CreateForTranscodingAsync(stream, bitmapDecoder)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.createforinplacepropertyencodingasync)
-    public static func createForInPlacePropertyEncodingAsync(_ bitmapDecoder: BitmapDecoder!) -> WindowsFoundation.AnyIAsyncOperation<BitmapEncoder?>! {
-        return try! _IBitmapEncoderStatics.CreateForInPlacePropertyEncodingAsyncImpl(bitmapDecoder)
+    public static func createForInPlacePropertyEncodingAsync(_ bitmapDecoder: BitmapDecoder!) throws -> WindowsFoundation.AnyIAsyncOperation<BitmapEncoder?>! {
+        return try _IBitmapEncoderStatics.CreateForInPlacePropertyEncodingAsync(bitmapDecoder)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.bmpencoderid)
     public static var bmpEncoderId : Foundation.UUID {
-        get { try! _IBitmapEncoderStatics.get_BmpEncoderIdImpl() }
+        get { try! _IBitmapEncoderStatics.get_BmpEncoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.gifencoderid)
     public static var gifEncoderId : Foundation.UUID {
-        get { try! _IBitmapEncoderStatics.get_GifEncoderIdImpl() }
+        get { try! _IBitmapEncoderStatics.get_GifEncoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.jpegencoderid)
     public static var jpegEncoderId : Foundation.UUID {
-        get { try! _IBitmapEncoderStatics.get_JpegEncoderIdImpl() }
+        get { try! _IBitmapEncoderStatics.get_JpegEncoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.jpegxrencoderid)
     public static var jpegXREncoderId : Foundation.UUID {
-        get { try! _IBitmapEncoderStatics.get_JpegXREncoderIdImpl() }
+        get { try! _IBitmapEncoderStatics.get_JpegXREncoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.pngencoderid)
     public static var pngEncoderId : Foundation.UUID {
-        get { try! _IBitmapEncoderStatics.get_PngEncoderIdImpl() }
+        get { try! _IBitmapEncoderStatics.get_PngEncoderId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.tiffencoderid)
     public static var tiffEncoderId : Foundation.UUID {
-        get { try! _IBitmapEncoderStatics.get_TiffEncoderIdImpl() }
+        get { try! _IBitmapEncoderStatics.get_TiffEncoderId() }
     }
 
-    private static let _IBitmapEncoderStatics2: __ABI_Windows_Graphics_Imaging.IBitmapEncoderStatics2 = try! RoGetActivationFactory(HString("Windows.Graphics.Imaging.BitmapEncoder"))
+    private static let _IBitmapEncoderStatics2: __ABI_Windows_Graphics_Imaging.IBitmapEncoderStatics2 = try! RoGetActivationFactory("Windows.Graphics.Imaging.BitmapEncoder")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.heifencoderid)
     public static var heifEncoderId : Foundation.UUID {
-        get { try! _IBitmapEncoderStatics2.get_HeifEncoderIdImpl() }
+        get { try! _IBitmapEncoderStatics2.get_HeifEncoderId() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.setpixeldata)
+    public func setPixelData(_ pixelFormat: BitmapPixelFormat, _ alphaMode: BitmapAlphaMode, _ width: UInt32, _ height: UInt32, _ dpiX: Double, _ dpiY: Double, _ pixels: [UInt8]) throws {
+        try _default.SetPixelData(pixelFormat, alphaMode, width, height, dpiX, dpiY, pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.gotonextframeasync)
     public func goToNextFrameAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.GoToNextFrameAsyncImpl()
+        try _default.GoToNextFrameAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.gotonextframeasync)
     public func goToNextFrameAsync(_ encodingOptions: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, BitmapTypedValue?>?>!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.GoToNextFrameWithEncodingOptionsAsyncImpl(encodingOptions)
+        try _default.GoToNextFrameWithEncodingOptionsAsync(encodingOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.flushasync)
     public func flushAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.FlushAsyncImpl()
+        try _default.FlushAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.bitmapcontainerproperties)
     public var bitmapContainerProperties : BitmapProperties! {
-        get { try! _default.get_BitmapContainerPropertiesImpl() }
+        get { try! _default.get_BitmapContainerProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.bitmapproperties)
     public var bitmapProperties : BitmapProperties! {
-        get { try! _default.get_BitmapPropertiesImpl() }
+        get { try! _default.get_BitmapProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.bitmaptransform)
     public var bitmapTransform : BitmapTransform! {
-        get { try! _default.get_BitmapTransformImpl() }
+        get { try! _default.get_BitmapTransform() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.encoderinformation)
     public var encoderInformation : BitmapCodecInformation! {
-        get { try! _default.get_EncoderInformationImpl() }
+        get { try! _default.get_EncoderInformation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.generatedthumbnailheight)
     public var generatedThumbnailHeight : UInt32 {
-        get { try! _default.get_GeneratedThumbnailHeightImpl() }
-        set { try! _default.put_GeneratedThumbnailHeightImpl(newValue) }
+        get { try! _default.get_GeneratedThumbnailHeight() }
+        set { try! _default.put_GeneratedThumbnailHeight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.generatedthumbnailwidth)
     public var generatedThumbnailWidth : UInt32 {
-        get { try! _default.get_GeneratedThumbnailWidthImpl() }
-        set { try! _default.put_GeneratedThumbnailWidthImpl(newValue) }
+        get { try! _default.get_GeneratedThumbnailWidth() }
+        set { try! _default.put_GeneratedThumbnailWidth(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.isthumbnailgenerated)
     public var isThumbnailGenerated : Bool {
-        get { try! _default.get_IsThumbnailGeneratedImpl() }
-        set { try! _default.put_IsThumbnailGeneratedImpl(newValue) }
+        get { try! _default.get_IsThumbnailGenerated() }
+        set { try! _default.put_IsThumbnailGenerated(newValue) }
     }
 
     private lazy var _IBitmapEncoderWithSoftwareBitmap: __ABI_Windows_Graphics_Imaging.IBitmapEncoderWithSoftwareBitmap! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder.setsoftwarebitmap)
     public func setSoftwareBitmap(_ bitmap: SoftwareBitmap!) throws {
-        try _IBitmapEncoderWithSoftwareBitmap.SetSoftwareBitmapImpl(bitmap)
+        try _IBitmapEncoderWithSoftwareBitmap.SetSoftwareBitmap(bitmap)
     }
 
     deinit {
@@ -494,12 +475,6 @@ public final class BitmapFrame : WinRTClass, IBitmapFrame, IBitmapFrameWithSoftw
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame>?) -> BitmapFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -509,78 +484,78 @@ public final class BitmapFrame : WinRTClass, IBitmapFrame, IBitmapFrameWithSoftw
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.getthumbnailasync)
     public func getThumbnailAsync() throws -> WindowsFoundation.AnyIAsyncOperation<ImageStream?>! {
-        try _default.GetThumbnailAsyncImpl()
+        try _default.GetThumbnailAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.getpixeldataasync)
     public func getPixelDataAsync() throws -> WindowsFoundation.AnyIAsyncOperation<PixelDataProvider?>! {
-        try _default.GetPixelDataAsyncImpl()
+        try _default.GetPixelDataAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.getpixeldataasync)
     public func getPixelDataAsync(_ pixelFormat: BitmapPixelFormat, _ alphaMode: BitmapAlphaMode, _ transform: BitmapTransform!, _ exifOrientationMode: ExifOrientationMode, _ colorManagementMode: ColorManagementMode) throws -> WindowsFoundation.AnyIAsyncOperation<PixelDataProvider?>! {
-        try _default.GetPixelDataTransformedAsyncImpl(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
+        try _default.GetPixelDataTransformedAsync(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.bitmapalphamode)
     public var bitmapAlphaMode : BitmapAlphaMode {
-        get { try! _default.get_BitmapAlphaModeImpl() }
+        get { try! _default.get_BitmapAlphaMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.bitmappixelformat)
     public var bitmapPixelFormat : BitmapPixelFormat {
-        get { try! _default.get_BitmapPixelFormatImpl() }
+        get { try! _default.get_BitmapPixelFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.bitmapproperties)
     public var bitmapProperties : BitmapPropertiesView! {
-        get { try! _default.get_BitmapPropertiesImpl() }
+        get { try! _default.get_BitmapProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.dpix)
     public var dpiX : Double {
-        get { try! _default.get_DpiXImpl() }
+        get { try! _default.get_DpiX() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.dpiy)
     public var dpiY : Double {
-        get { try! _default.get_DpiYImpl() }
+        get { try! _default.get_DpiY() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.orientedpixelheight)
     public var orientedPixelHeight : UInt32 {
-        get { try! _default.get_OrientedPixelHeightImpl() }
+        get { try! _default.get_OrientedPixelHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.orientedpixelwidth)
     public var orientedPixelWidth : UInt32 {
-        get { try! _default.get_OrientedPixelWidthImpl() }
+        get { try! _default.get_OrientedPixelWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.pixelheight)
     public var pixelHeight : UInt32 {
-        get { try! _default.get_PixelHeightImpl() }
+        get { try! _default.get_PixelHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.pixelwidth)
     public var pixelWidth : UInt32 {
-        get { try! _default.get_PixelWidthImpl() }
+        get { try! _default.get_PixelWidth() }
     }
 
     private lazy var _IBitmapFrameWithSoftwareBitmap: __ABI_Windows_Graphics_Imaging.IBitmapFrameWithSoftwareBitmap! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.getsoftwarebitmapasync)
     public func getSoftwareBitmapAsync() throws -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
-        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapAsyncImpl()
+        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.getsoftwarebitmapasync)
     public func getSoftwareBitmapAsync(_ pixelFormat: BitmapPixelFormat, _ alphaMode: BitmapAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
-        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapConvertedAsyncImpl(pixelFormat, alphaMode)
+        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapConvertedAsync(pixelFormat, alphaMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe.getsoftwarebitmapasync)
     public func getSoftwareBitmapAsync(_ pixelFormat: BitmapPixelFormat, _ alphaMode: BitmapAlphaMode, _ transform: BitmapTransform!, _ exifOrientationMode: ExifOrientationMode, _ colorManagementMode: ColorManagementMode) throws -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
-        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapTransformedAsyncImpl(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
+        try _IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapTransformedAsync(pixelFormat, alphaMode, transform, exifOrientationMode, colorManagementMode)
     }
 
     deinit {
@@ -603,12 +578,6 @@ public final class BitmapProperties : WinRTClass, IBitmapPropertiesView {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIBitmapProperties>?) -> BitmapProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -619,12 +588,12 @@ public final class BitmapProperties : WinRTClass, IBitmapPropertiesView {
     private lazy var _IBitmapPropertiesView: __ABI_Windows_Graphics_Imaging.IBitmapPropertiesView! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapproperties.getpropertiesasync)
     public func getPropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<BitmapPropertySet?>! {
-        try _IBitmapPropertiesView.GetPropertiesAsyncImpl(propertiesToRetrieve)
+        try _IBitmapPropertiesView.GetPropertiesAsync(propertiesToRetrieve)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapproperties.setpropertiesasync)
     public func setPropertiesAsync(_ propertiesToSet: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, BitmapTypedValue?>?>!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetPropertiesAsyncImpl(propertiesToSet)
+        try _default.SetPropertiesAsync(propertiesToSet)
     }
 
     deinit {
@@ -647,12 +616,6 @@ public final class BitmapPropertiesView : WinRTClass, IBitmapPropertiesView {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIBitmapPropertiesView>?) -> BitmapPropertiesView? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -662,7 +625,7 @@ public final class BitmapPropertiesView : WinRTClass, IBitmapPropertiesView {
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertiesview.getpropertiesasync)
     public func getPropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<BitmapPropertySet?>! {
-        try _default.GetPropertiesAsyncImpl(propertiesToRetrieve)
+        try _default.GetPropertiesAsync(propertiesToRetrieve)
     }
 
     deinit {
@@ -687,12 +650,6 @@ public final class BitmapPropertySet : WinRTClass, IMap, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CGraphics__CImaging__CBitmapTypedValue>?) -> BitmapPropertySet? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -700,49 +657,50 @@ public final class BitmapPropertySet : WinRTClass, IMap, IIterable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Graphics.Imaging.BitmapPropertySet")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Graphics.Imaging.BitmapPropertySet")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertyset.lookup)
     public func lookup(_ key: String) -> BitmapTypedValue? {
-        try! _default.LookupImpl(key)
+        try! _default.Lookup(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertyset.haskey)
     public func hasKey(_ key: String) -> Bool {
-        try! _default.HasKeyImpl(key)
+        try! _default.HasKey(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertyset.getview)
     public func getView() -> WindowsFoundation.AnyIMapView<String, BitmapTypedValue?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertyset.insert)
     public func insert(_ key: String, _ value: BitmapTypedValue?) -> Bool {
-        try! _default.InsertImpl(key, value)
+        try! _default.Insert(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertyset.remove)
     public func remove(_ key: String) {
-        try! _default.RemoveImpl(key)
+        try! _default.Remove(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertyset.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertyset.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableIKeyValuePairString_BitmapTypedValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertyset.first)
     public func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, BitmapTypedValue?>?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -765,54 +723,49 @@ public final class BitmapTransform : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform>?) -> BitmapTransform? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Graphics.Imaging.BitmapTransform")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Graphics.Imaging.BitmapTransform")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptransform.bounds)
     public var bounds : BitmapBounds {
-        get { try! _default.get_BoundsImpl() }
-        set { try! _default.put_BoundsImpl(newValue) }
+        get { try! _default.get_Bounds() }
+        set { try! _default.put_Bounds(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptransform.flip)
     public var flip : BitmapFlip {
-        get { try! _default.get_FlipImpl() }
-        set { try! _default.put_FlipImpl(newValue) }
+        get { try! _default.get_Flip() }
+        set { try! _default.put_Flip(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptransform.interpolationmode)
     public var interpolationMode : BitmapInterpolationMode {
-        get { try! _default.get_InterpolationModeImpl() }
-        set { try! _default.put_InterpolationModeImpl(newValue) }
+        get { try! _default.get_InterpolationMode() }
+        set { try! _default.put_InterpolationMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptransform.rotation)
     public var rotation : BitmapRotation {
-        get { try! _default.get_RotationImpl() }
-        set { try! _default.put_RotationImpl(newValue) }
+        get { try! _default.get_Rotation() }
+        set { try! _default.put_Rotation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptransform.scaledheight)
     public var scaledHeight : UInt32 {
-        get { try! _default.get_ScaledHeightImpl() }
-        set { try! _default.put_ScaledHeightImpl(newValue) }
+        get { try! _default.get_ScaledHeight() }
+        set { try! _default.put_ScaledHeight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptransform.scaledwidth)
     public var scaledWidth : UInt32 {
-        get { try! _default.get_ScaledWidthImpl() }
-        set { try! _default.put_ScaledWidthImpl(newValue) }
+        get { try! _default.get_ScaledWidth() }
+        set { try! _default.put_ScaledWidth(newValue) }
     }
 
     deinit {
@@ -834,29 +787,23 @@ public final class BitmapTypedValue : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIBitmapTypedValue>?) -> BitmapTypedValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IBitmapTypedValueFactory: __ABI_Windows_Graphics_Imaging.IBitmapTypedValueFactory = try! RoGetActivationFactory(HString("Windows.Graphics.Imaging.BitmapTypedValue"))
+    private static let _IBitmapTypedValueFactory: __ABI_Windows_Graphics_Imaging.IBitmapTypedValueFactory = try! RoGetActivationFactory("Windows.Graphics.Imaging.BitmapTypedValue")
     public init(_ value: Any!, _ type: WindowsFoundation.PropertyType) {
-        super.init(try! Self._IBitmapTypedValueFactory.CreateImpl(value, type))
+        super.init(try! Self._IBitmapTypedValueFactory.Create(value, type))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptypedvalue.type)
     public var type : WindowsFoundation.PropertyType {
-        get { try! _default.get_TypeImpl() }
+        get { try! _default.get_Type() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptypedvalue.value)
     public var value : Any! {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     deinit {
@@ -878,12 +825,6 @@ public final class ImageStream : WinRTClass, WindowsFoundation.IClosable, UWP.II
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType>?) -> ImageStream? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -894,72 +835,72 @@ public final class ImageStream : WinRTClass, WindowsFoundation.IClosable, UWP.II
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IInputStream: __ABI_Windows_Storage_Streams.IInputStream! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.readasync)
     public func readAsync(_ buffer: UWP.AnyIBuffer!, _ count: UInt32, _ options: UWP.InputStreamOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.AnyIBuffer?, UInt32>! {
-        try _IInputStream.ReadAsyncImpl(buffer, count, options)
+        try _IInputStream.ReadAsync(buffer, count, options)
     }
 
     private lazy var _IOutputStream: __ABI_Windows_Storage_Streams.IOutputStream! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.writeasync)
     public func writeAsync(_ buffer: UWP.AnyIBuffer!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UInt32, UInt32>! {
-        try _IOutputStream.WriteAsyncImpl(buffer)
+        try _IOutputStream.WriteAsync(buffer)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.flushasync)
     public func flushAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        try _IOutputStream.FlushAsyncImpl()
+        try _IOutputStream.FlushAsync()
     }
 
     private lazy var _IRandomAccessStream: __ABI_Windows_Storage_Streams.IRandomAccessStream! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.getinputstreamat)
     public func getInputStreamAt(_ position: UInt64) throws -> UWP.AnyIInputStream! {
-        try _IRandomAccessStream.GetInputStreamAtImpl(position)
+        try _IRandomAccessStream.GetInputStreamAt(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.getoutputstreamat)
     public func getOutputStreamAt(_ position: UInt64) throws -> UWP.AnyIOutputStream! {
-        try _IRandomAccessStream.GetOutputStreamAtImpl(position)
+        try _IRandomAccessStream.GetOutputStreamAt(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.seek)
     public func seek(_ position: UInt64) throws {
-        try _IRandomAccessStream.SeekImpl(position)
+        try _IRandomAccessStream.Seek(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.clonestream)
     public func cloneStream() throws -> UWP.AnyIRandomAccessStream! {
-        try _IRandomAccessStream.CloneStreamImpl()
+        try _IRandomAccessStream.CloneStream()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.canread)
     public var canRead : Bool {
-        get { try! _IRandomAccessStream.get_CanReadImpl() }
+        get { try! _IRandomAccessStream.get_CanRead() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.canwrite)
     public var canWrite : Bool {
-        get { try! _IRandomAccessStream.get_CanWriteImpl() }
+        get { try! _IRandomAccessStream.get_CanWrite() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.position)
     public var position : UInt64 {
-        get { try! _IRandomAccessStream.get_PositionImpl() }
+        get { try! _IRandomAccessStream.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.size)
     public var size : UInt64 {
-        get { try! _IRandomAccessStream.get_SizeImpl() }
-        set { try! _IRandomAccessStream.put_SizeImpl(newValue) }
+        get { try! _IRandomAccessStream.get_Size() }
+        set { try! _IRandomAccessStream.put_Size(newValue) }
     }
 
     private lazy var _IContentTypeProvider: __ABI_Windows_Storage_Streams.IContentTypeProvider! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream.contenttype)
     public var contentType : String {
-        get { try! _IContentTypeProvider.get_ContentTypeImpl() }
+        get { try! _IContentTypeProvider.get_ContentType() }
     }
 
     deinit {
@@ -986,14 +927,13 @@ public final class PixelDataProvider : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CIPixelDataProvider>?) -> PixelDataProvider? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.pixeldataprovider.detachpixeldata)
+    public func detachPixelData() throws -> [UInt8] {
+        try _default.DetachPixelData()
     }
 
     deinit {
@@ -1015,12 +955,6 @@ public final class SoftwareBitmap : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap>?) -> SoftwareBitmap? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1028,117 +962,117 @@ public final class SoftwareBitmap : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ISoftwareBitmapFactory: __ABI_Windows_Graphics_Imaging.ISoftwareBitmapFactory = try! RoGetActivationFactory(HString("Windows.Graphics.Imaging.SoftwareBitmap"))
+    private static let _ISoftwareBitmapFactory: __ABI_Windows_Graphics_Imaging.ISoftwareBitmapFactory = try! RoGetActivationFactory("Windows.Graphics.Imaging.SoftwareBitmap")
     public init(_ format: BitmapPixelFormat, _ width: Int32, _ height: Int32) {
-        super.init(try! Self._ISoftwareBitmapFactory.CreateImpl(format, width, height))
+        super.init(try! Self._ISoftwareBitmapFactory.Create(format, width, height))
     }
 
     public init(_ format: BitmapPixelFormat, _ width: Int32, _ height: Int32, _ alpha: BitmapAlphaMode) {
-        super.init(try! Self._ISoftwareBitmapFactory.CreateWithAlphaImpl(format, width, height, alpha))
+        super.init(try! Self._ISoftwareBitmapFactory.CreateWithAlpha(format, width, height, alpha))
     }
 
-    private static let _ISoftwareBitmapStatics: __ABI_Windows_Graphics_Imaging.ISoftwareBitmapStatics = try! RoGetActivationFactory(HString("Windows.Graphics.Imaging.SoftwareBitmap"))
+    private static let _ISoftwareBitmapStatics: __ABI_Windows_Graphics_Imaging.ISoftwareBitmapStatics = try! RoGetActivationFactory("Windows.Graphics.Imaging.SoftwareBitmap")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.copy)
-    public static func copy(_ source: SoftwareBitmap!) -> SoftwareBitmap! {
-        return try! _ISoftwareBitmapStatics.CopyImpl(source)
+    public static func copy(_ source: SoftwareBitmap!) throws -> SoftwareBitmap! {
+        return try _ISoftwareBitmapStatics.Copy(source)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.convert)
-    public static func convert(_ source: SoftwareBitmap!, _ format: BitmapPixelFormat) -> SoftwareBitmap! {
-        return try! _ISoftwareBitmapStatics.ConvertImpl(source, format)
+    public static func convert(_ source: SoftwareBitmap!, _ format: BitmapPixelFormat) throws -> SoftwareBitmap! {
+        return try _ISoftwareBitmapStatics.Convert(source, format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.convert)
-    public static func convert(_ source: SoftwareBitmap!, _ format: BitmapPixelFormat, _ alpha: BitmapAlphaMode) -> SoftwareBitmap! {
-        return try! _ISoftwareBitmapStatics.ConvertWithAlphaImpl(source, format, alpha)
+    public static func convert(_ source: SoftwareBitmap!, _ format: BitmapPixelFormat, _ alpha: BitmapAlphaMode) throws -> SoftwareBitmap! {
+        return try _ISoftwareBitmapStatics.ConvertWithAlpha(source, format, alpha)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.createcopyfrombuffer)
-    public static func createCopyFromBuffer(_ source: UWP.AnyIBuffer!, _ format: BitmapPixelFormat, _ width: Int32, _ height: Int32) -> SoftwareBitmap! {
-        return try! _ISoftwareBitmapStatics.CreateCopyFromBufferImpl(source, format, width, height)
+    public static func createCopyFromBuffer(_ source: UWP.AnyIBuffer!, _ format: BitmapPixelFormat, _ width: Int32, _ height: Int32) throws -> SoftwareBitmap! {
+        return try _ISoftwareBitmapStatics.CreateCopyFromBuffer(source, format, width, height)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.createcopyfrombuffer)
-    public static func createCopyFromBuffer(_ source: UWP.AnyIBuffer!, _ format: BitmapPixelFormat, _ width: Int32, _ height: Int32, _ alpha: BitmapAlphaMode) -> SoftwareBitmap! {
-        return try! _ISoftwareBitmapStatics.CreateCopyWithAlphaFromBufferImpl(source, format, width, height, alpha)
+    public static func createCopyFromBuffer(_ source: UWP.AnyIBuffer!, _ format: BitmapPixelFormat, _ width: Int32, _ height: Int32, _ alpha: BitmapAlphaMode) throws -> SoftwareBitmap! {
+        return try _ISoftwareBitmapStatics.CreateCopyWithAlphaFromBuffer(source, format, width, height, alpha)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.createcopyfromsurfaceasync)
-    public static func createCopyFromSurfaceAsync(_ surface: UWP.AnyIDirect3DSurface!) -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
-        return try! _ISoftwareBitmapStatics.CreateCopyFromSurfaceAsyncImpl(surface)
+    public static func createCopyFromSurfaceAsync(_ surface: UWP.AnyIDirect3DSurface!) throws -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
+        return try _ISoftwareBitmapStatics.CreateCopyFromSurfaceAsync(surface)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.createcopyfromsurfaceasync)
-    public static func createCopyFromSurfaceAsync(_ surface: UWP.AnyIDirect3DSurface!, _ alpha: BitmapAlphaMode) -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
-        return try! _ISoftwareBitmapStatics.CreateCopyWithAlphaFromSurfaceAsyncImpl(surface, alpha)
+    public static func createCopyFromSurfaceAsync(_ surface: UWP.AnyIDirect3DSurface!, _ alpha: BitmapAlphaMode) throws -> WindowsFoundation.AnyIAsyncOperation<SoftwareBitmap?>! {
+        return try _ISoftwareBitmapStatics.CreateCopyWithAlphaFromSurfaceAsync(surface, alpha)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.lockbuffer)
     public func lockBuffer(_ mode: BitmapBufferAccessMode) throws -> BitmapBuffer! {
-        try _default.LockBufferImpl(mode)
+        try _default.LockBuffer(mode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.copyto)
     public func copyTo(_ bitmap: SoftwareBitmap!) throws {
-        try _default.CopyToImpl(bitmap)
+        try _default.CopyTo(bitmap)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.copyfrombuffer)
     public func copyFromBuffer(_ buffer: UWP.AnyIBuffer!) throws {
-        try _default.CopyFromBufferImpl(buffer)
+        try _default.CopyFromBuffer(buffer)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.copytobuffer)
     public func copyToBuffer(_ buffer: UWP.AnyIBuffer!) throws {
-        try _default.CopyToBufferImpl(buffer)
+        try _default.CopyToBuffer(buffer)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.getreadonlyview)
     public func getReadOnlyView() throws -> SoftwareBitmap! {
-        try _default.GetReadOnlyViewImpl()
+        try _default.GetReadOnlyView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.bitmapalphamode)
     public var bitmapAlphaMode : BitmapAlphaMode {
-        get { try! _default.get_BitmapAlphaModeImpl() }
+        get { try! _default.get_BitmapAlphaMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.bitmappixelformat)
     public var bitmapPixelFormat : BitmapPixelFormat {
-        get { try! _default.get_BitmapPixelFormatImpl() }
+        get { try! _default.get_BitmapPixelFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.dpix)
     public var dpiX : Double {
-        get { try! _default.get_DpiXImpl() }
-        set { try! _default.put_DpiXImpl(newValue) }
+        get { try! _default.get_DpiX() }
+        set { try! _default.put_DpiX(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.dpiy)
     public var dpiY : Double {
-        get { try! _default.get_DpiYImpl() }
-        set { try! _default.put_DpiYImpl(newValue) }
+        get { try! _default.get_DpiY() }
+        set { try! _default.put_DpiY(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.isreadonly)
     public var isReadOnly : Bool {
-        get { try! _default.get_IsReadOnlyImpl() }
+        get { try! _default.get_IsReadOnly() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.pixelheight)
     public var pixelHeight : Int32 {
-        get { try! _default.get_PixelHeightImpl() }
+        get { try! _default.get_PixelHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap.pixelwidth)
     public var pixelWidth : Int32 {
-        get { try! _default.get_PixelWidthImpl() }
+        get { try! _default.get_PixelWidth() }
     }
 
     deinit {
@@ -1148,7 +1082,7 @@ public final class SoftwareBitmap : WinRTClass, WindowsFoundation.IClosable {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds)
-public struct BitmapBounds: Hashable, Codable {
+public struct BitmapBounds: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds.x)
     public var x: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbounds.y)
@@ -1164,13 +1098,10 @@ public struct BitmapBounds: Hashable, Codable {
         self.width = width
         self.height = height
     }
-    public static func from(abi: __x_ABI_CWindows_CGraphics_CImaging_CBitmapBounds) -> BitmapBounds {
-        .init(x: abi.X, y: abi.Y, width: abi.Width, height: abi.Height)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapplanedescription)
-public struct BitmapPlaneDescription: Hashable, Codable {
+public struct BitmapPlaneDescription: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapplanedescription.startindex)
     public var startIndex: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapplanedescription.width)
@@ -1186,13 +1117,10 @@ public struct BitmapPlaneDescription: Hashable, Codable {
         self.height = height
         self.stride = stride
     }
-    public static func from(abi: __x_ABI_CWindows_CGraphics_CImaging_CBitmapPlaneDescription) -> BitmapPlaneDescription {
-        .init(startIndex: abi.StartIndex, width: abi.Width, height: abi.Height, stride: abi.Stride)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapsize)
-public struct BitmapSize: Hashable, Codable {
+public struct BitmapSize: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapsize.width)
     public var width: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapsize.height)
@@ -1201,9 +1129,6 @@ public struct BitmapSize: Hashable, Codable {
     public init(width: UInt32, height: UInt32) {
         self.width = width
         self.height = height
-    }
-    public static func from(abi: __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize) -> BitmapSize {
-        .init(width: abi.Width, height: abi.Height)
     }
 }
 
@@ -1301,7 +1226,7 @@ extension UWP.BitmapAlphaMode {
         __x_ABI_CWindows_CGraphics_CImaging_CBitmapAlphaMode_Ignore
     }
 }
-extension UWP.BitmapAlphaMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BitmapAlphaMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.BitmapBufferAccessMode {
     public static var read : UWP.BitmapBufferAccessMode {
@@ -1314,7 +1239,7 @@ extension UWP.BitmapBufferAccessMode {
         __x_ABI_CWindows_CGraphics_CImaging_CBitmapBufferAccessMode_Write
     }
 }
-extension UWP.BitmapBufferAccessMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BitmapBufferAccessMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.BitmapFlip {
     public static var none : UWP.BitmapFlip {
@@ -1327,7 +1252,7 @@ extension UWP.BitmapFlip {
         __x_ABI_CWindows_CGraphics_CImaging_CBitmapFlip_Vertical
     }
 }
-extension UWP.BitmapFlip: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BitmapFlip: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.BitmapInterpolationMode {
     public static var nearestNeighbor : UWP.BitmapInterpolationMode {
@@ -1343,7 +1268,7 @@ extension UWP.BitmapInterpolationMode {
         __x_ABI_CWindows_CGraphics_CImaging_CBitmapInterpolationMode_Fant
     }
 }
-extension UWP.BitmapInterpolationMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BitmapInterpolationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.BitmapPixelFormat {
     public static var unknown : UWP.BitmapPixelFormat {
@@ -1374,7 +1299,7 @@ extension UWP.BitmapPixelFormat {
         __x_ABI_CWindows_CGraphics_CImaging_CBitmapPixelFormat_Yuy2
     }
 }
-extension UWP.BitmapPixelFormat: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BitmapPixelFormat: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.BitmapRotation {
     public static var none : UWP.BitmapRotation {
@@ -1390,7 +1315,7 @@ extension UWP.BitmapRotation {
         __x_ABI_CWindows_CGraphics_CImaging_CBitmapRotation_Clockwise270Degrees
     }
 }
-extension UWP.BitmapRotation: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BitmapRotation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ColorManagementMode {
     public static var doNotColorManage : UWP.ColorManagementMode {
@@ -1400,7 +1325,7 @@ extension UWP.ColorManagementMode {
         __x_ABI_CWindows_CGraphics_CImaging_CColorManagementMode_ColorManageToSRgb
     }
 }
-extension UWP.ColorManagementMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ColorManagementMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ExifOrientationMode {
     public static var ignoreExifOrientation : UWP.ExifOrientationMode {
@@ -1410,7 +1335,7 @@ extension UWP.ExifOrientationMode {
         __x_ABI_CWindows_CGraphics_CImaging_CExifOrientationMode_RespectExifOrientation
     }
 }
-extension UWP.ExifOrientationMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ExifOrientationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.JpegSubsamplingMode {
     public static var `default` : UWP.JpegSubsamplingMode {
@@ -1426,7 +1351,7 @@ extension UWP.JpegSubsamplingMode {
         __x_ABI_CWindows_CGraphics_CImaging_CJpegSubsamplingMode_Y4Cb4Cr4
     }
 }
-extension UWP.JpegSubsamplingMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.JpegSubsamplingMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.PngFilterMode {
     public static var automatic : UWP.PngFilterMode {
@@ -1451,7 +1376,7 @@ extension UWP.PngFilterMode {
         __x_ABI_CWindows_CGraphics_CImaging_CPngFilterMode_Adaptive
     }
 }
-extension UWP.PngFilterMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.PngFilterMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.TiffCompressionMode {
     public static var automatic : UWP.TiffCompressionMode {
@@ -1479,5 +1404,5 @@ extension UWP.TiffCompressionMode {
         __x_ABI_CWindows_CGraphics_CImaging_CTiffCompressionMode_LzwhDifferencing
     }
 }
-extension UWP.TiffCompressionMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.TiffCompressionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

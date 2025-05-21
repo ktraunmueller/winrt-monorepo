@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_ApplicationModel_Activation {
     public enum IActivatedEventArgsBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs
@@ -30,17 +31,17 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.kind)
         fileprivate var kind : ActivationKind {
-            get { try! _default.get_KindImpl() }
+            get { try! _default.get_Kind() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.previousexecutionstate)
         fileprivate var previousExecutionState : ApplicationExecutionState {
-            get { try! _default.get_PreviousExecutionStateImpl() }
+            get { try! _default.get_PreviousExecutionState() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.splashscreen)
         fileprivate var splashScreen : SplashScreen! {
-            get { try! _default.get_SplashScreenImpl() }
+            get { try! _default.get_SplashScreen() }
         }
 
     }
@@ -70,23 +71,23 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.user)
         fileprivate var user : UWP.User! {
-            get { try! _default.get_UserImpl() }
+            get { try! _default.get_User() }
         }
 
         private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.kind)
         fileprivate var kind : ActivationKind {
-            get { try! _IActivatedEventArgs.get_KindImpl() }
+            get { try! _IActivatedEventArgs.get_Kind() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.previousexecutionstate)
         fileprivate var previousExecutionState : ApplicationExecutionState {
-            get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.splashscreen)
         fileprivate var splashScreen : SplashScreen! {
-            get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
         }
 
     }
@@ -116,23 +117,23 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.currentlyshownapplicationviewid)
         fileprivate var currentlyShownApplicationViewId : Int32 {
-            get { try! _default.get_CurrentlyShownApplicationViewIdImpl() }
+            get { try! _default.get_CurrentlyShownApplicationViewId() }
         }
 
         private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.kind)
         fileprivate var kind : ActivationKind {
-            get { try! _IActivatedEventArgs.get_KindImpl() }
+            get { try! _IActivatedEventArgs.get_Kind() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.previousexecutionstate)
         fileprivate var previousExecutionState : ApplicationExecutionState {
-            get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.splashscreen)
         fileprivate var splashScreen : SplashScreen! {
-            get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
         }
 
     }
@@ -162,7 +163,7 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ibackgroundactivatedeventargs.taskinstance)
         fileprivate var taskInstance : UWP.AnyIBackgroundTaskInstance! {
-            get { try! _default.get_TaskInstanceImpl() }
+            get { try! _default.get_TaskInstance() }
         }
 
     }
@@ -192,28 +193,28 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.arguments)
         fileprivate var arguments : String {
-            get { try! _default.get_ArgumentsImpl() }
+            get { try! _default.get_Arguments() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.tileid)
         fileprivate var tileId : String {
-            get { try! _default.get_TileIdImpl() }
+            get { try! _default.get_TileId() }
         }
 
         private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.kind)
         fileprivate var kind : ActivationKind {
-            get { try! _IActivatedEventArgs.get_KindImpl() }
+            get { try! _IActivatedEventArgs.get_Kind() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.previousexecutionstate)
         fileprivate var previousExecutionState : ApplicationExecutionState {
-            get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.splashscreen)
         fileprivate var splashScreen : SplashScreen! {
-            get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
         }
 
     }
@@ -243,34 +244,34 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.tileactivatedinfo)
         fileprivate var tileActivatedInfo : TileActivatedInfo! {
-            get { try! _default.get_TileActivatedInfoImpl() }
+            get { try! _default.get_TileActivatedInfo() }
         }
 
         private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.kind)
         fileprivate var kind : ActivationKind {
-            get { try! _IActivatedEventArgs.get_KindImpl() }
+            get { try! _IActivatedEventArgs.get_Kind() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.previousexecutionstate)
         fileprivate var previousExecutionState : ApplicationExecutionState {
-            get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.splashscreen)
         fileprivate var splashScreen : SplashScreen! {
-            get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
         }
 
         private lazy var _ILaunchActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.arguments)
         fileprivate var arguments : String {
-            get { try! _ILaunchActivatedEventArgs.get_ArgumentsImpl() }
+            get { try! _ILaunchActivatedEventArgs.get_Arguments() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.tileid)
         fileprivate var tileId : String {
-            get { try! _ILaunchActivatedEventArgs.get_TileIdImpl() }
+            get { try! _ILaunchActivatedEventArgs.get_TileId() }
         }
 
     }
@@ -300,23 +301,23 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.prelaunchactivated)
         fileprivate var prelaunchActivated : Bool {
-            get { try! _default.get_PrelaunchActivatedImpl() }
+            get { try! _default.get_PrelaunchActivated() }
         }
 
         private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.kind)
         fileprivate var kind : ActivationKind {
-            get { try! _IActivatedEventArgs.get_KindImpl() }
+            get { try! _IActivatedEventArgs.get_Kind() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.previousexecutionstate)
         fileprivate var previousExecutionState : ApplicationExecutionState {
-            get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.splashscreen)
         fileprivate var splashScreen : SplashScreen! {
-            get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
         }
 
     }
@@ -346,23 +347,23 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.uri)
         fileprivate var uri : WindowsFoundation.Uri! {
-            get { try! _default.get_UriImpl() }
+            get { try! _default.get_Uri() }
         }
 
         private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.kind)
         fileprivate var kind : ActivationKind {
-            get { try! _IActivatedEventArgs.get_KindImpl() }
+            get { try! _IActivatedEventArgs.get_Kind() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.previousexecutionstate)
         fileprivate var previousExecutionState : ApplicationExecutionState {
-            get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.splashscreen)
         fileprivate var splashScreen : SplashScreen! {
-            get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
         }
 
     }
@@ -392,28 +393,28 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.callerpackagefamilyname)
         fileprivate var callerPackageFamilyName : String {
-            get { try! _default.get_CallerPackageFamilyNameImpl() }
+            get { try! _default.get_CallerPackageFamilyName() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.data)
         fileprivate var data : WindowsFoundation.ValueSet! {
-            get { try! _default.get_DataImpl() }
+            get { try! _default.get_Data() }
         }
 
         private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.kind)
         fileprivate var kind : ActivationKind {
-            get { try! _IActivatedEventArgs.get_KindImpl() }
+            get { try! _IActivatedEventArgs.get_Kind() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.previousexecutionstate)
         fileprivate var previousExecutionState : ApplicationExecutionState {
-            get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.splashscreen)
         fileprivate var splashScreen : SplashScreen! {
-            get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
         }
 
     }
@@ -443,25 +444,185 @@ public enum __IMPL_Windows_ApplicationModel_Activation {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.viewswitcher)
         fileprivate var viewSwitcher : UWP.ActivationViewSwitcher! {
-            get { try! _default.get_ViewSwitcherImpl() }
+            get { try! _default.get_ViewSwitcher() }
         }
 
         private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.kind)
         fileprivate var kind : ActivationKind {
-            get { try! _IActivatedEventArgs.get_KindImpl() }
+            get { try! _IActivatedEventArgs.get_Kind() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.previousexecutionstate)
         fileprivate var previousExecutionState : ApplicationExecutionState {
-            get { try! _IActivatedEventArgs.get_PreviousExecutionStateImpl() }
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.splashscreen)
         fileprivate var splashScreen : SplashScreen! {
-            get { try! _IActivatedEventArgs.get_SplashScreenImpl() }
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
         }
 
     }
 
+    public enum BackgroundActivatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = BackgroundActivatedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs>?) -> BackgroundActivatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LaunchActivatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = LaunchActivatedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs>?) -> LaunchActivatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ProtocolActivatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ProtocolActivatedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs>?) -> ProtocolActivatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SplashScreenBridge: AbiBridge {
+        public typealias SwiftProjection = SplashScreen
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen>?) -> SplashScreen? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TileActivatedInfoBridge: AbiBridge {
+        public typealias SwiftProjection = TileActivatedInfo
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo>?) -> TileActivatedInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IActivatedEventArgsWithUserMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIActivatedEventArgsWithUser
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUserBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IApplicationViewActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIApplicationViewActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IBackgroundActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBackgroundActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ILaunchActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyILaunchActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ILaunchActivatedEventArgs2Maker: MakeFromAbi {
+    public typealias SwiftType = AnyILaunchActivatedEventArgs2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2 = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IPrelaunchActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIPrelaunchActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IProtocolActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIProtocolActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IViewSwitcherProviderMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIViewSwitcherProvider
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IViewSwitcherProviderBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class BackgroundActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = BackgroundActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackgroundActivatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LaunchActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = LaunchActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LaunchActivatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ProtocolActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ProtocolActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ProtocolActivatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SplashScreenMaker: MakeFromAbi {
+    public typealias SwiftType = SplashScreen
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SplashScreen(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TileActivatedInfoMaker: MakeFromAbi {
+    public typealias SwiftType = TileActivatedInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TileActivatedInfo(fromAbi: abi)
+    }
 }

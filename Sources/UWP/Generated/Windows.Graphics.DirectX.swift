@@ -22,7 +22,7 @@ extension UWP.DirectXAlphaMode {
         __x_ABI_CWindows_CGraphics_CDirectX_CDirectXAlphaMode_Ignore
     }
 }
-extension UWP.DirectXAlphaMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.DirectXAlphaMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.DirectXPixelFormat {
     public static var unknown : UWP.DirectXPixelFormat {
@@ -383,5 +383,5 @@ extension UWP.DirectXPixelFormat {
         __x_ABI_CWindows_CGraphics_CDirectX_CDirectXPixelFormat_V408
     }
 }
-extension UWP.DirectXPixelFormat: @retroactive Hashable, @retroactive Codable {}
+extension UWP.DirectXPixelFormat: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Storage_Streams {
     public enum IBufferBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIBuffer
@@ -30,13 +31,13 @@ public enum __IMPL_Windows_Storage_Streams {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.ibuffer.capacity)
         fileprivate var capacity : UInt32 {
-            get { try! _default.get_CapacityImpl() }
+            get { try! _default.get_Capacity() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.ibuffer.length)
         fileprivate var length : UInt32 {
-            get { try! _default.get_LengthImpl() }
-            set { try! _default.put_LengthImpl(newValue) }
+            get { try! _default.get_Length() }
+            set { try! _default.put_Length(newValue) }
         }
 
         private lazy var _IBufferByteAccess: __ABI_.IBufferByteAccess! = getInterfaceForCaching()
@@ -73,7 +74,7 @@ public enum __IMPL_Windows_Storage_Streams {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.icontenttypeprovider.contenttype)
         fileprivate var contentType : String {
-            get { try! _default.get_ContentTypeImpl() }
+            get { try! _default.get_ContentType() }
         }
 
     }
@@ -103,115 +104,120 @@ public enum __IMPL_Windows_Storage_Streams {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readbyte)
         fileprivate func readByte() throws -> UInt8 {
-            try _default.ReadByteImpl()
+            try _default.ReadByte()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readbytes)
+        fileprivate func readBytes(_ value: inout [UInt8]) throws {
+            try _default.ReadBytes(&value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readbuffer)
         fileprivate func readBuffer(_ length: UInt32) throws -> AnyIBuffer! {
-            try _default.ReadBufferImpl(length)
+            try _default.ReadBuffer(length)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readboolean)
         fileprivate func readBoolean() throws -> Bool {
-            try _default.ReadBooleanImpl()
+            try _default.ReadBoolean()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readguid)
         fileprivate func readGuid() throws -> Foundation.UUID {
-            try _default.ReadGuidImpl()
+            try _default.ReadGuid()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readint16)
         fileprivate func readInt16() throws -> Int16 {
-            try _default.ReadInt16Impl()
+            try _default.ReadInt16()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readint32)
         fileprivate func readInt32() throws -> Int32 {
-            try _default.ReadInt32Impl()
+            try _default.ReadInt32()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readint64)
         fileprivate func readInt64() throws -> Int64 {
-            try _default.ReadInt64Impl()
+            try _default.ReadInt64()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readuint16)
         fileprivate func readUInt16() throws -> UInt16 {
-            try _default.ReadUInt16Impl()
+            try _default.ReadUInt16()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readuint32)
         fileprivate func readUInt32() throws -> UInt32 {
-            try _default.ReadUInt32Impl()
+            try _default.ReadUInt32()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readuint64)
         fileprivate func readUInt64() throws -> UInt64 {
-            try _default.ReadUInt64Impl()
+            try _default.ReadUInt64()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readsingle)
         fileprivate func readSingle() throws -> Float {
-            try _default.ReadSingleImpl()
+            try _default.ReadSingle()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readdouble)
         fileprivate func readDouble() throws -> Double {
-            try _default.ReadDoubleImpl()
+            try _default.ReadDouble()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readstring)
         fileprivate func readString(_ codeUnitCount: UInt32) throws -> String {
-            try _default.ReadStringImpl(codeUnitCount)
+            try _default.ReadString(codeUnitCount)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readdatetime)
         fileprivate func readDateTime() throws -> WindowsFoundation.DateTime {
-            try _default.ReadDateTimeImpl()
+            try _default.ReadDateTime()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.readtimespan)
         fileprivate func readTimeSpan() throws -> WindowsFoundation.TimeSpan {
-            try _default.ReadTimeSpanImpl()
+            try _default.ReadTimeSpan()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.loadasync)
         fileprivate func loadAsync(_ count: UInt32) throws -> DataReaderLoadOperation! {
-            try _default.LoadAsyncImpl(count)
+            try _default.LoadAsync(count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.detachbuffer)
         fileprivate func detachBuffer() throws -> AnyIBuffer! {
-            try _default.DetachBufferImpl()
+            try _default.DetachBuffer()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.detachstream)
         fileprivate func detachStream() throws -> AnyIInputStream! {
-            try _default.DetachStreamImpl()
+            try _default.DetachStream()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.byteorder)
         fileprivate var byteOrder : ByteOrder {
-            get { try! _default.get_ByteOrderImpl() }
-            set { try! _default.put_ByteOrderImpl(newValue) }
+            get { try! _default.get_ByteOrder() }
+            set { try! _default.put_ByteOrder(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.inputstreamoptions)
         fileprivate var inputStreamOptions : InputStreamOptions {
-            get { try! _default.get_InputStreamOptionsImpl() }
-            set { try! _default.put_InputStreamOptionsImpl(newValue) }
+            get { try! _default.get_InputStreamOptions() }
+            set { try! _default.put_InputStreamOptions(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.unconsumedbufferlength)
         fileprivate var unconsumedBufferLength : UInt32 {
-            get { try! _default.get_UnconsumedBufferLengthImpl() }
+            get { try! _default.get_UnconsumedBufferLength() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatareader.unicodeencoding)
         fileprivate var unicodeEncoding : UnicodeEncoding {
-            get { try! _default.get_UnicodeEncodingImpl() }
-            set { try! _default.put_UnicodeEncodingImpl(newValue) }
+            get { try! _default.get_UnicodeEncoding() }
+            set { try! _default.put_UnicodeEncoding(newValue) }
         }
 
     }
@@ -241,124 +247,129 @@ public enum __IMPL_Windows_Storage_Streams {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writebyte)
         fileprivate func writeByte(_ value: UInt8) throws {
-            try _default.WriteByteImpl(value)
+            try _default.WriteByte(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writebytes)
+        fileprivate func writeBytes(_ value: [UInt8]) throws {
+            try _default.WriteBytes(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writebuffer)
         fileprivate func writeBuffer(_ buffer: AnyIBuffer!) throws {
-            try _default.WriteBufferImpl(buffer)
+            try _default.WriteBuffer(buffer)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writebuffer)
         fileprivate func writeBuffer(_ buffer: AnyIBuffer!, _ start: UInt32, _ count: UInt32) throws {
-            try _default.WriteBufferRangeImpl(buffer, start, count)
+            try _default.WriteBufferRange(buffer, start, count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writeboolean)
         fileprivate func writeBoolean(_ value: Bool) throws {
-            try _default.WriteBooleanImpl(value)
+            try _default.WriteBoolean(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writeguid)
         fileprivate func writeGuid(_ value: Foundation.UUID) throws {
-            try _default.WriteGuidImpl(value)
+            try _default.WriteGuid(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writeint16)
         fileprivate func writeInt16(_ value: Int16) throws {
-            try _default.WriteInt16Impl(value)
+            try _default.WriteInt16(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writeint32)
         fileprivate func writeInt32(_ value: Int32) throws {
-            try _default.WriteInt32Impl(value)
+            try _default.WriteInt32(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writeint64)
         fileprivate func writeInt64(_ value: Int64) throws {
-            try _default.WriteInt64Impl(value)
+            try _default.WriteInt64(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writeuint16)
         fileprivate func writeUInt16(_ value: UInt16) throws {
-            try _default.WriteUInt16Impl(value)
+            try _default.WriteUInt16(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writeuint32)
         fileprivate func writeUInt32(_ value: UInt32) throws {
-            try _default.WriteUInt32Impl(value)
+            try _default.WriteUInt32(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writeuint64)
         fileprivate func writeUInt64(_ value: UInt64) throws {
-            try _default.WriteUInt64Impl(value)
+            try _default.WriteUInt64(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writesingle)
         fileprivate func writeSingle(_ value: Float) throws {
-            try _default.WriteSingleImpl(value)
+            try _default.WriteSingle(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writedouble)
         fileprivate func writeDouble(_ value: Double) throws {
-            try _default.WriteDoubleImpl(value)
+            try _default.WriteDouble(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writedatetime)
         fileprivate func writeDateTime(_ value: WindowsFoundation.DateTime) throws {
-            try _default.WriteDateTimeImpl(value)
+            try _default.WriteDateTime(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writetimespan)
         fileprivate func writeTimeSpan(_ value: WindowsFoundation.TimeSpan) throws {
-            try _default.WriteTimeSpanImpl(value)
+            try _default.WriteTimeSpan(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.writestring)
         fileprivate func writeString(_ value: String) throws -> UInt32 {
-            try _default.WriteStringImpl(value)
+            try _default.WriteString(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.measurestring)
         fileprivate func measureString(_ value: String) throws -> UInt32 {
-            try _default.MeasureStringImpl(value)
+            try _default.MeasureString(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.storeasync)
         fileprivate func storeAsync() throws -> DataWriterStoreOperation! {
-            try _default.StoreAsyncImpl()
+            try _default.StoreAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.flushasync)
         fileprivate func flushAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-            try _default.FlushAsyncImpl()
+            try _default.FlushAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.detachbuffer)
         fileprivate func detachBuffer() throws -> AnyIBuffer! {
-            try _default.DetachBufferImpl()
+            try _default.DetachBuffer()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.detachstream)
         fileprivate func detachStream() throws -> AnyIOutputStream! {
-            try _default.DetachStreamImpl()
+            try _default.DetachStream()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.byteorder)
         fileprivate var byteOrder : ByteOrder {
-            get { try! _default.get_ByteOrderImpl() }
-            set { try! _default.put_ByteOrderImpl(newValue) }
+            get { try! _default.get_ByteOrder() }
+            set { try! _default.put_ByteOrder(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.unicodeencoding)
         fileprivate var unicodeEncoding : UnicodeEncoding {
-            get { try! _default.get_UnicodeEncodingImpl() }
-            set { try! _default.put_UnicodeEncodingImpl(newValue) }
+            get { try! _default.get_UnicodeEncoding() }
+            set { try! _default.put_UnicodeEncoding(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.idatawriter.unstoredbufferlength)
         fileprivate var unstoredBufferLength : UInt32 {
-            get { try! _default.get_UnstoredBufferLengthImpl() }
+            get { try! _default.get_UnstoredBufferLength() }
         }
 
     }
@@ -388,13 +399,13 @@ public enum __IMPL_Windows_Storage_Streams {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.iinputstream.readasync)
         fileprivate func readAsync(_ buffer: AnyIBuffer!, _ count: UInt32, _ options: InputStreamOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<AnyIBuffer?, UInt32>! {
-            try _default.ReadAsyncImpl(buffer, count, options)
+            try _default.ReadAsync(buffer, count, options)
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.iinputstream.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
@@ -424,7 +435,7 @@ public enum __IMPL_Windows_Storage_Streams {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.iinputstreamreference.opensequentialreadasync)
         fileprivate func openSequentialReadAsync() throws -> WindowsFoundation.AnyIAsyncOperation<AnyIInputStream?>! {
-            try _default.OpenSequentialReadAsyncImpl()
+            try _default.OpenSequentialReadAsync()
         }
 
     }
@@ -454,18 +465,18 @@ public enum __IMPL_Windows_Storage_Streams {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.ioutputstream.writeasync)
         fileprivate func writeAsync(_ buffer: AnyIBuffer!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UInt32, UInt32>! {
-            try _default.WriteAsyncImpl(buffer)
+            try _default.WriteAsync(buffer)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.ioutputstream.flushasync)
         fileprivate func flushAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-            try _default.FlushAsyncImpl()
+            try _default.FlushAsync()
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.ioutputstream.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
@@ -495,66 +506,66 @@ public enum __IMPL_Windows_Storage_Streams {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.getinputstreamat)
         fileprivate func getInputStreamAt(_ position: UInt64) throws -> AnyIInputStream! {
-            try _default.GetInputStreamAtImpl(position)
+            try _default.GetInputStreamAt(position)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.getoutputstreamat)
         fileprivate func getOutputStreamAt(_ position: UInt64) throws -> AnyIOutputStream! {
-            try _default.GetOutputStreamAtImpl(position)
+            try _default.GetOutputStreamAt(position)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.seek)
         fileprivate func seek(_ position: UInt64) throws {
-            try _default.SeekImpl(position)
+            try _default.Seek(position)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.clonestream)
         fileprivate func cloneStream() throws -> AnyIRandomAccessStream! {
-            try _default.CloneStreamImpl()
+            try _default.CloneStream()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.canread)
         fileprivate var canRead : Bool {
-            get { try! _default.get_CanReadImpl() }
+            get { try! _default.get_CanRead() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.canwrite)
         fileprivate var canWrite : Bool {
-            get { try! _default.get_CanWriteImpl() }
+            get { try! _default.get_CanWrite() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.position)
         fileprivate var position : UInt64 {
-            get { try! _default.get_PositionImpl() }
+            get { try! _default.get_Position() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.size)
         fileprivate var size : UInt64 {
-            get { try! _default.get_SizeImpl() }
-            set { try! _default.put_SizeImpl(newValue) }
+            get { try! _default.get_Size() }
+            set { try! _default.put_Size(newValue) }
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
         private lazy var _IInputStream: __ABI_Windows_Storage_Streams.IInputStream! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.readasync)
         fileprivate func readAsync(_ buffer: AnyIBuffer!, _ count: UInt32, _ options: InputStreamOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<AnyIBuffer?, UInt32>! {
-            try _IInputStream.ReadAsyncImpl(buffer, count, options)
+            try _IInputStream.ReadAsync(buffer, count, options)
         }
 
         private lazy var _IOutputStream: __ABI_Windows_Storage_Streams.IOutputStream! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.writeasync)
         fileprivate func writeAsync(_ buffer: AnyIBuffer!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UInt32, UInt32>! {
-            try _IOutputStream.WriteAsyncImpl(buffer)
+            try _IOutputStream.WriteAsync(buffer)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.flushasync)
         fileprivate func flushAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-            try _IOutputStream.FlushAsyncImpl()
+            try _IOutputStream.FlushAsync()
         }
 
     }
@@ -584,7 +595,7 @@ public enum __IMPL_Windows_Storage_Streams {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamreference.openreadasync)
         fileprivate func openReadAsync() throws -> WindowsFoundation.AnyIAsyncOperation<AnyIRandomAccessStreamWithContentType?>! {
-            try _default.OpenReadAsyncImpl()
+            try _default.OpenReadAsync()
         }
 
     }
@@ -615,74 +626,362 @@ public enum __IMPL_Windows_Storage_Streams {
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
         private lazy var _IInputStream: __ABI_Windows_Storage_Streams.IInputStream! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.readasync)
         fileprivate func readAsync(_ buffer: AnyIBuffer!, _ count: UInt32, _ options: InputStreamOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<AnyIBuffer?, UInt32>! {
-            try _IInputStream.ReadAsyncImpl(buffer, count, options)
+            try _IInputStream.ReadAsync(buffer, count, options)
         }
 
         private lazy var _IOutputStream: __ABI_Windows_Storage_Streams.IOutputStream! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.writeasync)
         fileprivate func writeAsync(_ buffer: AnyIBuffer!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UInt32, UInt32>! {
-            try _IOutputStream.WriteAsyncImpl(buffer)
+            try _IOutputStream.WriteAsync(buffer)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.flushasync)
         fileprivate func flushAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-            try _IOutputStream.FlushAsyncImpl()
+            try _IOutputStream.FlushAsync()
         }
 
         private lazy var _IRandomAccessStream: __ABI_Windows_Storage_Streams.IRandomAccessStream! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.getinputstreamat)
         fileprivate func getInputStreamAt(_ position: UInt64) throws -> AnyIInputStream! {
-            try _IRandomAccessStream.GetInputStreamAtImpl(position)
+            try _IRandomAccessStream.GetInputStreamAt(position)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.getoutputstreamat)
         fileprivate func getOutputStreamAt(_ position: UInt64) throws -> AnyIOutputStream! {
-            try _IRandomAccessStream.GetOutputStreamAtImpl(position)
+            try _IRandomAccessStream.GetOutputStreamAt(position)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.seek)
         fileprivate func seek(_ position: UInt64) throws {
-            try _IRandomAccessStream.SeekImpl(position)
+            try _IRandomAccessStream.Seek(position)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.clonestream)
         fileprivate func cloneStream() throws -> AnyIRandomAccessStream! {
-            try _IRandomAccessStream.CloneStreamImpl()
+            try _IRandomAccessStream.CloneStream()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.canread)
         fileprivate var canRead : Bool {
-            get { try! _IRandomAccessStream.get_CanReadImpl() }
+            get { try! _IRandomAccessStream.get_CanRead() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.canwrite)
         fileprivate var canWrite : Bool {
-            get { try! _IRandomAccessStream.get_CanWriteImpl() }
+            get { try! _IRandomAccessStream.get_CanWrite() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.position)
         fileprivate var position : UInt64 {
-            get { try! _IRandomAccessStream.get_PositionImpl() }
+            get { try! _IRandomAccessStream.get_Position() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.size)
         fileprivate var size : UInt64 {
-            get { try! _IRandomAccessStream.get_SizeImpl() }
-            set { try! _IRandomAccessStream.put_SizeImpl(newValue) }
+            get { try! _IRandomAccessStream.get_Size() }
+            set { try! _IRandomAccessStream.put_Size(newValue) }
         }
 
         private lazy var _IContentTypeProvider: __ABI_Windows_Storage_Streams.IContentTypeProvider! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype.contenttype)
         fileprivate var contentType : String {
-            get { try! _IContentTypeProvider.get_ContentTypeImpl() }
+            get { try! _IContentTypeProvider.get_ContentType() }
         }
 
     }
 
+    public enum BufferBridge: AbiBridge {
+        public typealias SwiftProjection = Buffer
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIBuffer
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIBuffer>?) -> Buffer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DataReaderBridge: AbiBridge {
+        public typealias SwiftProjection = DataReader
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIDataReader
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIDataReader>?) -> DataReader? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DataReaderLoadOperationBridge: AbiBridge {
+        public typealias SwiftProjection = DataReaderLoadOperation
+        public typealias CABI = __x_ABI_C__FIAsyncOperation_1_UINT32
+        public static func from(abi: ComPtr<__x_ABI_C__FIAsyncOperation_1_UINT32>?) -> DataReaderLoadOperation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DataWriterBridge: AbiBridge {
+        public typealias SwiftProjection = DataWriter
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIDataWriter
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIDataWriter>?) -> DataWriter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DataWriterStoreOperationBridge: AbiBridge {
+        public typealias SwiftProjection = DataWriterStoreOperation
+        public typealias CABI = __x_ABI_C__FIAsyncOperation_1_UINT32
+        public static func from(abi: ComPtr<__x_ABI_C__FIAsyncOperation_1_UINT32>?) -> DataWriterStoreOperation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FileInputStreamBridge: AbiBridge {
+        public typealias SwiftProjection = FileInputStream
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIInputStream
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIInputStream>?) -> FileInputStream? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FileOutputStreamBridge: AbiBridge {
+        public typealias SwiftProjection = FileOutputStream
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIOutputStream
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIOutputStream>?) -> FileOutputStream? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FileRandomAccessStreamBridge: AbiBridge {
+        public typealias SwiftProjection = FileRandomAccessStream
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream>?) -> FileRandomAccessStream? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InMemoryRandomAccessStreamBridge: AbiBridge {
+        public typealias SwiftProjection = InMemoryRandomAccessStream
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream>?) -> InMemoryRandomAccessStream? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputStreamOverStreamBridge: AbiBridge {
+        public typealias SwiftProjection = InputStreamOverStream
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIInputStream
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIInputStream>?) -> InputStreamOverStream? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum OutputStreamOverStreamBridge: AbiBridge {
+        public typealias SwiftProjection = OutputStreamOverStream
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIOutputStream
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIOutputStream>?) -> OutputStreamOverStream? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RandomAccessStreamOverStreamBridge: AbiBridge {
+        public typealias SwiftProjection = RandomAccessStreamOverStream
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream>?) -> RandomAccessStreamOverStream? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RandomAccessStreamReferenceBridge: AbiBridge {
+        public typealias SwiftProjection = RandomAccessStreamReference
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference>?) -> RandomAccessStreamReference? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IBufferMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBuffer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IBuffer = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IBufferBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IContentTypeProviderMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIContentTypeProvider
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IContentTypeProvider = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IContentTypeProviderBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IDataReaderMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIDataReader
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IDataReader = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IDataReaderBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IDataWriterMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIDataWriter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IDataWriter = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IDataWriterBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IInputStreamMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIInputStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IInputStream = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IInputStreamBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IInputStreamReferenceMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIInputStreamReference
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IInputStreamReference = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IInputStreamReferenceBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IOutputStreamMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIOutputStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IOutputStream = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IOutputStreamBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IRandomAccessStreamMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIRandomAccessStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IRandomAccessStream = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IRandomAccessStreamBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IRandomAccessStreamReferenceMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIRandomAccessStreamReference
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IRandomAccessStreamReference = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IRandomAccessStreamReferenceBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IRandomAccessStreamWithContentTypeMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIRandomAccessStreamWithContentType
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Storage_Streams.IRandomAccessStreamWithContentType = try! abi.QueryInterface()
+        return __IMPL_Windows_Storage_Streams.IRandomAccessStreamWithContentTypeBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class BufferMaker: MakeFromAbi {
+    public typealias SwiftType = Buffer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Buffer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DataReaderMaker: MakeFromAbi {
+    public typealias SwiftType = DataReader
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataReader(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DataReaderLoadOperationMaker: MakeFromAbi {
+    public typealias SwiftType = DataReaderLoadOperation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataReaderLoadOperation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DataWriterMaker: MakeFromAbi {
+    public typealias SwiftType = DataWriter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataWriter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DataWriterStoreOperationMaker: MakeFromAbi {
+    public typealias SwiftType = DataWriterStoreOperation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataWriterStoreOperation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FileInputStreamMaker: MakeFromAbi {
+    public typealias SwiftType = FileInputStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FileInputStream(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FileOutputStreamMaker: MakeFromAbi {
+    public typealias SwiftType = FileOutputStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FileOutputStream(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FileRandomAccessStreamMaker: MakeFromAbi {
+    public typealias SwiftType = FileRandomAccessStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FileRandomAccessStream(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InMemoryRandomAccessStreamMaker: MakeFromAbi {
+    public typealias SwiftType = InMemoryRandomAccessStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InMemoryRandomAccessStream(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputStreamOverStreamMaker: MakeFromAbi {
+    public typealias SwiftType = InputStreamOverStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputStreamOverStream(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class OutputStreamOverStreamMaker: MakeFromAbi {
+    public typealias SwiftType = OutputStreamOverStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return OutputStreamOverStream(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RandomAccessStreamOverStreamMaker: MakeFromAbi {
+    public typealias SwiftType = RandomAccessStreamOverStream
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RandomAccessStreamOverStream(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RandomAccessStreamReferenceMaker: MakeFromAbi {
+    public typealias SwiftType = RandomAccessStreamReference
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RandomAccessStreamReference(fromAbi: abi)
+    }
 }
