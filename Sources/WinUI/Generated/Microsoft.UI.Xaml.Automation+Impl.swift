@@ -4,5 +4,22 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Automation {
+    public enum AutomationPropertyBridge: AbiBridge {
+        public typealias SwiftProjection = AutomationProperty
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperty
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperty>?) -> AutomationProperty? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AutomationPropertyMaker: MakeFromAbi {
+    public typealias SwiftType = AutomationProperty
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AutomationProperty(fromAbi: abi)
+    }
 }

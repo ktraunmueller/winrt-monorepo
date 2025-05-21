@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Media_Imaging {
     public class DownloadProgressEventHandlerBridge : WinRTDelegateBridge {
         public typealias Handler = DownloadProgressEventHandler
@@ -14,9 +15,249 @@ public enum __IMPL_Microsoft_UI_Xaml_Media_Imaging {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
+    }
+    public enum BitmapImageBridge: AbiBridge {
+        public typealias SwiftProjection = BitmapImage
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage>?) -> BitmapImage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BitmapSourceBridge: ComposableBridge {
+        public typealias SwiftProjection = BitmapSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource>?) -> BitmapSource? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IBitmapSource : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = BitmapSource
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSource
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IBitmapSource
+    }
+
+    public enum DownloadProgressEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = DownloadProgressEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventArgs>?) -> DownloadProgressEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RenderTargetBitmapBridge: AbiBridge {
+        public typealias SwiftProjection = RenderTargetBitmap
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap>?) -> RenderTargetBitmap? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SoftwareBitmapSourceBridge: AbiBridge {
+        public typealias SwiftProjection = SoftwareBitmapSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISoftwareBitmapSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISoftwareBitmapSource>?) -> SoftwareBitmapSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SurfaceImageSourceBridge: ComposableBridge {
+        public typealias SwiftProjection = SurfaceImageSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSource>?) -> SurfaceImageSource? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ISurfaceImageSource : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = SurfaceImageSource
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSource
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISurfaceImageSource
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ISurfaceImageSource
+    }
+
+    public enum SvgImageSourceBridge: ComposableBridge {
+        public typealias SwiftProjection = SvgImageSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource>?) -> SvgImageSource? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ISvgImageSource : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = SvgImageSource
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSource
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ISvgImageSource
+    }
+
+    public enum SvgImageSourceFailedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SvgImageSourceFailedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFailedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFailedEventArgs>?) -> SvgImageSourceFailedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SvgImageSourceOpenedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SvgImageSourceOpenedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceOpenedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceOpenedEventArgs>?) -> SvgImageSourceOpenedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VirtualSurfaceImageSourceBridge: AbiBridge {
+        public typealias SwiftProjection = VirtualSurfaceImageSource
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSource
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSource>?) -> VirtualSurfaceImageSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum WriteableBitmapBridge: AbiBridge {
+        public typealias SwiftProjection = WriteableBitmap
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmap
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmap>?) -> WriteableBitmap? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum XamlRenderingBackgroundTaskBridge: ComposableBridge {
+        public typealias SwiftProjection = XamlRenderingBackgroundTask
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTask
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTask>?) -> XamlRenderingBackgroundTask? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IXamlRenderingBackgroundTaskOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskOverrides
+            public typealias Class = XamlRenderingBackgroundTask
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTask
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTask
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IXamlRenderingBackgroundTaskOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class BitmapImageMaker: MakeFromAbi {
+    public typealias SwiftType = BitmapImage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BitmapImage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BitmapSourceMaker: MakeFromAbi {
+    public typealias SwiftType = BitmapSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BitmapSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DownloadProgressEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DownloadProgressEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DownloadProgressEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RenderTargetBitmapMaker: MakeFromAbi {
+    public typealias SwiftType = RenderTargetBitmap
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RenderTargetBitmap(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SoftwareBitmapSourceMaker: MakeFromAbi {
+    public typealias SwiftType = SoftwareBitmapSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SoftwareBitmapSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SurfaceImageSourceMaker: MakeFromAbi {
+    public typealias SwiftType = SurfaceImageSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SurfaceImageSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SvgImageSourceMaker: MakeFromAbi {
+    public typealias SwiftType = SvgImageSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SvgImageSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SvgImageSourceFailedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SvgImageSourceFailedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SvgImageSourceFailedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SvgImageSourceOpenedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SvgImageSourceOpenedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SvgImageSourceOpenedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VirtualSurfaceImageSourceMaker: MakeFromAbi {
+    public typealias SwiftType = VirtualSurfaceImageSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VirtualSurfaceImageSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class WriteableBitmapMaker: MakeFromAbi {
+    public typealias SwiftType = WriteableBitmap
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WriteableBitmap(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class XamlRenderingBackgroundTaskMaker: MakeFromAbi {
+    public typealias SwiftType = XamlRenderingBackgroundTask
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return XamlRenderingBackgroundTask(fromAbi: abi)
     }
 }

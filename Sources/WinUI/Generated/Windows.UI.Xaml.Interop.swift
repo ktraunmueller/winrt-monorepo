@@ -7,7 +7,7 @@ import CWinRT
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typekind)
 public typealias TypeKind = __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeKind
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typename)
-public struct TypeName: Hashable, Codable {
+public struct TypeName: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typename.name)
     public var name: String = ""
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typename.kind)
@@ -16,9 +16,6 @@ public struct TypeName: Hashable, Codable {
     public init(name: String, kind: TypeKind) {
         self.name = name
         self.kind = kind
-    }
-    public static func from(abi: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName) -> TypeName {
-        .init(name: .init(from: abi.Name), kind: abi.Kind)
     }
 }
 
@@ -33,5 +30,5 @@ extension WinUI.TypeKind {
         __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeKind_Custom
     }
 }
-extension WinUI.TypeKind: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.TypeKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

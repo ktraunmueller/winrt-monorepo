@@ -18,12 +18,6 @@ open class Transform3D : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3D>?) -> Transform3D? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -38,25 +32,14 @@ open class Transform3D : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITransform3DFactory : __ABI_Microsoft_UI_Xaml_Media_Media3D.ITransform3DFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Media3D.Transform3D"))
+    private static var _ITransform3DFactory : __ABI_Microsoft_UI_Xaml_Media_Media3D.ITransform3DFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Media3D.Transform3D")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._ITransform3DFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Media3D.Transform3DBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ITransform3DFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    internal enum ITransform3D : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = Transform3D
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3D
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Media3D.ITransform3D
-        }
-    }
-    internal typealias Composable = ITransform3D
     deinit {
         _default = nil
     }

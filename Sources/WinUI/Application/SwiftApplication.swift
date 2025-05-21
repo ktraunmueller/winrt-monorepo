@@ -23,6 +23,7 @@ import WinAppSDK
 ///   }
 /// ```
 open class SwiftApplication: Application, IXamlMetadataProvider {
+
     public required override init() {
         super.init()
     }
@@ -49,7 +50,7 @@ open class SwiftApplication: Application, IXamlMetadataProvider {
                     fatalError("unable to find application class \(appClass)")
                 }
                 var application: SwiftApplication!
-                Application.start { _ in
+                try Application.start { _ in
                     MainRunLoopTickler.setup()
                     application = (instance as! SwiftApplication.Type).init()
                 }
@@ -73,11 +74,16 @@ open class SwiftApplication: Application, IXamlMetadataProvider {
     }
 
     private lazy var metadataProvider: XamlControlsXamlMetaDataProvider = .init()
+
     public func getXamlType(_ type: TypeName) throws -> IXamlType! {
         try metadataProvider.getXamlType(type)
     }
 
     public func getXamlType(_ fullName: String) throws -> IXamlType! {
         try metadataProvider.getXamlType(fullName)
+    }
+
+    public func getXmlnsDefinitions() throws -> [XmlnsDefinition] {
+        return try metadataProvider.getXmlnsDefinitions()
     }
 }

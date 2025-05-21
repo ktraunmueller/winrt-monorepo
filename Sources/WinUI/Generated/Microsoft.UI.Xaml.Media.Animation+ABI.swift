@@ -606,6 +606,7 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITransitionFacto
     .init(Data1: 0xB7023E3B, Data2: 0xBCD3, Data3: 0x50EC, Data4: ( 0xAA,0xCF,0x8C,0xFC,0xEC,0xE2,0x5F,0x17 ))// B7023E3B-BCD3-50EC-AACF-8CFCECE25F17
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IAddDeleteThemeTransition: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIAddDeleteThemeTransition }
@@ -615,7 +616,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IBackEase: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBackEase }
 
-        internal func get_AmplitudeImpl() throws -> Double {
+        public func get_Amplitude() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBackEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Amplitude(pThis, &value))
@@ -623,7 +624,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_AmplitudeImpl(_ value: Double) throws {
+        public func put_Amplitude(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBackEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Amplitude(pThis, value))
             }
@@ -634,13 +635,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IBackEaseStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBackEaseStatics }
 
-        internal func get_AmplitudePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_AmplitudeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBackEaseStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AmplitudeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -653,7 +654,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IBasicConnectedAnimationConfigurationFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBasicConnectedAnimationConfigurationFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.BasicConnectedAnimationConfiguration.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBasicConnectedAnimationConfiguration {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.BasicConnectedAnimationConfigurationBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBasicConnectedAnimationConfiguration {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -671,16 +672,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IBeginStoryboard: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBeginStoryboard }
 
-        internal func get_StoryboardImpl() throws -> WinUI.Storyboard? {
+        public func get_Storyboard() throws -> WinUI.Storyboard? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBeginStoryboard.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Storyboard(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.StoryboardBridge.from(abi: value)
         }
 
-        internal func put_StoryboardImpl(_ value: WinUI.Storyboard?) throws {
+        public func put_Storyboard(_ value: WinUI.Storyboard?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBeginStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Storyboard(pThis, RawPointer(value)))
             }
@@ -691,13 +692,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IBeginStoryboardStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBeginStoryboardStatics }
 
-        internal func get_StoryboardPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_StoryboardProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBeginStoryboardStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_StoryboardProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -705,7 +706,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IBounceEase: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEase }
 
-        internal func get_BouncesImpl() throws -> Int32 {
+        public func get_Bounces() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bounces(pThis, &value))
@@ -713,13 +714,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_BouncesImpl(_ value: Int32) throws {
+        public func put_Bounces(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Bounces(pThis, value))
             }
         }
 
-        internal func get_BouncinessImpl() throws -> Double {
+        public func get_Bounciness() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bounciness(pThis, &value))
@@ -727,7 +728,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_BouncinessImpl(_ value: Double) throws {
+        public func put_Bounciness(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Bounciness(pThis, value))
             }
@@ -738,22 +739,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IBounceEaseStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEaseStatics }
 
-        internal func get_BouncesPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_BouncesProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEaseStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BouncesProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_BouncinessPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_BouncinessProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEaseStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BouncinessProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -766,7 +767,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IColorAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation }
 
-        internal func get_FromImpl() throws -> UWP.Color? {
+        public func get_From() throws -> UWP.Color? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_From(pThis, &valueAbi))
@@ -775,7 +776,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_FromImpl(_ value: UWP.Color?) throws {
+        public func put_From(_ value: UWP.Color?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
@@ -783,7 +784,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_ToImpl() throws -> UWP.Color? {
+        public func get_To() throws -> UWP.Color? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_To(pThis, &valueAbi))
@@ -792,7 +793,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ToImpl(_ value: UWP.Color?) throws {
+        public func put_To(_ value: UWP.Color?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
@@ -800,7 +801,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_ByImpl() throws -> UWP.Color? {
+        public func get_By() throws -> UWP.Color? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_By(pThis, &valueAbi))
@@ -809,7 +810,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ByImpl(_ value: UWP.Color?) throws {
+        public func put_By(_ value: UWP.Color?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
@@ -817,22 +818,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_EasingFunctionImpl() throws -> WinUI.EasingFunctionBase? {
+        public func get_EasingFunction() throws -> WinUI.EasingFunctionBase? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunction(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.EasingFunctionBaseBridge.from(abi: value)
         }
 
-        internal func put_EasingFunctionImpl(_ value: WinUI.EasingFunctionBase?) throws {
+        public func put_EasingFunction(_ value: WinUI.EasingFunctionBase?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EasingFunction(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_EnableDependentAnimationImpl() throws -> Bool {
+        public func get_EnableDependentAnimation() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimation(pThis, &value))
@@ -840,7 +841,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_EnableDependentAnimationImpl(_ value: Bool) throws {
+        public func put_EnableDependentAnimation(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnableDependentAnimation(pThis, .init(from: value)))
             }
@@ -851,49 +852,49 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IColorAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationStatics }
 
-        internal func get_FromPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ToPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ToProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ToProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ByPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ByProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ByProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_EasingFunctionPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EasingFunctionProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunctionProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_EnableDependentAnimationPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EnableDependentAnimationProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimationProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -901,16 +902,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IColorAnimationUsingKeyFrames: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationUsingKeyFrames }
 
-        internal func get_KeyFramesImpl() throws -> WinUI.ColorKeyFrameCollection? {
+        public func get_KeyFrames() throws -> WinUI.ColorKeyFrameCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationUsingKeyFrames.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyFrames(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.ColorKeyFrameCollectionBridge.from(abi: value)
         }
 
-        internal func get_EnableDependentAnimationImpl() throws -> Bool {
+        public func get_EnableDependentAnimation() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationUsingKeyFrames.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimation(pThis, &value))
@@ -918,7 +919,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_EnableDependentAnimationImpl(_ value: Bool) throws {
+        public func put_EnableDependentAnimation(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationUsingKeyFrames.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnableDependentAnimation(pThis, .init(from: value)))
             }
@@ -929,13 +930,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IColorAnimationUsingKeyFramesStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationUsingKeyFramesStatics }
 
-        internal func get_EnableDependentAnimationPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EnableDependentAnimationProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationUsingKeyFramesStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimationProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -943,7 +944,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IColorKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrame }
 
-        internal func get_ValueImpl() throws -> UWP.Color {
+        public func get_Value() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
@@ -951,13 +952,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_ValueImpl(_ value: UWP.Color) throws {
+        public func put_Value(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_KeyTimeImpl() throws -> WinUI.KeyTime {
+        public func get_KeyTime() throws -> WinUI.KeyTime {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CKeyTime = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTime(pThis, &value))
@@ -965,7 +966,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_KeyTimeImpl(_ value: WinUI.KeyTime) throws {
+        public func put_KeyTime(_ value: WinUI.KeyTime) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyTime(pThis, .from(swift: value)))
             }
@@ -976,7 +977,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IColorKeyFrameFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrameFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.ColorKeyFrame.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IColorKeyFrame {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.ColorKeyFrameBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IColorKeyFrame {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -994,22 +995,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IColorKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrameStatics }
 
-        internal func get_ValuePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ValueProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValueProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_KeyTimePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_KeyTimeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTimeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -1017,7 +1018,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ICommonNavigationTransitionInfo: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfo }
 
-        internal func get_IsStaggeringEnabledImpl() throws -> Bool {
+        public func get_IsStaggeringEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStaggeringEnabled(pThis, &value))
@@ -1025,7 +1026,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_IsStaggeringEnabledImpl(_ value: Bool) throws {
+        public func put_IsStaggeringEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsStaggeringEnabled(pThis, .init(from: value)))
             }
@@ -1036,25 +1037,25 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ICommonNavigationTransitionInfoStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfoStatics }
 
-        internal func get_IsStaggeringEnabledPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsStaggeringEnabledProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfoStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStaggeringEnabledProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_IsStaggerElementPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsStaggerElementProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfoStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStaggerElementProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func GetIsStaggerElementImpl(_ element: WinUI.UIElement?) throws -> Bool {
+        public func GetIsStaggerElement(_ element: WinUI.UIElement?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsStaggerElement(pThis, RawPointer(element), &result))
@@ -1062,7 +1063,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func SetIsStaggerElementImpl(_ element: WinUI.UIElement?, _ value: Bool) throws {
+        public func SetIsStaggerElement(_ element: WinUI.UIElement?, _ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetIsStaggerElement(pThis, RawPointer(element), .init(from: value)))
             }
@@ -1073,7 +1074,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IConnectedAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation }
 
-        internal func get_IsScaleAnimationEnabledImpl() throws -> Bool {
+        public func get_IsScaleAnimationEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsScaleAnimationEnabled(pThis, &value))
@@ -1081,28 +1082,28 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_IsScaleAnimationEnabledImpl(_ value: Bool) throws {
+        public func put_IsScaleAnimationEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsScaleAnimationEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ConfigurationImpl() throws -> WinUI.ConnectedAnimationConfiguration? {
+        public func get_Configuration() throws -> WinUI.ConnectedAnimationConfiguration? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Configuration(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.ConnectedAnimationConfigurationBridge.from(abi: value)
         }
 
-        internal func put_ConfigurationImpl(_ value: WinUI.ConnectedAnimationConfiguration?) throws {
+        public func put_Configuration(_ value: WinUI.ConnectedAnimationConfiguration?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Configuration(pThis, RawPointer(value)))
             }
         }
 
-        internal func add_CompletedImpl(_ handler: TypedEventHandler<WinUI.ConnectedAnimation?, Any?>?) throws -> EventRegistrationToken {
+        public func add_Completed(_ handler: TypedEventHandler<WinUI.ConnectedAnimation?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CConnectedAnimation_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1112,13 +1113,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return token
         }
 
-        internal func remove_CompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Completed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Completed(pThis, token))
             }
         }
 
-        internal func TryStartImpl(_ destination: WinUI.UIElement?) throws -> Bool {
+        public func TryStart(_ destination: WinUI.UIElement?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryStart(pThis, RawPointer(destination), &result))
@@ -1126,7 +1127,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func TryStartWithCoordinatedElementsImpl(_ destination: WinUI.UIElement?, _ coordinatedElements: WindowsFoundation.AnyIIterable<WinUI.UIElement?>?) throws -> Bool {
+        public func TryStartWithCoordinatedElements(_ destination: WinUI.UIElement?, _ coordinatedElements: WindowsFoundation.AnyIIterable<WinUI.UIElement?>?) throws -> Bool {
             var result: boolean = 0
             let coordinatedElementsWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CUIElementWrapper(coordinatedElements)
             let _coordinatedElements = try! coordinatedElementsWrapper?.toABI { $0 }
@@ -1136,13 +1137,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func CancelImpl() throws {
+        public func Cancel() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Cancel(pThis))
             }
         }
 
-        internal func SetAnimationComponentImpl(_ component: WinUI.ConnectedAnimationComponent, _ animation: WinAppSDK.AnyICompositionAnimationBase?) throws {
+        public func SetAnimationComponent(_ component: WinUI.ConnectedAnimationComponent, _ animation: WinAppSDK.AnyICompositionAnimationBase?) throws {
             let animationWrapper = __ABI_Microsoft_UI_Composition.ICompositionAnimationBaseWrapper(animation)
             let _animation = try! animationWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation.self) { pThis in
@@ -1165,7 +1166,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IConnectedAnimationService: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationService }
 
-        internal func get_DefaultDurationImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_DefaultDuration() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationService.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultDuration(pThis, &value))
@@ -1173,45 +1174,45 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_DefaultDurationImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_DefaultDuration(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationService.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DefaultDuration(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_DefaultEasingFunctionImpl() throws -> WinAppSDK.CompositionEasingFunction? {
+        public func get_DefaultEasingFunction() throws -> WinAppSDK.CompositionEasingFunction? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationService.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultEasingFunction(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Composition.CompositionEasingFunctionBridge.from(abi: value)
         }
 
-        internal func put_DefaultEasingFunctionImpl(_ value: WinAppSDK.CompositionEasingFunction?) throws {
+        public func put_DefaultEasingFunction(_ value: WinAppSDK.CompositionEasingFunction?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationService.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DefaultEasingFunction(pThis, RawPointer(value)))
             }
         }
 
-        internal func PrepareToAnimateImpl(_ key: String, _ source: WinUI.UIElement?) throws -> WinUI.ConnectedAnimation? {
+        public func PrepareToAnimate(_ key: String, _ source: WinUI.UIElement?) throws -> WinUI.ConnectedAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _key = try! HString(key)
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationService.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.PrepareToAnimate(pThis, _key.get(), RawPointer(source), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.ConnectedAnimationBridge.from(abi: result)
         }
 
-        internal func GetAnimationImpl(_ key: String) throws -> WinUI.ConnectedAnimation? {
+        public func GetAnimation(_ key: String) throws -> WinUI.ConnectedAnimation? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _key = try! HString(key)
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationService.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetAnimation(pThis, _key.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.ConnectedAnimationBridge.from(abi: result)
         }
 
     }
@@ -1219,13 +1220,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IConnectedAnimationServiceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationServiceStatics }
 
-        internal func GetForCurrentViewImpl() throws -> WinUI.ConnectedAnimationService? {
+        public func GetForCurrentView() throws -> WinUI.ConnectedAnimationService? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationServiceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentView(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.ConnectedAnimationServiceBridge.from(abi: result)
         }
 
     }
@@ -1233,7 +1234,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IContentThemeTransition: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransition }
 
-        internal func get_HorizontalOffsetImpl() throws -> Double {
+        public func get_HorizontalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalOffset(pThis, &value))
@@ -1241,13 +1242,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_HorizontalOffsetImpl(_ value: Double) throws {
+        public func put_HorizontalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalOffset(pThis, value))
             }
         }
 
-        internal func get_VerticalOffsetImpl() throws -> Double {
+        public func get_VerticalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalOffset(pThis, &value))
@@ -1255,7 +1256,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_VerticalOffsetImpl(_ value: Double) throws {
+        public func put_VerticalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalOffset(pThis, value))
             }
@@ -1266,22 +1267,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IContentThemeTransitionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransitionStatics }
 
-        internal func get_HorizontalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_HorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_VerticalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_VerticalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -1289,16 +1290,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IContinuumNavigationTransitionInfo: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfo }
 
-        internal func get_ExitElementImpl() throws -> WinUI.UIElement? {
+        public func get_ExitElement() throws -> WinUI.UIElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitElement(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
         }
 
-        internal func put_ExitElementImpl(_ value: WinUI.UIElement?) throws {
+        public func put_ExitElement(_ value: WinUI.UIElement?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExitElement(pThis, RawPointer(value)))
             }
@@ -1309,25 +1310,25 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IContinuumNavigationTransitionInfoStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics }
 
-        internal func get_ExitElementPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ExitElementProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitElementProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_IsEntranceElementPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsEntranceElementProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEntranceElementProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func GetIsEntranceElementImpl(_ element: WinUI.UIElement?) throws -> Bool {
+        public func GetIsEntranceElement(_ element: WinUI.UIElement?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsEntranceElement(pThis, RawPointer(element), &result))
@@ -1335,22 +1336,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func SetIsEntranceElementImpl(_ element: WinUI.UIElement?, _ value: Bool) throws {
+        public func SetIsEntranceElement(_ element: WinUI.UIElement?, _ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetIsEntranceElement(pThis, RawPointer(element), .init(from: value)))
             }
         }
 
-        internal func get_IsExitElementPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsExitElementProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsExitElementProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func GetIsExitElementImpl(_ element: WinUI.UIElement?) throws -> Bool {
+        public func GetIsExitElement(_ element: WinUI.UIElement?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsExitElement(pThis, RawPointer(element), &result))
@@ -1358,22 +1359,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func SetIsExitElementImpl(_ element: WinUI.UIElement?, _ value: Bool) throws {
+        public func SetIsExitElement(_ element: WinUI.UIElement?, _ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetIsExitElement(pThis, RawPointer(element), .init(from: value)))
             }
         }
 
-        internal func get_ExitElementContainerPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ExitElementContainerProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitElementContainerProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func GetExitElementContainerImpl(_ element: WinUI.ListViewBase?) throws -> Bool {
+        public func GetExitElementContainer(_ element: WinUI.ListViewBase?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetExitElementContainer(pThis, RawPointer(element), &result))
@@ -1381,7 +1382,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func SetExitElementContainerImpl(_ element: WinUI.ListViewBase?, _ value: Bool) throws {
+        public func SetExitElementContainer(_ element: WinUI.ListViewBase?, _ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetExitElementContainer(pThis, RawPointer(element), .init(from: value)))
             }
@@ -1402,7 +1403,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDirectConnectedAnimationConfigurationFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDirectConnectedAnimationConfigurationFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.DirectConnectedAnimationConfiguration.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDirectConnectedAnimationConfiguration {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.DirectConnectedAnimationConfigurationBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDirectConnectedAnimationConfiguration {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -1440,7 +1441,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDoubleAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation }
 
-        internal func get_FromImpl() throws -> Double? {
+        public func get_From() throws -> Double? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_From(pThis, &valueAbi))
@@ -1449,7 +1450,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1_doubleWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_FromImpl(_ value: Double?) throws {
+        public func put_From(_ value: Double?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1_doubleWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
@@ -1457,7 +1458,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_ToImpl() throws -> Double? {
+        public func get_To() throws -> Double? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_To(pThis, &valueAbi))
@@ -1466,7 +1467,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1_doubleWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ToImpl(_ value: Double?) throws {
+        public func put_To(_ value: Double?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1_doubleWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
@@ -1474,7 +1475,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_ByImpl() throws -> Double? {
+        public func get_By() throws -> Double? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_By(pThis, &valueAbi))
@@ -1483,7 +1484,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1_doubleWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ByImpl(_ value: Double?) throws {
+        public func put_By(_ value: Double?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1_doubleWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
@@ -1491,22 +1492,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_EasingFunctionImpl() throws -> WinUI.EasingFunctionBase? {
+        public func get_EasingFunction() throws -> WinUI.EasingFunctionBase? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunction(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.EasingFunctionBaseBridge.from(abi: value)
         }
 
-        internal func put_EasingFunctionImpl(_ value: WinUI.EasingFunctionBase?) throws {
+        public func put_EasingFunction(_ value: WinUI.EasingFunctionBase?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EasingFunction(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_EnableDependentAnimationImpl() throws -> Bool {
+        public func get_EnableDependentAnimation() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimation(pThis, &value))
@@ -1514,7 +1515,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_EnableDependentAnimationImpl(_ value: Bool) throws {
+        public func put_EnableDependentAnimation(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnableDependentAnimation(pThis, .init(from: value)))
             }
@@ -1525,49 +1526,49 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDoubleAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationStatics }
 
-        internal func get_FromPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ToPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ToProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ToProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ByPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ByProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ByProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_EasingFunctionPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EasingFunctionProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunctionProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_EnableDependentAnimationPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EnableDependentAnimationProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimationProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -1575,16 +1576,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDoubleAnimationUsingKeyFrames: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationUsingKeyFrames }
 
-        internal func get_KeyFramesImpl() throws -> WinUI.DoubleKeyFrameCollection? {
+        public func get_KeyFrames() throws -> WinUI.DoubleKeyFrameCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationUsingKeyFrames.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyFrames(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.DoubleKeyFrameCollectionBridge.from(abi: value)
         }
 
-        internal func get_EnableDependentAnimationImpl() throws -> Bool {
+        public func get_EnableDependentAnimation() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationUsingKeyFrames.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimation(pThis, &value))
@@ -1592,7 +1593,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_EnableDependentAnimationImpl(_ value: Bool) throws {
+        public func put_EnableDependentAnimation(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationUsingKeyFrames.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnableDependentAnimation(pThis, .init(from: value)))
             }
@@ -1603,13 +1604,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDoubleAnimationUsingKeyFramesStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationUsingKeyFramesStatics }
 
-        internal func get_EnableDependentAnimationPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EnableDependentAnimationProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationUsingKeyFramesStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimationProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -1617,7 +1618,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDoubleKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrame }
 
-        internal func get_ValueImpl() throws -> Double {
+        public func get_Value() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
@@ -1625,13 +1626,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ValueImpl(_ value: Double) throws {
+        public func put_Value(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, value))
             }
         }
 
-        internal func get_KeyTimeImpl() throws -> WinUI.KeyTime {
+        public func get_KeyTime() throws -> WinUI.KeyTime {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CKeyTime = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTime(pThis, &value))
@@ -1639,7 +1640,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_KeyTimeImpl(_ value: WinUI.KeyTime) throws {
+        public func put_KeyTime(_ value: WinUI.KeyTime) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyTime(pThis, .from(swift: value)))
             }
@@ -1650,7 +1651,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDoubleKeyFrameFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrameFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.DoubleKeyFrame.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDoubleKeyFrame {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.DoubleKeyFrameBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDoubleKeyFrame {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -1668,22 +1669,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDoubleKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrameStatics }
 
-        internal func get_ValuePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ValueProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValueProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_KeyTimePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_KeyTimeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTimeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -1691,7 +1692,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDragItemThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragItemThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragItemThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -1699,7 +1700,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragItemThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
@@ -1711,13 +1712,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDragItemThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragItemThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragItemThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -1725,7 +1726,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDragOverThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -1733,14 +1734,14 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_ToOffsetImpl() throws -> Double {
+        public func get_ToOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ToOffset(pThis, &value))
@@ -1748,13 +1749,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ToOffsetImpl(_ value: Double) throws {
+        public func put_ToOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ToOffset(pThis, value))
             }
         }
 
-        internal func get_DirectionImpl() throws -> WinUI.AnimationDirection {
+        public func get_Direction() throws -> WinUI.AnimationDirection {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CAnimationDirection = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
@@ -1762,7 +1763,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_DirectionImpl(_ value: WinUI.AnimationDirection) throws {
+        public func put_Direction(_ value: WinUI.AnimationDirection) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Direction(pThis, value))
             }
@@ -1773,31 +1774,31 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDragOverThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ToOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ToOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ToOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_DirectionPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_DirectionProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DirectionProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -1810,7 +1811,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDrillInThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation }
 
-        internal func get_EntranceTargetNameImpl() throws -> String {
+        public func get_EntranceTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EntranceTargetName(pThis, &value))
@@ -1818,29 +1819,29 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_EntranceTargetNameImpl(_ value: String) throws {
+        public func put_EntranceTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EntranceTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_EntranceTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_EntranceTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EntranceTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_EntranceTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_EntranceTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EntranceTarget(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ExitTargetNameImpl() throws -> String {
+        public func get_ExitTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitTargetName(pThis, &value))
@@ -1848,23 +1849,23 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_ExitTargetNameImpl(_ value: String) throws {
+        public func put_ExitTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExitTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_ExitTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_ExitTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_ExitTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_ExitTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExitTarget(pThis, RawPointer(value)))
             }
@@ -1875,40 +1876,40 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDrillInThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimationStatics }
 
-        internal func get_EntranceTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EntranceTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EntranceTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_EntranceTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EntranceTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EntranceTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ExitTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ExitTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ExitTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ExitTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -1916,7 +1917,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDrillOutThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation }
 
-        internal func get_EntranceTargetNameImpl() throws -> String {
+        public func get_EntranceTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EntranceTargetName(pThis, &value))
@@ -1924,29 +1925,29 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_EntranceTargetNameImpl(_ value: String) throws {
+        public func put_EntranceTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EntranceTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_EntranceTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_EntranceTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EntranceTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_EntranceTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_EntranceTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EntranceTarget(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ExitTargetNameImpl() throws -> String {
+        public func get_ExitTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitTargetName(pThis, &value))
@@ -1954,23 +1955,23 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_ExitTargetNameImpl(_ value: String) throws {
+        public func put_ExitTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExitTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_ExitTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_ExitTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_ExitTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_ExitTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExitTarget(pThis, RawPointer(value)))
             }
@@ -1981,40 +1982,40 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDrillOutThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimationStatics }
 
-        internal func get_EntranceTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EntranceTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EntranceTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_EntranceTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EntranceTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EntranceTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ExitTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ExitTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ExitTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ExitTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2022,7 +2023,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDropTargetItemThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDropTargetItemThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDropTargetItemThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -2030,7 +2031,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDropTargetItemThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
@@ -2042,13 +2043,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IDropTargetItemThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDropTargetItemThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDropTargetItemThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2056,16 +2057,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEasingColorKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingColorKeyFrame }
 
-        internal func get_EasingFunctionImpl() throws -> WinUI.EasingFunctionBase? {
+        public func get_EasingFunction() throws -> WinUI.EasingFunctionBase? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingColorKeyFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunction(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.EasingFunctionBaseBridge.from(abi: value)
         }
 
-        internal func put_EasingFunctionImpl(_ value: WinUI.EasingFunctionBase?) throws {
+        public func put_EasingFunction(_ value: WinUI.EasingFunctionBase?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingColorKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EasingFunction(pThis, RawPointer(value)))
             }
@@ -2076,13 +2077,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEasingColorKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingColorKeyFrameStatics }
 
-        internal func get_EasingFunctionPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EasingFunctionProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingColorKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunctionProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2090,16 +2091,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEasingDoubleKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingDoubleKeyFrame }
 
-        internal func get_EasingFunctionImpl() throws -> WinUI.EasingFunctionBase? {
+        public func get_EasingFunction() throws -> WinUI.EasingFunctionBase? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingDoubleKeyFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunction(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.EasingFunctionBaseBridge.from(abi: value)
         }
 
-        internal func put_EasingFunctionImpl(_ value: WinUI.EasingFunctionBase?) throws {
+        public func put_EasingFunction(_ value: WinUI.EasingFunctionBase?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingDoubleKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EasingFunction(pThis, RawPointer(value)))
             }
@@ -2110,13 +2111,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEasingDoubleKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingDoubleKeyFrameStatics }
 
-        internal func get_EasingFunctionPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EasingFunctionProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingDoubleKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunctionProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2124,7 +2125,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEasingFunctionBase: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingFunctionBase }
 
-        internal func get_EasingModeImpl() throws -> WinUI.EasingMode {
+        public func get_EasingMode() throws -> WinUI.EasingMode {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CEasingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingFunctionBase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingMode(pThis, &value))
@@ -2132,13 +2133,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_EasingModeImpl(_ value: WinUI.EasingMode) throws {
+        public func put_EasingMode(_ value: WinUI.EasingMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingFunctionBase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EasingMode(pThis, value))
             }
         }
 
-        internal func EaseImpl(_ normalizedTime: Double) throws -> Double {
+        public func Ease(_ normalizedTime: Double) throws -> Double {
             var result: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingFunctionBase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Ease(pThis, normalizedTime, &result))
@@ -2156,13 +2157,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEasingFunctionBaseStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingFunctionBaseStatics }
 
-        internal func get_EasingModePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EasingModeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingFunctionBaseStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingModeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2170,16 +2171,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEasingPointKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingPointKeyFrame }
 
-        internal func get_EasingFunctionImpl() throws -> WinUI.EasingFunctionBase? {
+        public func get_EasingFunction() throws -> WinUI.EasingFunctionBase? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingPointKeyFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunction(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.EasingFunctionBaseBridge.from(abi: value)
         }
 
-        internal func put_EasingFunctionImpl(_ value: WinUI.EasingFunctionBase?) throws {
+        public func put_EasingFunction(_ value: WinUI.EasingFunctionBase?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingPointKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EasingFunction(pThis, RawPointer(value)))
             }
@@ -2190,13 +2191,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEasingPointKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingPointKeyFrameStatics }
 
-        internal func get_EasingFunctionPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EasingFunctionProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingPointKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunctionProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2204,7 +2205,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEdgeUIThemeTransition: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEdgeUIThemeTransition }
 
-        internal func get_EdgeImpl() throws -> WinUI.EdgeTransitionLocation {
+        public func get_Edge() throws -> WinUI.EdgeTransitionLocation {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CEdgeTransitionLocation = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEdgeUIThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Edge(pThis, &value))
@@ -2212,7 +2213,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_EdgeImpl(_ value: WinUI.EdgeTransitionLocation) throws {
+        public func put_Edge(_ value: WinUI.EdgeTransitionLocation) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEdgeUIThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Edge(pThis, value))
             }
@@ -2223,13 +2224,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEdgeUIThemeTransitionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEdgeUIThemeTransitionStatics }
 
-        internal func get_EdgePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EdgeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEdgeUIThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EdgeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2237,7 +2238,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IElasticEase: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEase }
 
-        internal func get_OscillationsImpl() throws -> Int32 {
+        public func get_Oscillations() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Oscillations(pThis, &value))
@@ -2245,13 +2246,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_OscillationsImpl(_ value: Int32) throws {
+        public func put_Oscillations(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Oscillations(pThis, value))
             }
         }
 
-        internal func get_SpringinessImpl() throws -> Double {
+        public func get_Springiness() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Springiness(pThis, &value))
@@ -2259,7 +2260,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_SpringinessImpl(_ value: Double) throws {
+        public func put_Springiness(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Springiness(pThis, value))
             }
@@ -2270,22 +2271,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IElasticEaseStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEaseStatics }
 
-        internal func get_OscillationsPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_OscillationsProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEaseStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OscillationsProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_SpringinessPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_SpringinessProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEaseStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpringinessProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2298,16 +2299,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEntranceNavigationTransitionInfoStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceNavigationTransitionInfoStatics }
 
-        internal func get_IsTargetElementPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsTargetElementProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceNavigationTransitionInfoStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTargetElementProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func GetIsTargetElementImpl(_ element: WinUI.UIElement?) throws -> Bool {
+        public func GetIsTargetElement(_ element: WinUI.UIElement?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsTargetElement(pThis, RawPointer(element), &result))
@@ -2315,7 +2316,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func SetIsTargetElementImpl(_ element: WinUI.UIElement?, _ value: Bool) throws {
+        public func SetIsTargetElement(_ element: WinUI.UIElement?, _ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceNavigationTransitionInfoStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetIsTargetElement(pThis, RawPointer(element), .init(from: value)))
             }
@@ -2326,7 +2327,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEntranceThemeTransition: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransition }
 
-        internal func get_FromHorizontalOffsetImpl() throws -> Double {
+        public func get_FromHorizontalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffset(pThis, &value))
@@ -2334,13 +2335,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromHorizontalOffsetImpl(_ value: Double) throws {
+        public func put_FromHorizontalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromHorizontalOffset(pThis, value))
             }
         }
 
-        internal func get_FromVerticalOffsetImpl() throws -> Double {
+        public func get_FromVerticalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffset(pThis, &value))
@@ -2348,13 +2349,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromVerticalOffsetImpl(_ value: Double) throws {
+        public func put_FromVerticalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromVerticalOffset(pThis, value))
             }
         }
 
-        internal func get_IsStaggeringEnabledImpl() throws -> Bool {
+        public func get_IsStaggeringEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStaggeringEnabled(pThis, &value))
@@ -2362,7 +2363,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_IsStaggeringEnabledImpl(_ value: Bool) throws {
+        public func put_IsStaggeringEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsStaggeringEnabled(pThis, .init(from: value)))
             }
@@ -2373,31 +2374,31 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IEntranceThemeTransitionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransitionStatics }
 
-        internal func get_FromHorizontalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromHorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_FromVerticalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromVerticalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_IsStaggeringEnabledPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsStaggeringEnabledProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStaggeringEnabledProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2405,7 +2406,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IExponentialEase: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIExponentialEase }
 
-        internal func get_ExponentImpl() throws -> Double {
+        public func get_Exponent() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIExponentialEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Exponent(pThis, &value))
@@ -2413,7 +2414,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ExponentImpl(_ value: Double) throws {
+        public func put_Exponent(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIExponentialEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Exponent(pThis, value))
             }
@@ -2424,13 +2425,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IExponentialEaseStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIExponentialEaseStatics }
 
-        internal func get_ExponentPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ExponentProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIExponentialEaseStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExponentProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2438,7 +2439,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IFadeInThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeInThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -2446,7 +2447,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
@@ -2458,13 +2459,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IFadeInThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeInThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeInThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2472,7 +2473,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IFadeOutThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeOutThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -2480,7 +2481,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
@@ -2492,13 +2493,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IFadeOutThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeOutThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeOutThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2506,7 +2507,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IGravityConnectedAnimationConfiguration: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIGravityConnectedAnimationConfiguration }
 
-        internal func get_IsShadowEnabledImpl() throws -> Bool {
+        public func get_IsShadowEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIGravityConnectedAnimationConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsShadowEnabled(pThis, &value))
@@ -2514,7 +2515,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_IsShadowEnabledImpl(_ value: Bool) throws {
+        public func put_IsShadowEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIGravityConnectedAnimationConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsShadowEnabled(pThis, .init(from: value)))
             }
@@ -2525,7 +2526,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IGravityConnectedAnimationConfigurationFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIGravityConnectedAnimationConfigurationFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.GravityConnectedAnimationConfiguration.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IGravityConnectedAnimationConfiguration {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.GravityConnectedAnimationConfigurationBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IGravityConnectedAnimationConfiguration {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -2543,7 +2544,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IKeySpline: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeySpline }
 
-        internal func get_ControlPoint1Impl() throws -> WindowsFoundation.Point {
+        public func get_ControlPoint1() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeySpline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ControlPoint1(pThis, &value))
@@ -2551,13 +2552,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_ControlPoint1Impl(_ value: WindowsFoundation.Point) throws {
+        public func put_ControlPoint1(_ value: WindowsFoundation.Point) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeySpline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ControlPoint1(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ControlPoint2Impl() throws -> WindowsFoundation.Point {
+        public func get_ControlPoint2() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeySpline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ControlPoint2(pThis, &value))
@@ -2565,7 +2566,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_ControlPoint2Impl(_ value: WindowsFoundation.Point) throws {
+        public func put_ControlPoint2(_ value: WindowsFoundation.Point) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeySpline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ControlPoint2(pThis, .from(swift: value)))
             }
@@ -2581,7 +2582,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IKeyTimeHelperStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeyTimeHelperStatics }
 
-        internal func FromTimeSpanImpl(_ timeSpan: WindowsFoundation.TimeSpan) throws -> WinUI.KeyTime {
+        public func FromTimeSpan(_ timeSpan: WindowsFoundation.TimeSpan) throws -> WinUI.KeyTime {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CKeyTime = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeyTimeHelperStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FromTimeSpan(pThis, .from(swift: timeSpan), &result))
@@ -2609,16 +2610,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class INavigationThemeTransition: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationThemeTransition }
 
-        internal func get_DefaultNavigationTransitionInfoImpl() throws -> WinUI.NavigationTransitionInfo? {
+        public func get_DefaultNavigationTransitionInfo() throws -> WinUI.NavigationTransitionInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationThemeTransition.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultNavigationTransitionInfo(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.from(abi: value)
         }
 
-        internal func put_DefaultNavigationTransitionInfoImpl(_ value: WinUI.NavigationTransitionInfo?) throws {
+        public func put_DefaultNavigationTransitionInfo(_ value: WinUI.NavigationTransitionInfo?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DefaultNavigationTransitionInfo(pThis, RawPointer(value)))
             }
@@ -2629,13 +2630,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class INavigationThemeTransitionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationThemeTransitionStatics }
 
-        internal func get_DefaultNavigationTransitionInfoPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_DefaultNavigationTransitionInfoProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultNavigationTransitionInfoProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2648,7 +2649,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class INavigationTransitionInfoFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.NavigationTransitionInfo.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INavigationTransitionInfo {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INavigationTransitionInfo {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -2666,7 +2667,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class INavigationTransitionInfoOverrides: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides }
 
-        internal func GetNavigationStateCoreImpl() throws -> String {
+        public func GetNavigationStateCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetNavigationStateCore(pThis, &result))
@@ -2674,7 +2675,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func SetNavigationStateCoreImpl(_ navigationState: String) throws {
+        public func SetNavigationStateCore(_ navigationState: String) throws {
             let _navigationState = try! HString(navigationState)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetNavigationStateCore(pThis, _navigationState.get()))
@@ -2686,16 +2687,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IObjectAnimationUsingKeyFrames: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectAnimationUsingKeyFrames }
 
-        internal func get_KeyFramesImpl() throws -> WinUI.ObjectKeyFrameCollection? {
+        public func get_KeyFrames() throws -> WinUI.ObjectKeyFrameCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectAnimationUsingKeyFrames.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyFrames(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.ObjectKeyFrameCollectionBridge.from(abi: value)
         }
 
-        internal func get_EnableDependentAnimationImpl() throws -> Bool {
+        public func get_EnableDependentAnimation() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectAnimationUsingKeyFrames.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimation(pThis, &value))
@@ -2703,7 +2704,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_EnableDependentAnimationImpl(_ value: Bool) throws {
+        public func put_EnableDependentAnimation(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectAnimationUsingKeyFrames.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnableDependentAnimation(pThis, .init(from: value)))
             }
@@ -2714,13 +2715,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IObjectAnimationUsingKeyFramesStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectAnimationUsingKeyFramesStatics }
 
-        internal func get_EnableDependentAnimationPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EnableDependentAnimationProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectAnimationUsingKeyFramesStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimationProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2728,7 +2729,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IObjectKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrame }
 
-        internal func get_ValueImpl() throws -> Any? {
+        public func get_Value() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &valueAbi))
@@ -2737,7 +2738,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ValueImpl(_ value: Any?) throws {
+        public func put_Value(_ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrame.self) { pThis in
@@ -2745,7 +2746,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_KeyTimeImpl() throws -> WinUI.KeyTime {
+        public func get_KeyTime() throws -> WinUI.KeyTime {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CKeyTime = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTime(pThis, &value))
@@ -2753,7 +2754,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_KeyTimeImpl(_ value: WinUI.KeyTime) throws {
+        public func put_KeyTime(_ value: WinUI.KeyTime) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyTime(pThis, .from(swift: value)))
             }
@@ -2764,7 +2765,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IObjectKeyFrameFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrameFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.ObjectKeyFrame.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IObjectKeyFrame {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.ObjectKeyFrameBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IObjectKeyFrame {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -2782,22 +2783,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IObjectKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrameStatics }
 
-        internal func get_ValuePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ValueProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValueProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_KeyTimePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_KeyTimeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTimeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2805,7 +2806,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPaneThemeTransition: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPaneThemeTransition }
 
-        internal func get_EdgeImpl() throws -> WinUI.EdgeTransitionLocation {
+        public func get_Edge() throws -> WinUI.EdgeTransitionLocation {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CEdgeTransitionLocation = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPaneThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Edge(pThis, &value))
@@ -2813,7 +2814,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_EdgeImpl(_ value: WinUI.EdgeTransitionLocation) throws {
+        public func put_Edge(_ value: WinUI.EdgeTransitionLocation) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPaneThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Edge(pThis, value))
             }
@@ -2824,13 +2825,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPaneThemeTransitionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPaneThemeTransitionStatics }
 
-        internal func get_EdgePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EdgeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPaneThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EdgeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2838,7 +2839,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation }
 
-        internal func get_FromImpl() throws -> WindowsFoundation.Point? {
+        public func get_From() throws -> WindowsFoundation.Point? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_From(pThis, &valueAbi))
@@ -2847,7 +2848,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CPointWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_FromImpl(_ value: WindowsFoundation.Point?) throws {
+        public func put_From(_ value: WindowsFoundation.Point?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CPointWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
@@ -2855,7 +2856,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_ToImpl() throws -> WindowsFoundation.Point? {
+        public func get_To() throws -> WindowsFoundation.Point? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_To(pThis, &valueAbi))
@@ -2864,7 +2865,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CPointWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ToImpl(_ value: WindowsFoundation.Point?) throws {
+        public func put_To(_ value: WindowsFoundation.Point?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CPointWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
@@ -2872,7 +2873,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_ByImpl() throws -> WindowsFoundation.Point? {
+        public func get_By() throws -> WindowsFoundation.Point? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_By(pThis, &valueAbi))
@@ -2881,7 +2882,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CPointWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ByImpl(_ value: WindowsFoundation.Point?) throws {
+        public func put_By(_ value: WindowsFoundation.Point?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CPointWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
@@ -2889,22 +2890,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_EasingFunctionImpl() throws -> WinUI.EasingFunctionBase? {
+        public func get_EasingFunction() throws -> WinUI.EasingFunctionBase? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunction(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.EasingFunctionBaseBridge.from(abi: value)
         }
 
-        internal func put_EasingFunctionImpl(_ value: WinUI.EasingFunctionBase?) throws {
+        public func put_EasingFunction(_ value: WinUI.EasingFunctionBase?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EasingFunction(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_EnableDependentAnimationImpl() throws -> Bool {
+        public func get_EnableDependentAnimation() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimation(pThis, &value))
@@ -2912,7 +2913,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_EnableDependentAnimationImpl(_ value: Bool) throws {
+        public func put_EnableDependentAnimation(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnableDependentAnimation(pThis, .init(from: value)))
             }
@@ -2923,49 +2924,49 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationStatics }
 
-        internal func get_FromPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ToPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ToProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ToProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ByPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ByProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ByProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_EasingFunctionPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EasingFunctionProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EasingFunctionProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_EnableDependentAnimationPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EnableDependentAnimationProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimationProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -2973,16 +2974,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointAnimationUsingKeyFrames: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationUsingKeyFrames }
 
-        internal func get_KeyFramesImpl() throws -> WinUI.PointKeyFrameCollection? {
+        public func get_KeyFrames() throws -> WinUI.PointKeyFrameCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationUsingKeyFrames.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyFrames(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.PointKeyFrameCollectionBridge.from(abi: value)
         }
 
-        internal func get_EnableDependentAnimationImpl() throws -> Bool {
+        public func get_EnableDependentAnimation() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationUsingKeyFrames.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimation(pThis, &value))
@@ -2990,7 +2991,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_EnableDependentAnimationImpl(_ value: Bool) throws {
+        public func put_EnableDependentAnimation(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationUsingKeyFrames.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnableDependentAnimation(pThis, .init(from: value)))
             }
@@ -3001,13 +3002,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointAnimationUsingKeyFramesStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationUsingKeyFramesStatics }
 
-        internal func get_EnableDependentAnimationPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EnableDependentAnimationProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationUsingKeyFramesStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnableDependentAnimationProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3015,7 +3016,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrame }
 
-        internal func get_ValueImpl() throws -> WindowsFoundation.Point {
+        public func get_Value() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
@@ -3023,13 +3024,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_ValueImpl(_ value: WindowsFoundation.Point) throws {
+        public func put_Value(_ value: WindowsFoundation.Point) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_KeyTimeImpl() throws -> WinUI.KeyTime {
+        public func get_KeyTime() throws -> WinUI.KeyTime {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CKeyTime = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTime(pThis, &value))
@@ -3037,7 +3038,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_KeyTimeImpl(_ value: WinUI.KeyTime) throws {
+        public func put_KeyTime(_ value: WinUI.KeyTime) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyTime(pThis, .from(swift: value)))
             }
@@ -3048,7 +3049,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointKeyFrameFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrameFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.PointKeyFrame.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPointKeyFrame {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.PointKeyFrameBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPointKeyFrame {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -3066,22 +3067,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrameStatics }
 
-        internal func get_ValuePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ValueProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValueProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_KeyTimePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_KeyTimeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTimeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3089,7 +3090,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointerDownThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerDownThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerDownThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -3097,7 +3098,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerDownThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
@@ -3109,13 +3110,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointerDownThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerDownThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerDownThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3123,7 +3124,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointerUpThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerUpThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerUpThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -3131,7 +3132,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerUpThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
@@ -3143,13 +3144,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPointerUpThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerUpThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerUpThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3157,7 +3158,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPopInThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -3165,14 +3166,14 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_FromHorizontalOffsetImpl() throws -> Double {
+        public func get_FromHorizontalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffset(pThis, &value))
@@ -3180,13 +3181,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromHorizontalOffsetImpl(_ value: Double) throws {
+        public func put_FromHorizontalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromHorizontalOffset(pThis, value))
             }
         }
 
-        internal func get_FromVerticalOffsetImpl() throws -> Double {
+        public func get_FromVerticalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffset(pThis, &value))
@@ -3194,7 +3195,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromVerticalOffsetImpl(_ value: Double) throws {
+        public func put_FromVerticalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromVerticalOffset(pThis, value))
             }
@@ -3205,31 +3206,31 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPopInThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_FromHorizontalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromHorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_FromVerticalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromVerticalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3237,7 +3238,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPopOutThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopOutThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -3245,7 +3246,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopOutThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
@@ -3257,13 +3258,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPopOutThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopOutThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopOutThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3271,7 +3272,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPopupThemeTransition: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransition }
 
-        internal func get_FromHorizontalOffsetImpl() throws -> Double {
+        public func get_FromHorizontalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffset(pThis, &value))
@@ -3279,13 +3280,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromHorizontalOffsetImpl(_ value: Double) throws {
+        public func put_FromHorizontalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromHorizontalOffset(pThis, value))
             }
         }
 
-        internal func get_FromVerticalOffsetImpl() throws -> Double {
+        public func get_FromVerticalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffset(pThis, &value))
@@ -3293,7 +3294,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromVerticalOffsetImpl(_ value: Double) throws {
+        public func put_FromVerticalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromVerticalOffset(pThis, value))
             }
@@ -3304,22 +3305,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPopupThemeTransitionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransitionStatics }
 
-        internal func get_FromHorizontalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromHorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_FromVerticalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromVerticalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3327,7 +3328,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPowerEase: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPowerEase }
 
-        internal func get_PowerImpl() throws -> Double {
+        public func get_Power() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPowerEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Power(pThis, &value))
@@ -3335,7 +3336,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_PowerImpl(_ value: Double) throws {
+        public func put_Power(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPowerEase.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Power(pThis, value))
             }
@@ -3346,13 +3347,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IPowerEaseStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPowerEaseStatics }
 
-        internal func get_PowerPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_PowerProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPowerEaseStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PowerProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3385,7 +3386,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IRepeatBehaviorHelperStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepeatBehaviorHelperStatics }
 
-        internal func get_ForeverImpl() throws -> WinUI.RepeatBehavior {
+        public func get_Forever() throws -> WinUI.RepeatBehavior {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CRepeatBehavior = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepeatBehaviorHelperStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Forever(pThis, &value))
@@ -3393,7 +3394,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func FromCountImpl(_ count: Double) throws -> WinUI.RepeatBehavior {
+        public func FromCount(_ count: Double) throws -> WinUI.RepeatBehavior {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CRepeatBehavior = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepeatBehaviorHelperStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FromCount(pThis, count, &result))
@@ -3401,7 +3402,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: result)
         }
 
-        internal func FromDurationImpl(_ duration: WindowsFoundation.TimeSpan) throws -> WinUI.RepeatBehavior {
+        public func FromDuration(_ duration: WindowsFoundation.TimeSpan) throws -> WinUI.RepeatBehavior {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CRepeatBehavior = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepeatBehaviorHelperStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FromDuration(pThis, .from(swift: duration), &result))
@@ -3409,7 +3410,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: result)
         }
 
-        internal func GetHasCountImpl(_ target: WinUI.RepeatBehavior) throws -> Bool {
+        public func GetHasCount(_ target: WinUI.RepeatBehavior) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepeatBehaviorHelperStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHasCount(pThis, .from(swift: target), &result))
@@ -3417,7 +3418,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func GetHasDurationImpl(_ target: WinUI.RepeatBehavior) throws -> Bool {
+        public func GetHasDuration(_ target: WinUI.RepeatBehavior) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepeatBehaviorHelperStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHasDuration(pThis, .from(swift: target), &result))
@@ -3425,7 +3426,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func EqualsImpl(_ target: WinUI.RepeatBehavior, _ value: WinUI.RepeatBehavior) throws -> Bool {
+        public func Equals(_ target: WinUI.RepeatBehavior, _ value: WinUI.RepeatBehavior) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepeatBehaviorHelperStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Equals(pThis, .from(swift: target), .from(swift: value), &result))
@@ -3438,7 +3439,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IRepositionThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -3446,14 +3447,14 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_FromHorizontalOffsetImpl() throws -> Double {
+        public func get_FromHorizontalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffset(pThis, &value))
@@ -3461,13 +3462,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromHorizontalOffsetImpl(_ value: Double) throws {
+        public func put_FromHorizontalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromHorizontalOffset(pThis, value))
             }
         }
 
-        internal func get_FromVerticalOffsetImpl() throws -> Double {
+        public func get_FromVerticalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffset(pThis, &value))
@@ -3475,7 +3476,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromVerticalOffsetImpl(_ value: Double) throws {
+        public func put_FromVerticalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromVerticalOffset(pThis, value))
             }
@@ -3486,31 +3487,31 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IRepositionThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_FromHorizontalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromHorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_FromVerticalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromVerticalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3518,7 +3519,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IRepositionThemeTransition: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeTransition }
 
-        internal func get_IsStaggeringEnabledImpl() throws -> Bool {
+        public func get_IsStaggeringEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStaggeringEnabled(pThis, &value))
@@ -3526,7 +3527,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_IsStaggeringEnabledImpl(_ value: Bool) throws {
+        public func put_IsStaggeringEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeTransition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsStaggeringEnabled(pThis, .init(from: value)))
             }
@@ -3537,13 +3538,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IRepositionThemeTransitionStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeTransitionStatics }
 
-        internal func get_IsStaggeringEnabledPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsStaggeringEnabledProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeTransitionStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStaggeringEnabledProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3556,7 +3557,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISlideNavigationTransitionInfo: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISlideNavigationTransitionInfo }
 
-        internal func get_EffectImpl() throws -> WinUI.SlideNavigationTransitionEffect {
+        public func get_Effect() throws -> WinUI.SlideNavigationTransitionEffect {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CSlideNavigationTransitionEffect = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISlideNavigationTransitionInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Effect(pThis, &value))
@@ -3564,7 +3565,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_EffectImpl(_ value: WinUI.SlideNavigationTransitionEffect) throws {
+        public func put_Effect(_ value: WinUI.SlideNavigationTransitionEffect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISlideNavigationTransitionInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Effect(pThis, value))
             }
@@ -3575,13 +3576,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISlideNavigationTransitionInfoStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISlideNavigationTransitionInfoStatics }
 
-        internal func get_EffectPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_EffectProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISlideNavigationTransitionInfoStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EffectProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3589,16 +3590,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplineColorKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineColorKeyFrame }
 
-        internal func get_KeySplineImpl() throws -> WinUI.KeySpline? {
+        public func get_KeySpline() throws -> WinUI.KeySpline? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineColorKeyFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeySpline(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.KeySplineBridge.from(abi: value)
         }
 
-        internal func put_KeySplineImpl(_ value: WinUI.KeySpline?) throws {
+        public func put_KeySpline(_ value: WinUI.KeySpline?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineColorKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeySpline(pThis, RawPointer(value)))
             }
@@ -3609,13 +3610,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplineColorKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineColorKeyFrameStatics }
 
-        internal func get_KeySplinePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_KeySplineProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineColorKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeySplineProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3623,16 +3624,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplineDoubleKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineDoubleKeyFrame }
 
-        internal func get_KeySplineImpl() throws -> WinUI.KeySpline? {
+        public func get_KeySpline() throws -> WinUI.KeySpline? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineDoubleKeyFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeySpline(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.KeySplineBridge.from(abi: value)
         }
 
-        internal func put_KeySplineImpl(_ value: WinUI.KeySpline?) throws {
+        public func put_KeySpline(_ value: WinUI.KeySpline?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineDoubleKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeySpline(pThis, RawPointer(value)))
             }
@@ -3643,13 +3644,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplineDoubleKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineDoubleKeyFrameStatics }
 
-        internal func get_KeySplinePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_KeySplineProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineDoubleKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeySplineProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3657,16 +3658,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplinePointKeyFrame: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplinePointKeyFrame }
 
-        internal func get_KeySplineImpl() throws -> WinUI.KeySpline? {
+        public func get_KeySpline() throws -> WinUI.KeySpline? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplinePointKeyFrame.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeySpline(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.KeySplineBridge.from(abi: value)
         }
 
-        internal func put_KeySplineImpl(_ value: WinUI.KeySpline?) throws {
+        public func put_KeySpline(_ value: WinUI.KeySpline?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplinePointKeyFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeySpline(pThis, RawPointer(value)))
             }
@@ -3677,13 +3678,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplinePointKeyFrameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplinePointKeyFrameStatics }
 
-        internal func get_KeySplinePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_KeySplineProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplinePointKeyFrameStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeySplineProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3691,7 +3692,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplitCloseThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation }
 
-        internal func get_OpenedTargetNameImpl() throws -> String {
+        public func get_OpenedTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedTargetName(pThis, &value))
@@ -3699,29 +3700,29 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_OpenedTargetNameImpl(_ value: String) throws {
+        public func put_OpenedTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OpenedTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_OpenedTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_OpenedTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_OpenedTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_OpenedTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OpenedTarget(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ClosedTargetNameImpl() throws -> String {
+        public func get_ClosedTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedTargetName(pThis, &value))
@@ -3729,29 +3730,29 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_ClosedTargetNameImpl(_ value: String) throws {
+        public func put_ClosedTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClosedTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_ClosedTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_ClosedTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_ClosedTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_ClosedTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClosedTarget(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ContentTargetNameImpl() throws -> String {
+        public func get_ContentTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTargetName(pThis, &value))
@@ -3759,29 +3760,29 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_ContentTargetNameImpl(_ value: String) throws {
+        public func put_ContentTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_ContentTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_ContentTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_ContentTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_ContentTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentTarget(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_OpenedLengthImpl() throws -> Double {
+        public func get_OpenedLength() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedLength(pThis, &value))
@@ -3789,13 +3790,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_OpenedLengthImpl(_ value: Double) throws {
+        public func put_OpenedLength(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OpenedLength(pThis, value))
             }
         }
 
-        internal func get_ClosedLengthImpl() throws -> Double {
+        public func get_ClosedLength() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedLength(pThis, &value))
@@ -3803,13 +3804,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ClosedLengthImpl(_ value: Double) throws {
+        public func put_ClosedLength(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClosedLength(pThis, value))
             }
         }
 
-        internal func get_OffsetFromCenterImpl() throws -> Double {
+        public func get_OffsetFromCenter() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OffsetFromCenter(pThis, &value))
@@ -3817,13 +3818,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_OffsetFromCenterImpl(_ value: Double) throws {
+        public func put_OffsetFromCenter(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OffsetFromCenter(pThis, value))
             }
         }
 
-        internal func get_ContentTranslationDirectionImpl() throws -> WinUI.AnimationDirection {
+        public func get_ContentTranslationDirection() throws -> WinUI.AnimationDirection {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CAnimationDirection = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTranslationDirection(pThis, &value))
@@ -3831,13 +3832,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ContentTranslationDirectionImpl(_ value: WinUI.AnimationDirection) throws {
+        public func put_ContentTranslationDirection(_ value: WinUI.AnimationDirection) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentTranslationDirection(pThis, value))
             }
         }
 
-        internal func get_ContentTranslationOffsetImpl() throws -> Double {
+        public func get_ContentTranslationOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTranslationOffset(pThis, &value))
@@ -3845,7 +3846,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ContentTranslationOffsetImpl(_ value: Double) throws {
+        public func put_ContentTranslationOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentTranslationOffset(pThis, value))
             }
@@ -3856,103 +3857,103 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplitCloseThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics }
 
-        internal func get_OpenedTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_OpenedTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_OpenedTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_OpenedTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ClosedTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ClosedTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ClosedTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ClosedTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ContentTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ContentTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ContentTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ContentTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_OpenedLengthPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_OpenedLengthProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedLengthProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ClosedLengthPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ClosedLengthProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedLengthProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_OffsetFromCenterPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_OffsetFromCenterProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OffsetFromCenterProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ContentTranslationDirectionPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ContentTranslationDirectionProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTranslationDirectionProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ContentTranslationOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ContentTranslationOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTranslationOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -3960,7 +3961,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplitOpenThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation }
 
-        internal func get_OpenedTargetNameImpl() throws -> String {
+        public func get_OpenedTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedTargetName(pThis, &value))
@@ -3968,29 +3969,29 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_OpenedTargetNameImpl(_ value: String) throws {
+        public func put_OpenedTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OpenedTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_OpenedTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_OpenedTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_OpenedTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_OpenedTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OpenedTarget(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ClosedTargetNameImpl() throws -> String {
+        public func get_ClosedTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedTargetName(pThis, &value))
@@ -3998,29 +3999,29 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_ClosedTargetNameImpl(_ value: String) throws {
+        public func put_ClosedTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClosedTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_ClosedTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_ClosedTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_ClosedTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_ClosedTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClosedTarget(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ContentTargetNameImpl() throws -> String {
+        public func get_ContentTargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTargetName(pThis, &value))
@@ -4028,29 +4029,29 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_ContentTargetNameImpl(_ value: String) throws {
+        public func put_ContentTargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentTargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_ContentTargetImpl() throws -> WinUI.DependencyObject? {
+        public func get_ContentTarget() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTarget(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_ContentTargetImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_ContentTarget(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentTarget(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_OpenedLengthImpl() throws -> Double {
+        public func get_OpenedLength() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedLength(pThis, &value))
@@ -4058,13 +4059,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_OpenedLengthImpl(_ value: Double) throws {
+        public func put_OpenedLength(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OpenedLength(pThis, value))
             }
         }
 
-        internal func get_ClosedLengthImpl() throws -> Double {
+        public func get_ClosedLength() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedLength(pThis, &value))
@@ -4072,13 +4073,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ClosedLengthImpl(_ value: Double) throws {
+        public func put_ClosedLength(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClosedLength(pThis, value))
             }
         }
 
-        internal func get_OffsetFromCenterImpl() throws -> Double {
+        public func get_OffsetFromCenter() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OffsetFromCenter(pThis, &value))
@@ -4086,13 +4087,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_OffsetFromCenterImpl(_ value: Double) throws {
+        public func put_OffsetFromCenter(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_OffsetFromCenter(pThis, value))
             }
         }
 
-        internal func get_ContentTranslationDirectionImpl() throws -> WinUI.AnimationDirection {
+        public func get_ContentTranslationDirection() throws -> WinUI.AnimationDirection {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CAnimationDirection = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTranslationDirection(pThis, &value))
@@ -4100,13 +4101,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ContentTranslationDirectionImpl(_ value: WinUI.AnimationDirection) throws {
+        public func put_ContentTranslationDirection(_ value: WinUI.AnimationDirection) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentTranslationDirection(pThis, value))
             }
         }
 
-        internal func get_ContentTranslationOffsetImpl() throws -> Double {
+        public func get_ContentTranslationOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTranslationOffset(pThis, &value))
@@ -4114,7 +4115,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ContentTranslationOffsetImpl(_ value: Double) throws {
+        public func put_ContentTranslationOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentTranslationOffset(pThis, value))
             }
@@ -4125,103 +4126,103 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISplitOpenThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics }
 
-        internal func get_OpenedTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_OpenedTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_OpenedTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_OpenedTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ClosedTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ClosedTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ClosedTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ClosedTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ContentTargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ContentTargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ContentTargetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ContentTargetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTargetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_OpenedLengthPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_OpenedLengthProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpenedLengthProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ClosedLengthPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ClosedLengthProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClosedLengthProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_OffsetFromCenterPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_OffsetFromCenterProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OffsetFromCenterProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ContentTranslationDirectionPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ContentTranslationDirectionProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTranslationDirectionProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ContentTranslationOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ContentTranslationOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentTranslationOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -4229,46 +4230,46 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IStoryboard: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard }
 
-        internal func get_ChildrenImpl() throws -> WinUI.TimelineCollection? {
+        public func get_Children() throws -> WinUI.TimelineCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Children(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.TimelineCollectionBridge.from(abi: value)
         }
 
-        internal func SeekImpl(_ offset: WindowsFoundation.TimeSpan) throws {
+        public func Seek(_ offset: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Seek(pThis, .from(swift: offset)))
             }
         }
 
-        internal func StopImpl() throws {
+        public func Stop() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Stop(pThis))
             }
         }
 
-        internal func BeginImpl() throws {
+        public func Begin() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Begin(pThis))
             }
         }
 
-        internal func PauseImpl() throws {
+        public func Pause() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Pause(pThis))
             }
         }
 
-        internal func ResumeImpl() throws {
+        public func Resume() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Resume(pThis))
             }
         }
 
-        internal func GetCurrentStateImpl() throws -> WinUI.ClockState {
+        public func GetCurrentState() throws -> WinUI.ClockState {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CClockState = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentState(pThis, &result))
@@ -4276,7 +4277,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return result
         }
 
-        internal func GetCurrentTimeImpl() throws -> WindowsFoundation.TimeSpan {
+        public func GetCurrentTime() throws -> WindowsFoundation.TimeSpan {
             var result: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentTime(pThis, &result))
@@ -4284,13 +4285,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: result)
         }
 
-        internal func SeekAlignedToLastTickImpl(_ offset: WindowsFoundation.TimeSpan) throws {
+        public func SeekAlignedToLastTick(_ offset: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SeekAlignedToLastTick(pThis, .from(swift: offset)))
             }
         }
 
-        internal func SkipToFillImpl() throws {
+        public func SkipToFill() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SkipToFill(pThis))
             }
@@ -4301,16 +4302,16 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class IStoryboardStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboardStatics }
 
-        internal func get_TargetPropertyPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetPropertyProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboardStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetPropertyProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func GetTargetPropertyImpl(_ element: WinUI.Timeline?) throws -> String {
+        public func GetTargetProperty(_ element: WinUI.Timeline?) throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboardStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetTargetProperty(pThis, RawPointer(element), &result))
@@ -4318,23 +4319,23 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func SetTargetPropertyImpl(_ element: WinUI.Timeline?, _ path: String) throws {
+        public func SetTargetProperty(_ element: WinUI.Timeline?, _ path: String) throws {
             let _path = try! HString(path)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboardStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetTargetProperty(pThis, RawPointer(element), _path.get()))
             }
         }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboardStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func GetTargetNameImpl(_ element: WinUI.Timeline?) throws -> String {
+        public func GetTargetName(_ element: WinUI.Timeline?) throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboardStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetTargetName(pThis, RawPointer(element), &result))
@@ -4342,14 +4343,14 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: result)
         }
 
-        internal func SetTargetNameImpl(_ element: WinUI.Timeline?, _ name: String) throws {
+        public func SetTargetName(_ element: WinUI.Timeline?, _ name: String) throws {
             let _name = try! HString(name)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboardStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetTargetName(pThis, RawPointer(element), _name.get()))
             }
         }
 
-        internal func SetTargetImpl(_ timeline: WinUI.Timeline?, _ target: WinUI.DependencyObject?) throws {
+        public func SetTarget(_ timeline: WinUI.Timeline?, _ target: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboardStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetTarget(pThis, RawPointer(timeline), RawPointer(target)))
             }
@@ -4365,7 +4366,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISwipeBackThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -4373,14 +4374,14 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_FromHorizontalOffsetImpl() throws -> Double {
+        public func get_FromHorizontalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffset(pThis, &value))
@@ -4388,13 +4389,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromHorizontalOffsetImpl(_ value: Double) throws {
+        public func put_FromHorizontalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromHorizontalOffset(pThis, value))
             }
         }
 
-        internal func get_FromVerticalOffsetImpl() throws -> Double {
+        public func get_FromVerticalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffset(pThis, &value))
@@ -4402,7 +4403,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FromVerticalOffsetImpl(_ value: Double) throws {
+        public func put_FromVerticalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FromVerticalOffset(pThis, value))
             }
@@ -4413,31 +4414,31 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISwipeBackThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_FromHorizontalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromHorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_FromVerticalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FromVerticalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -4445,7 +4446,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISwipeHintThemeAnimation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimation }
 
-        internal func get_TargetNameImpl() throws -> String {
+        public func get_TargetName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetName(pThis, &value))
@@ -4453,14 +4454,14 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_TargetNameImpl(_ value: String) throws {
+        public func put_TargetName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TargetName(pThis, _value.get()))
             }
         }
 
-        internal func get_ToHorizontalOffsetImpl() throws -> Double {
+        public func get_ToHorizontalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ToHorizontalOffset(pThis, &value))
@@ -4468,13 +4469,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ToHorizontalOffsetImpl(_ value: Double) throws {
+        public func put_ToHorizontalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ToHorizontalOffset(pThis, value))
             }
         }
 
-        internal func get_ToVerticalOffsetImpl() throws -> Double {
+        public func get_ToVerticalOffset() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ToVerticalOffset(pThis, &value))
@@ -4482,7 +4483,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_ToVerticalOffsetImpl(_ value: Double) throws {
+        public func put_ToVerticalOffset(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ToVerticalOffset(pThis, value))
             }
@@ -4493,31 +4494,31 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ISwipeHintThemeAnimationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimationStatics }
 
-        internal func get_TargetNamePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TargetNameProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNameProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ToHorizontalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ToHorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ToHorizontalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ToVerticalOffsetPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ToVerticalOffsetProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ToVerticalOffsetProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -4525,7 +4526,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ITimeline: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline }
 
-        internal func get_AutoReverseImpl() throws -> Bool {
+        public func get_AutoReverse() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoReverse(pThis, &value))
@@ -4533,13 +4534,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_AutoReverseImpl(_ value: Bool) throws {
+        public func put_AutoReverse(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AutoReverse(pThis, .init(from: value)))
             }
         }
 
-        internal func get_BeginTimeImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_BeginTime() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BeginTime(pThis, &valueAbi))
@@ -4548,7 +4549,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_BeginTimeImpl(_ value: WindowsFoundation.TimeSpan?) throws {
+        public func put_BeginTime(_ value: WindowsFoundation.TimeSpan?) throws {
             let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
@@ -4556,7 +4557,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             }
         }
 
-        internal func get_DurationImpl() throws -> WinUI.Duration {
+        public func get_Duration() throws -> WinUI.Duration {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CDuration = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Duration(pThis, &value))
@@ -4564,13 +4565,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_DurationImpl(_ value: WinUI.Duration) throws {
+        public func put_Duration(_ value: WinUI.Duration) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Duration(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_SpeedRatioImpl() throws -> Double {
+        public func get_SpeedRatio() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpeedRatio(pThis, &value))
@@ -4578,13 +4579,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_SpeedRatioImpl(_ value: Double) throws {
+        public func put_SpeedRatio(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SpeedRatio(pThis, value))
             }
         }
 
-        internal func get_FillBehaviorImpl() throws -> WinUI.FillBehavior {
+        public func get_FillBehavior() throws -> WinUI.FillBehavior {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CFillBehavior = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FillBehavior(pThis, &value))
@@ -4592,13 +4593,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return value
         }
 
-        internal func put_FillBehaviorImpl(_ value: WinUI.FillBehavior) throws {
+        public func put_FillBehavior(_ value: WinUI.FillBehavior) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FillBehavior(pThis, value))
             }
         }
 
-        internal func get_RepeatBehaviorImpl() throws -> WinUI.RepeatBehavior {
+        public func get_RepeatBehavior() throws -> WinUI.RepeatBehavior {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CRepeatBehavior = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RepeatBehavior(pThis, &value))
@@ -4606,13 +4607,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .from(abi: value)
         }
 
-        internal func put_RepeatBehaviorImpl(_ value: WinUI.RepeatBehavior) throws {
+        public func put_RepeatBehavior(_ value: WinUI.RepeatBehavior) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RepeatBehavior(pThis, .from(swift: value)))
             }
         }
 
-        internal func add_CompletedImpl(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+        public func add_Completed(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -4622,7 +4623,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return token
         }
 
-        internal func remove_CompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Completed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Completed(pThis, token))
             }
@@ -4633,7 +4634,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ITimelineFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.Timeline.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITimeline {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.TimelineBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITimeline {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -4651,7 +4652,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
     public class ITimelineStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineStatics }
 
-        internal func get_AllowDependentAnimationsImpl() throws -> Bool {
+        public func get_AllowDependentAnimations() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllowDependentAnimations(pThis, &value))
@@ -4659,64 +4660,64 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
             return .init(from: value)
         }
 
-        internal func put_AllowDependentAnimationsImpl(_ value: Bool) throws {
+        public func put_AllowDependentAnimations(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AllowDependentAnimations(pThis, .init(from: value)))
             }
         }
 
-        internal func get_AutoReversePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_AutoReverseProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoReverseProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_BeginTimePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_BeginTimeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BeginTimeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_DurationPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_DurationProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DurationProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_SpeedRatioPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_SpeedRatioProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpeedRatioProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_FillBehaviorPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_FillBehaviorProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FillBehaviorProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_RepeatBehaviorPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_RepeatBehaviorProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimelineStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RepeatBehaviorProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -4731,7 +4732,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
 
     }
 
-    internal typealias INavigationTransitionInfoOverridesWrapper = UnsealedWinRTClassWrapper<WinUI.NavigationTransitionInfo.INavigationTransitionInfoOverrides>
+    internal typealias INavigationTransitionInfoOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.INavigationTransitionInfoOverrides>
     internal static var INavigationTransitionInfoOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverridesVtbl = .init(
         QueryInterface: { INavigationTransitionInfoOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { INavigationTransitionInfoOverridesWrapper.addRef($0) },
@@ -4766,7 +4767,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
                 let result = try __unwrapped__instance.getNavigationStateCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetNavigationStateCore: {
@@ -4775,7 +4776,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Animation {
                 let navigationState: String = .init(from: $1)
                 try __unwrapped__instance.setNavigationStateCore(navigationState)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 }

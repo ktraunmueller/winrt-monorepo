@@ -25,120 +25,115 @@ public final class BitmapImage : WinUI.BitmapSource {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage>?) -> BitmapImage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IBitmapImageFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImageFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.BitmapImage"))
+    private static let _IBitmapImageFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImageFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")
     public init(_ uriSource: WindowsFoundation.Uri!) {
-        super.init(fromAbi: try! Self._IBitmapImageFactory.CreateInstanceWithUriSourceImpl(uriSource))
+        super.init(fromAbi: try! Self._IBitmapImageFactory.CreateInstanceWithUriSource(uriSource))
     }
 
-    private static let _IBitmapImageStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImageStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.BitmapImage"))
+    private static let _IBitmapImageStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImageStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.autoplayproperty)
     public static var autoPlayProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapImageStatics.get_AutoPlayPropertyImpl() }
+        get { try! _IBitmapImageStatics.get_AutoPlayProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.createoptionsproperty)
     public static var createOptionsProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapImageStatics.get_CreateOptionsPropertyImpl() }
+        get { try! _IBitmapImageStatics.get_CreateOptionsProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.decodepixelheightproperty)
     public static var decodePixelHeightProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapImageStatics.get_DecodePixelHeightPropertyImpl() }
+        get { try! _IBitmapImageStatics.get_DecodePixelHeightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.decodepixeltypeproperty)
     public static var decodePixelTypeProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapImageStatics.get_DecodePixelTypePropertyImpl() }
+        get { try! _IBitmapImageStatics.get_DecodePixelTypeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.decodepixelwidthproperty)
     public static var decodePixelWidthProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapImageStatics.get_DecodePixelWidthPropertyImpl() }
+        get { try! _IBitmapImageStatics.get_DecodePixelWidthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.isanimatedbitmapproperty)
     public static var isAnimatedBitmapProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapImageStatics.get_IsAnimatedBitmapPropertyImpl() }
+        get { try! _IBitmapImageStatics.get_IsAnimatedBitmapProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.isplayingproperty)
     public static var isPlayingProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapImageStatics.get_IsPlayingPropertyImpl() }
+        get { try! _IBitmapImageStatics.get_IsPlayingProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.urisourceproperty)
     public static var uriSourceProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapImageStatics.get_UriSourcePropertyImpl() }
+        get { try! _IBitmapImageStatics.get_UriSourceProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.play)
     public func play() throws {
-        try _default.PlayImpl()
+        try _default.Play()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.stop)
     public func stop() throws {
-        try _default.StopImpl()
+        try _default.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.autoplay)
     public var autoPlay : Bool {
-        get { try! _default.get_AutoPlayImpl() }
-        set { try! _default.put_AutoPlayImpl(newValue) }
+        get { try! _default.get_AutoPlay() }
+        set { try! _default.put_AutoPlay(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.createoptions)
     public var createOptions : BitmapCreateOptions {
-        get { try! _default.get_CreateOptionsImpl() }
-        set { try! _default.put_CreateOptionsImpl(newValue) }
+        get { try! _default.get_CreateOptions() }
+        set { try! _default.put_CreateOptions(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.decodepixelheight)
     public var decodePixelHeight : Int32 {
-        get { try! _default.get_DecodePixelHeightImpl() }
-        set { try! _default.put_DecodePixelHeightImpl(newValue) }
+        get { try! _default.get_DecodePixelHeight() }
+        set { try! _default.put_DecodePixelHeight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.decodepixeltype)
     public var decodePixelType : DecodePixelType {
-        get { try! _default.get_DecodePixelTypeImpl() }
-        set { try! _default.put_DecodePixelTypeImpl(newValue) }
+        get { try! _default.get_DecodePixelType() }
+        set { try! _default.put_DecodePixelType(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.decodepixelwidth)
     public var decodePixelWidth : Int32 {
-        get { try! _default.get_DecodePixelWidthImpl() }
-        set { try! _default.put_DecodePixelWidthImpl(newValue) }
+        get { try! _default.get_DecodePixelWidth() }
+        set { try! _default.put_DecodePixelWidth(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.isanimatedbitmap)
     public var isAnimatedBitmap : Bool {
-        get { try! _default.get_IsAnimatedBitmapImpl() }
+        get { try! _default.get_IsAnimatedBitmap() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.isplaying)
     public var isPlaying : Bool {
-        get { try! _default.get_IsPlayingImpl() }
+        get { try! _default.get_IsPlaying() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.urisource)
     public var uriSource : WindowsFoundation.Uri! {
-        get { try! _default.get_UriSourceImpl() }
-        set { try! _default.put_UriSourceImpl(newValue) }
+        get { try! _default.get_UriSource() }
+        set { try! _default.put_UriSource(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.downloadprogress)
@@ -146,10 +141,10 @@ public final class BitmapImage : WinUI.BitmapSource {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DownloadProgressImpl($0)
+          return try! this.add_DownloadProgress($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DownloadProgressImpl($0)
+         try? self?._default.remove_DownloadProgress($0)
        }
       )
     }()
@@ -159,10 +154,10 @@ public final class BitmapImage : WinUI.BitmapSource {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ImageFailedImpl($0)
+          return try! this.add_ImageFailed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ImageFailedImpl($0)
+         try? self?._default.remove_ImageFailed($0)
        }
       )
     }()
@@ -172,10 +167,10 @@ public final class BitmapImage : WinUI.BitmapSource {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ImageOpenedImpl($0)
+          return try! this.add_ImageOpened($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ImageOpenedImpl($0)
+         try? self?._default.remove_ImageOpened($0)
        }
       )
     }()
@@ -199,12 +194,6 @@ open class BitmapSource : WinUI.ImageSource {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource>?) -> BitmapSource? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -219,56 +208,45 @@ open class BitmapSource : WinUI.ImageSource {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IBitmapSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSourceFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.BitmapSource"))
+    private static var _IBitmapSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapSource")
 
     public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IBitmapSourceFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.BitmapSourceBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IBitmapSourceFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IBitmapSourceStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSourceStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.BitmapSource"))
+    private static let _IBitmapSourceStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapsource.pixelheightproperty)
     public class var pixelHeightProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapSourceStatics.get_PixelHeightPropertyImpl() }
+        get { try! _IBitmapSourceStatics.get_PixelHeightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapsource.pixelwidthproperty)
     public class var pixelWidthProperty : WinUI.DependencyProperty! {
-        get { try! _IBitmapSourceStatics.get_PixelWidthPropertyImpl() }
+        get { try! _IBitmapSourceStatics.get_PixelWidthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapsource.setsource)
     public func setSource(_ streamSource: UWP.AnyIRandomAccessStream!) throws {
-        try _default.SetSourceImpl(streamSource)
+        try _default.SetSource(streamSource)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapsource.setsourceasync)
     public func setSourceAsync(_ streamSource: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetSourceAsyncImpl(streamSource)
+        try _default.SetSourceAsync(streamSource)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapsource.pixelheight)
     public var pixelHeight : Int32 {
-        get { try! _default.get_PixelHeightImpl() }
+        get { try! _default.get_PixelHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapsource.pixelwidth)
     public var pixelWidth : Int32 {
-        get { try! _default.get_PixelWidthImpl() }
+        get { try! _default.get_PixelWidth() }
     }
 
-    internal enum IBitmapSource : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = BitmapSource
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSource
-        }
-    }
-    internal typealias Composable = IBitmapSource
     deinit {
         _default = nil
     }
@@ -288,20 +266,14 @@ public final class DownloadProgressEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventArgs>?) -> DownloadProgressEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.downloadprogresseventargs.progress)
     public var progress : Int32 {
-        get { try! _default.get_ProgressImpl() }
-        set { try! _default.put_ProgressImpl(newValue) }
+        get { try! _default.get_Progress() }
+        set { try! _default.put_Progress(newValue) }
     }
 
     deinit {
@@ -323,54 +295,49 @@ public final class RenderTargetBitmap : WinUI.ImageSource {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap>?) -> RenderTargetBitmap? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.RenderTargetBitmap")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Imaging.RenderTargetBitmap")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRenderTargetBitmapStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IRenderTargetBitmapStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.RenderTargetBitmap"))
+    private static let _IRenderTargetBitmapStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IRenderTargetBitmapStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.RenderTargetBitmap")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap.pixelheightproperty)
     public static var pixelHeightProperty : WinUI.DependencyProperty! {
-        get { try! _IRenderTargetBitmapStatics.get_PixelHeightPropertyImpl() }
+        get { try! _IRenderTargetBitmapStatics.get_PixelHeightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap.pixelwidthproperty)
     public static var pixelWidthProperty : WinUI.DependencyProperty! {
-        get { try! _IRenderTargetBitmapStatics.get_PixelWidthPropertyImpl() }
+        get { try! _IRenderTargetBitmapStatics.get_PixelWidthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap.renderasync)
     public func renderAsync(_ element: WinUI.UIElement!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.RenderAsyncImpl(element)
+        try _default.RenderAsync(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap.renderasync)
     public func renderAsync(_ element: WinUI.UIElement!, _ scaledWidth: Int32, _ scaledHeight: Int32) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.RenderToSizeAsyncImpl(element, scaledWidth, scaledHeight)
+        try _default.RenderToSizeAsync(element, scaledWidth, scaledHeight)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap.getpixelsasync)
     public func getPixelsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIBuffer?>! {
-        try _default.GetPixelsAsyncImpl()
+        try _default.GetPixelsAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap.pixelheight)
     public var pixelHeight : Int32 {
-        get { try! _default.get_PixelHeightImpl() }
+        get { try! _default.get_PixelHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap.pixelwidth)
     public var pixelWidth : Int32 {
-        get { try! _default.get_PixelWidthImpl() }
+        get { try! _default.get_PixelWidth() }
     }
 
     deinit {
@@ -392,12 +359,6 @@ public final class SoftwareBitmapSource : WinUI.ImageSource, WindowsFoundation.I
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISoftwareBitmapSource>?) -> SoftwareBitmapSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -405,19 +366,20 @@ public final class SoftwareBitmapSource : WinUI.ImageSource, WindowsFoundation.I
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.softwarebitmapsource.setbitmapasync)
     public func setBitmapAsync(_ softwareBitmap: UWP.SoftwareBitmap!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetBitmapAsyncImpl(softwareBitmap)
+        try _default.SetBitmapAsync(softwareBitmap)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.softwarebitmapsource.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     deinit {
@@ -440,12 +402,6 @@ open class SurfaceImageSource : WinUI.ImageSource {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSource>?) -> SurfaceImageSource? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -460,31 +416,20 @@ open class SurfaceImageSource : WinUI.ImageSource {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISurfaceImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISurfaceImageSourceFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.SurfaceImageSource"))
+    private static var _ISurfaceImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISurfaceImageSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SurfaceImageSource")
 
     public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._ISurfaceImageSourceFactory.CreateInstanceWithDimensionsImpl(pixelWidth, pixelHeight, baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SurfaceImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ISurfaceImageSourceFactory.CreateInstanceWithDimensions(pixelWidth, pixelHeight, baseInterface, &innerInterface)
         }
     }
 
     public init(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool) {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._ISurfaceImageSourceFactory.CreateInstanceWithDimensionsAndOpacityImpl(pixelWidth, pixelHeight, isOpaque, baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SurfaceImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ISurfaceImageSourceFactory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, baseInterface, &innerInterface)
         }
     }
 
-    internal enum ISurfaceImageSource : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = SurfaceImageSource
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSource
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISurfaceImageSource
-        }
-    }
-    internal typealias Composable = ISurfaceImageSource
     deinit {
         _default = nil
     }
@@ -504,12 +449,6 @@ open class SvgImageSource : WinUI.ImageSource {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource>?) -> SvgImageSource? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -524,57 +463,57 @@ open class SvgImageSource : WinUI.ImageSource {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISvgImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.SvgImageSource"))
+    private static var _ISvgImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SvgImageSource")
 
     public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._ISvgImageSourceFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ISvgImageSourceFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     public init(_ uriSource: WindowsFoundation.Uri!) {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._ISvgImageSourceFactory.CreateInstanceWithUriSourceImpl(uriSource, baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ISvgImageSourceFactory.CreateInstanceWithUriSource(uriSource, baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISvgImageSourceStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.SvgImageSource"))
+    private static let _ISvgImageSourceStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SvgImageSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.rasterizepixelheightproperty)
     public class var rasterizePixelHeightProperty : WinUI.DependencyProperty! {
-        get { try! _ISvgImageSourceStatics.get_RasterizePixelHeightPropertyImpl() }
+        get { try! _ISvgImageSourceStatics.get_RasterizePixelHeightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.rasterizepixelwidthproperty)
     public class var rasterizePixelWidthProperty : WinUI.DependencyProperty! {
-        get { try! _ISvgImageSourceStatics.get_RasterizePixelWidthPropertyImpl() }
+        get { try! _ISvgImageSourceStatics.get_RasterizePixelWidthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.urisourceproperty)
     public class var uriSourceProperty : WinUI.DependencyProperty! {
-        get { try! _ISvgImageSourceStatics.get_UriSourcePropertyImpl() }
+        get { try! _ISvgImageSourceStatics.get_UriSourceProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.setsourceasync)
     public func setSourceAsync(_ streamSource: UWP.AnyIRandomAccessStream!) throws -> WindowsFoundation.AnyIAsyncOperation<SvgImageSourceLoadStatus>! {
-        try _default.SetSourceAsyncImpl(streamSource)
+        try _default.SetSourceAsync(streamSource)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.rasterizepixelheight)
     public var rasterizePixelHeight : Double {
-        get { try! _default.get_RasterizePixelHeightImpl() }
-        set { try! _default.put_RasterizePixelHeightImpl(newValue) }
+        get { try! _default.get_RasterizePixelHeight() }
+        set { try! _default.put_RasterizePixelHeight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.rasterizepixelwidth)
     public var rasterizePixelWidth : Double {
-        get { try! _default.get_RasterizePixelWidthImpl() }
-        set { try! _default.put_RasterizePixelWidthImpl(newValue) }
+        get { try! _default.get_RasterizePixelWidth() }
+        set { try! _default.put_RasterizePixelWidth(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.urisource)
     public var uriSource : WindowsFoundation.Uri! {
-        get { try! _default.get_UriSourceImpl() }
-        set { try! _default.put_UriSourceImpl(newValue) }
+        get { try! _default.get_UriSource() }
+        set { try! _default.put_UriSource(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.openfailed)
@@ -582,10 +521,10 @@ open class SvgImageSource : WinUI.ImageSource {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_OpenFailedImpl($0)
+          return try! this.add_OpenFailed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_OpenFailedImpl($0)
+         try? self?._default.remove_OpenFailed($0)
        }
       )
     }()
@@ -595,25 +534,14 @@ open class SvgImageSource : WinUI.ImageSource {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_OpenedImpl($0)
+          return try! this.add_Opened($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_OpenedImpl($0)
+         try? self?._default.remove_Opened($0)
        }
       )
     }()
 
-    internal enum ISvgImageSource : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = SvgImageSource
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSource
-        }
-    }
-    internal typealias Composable = ISvgImageSource
     deinit {
         _default = nil
     }
@@ -633,19 +561,13 @@ public final class SvgImageSourceFailedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFailedEventArgs>?) -> SvgImageSourceFailedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesourcefailedeventargs.status)
     public var status : SvgImageSourceLoadStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     deinit {
@@ -664,12 +586,6 @@ public final class SvgImageSourceOpenedEventArgs : WinRTClass {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceOpenedEventArgs>?) -> SvgImageSourceOpenedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -696,23 +612,17 @@ public final class VirtualSurfaceImageSource : WinUI.SurfaceImageSource {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSource>?) -> VirtualSurfaceImageSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IVirtualSurfaceImageSourceFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IVirtualSurfaceImageSourceFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource"))
+    private static let _IVirtualSurfaceImageSourceFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IVirtualSurfaceImageSourceFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource")
     override public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
-        super.init(fromAbi: try! Self._IVirtualSurfaceImageSourceFactory.CreateInstanceWithDimensionsImpl(pixelWidth, pixelHeight))
+        super.init(fromAbi: try! Self._IVirtualSurfaceImageSourceFactory.CreateInstanceWithDimensions(pixelWidth, pixelHeight))
     }
 
     override public init(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool) {
-        super.init(fromAbi: try! Self._IVirtualSurfaceImageSourceFactory.CreateInstanceWithDimensionsAndOpacityImpl(pixelWidth, pixelHeight, isOpaque))
+        super.init(fromAbi: try! Self._IVirtualSurfaceImageSourceFactory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque))
     }
 
     deinit {
@@ -734,29 +644,23 @@ public final class WriteableBitmap : WinUI.BitmapSource {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmap>?) -> WriteableBitmap? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IWriteableBitmapFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IWriteableBitmapFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.WriteableBitmap"))
+    private static let _IWriteableBitmapFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IWriteableBitmapFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.WriteableBitmap")
     public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
-        super.init(fromAbi: try! Self._IWriteableBitmapFactory.CreateInstanceWithDimensionsImpl(pixelWidth, pixelHeight))
+        super.init(fromAbi: try! Self._IWriteableBitmapFactory.CreateInstanceWithDimensions(pixelWidth, pixelHeight))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.writeablebitmap.invalidate)
     public func invalidate() throws {
-        try _default.InvalidateImpl()
+        try _default.Invalidate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.writeablebitmap.pixelbuffer)
     public var pixelBuffer : UWP.AnyIBuffer! {
-        get { try! _default.get_PixelBufferImpl() }
+        get { try! _default.get_PixelBuffer() }
     }
 
     deinit {
@@ -775,12 +679,6 @@ open class XamlRenderingBackgroundTask : WinRTClass {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTask>?) -> XamlRenderingBackgroundTask? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
     }
 
     @_spi(WinRTInternal)
@@ -804,39 +702,28 @@ open class XamlRenderingBackgroundTask : WinRTClass {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IXamlRenderingBackgroundTaskFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask"))
+    private static var _IXamlRenderingBackgroundTaskFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IXamlRenderingBackgroundTaskFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.XamlRenderingBackgroundTaskBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IXamlRenderingBackgroundTaskFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     private lazy var _IXamlRenderingBackgroundTaskOverrides: __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.xamlrenderingbackgroundtask.onrun)
     open func onRun(_ taskInstance: UWP.AnyIBackgroundTaskInstance!) throws {
-        try _IXamlRenderingBackgroundTaskOverrides.OnRunImpl(taskInstance)
+        try _IXamlRenderingBackgroundTaskOverrides.OnRun(taskInstance)
     }
 
-    internal enum IXamlRenderingBackgroundTaskOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskOverrides
-        internal typealias Class = XamlRenderingBackgroundTask
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTask
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTask
-        }
-    }
-    internal typealias Composable = IXamlRenderingBackgroundTaskOverrides
     deinit {
         _default = nil
         _IXamlRenderingBackgroundTaskOverrides = nil
     }
 }
 
-public typealias DownloadProgressEventHandler = (Any?, DownloadProgressEventArgs?) -> ()
+public typealias DownloadProgressEventHandler = (Any?, DownloadProgressEventArgs?) throws -> ()
 extension WinUI.BitmapCreateOptions {
     public static var none : WinUI.BitmapCreateOptions {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CBitmapCreateOptions_None
@@ -845,7 +732,7 @@ extension WinUI.BitmapCreateOptions {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CBitmapCreateOptions_IgnoreImageCache
     }
 }
-extension WinUI.BitmapCreateOptions: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.BitmapCreateOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.DecodePixelType {
     public static var physical : WinUI.DecodePixelType {
@@ -855,7 +742,7 @@ extension WinUI.DecodePixelType {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CDecodePixelType_Logical
     }
 }
-extension WinUI.DecodePixelType: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.DecodePixelType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.SvgImageSourceLoadStatus {
     public static var success : WinUI.SvgImageSourceLoadStatus {
@@ -871,5 +758,5 @@ extension WinUI.SvgImageSourceLoadStatus {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CSvgImageSourceLoadStatus_Other
     }
 }
-extension WinUI.SvgImageSourceLoadStatus: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.SvgImageSourceLoadStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

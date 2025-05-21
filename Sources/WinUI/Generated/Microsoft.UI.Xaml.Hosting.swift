@@ -21,12 +21,6 @@ open class DesktopWindowXamlSource : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource>?) -> DesktopWindowXamlSource? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -42,45 +36,45 @@ open class DesktopWindowXamlSource : WinRTClass, WindowsFoundation.IClosable {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IDesktopWindowXamlSourceFactory : __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSourceFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Hosting.DesktopWindowXamlSource"))
+    private static var _IDesktopWindowXamlSourceFactory : __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.DesktopWindowXamlSource")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IDesktopWindowXamlSourceFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Hosting.DesktopWindowXamlSourceBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IDesktopWindowXamlSourceFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.navigatefocus)
     public func navigateFocus(_ request: XamlSourceFocusNavigationRequest!) throws -> XamlSourceFocusNavigationResult! {
-        try _default.NavigateFocusImpl(request)
+        try _default.NavigateFocus(request)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.initialize)
     public func initialize(_ parentWindowId: WinAppSDK.WindowId) throws {
-        try _default.InitializeImpl(parentWindowId)
+        try _default.Initialize(parentWindowId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.content)
     public var content : WinUI.UIElement! {
-        get { try! _default.get_ContentImpl() }
-        set { try! _default.put_ContentImpl(newValue) }
+        get { try! _default.get_Content() }
+        set { try! _default.put_Content(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.hasfocus)
     public var hasFocus : Bool {
-        get { try! _default.get_HasFocusImpl() }
+        get { try! _default.get_HasFocus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.sitebridge)
     public var siteBridge : WinAppSDK.DesktopChildSiteBridge! {
-        get { try! _default.get_SiteBridgeImpl() }
+        get { try! _default.get_SiteBridge() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.systembackdrop)
     public var systemBackdrop : WinUI.SystemBackdrop! {
-        get { try! _default.get_SystemBackdropImpl() }
-        set { try! _default.put_SystemBackdropImpl(newValue) }
+        get { try! _default.get_SystemBackdrop() }
+        set { try! _default.put_SystemBackdrop(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.gotfocus)
@@ -88,10 +82,10 @@ open class DesktopWindowXamlSource : WinRTClass, WindowsFoundation.IClosable {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_GotFocusImpl($0)
+          return try! this.add_GotFocus($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_GotFocusImpl($0)
+         try? self?._default.remove_GotFocus($0)
        }
       )
     }()
@@ -101,10 +95,10 @@ open class DesktopWindowXamlSource : WinRTClass, WindowsFoundation.IClosable {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_TakeFocusRequestedImpl($0)
+          return try! this.add_TakeFocusRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_TakeFocusRequestedImpl($0)
+         try? self?._default.remove_TakeFocusRequested($0)
        }
       )
     }()
@@ -112,27 +106,16 @@ open class DesktopWindowXamlSource : WinRTClass, WindowsFoundation.IClosable {
     private lazy var _IDesktopWindowXamlSource2: __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSource2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.shouldconstrainpopupstoworkarea)
     public var shouldConstrainPopupsToWorkArea : Bool {
-        get { try! _IDesktopWindowXamlSource2.get_ShouldConstrainPopupsToWorkAreaImpl() }
-        set { try! _IDesktopWindowXamlSource2.put_ShouldConstrainPopupsToWorkAreaImpl(newValue) }
+        get { try! _IDesktopWindowXamlSource2.get_ShouldConstrainPopupsToWorkArea() }
+        set { try! _IDesktopWindowXamlSource2.put_ShouldConstrainPopupsToWorkArea(newValue) }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
-    internal enum IDesktopWindowXamlSource : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = DesktopWindowXamlSource
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSource
-        }
-    }
-    internal typealias Composable = IDesktopWindowXamlSource
     deinit {
         _default = nil
         _IDesktopWindowXamlSource2 = nil
@@ -154,19 +137,13 @@ public final class DesktopWindowXamlSourceGotFocusEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceGotFocusEventArgs>?) -> DesktopWindowXamlSourceGotFocusEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsourcegotfocuseventargs.request)
     public var request : XamlSourceFocusNavigationRequest! {
-        get { try! _default.get_RequestImpl() }
+        get { try! _default.get_Request() }
     }
 
     deinit {
@@ -188,19 +165,13 @@ public final class DesktopWindowXamlSourceTakeFocusRequestedEventArgs : WinRTCla
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceTakeFocusRequestedEventArgs>?) -> DesktopWindowXamlSourceTakeFocusRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsourcetakefocusrequestedeventargs.request)
     public var request : XamlSourceFocusNavigationRequest! {
-        get { try! _default.get_RequestImpl() }
+        get { try! _default.get_Request() }
     }
 
     deinit {
@@ -222,55 +193,49 @@ public final class ElementCompositionPreview : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreview>?) -> ElementCompositionPreview? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IElementCompositionPreviewStatics: __ABI_Microsoft_UI_Xaml_Hosting.IElementCompositionPreviewStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Hosting.ElementCompositionPreview"))
+    private static let _IElementCompositionPreviewStatics: __ABI_Microsoft_UI_Xaml_Hosting.IElementCompositionPreviewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.ElementCompositionPreview")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview.getelementvisual)
-    public static func getElementVisual(_ element: WinUI.UIElement!) -> WinAppSDK.Visual! {
-        return try! _IElementCompositionPreviewStatics.GetElementVisualImpl(element)
+    public static func getElementVisual(_ element: WinUI.UIElement!) throws -> WinAppSDK.Visual! {
+        return try _IElementCompositionPreviewStatics.GetElementVisual(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview.getelementchildvisual)
-    public static func getElementChildVisual(_ element: WinUI.UIElement!) -> WinAppSDK.Visual! {
-        return try! _IElementCompositionPreviewStatics.GetElementChildVisualImpl(element)
+    public static func getElementChildVisual(_ element: WinUI.UIElement!) throws -> WinAppSDK.Visual! {
+        return try _IElementCompositionPreviewStatics.GetElementChildVisual(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview.setelementchildvisual)
-    public static func setElementChildVisual(_ element: WinUI.UIElement!, _ visual: WinAppSDK.Visual!) {
-        try! _IElementCompositionPreviewStatics.SetElementChildVisualImpl(element, visual)
+    public static func setElementChildVisual(_ element: WinUI.UIElement!, _ visual: WinAppSDK.Visual!) throws {
+        try _IElementCompositionPreviewStatics.SetElementChildVisual(element, visual)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview.getscrollviewermanipulationpropertyset)
-    public static func getScrollViewerManipulationPropertySet(_ scrollViewer: WinUI.ScrollViewer!) -> WinAppSDK.CompositionPropertySet! {
-        return try! _IElementCompositionPreviewStatics.GetScrollViewerManipulationPropertySetImpl(scrollViewer)
+    public static func getScrollViewerManipulationPropertySet(_ scrollViewer: WinUI.ScrollViewer!) throws -> WinAppSDK.CompositionPropertySet! {
+        return try _IElementCompositionPreviewStatics.GetScrollViewerManipulationPropertySet(scrollViewer)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview.setimplicitshowanimation)
-    public static func setImplicitShowAnimation(_ element: WinUI.UIElement!, _ animation: WinAppSDK.AnyICompositionAnimationBase!) {
-        try! _IElementCompositionPreviewStatics.SetImplicitShowAnimationImpl(element, animation)
+    public static func setImplicitShowAnimation(_ element: WinUI.UIElement!, _ animation: WinAppSDK.AnyICompositionAnimationBase!) throws {
+        try _IElementCompositionPreviewStatics.SetImplicitShowAnimation(element, animation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview.setimplicithideanimation)
-    public static func setImplicitHideAnimation(_ element: WinUI.UIElement!, _ animation: WinAppSDK.AnyICompositionAnimationBase!) {
-        try! _IElementCompositionPreviewStatics.SetImplicitHideAnimationImpl(element, animation)
+    public static func setImplicitHideAnimation(_ element: WinUI.UIElement!, _ animation: WinAppSDK.AnyICompositionAnimationBase!) throws {
+        try _IElementCompositionPreviewStatics.SetImplicitHideAnimation(element, animation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview.setistranslationenabled)
-    public static func setIsTranslationEnabled(_ element: WinUI.UIElement!, _ value: Bool) {
-        try! _IElementCompositionPreviewStatics.SetIsTranslationEnabledImpl(element, value)
+    public static func setIsTranslationEnabled(_ element: WinUI.UIElement!, _ value: Bool) throws {
+        try _IElementCompositionPreviewStatics.SetIsTranslationEnabled(element, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview.getpointerpositionpropertyset)
-    public static func getPointerPositionPropertySet(_ targetElement: WinUI.UIElement!) -> WinAppSDK.CompositionPropertySet! {
-        return try! _IElementCompositionPreviewStatics.GetPointerPositionPropertySetImpl(targetElement)
+    public static func getPointerPositionPropertySet(_ targetElement: WinUI.UIElement!) throws -> WinAppSDK.CompositionPropertySet! {
+        return try _IElementCompositionPreviewStatics.GetPointerPositionPropertySet(targetElement)
     }
 
     deinit {
@@ -292,12 +257,6 @@ public final class WindowsXamlManager : WinRTClass, WindowsFoundation.IClosable 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManager>?) -> WindowsXamlManager? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -305,16 +264,16 @@ public final class WindowsXamlManager : WinRTClass, WindowsFoundation.IClosable 
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IWindowsXamlManagerStatics: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManagerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Hosting.WindowsXamlManager"))
+    private static let _IWindowsXamlManagerStatics: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManagerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.WindowsXamlManager")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread)
-    public static func initializeForCurrentThread() -> WindowsXamlManager! {
-        return try! _IWindowsXamlManagerStatics.InitializeForCurrentThreadImpl()
+    public static func initializeForCurrentThread() throws -> WindowsXamlManager! {
+        return try _IWindowsXamlManagerStatics.InitializeForCurrentThread()
     }
 
-    private static let _IWindowsXamlManagerStatics2: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManagerStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Hosting.WindowsXamlManager"))
+    private static let _IWindowsXamlManagerStatics2: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManagerStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.WindowsXamlManager")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.windowsxamlmanager.getforcurrentthread)
-    public static func getForCurrentThread() -> WindowsXamlManager! {
-        return try! _IWindowsXamlManagerStatics2.GetForCurrentThreadImpl()
+    public static func getForCurrentThread() throws -> WindowsXamlManager! {
+        return try _IWindowsXamlManagerStatics2.GetForCurrentThread()
     }
 
     private lazy var _IWindowsXamlManager2: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManager2! = getInterfaceForCaching()
@@ -323,10 +282,10 @@ public final class WindowsXamlManager : WinRTClass, WindowsFoundation.IClosable 
       .init(
         add: { [weak self] in
           guard let this = self?._IWindowsXamlManager2 else { return .init() }
-          return try! this.add_XamlShutdownCompletedOnThreadImpl($0)
+          return try! this.add_XamlShutdownCompletedOnThread($0)
         },
         remove: { [weak self] in
-         try? self?._IWindowsXamlManager2.remove_XamlShutdownCompletedOnThreadImpl($0)
+         try? self?._IWindowsXamlManager2.remove_XamlShutdownCompletedOnThread($0)
        }
       )
     }()
@@ -334,7 +293,7 @@ public final class WindowsXamlManager : WinRTClass, WindowsFoundation.IClosable 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.windowsxamlmanager.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     deinit {
@@ -358,19 +317,13 @@ public final class XamlShutdownCompletedOnThreadEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlShutdownCompletedOnThreadEventArgs>?) -> XamlShutdownCompletedOnThreadEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlshutdowncompletedonthreadeventargs.getdispatcherqueuedeferral)
     public func getDispatcherQueueDeferral() throws -> WindowsFoundation.Deferral! {
-        try _default.GetDispatcherQueueDeferralImpl()
+        try _default.GetDispatcherQueueDeferral()
     }
 
     deinit {
@@ -392,42 +345,36 @@ public final class XamlSourceFocusNavigationRequest : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequest>?) -> XamlSourceFocusNavigationRequest? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IXamlSourceFocusNavigationRequestFactory: __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationRequestFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Hosting.XamlSourceFocusNavigationRequest"))
+    private static let _IXamlSourceFocusNavigationRequestFactory: __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationRequestFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.XamlSourceFocusNavigationRequest")
     public init(_ reason: XamlSourceFocusNavigationReason) {
-        super.init(try! Self._IXamlSourceFocusNavigationRequestFactory.CreateInstanceImpl(reason))
+        super.init(try! Self._IXamlSourceFocusNavigationRequestFactory.CreateInstance(reason))
     }
 
     public init(_ reason: XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect) {
-        super.init(try! Self._IXamlSourceFocusNavigationRequestFactory.CreateInstanceWithHintRectImpl(reason, hintRect))
+        super.init(try! Self._IXamlSourceFocusNavigationRequestFactory.CreateInstanceWithHintRect(reason, hintRect))
     }
 
     public init(_ reason: XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect, _ correlationId: Foundation.UUID) {
-        super.init(try! Self._IXamlSourceFocusNavigationRequestFactory.CreateInstanceWithHintRectAndCorrelationIdImpl(reason, hintRect, correlationId))
+        super.init(try! Self._IXamlSourceFocusNavigationRequestFactory.CreateInstanceWithHintRectAndCorrelationId(reason, hintRect, correlationId))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlsourcefocusnavigationrequest.correlationid)
     public var correlationId : Foundation.UUID {
-        get { try! _default.get_CorrelationIdImpl() }
+        get { try! _default.get_CorrelationId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlsourcefocusnavigationrequest.hintrect)
     public var hintRect : WindowsFoundation.Rect {
-        get { try! _default.get_HintRectImpl() }
+        get { try! _default.get_HintRect() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlsourcefocusnavigationrequest.reason)
     public var reason : XamlSourceFocusNavigationReason {
-        get { try! _default.get_ReasonImpl() }
+        get { try! _default.get_Reason() }
     }
 
     deinit {
@@ -449,24 +396,18 @@ public final class XamlSourceFocusNavigationResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationResult>?) -> XamlSourceFocusNavigationResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IXamlSourceFocusNavigationResultFactory: __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationResultFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Hosting.XamlSourceFocusNavigationResult"))
+    private static let _IXamlSourceFocusNavigationResultFactory: __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationResultFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.XamlSourceFocusNavigationResult")
     public init(_ focusMoved: Bool) {
-        super.init(try! Self._IXamlSourceFocusNavigationResultFactory.CreateInstanceImpl(focusMoved))
+        super.init(try! Self._IXamlSourceFocusNavigationResultFactory.CreateInstance(focusMoved))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlsourcefocusnavigationresult.wasfocusmoved)
     public var wasFocusMoved : Bool {
-        get { try! _default.get_WasFocusMovedImpl() }
+        get { try! _default.get_WasFocusMoved() }
     }
 
     deinit {
@@ -500,5 +441,5 @@ extension WinUI.XamlSourceFocusNavigationReason {
         __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CXamlSourceFocusNavigationReason_Down
     }
 }
-extension WinUI.XamlSourceFocusNavigationReason: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.XamlSourceFocusNavigationReason: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

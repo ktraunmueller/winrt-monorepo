@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Markup {
     public enum IComponentConnectorBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIComponentConnector
@@ -30,12 +31,12 @@ public enum __IMPL_Microsoft_UI_Xaml_Markup {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.icomponentconnector.connect)
         fileprivate func connect(_ connectionId: Int32, _ target: Any!) throws {
-            try _default.ConnectImpl(connectionId, target)
+            try _default.Connect(connectionId, target)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.icomponentconnector.getbindingconnector)
         fileprivate func getBindingConnector(_ connectionId: Int32, _ target: Any!) throws -> AnyIComponentConnector! {
-            try _default.GetBindingConnectorImpl(connectionId, target)
+            try _default.GetBindingConnector(connectionId, target)
         }
 
     }
@@ -65,12 +66,12 @@ public enum __IMPL_Microsoft_UI_Xaml_Markup {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.idatatemplatecomponent.recycle)
         fileprivate func recycle() throws {
-            try _default.RecycleImpl()
+            try _default.Recycle()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.idatatemplatecomponent.processbindings)
         fileprivate func processBindings(_ item: Any!, _ itemIndex: Int32, _ phase: Int32, _ nextPhase: inout Int32) throws {
-            try _default.ProcessBindingsImpl(item, itemIndex, phase, &nextPhase)
+            try _default.ProcessBindings(item, itemIndex, phase, &nextPhase)
         }
 
     }
@@ -100,42 +101,42 @@ public enum __IMPL_Microsoft_UI_Xaml_Markup {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.getvalue)
         fileprivate func getValue(_ instance: Any!) throws -> Any! {
-            try _default.GetValueImpl(instance)
+            try _default.GetValue(instance)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.setvalue)
         fileprivate func setValue(_ instance: Any!, _ value: Any!) throws {
-            try _default.SetValueImpl(instance, value)
+            try _default.SetValue(instance, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.isattachable)
         fileprivate var isAttachable : Bool {
-            get { try! _default.get_IsAttachableImpl() }
+            get { try! _default.get_IsAttachable() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.isdependencyproperty)
         fileprivate var isDependencyProperty : Bool {
-            get { try! _default.get_IsDependencyPropertyImpl() }
+            get { try! _default.get_IsDependencyProperty() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.isreadonly)
         fileprivate var isReadOnly : Bool {
-            get { try! _default.get_IsReadOnlyImpl() }
+            get { try! _default.get_IsReadOnly() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.name)
         fileprivate var name : String {
-            get { try! _default.get_NameImpl() }
+            get { try! _default.get_Name() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.targettype)
         fileprivate var targetType : AnyIXamlType! {
-            get { try! _default.get_TargetTypeImpl() }
+            get { try! _default.get_TargetType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.type)
         fileprivate var type : AnyIXamlType! {
-            get { try! _default.get_TypeImpl() }
+            get { try! _default.get_Type() }
         }
 
     }
@@ -165,12 +166,17 @@ public enum __IMPL_Microsoft_UI_Xaml_Markup {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmetadataprovider.getxamltype)
         fileprivate func getXamlType(_ type: WinUI.TypeName) throws -> AnyIXamlType! {
-            try _default.GetXamlTypeImpl(type)
+            try _default.GetXamlType(type)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmetadataprovider.getxamltype)
         fileprivate func getXamlType(_ fullName: String) throws -> AnyIXamlType! {
-            try _default.GetXamlTypeByFullNameImpl(fullName)
+            try _default.GetXamlTypeByFullName(fullName)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmetadataprovider.getxmlnsdefinitions)
+        fileprivate func getXmlnsDefinitions() throws -> [XmlnsDefinition] {
+            try _default.GetXmlnsDefinitions()
         }
 
     }
@@ -200,99 +206,150 @@ public enum __IMPL_Microsoft_UI_Xaml_Markup {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.activateinstance)
         fileprivate func activateInstance() throws -> Any! {
-            try _default.ActivateInstanceImpl()
+            try _default.ActivateInstance()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.createfromstring)
         fileprivate func createFromString(_ value: String) throws -> Any! {
-            try _default.CreateFromStringImpl(value)
+            try _default.CreateFromString(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.getmember)
         fileprivate func getMember(_ name: String) throws -> AnyIXamlMember! {
-            try _default.GetMemberImpl(name)
+            try _default.GetMember(name)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.addtovector)
         fileprivate func addToVector(_ instance: Any!, _ value: Any!) throws {
-            try _default.AddToVectorImpl(instance, value)
+            try _default.AddToVector(instance, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.addtomap)
         fileprivate func addToMap(_ instance: Any!, _ key: Any!, _ value: Any!) throws {
-            try _default.AddToMapImpl(instance, key, value)
+            try _default.AddToMap(instance, key, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.runinitializer)
         fileprivate func runInitializer() throws {
-            try _default.RunInitializerImpl()
+            try _default.RunInitializer()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.basetype)
         fileprivate var baseType : AnyIXamlType! {
-            get { try! _default.get_BaseTypeImpl() }
+            get { try! _default.get_BaseType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.boxedtype)
         fileprivate var boxedType : AnyIXamlType! {
-            get { try! _default.get_BoxedTypeImpl() }
+            get { try! _default.get_BoxedType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.contentproperty)
         fileprivate var contentProperty : AnyIXamlMember! {
-            get { try! _default.get_ContentPropertyImpl() }
+            get { try! _default.get_ContentProperty() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.fullname)
         fileprivate var fullName : String {
-            get { try! _default.get_FullNameImpl() }
+            get { try! _default.get_FullName() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.isarray)
         fileprivate var isArray : Bool {
-            get { try! _default.get_IsArrayImpl() }
+            get { try! _default.get_IsArray() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.isbindable)
         fileprivate var isBindable : Bool {
-            get { try! _default.get_IsBindableImpl() }
+            get { try! _default.get_IsBindable() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.iscollection)
         fileprivate var isCollection : Bool {
-            get { try! _default.get_IsCollectionImpl() }
+            get { try! _default.get_IsCollection() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.isconstructible)
         fileprivate var isConstructible : Bool {
-            get { try! _default.get_IsConstructibleImpl() }
+            get { try! _default.get_IsConstructible() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.isdictionary)
         fileprivate var isDictionary : Bool {
-            get { try! _default.get_IsDictionaryImpl() }
+            get { try! _default.get_IsDictionary() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.ismarkupextension)
         fileprivate var isMarkupExtension : Bool {
-            get { try! _default.get_IsMarkupExtensionImpl() }
+            get { try! _default.get_IsMarkupExtension() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.itemtype)
         fileprivate var itemType : AnyIXamlType! {
-            get { try! _default.get_ItemTypeImpl() }
+            get { try! _default.get_ItemType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.keytype)
         fileprivate var keyType : AnyIXamlType! {
-            get { try! _default.get_KeyTypeImpl() }
+            get { try! _default.get_KeyType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.underlyingtype)
         fileprivate var underlyingType : WinUI.TypeName {
-            get { try! _default.get_UnderlyingTypeImpl() }
+            get { try! _default.get_UnderlyingType() }
         }
 
     }
 
+}
+@_spi(WinRTInternal)
+extension XmlnsDefinition: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CXmlnsDefinition
+    public static func from(abi: ABI) -> Self {
+        .init(xmlNamespace: .init(from: abi.XmlNamespace), namespace: .init(from: abi.Namespace))
+    }
+    public func toABI() -> ABI {
+        __ABI_Microsoft_UI_Xaml_Markup._ABI_XmlnsDefinition(from: self).detach()
+    }
+}
+
+@_spi(WinRTInternal)
+public class IComponentConnectorMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIComponentConnector
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Markup.IComponentConnector = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Markup.IComponentConnectorBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IDataTemplateComponentMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIDataTemplateComponent
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Markup.IDataTemplateComponent = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Markup.IDataTemplateComponentBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IXamlMemberMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIXamlMember
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Markup.IXamlMember = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Markup.IXamlMemberBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IXamlMetadataProviderMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIXamlMetadataProvider
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Markup.IXamlMetadataProvider = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Markup.IXamlMetadataProviderBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IXamlTypeMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIXamlType
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Markup.IXamlType = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Markup.IXamlTypeBridge.from(abi: RawPointer(swiftAbi))!
+    }
 }

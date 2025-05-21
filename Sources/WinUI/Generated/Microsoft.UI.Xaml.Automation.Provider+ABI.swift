@@ -8,6 +8,7 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElement
     .init(Data1: 0xF90BC239, Data2: 0xADE2, Data3: 0x55C9, Data4: ( 0xA8,0x38,0xA3,0xB0,0x57,0x97,0x63,0xC5 ))// F90BC239-ADE2-55C9-A838-A3B0579763C5
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Automation_Provider {
     public class IIRawElementProviderSimple: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElementProviderSimple }

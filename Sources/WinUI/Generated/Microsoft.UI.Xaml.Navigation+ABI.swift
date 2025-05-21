@@ -52,11 +52,12 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationStoppedEven
     .init(Data1: 0xB9E796A6, Data2: 0x7FFE, Data3: 0x5A63, Data4: ( 0xAE,0xF4,0xCB,0xC3,0x31,0x66,0x3B,0x66 ))// B9E796A6-7FFE-5A63-AEF4-CBC331663B66
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Navigation {
     public class IFrameNavigationOptions: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions }
 
-        internal func get_IsNavigationStackEnabledImpl() throws -> Bool {
+        public func get_IsNavigationStackEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsNavigationStackEnabled(pThis, &value))
@@ -64,22 +65,22 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return .init(from: value)
         }
 
-        internal func put_IsNavigationStackEnabledImpl(_ value: Bool) throws {
+        public func put_IsNavigationStackEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsNavigationStackEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_TransitionInfoOverrideImpl() throws -> WinUI.NavigationTransitionInfo? {
+        public func get_TransitionInfoOverride() throws -> WinUI.NavigationTransitionInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransitionInfoOverride(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.from(abi: value)
         }
 
-        internal func put_TransitionInfoOverrideImpl(_ value: WinUI.NavigationTransitionInfo?) throws {
+        public func put_TransitionInfoOverride(_ value: WinUI.NavigationTransitionInfo?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TransitionInfoOverride(pThis, RawPointer(value)))
             }
@@ -90,7 +91,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
     public class IFrameNavigationOptionsFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptionsFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.FrameNavigationOptions.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFrameNavigationOptions {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Navigation.FrameNavigationOptionsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFrameNavigationOptions {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -108,7 +109,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
     public class INavigatingCancelEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs }
 
-        internal func get_CancelImpl() throws -> Bool {
+        public func get_Cancel() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cancel(pThis, &value))
@@ -116,13 +117,13 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return .init(from: value)
         }
 
-        internal func put_CancelImpl(_ value: Bool) throws {
+        public func put_Cancel(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Cancel(pThis, .init(from: value)))
             }
         }
 
-        internal func get_NavigationModeImpl() throws -> WinUI.NavigationMode {
+        public func get_NavigationMode() throws -> WinUI.NavigationMode {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CNavigationMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NavigationMode(pThis, &value))
@@ -130,7 +131,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return value
         }
 
-        internal func get_SourcePageTypeImpl() throws -> WinUI.TypeName {
+        public func get_SourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageType(pThis, &value))
@@ -138,7 +139,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return .from(abi: value)
         }
 
-        internal func get_ParameterImpl() throws -> Any? {
+        public func get_Parameter() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameter(pThis, &valueAbi))
@@ -147,13 +148,13 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_NavigationTransitionInfoImpl() throws -> WinUI.NavigationTransitionInfo? {
+        public func get_NavigationTransitionInfo() throws -> WinUI.NavigationTransitionInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NavigationTransitionInfo(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.from(abi: value)
         }
 
     }
@@ -161,7 +162,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
     public class INavigationEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs }
 
-        internal func get_ContentImpl() throws -> Any? {
+        public func get_Content() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Content(pThis, &valueAbi))
@@ -170,7 +171,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ParameterImpl() throws -> Any? {
+        public func get_Parameter() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameter(pThis, &valueAbi))
@@ -179,16 +180,16 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_NavigationTransitionInfoImpl() throws -> WinUI.NavigationTransitionInfo? {
+        public func get_NavigationTransitionInfo() throws -> WinUI.NavigationTransitionInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NavigationTransitionInfo(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.from(abi: value)
         }
 
-        internal func get_SourcePageTypeImpl() throws -> WinUI.TypeName {
+        public func get_SourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageType(pThis, &value))
@@ -196,7 +197,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return .from(abi: value)
         }
 
-        internal func get_NavigationModeImpl() throws -> WinUI.NavigationMode {
+        public func get_NavigationMode() throws -> WinUI.NavigationMode {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CNavigationMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NavigationMode(pThis, &value))
@@ -204,16 +205,16 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return value
         }
 
-        internal func get_UriImpl() throws -> WindowsFoundation.Uri? {
+        public func get_Uri() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Uri(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_UriImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_Uri(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Uri(pThis, RawPointer(value)))
             }
@@ -224,7 +225,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
     public class INavigationFailedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs }
 
-        internal func get_ExceptionImpl() throws -> HRESULT {
+        public func get_Exception() throws -> HRESULT {
             var value: HRESULT = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Exception(pThis, &value))
@@ -232,7 +233,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -240,13 +241,13 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_SourcePageTypeImpl() throws -> WinUI.TypeName {
+        public func get_SourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageType(pThis, &value))
@@ -259,7 +260,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
     public class IPageStackEntry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry }
 
-        internal func get_SourcePageTypeImpl() throws -> WinUI.TypeName {
+        public func get_SourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageType(pThis, &value))
@@ -267,7 +268,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return .from(abi: value)
         }
 
-        internal func get_ParameterImpl() throws -> Any? {
+        public func get_Parameter() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameter(pThis, &valueAbi))
@@ -276,13 +277,13 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_NavigationTransitionInfoImpl() throws -> WinUI.NavigationTransitionInfo? {
+        public func get_NavigationTransitionInfo() throws -> WinUI.NavigationTransitionInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NavigationTransitionInfo(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.from(abi: value)
         }
 
     }
@@ -290,7 +291,7 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
     public class IPageStackEntryFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntryFactory }
 
-        internal func CreateInstanceImpl(_ sourcePageType: WinUI.TypeName, _ parameter: Any?, _ navigationTransitionInfo: WinUI.NavigationTransitionInfo?) throws -> IPageStackEntry {
+        public func CreateInstance(_ sourcePageType: WinUI.TypeName, _ parameter: Any?, _ navigationTransitionInfo: WinUI.NavigationTransitionInfo?) throws -> IPageStackEntry {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _sourcePageType = __ABI_Windows_UI_Xaml_Interop._ABI_TypeName(from: sourcePageType)
                 let parameterWrapper = __ABI_.AnyWrapper(parameter)
@@ -307,13 +308,13 @@ public enum __ABI_Microsoft_UI_Xaml_Navigation {
     public class IPageStackEntryStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntryStatics }
 
-        internal func get_SourcePageTypePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_SourcePageTypeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntryStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageTypeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -324,7 +325,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
     public class NavigatedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.NavigationEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.NavigationEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatedEventHandler.self) { pThis in
@@ -341,11 +342,13 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         AddRef: { NavigatedEventHandlerWrapper.addRef($0) },
         Release: { NavigatedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = NavigatedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.NavigationEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = NavigatedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.NavigationEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigationEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -361,7 +364,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
     public class NavigatingCancelEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.NavigatingCancelEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.NavigatingCancelEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventHandler.self) { pThis in
@@ -378,11 +381,13 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         AddRef: { NavigatingCancelEventHandlerWrapper.addRef($0) },
         Release: { NavigatingCancelEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = NavigatingCancelEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.NavigatingCancelEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = NavigatingCancelEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.NavigatingCancelEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigatingCancelEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -398,7 +403,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
     public class NavigationFailedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.NavigationFailedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.NavigationFailedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventHandler.self) { pThis in
@@ -415,11 +420,13 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         AddRef: { NavigationFailedEventHandlerWrapper.addRef($0) },
         Release: { NavigationFailedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = NavigationFailedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.NavigationFailedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = NavigationFailedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.NavigationFailedEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigationFailedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -435,7 +442,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
     public class NavigationStoppedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationStoppedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.NavigationEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.NavigationEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationStoppedEventHandler.self) { pThis in
@@ -452,11 +459,13 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         AddRef: { NavigationStoppedEventHandlerWrapper.addRef($0) },
         Release: { NavigationStoppedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = NavigationStoppedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.NavigationEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = NavigationStoppedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.NavigationEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigationEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

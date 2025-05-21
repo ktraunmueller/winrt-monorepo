@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Navigation {
     public class NavigatedEventHandlerBridge : WinRTDelegateBridge {
         public typealias Handler = NavigatedEventHandler
@@ -14,7 +15,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Navigation {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -28,7 +29,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Navigation {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -42,7 +43,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Navigation {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -56,9 +57,101 @@ public enum __IMPL_Microsoft_UI_Xaml_Navigation {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
+    }
+    public enum FrameNavigationOptionsBridge: ComposableBridge {
+        public typealias SwiftProjection = FrameNavigationOptions
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions>?) -> FrameNavigationOptions? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IFrameNavigationOptions : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = FrameNavigationOptions
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.IFrameNavigationOptions
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IFrameNavigationOptions
+    }
+
+    public enum NavigatingCancelEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = NavigatingCancelEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs>?) -> NavigatingCancelEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NavigationEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = NavigationEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs>?) -> NavigationEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NavigationFailedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = NavigationFailedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs>?) -> NavigationFailedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PageStackEntryBridge: AbiBridge {
+        public typealias SwiftProjection = PageStackEntry
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry>?) -> PageStackEntry? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class FrameNavigationOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = FrameNavigationOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FrameNavigationOptions(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NavigatingCancelEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NavigatingCancelEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NavigatingCancelEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NavigationEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NavigationEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NavigationEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NavigationFailedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NavigationFailedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NavigationFailedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PageStackEntryMaker: MakeFromAbi {
+    public typealias SwiftType = PageStackEntry
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PageStackEntry(fromAbi: abi)
     }
 }

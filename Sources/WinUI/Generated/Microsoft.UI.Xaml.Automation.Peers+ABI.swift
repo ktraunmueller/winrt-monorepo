@@ -36,26 +36,27 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer
     .init(Data1: 0x90B157FF, Data2: 0x18D5, Data3: 0x5623, Data4: ( 0x85,0x0C,0x61,0x2C,0xEA,0xE5,0x76,0xBD ))// 90B157FF-18D5-5623-850C-612CEAE576BD
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
     public class IAutomationPeer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer }
 
-        internal func get_EventsSourceImpl() throws -> WinUI.AutomationPeer? {
+        public func get_EventsSource() throws -> WinUI.AutomationPeer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EventsSource(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: value)
         }
 
-        internal func put_EventsSourceImpl(_ value: WinUI.AutomationPeer?) throws {
+        public func put_EventsSource(_ value: WinUI.AutomationPeer?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EventsSource(pThis, RawPointer(value)))
             }
         }
 
-        internal func GetPatternImpl(_ patternInterface: WinUI.PatternInterface) throws -> Any? {
+        public func GetPattern(_ patternInterface: WinUI.PatternInterface) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPattern(pThis, patternInterface, &resultAbi))
@@ -64,13 +65,13 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        internal func RaiseAutomationEventImpl(_ eventId: WinUI.AutomationEvents) throws {
+        public func RaiseAutomationEvent(_ eventId: WinUI.AutomationEvents) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseAutomationEvent(pThis, eventId))
             }
         }
 
-        internal func RaisePropertyChangedEventImpl(_ automationProperty: WinUI.AutomationProperty?, _ oldValue: Any?, _ newValue: Any?) throws {
+        public func RaisePropertyChangedEvent(_ automationProperty: WinUI.AutomationProperty?, _ oldValue: Any?, _ newValue: Any?) throws {
             let oldValueWrapper = __ABI_.AnyWrapper(oldValue)
             let _oldValue = try! oldValueWrapper?.toABI { $0 }
             let newValueWrapper = __ABI_.AnyWrapper(newValue)
@@ -80,7 +81,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             }
         }
 
-        internal func GetAcceleratorKeyImpl() throws -> String {
+        public func GetAcceleratorKey() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAcceleratorKey(pThis, &result))
@@ -88,7 +89,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetAccessKeyImpl() throws -> String {
+        public func GetAccessKey() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAccessKey(pThis, &result))
@@ -96,7 +97,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetAutomationControlTypeImpl() throws -> WinUI.AutomationControlType {
+        public func GetAutomationControlType() throws -> WinUI.AutomationControlType {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationControlType(pThis, &result))
@@ -104,7 +105,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetAutomationIdImpl() throws -> String {
+        public func GetAutomationId() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationId(pThis, &result))
@@ -112,7 +113,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetBoundingRectangleImpl() throws -> WindowsFoundation.Rect {
+        public func GetBoundingRectangle() throws -> WindowsFoundation.Rect {
             var result: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetBoundingRectangle(pThis, &result))
@@ -120,7 +121,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .from(abi: result)
         }
 
-        internal func GetChildrenImpl() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeer?>? {
+        public func GetChildren() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeer?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetChildren(pThis, &resultAbi))
@@ -129,7 +130,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
         }
 
-        internal func NavigateImpl(_ direction: WinUI.AutomationNavigationDirection) throws -> Any? {
+        public func Navigate(_ direction: WinUI.AutomationNavigationDirection) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Navigate(pThis, direction, &resultAbi))
@@ -138,7 +139,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetClassNameImpl() throws -> String {
+        public func GetClassName() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetClassName(pThis, &result))
@@ -146,7 +147,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetClickablePointImpl() throws -> WindowsFoundation.Point {
+        public func GetClickablePoint() throws -> WindowsFoundation.Point {
             var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetClickablePoint(pThis, &result))
@@ -154,7 +155,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .from(abi: result)
         }
 
-        internal func GetHelpTextImpl() throws -> String {
+        public func GetHelpText() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHelpText(pThis, &result))
@@ -162,7 +163,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetItemStatusImpl() throws -> String {
+        public func GetItemStatus() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemStatus(pThis, &result))
@@ -170,7 +171,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetItemTypeImpl() throws -> String {
+        public func GetItemType() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemType(pThis, &result))
@@ -178,16 +179,16 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetLabeledByImpl() throws -> WinUI.AutomationPeer? {
+        public func GetLabeledBy() throws -> WinUI.AutomationPeer? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetLabeledBy(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
         }
 
-        internal func GetLocalizedControlTypeImpl() throws -> String {
+        public func GetLocalizedControlType() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedControlType(pThis, &result))
@@ -195,7 +196,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetNameImpl() throws -> String {
+        public func GetName() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetName(pThis, &result))
@@ -203,7 +204,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetOrientationImpl() throws -> WinUI.AutomationOrientation {
+        public func GetOrientation() throws -> WinUI.AutomationOrientation {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetOrientation(pThis, &result))
@@ -211,7 +212,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func HasKeyboardFocusImpl() throws -> Bool {
+        public func HasKeyboardFocus() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.HasKeyboardFocus(pThis, &result))
@@ -219,7 +220,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsContentElementImpl() throws -> Bool {
+        public func IsContentElement() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsContentElement(pThis, &result))
@@ -227,7 +228,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsControlElementImpl() throws -> Bool {
+        public func IsControlElement() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsControlElement(pThis, &result))
@@ -235,7 +236,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsEnabledImpl() throws -> Bool {
+        public func IsEnabled() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsEnabled(pThis, &result))
@@ -243,7 +244,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsKeyboardFocusableImpl() throws -> Bool {
+        public func IsKeyboardFocusable() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsKeyboardFocusable(pThis, &result))
@@ -251,7 +252,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsOffscreenImpl() throws -> Bool {
+        public func IsOffscreen() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsOffscreen(pThis, &result))
@@ -259,7 +260,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsPasswordImpl() throws -> Bool {
+        public func IsPassword() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsPassword(pThis, &result))
@@ -267,7 +268,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsRequiredForFormImpl() throws -> Bool {
+        public func IsRequiredForForm() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsRequiredForForm(pThis, &result))
@@ -275,37 +276,37 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func SetFocusImpl() throws {
+        public func SetFocus() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFocus(pThis))
             }
         }
 
-        internal func GetParentImpl() throws -> WinUI.AutomationPeer? {
+        public func GetParent() throws -> WinUI.AutomationPeer? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetParent(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
         }
 
-        internal func InvalidatePeerImpl() throws {
+        public func InvalidatePeer() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InvalidatePeer(pThis))
             }
         }
 
-        internal func GetPeerFromPointImpl(_ point: WindowsFoundation.Point) throws -> WinUI.AutomationPeer? {
+        public func GetPeerFromPoint(_ point: WindowsFoundation.Point) throws -> WinUI.AutomationPeer? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPeerFromPoint(pThis, .from(swift: point), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
         }
 
-        internal func GetElementFromPointImpl(_ pointInWindowCoordinates: WindowsFoundation.Point) throws -> Any? {
+        public func GetElementFromPoint(_ pointInWindowCoordinates: WindowsFoundation.Point) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetElementFromPoint(pThis, .from(swift: pointInWindowCoordinates), &resultAbi))
@@ -314,7 +315,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetFocusedElementImpl() throws -> Any? {
+        public func GetFocusedElement() throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetFocusedElement(pThis, &resultAbi))
@@ -323,7 +324,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetLiveSettingImpl() throws -> WinUI.AutomationLiveSetting {
+        public func GetLiveSetting() throws -> WinUI.AutomationLiveSetting {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLiveSetting(pThis, &result))
@@ -331,13 +332,13 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func ShowContextMenuImpl() throws {
+        public func ShowContextMenu() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ShowContextMenu(pThis))
             }
         }
 
-        internal func GetControlledPeersImpl() throws -> WindowsFoundation.AnyIVectorView<WinUI.AutomationPeer?>? {
+        public func GetControlledPeers() throws -> WindowsFoundation.AnyIVectorView<WinUI.AutomationPeer?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetControlledPeers(pThis, &resultAbi))
@@ -346,7 +347,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetAnnotationsImpl() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeerAnnotation?>? {
+        public func GetAnnotations() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeerAnnotation?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetAnnotations(pThis, &resultAbi))
@@ -355,13 +356,13 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerAnnotationWrapper.unwrapFrom(abi: result)
         }
 
-        internal func SetParentImpl(_ peer: WinUI.AutomationPeer?) throws {
+        public func SetParent(_ peer: WinUI.AutomationPeer?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetParent(pThis, RawPointer(peer)))
             }
         }
 
-        internal func RaiseTextEditTextChangedEventImpl(_ automationTextEditChangeType: WinUI.AutomationTextEditChangeType, _ changedData: WindowsFoundation.AnyIVectorView<String>?) throws {
+        public func RaiseTextEditTextChangedEvent(_ automationTextEditChangeType: WinUI.AutomationTextEditChangeType, _ changedData: WindowsFoundation.AnyIVectorView<String>?) throws {
             let changedDataWrapper = WinUI.__x_ABI_C__FIVectorView_1_HSTRINGWrapper(changedData)
             let _changedData = try! changedDataWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
@@ -369,7 +370,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             }
         }
 
-        internal func GetPositionInSetImpl() throws -> Int32 {
+        public func GetPositionInSet() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPositionInSet(pThis, &result))
@@ -377,7 +378,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetSizeOfSetImpl() throws -> Int32 {
+        public func GetSizeOfSet() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetSizeOfSet(pThis, &result))
@@ -385,7 +386,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetLevelImpl() throws -> Int32 {
+        public func GetLevel() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLevel(pThis, &result))
@@ -393,13 +394,13 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func RaiseStructureChangedEventImpl(_ structureChangeType: WinUI.AutomationStructureChangeType, _ child: WinUI.AutomationPeer?) throws {
+        public func RaiseStructureChangedEvent(_ structureChangeType: WinUI.AutomationStructureChangeType, _ child: WinUI.AutomationPeer?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseStructureChangedEvent(pThis, structureChangeType, RawPointer(child)))
             }
         }
 
-        internal func GetLandmarkTypeImpl() throws -> WinUI.AutomationLandmarkType {
+        public func GetLandmarkType() throws -> WinUI.AutomationLandmarkType {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLandmarkType(pThis, &result))
@@ -407,7 +408,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetLocalizedLandmarkTypeImpl() throws -> String {
+        public func GetLocalizedLandmarkType() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedLandmarkType(pThis, &result))
@@ -415,7 +416,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsPeripheralImpl() throws -> Bool {
+        public func IsPeripheral() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsPeripheral(pThis, &result))
@@ -423,7 +424,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsDataValidForFormImpl() throws -> Bool {
+        public func IsDataValidForForm() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsDataValidForForm(pThis, &result))
@@ -431,7 +432,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetFullDescriptionImpl() throws -> String {
+        public func GetFullDescription() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFullDescription(pThis, &result))
@@ -439,7 +440,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetCultureImpl() throws -> Int32 {
+        public func GetCulture() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCulture(pThis, &result))
@@ -447,7 +448,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func RaiseNotificationEventImpl(_ notificationKind: WinUI.AutomationNotificationKind, _ notificationProcessing: WinUI.AutomationNotificationProcessing, _ displayString: String, _ activityId: String) throws {
+        public func RaiseNotificationEvent(_ notificationKind: WinUI.AutomationNotificationKind, _ notificationProcessing: WinUI.AutomationNotificationProcessing, _ displayString: String, _ activityId: String) throws {
             let _displayString = try! HString(displayString)
             let _activityId = try! HString(activityId)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
@@ -455,7 +456,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             }
         }
 
-        internal func GetHeadingLevelImpl() throws -> WinUI.AutomationHeadingLevel {
+        public func GetHeadingLevel() throws -> WinUI.AutomationHeadingLevel {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHeadingLevel(pThis, &result))
@@ -463,7 +464,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func IsDialogImpl() throws -> Bool {
+        public func IsDialog() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsDialog(pThis, &result))
@@ -476,7 +477,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
     public class IAutomationPeerAnnotation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation }
 
-        internal func get_TypeImpl() throws -> WinUI.AnnotationType {
+        public func get_Type() throws -> WinUI.AnnotationType {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
@@ -484,22 +485,22 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return value
         }
 
-        internal func put_TypeImpl(_ value: WinUI.AnnotationType) throws {
+        public func put_Type(_ value: WinUI.AnnotationType) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Type(pThis, value))
             }
         }
 
-        internal func get_PeerImpl() throws -> WinUI.AutomationPeer? {
+        public func get_Peer() throws -> WinUI.AutomationPeer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Peer(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: value)
         }
 
-        internal func put_PeerImpl(_ value: WinUI.AutomationPeer?) throws {
+        public func put_Peer(_ value: WinUI.AutomationPeer?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Peer(pThis, RawPointer(value)))
             }
@@ -510,7 +511,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
     public class IAutomationPeerAnnotationFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationFactory }
 
-        internal func CreateInstanceImpl(_ type: WinUI.AnnotationType) throws -> IAutomationPeerAnnotation {
+        public func CreateInstance(_ type: WinUI.AnnotationType) throws -> IAutomationPeerAnnotation {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, type, &valueAbi))
@@ -519,7 +520,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return IAutomationPeerAnnotation(value!)
         }
 
-        internal func CreateWithPeerParameterImpl(_ type: WinUI.AnnotationType, _ peer: WinUI.AutomationPeer?) throws -> IAutomationPeerAnnotation {
+        public func CreateWithPeerParameter(_ type: WinUI.AnnotationType, _ peer: WinUI.AutomationPeer?) throws -> IAutomationPeerAnnotation {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithPeerParameter(pThis, type, RawPointer(peer), &valueAbi))
@@ -533,22 +534,22 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
     public class IAutomationPeerAnnotationStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationStatics }
 
-        internal func get_TypePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_TypeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TypeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_PeerPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_PeerProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PeerProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -556,7 +557,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
     public class IAutomationPeerFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.AutomationPeer.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAutomationPeer {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAutomationPeer {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -574,7 +575,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
     public class IAutomationPeerOverrides: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides }
 
-        internal func GetPatternCoreImpl(_ patternInterface: WinUI.PatternInterface) throws -> Any? {
+        public func GetPatternCore(_ patternInterface: WinUI.PatternInterface) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPatternCore(pThis, patternInterface, &resultAbi))
@@ -583,7 +584,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetAcceleratorKeyCoreImpl() throws -> String {
+        public func GetAcceleratorKeyCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAcceleratorKeyCore(pThis, &result))
@@ -591,7 +592,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetAccessKeyCoreImpl() throws -> String {
+        public func GetAccessKeyCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAccessKeyCore(pThis, &result))
@@ -599,7 +600,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetAutomationControlTypeCoreImpl() throws -> WinUI.AutomationControlType {
+        public func GetAutomationControlTypeCore() throws -> WinUI.AutomationControlType {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationControlTypeCore(pThis, &result))
@@ -607,7 +608,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetAutomationIdCoreImpl() throws -> String {
+        public func GetAutomationIdCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationIdCore(pThis, &result))
@@ -615,7 +616,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetBoundingRectangleCoreImpl() throws -> WindowsFoundation.Rect {
+        public func GetBoundingRectangleCore() throws -> WindowsFoundation.Rect {
             var result: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetBoundingRectangleCore(pThis, &result))
@@ -623,7 +624,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .from(abi: result)
         }
 
-        internal func GetChildrenCoreImpl() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeer?>? {
+        public func GetChildrenCore() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeer?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetChildrenCore(pThis, &resultAbi))
@@ -632,7 +633,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
         }
 
-        internal func NavigateCoreImpl(_ direction: WinUI.AutomationNavigationDirection) throws -> Any? {
+        public func NavigateCore(_ direction: WinUI.AutomationNavigationDirection) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.NavigateCore(pThis, direction, &resultAbi))
@@ -641,7 +642,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetClassNameCoreImpl() throws -> String {
+        public func GetClassNameCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetClassNameCore(pThis, &result))
@@ -649,7 +650,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetClickablePointCoreImpl() throws -> WindowsFoundation.Point {
+        public func GetClickablePointCore() throws -> WindowsFoundation.Point {
             var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetClickablePointCore(pThis, &result))
@@ -657,7 +658,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .from(abi: result)
         }
 
-        internal func GetHelpTextCoreImpl() throws -> String {
+        public func GetHelpTextCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHelpTextCore(pThis, &result))
@@ -665,7 +666,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetItemStatusCoreImpl() throws -> String {
+        public func GetItemStatusCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemStatusCore(pThis, &result))
@@ -673,7 +674,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetItemTypeCoreImpl() throws -> String {
+        public func GetItemTypeCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemTypeCore(pThis, &result))
@@ -681,16 +682,16 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetLabeledByCoreImpl() throws -> WinUI.AutomationPeer? {
+        public func GetLabeledByCore() throws -> WinUI.AutomationPeer? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetLabeledByCore(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
         }
 
-        internal func GetLocalizedControlTypeCoreImpl() throws -> String {
+        public func GetLocalizedControlTypeCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedControlTypeCore(pThis, &result))
@@ -698,7 +699,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetNameCoreImpl() throws -> String {
+        public func GetNameCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetNameCore(pThis, &result))
@@ -706,7 +707,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetOrientationCoreImpl() throws -> WinUI.AutomationOrientation {
+        public func GetOrientationCore() throws -> WinUI.AutomationOrientation {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetOrientationCore(pThis, &result))
@@ -714,7 +715,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func HasKeyboardFocusCoreImpl() throws -> Bool {
+        public func HasKeyboardFocusCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.HasKeyboardFocusCore(pThis, &result))
@@ -722,7 +723,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsContentElementCoreImpl() throws -> Bool {
+        public func IsContentElementCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsContentElementCore(pThis, &result))
@@ -730,7 +731,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsControlElementCoreImpl() throws -> Bool {
+        public func IsControlElementCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsControlElementCore(pThis, &result))
@@ -738,7 +739,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsEnabledCoreImpl() throws -> Bool {
+        public func IsEnabledCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsEnabledCore(pThis, &result))
@@ -746,7 +747,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsKeyboardFocusableCoreImpl() throws -> Bool {
+        public func IsKeyboardFocusableCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsKeyboardFocusableCore(pThis, &result))
@@ -754,7 +755,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsOffscreenCoreImpl() throws -> Bool {
+        public func IsOffscreenCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsOffscreenCore(pThis, &result))
@@ -762,7 +763,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsPasswordCoreImpl() throws -> Bool {
+        public func IsPasswordCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsPasswordCore(pThis, &result))
@@ -770,7 +771,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsRequiredForFormCoreImpl() throws -> Bool {
+        public func IsRequiredForFormCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsRequiredForFormCore(pThis, &result))
@@ -778,22 +779,22 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func SetFocusCoreImpl() throws {
+        public func SetFocusCore() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetFocusCore(pThis))
             }
         }
 
-        internal func GetPeerFromPointCoreImpl(_ point: WindowsFoundation.Point) throws -> WinUI.AutomationPeer? {
+        public func GetPeerFromPointCore(_ point: WindowsFoundation.Point) throws -> WinUI.AutomationPeer? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPeerFromPointCore(pThis, .from(swift: point), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
         }
 
-        internal func GetElementFromPointCoreImpl(_ pointInWindowCoordinates: WindowsFoundation.Point) throws -> Any? {
+        public func GetElementFromPointCore(_ pointInWindowCoordinates: WindowsFoundation.Point) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetElementFromPointCore(pThis, .from(swift: pointInWindowCoordinates), &resultAbi))
@@ -802,7 +803,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetFocusedElementCoreImpl() throws -> Any? {
+        public func GetFocusedElementCore() throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetFocusedElementCore(pThis, &resultAbi))
@@ -811,7 +812,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetLiveSettingCoreImpl() throws -> WinUI.AutomationLiveSetting {
+        public func GetLiveSettingCore() throws -> WinUI.AutomationLiveSetting {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLiveSettingCore(pThis, &result))
@@ -819,13 +820,13 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func ShowContextMenuCoreImpl() throws {
+        public func ShowContextMenuCore() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ShowContextMenuCore(pThis))
             }
         }
 
-        internal func GetControlledPeersCoreImpl() throws -> WindowsFoundation.AnyIVectorView<WinUI.AutomationPeer?>? {
+        public func GetControlledPeersCore() throws -> WindowsFoundation.AnyIVectorView<WinUI.AutomationPeer?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetControlledPeersCore(pThis, &resultAbi))
@@ -834,7 +835,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetAnnotationsCoreImpl() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeerAnnotation?>? {
+        public func GetAnnotationsCore() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeerAnnotation?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetAnnotationsCore(pThis, &resultAbi))
@@ -843,7 +844,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerAnnotationWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetPositionInSetCoreImpl() throws -> Int32 {
+        public func GetPositionInSetCore() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPositionInSetCore(pThis, &result))
@@ -851,7 +852,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetSizeOfSetCoreImpl() throws -> Int32 {
+        public func GetSizeOfSetCore() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetSizeOfSetCore(pThis, &result))
@@ -859,7 +860,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetLevelCoreImpl() throws -> Int32 {
+        public func GetLevelCore() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLevelCore(pThis, &result))
@@ -867,7 +868,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetLandmarkTypeCoreImpl() throws -> WinUI.AutomationLandmarkType {
+        public func GetLandmarkTypeCore() throws -> WinUI.AutomationLandmarkType {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLandmarkTypeCore(pThis, &result))
@@ -875,7 +876,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetLocalizedLandmarkTypeCoreImpl() throws -> String {
+        public func GetLocalizedLandmarkTypeCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedLandmarkTypeCore(pThis, &result))
@@ -883,7 +884,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsPeripheralCoreImpl() throws -> Bool {
+        public func IsPeripheralCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsPeripheralCore(pThis, &result))
@@ -891,7 +892,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func IsDataValidForFormCoreImpl() throws -> Bool {
+        public func IsDataValidForFormCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsDataValidForFormCore(pThis, &result))
@@ -899,7 +900,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetFullDescriptionCoreImpl() throws -> String {
+        public func GetFullDescriptionCore() throws -> String {
             var result: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFullDescriptionCore(pThis, &result))
@@ -907,7 +908,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GetDescribedByCoreImpl() throws -> WindowsFoundation.AnyIIterable<WinUI.AutomationPeer?>? {
+        public func GetDescribedByCore() throws -> WindowsFoundation.AnyIIterable<WinUI.AutomationPeer?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDescribedByCore(pThis, &resultAbi))
@@ -916,7 +917,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetFlowsToCoreImpl() throws -> WindowsFoundation.AnyIIterable<WinUI.AutomationPeer?>? {
+        public func GetFlowsToCore() throws -> WindowsFoundation.AnyIIterable<WinUI.AutomationPeer?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetFlowsToCore(pThis, &resultAbi))
@@ -925,7 +926,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetFlowsFromCoreImpl() throws -> WindowsFoundation.AnyIIterable<WinUI.AutomationPeer?>? {
+        public func GetFlowsFromCore() throws -> WindowsFoundation.AnyIIterable<WinUI.AutomationPeer?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetFlowsFromCore(pThis, &resultAbi))
@@ -934,7 +935,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetCultureCoreImpl() throws -> Int32 {
+        public func GetCultureCore() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCultureCore(pThis, &result))
@@ -942,7 +943,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func GetHeadingLevelCoreImpl() throws -> WinUI.AutomationHeadingLevel {
+        public func GetHeadingLevelCore() throws -> WinUI.AutomationHeadingLevel {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHeadingLevelCore(pThis, &result))
@@ -950,7 +951,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return result
         }
 
-        internal func IsDialogCoreImpl() throws -> Bool {
+        public func IsDialogCore() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsDialogCore(pThis, &result))
@@ -963,22 +964,22 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
     public class IAutomationPeerProtected: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected }
 
-        internal func PeerFromProviderImpl(_ provider: WinUI.IRawElementProviderSimple?) throws -> WinUI.AutomationPeer? {
+        public func PeerFromProvider(_ provider: WinUI.IRawElementProviderSimple?) throws -> WinUI.AutomationPeer? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.PeerFromProvider(pThis, RawPointer(provider), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
         }
 
-        internal func ProviderFromPeerImpl(_ peer: WinUI.AutomationPeer?) throws -> WinUI.IRawElementProviderSimple? {
+        public func ProviderFromPeer(_ peer: WinUI.AutomationPeer?) throws -> WinUI.IRawElementProviderSimple? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.ProviderFromPeer(pThis, RawPointer(peer), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Automation_Provider.IRawElementProviderSimpleBridge.from(abi: result)
         }
 
     }
@@ -986,7 +987,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
     public class IAutomationPeerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerStatics }
 
-        internal func ListenerExistsImpl(_ eventId: WinUI.AutomationEvents) throws -> Bool {
+        public func ListenerExists(_ eventId: WinUI.AutomationEvents) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ListenerExists(pThis, eventId, &result))
@@ -994,7 +995,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
             return .init(from: result)
         }
 
-        internal func GenerateRawElementProviderRuntimeIdImpl() throws -> WinUI.RawElementProviderRuntimeId {
+        public func GenerateRawElementProviderRuntimeId() throws -> WinUI.RawElementProviderRuntimeId {
             var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CRawElementProviderRuntimeId = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GenerateRawElementProviderRuntimeId(pThis, &result))
@@ -1004,7 +1005,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
     }
 
-    internal typealias IAutomationPeerOverridesWrapper = UnsealedWinRTClassWrapper<WinUI.AutomationPeer.IAutomationPeerOverrides>
+    internal typealias IAutomationPeerOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.IAutomationPeerOverrides>
     internal static var IAutomationPeerOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverridesVtbl = .init(
         QueryInterface: { IAutomationPeerOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IAutomationPeerOverridesWrapper.addRef($0) },
@@ -1041,7 +1042,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetAcceleratorKeyCore: {
@@ -1050,7 +1051,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getAcceleratorKeyCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetAccessKeyCore: {
@@ -1059,7 +1060,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getAccessKeyCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetAutomationControlTypeCore: {
@@ -1068,7 +1069,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getAutomationControlTypeCore()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetAutomationIdCore: {
@@ -1077,7 +1078,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getAutomationIdCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetBoundingRectangleCore: {
@@ -1086,7 +1087,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getBoundingRectangleCore()
                 $1?.initialize(to: .from(swift: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetChildrenCore: {
@@ -1096,7 +1097,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         NavigateCore: {
@@ -1107,7 +1108,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetClassNameCore: {
@@ -1116,7 +1117,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getClassNameCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetClickablePointCore: {
@@ -1125,7 +1126,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getClickablePointCore()
                 $1?.initialize(to: .from(swift: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetHelpTextCore: {
@@ -1134,7 +1135,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getHelpTextCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetItemStatusCore: {
@@ -1143,7 +1144,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getItemStatusCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetItemTypeCore: {
@@ -1152,7 +1153,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getItemTypeCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetLabeledByCore: {
@@ -1161,7 +1162,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getLabeledByCore()
                 result?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetLocalizedControlTypeCore: {
@@ -1170,7 +1171,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getLocalizedControlTypeCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetNameCore: {
@@ -1179,7 +1180,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getNameCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetOrientationCore: {
@@ -1188,7 +1189,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getOrientationCore()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         HasKeyboardFocusCore: {
@@ -1197,7 +1198,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.hasKeyboardFocusCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsContentElementCore: {
@@ -1206,7 +1207,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isContentElementCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsControlElementCore: {
@@ -1215,7 +1216,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isControlElementCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsEnabledCore: {
@@ -1224,7 +1225,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isEnabledCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsKeyboardFocusableCore: {
@@ -1233,7 +1234,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isKeyboardFocusableCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsOffscreenCore: {
@@ -1242,7 +1243,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isOffscreenCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsPasswordCore: {
@@ -1251,7 +1252,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isPasswordCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsRequiredForFormCore: {
@@ -1260,7 +1261,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isRequiredForFormCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetFocusCore: {
@@ -1268,7 +1269,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.setFocusCore()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetPeerFromPointCore: {
@@ -1278,7 +1279,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getPeerFromPointCore(point)
                 result?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetElementFromPointCore: {
@@ -1289,7 +1290,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetFocusedElementCore: {
@@ -1299,7 +1300,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetLiveSettingCore: {
@@ -1308,7 +1309,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getLiveSettingCore()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ShowContextMenuCore: {
@@ -1316,7 +1317,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.showContextMenuCore()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetControlledPeersCore: {
@@ -1326,7 +1327,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetAnnotationsCore: {
@@ -1336,7 +1337,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerAnnotationWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetPositionInSetCore: {
@@ -1345,7 +1346,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getPositionInSetCore()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetSizeOfSetCore: {
@@ -1354,7 +1355,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getSizeOfSetCore()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetLevelCore: {
@@ -1363,7 +1364,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getLevelCore()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetLandmarkTypeCore: {
@@ -1372,7 +1373,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getLandmarkTypeCore()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetLocalizedLandmarkTypeCore: {
@@ -1381,7 +1382,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getLocalizedLandmarkTypeCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsPeripheralCore: {
@@ -1390,7 +1391,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isPeripheralCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsDataValidForFormCore: {
@@ -1399,7 +1400,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isDataValidForFormCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetFullDescriptionCore: {
@@ -1408,7 +1409,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getFullDescriptionCore()
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetDescribedByCore: {
@@ -1418,7 +1419,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetFlowsToCore: {
@@ -1428,7 +1429,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetFlowsFromCore: {
@@ -1438,7 +1439,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let resultWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetCultureCore: {
@@ -1447,7 +1448,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getCultureCore()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetHeadingLevelCore: {
@@ -1456,7 +1457,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.getHeadingLevelCore()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsDialogCore: {
@@ -1465,7 +1466,7 @@ public enum __ABI_Microsoft_UI_Xaml_Automation_Peers {
                 let result = try __unwrapped__instance.isDialogCore()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 }

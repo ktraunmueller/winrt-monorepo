@@ -32,18 +32,13 @@ public final class AddDeleteThemeTransition : WinUI.Transition {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIAddDeleteThemeTransition>?) -> AddDeleteThemeTransition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.AddDeleteThemeTransition")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.AddDeleteThemeTransition")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -65,30 +60,25 @@ public final class BackEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBackEase>?) -> BackEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BackEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.BackEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IBackEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBackEaseStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.BackEase"))
+    private static let _IBackEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBackEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BackEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.backease.amplitudeproperty)
     public static var amplitudeProperty : WinUI.DependencyProperty! {
-        get { try! _IBackEaseStatics.get_AmplitudePropertyImpl() }
+        get { try! _IBackEaseStatics.get_AmplitudeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.backease.amplitude)
     public var amplitude : Double {
-        get { try! _default.get_AmplitudeImpl() }
-        set { try! _default.put_AmplitudeImpl(newValue) }
+        get { try! _default.get_Amplitude() }
+        set { try! _default.put_Amplitude(newValue) }
     }
 
     deinit {
@@ -110,12 +100,6 @@ open class BasicConnectedAnimationConfiguration : WinUI.ConnectedAnimationConfig
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBasicConnectedAnimationConfiguration>?) -> BasicConnectedAnimationConfiguration? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -130,25 +114,14 @@ open class BasicConnectedAnimationConfiguration : WinUI.ConnectedAnimationConfig
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IBasicConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IBasicConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration"))
+    private static var _IBasicConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IBasicConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration")
 
     public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IBasicConnectedAnimationConfigurationFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.BasicConnectedAnimationConfigurationBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IBasicConnectedAnimationConfigurationFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    internal enum IBasicConnectedAnimationConfiguration : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = BasicConnectedAnimationConfiguration
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBasicConnectedAnimationConfiguration
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IBasicConnectedAnimationConfiguration
-        }
-    }
-    internal typealias Composable = IBasicConnectedAnimationConfiguration
     deinit {
         _default = nil
     }
@@ -168,30 +141,25 @@ public final class BeginStoryboard : WinUI.TriggerAction {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBeginStoryboard>?) -> BeginStoryboard? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BeginStoryboard")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.BeginStoryboard")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IBeginStoryboardStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBeginStoryboardStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.BeginStoryboard"))
+    private static let _IBeginStoryboardStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBeginStoryboardStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BeginStoryboard")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.beginstoryboard.storyboardproperty)
     public static var storyboardProperty : WinUI.DependencyProperty! {
-        get { try! _IBeginStoryboardStatics.get_StoryboardPropertyImpl() }
+        get { try! _IBeginStoryboardStatics.get_StoryboardProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.beginstoryboard.storyboard)
     public var storyboard : Storyboard! {
-        get { try! _default.get_StoryboardImpl() }
-        set { try! _default.put_StoryboardImpl(newValue) }
+        get { try! _default.get_Storyboard() }
+        set { try! _default.put_Storyboard(newValue) }
     }
 
     deinit {
@@ -213,41 +181,36 @@ public final class BounceEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEase>?) -> BounceEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BounceEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.BounceEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IBounceEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBounceEaseStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.BounceEase"))
+    private static let _IBounceEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBounceEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BounceEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.bounceease.bouncesproperty)
     public static var bouncesProperty : WinUI.DependencyProperty! {
-        get { try! _IBounceEaseStatics.get_BouncesPropertyImpl() }
+        get { try! _IBounceEaseStatics.get_BouncesProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.bounceease.bouncinessproperty)
     public static var bouncinessProperty : WinUI.DependencyProperty! {
-        get { try! _IBounceEaseStatics.get_BouncinessPropertyImpl() }
+        get { try! _IBounceEaseStatics.get_BouncinessProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.bounceease.bounces)
     public var bounces : Int32 {
-        get { try! _default.get_BouncesImpl() }
-        set { try! _default.put_BouncesImpl(newValue) }
+        get { try! _default.get_Bounces() }
+        set { try! _default.put_Bounces(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.bounceease.bounciness)
     public var bounciness : Double {
-        get { try! _default.get_BouncinessImpl() }
-        set { try! _default.put_BouncinessImpl(newValue) }
+        get { try! _default.get_Bounciness() }
+        set { try! _default.put_Bounciness(newValue) }
     }
 
     deinit {
@@ -269,18 +232,13 @@ public final class CircleEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICircleEase>?) -> CircleEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CircleEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.CircleEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -302,74 +260,69 @@ public final class ColorAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation>?) -> ColorAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ColorAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IColorAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ColorAnimation"))
+    private static let _IColorAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.byproperty)
     public static var byProperty : WinUI.DependencyProperty! {
-        get { try! _IColorAnimationStatics.get_ByPropertyImpl() }
+        get { try! _IColorAnimationStatics.get_ByProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.easingfunctionproperty)
     public static var easingFunctionProperty : WinUI.DependencyProperty! {
-        get { try! _IColorAnimationStatics.get_EasingFunctionPropertyImpl() }
+        get { try! _IColorAnimationStatics.get_EasingFunctionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
-        get { try! _IColorAnimationStatics.get_EnableDependentAnimationPropertyImpl() }
+        get { try! _IColorAnimationStatics.get_EnableDependentAnimationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.fromproperty)
     public static var fromProperty : WinUI.DependencyProperty! {
-        get { try! _IColorAnimationStatics.get_FromPropertyImpl() }
+        get { try! _IColorAnimationStatics.get_FromProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.toproperty)
     public static var toProperty : WinUI.DependencyProperty! {
-        get { try! _IColorAnimationStatics.get_ToPropertyImpl() }
+        get { try! _IColorAnimationStatics.get_ToProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.by)
     public var by : UWP.Color? {
-        get { try! _default.get_ByImpl() }
-        set { try! _default.put_ByImpl(newValue) }
+        get { try! _default.get_By() }
+        set { try! _default.put_By(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.easingfunction)
     public var easingFunction : EasingFunctionBase! {
-        get { try! _default.get_EasingFunctionImpl() }
-        set { try! _default.put_EasingFunctionImpl(newValue) }
+        get { try! _default.get_EasingFunction() }
+        set { try! _default.put_EasingFunction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.enabledependentanimation)
     public var enableDependentAnimation : Bool {
-        get { try! _default.get_EnableDependentAnimationImpl() }
-        set { try! _default.put_EnableDependentAnimationImpl(newValue) }
+        get { try! _default.get_EnableDependentAnimation() }
+        set { try! _default.put_EnableDependentAnimation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.from)
     public var from : UWP.Color? {
-        get { try! _default.get_FromImpl() }
-        set { try! _default.put_FromImpl(newValue) }
+        get { try! _default.get_From() }
+        set { try! _default.put_From(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.to)
     public var to : UWP.Color? {
-        get { try! _default.get_ToImpl() }
-        set { try! _default.put_ToImpl(newValue) }
+        get { try! _default.get_To() }
+        set { try! _default.put_To(newValue) }
     }
 
     deinit {
@@ -391,35 +344,30 @@ public final class ColorAnimationUsingKeyFrames : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationUsingKeyFrames>?) -> ColorAnimationUsingKeyFrames? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IColorAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimationUsingKeyFramesStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames"))
+    private static let _IColorAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimationusingkeyframes.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
-        get { try! _IColorAnimationUsingKeyFramesStatics.get_EnableDependentAnimationPropertyImpl() }
+        get { try! _IColorAnimationUsingKeyFramesStatics.get_EnableDependentAnimationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimationusingkeyframes.enabledependentanimation)
     public var enableDependentAnimation : Bool {
-        get { try! _default.get_EnableDependentAnimationImpl() }
-        set { try! _default.put_EnableDependentAnimationImpl(newValue) }
+        get { try! _default.get_EnableDependentAnimation() }
+        set { try! _default.put_EnableDependentAnimation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimationusingkeyframes.keyframes)
     public var keyFrames : ColorKeyFrameCollection! {
-        get { try! _default.get_KeyFramesImpl() }
+        get { try! _default.get_KeyFrames() }
     }
 
     deinit {
@@ -441,12 +389,6 @@ open class ColorKeyFrame : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrame>?) -> ColorKeyFrame? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -461,48 +403,37 @@ open class ColorKeyFrame : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IColorKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IColorKeyFrameFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrame"))
+    private static var _IColorKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IColorKeyFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrame")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IColorKeyFrameFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.ColorKeyFrameBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IColorKeyFrameFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrame"))
+    private static let _IColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframe.keytimeproperty)
     public class var keyTimeProperty : WinUI.DependencyProperty! {
-        get { try! _IColorKeyFrameStatics.get_KeyTimePropertyImpl() }
+        get { try! _IColorKeyFrameStatics.get_KeyTimeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframe.valueproperty)
     public class var valueProperty : WinUI.DependencyProperty! {
-        get { try! _IColorKeyFrameStatics.get_ValuePropertyImpl() }
+        get { try! _IColorKeyFrameStatics.get_ValueProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframe.keytime)
     public var keyTime : KeyTime {
-        get { try! _default.get_KeyTimeImpl() }
-        set { try! _default.put_KeyTimeImpl(newValue) }
+        get { try! _default.get_KeyTime() }
+        set { try! _default.put_KeyTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframe.value)
     public var value : UWP.Color {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
-    internal enum IColorKeyFrame : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ColorKeyFrame
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrame
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IColorKeyFrame
-        }
-    }
-    internal typealias Composable = IColorKeyFrame
     deinit {
         _default = nil
     }
@@ -523,12 +454,6 @@ public final class ColorKeyFrameCollection : WinRTClass, IVector, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CColorKeyFrame>?) -> ColorKeyFrameCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -536,8 +461,9 @@ public final class ColorKeyFrameCollection : WinRTClass, IVector, IIterable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrameCollection")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrameCollection")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
@@ -573,58 +499,68 @@ public final class ColorKeyFrameCollection : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.getat)
     public func getAt(_ index: UInt32) -> ColorKeyFrame? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<ColorKeyFrame?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.indexof)
     public func indexOf(_ value: ColorKeyFrame?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.setat)
     public func setAt(_ index: UInt32, _ value: ColorKeyFrame?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: ColorKeyFrame?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.append)
     public func append(_ value: ColorKeyFrame?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [ColorKeyFrame?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.replaceall)
+    public func replaceAll(_ items: [ColorKeyFrame?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableColorKeyFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<ColorKeyFrame?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -647,58 +583,42 @@ public final class CommonNavigationTransitionInfo : WinUI.NavigationTransitionIn
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfo>?) -> CommonNavigationTransitionInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ICommonNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ICommonNavigationTransitionInfoStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo"))
+    private static let _ICommonNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ICommonNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.commonnavigationtransitioninfo.getisstaggerelement)
-    public static func getIsStaggerElement(_ element: WinUI.UIElement!) -> Bool {
-        return try! _ICommonNavigationTransitionInfoStatics.GetIsStaggerElementImpl(element)
+    public static func getIsStaggerElement(_ element: WinUI.UIElement!) throws -> Bool {
+        return try _ICommonNavigationTransitionInfoStatics.GetIsStaggerElement(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.commonnavigationtransitioninfo.setisstaggerelement)
-    public static func setIsStaggerElement(_ element: WinUI.UIElement!, _ value: Bool) {
-        try! _ICommonNavigationTransitionInfoStatics.SetIsStaggerElementImpl(element, value)
+    public static func setIsStaggerElement(_ element: WinUI.UIElement!, _ value: Bool) throws {
+        try _ICommonNavigationTransitionInfoStatics.SetIsStaggerElement(element, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.commonnavigationtransitioninfo.isstaggerelementproperty)
     public static var isStaggerElementProperty : WinUI.DependencyProperty! {
-        get { try! _ICommonNavigationTransitionInfoStatics.get_IsStaggerElementPropertyImpl() }
+        get { try! _ICommonNavigationTransitionInfoStatics.get_IsStaggerElementProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.commonnavigationtransitioninfo.isstaggeringenabledproperty)
     public static var isStaggeringEnabledProperty : WinUI.DependencyProperty! {
-        get { try! _ICommonNavigationTransitionInfoStatics.get_IsStaggeringEnabledPropertyImpl() }
+        get { try! _ICommonNavigationTransitionInfoStatics.get_IsStaggeringEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.commonnavigationtransitioninfo.isstaggeringenabled)
     public var isStaggeringEnabled : Bool {
-        get { try! _default.get_IsStaggeringEnabledImpl() }
-        set { try! _default.put_IsStaggeringEnabledImpl(newValue) }
+        get { try! _default.get_IsStaggeringEnabled() }
+        set { try! _default.put_IsStaggeringEnabled(newValue) }
     }
 
-    internal enum INavigationTransitionInfoOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides
-        internal typealias Class = CommonNavigationTransitionInfo
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfo
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ICommonNavigationTransitionInfo
-        }
-    }
-    internal typealias Composable = INavigationTransitionInfoOverrides
     deinit {
         _default = nil
     }
@@ -718,46 +638,40 @@ public final class ConnectedAnimation : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation>?) -> ConnectedAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimation.trystart)
     public func tryStart(_ destination: WinUI.UIElement!) throws -> Bool {
-        try _default.TryStartImpl(destination)
+        try _default.TryStart(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimation.trystart)
     public func tryStart(_ destination: WinUI.UIElement!, _ coordinatedElements: WindowsFoundation.AnyIIterable<WinUI.UIElement?>!) throws -> Bool {
-        try _default.TryStartWithCoordinatedElementsImpl(destination, coordinatedElements)
+        try _default.TryStartWithCoordinatedElements(destination, coordinatedElements)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimation.cancel)
     public func cancel() throws {
-        try _default.CancelImpl()
+        try _default.Cancel()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimation.setanimationcomponent)
     public func setAnimationComponent(_ component: ConnectedAnimationComponent, _ animation: WinAppSDK.AnyICompositionAnimationBase!) throws {
-        try _default.SetAnimationComponentImpl(component, animation)
+        try _default.SetAnimationComponent(component, animation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimation.configuration)
     public var configuration : ConnectedAnimationConfiguration! {
-        get { try! _default.get_ConfigurationImpl() }
-        set { try! _default.put_ConfigurationImpl(newValue) }
+        get { try! _default.get_Configuration() }
+        set { try! _default.put_Configuration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimation.isscaleanimationenabled)
     public var isScaleAnimationEnabled : Bool {
-        get { try! _default.get_IsScaleAnimationEnabledImpl() }
-        set { try! _default.put_IsScaleAnimationEnabledImpl(newValue) }
+        get { try! _default.get_IsScaleAnimationEnabled() }
+        set { try! _default.put_IsScaleAnimationEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimation.completed)
@@ -765,10 +679,10 @@ public final class ConnectedAnimation : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CompletedImpl($0)
+          return try! this.add_Completed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CompletedImpl($0)
+         try? self?._default.remove_Completed($0)
        }
       )
     }()
@@ -792,12 +706,6 @@ open class ConnectedAnimationConfiguration : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationConfiguration>?) -> ConnectedAnimationConfiguration? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -813,19 +721,8 @@ open class ConnectedAnimationConfiguration : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration"))
+    private static var _IConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration")
 
-    internal enum IConnectedAnimationConfiguration : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ConnectedAnimationConfiguration
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationConfiguration
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationConfiguration
-        }
-    }
-    internal typealias Composable = IConnectedAnimationConfiguration
     deinit {
         _default = nil
     }
@@ -845,42 +742,36 @@ public final class ConnectedAnimationService : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationService>?) -> ConnectedAnimationService? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IConnectedAnimationServiceStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationServiceStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+    private static let _IConnectedAnimationServiceStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationServiceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ConnectedAnimationService")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimationservice.getforcurrentview)
-    public static func getForCurrentView() -> ConnectedAnimationService! {
-        return try! _IConnectedAnimationServiceStatics.GetForCurrentViewImpl()
+    public static func getForCurrentView() throws -> ConnectedAnimationService! {
+        return try _IConnectedAnimationServiceStatics.GetForCurrentView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimationservice.preparetoanimate)
     public func prepareToAnimate(_ key: String, _ source: WinUI.UIElement!) throws -> ConnectedAnimation! {
-        try _default.PrepareToAnimateImpl(key, source)
+        try _default.PrepareToAnimate(key, source)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimationservice.getanimation)
     public func getAnimation(_ key: String) throws -> ConnectedAnimation! {
-        try _default.GetAnimationImpl(key)
+        try _default.GetAnimation(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimationservice.defaultduration)
     public var defaultDuration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DefaultDurationImpl() }
-        set { try! _default.put_DefaultDurationImpl(newValue) }
+        get { try! _default.get_DefaultDuration() }
+        set { try! _default.put_DefaultDuration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimationservice.defaulteasingfunction)
     public var defaultEasingFunction : WinAppSDK.CompositionEasingFunction! {
-        get { try! _default.get_DefaultEasingFunctionImpl() }
-        set { try! _default.put_DefaultEasingFunctionImpl(newValue) }
+        get { try! _default.get_DefaultEasingFunction() }
+        set { try! _default.put_DefaultEasingFunction(newValue) }
     }
 
     deinit {
@@ -902,41 +793,36 @@ public final class ContentThemeTransition : WinUI.Transition {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransition>?) -> ContentThemeTransition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContentThemeTransition")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ContentThemeTransition")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IContentThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IContentThemeTransitionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ContentThemeTransition"))
+    private static let _IContentThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IContentThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContentThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.contentthemetransition.horizontaloffsetproperty)
     public static var horizontalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IContentThemeTransitionStatics.get_HorizontalOffsetPropertyImpl() }
+        get { try! _IContentThemeTransitionStatics.get_HorizontalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.contentthemetransition.verticaloffsetproperty)
     public static var verticalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IContentThemeTransitionStatics.get_VerticalOffsetPropertyImpl() }
+        get { try! _IContentThemeTransitionStatics.get_VerticalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.contentthemetransition.horizontaloffset)
     public var horizontalOffset : Double {
-        get { try! _default.get_HorizontalOffsetImpl() }
-        set { try! _default.put_HorizontalOffsetImpl(newValue) }
+        get { try! _default.get_HorizontalOffset() }
+        set { try! _default.put_HorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.contentthemetransition.verticaloffset)
     public var verticalOffset : Double {
-        get { try! _default.get_VerticalOffsetImpl() }
-        set { try! _default.put_VerticalOffsetImpl(newValue) }
+        get { try! _default.get_VerticalOffset() }
+        set { try! _default.put_VerticalOffset(newValue) }
     }
 
     deinit {
@@ -958,88 +844,72 @@ public final class ContinuumNavigationTransitionInfo : WinUI.NavigationTransitio
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfo>?) -> ContinuumNavigationTransitionInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IContinuumNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IContinuumNavigationTransitionInfoStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo"))
+    private static let _IContinuumNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IContinuumNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.getisentranceelement)
-    public static func getIsEntranceElement(_ element: WinUI.UIElement!) -> Bool {
-        return try! _IContinuumNavigationTransitionInfoStatics.GetIsEntranceElementImpl(element)
+    public static func getIsEntranceElement(_ element: WinUI.UIElement!) throws -> Bool {
+        return try _IContinuumNavigationTransitionInfoStatics.GetIsEntranceElement(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.setisentranceelement)
-    public static func setIsEntranceElement(_ element: WinUI.UIElement!, _ value: Bool) {
-        try! _IContinuumNavigationTransitionInfoStatics.SetIsEntranceElementImpl(element, value)
+    public static func setIsEntranceElement(_ element: WinUI.UIElement!, _ value: Bool) throws {
+        try _IContinuumNavigationTransitionInfoStatics.SetIsEntranceElement(element, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.getisexitelement)
-    public static func getIsExitElement(_ element: WinUI.UIElement!) -> Bool {
-        return try! _IContinuumNavigationTransitionInfoStatics.GetIsExitElementImpl(element)
+    public static func getIsExitElement(_ element: WinUI.UIElement!) throws -> Bool {
+        return try _IContinuumNavigationTransitionInfoStatics.GetIsExitElement(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.setisexitelement)
-    public static func setIsExitElement(_ element: WinUI.UIElement!, _ value: Bool) {
-        try! _IContinuumNavigationTransitionInfoStatics.SetIsExitElementImpl(element, value)
+    public static func setIsExitElement(_ element: WinUI.UIElement!, _ value: Bool) throws {
+        try _IContinuumNavigationTransitionInfoStatics.SetIsExitElement(element, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.getexitelementcontainer)
-    public static func getExitElementContainer(_ element: WinUI.ListViewBase!) -> Bool {
-        return try! _IContinuumNavigationTransitionInfoStatics.GetExitElementContainerImpl(element)
+    public static func getExitElementContainer(_ element: WinUI.ListViewBase!) throws -> Bool {
+        return try _IContinuumNavigationTransitionInfoStatics.GetExitElementContainer(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.setexitelementcontainer)
-    public static func setExitElementContainer(_ element: WinUI.ListViewBase!, _ value: Bool) {
-        try! _IContinuumNavigationTransitionInfoStatics.SetExitElementContainerImpl(element, value)
+    public static func setExitElementContainer(_ element: WinUI.ListViewBase!, _ value: Bool) throws {
+        try _IContinuumNavigationTransitionInfoStatics.SetExitElementContainer(element, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.exitelementcontainerproperty)
     public static var exitElementContainerProperty : WinUI.DependencyProperty! {
-        get { try! _IContinuumNavigationTransitionInfoStatics.get_ExitElementContainerPropertyImpl() }
+        get { try! _IContinuumNavigationTransitionInfoStatics.get_ExitElementContainerProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.exitelementproperty)
     public static var exitElementProperty : WinUI.DependencyProperty! {
-        get { try! _IContinuumNavigationTransitionInfoStatics.get_ExitElementPropertyImpl() }
+        get { try! _IContinuumNavigationTransitionInfoStatics.get_ExitElementProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.isentranceelementproperty)
     public static var isEntranceElementProperty : WinUI.DependencyProperty! {
-        get { try! _IContinuumNavigationTransitionInfoStatics.get_IsEntranceElementPropertyImpl() }
+        get { try! _IContinuumNavigationTransitionInfoStatics.get_IsEntranceElementProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.isexitelementproperty)
     public static var isExitElementProperty : WinUI.DependencyProperty! {
-        get { try! _IContinuumNavigationTransitionInfoStatics.get_IsExitElementPropertyImpl() }
+        get { try! _IContinuumNavigationTransitionInfoStatics.get_IsExitElementProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.exitelement)
     public var exitElement : WinUI.UIElement! {
-        get { try! _default.get_ExitElementImpl() }
-        set { try! _default.put_ExitElementImpl(newValue) }
+        get { try! _default.get_ExitElement() }
+        set { try! _default.put_ExitElement(newValue) }
     }
 
-    internal enum INavigationTransitionInfoOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides
-        internal typealias Class = ContinuumNavigationTransitionInfo
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfo
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IContinuumNavigationTransitionInfo
-        }
-    }
-    internal typealias Composable = INavigationTransitionInfoOverrides
     deinit {
         _default = nil
     }
@@ -1059,18 +929,13 @@ public final class CubicEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICubicEase>?) -> CubicEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CubicEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.CubicEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -1092,12 +957,6 @@ open class DirectConnectedAnimationConfiguration : WinUI.ConnectedAnimationConfi
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDirectConnectedAnimationConfiguration>?) -> DirectConnectedAnimationConfiguration? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1112,25 +971,14 @@ open class DirectConnectedAnimationConfiguration : WinUI.ConnectedAnimationConfi
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IDirectConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IDirectConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration"))
+    private static var _IDirectConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IDirectConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration")
 
     public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IDirectConnectedAnimationConfigurationFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.DirectConnectedAnimationConfigurationBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDirectConnectedAnimationConfigurationFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    internal enum IDirectConnectedAnimationConfiguration : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = DirectConnectedAnimationConfiguration
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDirectConnectedAnimationConfiguration
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDirectConnectedAnimationConfiguration
-        }
-    }
-    internal typealias Composable = IDirectConnectedAnimationConfiguration
     deinit {
         _default = nil
     }
@@ -1150,18 +998,13 @@ public final class DiscreteColorKeyFrame : WinUI.ColorKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDiscreteColorKeyFrame>?) -> DiscreteColorKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscreteColorKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DiscreteColorKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -1183,18 +1026,13 @@ public final class DiscreteDoubleKeyFrame : WinUI.DoubleKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDiscreteDoubleKeyFrame>?) -> DiscreteDoubleKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -1216,18 +1054,13 @@ public final class DiscreteObjectKeyFrame : WinUI.ObjectKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDiscreteObjectKeyFrame>?) -> DiscreteObjectKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -1249,18 +1082,13 @@ public final class DiscretePointKeyFrame : WinUI.PointKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDiscretePointKeyFrame>?) -> DiscretePointKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscretePointKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DiscretePointKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -1282,74 +1110,69 @@ public final class DoubleAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation>?) -> DoubleAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DoubleAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDoubleAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DoubleAnimation"))
+    private static let _IDoubleAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.byproperty)
     public static var byProperty : WinUI.DependencyProperty! {
-        get { try! _IDoubleAnimationStatics.get_ByPropertyImpl() }
+        get { try! _IDoubleAnimationStatics.get_ByProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.easingfunctionproperty)
     public static var easingFunctionProperty : WinUI.DependencyProperty! {
-        get { try! _IDoubleAnimationStatics.get_EasingFunctionPropertyImpl() }
+        get { try! _IDoubleAnimationStatics.get_EasingFunctionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
-        get { try! _IDoubleAnimationStatics.get_EnableDependentAnimationPropertyImpl() }
+        get { try! _IDoubleAnimationStatics.get_EnableDependentAnimationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.fromproperty)
     public static var fromProperty : WinUI.DependencyProperty! {
-        get { try! _IDoubleAnimationStatics.get_FromPropertyImpl() }
+        get { try! _IDoubleAnimationStatics.get_FromProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.toproperty)
     public static var toProperty : WinUI.DependencyProperty! {
-        get { try! _IDoubleAnimationStatics.get_ToPropertyImpl() }
+        get { try! _IDoubleAnimationStatics.get_ToProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.by)
     public var by : Double? {
-        get { try! _default.get_ByImpl() }
-        set { try! _default.put_ByImpl(newValue) }
+        get { try! _default.get_By() }
+        set { try! _default.put_By(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.easingfunction)
     public var easingFunction : EasingFunctionBase! {
-        get { try! _default.get_EasingFunctionImpl() }
-        set { try! _default.put_EasingFunctionImpl(newValue) }
+        get { try! _default.get_EasingFunction() }
+        set { try! _default.put_EasingFunction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.enabledependentanimation)
     public var enableDependentAnimation : Bool {
-        get { try! _default.get_EnableDependentAnimationImpl() }
-        set { try! _default.put_EnableDependentAnimationImpl(newValue) }
+        get { try! _default.get_EnableDependentAnimation() }
+        set { try! _default.put_EnableDependentAnimation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.from)
     public var from : Double? {
-        get { try! _default.get_FromImpl() }
-        set { try! _default.put_FromImpl(newValue) }
+        get { try! _default.get_From() }
+        set { try! _default.put_From(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.to)
     public var to : Double? {
-        get { try! _default.get_ToImpl() }
-        set { try! _default.put_ToImpl(newValue) }
+        get { try! _default.get_To() }
+        set { try! _default.put_To(newValue) }
     }
 
     deinit {
@@ -1371,35 +1194,30 @@ public final class DoubleAnimationUsingKeyFrames : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationUsingKeyFrames>?) -> DoubleAnimationUsingKeyFrames? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDoubleAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimationUsingKeyFramesStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames"))
+    private static let _IDoubleAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimationusingkeyframes.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
-        get { try! _IDoubleAnimationUsingKeyFramesStatics.get_EnableDependentAnimationPropertyImpl() }
+        get { try! _IDoubleAnimationUsingKeyFramesStatics.get_EnableDependentAnimationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimationusingkeyframes.enabledependentanimation)
     public var enableDependentAnimation : Bool {
-        get { try! _default.get_EnableDependentAnimationImpl() }
-        set { try! _default.put_EnableDependentAnimationImpl(newValue) }
+        get { try! _default.get_EnableDependentAnimation() }
+        set { try! _default.put_EnableDependentAnimation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimationusingkeyframes.keyframes)
     public var keyFrames : DoubleKeyFrameCollection! {
-        get { try! _default.get_KeyFramesImpl() }
+        get { try! _default.get_KeyFrames() }
     }
 
     deinit {
@@ -1421,12 +1239,6 @@ open class DoubleKeyFrame : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrame>?) -> DoubleKeyFrame? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1441,48 +1253,37 @@ open class DoubleKeyFrame : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IDoubleKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleKeyFrameFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrame"))
+    private static var _IDoubleKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleKeyFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrame")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IDoubleKeyFrameFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.DoubleKeyFrameBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDoubleKeyFrameFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrame"))
+    private static let _IDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframe.keytimeproperty)
     public class var keyTimeProperty : WinUI.DependencyProperty! {
-        get { try! _IDoubleKeyFrameStatics.get_KeyTimePropertyImpl() }
+        get { try! _IDoubleKeyFrameStatics.get_KeyTimeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframe.valueproperty)
     public class var valueProperty : WinUI.DependencyProperty! {
-        get { try! _IDoubleKeyFrameStatics.get_ValuePropertyImpl() }
+        get { try! _IDoubleKeyFrameStatics.get_ValueProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframe.keytime)
     public var keyTime : KeyTime {
-        get { try! _default.get_KeyTimeImpl() }
-        set { try! _default.put_KeyTimeImpl(newValue) }
+        get { try! _default.get_KeyTime() }
+        set { try! _default.put_KeyTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframe.value)
     public var value : Double {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
-    internal enum IDoubleKeyFrame : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = DoubleKeyFrame
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrame
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleKeyFrame
-        }
-    }
-    internal typealias Composable = IDoubleKeyFrame
     deinit {
         _default = nil
     }
@@ -1503,12 +1304,6 @@ public final class DoubleKeyFrameCollection : WinRTClass, IVector, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CDoubleKeyFrame>?) -> DoubleKeyFrameCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1516,8 +1311,9 @@ public final class DoubleKeyFrameCollection : WinRTClass, IVector, IIterable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrameCollection")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrameCollection")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
@@ -1553,58 +1349,68 @@ public final class DoubleKeyFrameCollection : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.getat)
     public func getAt(_ index: UInt32) -> DoubleKeyFrame? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<DoubleKeyFrame?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.indexof)
     public func indexOf(_ value: DoubleKeyFrame?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.setat)
     public func setAt(_ index: UInt32, _ value: DoubleKeyFrame?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: DoubleKeyFrame?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.append)
     public func append(_ value: DoubleKeyFrame?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [DoubleKeyFrame?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.replaceall)
+    public func replaceAll(_ items: [DoubleKeyFrame?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableDoubleKeyFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<DoubleKeyFrame?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -1627,30 +1433,25 @@ public final class DragItemThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragItemThemeAnimation>?) -> DragItemThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragItemThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DragItemThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDragItemThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDragItemThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DragItemThemeAnimation"))
+    private static let _IDragItemThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDragItemThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragItemThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragitemthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IDragItemThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IDragItemThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragitemthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -1672,52 +1473,47 @@ public final class DragOverThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimation>?) -> DragOverThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragOverThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DragOverThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDragOverThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDragOverThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DragOverThemeAnimation"))
+    private static let _IDragOverThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDragOverThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragOverThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragoverthemeanimation.directionproperty)
     public static var directionProperty : WinUI.DependencyProperty! {
-        get { try! _IDragOverThemeAnimationStatics.get_DirectionPropertyImpl() }
+        get { try! _IDragOverThemeAnimationStatics.get_DirectionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragoverthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IDragOverThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IDragOverThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragoverthemeanimation.tooffsetproperty)
     public static var toOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IDragOverThemeAnimationStatics.get_ToOffsetPropertyImpl() }
+        get { try! _IDragOverThemeAnimationStatics.get_ToOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragoverthemeanimation.direction)
     public var direction : WinUI.AnimationDirection {
-        get { try! _default.get_DirectionImpl() }
-        set { try! _default.put_DirectionImpl(newValue) }
+        get { try! _default.get_Direction() }
+        set { try! _default.put_Direction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragoverthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragoverthemeanimation.tooffset)
     public var toOffset : Double {
-        get { try! _default.get_ToOffsetImpl() }
-        set { try! _default.put_ToOffsetImpl(newValue) }
+        get { try! _default.get_ToOffset() }
+        set { try! _default.put_ToOffset(newValue) }
     }
 
     deinit {
@@ -1739,31 +1535,15 @@ public final class DrillInNavigationTransitionInfo : WinUI.NavigationTransitionI
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInNavigationTransitionInfo>?) -> DrillInNavigationTransitionInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    internal enum INavigationTransitionInfoOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides
-        internal typealias Class = DrillInNavigationTransitionInfo
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInNavigationTransitionInfo
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillInNavigationTransitionInfo
-        }
-    }
-    internal typealias Composable = INavigationTransitionInfoOverrides
     deinit {
         _default = nil
     }
@@ -1783,63 +1563,58 @@ public final class DrillInThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation>?) -> DrillInThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillInThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DrillInThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDrillInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillInThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DrillInThemeAnimation"))
+    private static let _IDrillInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillInThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillInThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation.entrancetargetnameproperty)
     public static var entranceTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IDrillInThemeAnimationStatics.get_EntranceTargetNamePropertyImpl() }
+        get { try! _IDrillInThemeAnimationStatics.get_EntranceTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation.entrancetargetproperty)
     public static var entranceTargetProperty : WinUI.DependencyProperty! {
-        get { try! _IDrillInThemeAnimationStatics.get_EntranceTargetPropertyImpl() }
+        get { try! _IDrillInThemeAnimationStatics.get_EntranceTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation.exittargetnameproperty)
     public static var exitTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IDrillInThemeAnimationStatics.get_ExitTargetNamePropertyImpl() }
+        get { try! _IDrillInThemeAnimationStatics.get_ExitTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation.exittargetproperty)
     public static var exitTargetProperty : WinUI.DependencyProperty! {
-        get { try! _IDrillInThemeAnimationStatics.get_ExitTargetPropertyImpl() }
+        get { try! _IDrillInThemeAnimationStatics.get_ExitTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation.entrancetarget)
     public var entranceTarget : WinUI.DependencyObject! {
-        get { try! _default.get_EntranceTargetImpl() }
-        set { try! _default.put_EntranceTargetImpl(newValue) }
+        get { try! _default.get_EntranceTarget() }
+        set { try! _default.put_EntranceTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation.entrancetargetname)
     public var entranceTargetName : String {
-        get { try! _default.get_EntranceTargetNameImpl() }
-        set { try! _default.put_EntranceTargetNameImpl(newValue) }
+        get { try! _default.get_EntranceTargetName() }
+        set { try! _default.put_EntranceTargetName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation.exittarget)
     public var exitTarget : WinUI.DependencyObject! {
-        get { try! _default.get_ExitTargetImpl() }
-        set { try! _default.put_ExitTargetImpl(newValue) }
+        get { try! _default.get_ExitTarget() }
+        set { try! _default.put_ExitTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation.exittargetname)
     public var exitTargetName : String {
-        get { try! _default.get_ExitTargetNameImpl() }
-        set { try! _default.put_ExitTargetNameImpl(newValue) }
+        get { try! _default.get_ExitTargetName() }
+        set { try! _default.put_ExitTargetName(newValue) }
     }
 
     deinit {
@@ -1861,63 +1636,58 @@ public final class DrillOutThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation>?) -> DrillOutThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillOutThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DrillOutThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDrillOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillOutThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DrillOutThemeAnimation"))
+    private static let _IDrillOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillOutThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillOutThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation.entrancetargetnameproperty)
     public static var entranceTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IDrillOutThemeAnimationStatics.get_EntranceTargetNamePropertyImpl() }
+        get { try! _IDrillOutThemeAnimationStatics.get_EntranceTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation.entrancetargetproperty)
     public static var entranceTargetProperty : WinUI.DependencyProperty! {
-        get { try! _IDrillOutThemeAnimationStatics.get_EntranceTargetPropertyImpl() }
+        get { try! _IDrillOutThemeAnimationStatics.get_EntranceTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation.exittargetnameproperty)
     public static var exitTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IDrillOutThemeAnimationStatics.get_ExitTargetNamePropertyImpl() }
+        get { try! _IDrillOutThemeAnimationStatics.get_ExitTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation.exittargetproperty)
     public static var exitTargetProperty : WinUI.DependencyProperty! {
-        get { try! _IDrillOutThemeAnimationStatics.get_ExitTargetPropertyImpl() }
+        get { try! _IDrillOutThemeAnimationStatics.get_ExitTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation.entrancetarget)
     public var entranceTarget : WinUI.DependencyObject! {
-        get { try! _default.get_EntranceTargetImpl() }
-        set { try! _default.put_EntranceTargetImpl(newValue) }
+        get { try! _default.get_EntranceTarget() }
+        set { try! _default.put_EntranceTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation.entrancetargetname)
     public var entranceTargetName : String {
-        get { try! _default.get_EntranceTargetNameImpl() }
-        set { try! _default.put_EntranceTargetNameImpl(newValue) }
+        get { try! _default.get_EntranceTargetName() }
+        set { try! _default.put_EntranceTargetName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation.exittarget)
     public var exitTarget : WinUI.DependencyObject! {
-        get { try! _default.get_ExitTargetImpl() }
-        set { try! _default.put_ExitTargetImpl(newValue) }
+        get { try! _default.get_ExitTarget() }
+        set { try! _default.put_ExitTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation.exittargetname)
     public var exitTargetName : String {
-        get { try! _default.get_ExitTargetNameImpl() }
-        set { try! _default.put_ExitTargetNameImpl(newValue) }
+        get { try! _default.get_ExitTargetName() }
+        set { try! _default.put_ExitTargetName(newValue) }
     }
 
     deinit {
@@ -1939,30 +1709,25 @@ public final class DropTargetItemThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDropTargetItemThemeAnimation>?) -> DropTargetItemThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDropTargetItemThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDropTargetItemThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation"))
+    private static let _IDropTargetItemThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDropTargetItemThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.droptargetitemthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IDropTargetItemThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IDropTargetItemThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.droptargetitemthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -1984,30 +1749,25 @@ public final class EasingColorKeyFrame : WinUI.ColorKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingColorKeyFrame>?) -> EasingColorKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingColorKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.EasingColorKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEasingColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingColorKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.EasingColorKeyFrame"))
+    private static let _IEasingColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingColorKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingColorKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingcolorkeyframe.easingfunctionproperty)
     public static var easingFunctionProperty : WinUI.DependencyProperty! {
-        get { try! _IEasingColorKeyFrameStatics.get_EasingFunctionPropertyImpl() }
+        get { try! _IEasingColorKeyFrameStatics.get_EasingFunctionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingcolorkeyframe.easingfunction)
     public var easingFunction : EasingFunctionBase! {
-        get { try! _default.get_EasingFunctionImpl() }
-        set { try! _default.put_EasingFunctionImpl(newValue) }
+        get { try! _default.get_EasingFunction() }
+        set { try! _default.put_EasingFunction(newValue) }
     }
 
     deinit {
@@ -2029,30 +1789,25 @@ public final class EasingDoubleKeyFrame : WinUI.DoubleKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingDoubleKeyFrame>?) -> EasingDoubleKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingDoubleKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.EasingDoubleKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEasingDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingDoubleKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.EasingDoubleKeyFrame"))
+    private static let _IEasingDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingDoubleKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingDoubleKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingdoublekeyframe.easingfunctionproperty)
     public static var easingFunctionProperty : WinUI.DependencyProperty! {
-        get { try! _IEasingDoubleKeyFrameStatics.get_EasingFunctionPropertyImpl() }
+        get { try! _IEasingDoubleKeyFrameStatics.get_EasingFunctionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingdoublekeyframe.easingfunction)
     public var easingFunction : EasingFunctionBase! {
-        get { try! _default.get_EasingFunctionImpl() }
-        set { try! _default.put_EasingFunctionImpl(newValue) }
+        get { try! _default.get_EasingFunction() }
+        set { try! _default.put_EasingFunction(newValue) }
     }
 
     deinit {
@@ -2074,12 +1829,6 @@ open class EasingFunctionBase : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingFunctionBase>?) -> EasingFunctionBase? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2094,36 +1843,25 @@ open class EasingFunctionBase : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IEasingFunctionBaseFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingFunctionBaseFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.EasingFunctionBase"))
+    private static var _IEasingFunctionBaseFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingFunctionBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingFunctionBase")
 
-    private static let _IEasingFunctionBaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingFunctionBaseStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.EasingFunctionBase"))
+    private static let _IEasingFunctionBaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingFunctionBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingFunctionBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingfunctionbase.easingmodeproperty)
     public class var easingModeProperty : WinUI.DependencyProperty! {
-        get { try! _IEasingFunctionBaseStatics.get_EasingModePropertyImpl() }
+        get { try! _IEasingFunctionBaseStatics.get_EasingModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingfunctionbase.ease)
     public func ease(_ normalizedTime: Double) throws -> Double {
-        try _default.EaseImpl(normalizedTime)
+        try _default.Ease(normalizedTime)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingfunctionbase.easingmode)
     public var easingMode : EasingMode {
-        get { try! _default.get_EasingModeImpl() }
-        set { try! _default.put_EasingModeImpl(newValue) }
+        get { try! _default.get_EasingMode() }
+        set { try! _default.put_EasingMode(newValue) }
     }
 
-    internal enum IEasingFunctionBase : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = EasingFunctionBase
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingFunctionBase
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingFunctionBase
-        }
-    }
-    internal typealias Composable = IEasingFunctionBase
     deinit {
         _default = nil
     }
@@ -2143,30 +1881,25 @@ public final class EasingPointKeyFrame : WinUI.PointKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingPointKeyFrame>?) -> EasingPointKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingPointKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.EasingPointKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEasingPointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingPointKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.EasingPointKeyFrame"))
+    private static let _IEasingPointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingPointKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingPointKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingpointkeyframe.easingfunctionproperty)
     public static var easingFunctionProperty : WinUI.DependencyProperty! {
-        get { try! _IEasingPointKeyFrameStatics.get_EasingFunctionPropertyImpl() }
+        get { try! _IEasingPointKeyFrameStatics.get_EasingFunctionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingpointkeyframe.easingfunction)
     public var easingFunction : EasingFunctionBase! {
-        get { try! _default.get_EasingFunctionImpl() }
-        set { try! _default.put_EasingFunctionImpl(newValue) }
+        get { try! _default.get_EasingFunction() }
+        set { try! _default.put_EasingFunction(newValue) }
     }
 
     deinit {
@@ -2188,30 +1921,25 @@ public final class EdgeUIThemeTransition : WinUI.Transition {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEdgeUIThemeTransition>?) -> EdgeUIThemeTransition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EdgeUIThemeTransition")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.EdgeUIThemeTransition")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEdgeUIThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEdgeUIThemeTransitionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.EdgeUIThemeTransition"))
+    private static let _IEdgeUIThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEdgeUIThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EdgeUIThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.edgeuithemetransition.edgeproperty)
     public static var edgeProperty : WinUI.DependencyProperty! {
-        get { try! _IEdgeUIThemeTransitionStatics.get_EdgePropertyImpl() }
+        get { try! _IEdgeUIThemeTransitionStatics.get_EdgeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.edgeuithemetransition.edge)
     public var edge : WinUI.EdgeTransitionLocation {
-        get { try! _default.get_EdgeImpl() }
-        set { try! _default.put_EdgeImpl(newValue) }
+        get { try! _default.get_Edge() }
+        set { try! _default.put_Edge(newValue) }
     }
 
     deinit {
@@ -2233,41 +1961,36 @@ public final class ElasticEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEase>?) -> ElasticEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ElasticEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ElasticEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IElasticEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IElasticEaseStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ElasticEase"))
+    private static let _IElasticEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IElasticEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ElasticEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.elasticease.oscillationsproperty)
     public static var oscillationsProperty : WinUI.DependencyProperty! {
-        get { try! _IElasticEaseStatics.get_OscillationsPropertyImpl() }
+        get { try! _IElasticEaseStatics.get_OscillationsProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.elasticease.springinessproperty)
     public static var springinessProperty : WinUI.DependencyProperty! {
-        get { try! _IElasticEaseStatics.get_SpringinessPropertyImpl() }
+        get { try! _IElasticEaseStatics.get_SpringinessProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.elasticease.oscillations)
     public var oscillations : Int32 {
-        get { try! _default.get_OscillationsImpl() }
-        set { try! _default.put_OscillationsImpl(newValue) }
+        get { try! _default.get_Oscillations() }
+        set { try! _default.put_Oscillations(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.elasticease.springiness)
     public var springiness : Double {
-        get { try! _default.get_SpringinessImpl() }
-        set { try! _default.put_SpringinessImpl(newValue) }
+        get { try! _default.get_Springiness() }
+        set { try! _default.put_Springiness(newValue) }
     }
 
     deinit {
@@ -2289,47 +2012,31 @@ public final class EntranceNavigationTransitionInfo : WinUI.NavigationTransition
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceNavigationTransitionInfo>?) -> EntranceNavigationTransitionInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEntranceNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceNavigationTransitionInfoStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo"))
+    private static let _IEntranceNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancenavigationtransitioninfo.getistargetelement)
-    public static func getIsTargetElement(_ element: WinUI.UIElement!) -> Bool {
-        return try! _IEntranceNavigationTransitionInfoStatics.GetIsTargetElementImpl(element)
+    public static func getIsTargetElement(_ element: WinUI.UIElement!) throws -> Bool {
+        return try _IEntranceNavigationTransitionInfoStatics.GetIsTargetElement(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancenavigationtransitioninfo.setistargetelement)
-    public static func setIsTargetElement(_ element: WinUI.UIElement!, _ value: Bool) {
-        try! _IEntranceNavigationTransitionInfoStatics.SetIsTargetElementImpl(element, value)
+    public static func setIsTargetElement(_ element: WinUI.UIElement!, _ value: Bool) throws {
+        try _IEntranceNavigationTransitionInfoStatics.SetIsTargetElement(element, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancenavigationtransitioninfo.istargetelementproperty)
     public static var isTargetElementProperty : WinUI.DependencyProperty! {
-        get { try! _IEntranceNavigationTransitionInfoStatics.get_IsTargetElementPropertyImpl() }
+        get { try! _IEntranceNavigationTransitionInfoStatics.get_IsTargetElementProperty() }
     }
 
-    internal enum INavigationTransitionInfoOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides
-        internal typealias Class = EntranceNavigationTransitionInfo
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceNavigationTransitionInfo
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceNavigationTransitionInfo
-        }
-    }
-    internal typealias Composable = INavigationTransitionInfoOverrides
     deinit {
         _default = nil
     }
@@ -2349,52 +2056,47 @@ public final class EntranceThemeTransition : WinUI.Transition {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransition>?) -> EntranceThemeTransition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEntranceThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceThemeTransitionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition"))
+    private static let _IEntranceThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancethemetransition.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IEntranceThemeTransitionStatics.get_FromHorizontalOffsetPropertyImpl() }
+        get { try! _IEntranceThemeTransitionStatics.get_FromHorizontalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancethemetransition.fromverticaloffsetproperty)
     public static var fromVerticalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IEntranceThemeTransitionStatics.get_FromVerticalOffsetPropertyImpl() }
+        get { try! _IEntranceThemeTransitionStatics.get_FromVerticalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancethemetransition.isstaggeringenabledproperty)
     public static var isStaggeringEnabledProperty : WinUI.DependencyProperty! {
-        get { try! _IEntranceThemeTransitionStatics.get_IsStaggeringEnabledPropertyImpl() }
+        get { try! _IEntranceThemeTransitionStatics.get_IsStaggeringEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancethemetransition.fromhorizontaloffset)
     public var fromHorizontalOffset : Double {
-        get { try! _default.get_FromHorizontalOffsetImpl() }
-        set { try! _default.put_FromHorizontalOffsetImpl(newValue) }
+        get { try! _default.get_FromHorizontalOffset() }
+        set { try! _default.put_FromHorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancethemetransition.fromverticaloffset)
     public var fromVerticalOffset : Double {
-        get { try! _default.get_FromVerticalOffsetImpl() }
-        set { try! _default.put_FromVerticalOffsetImpl(newValue) }
+        get { try! _default.get_FromVerticalOffset() }
+        set { try! _default.put_FromVerticalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancethemetransition.isstaggeringenabled)
     public var isStaggeringEnabled : Bool {
-        get { try! _default.get_IsStaggeringEnabledImpl() }
-        set { try! _default.put_IsStaggeringEnabledImpl(newValue) }
+        get { try! _default.get_IsStaggeringEnabled() }
+        set { try! _default.put_IsStaggeringEnabled(newValue) }
     }
 
     deinit {
@@ -2416,30 +2118,25 @@ public final class ExponentialEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIExponentialEase>?) -> ExponentialEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ExponentialEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ExponentialEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IExponentialEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IExponentialEaseStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ExponentialEase"))
+    private static let _IExponentialEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IExponentialEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ExponentialEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.exponentialease.exponentproperty)
     public static var exponentProperty : WinUI.DependencyProperty! {
-        get { try! _IExponentialEaseStatics.get_ExponentPropertyImpl() }
+        get { try! _IExponentialEaseStatics.get_ExponentProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.exponentialease.exponent)
     public var exponent : Double {
-        get { try! _default.get_ExponentImpl() }
-        set { try! _default.put_ExponentImpl(newValue) }
+        get { try! _default.get_Exponent() }
+        set { try! _default.put_Exponent(newValue) }
     }
 
     deinit {
@@ -2461,30 +2158,25 @@ public final class FadeInThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeInThemeAnimation>?) -> FadeInThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeInThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.FadeInThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IFadeInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeInThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.FadeInThemeAnimation"))
+    private static let _IFadeInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeInThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeInThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.fadeinthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IFadeInThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IFadeInThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.fadeinthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -2506,30 +2198,25 @@ public final class FadeOutThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeOutThemeAnimation>?) -> FadeOutThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeOutThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.FadeOutThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IFadeOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeOutThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.FadeOutThemeAnimation"))
+    private static let _IFadeOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeOutThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeOutThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.fadeoutthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IFadeOutThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IFadeOutThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.fadeoutthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -2551,12 +2238,6 @@ open class GravityConnectedAnimationConfiguration : WinUI.ConnectedAnimationConf
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIGravityConnectedAnimationConfiguration>?) -> GravityConnectedAnimationConfiguration? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2571,31 +2252,20 @@ open class GravityConnectedAnimationConfiguration : WinUI.ConnectedAnimationConf
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IGravityConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IGravityConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration"))
+    private static var _IGravityConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IGravityConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration")
 
     public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IGravityConnectedAnimationConfigurationFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.GravityConnectedAnimationConfigurationBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IGravityConnectedAnimationConfigurationFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.gravityconnectedanimationconfiguration.isshadowenabled)
     public var isShadowEnabled : Bool {
-        get { try! _default.get_IsShadowEnabledImpl() }
-        set { try! _default.put_IsShadowEnabledImpl(newValue) }
+        get { try! _default.get_IsShadowEnabled() }
+        set { try! _default.put_IsShadowEnabled(newValue) }
     }
 
-    internal enum IGravityConnectedAnimationConfiguration : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = GravityConnectedAnimationConfiguration
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIGravityConnectedAnimationConfiguration
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IGravityConnectedAnimationConfiguration
-        }
-    }
-    internal typealias Composable = IGravityConnectedAnimationConfiguration
     deinit {
         _default = nil
     }
@@ -2615,30 +2285,25 @@ public final class KeySpline : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeySpline>?) -> KeySpline? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.KeySpline")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.KeySpline")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.keyspline.controlpoint1)
     public var controlPoint1 : WindowsFoundation.Point {
-        get { try! _default.get_ControlPoint1Impl() }
-        set { try! _default.put_ControlPoint1Impl(newValue) }
+        get { try! _default.get_ControlPoint1() }
+        set { try! _default.put_ControlPoint1(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.keyspline.controlpoint2)
     public var controlPoint2 : WindowsFoundation.Point {
-        get { try! _default.get_ControlPoint2Impl() }
-        set { try! _default.put_ControlPoint2Impl(newValue) }
+        get { try! _default.get_ControlPoint2() }
+        set { try! _default.put_ControlPoint2(newValue) }
     }
 
     deinit {
@@ -2660,20 +2325,14 @@ public final class KeyTimeHelper : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeyTimeHelper>?) -> KeyTimeHelper? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IKeyTimeHelperStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IKeyTimeHelperStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.KeyTimeHelper"))
+    private static let _IKeyTimeHelperStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IKeyTimeHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.KeyTimeHelper")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.keytimehelper.fromtimespan)
-    public static func fromTimeSpan(_ timeSpan: WindowsFoundation.TimeSpan) -> KeyTime {
-        return try! _IKeyTimeHelperStatics.FromTimeSpanImpl(timeSpan)
+    public static func fromTimeSpan(_ timeSpan: WindowsFoundation.TimeSpan) throws -> KeyTime {
+        return try _IKeyTimeHelperStatics.FromTimeSpan(timeSpan)
     }
 
     deinit {
@@ -2695,18 +2354,13 @@ public final class LinearColorKeyFrame : WinUI.ColorKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CILinearColorKeyFrame>?) -> LinearColorKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.LinearColorKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.LinearColorKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -2728,18 +2382,13 @@ public final class LinearDoubleKeyFrame : WinUI.DoubleKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CILinearDoubleKeyFrame>?) -> LinearDoubleKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.LinearDoubleKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.LinearDoubleKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -2761,18 +2410,13 @@ public final class LinearPointKeyFrame : WinUI.PointKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CILinearPointKeyFrame>?) -> LinearPointKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.LinearPointKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.LinearPointKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -2794,30 +2438,25 @@ public final class NavigationThemeTransition : WinUI.Transition {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationThemeTransition>?) -> NavigationThemeTransition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.NavigationThemeTransition")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.NavigationThemeTransition")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _INavigationThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationThemeTransitionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.NavigationThemeTransition"))
+    private static let _INavigationThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.NavigationThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.navigationthemetransition.defaultnavigationtransitioninfoproperty)
     public static var defaultNavigationTransitionInfoProperty : WinUI.DependencyProperty! {
-        get { try! _INavigationThemeTransitionStatics.get_DefaultNavigationTransitionInfoPropertyImpl() }
+        get { try! _INavigationThemeTransitionStatics.get_DefaultNavigationTransitionInfoProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.navigationthemetransition.defaultnavigationtransitioninfo)
     public var defaultNavigationTransitionInfo : NavigationTransitionInfo! {
-        get { try! _default.get_DefaultNavigationTransitionInfoImpl() }
-        set { try! _default.put_DefaultNavigationTransitionInfoImpl(newValue) }
+        get { try! _default.get_DefaultNavigationTransitionInfo() }
+        set { try! _default.put_DefaultNavigationTransitionInfo(newValue) }
     }
 
     deinit {
@@ -2836,12 +2475,6 @@ open class NavigationTransitionInfo : WinUI.DependencyObject {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfo>?) -> NavigationTransitionInfo? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
     }
 
     @_spi(WinRTInternal)
@@ -2864,36 +2497,25 @@ open class NavigationTransitionInfo : WinUI.DependencyObject {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _INavigationTransitionInfoFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.NavigationTransitionInfo"))
+    private static var _INavigationTransitionInfoFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.NavigationTransitionInfo")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._INavigationTransitionInfoFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._INavigationTransitionInfoFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     private lazy var _INavigationTransitionInfoOverrides: __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.navigationtransitioninfo.getnavigationstatecore)
     open func getNavigationStateCore() throws -> String {
-        try _INavigationTransitionInfoOverrides.GetNavigationStateCoreImpl()
+        try _INavigationTransitionInfoOverrides.GetNavigationStateCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.navigationtransitioninfo.setnavigationstatecore)
     open func setNavigationStateCore(_ navigationState: String) throws {
-        try _INavigationTransitionInfoOverrides.SetNavigationStateCoreImpl(navigationState)
+        try _INavigationTransitionInfoOverrides.SetNavigationStateCore(navigationState)
     }
 
-    internal enum INavigationTransitionInfoOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides
-        internal typealias Class = NavigationTransitionInfo
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfo
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfo
-        }
-    }
-    internal typealias Composable = INavigationTransitionInfoOverrides
     deinit {
         _default = nil
         _INavigationTransitionInfoOverrides = nil
@@ -2914,35 +2536,30 @@ public final class ObjectAnimationUsingKeyFrames : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectAnimationUsingKeyFrames>?) -> ObjectAnimationUsingKeyFrames? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IObjectAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectAnimationUsingKeyFramesStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames"))
+    private static let _IObjectAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectanimationusingkeyframes.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
-        get { try! _IObjectAnimationUsingKeyFramesStatics.get_EnableDependentAnimationPropertyImpl() }
+        get { try! _IObjectAnimationUsingKeyFramesStatics.get_EnableDependentAnimationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectanimationusingkeyframes.enabledependentanimation)
     public var enableDependentAnimation : Bool {
-        get { try! _default.get_EnableDependentAnimationImpl() }
-        set { try! _default.put_EnableDependentAnimationImpl(newValue) }
+        get { try! _default.get_EnableDependentAnimation() }
+        set { try! _default.put_EnableDependentAnimation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectanimationusingkeyframes.keyframes)
     public var keyFrames : ObjectKeyFrameCollection! {
-        get { try! _default.get_KeyFramesImpl() }
+        get { try! _default.get_KeyFrames() }
     }
 
     deinit {
@@ -2964,12 +2581,6 @@ open class ObjectKeyFrame : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrame>?) -> ObjectKeyFrame? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2984,48 +2595,37 @@ open class ObjectKeyFrame : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IObjectKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectKeyFrameFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrame"))
+    private static var _IObjectKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectKeyFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrame")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IObjectKeyFrameFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.ObjectKeyFrameBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IObjectKeyFrameFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IObjectKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrame"))
+    private static let _IObjectKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframe.keytimeproperty)
     public class var keyTimeProperty : WinUI.DependencyProperty! {
-        get { try! _IObjectKeyFrameStatics.get_KeyTimePropertyImpl() }
+        get { try! _IObjectKeyFrameStatics.get_KeyTimeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframe.valueproperty)
     public class var valueProperty : WinUI.DependencyProperty! {
-        get { try! _IObjectKeyFrameStatics.get_ValuePropertyImpl() }
+        get { try! _IObjectKeyFrameStatics.get_ValueProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframe.keytime)
     public var keyTime : KeyTime {
-        get { try! _default.get_KeyTimeImpl() }
-        set { try! _default.put_KeyTimeImpl(newValue) }
+        get { try! _default.get_KeyTime() }
+        set { try! _default.put_KeyTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframe.value)
     public var value : Any! {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
-    internal enum IObjectKeyFrame : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ObjectKeyFrame
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrame
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectKeyFrame
-        }
-    }
-    internal typealias Composable = IObjectKeyFrame
     deinit {
         _default = nil
     }
@@ -3046,12 +2646,6 @@ public final class ObjectKeyFrameCollection : WinRTClass, IVector, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CObjectKeyFrame>?) -> ObjectKeyFrameCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -3059,8 +2653,9 @@ public final class ObjectKeyFrameCollection : WinRTClass, IVector, IIterable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrameCollection")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrameCollection")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
@@ -3096,58 +2691,68 @@ public final class ObjectKeyFrameCollection : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.getat)
     public func getAt(_ index: UInt32) -> ObjectKeyFrame? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<ObjectKeyFrame?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.indexof)
     public func indexOf(_ value: ObjectKeyFrame?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.setat)
     public func setAt(_ index: UInt32, _ value: ObjectKeyFrame?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: ObjectKeyFrame?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.append)
     public func append(_ value: ObjectKeyFrame?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [ObjectKeyFrame?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.replaceall)
+    public func replaceAll(_ items: [ObjectKeyFrame?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableObjectKeyFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<ObjectKeyFrame?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -3170,30 +2775,25 @@ public final class PaneThemeTransition : WinUI.Transition {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPaneThemeTransition>?) -> PaneThemeTransition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PaneThemeTransition")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PaneThemeTransition")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPaneThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPaneThemeTransitionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PaneThemeTransition"))
+    private static let _IPaneThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPaneThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PaneThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.panethemetransition.edgeproperty)
     public static var edgeProperty : WinUI.DependencyProperty! {
-        get { try! _IPaneThemeTransitionStatics.get_EdgePropertyImpl() }
+        get { try! _IPaneThemeTransitionStatics.get_EdgeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.panethemetransition.edge)
     public var edge : WinUI.EdgeTransitionLocation {
-        get { try! _default.get_EdgeImpl() }
-        set { try! _default.put_EdgeImpl(newValue) }
+        get { try! _default.get_Edge() }
+        set { try! _default.put_Edge(newValue) }
     }
 
     deinit {
@@ -3215,74 +2815,69 @@ public final class PointAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation>?) -> PointAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PointAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPointAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PointAnimation"))
+    private static let _IPointAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.byproperty)
     public static var byProperty : WinUI.DependencyProperty! {
-        get { try! _IPointAnimationStatics.get_ByPropertyImpl() }
+        get { try! _IPointAnimationStatics.get_ByProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.easingfunctionproperty)
     public static var easingFunctionProperty : WinUI.DependencyProperty! {
-        get { try! _IPointAnimationStatics.get_EasingFunctionPropertyImpl() }
+        get { try! _IPointAnimationStatics.get_EasingFunctionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
-        get { try! _IPointAnimationStatics.get_EnableDependentAnimationPropertyImpl() }
+        get { try! _IPointAnimationStatics.get_EnableDependentAnimationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.fromproperty)
     public static var fromProperty : WinUI.DependencyProperty! {
-        get { try! _IPointAnimationStatics.get_FromPropertyImpl() }
+        get { try! _IPointAnimationStatics.get_FromProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.toproperty)
     public static var toProperty : WinUI.DependencyProperty! {
-        get { try! _IPointAnimationStatics.get_ToPropertyImpl() }
+        get { try! _IPointAnimationStatics.get_ToProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.by)
     public var by : WindowsFoundation.Point? {
-        get { try! _default.get_ByImpl() }
-        set { try! _default.put_ByImpl(newValue) }
+        get { try! _default.get_By() }
+        set { try! _default.put_By(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.easingfunction)
     public var easingFunction : EasingFunctionBase! {
-        get { try! _default.get_EasingFunctionImpl() }
-        set { try! _default.put_EasingFunctionImpl(newValue) }
+        get { try! _default.get_EasingFunction() }
+        set { try! _default.put_EasingFunction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.enabledependentanimation)
     public var enableDependentAnimation : Bool {
-        get { try! _default.get_EnableDependentAnimationImpl() }
-        set { try! _default.put_EnableDependentAnimationImpl(newValue) }
+        get { try! _default.get_EnableDependentAnimation() }
+        set { try! _default.put_EnableDependentAnimation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.from)
     public var from : WindowsFoundation.Point? {
-        get { try! _default.get_FromImpl() }
-        set { try! _default.put_FromImpl(newValue) }
+        get { try! _default.get_From() }
+        set { try! _default.put_From(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.to)
     public var to : WindowsFoundation.Point? {
-        get { try! _default.get_ToImpl() }
-        set { try! _default.put_ToImpl(newValue) }
+        get { try! _default.get_To() }
+        set { try! _default.put_To(newValue) }
     }
 
     deinit {
@@ -3304,35 +2899,30 @@ public final class PointAnimationUsingKeyFrames : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationUsingKeyFrames>?) -> PointAnimationUsingKeyFrames? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPointAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimationUsingKeyFramesStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames"))
+    private static let _IPointAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimationusingkeyframes.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
-        get { try! _IPointAnimationUsingKeyFramesStatics.get_EnableDependentAnimationPropertyImpl() }
+        get { try! _IPointAnimationUsingKeyFramesStatics.get_EnableDependentAnimationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimationusingkeyframes.enabledependentanimation)
     public var enableDependentAnimation : Bool {
-        get { try! _default.get_EnableDependentAnimationImpl() }
-        set { try! _default.put_EnableDependentAnimationImpl(newValue) }
+        get { try! _default.get_EnableDependentAnimation() }
+        set { try! _default.put_EnableDependentAnimation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimationusingkeyframes.keyframes)
     public var keyFrames : PointKeyFrameCollection! {
-        get { try! _default.get_KeyFramesImpl() }
+        get { try! _default.get_KeyFrames() }
     }
 
     deinit {
@@ -3354,12 +2944,6 @@ open class PointKeyFrame : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrame>?) -> PointKeyFrame? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -3374,48 +2958,37 @@ open class PointKeyFrame : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IPointKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IPointKeyFrameFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PointKeyFrame"))
+    private static var _IPointKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IPointKeyFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointKeyFrame")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IPointKeyFrameFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.PointKeyFrameBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IPointKeyFrameFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PointKeyFrame"))
+    private static let _IPointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframe.keytimeproperty)
     public class var keyTimeProperty : WinUI.DependencyProperty! {
-        get { try! _IPointKeyFrameStatics.get_KeyTimePropertyImpl() }
+        get { try! _IPointKeyFrameStatics.get_KeyTimeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframe.valueproperty)
     public class var valueProperty : WinUI.DependencyProperty! {
-        get { try! _IPointKeyFrameStatics.get_ValuePropertyImpl() }
+        get { try! _IPointKeyFrameStatics.get_ValueProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframe.keytime)
     public var keyTime : KeyTime {
-        get { try! _default.get_KeyTimeImpl() }
-        set { try! _default.put_KeyTimeImpl(newValue) }
+        get { try! _default.get_KeyTime() }
+        set { try! _default.put_KeyTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframe.value)
     public var value : WindowsFoundation.Point {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
-    internal enum IPointKeyFrame : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = PointKeyFrame
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrame
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPointKeyFrame
-        }
-    }
-    internal typealias Composable = IPointKeyFrame
     deinit {
         _default = nil
     }
@@ -3436,12 +3009,6 @@ public final class PointKeyFrameCollection : WinRTClass, IVector, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CPointKeyFrame>?) -> PointKeyFrameCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -3449,8 +3016,9 @@ public final class PointKeyFrameCollection : WinRTClass, IVector, IIterable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointKeyFrameCollection")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PointKeyFrameCollection")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
@@ -3486,58 +3054,68 @@ public final class PointKeyFrameCollection : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.getat)
     public func getAt(_ index: UInt32) -> PointKeyFrame? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<PointKeyFrame?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.indexof)
     public func indexOf(_ value: PointKeyFrame?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.setat)
     public func setAt(_ index: UInt32, _ value: PointKeyFrame?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: PointKeyFrame?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.append)
     public func append(_ value: PointKeyFrame?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [PointKeyFrame?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.replaceall)
+    public func replaceAll(_ items: [PointKeyFrame?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterablePointKeyFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<PointKeyFrame?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -3560,30 +3138,25 @@ public final class PointerDownThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerDownThemeAnimation>?) -> PointerDownThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerDownThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PointerDownThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPointerDownThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerDownThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PointerDownThemeAnimation"))
+    private static let _IPointerDownThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerDownThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerDownThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointerdownthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IPointerDownThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IPointerDownThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointerdownthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -3605,30 +3178,25 @@ public final class PointerUpThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerUpThemeAnimation>?) -> PointerUpThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerUpThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PointerUpThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPointerUpThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerUpThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PointerUpThemeAnimation"))
+    private static let _IPointerUpThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerUpThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerUpThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointerupthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IPointerUpThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IPointerUpThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointerupthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -3650,52 +3218,47 @@ public final class PopInThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimation>?) -> PopInThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopInThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PopInThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPopInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopInThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PopInThemeAnimation"))
+    private static let _IPopInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopInThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopInThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popinthemeanimation.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IPopInThemeAnimationStatics.get_FromHorizontalOffsetPropertyImpl() }
+        get { try! _IPopInThemeAnimationStatics.get_FromHorizontalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popinthemeanimation.fromverticaloffsetproperty)
     public static var fromVerticalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IPopInThemeAnimationStatics.get_FromVerticalOffsetPropertyImpl() }
+        get { try! _IPopInThemeAnimationStatics.get_FromVerticalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popinthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IPopInThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IPopInThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popinthemeanimation.fromhorizontaloffset)
     public var fromHorizontalOffset : Double {
-        get { try! _default.get_FromHorizontalOffsetImpl() }
-        set { try! _default.put_FromHorizontalOffsetImpl(newValue) }
+        get { try! _default.get_FromHorizontalOffset() }
+        set { try! _default.put_FromHorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popinthemeanimation.fromverticaloffset)
     public var fromVerticalOffset : Double {
-        get { try! _default.get_FromVerticalOffsetImpl() }
-        set { try! _default.put_FromVerticalOffsetImpl(newValue) }
+        get { try! _default.get_FromVerticalOffset() }
+        set { try! _default.put_FromVerticalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popinthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -3717,30 +3280,25 @@ public final class PopOutThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopOutThemeAnimation>?) -> PopOutThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopOutThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PopOutThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPopOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopOutThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PopOutThemeAnimation"))
+    private static let _IPopOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopOutThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopOutThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popoutthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IPopOutThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IPopOutThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popoutthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -3762,41 +3320,36 @@ public final class PopupThemeTransition : WinUI.Transition {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransition>?) -> PopupThemeTransition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopupThemeTransition")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PopupThemeTransition")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPopupThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopupThemeTransitionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PopupThemeTransition"))
+    private static let _IPopupThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopupThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopupThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popupthemetransition.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupThemeTransitionStatics.get_FromHorizontalOffsetPropertyImpl() }
+        get { try! _IPopupThemeTransitionStatics.get_FromHorizontalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popupthemetransition.fromverticaloffsetproperty)
     public static var fromVerticalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupThemeTransitionStatics.get_FromVerticalOffsetPropertyImpl() }
+        get { try! _IPopupThemeTransitionStatics.get_FromVerticalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popupthemetransition.fromhorizontaloffset)
     public var fromHorizontalOffset : Double {
-        get { try! _default.get_FromHorizontalOffsetImpl() }
-        set { try! _default.put_FromHorizontalOffsetImpl(newValue) }
+        get { try! _default.get_FromHorizontalOffset() }
+        set { try! _default.put_FromHorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popupthemetransition.fromverticaloffset)
     public var fromVerticalOffset : Double {
-        get { try! _default.get_FromVerticalOffsetImpl() }
-        set { try! _default.put_FromVerticalOffsetImpl(newValue) }
+        get { try! _default.get_FromVerticalOffset() }
+        set { try! _default.put_FromVerticalOffset(newValue) }
     }
 
     deinit {
@@ -3818,30 +3371,25 @@ public final class PowerEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPowerEase>?) -> PowerEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PowerEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.PowerEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPowerEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPowerEaseStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.PowerEase"))
+    private static let _IPowerEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPowerEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PowerEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.powerease.powerproperty)
     public static var powerProperty : WinUI.DependencyProperty! {
-        get { try! _IPowerEaseStatics.get_PowerPropertyImpl() }
+        get { try! _IPowerEaseStatics.get_PowerProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.powerease.power)
     public var power : Double {
-        get { try! _default.get_PowerImpl() }
-        set { try! _default.put_PowerImpl(newValue) }
+        get { try! _default.get_Power() }
+        set { try! _default.put_Power(newValue) }
     }
 
     deinit {
@@ -3863,18 +3411,13 @@ public final class QuadraticEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIQuadraticEase>?) -> QuadraticEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.QuadraticEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.QuadraticEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -3896,18 +3439,13 @@ public final class QuarticEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIQuarticEase>?) -> QuarticEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.QuarticEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.QuarticEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -3929,18 +3467,13 @@ public final class QuinticEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIQuinticEase>?) -> QuinticEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.QuinticEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.QuinticEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -3962,18 +3495,13 @@ public final class ReorderThemeTransition : WinUI.Transition {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIReorderThemeTransition>?) -> ReorderThemeTransition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ReorderThemeTransition")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.ReorderThemeTransition")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -3995,45 +3523,39 @@ public final class RepeatBehaviorHelper : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepeatBehaviorHelper>?) -> RepeatBehaviorHelper? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IRepeatBehaviorHelperStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepeatBehaviorHelperStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.RepeatBehaviorHelper"))
+    private static let _IRepeatBehaviorHelperStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepeatBehaviorHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepeatBehaviorHelper")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehaviorhelper.fromcount)
-    public static func fromCount(_ count: Double) -> RepeatBehavior {
-        return try! _IRepeatBehaviorHelperStatics.FromCountImpl(count)
+    public static func fromCount(_ count: Double) throws -> RepeatBehavior {
+        return try _IRepeatBehaviorHelperStatics.FromCount(count)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehaviorhelper.fromduration)
-    public static func fromDuration(_ duration: WindowsFoundation.TimeSpan) -> RepeatBehavior {
-        return try! _IRepeatBehaviorHelperStatics.FromDurationImpl(duration)
+    public static func fromDuration(_ duration: WindowsFoundation.TimeSpan) throws -> RepeatBehavior {
+        return try _IRepeatBehaviorHelperStatics.FromDuration(duration)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehaviorhelper.gethascount)
-    public static func getHasCount(_ target: RepeatBehavior) -> Bool {
-        return try! _IRepeatBehaviorHelperStatics.GetHasCountImpl(target)
+    public static func getHasCount(_ target: RepeatBehavior) throws -> Bool {
+        return try _IRepeatBehaviorHelperStatics.GetHasCount(target)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehaviorhelper.gethasduration)
-    public static func getHasDuration(_ target: RepeatBehavior) -> Bool {
-        return try! _IRepeatBehaviorHelperStatics.GetHasDurationImpl(target)
+    public static func getHasDuration(_ target: RepeatBehavior) throws -> Bool {
+        return try _IRepeatBehaviorHelperStatics.GetHasDuration(target)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehaviorhelper.equals)
-    public static func equals(_ target: RepeatBehavior, _ value: RepeatBehavior) -> Bool {
-        return try! _IRepeatBehaviorHelperStatics.EqualsImpl(target, value)
+    public static func equals(_ target: RepeatBehavior, _ value: RepeatBehavior) throws -> Bool {
+        return try _IRepeatBehaviorHelperStatics.Equals(target, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehaviorhelper.forever)
     public static var forever : RepeatBehavior {
-        get { try! _IRepeatBehaviorHelperStatics.get_ForeverImpl() }
+        get { try! _IRepeatBehaviorHelperStatics.get_Forever() }
     }
 
     deinit {
@@ -4055,52 +3577,47 @@ public final class RepositionThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimation>?) -> RepositionThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.RepositionThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRepositionThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.RepositionThemeAnimation"))
+    private static let _IRepositionThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemeanimation.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IRepositionThemeAnimationStatics.get_FromHorizontalOffsetPropertyImpl() }
+        get { try! _IRepositionThemeAnimationStatics.get_FromHorizontalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemeanimation.fromverticaloffsetproperty)
     public static var fromVerticalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IRepositionThemeAnimationStatics.get_FromVerticalOffsetPropertyImpl() }
+        get { try! _IRepositionThemeAnimationStatics.get_FromVerticalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IRepositionThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _IRepositionThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemeanimation.fromhorizontaloffset)
     public var fromHorizontalOffset : Double {
-        get { try! _default.get_FromHorizontalOffsetImpl() }
-        set { try! _default.put_FromHorizontalOffsetImpl(newValue) }
+        get { try! _default.get_FromHorizontalOffset() }
+        set { try! _default.put_FromHorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemeanimation.fromverticaloffset)
     public var fromVerticalOffset : Double {
-        get { try! _default.get_FromVerticalOffsetImpl() }
-        set { try! _default.put_FromVerticalOffsetImpl(newValue) }
+        get { try! _default.get_FromVerticalOffset() }
+        set { try! _default.put_FromVerticalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -4122,30 +3639,25 @@ public final class RepositionThemeTransition : WinUI.Transition {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeTransition>?) -> RepositionThemeTransition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeTransition")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.RepositionThemeTransition")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRepositionThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeTransitionStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.RepositionThemeTransition"))
+    private static let _IRepositionThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemetransition.isstaggeringenabledproperty)
     public static var isStaggeringEnabledProperty : WinUI.DependencyProperty! {
-        get { try! _IRepositionThemeTransitionStatics.get_IsStaggeringEnabledPropertyImpl() }
+        get { try! _IRepositionThemeTransitionStatics.get_IsStaggeringEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemetransition.isstaggeringenabled)
     public var isStaggeringEnabled : Bool {
-        get { try! _default.get_IsStaggeringEnabledImpl() }
-        set { try! _default.put_IsStaggeringEnabledImpl(newValue) }
+        get { try! _default.get_IsStaggeringEnabled() }
+        set { try! _default.put_IsStaggeringEnabled(newValue) }
     }
 
     deinit {
@@ -4167,18 +3679,13 @@ public final class SineEase : WinUI.EasingFunctionBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISineEase>?) -> SineEase? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SineEase")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SineEase")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -4200,43 +3707,27 @@ public final class SlideNavigationTransitionInfo : WinUI.NavigationTransitionInf
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISlideNavigationTransitionInfo>?) -> SlideNavigationTransitionInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISlideNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISlideNavigationTransitionInfoStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo"))
+    private static let _ISlideNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISlideNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.slidenavigationtransitioninfo.effectproperty)
     public static var effectProperty : WinUI.DependencyProperty! {
-        get { try! _ISlideNavigationTransitionInfoStatics.get_EffectPropertyImpl() }
+        get { try! _ISlideNavigationTransitionInfoStatics.get_EffectProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.slidenavigationtransitioninfo.effect)
     public var effect : SlideNavigationTransitionEffect {
-        get { try! _default.get_EffectImpl() }
-        set { try! _default.put_EffectImpl(newValue) }
+        get { try! _default.get_Effect() }
+        set { try! _default.put_Effect(newValue) }
     }
 
-    internal enum INavigationTransitionInfoOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides
-        internal typealias Class = SlideNavigationTransitionInfo
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISlideNavigationTransitionInfo
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISlideNavigationTransitionInfo
-        }
-    }
-    internal typealias Composable = INavigationTransitionInfoOverrides
     deinit {
         _default = nil
     }
@@ -4256,30 +3747,25 @@ public final class SplineColorKeyFrame : WinUI.ColorKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineColorKeyFrame>?) -> SplineColorKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineColorKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SplineColorKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplineColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineColorKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.SplineColorKeyFrame"))
+    private static let _ISplineColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineColorKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineColorKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinecolorkeyframe.keysplineproperty)
     public static var keySplineProperty : WinUI.DependencyProperty! {
-        get { try! _ISplineColorKeyFrameStatics.get_KeySplinePropertyImpl() }
+        get { try! _ISplineColorKeyFrameStatics.get_KeySplineProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinecolorkeyframe.keyspline)
     public var keySpline : KeySpline! {
-        get { try! _default.get_KeySplineImpl() }
-        set { try! _default.put_KeySplineImpl(newValue) }
+        get { try! _default.get_KeySpline() }
+        set { try! _default.put_KeySpline(newValue) }
     }
 
     deinit {
@@ -4301,30 +3787,25 @@ public final class SplineDoubleKeyFrame : WinUI.DoubleKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineDoubleKeyFrame>?) -> SplineDoubleKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineDoubleKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SplineDoubleKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplineDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineDoubleKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.SplineDoubleKeyFrame"))
+    private static let _ISplineDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineDoubleKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineDoubleKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinedoublekeyframe.keysplineproperty)
     public static var keySplineProperty : WinUI.DependencyProperty! {
-        get { try! _ISplineDoubleKeyFrameStatics.get_KeySplinePropertyImpl() }
+        get { try! _ISplineDoubleKeyFrameStatics.get_KeySplineProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinedoublekeyframe.keyspline)
     public var keySpline : KeySpline! {
-        get { try! _default.get_KeySplineImpl() }
-        set { try! _default.put_KeySplineImpl(newValue) }
+        get { try! _default.get_KeySpline() }
+        set { try! _default.put_KeySpline(newValue) }
     }
 
     deinit {
@@ -4346,30 +3827,25 @@ public final class SplinePointKeyFrame : WinUI.PointKeyFrame {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplinePointKeyFrame>?) -> SplinePointKeyFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplinePointKeyFrame")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SplinePointKeyFrame")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplinePointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplinePointKeyFrameStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.SplinePointKeyFrame"))
+    private static let _ISplinePointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplinePointKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplinePointKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinepointkeyframe.keysplineproperty)
     public static var keySplineProperty : WinUI.DependencyProperty! {
-        get { try! _ISplinePointKeyFrameStatics.get_KeySplinePropertyImpl() }
+        get { try! _ISplinePointKeyFrameStatics.get_KeySplineProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinepointkeyframe.keyspline)
     public var keySpline : KeySpline! {
-        get { try! _default.get_KeySplineImpl() }
-        set { try! _default.put_KeySplineImpl(newValue) }
+        get { try! _default.get_KeySpline() }
+        set { try! _default.put_KeySpline(newValue) }
     }
 
     deinit {
@@ -4391,140 +3867,135 @@ public final class SplitCloseThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation>?) -> SplitCloseThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitCloseThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SplitCloseThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplitCloseThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitCloseThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.SplitCloseThemeAnimation"))
+    private static let _ISplitCloseThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitCloseThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitCloseThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.closedlengthproperty)
     public static var closedLengthProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_ClosedLengthPropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_ClosedLengthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.closedtargetnameproperty)
     public static var closedTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_ClosedTargetNamePropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_ClosedTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.closedtargetproperty)
     public static var closedTargetProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_ClosedTargetPropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_ClosedTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.contenttargetnameproperty)
     public static var contentTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_ContentTargetNamePropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_ContentTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.contenttargetproperty)
     public static var contentTargetProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_ContentTargetPropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_ContentTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.contenttranslationdirectionproperty)
     public static var contentTranslationDirectionProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_ContentTranslationDirectionPropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_ContentTranslationDirectionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.contenttranslationoffsetproperty)
     public static var contentTranslationOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_ContentTranslationOffsetPropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_ContentTranslationOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.offsetfromcenterproperty)
     public static var offsetFromCenterProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_OffsetFromCenterPropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_OffsetFromCenterProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.openedlengthproperty)
     public static var openedLengthProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_OpenedLengthPropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_OpenedLengthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.openedtargetnameproperty)
     public static var openedTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_OpenedTargetNamePropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_OpenedTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.openedtargetproperty)
     public static var openedTargetProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitCloseThemeAnimationStatics.get_OpenedTargetPropertyImpl() }
+        get { try! _ISplitCloseThemeAnimationStatics.get_OpenedTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.closedlength)
     public var closedLength : Double {
-        get { try! _default.get_ClosedLengthImpl() }
-        set { try! _default.put_ClosedLengthImpl(newValue) }
+        get { try! _default.get_ClosedLength() }
+        set { try! _default.put_ClosedLength(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.closedtarget)
     public var closedTarget : WinUI.DependencyObject! {
-        get { try! _default.get_ClosedTargetImpl() }
-        set { try! _default.put_ClosedTargetImpl(newValue) }
+        get { try! _default.get_ClosedTarget() }
+        set { try! _default.put_ClosedTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.closedtargetname)
     public var closedTargetName : String {
-        get { try! _default.get_ClosedTargetNameImpl() }
-        set { try! _default.put_ClosedTargetNameImpl(newValue) }
+        get { try! _default.get_ClosedTargetName() }
+        set { try! _default.put_ClosedTargetName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.contenttarget)
     public var contentTarget : WinUI.DependencyObject! {
-        get { try! _default.get_ContentTargetImpl() }
-        set { try! _default.put_ContentTargetImpl(newValue) }
+        get { try! _default.get_ContentTarget() }
+        set { try! _default.put_ContentTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.contenttargetname)
     public var contentTargetName : String {
-        get { try! _default.get_ContentTargetNameImpl() }
-        set { try! _default.put_ContentTargetNameImpl(newValue) }
+        get { try! _default.get_ContentTargetName() }
+        set { try! _default.put_ContentTargetName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.contenttranslationdirection)
     public var contentTranslationDirection : WinUI.AnimationDirection {
-        get { try! _default.get_ContentTranslationDirectionImpl() }
-        set { try! _default.put_ContentTranslationDirectionImpl(newValue) }
+        get { try! _default.get_ContentTranslationDirection() }
+        set { try! _default.put_ContentTranslationDirection(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.contenttranslationoffset)
     public var contentTranslationOffset : Double {
-        get { try! _default.get_ContentTranslationOffsetImpl() }
-        set { try! _default.put_ContentTranslationOffsetImpl(newValue) }
+        get { try! _default.get_ContentTranslationOffset() }
+        set { try! _default.put_ContentTranslationOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.offsetfromcenter)
     public var offsetFromCenter : Double {
-        get { try! _default.get_OffsetFromCenterImpl() }
-        set { try! _default.put_OffsetFromCenterImpl(newValue) }
+        get { try! _default.get_OffsetFromCenter() }
+        set { try! _default.put_OffsetFromCenter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.openedlength)
     public var openedLength : Double {
-        get { try! _default.get_OpenedLengthImpl() }
-        set { try! _default.put_OpenedLengthImpl(newValue) }
+        get { try! _default.get_OpenedLength() }
+        set { try! _default.put_OpenedLength(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.openedtarget)
     public var openedTarget : WinUI.DependencyObject! {
-        get { try! _default.get_OpenedTargetImpl() }
-        set { try! _default.put_OpenedTargetImpl(newValue) }
+        get { try! _default.get_OpenedTarget() }
+        set { try! _default.put_OpenedTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.openedtargetname)
     public var openedTargetName : String {
-        get { try! _default.get_OpenedTargetNameImpl() }
-        set { try! _default.put_OpenedTargetNameImpl(newValue) }
+        get { try! _default.get_OpenedTargetName() }
+        set { try! _default.put_OpenedTargetName(newValue) }
     }
 
     deinit {
@@ -4546,140 +4017,135 @@ public final class SplitOpenThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation>?) -> SplitOpenThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitOpenThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SplitOpenThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplitOpenThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitOpenThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.SplitOpenThemeAnimation"))
+    private static let _ISplitOpenThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitOpenThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitOpenThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.closedlengthproperty)
     public static var closedLengthProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_ClosedLengthPropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_ClosedLengthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.closedtargetnameproperty)
     public static var closedTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_ClosedTargetNamePropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_ClosedTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.closedtargetproperty)
     public static var closedTargetProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_ClosedTargetPropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_ClosedTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.contenttargetnameproperty)
     public static var contentTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_ContentTargetNamePropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_ContentTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.contenttargetproperty)
     public static var contentTargetProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_ContentTargetPropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_ContentTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.contenttranslationdirectionproperty)
     public static var contentTranslationDirectionProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_ContentTranslationDirectionPropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_ContentTranslationDirectionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.contenttranslationoffsetproperty)
     public static var contentTranslationOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_ContentTranslationOffsetPropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_ContentTranslationOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.offsetfromcenterproperty)
     public static var offsetFromCenterProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_OffsetFromCenterPropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_OffsetFromCenterProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.openedlengthproperty)
     public static var openedLengthProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_OpenedLengthPropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_OpenedLengthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.openedtargetnameproperty)
     public static var openedTargetNameProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_OpenedTargetNamePropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_OpenedTargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.openedtargetproperty)
     public static var openedTargetProperty : WinUI.DependencyProperty! {
-        get { try! _ISplitOpenThemeAnimationStatics.get_OpenedTargetPropertyImpl() }
+        get { try! _ISplitOpenThemeAnimationStatics.get_OpenedTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.closedlength)
     public var closedLength : Double {
-        get { try! _default.get_ClosedLengthImpl() }
-        set { try! _default.put_ClosedLengthImpl(newValue) }
+        get { try! _default.get_ClosedLength() }
+        set { try! _default.put_ClosedLength(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.closedtarget)
     public var closedTarget : WinUI.DependencyObject! {
-        get { try! _default.get_ClosedTargetImpl() }
-        set { try! _default.put_ClosedTargetImpl(newValue) }
+        get { try! _default.get_ClosedTarget() }
+        set { try! _default.put_ClosedTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.closedtargetname)
     public var closedTargetName : String {
-        get { try! _default.get_ClosedTargetNameImpl() }
-        set { try! _default.put_ClosedTargetNameImpl(newValue) }
+        get { try! _default.get_ClosedTargetName() }
+        set { try! _default.put_ClosedTargetName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.contenttarget)
     public var contentTarget : WinUI.DependencyObject! {
-        get { try! _default.get_ContentTargetImpl() }
-        set { try! _default.put_ContentTargetImpl(newValue) }
+        get { try! _default.get_ContentTarget() }
+        set { try! _default.put_ContentTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.contenttargetname)
     public var contentTargetName : String {
-        get { try! _default.get_ContentTargetNameImpl() }
-        set { try! _default.put_ContentTargetNameImpl(newValue) }
+        get { try! _default.get_ContentTargetName() }
+        set { try! _default.put_ContentTargetName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.contenttranslationdirection)
     public var contentTranslationDirection : WinUI.AnimationDirection {
-        get { try! _default.get_ContentTranslationDirectionImpl() }
-        set { try! _default.put_ContentTranslationDirectionImpl(newValue) }
+        get { try! _default.get_ContentTranslationDirection() }
+        set { try! _default.put_ContentTranslationDirection(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.contenttranslationoffset)
     public var contentTranslationOffset : Double {
-        get { try! _default.get_ContentTranslationOffsetImpl() }
-        set { try! _default.put_ContentTranslationOffsetImpl(newValue) }
+        get { try! _default.get_ContentTranslationOffset() }
+        set { try! _default.put_ContentTranslationOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.offsetfromcenter)
     public var offsetFromCenter : Double {
-        get { try! _default.get_OffsetFromCenterImpl() }
-        set { try! _default.put_OffsetFromCenterImpl(newValue) }
+        get { try! _default.get_OffsetFromCenter() }
+        set { try! _default.put_OffsetFromCenter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.openedlength)
     public var openedLength : Double {
-        get { try! _default.get_OpenedLengthImpl() }
-        set { try! _default.put_OpenedLengthImpl(newValue) }
+        get { try! _default.get_OpenedLength() }
+        set { try! _default.put_OpenedLength(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.openedtarget)
     public var openedTarget : WinUI.DependencyObject! {
-        get { try! _default.get_OpenedTargetImpl() }
-        set { try! _default.put_OpenedTargetImpl(newValue) }
+        get { try! _default.get_OpenedTarget() }
+        set { try! _default.put_OpenedTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.openedtargetname)
     public var openedTargetName : String {
-        get { try! _default.get_OpenedTargetNameImpl() }
-        set { try! _default.put_OpenedTargetNameImpl(newValue) }
+        get { try! _default.get_OpenedTargetName() }
+        set { try! _default.put_OpenedTargetName(newValue) }
     }
 
     deinit {
@@ -4701,104 +4167,99 @@ public final class Storyboard : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard>?) -> Storyboard? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Storyboard")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.Storyboard")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IStoryboardStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IStoryboardStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.Storyboard"))
+    private static let _IStoryboardStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IStoryboardStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Storyboard")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.gettargetproperty)
-    public static func getTargetProperty(_ element: Timeline!) -> String {
-        return try! _IStoryboardStatics.GetTargetPropertyImpl(element)
+    public static func getTargetProperty(_ element: Timeline!) throws -> String {
+        return try _IStoryboardStatics.GetTargetProperty(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.settargetproperty)
-    public static func setTargetProperty(_ element: Timeline!, _ path: String) {
-        try! _IStoryboardStatics.SetTargetPropertyImpl(element, path)
+    public static func setTargetProperty(_ element: Timeline!, _ path: String) throws {
+        try _IStoryboardStatics.SetTargetProperty(element, path)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.gettargetname)
-    public static func getTargetName(_ element: Timeline!) -> String {
-        return try! _IStoryboardStatics.GetTargetNameImpl(element)
+    public static func getTargetName(_ element: Timeline!) throws -> String {
+        return try _IStoryboardStatics.GetTargetName(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.settargetname)
-    public static func setTargetName(_ element: Timeline!, _ name: String) {
-        try! _IStoryboardStatics.SetTargetNameImpl(element, name)
+    public static func setTargetName(_ element: Timeline!, _ name: String) throws {
+        try _IStoryboardStatics.SetTargetName(element, name)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.settarget)
-    public static func setTarget(_ timeline: Timeline!, _ target: WinUI.DependencyObject!) {
-        try! _IStoryboardStatics.SetTargetImpl(timeline, target)
+    public static func setTarget(_ timeline: Timeline!, _ target: WinUI.DependencyObject!) throws {
+        try _IStoryboardStatics.SetTarget(timeline, target)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _IStoryboardStatics.get_TargetNamePropertyImpl() }
+        get { try! _IStoryboardStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.targetpropertyproperty)
     public static var targetPropertyProperty : WinUI.DependencyProperty! {
-        get { try! _IStoryboardStatics.get_TargetPropertyPropertyImpl() }
+        get { try! _IStoryboardStatics.get_TargetPropertyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.seek)
     public func seek(_ offset: WindowsFoundation.TimeSpan) throws {
-        try _default.SeekImpl(offset)
+        try _default.Seek(offset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.stop)
     public func stop() throws {
-        try _default.StopImpl()
+        try _default.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.begin)
     public func begin() throws {
-        try _default.BeginImpl()
+        try _default.Begin()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.pause)
     public func pause() throws {
-        try _default.PauseImpl()
+        try _default.Pause()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.resume)
     public func resume() throws {
-        try _default.ResumeImpl()
+        try _default.Resume()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.getcurrentstate)
     public func getCurrentState() throws -> ClockState {
-        try _default.GetCurrentStateImpl()
+        try _default.GetCurrentState()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.getcurrenttime)
     public func getCurrentTime() throws -> WindowsFoundation.TimeSpan {
-        try _default.GetCurrentTimeImpl()
+        try _default.GetCurrentTime()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.seekalignedtolasttick)
     public func seekAlignedToLastTick(_ offset: WindowsFoundation.TimeSpan) throws {
-        try _default.SeekAlignedToLastTickImpl(offset)
+        try _default.SeekAlignedToLastTick(offset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.skiptofill)
     public func skipToFill() throws {
-        try _default.SkipToFillImpl()
+        try _default.SkipToFill()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.children)
     public var children : TimelineCollection! {
-        get { try! _default.get_ChildrenImpl() }
+        get { try! _default.get_Children() }
     }
 
     deinit {
@@ -4820,31 +4281,15 @@ public final class SuppressNavigationTransitionInfo : WinUI.NavigationTransition
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISuppressNavigationTransitionInfo>?) -> SuppressNavigationTransitionInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    internal enum INavigationTransitionInfoOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfoOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides
-        internal typealias Class = SuppressNavigationTransitionInfo
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISuppressNavigationTransitionInfo
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISuppressNavigationTransitionInfo
-        }
-    }
-    internal typealias Composable = INavigationTransitionInfoOverrides
     deinit {
         _default = nil
     }
@@ -4864,52 +4309,47 @@ public final class SwipeBackThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimation>?) -> SwipeBackThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeBackThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SwipeBackThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISwipeBackThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeBackThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.SwipeBackThemeAnimation"))
+    private static let _ISwipeBackThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeBackThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeBackThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipebackthemeanimation.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _ISwipeBackThemeAnimationStatics.get_FromHorizontalOffsetPropertyImpl() }
+        get { try! _ISwipeBackThemeAnimationStatics.get_FromHorizontalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipebackthemeanimation.fromverticaloffsetproperty)
     public static var fromVerticalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _ISwipeBackThemeAnimationStatics.get_FromVerticalOffsetPropertyImpl() }
+        get { try! _ISwipeBackThemeAnimationStatics.get_FromVerticalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipebackthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _ISwipeBackThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _ISwipeBackThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipebackthemeanimation.fromhorizontaloffset)
     public var fromHorizontalOffset : Double {
-        get { try! _default.get_FromHorizontalOffsetImpl() }
-        set { try! _default.put_FromHorizontalOffsetImpl(newValue) }
+        get { try! _default.get_FromHorizontalOffset() }
+        set { try! _default.put_FromHorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipebackthemeanimation.fromverticaloffset)
     public var fromVerticalOffset : Double {
-        get { try! _default.get_FromVerticalOffsetImpl() }
-        set { try! _default.put_FromVerticalOffsetImpl(newValue) }
+        get { try! _default.get_FromVerticalOffset() }
+        set { try! _default.put_FromVerticalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipebackthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     deinit {
@@ -4931,52 +4371,47 @@ public final class SwipeHintThemeAnimation : WinUI.Timeline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimation>?) -> SwipeHintThemeAnimation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeHintThemeAnimation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.SwipeHintThemeAnimation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISwipeHintThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeHintThemeAnimationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.SwipeHintThemeAnimation"))
+    private static let _ISwipeHintThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeHintThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeHintThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipehintthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
-        get { try! _ISwipeHintThemeAnimationStatics.get_TargetNamePropertyImpl() }
+        get { try! _ISwipeHintThemeAnimationStatics.get_TargetNameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipehintthemeanimation.tohorizontaloffsetproperty)
     public static var toHorizontalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _ISwipeHintThemeAnimationStatics.get_ToHorizontalOffsetPropertyImpl() }
+        get { try! _ISwipeHintThemeAnimationStatics.get_ToHorizontalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipehintthemeanimation.toverticaloffsetproperty)
     public static var toVerticalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _ISwipeHintThemeAnimationStatics.get_ToVerticalOffsetPropertyImpl() }
+        get { try! _ISwipeHintThemeAnimationStatics.get_ToVerticalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipehintthemeanimation.targetname)
     public var targetName : String {
-        get { try! _default.get_TargetNameImpl() }
-        set { try! _default.put_TargetNameImpl(newValue) }
+        get { try! _default.get_TargetName() }
+        set { try! _default.put_TargetName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipehintthemeanimation.tohorizontaloffset)
     public var toHorizontalOffset : Double {
-        get { try! _default.get_ToHorizontalOffsetImpl() }
-        set { try! _default.put_ToHorizontalOffsetImpl(newValue) }
+        get { try! _default.get_ToHorizontalOffset() }
+        set { try! _default.put_ToHorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipehintthemeanimation.toverticaloffset)
     public var toVerticalOffset : Double {
-        get { try! _default.get_ToVerticalOffsetImpl() }
-        set { try! _default.put_ToVerticalOffsetImpl(newValue) }
+        get { try! _default.get_ToVerticalOffset() }
+        set { try! _default.put_ToVerticalOffset(newValue) }
     }
 
     deinit {
@@ -4998,12 +4433,6 @@ open class Timeline : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline>?) -> Timeline? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -5018,85 +4447,85 @@ open class Timeline : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITimelineFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.ITimelineFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.Timeline"))
+    private static var _ITimelineFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.ITimelineFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Timeline")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._ITimelineFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.TimelineBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ITimelineFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITimelineStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ITimelineStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.Timeline"))
+    private static let _ITimelineStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ITimelineStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Timeline")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.allowdependentanimations)
     public class var allowDependentAnimations : Bool {
-        get { try! _ITimelineStatics.get_AllowDependentAnimationsImpl() }
-        set { try! _ITimelineStatics.put_AllowDependentAnimationsImpl(newValue) }
+        get { try! _ITimelineStatics.get_AllowDependentAnimations() }
+        set { try! _ITimelineStatics.put_AllowDependentAnimations(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.autoreverseproperty)
     public class var autoReverseProperty : WinUI.DependencyProperty! {
-        get { try! _ITimelineStatics.get_AutoReversePropertyImpl() }
+        get { try! _ITimelineStatics.get_AutoReverseProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.begintimeproperty)
     public class var beginTimeProperty : WinUI.DependencyProperty! {
-        get { try! _ITimelineStatics.get_BeginTimePropertyImpl() }
+        get { try! _ITimelineStatics.get_BeginTimeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.durationproperty)
     public class var durationProperty : WinUI.DependencyProperty! {
-        get { try! _ITimelineStatics.get_DurationPropertyImpl() }
+        get { try! _ITimelineStatics.get_DurationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.fillbehaviorproperty)
     public class var fillBehaviorProperty : WinUI.DependencyProperty! {
-        get { try! _ITimelineStatics.get_FillBehaviorPropertyImpl() }
+        get { try! _ITimelineStatics.get_FillBehaviorProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.repeatbehaviorproperty)
     public class var repeatBehaviorProperty : WinUI.DependencyProperty! {
-        get { try! _ITimelineStatics.get_RepeatBehaviorPropertyImpl() }
+        get { try! _ITimelineStatics.get_RepeatBehaviorProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.speedratioproperty)
     public class var speedRatioProperty : WinUI.DependencyProperty! {
-        get { try! _ITimelineStatics.get_SpeedRatioPropertyImpl() }
+        get { try! _ITimelineStatics.get_SpeedRatioProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.autoreverse)
     public var autoReverse : Bool {
-        get { try! _default.get_AutoReverseImpl() }
-        set { try! _default.put_AutoReverseImpl(newValue) }
+        get { try! _default.get_AutoReverse() }
+        set { try! _default.put_AutoReverse(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.begintime)
     public var beginTime : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_BeginTimeImpl() }
-        set { try! _default.put_BeginTimeImpl(newValue) }
+        get { try! _default.get_BeginTime() }
+        set { try! _default.put_BeginTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.duration)
     public var duration : WinUI.Duration {
-        get { try! _default.get_DurationImpl() }
-        set { try! _default.put_DurationImpl(newValue) }
+        get { try! _default.get_Duration() }
+        set { try! _default.put_Duration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.fillbehavior)
     public var fillBehavior : FillBehavior {
-        get { try! _default.get_FillBehaviorImpl() }
-        set { try! _default.put_FillBehaviorImpl(newValue) }
+        get { try! _default.get_FillBehavior() }
+        set { try! _default.put_FillBehavior(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.repeatbehavior)
     public var repeatBehavior : RepeatBehavior {
-        get { try! _default.get_RepeatBehaviorImpl() }
-        set { try! _default.put_RepeatBehaviorImpl(newValue) }
+        get { try! _default.get_RepeatBehavior() }
+        set { try! _default.put_RepeatBehavior(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.speedratio)
     public var speedRatio : Double {
-        get { try! _default.get_SpeedRatioImpl() }
-        set { try! _default.put_SpeedRatioImpl(newValue) }
+        get { try! _default.get_SpeedRatio() }
+        set { try! _default.put_SpeedRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.completed)
@@ -5104,25 +4533,14 @@ open class Timeline : WinUI.DependencyObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CompletedImpl($0)
+          return try! this.add_Completed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CompletedImpl($0)
+         try? self?._default.remove_Completed($0)
        }
       )
     }()
 
-    internal enum ITimeline : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = Timeline
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ITimeline
-        }
-    }
-    internal typealias Composable = ITimeline
     deinit {
         _default = nil
     }
@@ -5143,12 +4561,6 @@ public final class TimelineCollection : WinRTClass, IVector, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CTimeline>?) -> TimelineCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -5156,8 +4568,9 @@ public final class TimelineCollection : WinRTClass, IVector, IIterable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.TimelineCollection")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.TimelineCollection")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
@@ -5193,58 +4606,68 @@ public final class TimelineCollection : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.getat)
     public func getAt(_ index: UInt32) -> Timeline? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<Timeline?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.indexof)
     public func indexOf(_ value: Timeline?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.setat)
     public func setAt(_ index: UInt32, _ value: Timeline?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: Timeline?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.append)
     public func append(_ value: Timeline?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [Timeline?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.replaceall)
+    public func replaceAll(_ items: [Timeline?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableTimeline! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<Timeline?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -5267,12 +4690,6 @@ open class Transition : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITransition>?) -> Transition? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -5287,19 +4704,8 @@ open class Transition : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITransitionFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.ITransitionFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.Animation.Transition"))
+    private static var _ITransitionFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.ITransitionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Transition")
 
-    internal enum ITransition : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = Transition
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITransition
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ITransition
-        }
-    }
-    internal typealias Composable = ITransition
     deinit {
         _default = nil
     }
@@ -5320,12 +4726,6 @@ public final class TransitionCollection : WinRTClass, IVector, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CTransition>?) -> TransitionCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -5333,8 +4733,9 @@ public final class TransitionCollection : WinRTClass, IVector, IIterable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.TransitionCollection")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Media.Animation.TransitionCollection")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
@@ -5370,58 +4771,68 @@ public final class TransitionCollection : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.getat)
     public func getAt(_ index: UInt32) -> Transition? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<Transition?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.indexof)
     public func indexOf(_ value: Transition?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.setat)
     public func setAt(_ index: UInt32, _ value: Transition?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.insertat)
     public func insertAt(_ index: UInt32, _ value: Transition?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.append)
     public func append(_ value: Transition?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [Transition?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.replaceall)
+    public func replaceAll(_ items: [Transition?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableTransition! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<Transition?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -5431,20 +4842,17 @@ public final class TransitionCollection : WinRTClass, IVector, IIterable {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.keytime)
-public struct KeyTime: Hashable, Codable {
+public struct KeyTime: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.keytime.timespan)
     public var timeSpan: WindowsFoundation.TimeSpan = .init()
     public init() {}
     public init(timeSpan: WindowsFoundation.TimeSpan) {
         self.timeSpan = timeSpan
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CKeyTime) -> KeyTime {
-        .init(timeSpan: .from(abi: abi.TimeSpan))
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehavior)
-public struct RepeatBehavior: Hashable, Codable {
+public struct RepeatBehavior: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehavior.count)
     public var count: Double = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehavior.duration)
@@ -5456,9 +4864,6 @@ public struct RepeatBehavior: Hashable, Codable {
         self.count = count
         self.duration = duration
         self.type = type
-    }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CRepeatBehavior) -> RepeatBehavior {
-        .init(count: abi.Count, duration: .from(abi: abi.Duration), type: abi.Type)
     }
 }
 
@@ -5473,7 +4878,7 @@ extension WinUI.ClockState {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CClockState_Stopped
     }
 }
-extension WinUI.ClockState: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ClockState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ConnectedAnimationComponent {
     public static var offsetX : WinUI.ConnectedAnimationComponent {
@@ -5489,7 +4894,7 @@ extension WinUI.ConnectedAnimationComponent {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CConnectedAnimationComponent_Scale
     }
 }
-extension WinUI.ConnectedAnimationComponent: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ConnectedAnimationComponent: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.EasingMode {
     public static var easeOut : WinUI.EasingMode {
@@ -5502,7 +4907,7 @@ extension WinUI.EasingMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CEasingMode_EaseInOut
     }
 }
-extension WinUI.EasingMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.EasingMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.FillBehavior {
     public static var holdEnd : WinUI.FillBehavior {
@@ -5512,7 +4917,7 @@ extension WinUI.FillBehavior {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CFillBehavior_Stop
     }
 }
-extension WinUI.FillBehavior: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.FillBehavior: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.RepeatBehaviorType {
     public static var count : WinUI.RepeatBehaviorType {
@@ -5525,7 +4930,7 @@ extension WinUI.RepeatBehaviorType {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CRepeatBehaviorType_Forever
     }
 }
-extension WinUI.RepeatBehaviorType: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.RepeatBehaviorType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.SlideNavigationTransitionEffect {
     public static var fromBottom : WinUI.SlideNavigationTransitionEffect {
@@ -5538,5 +4943,5 @@ extension WinUI.SlideNavigationTransitionEffect {
         __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CSlideNavigationTransitionEffect_FromRight
     }
 }
-extension WinUI.SlideNavigationTransitionEffect: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.SlideNavigationTransitionEffect: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

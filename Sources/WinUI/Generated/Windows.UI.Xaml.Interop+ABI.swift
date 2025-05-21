@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_UI_Xaml_Interop {
     public class _ABI_TypeName {
         public var val: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()

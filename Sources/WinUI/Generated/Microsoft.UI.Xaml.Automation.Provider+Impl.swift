@@ -4,5 +4,22 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Automation_Provider {
+    public enum IRawElementProviderSimpleBridge: AbiBridge {
+        public typealias SwiftProjection = IRawElementProviderSimple
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElementProviderSimple
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElementProviderSimple>?) -> IRawElementProviderSimple? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IRawElementProviderSimpleMaker: MakeFromAbi {
+    public typealias SwiftType = IRawElementProviderSimple
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return IRawElementProviderSimple(fromAbi: abi)
+    }
 }

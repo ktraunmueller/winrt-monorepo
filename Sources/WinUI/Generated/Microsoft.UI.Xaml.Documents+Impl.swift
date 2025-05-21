@@ -4,5 +4,209 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum HyperlinkBridge: AbiBridge {
+        public typealias SwiftProjection = Hyperlink
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink>?) -> Hyperlink? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HyperlinkClickEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = HyperlinkClickEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs>?) -> HyperlinkClickEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InlineBridge: ComposableBridge {
+        public typealias SwiftProjection = Inline
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline>?) -> Inline? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
+            public typealias Class = Inline
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IInline
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextElementOverrides
+    }
+
+    public enum InlineCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = InlineCollection
+        public typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CInline
+        public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CInline>?) -> InlineCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RunBridge: AbiBridge {
+        public typealias SwiftProjection = Run
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun>?) -> Run? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SpanBridge: ComposableBridge {
+        public typealias SwiftProjection = Span
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan>?) -> Span? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
+            public typealias Class = Span
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ISpan
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextElementOverrides
+    }
+
+    public enum TextElementBridge: ComposableBridge {
+        public typealias SwiftProjection = TextElement
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement>?) -> TextElement? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
+            public typealias Class = TextElement
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElement
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextElementOverrides
+    }
+
+    public enum TextHighlighterBridge: ComposableBridge {
+        public typealias SwiftProjection = TextHighlighter
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter>?) -> TextHighlighter? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextHighlighter : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = TextHighlighter
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighter
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextHighlighter
+    }
+
+    public enum TextPointerBridge: AbiBridge {
+        public typealias SwiftProjection = TextPointer
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer>?) -> TextPointer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension TextRange: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CTextRange
+    public static func from(abi: ABI) -> Self {
+        .init(startIndex: abi.StartIndex, length: abi.Length)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class HyperlinkMaker: MakeFromAbi {
+    public typealias SwiftType = Hyperlink
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Hyperlink(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HyperlinkClickEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = HyperlinkClickEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HyperlinkClickEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InlineMaker: MakeFromAbi {
+    public typealias SwiftType = Inline
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Inline(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InlineCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = InlineCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InlineCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RunMaker: MakeFromAbi {
+    public typealias SwiftType = Run
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Run(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SpanMaker: MakeFromAbi {
+    public typealias SwiftType = Span
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Span(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TextElementMaker: MakeFromAbi {
+    public typealias SwiftType = TextElement
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TextElement(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TextHighlighterMaker: MakeFromAbi {
+    public typealias SwiftType = TextHighlighter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TextHighlighter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TextPointerMaker: MakeFromAbi {
+    public typealias SwiftType = TextPointer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TextPointer(fromAbi: abi)
+    }
 }

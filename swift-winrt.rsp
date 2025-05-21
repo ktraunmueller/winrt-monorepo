@@ -2,7 +2,6 @@
 -include Microsoft.UI.ColorHelper
 -include Microsoft.UI.Colors
 -include Microsoft.UI.Xaml.Application
--include Microsoft.UI.Xaml.Automation.AutomationProperties
 -include Microsoft.UI.Xaml.Controls.AppBar
 -include Microsoft.UI.Xaml.Controls.AppBarToggleButton
 -include Microsoft.UI.Xaml.Controls.BitmapIcon
@@ -20,8 +19,6 @@
 -include Microsoft.UI.Xaml.Controls.FlipViewItem
 -include Microsoft.UI.Xaml.Controls.Flyout
 -include Microsoft.UI.Xaml.Controls.FlyoutPresenter
--include Microsoft.UI.Xaml.Controls.FontIcon
--include Microsoft.UI.Xaml.Controls.FontIconSource
 -include Microsoft.UI.Xaml.Controls.Grid
 -include Microsoft.UI.Xaml.Controls.GridView
 -include Microsoft.UI.Xaml.Controls.IconSourceElement
@@ -33,7 +30,6 @@
 -include Microsoft.UI.Xaml.Controls.HyperlinkButton
 -include Microsoft.UI.Xaml.Controls.ListBox
 -include Microsoft.UI.Xaml.Controls.ListBoxItem
--include Microsoft.UI.Xaml.Controls.MediaPlayerElement
 -include Microsoft.UI.Xaml.Controls.MenuBar
 -include Microsoft.UI.Xaml.Controls.MenuBarItem
 -include Microsoft.UI.Xaml.Controls.MenuFlyout
@@ -42,7 +38,6 @@
 -include Microsoft.UI.Xaml.Controls.MenuFlyoutSubItem
 -include Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem
 -include Microsoft.UI.Xaml.Controls.Page
--include Microsoft.UI.Xaml.Controls.PasswordBox
 -include Microsoft.UI.Xaml.Controls.PipsPager
 -include Microsoft.UI.Xaml.Controls.ProgressBar
 -include Microsoft.UI.Xaml.Controls.ProgressRing
@@ -78,8 +73,6 @@
 -include Microsoft.UI.Xaml.Interop.INotifyCollectionChanged
 -include Microsoft.UI.Xaml.Markup.IComponentConnector
 -include Microsoft.UI.Xaml.Markup.IDataTemplateComponent
--include Microsoft.UI.Xaml.Markup.XamlBindingHelper
--include Microsoft.UI.Xaml.Markup.XamlReader
 -include Microsoft.UI.Xaml.Media.Animation
 -include Microsoft.UI.Xaml.Media.AcrylicBrush
 -include Microsoft.UI.Xaml.Media.CompositeTransform
@@ -95,7 +88,6 @@
 -include Microsoft.UI.Xaml.Media.ThemeShadow
 -include Microsoft.UI.Xaml.Media.Transform
 -include Microsoft.UI.Xaml.Media.TranslateTransform
--include Microsoft.UI.Xaml.Media.VisualTreeHelper
 -include Microsoft.UI.Xaml.Setter
 -include Microsoft.UI.Xaml.Shapes.Ellipse
 -include Microsoft.UI.Xaml.Shapes.Path
@@ -103,6 +95,7 @@
 -include Microsoft.UI.Xaml.Window
 -include Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider
 -include Microsoft.UI.Xaml.Controls.NavigationView
+-exclude Windows.Media.Playback
 -input E:\sandbox\ktraunmueller\winrt\swift-winui\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.MachineLearningContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-winui\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-winui\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.ApplicationModel.Activation.ActivatedEventsContract.winmd

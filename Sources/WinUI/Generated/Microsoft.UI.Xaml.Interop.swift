@@ -20,12 +20,6 @@ open class NotifyCollectionChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs>?) -> NotifyCollectionChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -41,57 +35,46 @@ open class NotifyCollectionChangedEventArgs : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INotifyCollectionChangedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedEventArgsFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Interop.NotifyCollectionChangedEventArgs"))
+    private static var _INotifyCollectionChangedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Interop.NotifyCollectionChangedEventArgs")
 
     public init(_ action: NotifyCollectionChangedAction, _ newItems: AnyIBindableVector!, _ oldItems: AnyIBindableVector!, _ newIndex: Int32, _ oldIndex: Int32) {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._INotifyCollectionChangedEventArgsFactory.CreateInstanceWithAllParametersImpl(action, newItems, oldItems, newIndex, oldIndex, baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventArgsBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._INotifyCollectionChangedEventArgsFactory.CreateInstanceWithAllParameters(action, newItems, oldItems, newIndex, oldIndex, baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.notifycollectionchangedeventargs.action)
     public var action : NotifyCollectionChangedAction {
-        get { try! _default.get_ActionImpl() }
+        get { try! _default.get_Action() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.notifycollectionchangedeventargs.newitems)
     public var newItems : AnyIBindableVector! {
-        get { try! _default.get_NewItemsImpl() }
+        get { try! _default.get_NewItems() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.notifycollectionchangedeventargs.newstartingindex)
     public var newStartingIndex : Int32 {
-        get { try! _default.get_NewStartingIndexImpl() }
+        get { try! _default.get_NewStartingIndex() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.notifycollectionchangedeventargs.olditems)
     public var oldItems : AnyIBindableVector! {
-        get { try! _default.get_OldItemsImpl() }
+        get { try! _default.get_OldItems() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.notifycollectionchangedeventargs.oldstartingindex)
     public var oldStartingIndex : Int32 {
-        get { try! _default.get_OldStartingIndexImpl() }
+        get { try! _default.get_OldStartingIndex() }
     }
 
-    internal enum INotifyCollectionChangedEventArgs : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = NotifyCollectionChangedEventArgs
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedEventArgs
-        }
-    }
-    internal typealias Composable = INotifyCollectionChangedEventArgs
     deinit {
         _default = nil
     }
 }
 
-public typealias NotifyCollectionChangedEventHandler = (Any?, NotifyCollectionChangedEventArgs?) -> ()
+public typealias NotifyCollectionChangedEventHandler = (Any?, NotifyCollectionChangedEventArgs?) throws -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterable)
 public protocol IBindableIterable : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterable.first)
@@ -203,9 +186,9 @@ public protocol INotifyCollectionChanged : WinRTInterface {
 }
 
 public extension EventSource where Handler == NotifyCollectionChangedEventHandler {
-    func invoke(_ sender: Any!, _ e: NotifyCollectionChangedEventArgs!) {
+    func invoke(_ sender: Any!, _ e: NotifyCollectionChangedEventArgs!) throws {
         for handler in getInvocationList() {
-            handler(sender, e)
+            try handler(sender, e)
         }
     }
 }
@@ -239,5 +222,5 @@ extension WinUI.NotifyCollectionChangedAction {
         __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CNotifyCollectionChangedAction_Reset
     }
 }
-extension WinUI.NotifyCollectionChangedAction: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.NotifyCollectionChangedAction: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -36,11 +36,12 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedE
     .init(Data1: 0x8B0909DC, Data2: 0x2005, Data3: 0x5D93, Data4: ( 0xBF,0x8A,0x72,0x5F,0x01,0x7B,0xAA,0x8D ))// 8B0909DC-2005-5D93-BF8A-725F017BAA8D
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Interop {
     public class IBindableIterable: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterable }
 
-        open func FirstImpl() throws -> WinUI.AnyIBindableIterator? {
+        open func First() throws -> WinUI.AnyIBindableIterator? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterable.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
@@ -86,7 +87,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 let resultWrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableIteratorWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -94,7 +95,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
     public class IBindableIterator: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterator }
 
-        open func get_CurrentImpl() throws -> Any? {
+        open func get_Current() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterator.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &valueAbi))
@@ -103,7 +104,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        open func get_HasCurrentImpl() throws -> Bool {
+        open func get_HasCurrent() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &value))
@@ -111,7 +112,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return .init(from: value)
         }
 
-        open func MoveNextImpl() throws -> Bool {
+        open func MoveNext() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
@@ -170,7 +171,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 let result = try __unwrapped__instance.moveNext()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -178,7 +179,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
     public class IBindableVector: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector }
 
-        open func GetAtImpl(_ index: UInt32) throws -> Any? {
+        open func GetAt(_ index: UInt32) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
@@ -187,7 +188,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        open func get_SizeImpl() throws -> UInt32 {
+        open func get_Size() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -195,7 +196,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return value
         }
 
-        open func GetViewImpl() throws -> WinUI.AnyIBindableVectorView? {
+        open func GetView() throws -> WinUI.AnyIBindableVectorView? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &resultAbi))
@@ -204,7 +205,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorViewWrapper.unwrapFrom(abi: result)
         }
 
-        open func IndexOfImpl(_ value: Any?, _ index: inout UInt32) throws -> Bool {
+        open func IndexOf(_ value: Any?, _ index: inout UInt32) throws -> Bool {
             var returnValue: boolean = 0
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -214,7 +215,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return .init(from: returnValue)
         }
 
-        open func SetAtImpl(_ index: UInt32, _ value: Any?) throws {
+        open func SetAt(_ index: UInt32, _ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector.self) { pThis in
@@ -222,7 +223,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             }
         }
 
-        open func InsertAtImpl(_ index: UInt32, _ value: Any?) throws {
+        open func InsertAt(_ index: UInt32, _ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector.self) { pThis in
@@ -230,13 +231,13 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             }
         }
 
-        open func RemoveAtImpl(_ index: UInt32) throws {
+        open func RemoveAt(_ index: UInt32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAt(pThis, index))
             }
         }
 
-        open func AppendImpl(_ value: Any?) throws {
+        open func Append(_ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector.self) { pThis in
@@ -244,13 +245,13 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             }
         }
 
-        open func RemoveAtEndImpl() throws {
+        open func RemoveAtEnd() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAtEnd(pThis))
             }
         }
 
-        open func ClearImpl() throws {
+        open func Clear() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
             }
@@ -295,7 +296,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         get_Size: {
@@ -312,7 +313,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 let resultWrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorViewWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IndexOf: {
@@ -324,7 +325,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 $2?.initialize(to: index)
                 $3?.initialize(to: .init(from: returnValue))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetAt: {
@@ -334,7 +335,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
                 try __unwrapped__instance.setAt(index, value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         InsertAt: {
@@ -344,7 +345,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
                 try __unwrapped__instance.insertAt(index, value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         RemoveAt: {
@@ -353,7 +354,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 let index: UInt32 = $1
                 try __unwrapped__instance.removeAt(index)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Append: {
@@ -362,7 +363,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 try __unwrapped__instance.append(value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         RemoveAtEnd: {
@@ -370,7 +371,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.removeAtEnd()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Clear: {
@@ -378,7 +379,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.clear()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -386,7 +387,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
     public class IBindableVectorView: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorView }
 
-        open func GetAtImpl(_ index: UInt32) throws -> Any? {
+        open func GetAt(_ index: UInt32) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorView.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
@@ -395,7 +396,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        open func get_SizeImpl() throws -> UInt32 {
+        open func get_Size() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -403,7 +404,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return value
         }
 
-        open func IndexOfImpl(_ value: Any?, _ index: inout UInt32) throws -> Bool {
+        open func IndexOf(_ value: Any?, _ index: inout UInt32) throws -> Bool {
             var returnValue: boolean = 0
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -452,7 +453,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         get_Size: {
@@ -471,7 +472,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
                 $2?.initialize(to: index)
                 $3?.initialize(to: .init(from: returnValue))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -479,7 +480,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
     public class INotifyCollectionChanged: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChanged }
 
-        open func add_CollectionChangedImpl(_ handler: WinUI.NotifyCollectionChangedEventHandler?) throws -> EventRegistrationToken {
+        open func add_CollectionChanged(_ handler: WinUI.NotifyCollectionChangedEventHandler?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -489,7 +490,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return token
         }
 
-        open func remove_CollectionChangedImpl(_ token: EventRegistrationToken) throws {
+        open func remove_CollectionChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChanged.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CollectionChanged(pThis, token))
             }
@@ -545,7 +546,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
     public class INotifyCollectionChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs }
 
-        internal func get_ActionImpl() throws -> WinUI.NotifyCollectionChangedAction {
+        public func get_Action() throws -> WinUI.NotifyCollectionChangedAction {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CNotifyCollectionChangedAction = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Action(pThis, &value))
@@ -553,7 +554,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return value
         }
 
-        internal func get_NewItemsImpl() throws -> WinUI.AnyIBindableVector? {
+        public func get_NewItems() throws -> WinUI.AnyIBindableVector? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewItems(pThis, &valueAbi))
@@ -562,7 +563,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_OldItemsImpl() throws -> WinUI.AnyIBindableVector? {
+        public func get_OldItems() throws -> WinUI.AnyIBindableVector? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldItems(pThis, &valueAbi))
@@ -571,7 +572,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_NewStartingIndexImpl() throws -> Int32 {
+        public func get_NewStartingIndex() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewStartingIndex(pThis, &value))
@@ -579,7 +580,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
             return value
         }
 
-        internal func get_OldStartingIndexImpl() throws -> Int32 {
+        public func get_OldStartingIndex() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldStartingIndex(pThis, &value))
@@ -592,7 +593,7 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
     public class INotifyCollectionChangedEventArgsFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgsFactory }
 
-        internal func CreateInstanceWithAllParametersImpl(_ action: WinUI.NotifyCollectionChangedAction, _ newItems: WinUI.AnyIBindableVector?, _ oldItems: WinUI.AnyIBindableVector?, _ newIndex: Int32, _ oldIndex: Int32, _ baseInterface: UnsealedWinRTClassWrapper<WinUI.NotifyCollectionChangedEventArgs.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INotifyCollectionChangedEventArgs {
+        public func CreateInstanceWithAllParameters(_ action: WinUI.NotifyCollectionChangedAction, _ newItems: WinUI.AnyIBindableVector?, _ oldItems: WinUI.AnyIBindableVector?, _ newIndex: Int32, _ oldIndex: Int32, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventArgsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INotifyCollectionChangedEventArgs {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let newItemsWrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorWrapper(newItems)
                 let _newItems = try! newItemsWrapper?.toABI { $0 }
@@ -617,7 +618,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
     public class NotifyCollectionChangedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.NotifyCollectionChangedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.NotifyCollectionChangedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventHandler.self) { pThis in
@@ -634,11 +635,13 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         AddRef: { NotifyCollectionChangedEventHandlerWrapper.addRef($0) },
         Release: { NotifyCollectionChangedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = NotifyCollectionChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.NotifyCollectionChangedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = NotifyCollectionChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.NotifyCollectionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

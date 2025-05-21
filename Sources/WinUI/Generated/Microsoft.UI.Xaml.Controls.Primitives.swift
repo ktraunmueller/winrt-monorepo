@@ -19,8 +19,6 @@ public typealias FlyoutShowMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimit
 public typealias GeneratorDirection = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGeneratorDirection
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.placementmode)
 public typealias PlacementMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPlacementMode
-/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popupplacementmode)
-public typealias PopupPlacementMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollsnappointsalignment)
 public typealias ScrollSnapPointsAlignment = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CScrollSnapPointsAlignment
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.slidersnapsto)
@@ -43,64 +41,58 @@ public final class AppBarTemplateSettings : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarTemplateSettings>?) -> AppBarTemplateSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.cliprect)
     public var clipRect : WindowsFoundation.Rect {
-        get { try! _default.get_ClipRectImpl() }
+        get { try! _default.get_ClipRect() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.compactrootmargin)
     public var compactRootMargin : WinUI.Thickness {
-        get { try! _default.get_CompactRootMarginImpl() }
+        get { try! _default.get_CompactRootMargin() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.compactverticaldelta)
     public var compactVerticalDelta : Double {
-        get { try! _default.get_CompactVerticalDeltaImpl() }
+        get { try! _default.get_CompactVerticalDelta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.hiddenrootmargin)
     public var hiddenRootMargin : WinUI.Thickness {
-        get { try! _default.get_HiddenRootMarginImpl() }
+        get { try! _default.get_HiddenRootMargin() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.hiddenverticaldelta)
     public var hiddenVerticalDelta : Double {
-        get { try! _default.get_HiddenVerticalDeltaImpl() }
+        get { try! _default.get_HiddenVerticalDelta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.minimalrootmargin)
     public var minimalRootMargin : WinUI.Thickness {
-        get { try! _default.get_MinimalRootMarginImpl() }
+        get { try! _default.get_MinimalRootMargin() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.minimalverticaldelta)
     public var minimalVerticalDelta : Double {
-        get { try! _default.get_MinimalVerticalDeltaImpl() }
+        get { try! _default.get_MinimalVerticalDelta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.negativecompactverticaldelta)
     public var negativeCompactVerticalDelta : Double {
-        get { try! _default.get_NegativeCompactVerticalDeltaImpl() }
+        get { try! _default.get_NegativeCompactVerticalDelta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.negativehiddenverticaldelta)
     public var negativeHiddenVerticalDelta : Double {
-        get { try! _default.get_NegativeHiddenVerticalDeltaImpl() }
+        get { try! _default.get_NegativeHiddenVerticalDelta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings.negativeminimalverticaldelta)
     public var negativeMinimalVerticalDelta : Double {
-        get { try! _default.get_NegativeMinimalVerticalDeltaImpl() }
+        get { try! _default.get_NegativeMinimalVerticalDelta() }
     }
 
     deinit {
@@ -122,19 +114,13 @@ public final class AppBarToggleButtonTemplateSettings : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings>?) -> AppBarToggleButtonTemplateSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartogglebuttontemplatesettings.keyboardacceleratortextminwidth)
     public var keyboardAcceleratorTextMinWidth : Double {
-        get { try! _default.get_KeyboardAcceleratorTextMinWidthImpl() }
+        get { try! _default.get_KeyboardAcceleratorTextMinWidth() }
     }
 
     deinit {
@@ -156,12 +142,6 @@ open class ButtonBase : WinUI.ContentControl {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIButtonBase>?) -> ButtonBase? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -176,66 +156,66 @@ open class ButtonBase : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IButtonBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBaseFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ButtonBase"))
+    private static var _IButtonBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ButtonBase")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IButtonBaseFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ButtonBaseBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IButtonBaseFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IButtonBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBaseStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ButtonBase"))
+    private static let _IButtonBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ButtonBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.clickmodeproperty)
     public class var clickModeProperty : WinUI.DependencyProperty! {
-        get { try! _IButtonBaseStatics.get_ClickModePropertyImpl() }
+        get { try! _IButtonBaseStatics.get_ClickModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.commandparameterproperty)
     public class var commandParameterProperty : WinUI.DependencyProperty! {
-        get { try! _IButtonBaseStatics.get_CommandParameterPropertyImpl() }
+        get { try! _IButtonBaseStatics.get_CommandParameterProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.commandproperty)
     public class var commandProperty : WinUI.DependencyProperty! {
-        get { try! _IButtonBaseStatics.get_CommandPropertyImpl() }
+        get { try! _IButtonBaseStatics.get_CommandProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.ispointeroverproperty)
     public class var isPointerOverProperty : WinUI.DependencyProperty! {
-        get { try! _IButtonBaseStatics.get_IsPointerOverPropertyImpl() }
+        get { try! _IButtonBaseStatics.get_IsPointerOverProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.ispressedproperty)
     public class var isPressedProperty : WinUI.DependencyProperty! {
-        get { try! _IButtonBaseStatics.get_IsPressedPropertyImpl() }
+        get { try! _IButtonBaseStatics.get_IsPressedProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.clickmode)
     public var clickMode : WinUI.ClickMode {
-        get { try! _default.get_ClickModeImpl() }
-        set { try! _default.put_ClickModeImpl(newValue) }
+        get { try! _default.get_ClickMode() }
+        set { try! _default.put_ClickMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.command)
     public var command : WinUI.AnyICommand! {
-        get { try! _default.get_CommandImpl() }
-        set { try! _default.put_CommandImpl(newValue) }
+        get { try! _default.get_Command() }
+        set { try! _default.put_Command(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.commandparameter)
     public var commandParameter : Any! {
-        get { try! _default.get_CommandParameterImpl() }
-        set { try! _default.put_CommandParameterImpl(newValue) }
+        get { try! _default.get_CommandParameter() }
+        set { try! _default.put_CommandParameter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.ispointerover)
     public var isPointerOver : Bool {
-        get { try! _default.get_IsPointerOverImpl() }
+        get { try! _default.get_IsPointerOver() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.ispressed)
     public var isPressed : Bool {
-        get { try! _default.get_IsPressedImpl() }
+        get { try! _default.get_IsPressed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.click)
@@ -243,25 +223,14 @@ open class ButtonBase : WinUI.ContentControl {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ClickImpl($0)
+          return try! this.add_Click($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ClickImpl($0)
+         try? self?._default.remove_Click($0)
        }
       )
     }()
 
-    internal enum IContentControlOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides
-        internal typealias Class = ButtonBase
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIButtonBase
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBase
-        }
-    }
-    internal typealias Composable = IContentControlOverrides
     deinit {
         _default = nil
     }
@@ -281,39 +250,33 @@ public final class ComboBoxTemplateSettings : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIComboBoxTemplateSettings>?) -> ComboBoxTemplateSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.comboboxtemplatesettings.dropdownclosedheight)
     public var dropDownClosedHeight : Double {
-        get { try! _default.get_DropDownClosedHeightImpl() }
+        get { try! _default.get_DropDownClosedHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.comboboxtemplatesettings.dropdowncontentminwidth)
     public var dropDownContentMinWidth : Double {
-        get { try! _default.get_DropDownContentMinWidthImpl() }
+        get { try! _default.get_DropDownContentMinWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.comboboxtemplatesettings.dropdownoffset)
     public var dropDownOffset : Double {
-        get { try! _default.get_DropDownOffsetImpl() }
+        get { try! _default.get_DropDownOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.comboboxtemplatesettings.dropdownopenedheight)
     public var dropDownOpenedHeight : Double {
-        get { try! _default.get_DropDownOpenedHeightImpl() }
+        get { try! _default.get_DropDownOpenedHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.comboboxtemplatesettings.selecteditemdirection)
     public var selectedItemDirection : AnimationDirection {
-        get { try! _default.get_SelectedItemDirectionImpl() }
+        get { try! _default.get_SelectedItemDirection() }
     }
 
     deinit {
@@ -335,74 +298,68 @@ public final class CommandBarTemplateSettings : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings>?) -> CommandBarTemplateSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.contentheight)
     public var contentHeight : Double {
-        get { try! _default.get_ContentHeightImpl() }
+        get { try! _default.get_ContentHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.effectiveoverflowbuttonvisibility)
     public var effectiveOverflowButtonVisibility : WinUI.Visibility {
-        get { try! _default.get_EffectiveOverflowButtonVisibilityImpl() }
+        get { try! _default.get_EffectiveOverflowButtonVisibility() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.negativeoverflowcontentheight)
     public var negativeOverflowContentHeight : Double {
-        get { try! _default.get_NegativeOverflowContentHeightImpl() }
+        get { try! _default.get_NegativeOverflowContentHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentcliprect)
     public var overflowContentClipRect : WindowsFoundation.Rect {
-        get { try! _default.get_OverflowContentClipRectImpl() }
+        get { try! _default.get_OverflowContentClipRect() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentcompactytranslation)
     public var overflowContentCompactYTranslation : Double {
-        get { try! _default.get_OverflowContentCompactYTranslationImpl() }
+        get { try! _default.get_OverflowContentCompactYTranslation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentheight)
     public var overflowContentHeight : Double {
-        get { try! _default.get_OverflowContentHeightImpl() }
+        get { try! _default.get_OverflowContentHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontenthiddenytranslation)
     public var overflowContentHiddenYTranslation : Double {
-        get { try! _default.get_OverflowContentHiddenYTranslationImpl() }
+        get { try! _default.get_OverflowContentHiddenYTranslation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontenthorizontaloffset)
     public var overflowContentHorizontalOffset : Double {
-        get { try! _default.get_OverflowContentHorizontalOffsetImpl() }
+        get { try! _default.get_OverflowContentHorizontalOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentmaxheight)
     public var overflowContentMaxHeight : Double {
-        get { try! _default.get_OverflowContentMaxHeightImpl() }
+        get { try! _default.get_OverflowContentMaxHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentmaxwidth)
     public var overflowContentMaxWidth : Double {
-        get { try! _default.get_OverflowContentMaxWidthImpl() }
+        get { try! _default.get_OverflowContentMaxWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentminwidth)
     public var overflowContentMinWidth : Double {
-        get { try! _default.get_OverflowContentMinWidthImpl() }
+        get { try! _default.get_OverflowContentMinWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentminimalytranslation)
     public var overflowContentMinimalYTranslation : Double {
-        get { try! _default.get_OverflowContentMinimalYTranslationImpl() }
+        get { try! _default.get_OverflowContentMinimalYTranslation() }
     }
 
     deinit {
@@ -421,12 +378,6 @@ open class FlyoutBase : WinUI.DependencyObject {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutBase>?) -> FlyoutBase? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
     }
 
     @_spi(WinRTInternal)
@@ -449,199 +400,199 @@ open class FlyoutBase : WinUI.DependencyObject {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IFlyoutBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase"))
+    private static var _IFlyoutBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IFlyoutBaseFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IFlyoutBaseFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFlyoutBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase"))
+    private static let _IFlyoutBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.getattachedflyout)
-    public class func getAttachedFlyout(_ element: WinUI.FrameworkElement!) -> FlyoutBase! {
-        return try! _IFlyoutBaseStatics.GetAttachedFlyoutImpl(element)
+    public class func getAttachedFlyout(_ element: WinUI.FrameworkElement!) throws -> FlyoutBase! {
+        return try _IFlyoutBaseStatics.GetAttachedFlyout(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.setattachedflyout)
-    public class func setAttachedFlyout(_ element: WinUI.FrameworkElement!, _ value: FlyoutBase!) {
-        try! _IFlyoutBaseStatics.SetAttachedFlyoutImpl(element, value)
+    public class func setAttachedFlyout(_ element: WinUI.FrameworkElement!, _ value: FlyoutBase!) throws {
+        try _IFlyoutBaseStatics.SetAttachedFlyout(element, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.showattachedflyout)
-    public class func showAttachedFlyout(_ flyoutOwner: WinUI.FrameworkElement!) {
-        try! _IFlyoutBaseStatics.ShowAttachedFlyoutImpl(flyoutOwner)
+    public class func showAttachedFlyout(_ flyoutOwner: WinUI.FrameworkElement!) throws {
+        try _IFlyoutBaseStatics.ShowAttachedFlyout(flyoutOwner)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.allowfocusoninteractionproperty)
     public class var allowFocusOnInteractionProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_AllowFocusOnInteractionPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_AllowFocusOnInteractionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.allowfocuswhendisabledproperty)
     public class var allowFocusWhenDisabledProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_AllowFocusWhenDisabledPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_AllowFocusWhenDisabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.areopencloseanimationsenabledproperty)
     public class var areOpenCloseAnimationsEnabledProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_AreOpenCloseAnimationsEnabledPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_AreOpenCloseAnimationsEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.attachedflyoutproperty)
     public class var attachedFlyoutProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_AttachedFlyoutPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_AttachedFlyoutProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.elementsoundmodeproperty)
     public class var elementSoundModeProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_ElementSoundModePropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_ElementSoundModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.inputdeviceprefersprimarycommandsproperty)
     public class var inputDevicePrefersPrimaryCommandsProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_InputDevicePrefersPrimaryCommandsPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_InputDevicePrefersPrimaryCommandsProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.isopenproperty)
     public class var isOpenProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_IsOpenPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_IsOpenProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.lightdismissoverlaymodeproperty)
     public class var lightDismissOverlayModeProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_LightDismissOverlayModePropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_LightDismissOverlayModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.overlayinputpassthroughelementproperty)
     public class var overlayInputPassThroughElementProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_OverlayInputPassThroughElementPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_OverlayInputPassThroughElementProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.placementproperty)
     public class var placementProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_PlacementPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_PlacementProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.shouldconstraintorootboundsproperty)
     public class var shouldConstrainToRootBoundsProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_ShouldConstrainToRootBoundsPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_ShouldConstrainToRootBoundsProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.showmodeproperty)
     public class var showModeProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_ShowModePropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_ShowModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.targetproperty)
     public class var targetProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics.get_TargetPropertyImpl() }
+        get { try! _IFlyoutBaseStatics.get_TargetProperty() }
     }
 
-    private static let _IFlyoutBaseStatics2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase"))
+    private static let _IFlyoutBaseStatics2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.systembackdropproperty)
     public class var systemBackdropProperty : WinUI.DependencyProperty! {
-        get { try! _IFlyoutBaseStatics2.get_SystemBackdropPropertyImpl() }
+        get { try! _IFlyoutBaseStatics2.get_SystemBackdropProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.showat)
     public func showAt(_ placementTarget: WinUI.FrameworkElement!) throws {
-        try _default.ShowAtImpl(placementTarget)
+        try _default.ShowAt(placementTarget)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.showat)
     public func showAt(_ placementTarget: WinUI.DependencyObject!, _ showOptions: FlyoutShowOptions!) throws {
-        try _default.ShowAtWithOptionsImpl(placementTarget, showOptions)
+        try _default.ShowAtWithOptions(placementTarget, showOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.hide)
     public func hide() throws {
-        try _default.HideImpl()
+        try _default.Hide()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.tryinvokekeyboardaccelerator)
     public func tryInvokeKeyboardAccelerator(_ args: WinUI.ProcessKeyboardAcceleratorEventArgs!) throws {
-        try _default.TryInvokeKeyboardAcceleratorImpl(args)
+        try _default.TryInvokeKeyboardAccelerator(args)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.allowfocusoninteraction)
     public var allowFocusOnInteraction : Bool {
-        get { try! _default.get_AllowFocusOnInteractionImpl() }
-        set { try! _default.put_AllowFocusOnInteractionImpl(newValue) }
+        get { try! _default.get_AllowFocusOnInteraction() }
+        set { try! _default.put_AllowFocusOnInteraction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.allowfocuswhendisabled)
     public var allowFocusWhenDisabled : Bool {
-        get { try! _default.get_AllowFocusWhenDisabledImpl() }
-        set { try! _default.put_AllowFocusWhenDisabledImpl(newValue) }
+        get { try! _default.get_AllowFocusWhenDisabled() }
+        set { try! _default.put_AllowFocusWhenDisabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.areopencloseanimationsenabled)
     public var areOpenCloseAnimationsEnabled : Bool {
-        get { try! _default.get_AreOpenCloseAnimationsEnabledImpl() }
-        set { try! _default.put_AreOpenCloseAnimationsEnabledImpl(newValue) }
+        get { try! _default.get_AreOpenCloseAnimationsEnabled() }
+        set { try! _default.put_AreOpenCloseAnimationsEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.elementsoundmode)
     public var elementSoundMode : WinUI.ElementSoundMode {
-        get { try! _default.get_ElementSoundModeImpl() }
-        set { try! _default.put_ElementSoundModeImpl(newValue) }
+        get { try! _default.get_ElementSoundMode() }
+        set { try! _default.put_ElementSoundMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.inputdeviceprefersprimarycommands)
     public var inputDevicePrefersPrimaryCommands : Bool {
-        get { try! _default.get_InputDevicePrefersPrimaryCommandsImpl() }
+        get { try! _default.get_InputDevicePrefersPrimaryCommands() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.isconstrainedtorootbounds)
     public var isConstrainedToRootBounds : Bool {
-        get { try! _default.get_IsConstrainedToRootBoundsImpl() }
+        get { try! _default.get_IsConstrainedToRootBounds() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.isopen)
     public var isOpen : Bool {
-        get { try! _default.get_IsOpenImpl() }
+        get { try! _default.get_IsOpen() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.lightdismissoverlaymode)
     public var lightDismissOverlayMode : WinUI.LightDismissOverlayMode {
-        get { try! _default.get_LightDismissOverlayModeImpl() }
-        set { try! _default.put_LightDismissOverlayModeImpl(newValue) }
+        get { try! _default.get_LightDismissOverlayMode() }
+        set { try! _default.put_LightDismissOverlayMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.overlayinputpassthroughelement)
     public var overlayInputPassThroughElement : WinUI.DependencyObject! {
-        get { try! _default.get_OverlayInputPassThroughElementImpl() }
-        set { try! _default.put_OverlayInputPassThroughElementImpl(newValue) }
+        get { try! _default.get_OverlayInputPassThroughElement() }
+        set { try! _default.put_OverlayInputPassThroughElement(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.placement)
     public var placement : FlyoutPlacementMode {
-        get { try! _default.get_PlacementImpl() }
-        set { try! _default.put_PlacementImpl(newValue) }
+        get { try! _default.get_Placement() }
+        set { try! _default.put_Placement(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.shouldconstraintorootbounds)
     public var shouldConstrainToRootBounds : Bool {
-        get { try! _default.get_ShouldConstrainToRootBoundsImpl() }
-        set { try! _default.put_ShouldConstrainToRootBoundsImpl(newValue) }
+        get { try! _default.get_ShouldConstrainToRootBounds() }
+        set { try! _default.put_ShouldConstrainToRootBounds(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.showmode)
     public var showMode : FlyoutShowMode {
-        get { try! _default.get_ShowModeImpl() }
-        set { try! _default.put_ShowModeImpl(newValue) }
+        get { try! _default.get_ShowMode() }
+        set { try! _default.put_ShowMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.target)
     public var target : WinUI.FrameworkElement! {
-        get { try! _default.get_TargetImpl() }
+        get { try! _default.get_Target() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.xamlroot)
     public var xamlRoot : WinUI.XamlRoot! {
-        get { try! _default.get_XamlRootImpl() }
-        set { try! _default.put_XamlRootImpl(newValue) }
+        get { try! _default.get_XamlRoot() }
+        set { try! _default.put_XamlRoot(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.closed)
@@ -649,10 +600,10 @@ open class FlyoutBase : WinUI.DependencyObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ClosedImpl($0)
+          return try! this.add_Closed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ClosedImpl($0)
+         try? self?._default.remove_Closed($0)
        }
       )
     }()
@@ -662,10 +613,10 @@ open class FlyoutBase : WinUI.DependencyObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ClosingImpl($0)
+          return try! this.add_Closing($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ClosingImpl($0)
+         try? self?._default.remove_Closing($0)
        }
       )
     }()
@@ -675,10 +626,10 @@ open class FlyoutBase : WinUI.DependencyObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_OpenedImpl($0)
+          return try! this.add_Opened($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_OpenedImpl($0)
+         try? self?._default.remove_Opened($0)
        }
       )
     }()
@@ -688,10 +639,10 @@ open class FlyoutBase : WinUI.DependencyObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_OpeningImpl($0)
+          return try! this.add_Opening($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_OpeningImpl($0)
+         try? self?._default.remove_Opening($0)
        }
       )
     }()
@@ -699,32 +650,21 @@ open class FlyoutBase : WinUI.DependencyObject {
     private lazy var _IFlyoutBase2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBase2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.systembackdrop)
     public var systemBackdrop : WinUI.SystemBackdrop! {
-        get { try! _IFlyoutBase2.get_SystemBackdropImpl() }
-        set { try! _IFlyoutBase2.put_SystemBackdropImpl(newValue) }
+        get { try! _IFlyoutBase2.get_SystemBackdrop() }
+        set { try! _IFlyoutBase2.put_SystemBackdrop(newValue) }
     }
 
     private lazy var _IFlyoutBaseOverrides: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.createpresenter)
     open func createPresenter() throws -> WinUI.Control! {
-        try _IFlyoutBaseOverrides.CreatePresenterImpl()
+        try _IFlyoutBaseOverrides.CreatePresenter()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.onprocesskeyboardaccelerators)
     open func onProcessKeyboardAccelerators(_ args: WinUI.ProcessKeyboardAcceleratorEventArgs!) throws {
-        try _IFlyoutBaseOverrides.OnProcessKeyboardAcceleratorsImpl(args)
+        try _IFlyoutBaseOverrides.OnProcessKeyboardAccelerators(args)
     }
 
-    internal enum IFlyoutBaseOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutBaseOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseOverrides
-        internal typealias Class = FlyoutBase
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutBase
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBase
-        }
-    }
-    internal typealias Composable = IFlyoutBaseOverrides
     deinit {
         _default = nil
         _IFlyoutBase2 = nil
@@ -746,20 +686,14 @@ public final class FlyoutBaseClosingEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutBaseClosingEventArgs>?) -> FlyoutBaseClosingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbaseclosingeventargs.cancel)
     public var cancel : Bool {
-        get { try! _default.get_CancelImpl() }
-        set { try! _default.put_CancelImpl(newValue) }
+        get { try! _default.get_Cancel() }
+        set { try! _default.put_Cancel(newValue) }
     }
 
     deinit {
@@ -781,12 +715,6 @@ open class FlyoutShowOptions : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutShowOptions>?) -> FlyoutShowOptions? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -802,50 +730,39 @@ open class FlyoutShowOptions : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFlyoutShowOptionsFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutShowOptionsFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.FlyoutShowOptions"))
+    private static var _IFlyoutShowOptionsFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutShowOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutShowOptions")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IFlyoutShowOptionsFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutShowOptionsBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IFlyoutShowOptionsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutshowoptions.exclusionrect)
     public var exclusionRect : WindowsFoundation.Rect? {
-        get { try! _default.get_ExclusionRectImpl() }
-        set { try! _default.put_ExclusionRectImpl(newValue) }
+        get { try! _default.get_ExclusionRect() }
+        set { try! _default.put_ExclusionRect(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutshowoptions.placement)
     public var placement : FlyoutPlacementMode {
-        get { try! _default.get_PlacementImpl() }
-        set { try! _default.put_PlacementImpl(newValue) }
+        get { try! _default.get_Placement() }
+        set { try! _default.put_Placement(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutshowoptions.position)
     public var position : WindowsFoundation.Point? {
-        get { try! _default.get_PositionImpl() }
-        set { try! _default.put_PositionImpl(newValue) }
+        get { try! _default.get_Position() }
+        set { try! _default.put_Position(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutshowoptions.showmode)
     public var showMode : FlyoutShowMode {
-        get { try! _default.get_ShowModeImpl() }
-        set { try! _default.put_ShowModeImpl(newValue) }
+        get { try! _default.get_ShowMode() }
+        set { try! _default.put_ShowMode(newValue) }
     }
 
-    internal enum IFlyoutShowOptions : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = FlyoutShowOptions
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutShowOptions
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutShowOptions
-        }
-    }
-    internal typealias Composable = IFlyoutShowOptions
     deinit {
         _default = nil
     }
@@ -865,39 +782,33 @@ public final class ItemsChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIItemsChangedEventArgs>?) -> ItemsChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.itemschangedeventargs.action)
     public var action : Int32 {
-        get { try! _default.get_ActionImpl() }
+        get { try! _default.get_Action() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.itemschangedeventargs.itemcount)
     public var itemCount : Int32 {
-        get { try! _default.get_ItemCountImpl() }
+        get { try! _default.get_ItemCount() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.itemschangedeventargs.itemuicount)
     public var itemUICount : Int32 {
-        get { try! _default.get_ItemUICountImpl() }
+        get { try! _default.get_ItemUICount() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.itemschangedeventargs.oldposition)
     public var oldPosition : GeneratorPosition {
-        get { try! _default.get_OldPositionImpl() }
+        get { try! _default.get_OldPosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.itemschangedeventargs.position)
     public var position : GeneratorPosition {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     deinit {
@@ -919,19 +830,13 @@ public final class ListViewItemTemplateSettings : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIListViewItemTemplateSettings>?) -> ListViewItemTemplateSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.listviewitemtemplatesettings.dragitemscount)
     public var dragItemsCount : Int32 {
-        get { try! _default.get_DragItemsCountImpl() }
+        get { try! _default.get_DragItemsCount() }
     }
 
     deinit {
@@ -953,244 +858,17 @@ public final class MenuFlyoutItemTemplateSettings : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIMenuFlyoutItemTemplateSettings>?) -> MenuFlyoutItemTemplateSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.menuflyoutitemtemplatesettings.keyboardacceleratortextminwidth)
     public var keyboardAcceleratorTextMinWidth : Double {
-        get { try! _default.get_KeyboardAcceleratorTextMinWidthImpl() }
+        get { try! _default.get_KeyboardAcceleratorTextMinWidth() }
     }
 
     deinit {
         _default = nil
-    }
-}
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup)
-public final class Popup : WinUI.FrameworkElement {
-    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup
-    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
-    @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
-        if T.self == CABI.self {
-            return RawPointer(_default)
-        }
-        return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup>?) -> Popup? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
-        super.init(fromAbi: fromAbi)
-    }
-
-    override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Controls.Primitives.Popup")))
-    }
-
-    private static let _IPopupStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.Popup"))
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.childproperty)
-    public static var childProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics.get_ChildPropertyImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.childtransitionsproperty)
-    public static var childTransitionsProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics.get_ChildTransitionsPropertyImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.horizontaloffsetproperty)
-    public static var horizontalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics.get_HorizontalOffsetPropertyImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.islightdismissenabledproperty)
-    public static var isLightDismissEnabledProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics.get_IsLightDismissEnabledPropertyImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.isopenproperty)
-    public static var isOpenProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics.get_IsOpenPropertyImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.lightdismissoverlaymodeproperty)
-    public static var lightDismissOverlayModeProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics.get_LightDismissOverlayModePropertyImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.shouldconstraintorootboundsproperty)
-    public static var shouldConstrainToRootBoundsProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics.get_ShouldConstrainToRootBoundsPropertyImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.verticaloffsetproperty)
-    public static var verticalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics.get_VerticalOffsetPropertyImpl() }
-    }
-
-    private static let _IPopupStatics2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics2 = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.Popup"))
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.desiredplacementproperty)
-    public static var desiredPlacementProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics2.get_DesiredPlacementPropertyImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.placementtargetproperty)
-    public static var placementTargetProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics2.get_PlacementTargetPropertyImpl() }
-    }
-
-    private static let _IPopupStatics3: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics3 = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.Popup"))
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.systembackdropproperty)
-    public static var systemBackdropProperty : WinUI.DependencyProperty! {
-        get { try! _IPopupStatics3.get_SystemBackdropPropertyImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.child)
-    public var child : WinUI.UIElement! {
-        get { try! _default.get_ChildImpl() }
-        set { try! _default.put_ChildImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.childtransitions)
-    public var childTransitions : WinUI.TransitionCollection! {
-        get { try! _default.get_ChildTransitionsImpl() }
-        set { try! _default.put_ChildTransitionsImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.horizontaloffset)
-    public var horizontalOffset : Double {
-        get { try! _default.get_HorizontalOffsetImpl() }
-        set { try! _default.put_HorizontalOffsetImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.isconstrainedtorootbounds)
-    public var isConstrainedToRootBounds : Bool {
-        get { try! _default.get_IsConstrainedToRootBoundsImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.islightdismissenabled)
-    public var isLightDismissEnabled : Bool {
-        get { try! _default.get_IsLightDismissEnabledImpl() }
-        set { try! _default.put_IsLightDismissEnabledImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.isopen)
-    public var isOpen : Bool {
-        get { try! _default.get_IsOpenImpl() }
-        set { try! _default.put_IsOpenImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.lightdismissoverlaymode)
-    public var lightDismissOverlayMode : WinUI.LightDismissOverlayMode {
-        get { try! _default.get_LightDismissOverlayModeImpl() }
-        set { try! _default.put_LightDismissOverlayModeImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.shouldconstraintorootbounds)
-    public var shouldConstrainToRootBounds : Bool {
-        get { try! _default.get_ShouldConstrainToRootBoundsImpl() }
-        set { try! _default.put_ShouldConstrainToRootBoundsImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.verticaloffset)
-    public var verticalOffset : Double {
-        get { try! _default.get_VerticalOffsetImpl() }
-        set { try! _default.put_VerticalOffsetImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.closed)
-    public lazy var closed : Event<EventHandler<Any?>> = {
-      .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ClosedImpl($0)
-        },
-        remove: { [weak self] in
-         try? self?._default.remove_ClosedImpl($0)
-       }
-      )
-    }()
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.opened)
-    public lazy var opened : Event<EventHandler<Any?>> = {
-      .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_OpenedImpl($0)
-        },
-        remove: { [weak self] in
-         try? self?._default.remove_OpenedImpl($0)
-       }
-      )
-    }()
-
-    private lazy var _IPopup2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup2! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.actualplacement)
-    public var actualPlacement : PopupPlacementMode {
-        get { try! _IPopup2.get_ActualPlacementImpl() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.desiredplacement)
-    public var desiredPlacement : PopupPlacementMode {
-        get { try! _IPopup2.get_DesiredPlacementImpl() }
-        set { try! _IPopup2.put_DesiredPlacementImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.placementtarget)
-    public var placementTarget : WinUI.FrameworkElement! {
-        get { try! _IPopup2.get_PlacementTargetImpl() }
-        set { try! _IPopup2.put_PlacementTargetImpl(newValue) }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.actualplacementchanged)
-    public lazy var actualPlacementChanged : Event<EventHandler<Any?>> = {
-      .init(
-        add: { [weak self] in
-          guard let this = self?._IPopup2 else { return .init() }
-          return try! this.add_ActualPlacementChangedImpl($0)
-        },
-        remove: { [weak self] in
-         try? self?._IPopup2.remove_ActualPlacementChangedImpl($0)
-       }
-      )
-    }()
-
-    private lazy var _IPopup3: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup3! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.systembackdrop)
-    public var systemBackdrop : WinUI.SystemBackdrop! {
-        get { try! _IPopup3.get_SystemBackdropImpl() }
-        set { try! _IPopup3.put_SystemBackdropImpl(newValue) }
-    }
-
-    internal enum IFrameworkElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
-        internal typealias Class = Popup
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup
-        }
-    }
-    internal typealias Composable = IFrameworkElementOverrides
-    deinit {
-        _default = nil
-        _IPopup2 = nil
-        _IPopup3 = nil
     }
 }
 
@@ -1205,12 +883,6 @@ open class RangeBase : WinUI.Control {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRangeBase>?) -> RangeBase? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
     }
 
     @_spi(WinRTInternal)
@@ -1233,68 +905,68 @@ open class RangeBase : WinUI.Control {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IRangeBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.RangeBase"))
+    private static var _IRangeBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.RangeBase")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IRangeBaseFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.RangeBaseBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IRangeBaseFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IRangeBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.RangeBase"))
+    private static let _IRangeBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.RangeBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.largechangeproperty)
     public class var largeChangeProperty : WinUI.DependencyProperty! {
-        get { try! _IRangeBaseStatics.get_LargeChangePropertyImpl() }
+        get { try! _IRangeBaseStatics.get_LargeChangeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.maximumproperty)
     public class var maximumProperty : WinUI.DependencyProperty! {
-        get { try! _IRangeBaseStatics.get_MaximumPropertyImpl() }
+        get { try! _IRangeBaseStatics.get_MaximumProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.minimumproperty)
     public class var minimumProperty : WinUI.DependencyProperty! {
-        get { try! _IRangeBaseStatics.get_MinimumPropertyImpl() }
+        get { try! _IRangeBaseStatics.get_MinimumProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.smallchangeproperty)
     public class var smallChangeProperty : WinUI.DependencyProperty! {
-        get { try! _IRangeBaseStatics.get_SmallChangePropertyImpl() }
+        get { try! _IRangeBaseStatics.get_SmallChangeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.valueproperty)
     public class var valueProperty : WinUI.DependencyProperty! {
-        get { try! _IRangeBaseStatics.get_ValuePropertyImpl() }
+        get { try! _IRangeBaseStatics.get_ValueProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.largechange)
     public var largeChange : Double {
-        get { try! _default.get_LargeChangeImpl() }
-        set { try! _default.put_LargeChangeImpl(newValue) }
+        get { try! _default.get_LargeChange() }
+        set { try! _default.put_LargeChange(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.maximum)
     public var maximum : Double {
-        get { try! _default.get_MaximumImpl() }
-        set { try! _default.put_MaximumImpl(newValue) }
+        get { try! _default.get_Maximum() }
+        set { try! _default.put_Maximum(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.minimum)
     public var minimum : Double {
-        get { try! _default.get_MinimumImpl() }
-        set { try! _default.put_MinimumImpl(newValue) }
+        get { try! _default.get_Minimum() }
+        set { try! _default.put_Minimum(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.smallchange)
     public var smallChange : Double {
-        get { try! _default.get_SmallChangeImpl() }
-        set { try! _default.put_SmallChangeImpl(newValue) }
+        get { try! _default.get_SmallChange() }
+        set { try! _default.put_SmallChange(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.value)
     public var value : Double {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.valuechanged)
@@ -1302,10 +974,10 @@ open class RangeBase : WinUI.Control {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ValueChangedImpl($0)
+          return try! this.add_ValueChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ValueChangedImpl($0)
+         try? self?._default.remove_ValueChanged($0)
        }
       )
     }()
@@ -1313,30 +985,19 @@ open class RangeBase : WinUI.Control {
     private lazy var _IRangeBaseOverrides: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.onminimumchanged)
     open func onMinimumChanged(_ oldMinimum: Double, _ newMinimum: Double) throws {
-        try _IRangeBaseOverrides.OnMinimumChangedImpl(oldMinimum, newMinimum)
+        try _IRangeBaseOverrides.OnMinimumChanged(oldMinimum, newMinimum)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.onmaximumchanged)
     open func onMaximumChanged(_ oldMaximum: Double, _ newMaximum: Double) throws {
-        try _IRangeBaseOverrides.OnMaximumChangedImpl(oldMaximum, newMaximum)
+        try _IRangeBaseOverrides.OnMaximumChanged(oldMaximum, newMaximum)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.onvaluechanged)
     open func onValueChanged(_ oldValue: Double, _ newValue: Double) throws {
-        try _IRangeBaseOverrides.OnValueChangedImpl(oldValue, newValue)
+        try _IRangeBaseOverrides.OnValueChanged(oldValue, newValue)
     }
 
-    internal enum IRangeBaseOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRangeBaseOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseOverrides
-        internal typealias Class = RangeBase
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRangeBase
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBase
-        }
-    }
-    internal typealias Composable = IRangeBaseOverrides
     deinit {
         _default = nil
         _IRangeBaseOverrides = nil
@@ -1357,24 +1018,18 @@ public final class RangeBaseValueChangedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRangeBaseValueChangedEventArgs>?) -> RangeBaseValueChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebasevaluechangedeventargs.newvalue)
     public var newValue : Double {
-        get { try! _default.get_NewValueImpl() }
+        get { try! _default.get_NewValue() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebasevaluechangedeventargs.oldvalue)
     public var oldValue : Double {
-        get { try! _default.get_OldValueImpl() }
+        get { try! _default.get_OldValue() }
     }
 
     deinit {
@@ -1396,35 +1051,29 @@ public final class ScrollControllerAddScrollVelocityRequestedEventArgs : WinRTCl
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollControllerAddScrollVelocityRequestedEventArgs>?) -> ScrollControllerAddScrollVelocityRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IScrollControllerAddScrollVelocityRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerAddScrollVelocityRequestedEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerAddScrollVelocityRequestedEventArgs"))
+    private static let _IScrollControllerAddScrollVelocityRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerAddScrollVelocityRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerAddScrollVelocityRequestedEventArgs")
     public init(_ offsetVelocity: Float, _ inertiaDecayRate: Float?) {
-        super.init(try! Self._IScrollControllerAddScrollVelocityRequestedEventArgsFactory.CreateInstanceImpl(offsetVelocity, inertiaDecayRate))
+        super.init(try! Self._IScrollControllerAddScrollVelocityRequestedEventArgsFactory.CreateInstance(offsetVelocity, inertiaDecayRate))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrolleraddscrollvelocityrequestedeventargs.correlationid)
     public var correlationId : Int32 {
-        get { try! _default.get_CorrelationIdImpl() }
-        set { try! _default.put_CorrelationIdImpl(newValue) }
+        get { try! _default.get_CorrelationId() }
+        set { try! _default.put_CorrelationId(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrolleraddscrollvelocityrequestedeventargs.inertiadecayrate)
     public var inertiaDecayRate : Float? {
-        get { try! _default.get_InertiaDecayRateImpl() }
+        get { try! _default.get_InertiaDecayRate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrolleraddscrollvelocityrequestedeventargs.offsetvelocity)
     public var offsetVelocity : Float {
-        get { try! _default.get_OffsetVelocityImpl() }
+        get { try! _default.get_OffsetVelocity() }
     }
 
     deinit {
@@ -1446,30 +1095,24 @@ public final class ScrollControllerPanRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollControllerPanRequestedEventArgs>?) -> ScrollControllerPanRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IScrollControllerPanRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanRequestedEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerPanRequestedEventArgs"))
+    private static let _IScrollControllerPanRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerPanRequestedEventArgs")
     public init(_ pointerPoint: WinAppSDK.PointerPoint!) {
-        super.init(try! Self._IScrollControllerPanRequestedEventArgsFactory.CreateInstanceImpl(pointerPoint))
+        super.init(try! Self._IScrollControllerPanRequestedEventArgsFactory.CreateInstance(pointerPoint))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerpanrequestedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerpanrequestedeventargs.pointerpoint)
     public var pointerPoint : WinAppSDK.PointerPoint! {
-        get { try! _default.get_PointerPointImpl() }
+        get { try! _default.get_PointerPoint() }
     }
 
     deinit {
@@ -1491,35 +1134,29 @@ public final class ScrollControllerScrollByRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollControllerScrollByRequestedEventArgs>?) -> ScrollControllerScrollByRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IScrollControllerScrollByRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollByRequestedEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerScrollByRequestedEventArgs"))
+    private static let _IScrollControllerScrollByRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollByRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerScrollByRequestedEventArgs")
     public init(_ offsetDelta: Double, _ options: WinUI.ScrollingScrollOptions!) {
-        super.init(try! Self._IScrollControllerScrollByRequestedEventArgsFactory.CreateInstanceImpl(offsetDelta, options))
+        super.init(try! Self._IScrollControllerScrollByRequestedEventArgsFactory.CreateInstance(offsetDelta, options))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerscrollbyrequestedeventargs.correlationid)
     public var correlationId : Int32 {
-        get { try! _default.get_CorrelationIdImpl() }
-        set { try! _default.put_CorrelationIdImpl(newValue) }
+        get { try! _default.get_CorrelationId() }
+        set { try! _default.put_CorrelationId(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerscrollbyrequestedeventargs.offsetdelta)
     public var offsetDelta : Double {
-        get { try! _default.get_OffsetDeltaImpl() }
+        get { try! _default.get_OffsetDelta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerscrollbyrequestedeventargs.options)
     public var options : WinUI.ScrollingScrollOptions! {
-        get { try! _default.get_OptionsImpl() }
+        get { try! _default.get_Options() }
     }
 
     deinit {
@@ -1541,35 +1178,29 @@ public final class ScrollControllerScrollToRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollControllerScrollToRequestedEventArgs>?) -> ScrollControllerScrollToRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IScrollControllerScrollToRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollToRequestedEventArgsFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerScrollToRequestedEventArgs"))
+    private static let _IScrollControllerScrollToRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollToRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerScrollToRequestedEventArgs")
     public init(_ offset: Double, _ options: WinUI.ScrollingScrollOptions!) {
-        super.init(try! Self._IScrollControllerScrollToRequestedEventArgsFactory.CreateInstanceImpl(offset, options))
+        super.init(try! Self._IScrollControllerScrollToRequestedEventArgsFactory.CreateInstance(offset, options))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerscrolltorequestedeventargs.correlationid)
     public var correlationId : Int32 {
-        get { try! _default.get_CorrelationIdImpl() }
-        set { try! _default.put_CorrelationIdImpl(newValue) }
+        get { try! _default.get_CorrelationId() }
+        set { try! _default.put_CorrelationId(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerscrolltorequestedeventargs.offset)
     public var offset : Double {
-        get { try! _default.get_OffsetImpl() }
+        get { try! _default.get_Offset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerscrolltorequestedeventargs.options)
     public var options : WinUI.ScrollingScrollOptions! {
-        get { try! _default.get_OptionsImpl() }
+        get { try! _default.get_Options() }
     }
 
     deinit {
@@ -1591,12 +1222,6 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollPresenter>?) -> ScrollPresenter? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1611,341 +1236,341 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IScrollPresenterFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollPresenterFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ScrollPresenter"))
+    private static var _IScrollPresenterFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollPresenterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollPresenter")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IScrollPresenterFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollPresenterBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IScrollPresenterFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IScrollPresenterStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollPresenterStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ScrollPresenter"))
+    private static let _IScrollPresenterStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollPresenterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollPresenter")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.backgroundproperty)
     public class var backgroundProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_BackgroundPropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_BackgroundProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.computedhorizontalscrollmodeproperty)
     public class var computedHorizontalScrollModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_ComputedHorizontalScrollModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_ComputedHorizontalScrollModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.computedverticalscrollmodeproperty)
     public class var computedVerticalScrollModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_ComputedVerticalScrollModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_ComputedVerticalScrollModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.contentorientationproperty)
     public class var contentOrientationProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_ContentOrientationPropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_ContentOrientationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.contentproperty)
     public class var contentProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_ContentPropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_ContentProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalanchorratioproperty)
     public class var horizontalAnchorRatioProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_HorizontalAnchorRatioPropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_HorizontalAnchorRatioProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalscrollchainmodeproperty)
     public class var horizontalScrollChainModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_HorizontalScrollChainModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_HorizontalScrollChainModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalscrollmodeproperty)
     public class var horizontalScrollModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_HorizontalScrollModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_HorizontalScrollModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalscrollrailmodeproperty)
     public class var horizontalScrollRailModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_HorizontalScrollRailModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_HorizontalScrollRailModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.ignoredinputkindsproperty)
     public class var ignoredInputKindsProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_IgnoredInputKindsPropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_IgnoredInputKindsProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.maxzoomfactorproperty)
     public class var maxZoomFactorProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_MaxZoomFactorPropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_MaxZoomFactorProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.minzoomfactorproperty)
     public class var minZoomFactorProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_MinZoomFactorPropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_MinZoomFactorProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalanchorratioproperty)
     public class var verticalAnchorRatioProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_VerticalAnchorRatioPropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_VerticalAnchorRatioProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalscrollchainmodeproperty)
     public class var verticalScrollChainModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_VerticalScrollChainModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_VerticalScrollChainModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalscrollmodeproperty)
     public class var verticalScrollModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_VerticalScrollModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_VerticalScrollModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalscrollrailmodeproperty)
     public class var verticalScrollRailModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_VerticalScrollRailModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_VerticalScrollRailModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomchainmodeproperty)
     public class var zoomChainModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_ZoomChainModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_ZoomChainModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoommodeproperty)
     public class var zoomModeProperty : WinUI.DependencyProperty! {
-        get { try! _IScrollPresenterStatics.get_ZoomModePropertyImpl() }
+        get { try! _IScrollPresenterStatics.get_ZoomModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.scrollto)
     public func scrollTo(_ horizontalOffset: Double, _ verticalOffset: Double) throws -> Int32 {
-        try _default.ScrollToImpl(horizontalOffset, verticalOffset)
+        try _default.ScrollTo(horizontalOffset, verticalOffset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.scrollto)
     public func scrollTo(_ horizontalOffset: Double, _ verticalOffset: Double, _ options: WinUI.ScrollingScrollOptions!) throws -> Int32 {
-        try _default.ScrollToWithOptionsImpl(horizontalOffset, verticalOffset, options)
+        try _default.ScrollToWithOptions(horizontalOffset, verticalOffset, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.scrollby)
     public func scrollBy(_ horizontalOffsetDelta: Double, _ verticalOffsetDelta: Double) throws -> Int32 {
-        try _default.ScrollByImpl(horizontalOffsetDelta, verticalOffsetDelta)
+        try _default.ScrollBy(horizontalOffsetDelta, verticalOffsetDelta)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.scrollby)
     public func scrollBy(_ horizontalOffsetDelta: Double, _ verticalOffsetDelta: Double, _ options: WinUI.ScrollingScrollOptions!) throws -> Int32 {
-        try _default.ScrollByWithOptionsImpl(horizontalOffsetDelta, verticalOffsetDelta, options)
+        try _default.ScrollByWithOptions(horizontalOffsetDelta, verticalOffsetDelta, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.addscrollvelocity)
     public func addScrollVelocity(_ offsetsVelocity: WindowsFoundation.Vector2, _ inertiaDecayRate: WindowsFoundation.Vector2?) throws -> Int32 {
-        try _default.AddScrollVelocityImpl(offsetsVelocity, inertiaDecayRate)
+        try _default.AddScrollVelocity(offsetsVelocity, inertiaDecayRate)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomto)
     public func zoomTo(_ zoomFactor: Float, _ centerPoint: WindowsFoundation.Vector2?) throws -> Int32 {
-        try _default.ZoomToImpl(zoomFactor, centerPoint)
+        try _default.ZoomTo(zoomFactor, centerPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomto)
     public func zoomTo(_ zoomFactor: Float, _ centerPoint: WindowsFoundation.Vector2?, _ options: WinUI.ScrollingZoomOptions!) throws -> Int32 {
-        try _default.ZoomToWithOptionsImpl(zoomFactor, centerPoint, options)
+        try _default.ZoomToWithOptions(zoomFactor, centerPoint, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomby)
     public func zoomBy(_ zoomFactorDelta: Float, _ centerPoint: WindowsFoundation.Vector2?) throws -> Int32 {
-        try _default.ZoomByImpl(zoomFactorDelta, centerPoint)
+        try _default.ZoomBy(zoomFactorDelta, centerPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomby)
     public func zoomBy(_ zoomFactorDelta: Float, _ centerPoint: WindowsFoundation.Vector2?, _ options: WinUI.ScrollingZoomOptions!) throws -> Int32 {
-        try _default.ZoomByWithOptionsImpl(zoomFactorDelta, centerPoint, options)
+        try _default.ZoomByWithOptions(zoomFactorDelta, centerPoint, options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.addzoomvelocity)
     public func addZoomVelocity(_ zoomFactorVelocity: Float, _ centerPoint: WindowsFoundation.Vector2?, _ inertiaDecayRate: Float?) throws -> Int32 {
-        try _default.AddZoomVelocityImpl(zoomFactorVelocity, centerPoint, inertiaDecayRate)
+        try _default.AddZoomVelocity(zoomFactorVelocity, centerPoint, inertiaDecayRate)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.background)
     public var background : WinUI.Brush! {
-        get { try! _default.get_BackgroundImpl() }
-        set { try! _default.put_BackgroundImpl(newValue) }
+        get { try! _default.get_Background() }
+        set { try! _default.put_Background(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.computedhorizontalscrollmode)
     public var computedHorizontalScrollMode : WinUI.ScrollingScrollMode {
-        get { try! _default.get_ComputedHorizontalScrollModeImpl() }
+        get { try! _default.get_ComputedHorizontalScrollMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.computedverticalscrollmode)
     public var computedVerticalScrollMode : WinUI.ScrollingScrollMode {
-        get { try! _default.get_ComputedVerticalScrollModeImpl() }
+        get { try! _default.get_ComputedVerticalScrollMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.content)
     public var content : WinUI.UIElement! {
-        get { try! _default.get_ContentImpl() }
-        set { try! _default.put_ContentImpl(newValue) }
+        get { try! _default.get_Content() }
+        set { try! _default.put_Content(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.contentorientation)
     public var contentOrientation : WinUI.ScrollingContentOrientation {
-        get { try! _default.get_ContentOrientationImpl() }
-        set { try! _default.put_ContentOrientationImpl(newValue) }
+        get { try! _default.get_ContentOrientation() }
+        set { try! _default.put_ContentOrientation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.expressionanimationsources)
     public var expressionAnimationSources : WinAppSDK.CompositionPropertySet! {
-        get { try! _default.get_ExpressionAnimationSourcesImpl() }
+        get { try! _default.get_ExpressionAnimationSources() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.extentheight)
     public var extentHeight : Double {
-        get { try! _default.get_ExtentHeightImpl() }
+        get { try! _default.get_ExtentHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.extentwidth)
     public var extentWidth : Double {
-        get { try! _default.get_ExtentWidthImpl() }
+        get { try! _default.get_ExtentWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalanchorratio)
     public var horizontalAnchorRatio : Double {
-        get { try! _default.get_HorizontalAnchorRatioImpl() }
-        set { try! _default.put_HorizontalAnchorRatioImpl(newValue) }
+        get { try! _default.get_HorizontalAnchorRatio() }
+        set { try! _default.put_HorizontalAnchorRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontaloffset)
     public var horizontalOffset : Double {
-        get { try! _default.get_HorizontalOffsetImpl() }
+        get { try! _default.get_HorizontalOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalscrollchainmode)
     public var horizontalScrollChainMode : WinUI.ScrollingChainMode {
-        get { try! _default.get_HorizontalScrollChainModeImpl() }
-        set { try! _default.put_HorizontalScrollChainModeImpl(newValue) }
+        get { try! _default.get_HorizontalScrollChainMode() }
+        set { try! _default.put_HorizontalScrollChainMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalscrollcontroller)
     public var horizontalScrollController : AnyIScrollController! {
-        get { try! _default.get_HorizontalScrollControllerImpl() }
-        set { try! _default.put_HorizontalScrollControllerImpl(newValue) }
+        get { try! _default.get_HorizontalScrollController() }
+        set { try! _default.put_HorizontalScrollController(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalscrollmode)
     public var horizontalScrollMode : WinUI.ScrollingScrollMode {
-        get { try! _default.get_HorizontalScrollModeImpl() }
-        set { try! _default.put_HorizontalScrollModeImpl(newValue) }
+        get { try! _default.get_HorizontalScrollMode() }
+        set { try! _default.put_HorizontalScrollMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalscrollrailmode)
     public var horizontalScrollRailMode : WinUI.ScrollingRailMode {
-        get { try! _default.get_HorizontalScrollRailModeImpl() }
-        set { try! _default.put_HorizontalScrollRailModeImpl(newValue) }
+        get { try! _default.get_HorizontalScrollRailMode() }
+        set { try! _default.put_HorizontalScrollRailMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.horizontalsnappoints)
     public var horizontalSnapPoints : WindowsFoundation.AnyIVector<ScrollSnapPointBase?>! {
-        get { try! _default.get_HorizontalSnapPointsImpl() }
+        get { try! _default.get_HorizontalSnapPoints() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.ignoredinputkinds)
     public var ignoredInputKinds : WinUI.ScrollingInputKinds {
-        get { try! _default.get_IgnoredInputKindsImpl() }
-        set { try! _default.put_IgnoredInputKindsImpl(newValue) }
+        get { try! _default.get_IgnoredInputKinds() }
+        set { try! _default.put_IgnoredInputKinds(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.maxzoomfactor)
     public var maxZoomFactor : Double {
-        get { try! _default.get_MaxZoomFactorImpl() }
-        set { try! _default.put_MaxZoomFactorImpl(newValue) }
+        get { try! _default.get_MaxZoomFactor() }
+        set { try! _default.put_MaxZoomFactor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.minzoomfactor)
     public var minZoomFactor : Double {
-        get { try! _default.get_MinZoomFactorImpl() }
-        set { try! _default.put_MinZoomFactorImpl(newValue) }
+        get { try! _default.get_MinZoomFactor() }
+        set { try! _default.put_MinZoomFactor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.scrollableheight)
     public var scrollableHeight : Double {
-        get { try! _default.get_ScrollableHeightImpl() }
+        get { try! _default.get_ScrollableHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.scrollablewidth)
     public var scrollableWidth : Double {
-        get { try! _default.get_ScrollableWidthImpl() }
+        get { try! _default.get_ScrollableWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.state)
     public var state : WinUI.ScrollingInteractionState {
-        get { try! _default.get_StateImpl() }
+        get { try! _default.get_State() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalanchorratio)
     public var verticalAnchorRatio : Double {
-        get { try! _default.get_VerticalAnchorRatioImpl() }
-        set { try! _default.put_VerticalAnchorRatioImpl(newValue) }
+        get { try! _default.get_VerticalAnchorRatio() }
+        set { try! _default.put_VerticalAnchorRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticaloffset)
     public var verticalOffset : Double {
-        get { try! _default.get_VerticalOffsetImpl() }
+        get { try! _default.get_VerticalOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalscrollchainmode)
     public var verticalScrollChainMode : WinUI.ScrollingChainMode {
-        get { try! _default.get_VerticalScrollChainModeImpl() }
-        set { try! _default.put_VerticalScrollChainModeImpl(newValue) }
+        get { try! _default.get_VerticalScrollChainMode() }
+        set { try! _default.put_VerticalScrollChainMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalscrollcontroller)
     public var verticalScrollController : AnyIScrollController! {
-        get { try! _default.get_VerticalScrollControllerImpl() }
-        set { try! _default.put_VerticalScrollControllerImpl(newValue) }
+        get { try! _default.get_VerticalScrollController() }
+        set { try! _default.put_VerticalScrollController(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalscrollmode)
     public var verticalScrollMode : WinUI.ScrollingScrollMode {
-        get { try! _default.get_VerticalScrollModeImpl() }
-        set { try! _default.put_VerticalScrollModeImpl(newValue) }
+        get { try! _default.get_VerticalScrollMode() }
+        set { try! _default.put_VerticalScrollMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalscrollrailmode)
     public var verticalScrollRailMode : WinUI.ScrollingRailMode {
-        get { try! _default.get_VerticalScrollRailModeImpl() }
-        set { try! _default.put_VerticalScrollRailModeImpl(newValue) }
+        get { try! _default.get_VerticalScrollRailMode() }
+        set { try! _default.put_VerticalScrollRailMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.verticalsnappoints)
     public var verticalSnapPoints : WindowsFoundation.AnyIVector<ScrollSnapPointBase?>! {
-        get { try! _default.get_VerticalSnapPointsImpl() }
+        get { try! _default.get_VerticalSnapPoints() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.viewportheight)
     public var viewportHeight : Double {
-        get { try! _default.get_ViewportHeightImpl() }
+        get { try! _default.get_ViewportHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.viewportwidth)
     public var viewportWidth : Double {
-        get { try! _default.get_ViewportWidthImpl() }
+        get { try! _default.get_ViewportWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomchainmode)
     public var zoomChainMode : WinUI.ScrollingChainMode {
-        get { try! _default.get_ZoomChainModeImpl() }
-        set { try! _default.put_ZoomChainModeImpl(newValue) }
+        get { try! _default.get_ZoomChainMode() }
+        set { try! _default.put_ZoomChainMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomfactor)
     public var zoomFactor : Float {
-        get { try! _default.get_ZoomFactorImpl() }
+        get { try! _default.get_ZoomFactor() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoommode)
     public var zoomMode : WinUI.ScrollingZoomMode {
-        get { try! _default.get_ZoomModeImpl() }
-        set { try! _default.put_ZoomModeImpl(newValue) }
+        get { try! _default.get_ZoomMode() }
+        set { try! _default.put_ZoomMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomsnappoints)
     public var zoomSnapPoints : WindowsFoundation.AnyIVector<ZoomSnapPointBase?>! {
-        get { try! _default.get_ZoomSnapPointsImpl() }
+        get { try! _default.get_ZoomSnapPoints() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.anchorrequested)
@@ -1953,10 +1578,10 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AnchorRequestedImpl($0)
+          return try! this.add_AnchorRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AnchorRequestedImpl($0)
+         try? self?._default.remove_AnchorRequested($0)
        }
       )
     }()
@@ -1966,10 +1591,10 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_BringingIntoViewImpl($0)
+          return try! this.add_BringingIntoView($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_BringingIntoViewImpl($0)
+         try? self?._default.remove_BringingIntoView($0)
        }
       )
     }()
@@ -1979,10 +1604,10 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ExtentChangedImpl($0)
+          return try! this.add_ExtentChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ExtentChangedImpl($0)
+         try? self?._default.remove_ExtentChanged($0)
        }
       )
     }()
@@ -1992,10 +1617,10 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ScrollAnimationStartingImpl($0)
+          return try! this.add_ScrollAnimationStarting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ScrollAnimationStartingImpl($0)
+         try? self?._default.remove_ScrollAnimationStarting($0)
        }
       )
     }()
@@ -2005,10 +1630,10 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ScrollCompletedImpl($0)
+          return try! this.add_ScrollCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ScrollCompletedImpl($0)
+         try? self?._default.remove_ScrollCompleted($0)
        }
       )
     }()
@@ -2018,10 +1643,10 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_StateChangedImpl($0)
+          return try! this.add_StateChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_StateChangedImpl($0)
+         try? self?._default.remove_StateChanged($0)
        }
       )
     }()
@@ -2031,10 +1656,10 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ViewChangedImpl($0)
+          return try! this.add_ViewChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ViewChangedImpl($0)
+         try? self?._default.remove_ViewChanged($0)
        }
       )
     }()
@@ -2044,10 +1669,10 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ZoomAnimationStartingImpl($0)
+          return try! this.add_ZoomAnimationStarting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ZoomAnimationStartingImpl($0)
+         try? self?._default.remove_ZoomAnimationStarting($0)
        }
       )
     }()
@@ -2057,10 +1682,10 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ZoomCompletedImpl($0)
+          return try! this.add_ZoomCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ZoomCompletedImpl($0)
+         try? self?._default.remove_ZoomCompleted($0)
        }
       )
     }()
@@ -2068,30 +1693,19 @@ open class ScrollPresenter : WinUI.FrameworkElement, WinUI.IScrollAnchorProvider
     private lazy var _IScrollAnchorProvider: __ABI_Microsoft_UI_Xaml_Controls.IScrollAnchorProvider! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.registeranchorcandidate)
     public func registerAnchorCandidate(_ element: WinUI.UIElement!) throws {
-        try _IScrollAnchorProvider.RegisterAnchorCandidateImpl(element)
+        try _IScrollAnchorProvider.RegisterAnchorCandidate(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.unregisteranchorcandidate)
     public func unregisterAnchorCandidate(_ element: WinUI.UIElement!) throws {
-        try _IScrollAnchorProvider.UnregisterAnchorCandidateImpl(element)
+        try _IScrollAnchorProvider.UnregisterAnchorCandidate(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.currentanchor)
     public var currentAnchor : WinUI.UIElement! {
-        get { try! _IScrollAnchorProvider.get_CurrentAnchorImpl() }
+        get { try! _IScrollAnchorProvider.get_CurrentAnchor() }
     }
 
-    internal enum IFrameworkElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
-        internal typealias Class = ScrollPresenter
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollPresenter
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollPresenter
-        }
-    }
-    internal typealias Composable = IFrameworkElementOverrides
     deinit {
         _default = nil
         _IScrollAnchorProvider = nil
@@ -2112,12 +1726,6 @@ open class ScrollSnapPointBase : WinUI.SnapPointBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPointBase>?) -> ScrollSnapPointBase? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2132,24 +1740,13 @@ open class ScrollSnapPointBase : WinUI.SnapPointBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IScrollSnapPointBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointBaseFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ScrollSnapPointBase"))
+    private static var _IScrollSnapPointBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollSnapPointBase")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollsnappointbase.alignment)
     public var alignment : ScrollSnapPointsAlignment {
-        get { try! _default.get_AlignmentImpl() }
+        get { try! _default.get_Alignment() }
     }
 
-    internal enum IScrollSnapPointBase : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ScrollSnapPointBase
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPointBase
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointBase
-        }
-    }
-    internal typealias Composable = IScrollSnapPointBase
     deinit {
         _default = nil
     }
@@ -2169,12 +1766,6 @@ open class Selector : WinUI.ItemsControl {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISelector>?) -> Selector? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2189,67 +1780,67 @@ open class Selector : WinUI.ItemsControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISelectorFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.Selector"))
+    private static var _ISelectorFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Selector")
 
-    private static let _ISelectorStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.Selector"))
+    private static let _ISelectorStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Selector")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.getisselectionactive)
-    public class func getIsSelectionActive(_ element: WinUI.DependencyObject!) -> Bool {
-        return try! _ISelectorStatics.GetIsSelectionActiveImpl(element)
+    public class func getIsSelectionActive(_ element: WinUI.DependencyObject!) throws -> Bool {
+        return try _ISelectorStatics.GetIsSelectionActive(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.issynchronizedwithcurrentitemproperty)
     public class var isSynchronizedWithCurrentItemProperty : WinUI.DependencyProperty! {
-        get { try! _ISelectorStatics.get_IsSynchronizedWithCurrentItemPropertyImpl() }
+        get { try! _ISelectorStatics.get_IsSynchronizedWithCurrentItemProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selectedindexproperty)
     public class var selectedIndexProperty : WinUI.DependencyProperty! {
-        get { try! _ISelectorStatics.get_SelectedIndexPropertyImpl() }
+        get { try! _ISelectorStatics.get_SelectedIndexProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selecteditemproperty)
     public class var selectedItemProperty : WinUI.DependencyProperty! {
-        get { try! _ISelectorStatics.get_SelectedItemPropertyImpl() }
+        get { try! _ISelectorStatics.get_SelectedItemProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selectedvaluepathproperty)
     public class var selectedValuePathProperty : WinUI.DependencyProperty! {
-        get { try! _ISelectorStatics.get_SelectedValuePathPropertyImpl() }
+        get { try! _ISelectorStatics.get_SelectedValuePathProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selectedvalueproperty)
     public class var selectedValueProperty : WinUI.DependencyProperty! {
-        get { try! _ISelectorStatics.get_SelectedValuePropertyImpl() }
+        get { try! _ISelectorStatics.get_SelectedValueProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.issynchronizedwithcurrentitem)
     public var isSynchronizedWithCurrentItem : Bool? {
-        get { try! _default.get_IsSynchronizedWithCurrentItemImpl() }
-        set { try! _default.put_IsSynchronizedWithCurrentItemImpl(newValue) }
+        get { try! _default.get_IsSynchronizedWithCurrentItem() }
+        set { try! _default.put_IsSynchronizedWithCurrentItem(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selectedindex)
     public var selectedIndex : Int32 {
-        get { try! _default.get_SelectedIndexImpl() }
-        set { try! _default.put_SelectedIndexImpl(newValue) }
+        get { try! _default.get_SelectedIndex() }
+        set { try! _default.put_SelectedIndex(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selecteditem)
     public var selectedItem : Any! {
-        get { try! _default.get_SelectedItemImpl() }
-        set { try! _default.put_SelectedItemImpl(newValue) }
+        get { try! _default.get_SelectedItem() }
+        set { try! _default.put_SelectedItem(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selectedvalue)
     public var selectedValue : Any! {
-        get { try! _default.get_SelectedValueImpl() }
-        set { try! _default.put_SelectedValueImpl(newValue) }
+        get { try! _default.get_SelectedValue() }
+        set { try! _default.put_SelectedValue(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selectedvaluepath)
     public var selectedValuePath : String {
-        get { try! _default.get_SelectedValuePathImpl() }
-        set { try! _default.put_SelectedValuePathImpl(newValue) }
+        get { try! _default.get_SelectedValuePath() }
+        set { try! _default.put_SelectedValuePath(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selectionchanged)
@@ -2257,25 +1848,14 @@ open class Selector : WinUI.ItemsControl {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChangedImpl($0)
+          return try! this.add_SelectionChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_SelectionChangedImpl($0)
+         try? self?._default.remove_SelectionChanged($0)
        }
       )
     }()
 
-    internal enum IItemsControlOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControlOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsControlOverrides
-        internal typealias Class = Selector
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISelector
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelector
-        }
-    }
-    internal typealias Composable = IItemsControlOverrides
     deinit {
         _default = nil
     }
@@ -2295,12 +1875,6 @@ open class SelectorItem : WinUI.ContentControl {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISelectorItem>?) -> SelectorItem? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2315,37 +1889,26 @@ open class SelectorItem : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISelectorItemFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorItemFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.SelectorItem"))
+    private static var _ISelectorItemFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.SelectorItem")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._ISelectorItemFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.SelectorItemBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ISelectorItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISelectorItemStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorItemStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.SelectorItem"))
+    private static let _ISelectorItemStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.SelectorItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selectoritem.isselectedproperty)
     public class var isSelectedProperty : WinUI.DependencyProperty! {
-        get { try! _ISelectorItemStatics.get_IsSelectedPropertyImpl() }
+        get { try! _ISelectorItemStatics.get_IsSelectedProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selectoritem.isselected)
     public var isSelected : Bool {
-        get { try! _default.get_IsSelectedImpl() }
-        set { try! _default.put_IsSelectedImpl(newValue) }
+        get { try! _default.get_IsSelected() }
+        set { try! _default.put_IsSelected(newValue) }
     }
 
-    internal enum IContentControlOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides
-        internal typealias Class = SelectorItem
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISelectorItem
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorItem
-        }
-    }
-    internal typealias Composable = IContentControlOverrides
     deinit {
         _default = nil
     }
@@ -2365,12 +1928,6 @@ open class SnapPointBase : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISnapPointBase>?) -> SnapPointBase? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2386,19 +1943,8 @@ open class SnapPointBase : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISnapPointBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISnapPointBaseFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.SnapPointBase"))
+    private static var _ISnapPointBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISnapPointBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.SnapPointBase")
 
-    internal enum ISnapPointBase : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = SnapPointBase
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISnapPointBase
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISnapPointBase
-        }
-    }
-    internal typealias Composable = ISnapPointBase
     deinit {
         _default = nil
     }
@@ -2418,44 +1964,38 @@ public final class SplitViewTemplateSettings : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISplitViewTemplateSettings>?) -> SplitViewTemplateSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.splitviewtemplatesettings.compactpanegridlength)
     public var compactPaneGridLength : WinUI.GridLength {
-        get { try! _default.get_CompactPaneGridLengthImpl() }
+        get { try! _default.get_CompactPaneGridLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.splitviewtemplatesettings.negativeopenpanelength)
     public var negativeOpenPaneLength : Double {
-        get { try! _default.get_NegativeOpenPaneLengthImpl() }
+        get { try! _default.get_NegativeOpenPaneLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.splitviewtemplatesettings.negativeopenpanelengthminuscompactlength)
     public var negativeOpenPaneLengthMinusCompactLength : Double {
-        get { try! _default.get_NegativeOpenPaneLengthMinusCompactLengthImpl() }
+        get { try! _default.get_NegativeOpenPaneLengthMinusCompactLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.splitviewtemplatesettings.openpanegridlength)
     public var openPaneGridLength : WinUI.GridLength {
-        get { try! _default.get_OpenPaneGridLengthImpl() }
+        get { try! _default.get_OpenPaneGridLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.splitviewtemplatesettings.openpanelength)
     public var openPaneLength : Double {
-        get { try! _default.get_OpenPaneLengthImpl() }
+        get { try! _default.get_OpenPaneLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.splitviewtemplatesettings.openpanelengthminuscompactlength)
     public var openPaneLengthMinusCompactLength : Double {
-        get { try! _default.get_OpenPaneLengthMinusCompactLengthImpl() }
+        get { try! _default.get_OpenPaneLengthMinusCompactLength() }
     }
 
     deinit {
@@ -2474,12 +2014,6 @@ open class ToggleButton : WinUI.ButtonBase {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleButton>?) -> ToggleButton? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
     }
 
     @_spi(WinRTInternal)
@@ -2502,35 +2036,35 @@ open class ToggleButton : WinUI.ButtonBase {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IToggleButtonFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"))
+    private static var _IToggleButtonFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ToggleButton")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IToggleButtonFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ToggleButtonBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IToggleButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IToggleButtonStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"))
+    private static let _IToggleButtonStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ToggleButton")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.ischeckedproperty)
     public class var isCheckedProperty : WinUI.DependencyProperty! {
-        get { try! _IToggleButtonStatics.get_IsCheckedPropertyImpl() }
+        get { try! _IToggleButtonStatics.get_IsCheckedProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.isthreestateproperty)
     public class var isThreeStateProperty : WinUI.DependencyProperty! {
-        get { try! _IToggleButtonStatics.get_IsThreeStatePropertyImpl() }
+        get { try! _IToggleButtonStatics.get_IsThreeStateProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.ischecked)
     public var isChecked : Bool? {
-        get { try! _default.get_IsCheckedImpl() }
-        set { try! _default.put_IsCheckedImpl(newValue) }
+        get { try! _default.get_IsChecked() }
+        set { try! _default.put_IsChecked(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.isthreestate)
     public var isThreeState : Bool {
-        get { try! _default.get_IsThreeStateImpl() }
-        set { try! _default.put_IsThreeStateImpl(newValue) }
+        get { try! _default.get_IsThreeState() }
+        set { try! _default.put_IsThreeState(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.checked)
@@ -2538,10 +2072,10 @@ open class ToggleButton : WinUI.ButtonBase {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CheckedImpl($0)
+          return try! this.add_Checked($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CheckedImpl($0)
+         try? self?._default.remove_Checked($0)
        }
       )
     }()
@@ -2551,10 +2085,10 @@ open class ToggleButton : WinUI.ButtonBase {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_IndeterminateImpl($0)
+          return try! this.add_Indeterminate($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_IndeterminateImpl($0)
+         try? self?._default.remove_Indeterminate($0)
        }
       )
     }()
@@ -2564,10 +2098,10 @@ open class ToggleButton : WinUI.ButtonBase {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_UncheckedImpl($0)
+          return try! this.add_Unchecked($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_UncheckedImpl($0)
+         try? self?._default.remove_Unchecked($0)
        }
       )
     }()
@@ -2575,20 +2109,9 @@ open class ToggleButton : WinUI.ButtonBase {
     private lazy var _IToggleButtonOverrides: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.ontoggle)
     open func onToggle() throws {
-        try _IToggleButtonOverrides.OnToggleImpl()
+        try _IToggleButtonOverrides.OnToggle()
     }
 
-    internal enum IToggleButtonOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleButtonOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonOverrides
-        internal typealias Class = ToggleButton
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleButton
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButton
-        }
-    }
-    internal typealias Composable = IToggleButtonOverrides
     deinit {
         _default = nil
         _IToggleButtonOverrides = nil
@@ -2609,54 +2132,48 @@ public final class ToggleSwitchTemplateSettings : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleSwitchTemplateSettings>?) -> ToggleSwitchTemplateSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.toggleswitchtemplatesettings.curtaincurrenttooffoffset)
     public var curtainCurrentToOffOffset : Double {
-        get { try! _default.get_CurtainCurrentToOffOffsetImpl() }
+        get { try! _default.get_CurtainCurrentToOffOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.toggleswitchtemplatesettings.curtaincurrenttoonoffset)
     public var curtainCurrentToOnOffset : Double {
-        get { try! _default.get_CurtainCurrentToOnOffsetImpl() }
+        get { try! _default.get_CurtainCurrentToOnOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.toggleswitchtemplatesettings.curtainofftoonoffset)
     public var curtainOffToOnOffset : Double {
-        get { try! _default.get_CurtainOffToOnOffsetImpl() }
+        get { try! _default.get_CurtainOffToOnOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.toggleswitchtemplatesettings.curtainontooffoffset)
     public var curtainOnToOffOffset : Double {
-        get { try! _default.get_CurtainOnToOffOffsetImpl() }
+        get { try! _default.get_CurtainOnToOffOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.toggleswitchtemplatesettings.knobcurrenttooffoffset)
     public var knobCurrentToOffOffset : Double {
-        get { try! _default.get_KnobCurrentToOffOffsetImpl() }
+        get { try! _default.get_KnobCurrentToOffOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.toggleswitchtemplatesettings.knobcurrenttoonoffset)
     public var knobCurrentToOnOffset : Double {
-        get { try! _default.get_KnobCurrentToOnOffsetImpl() }
+        get { try! _default.get_KnobCurrentToOnOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.toggleswitchtemplatesettings.knobofftoonoffset)
     public var knobOffToOnOffset : Double {
-        get { try! _default.get_KnobOffToOnOffsetImpl() }
+        get { try! _default.get_KnobOffToOnOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.toggleswitchtemplatesettings.knobontooffoffset)
     public var knobOnToOffOffset : Double {
-        get { try! _default.get_KnobOnToOffOffsetImpl() }
+        get { try! _default.get_KnobOnToOffOffset() }
     }
 
     deinit {
@@ -2678,24 +2195,18 @@ public final class ToolTipTemplateSettings : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToolTipTemplateSettings>?) -> ToolTipTemplateSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.tooltiptemplatesettings.fromhorizontaloffset)
     public var fromHorizontalOffset : Double {
-        get { try! _default.get_FromHorizontalOffsetImpl() }
+        get { try! _default.get_FromHorizontalOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.tooltiptemplatesettings.fromverticaloffset)
     public var fromVerticalOffset : Double {
-        get { try! _default.get_FromVerticalOffsetImpl() }
+        get { try! _default.get_FromVerticalOffset() }
     }
 
     deinit {
@@ -2717,12 +2228,6 @@ open class ZoomSnapPointBase : WinUI.SnapPointBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIZoomSnapPointBase>?) -> ZoomSnapPointBase? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2737,28 +2242,17 @@ open class ZoomSnapPointBase : WinUI.SnapPointBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IZoomSnapPointBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IZoomSnapPointBaseFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.Primitives.ZoomSnapPointBase"))
+    private static var _IZoomSnapPointBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IZoomSnapPointBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ZoomSnapPointBase")
 
-    internal enum IZoomSnapPointBase : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ZoomSnapPointBase
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIZoomSnapPointBase
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IZoomSnapPointBase
-        }
-    }
-    internal typealias Composable = IZoomSnapPointBase
     deinit {
         _default = nil
     }
 }
 
-public typealias ItemsChangedEventHandler = (Any?, ItemsChangedEventArgs?) -> ()
-public typealias RangeBaseValueChangedEventHandler = (Any?, RangeBaseValueChangedEventArgs?) -> ()
+public typealias ItemsChangedEventHandler = (Any?, ItemsChangedEventArgs?) throws -> ()
+public typealias RangeBaseValueChangedEventHandler = (Any?, RangeBaseValueChangedEventArgs?) throws -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.generatorposition)
-public struct GeneratorPosition: Hashable, Codable {
+public struct GeneratorPosition: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.generatorposition.index)
     public var index: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.generatorposition.offset)
@@ -2767,9 +2261,6 @@ public struct GeneratorPosition: Hashable, Codable {
     public init(index: Int32, offset: Int32) {
         self.index = index
         self.offset = offset
-    }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGeneratorPosition) -> GeneratorPosition {
-        .init(index: abi.Index, offset: abi.Offset)
     }
 }
 
@@ -2883,7 +2374,7 @@ extension WinUI.AnimationDirection {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CAnimationDirection_Bottom
     }
 }
-extension WinUI.AnimationDirection: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AnimationDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ComponentResourceLocation {
     public static var application : WinUI.ComponentResourceLocation {
@@ -2893,7 +2384,7 @@ extension WinUI.ComponentResourceLocation {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CComponentResourceLocation_Nested
     }
 }
-extension WinUI.ComponentResourceLocation: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ComponentResourceLocation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.EdgeTransitionLocation {
     public static var left : WinUI.EdgeTransitionLocation {
@@ -2909,7 +2400,7 @@ extension WinUI.EdgeTransitionLocation {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CEdgeTransitionLocation_Bottom
     }
 }
-extension WinUI.EdgeTransitionLocation: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.EdgeTransitionLocation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.FlyoutPlacementMode {
     public static var top : WinUI.FlyoutPlacementMode {
@@ -2955,7 +2446,7 @@ extension WinUI.FlyoutPlacementMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CFlyoutPlacementMode_Auto
     }
 }
-extension WinUI.FlyoutPlacementMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.FlyoutPlacementMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.FlyoutShowMode {
     public static var auto : WinUI.FlyoutShowMode {
@@ -2971,7 +2462,7 @@ extension WinUI.FlyoutShowMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CFlyoutShowMode_TransientWithDismissOnPointerMoveAway
     }
 }
-extension WinUI.FlyoutShowMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.FlyoutShowMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.GeneratorDirection {
     public static var forward : WinUI.GeneratorDirection {
@@ -2981,7 +2472,7 @@ extension WinUI.GeneratorDirection {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGeneratorDirection_Backward
     }
 }
-extension WinUI.GeneratorDirection: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.GeneratorDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.PlacementMode {
     public static var bottom : WinUI.PlacementMode {
@@ -3000,50 +2491,7 @@ extension WinUI.PlacementMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPlacementMode_Top
     }
 }
-extension WinUI.PlacementMode: @retroactive Hashable, @retroactive Codable {}
-
-extension WinUI.PopupPlacementMode {
-    public static var auto : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Auto
-    }
-    public static var top : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Top
-    }
-    public static var bottom : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Bottom
-    }
-    public static var left : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Left
-    }
-    public static var right : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Right
-    }
-    public static var topEdgeAlignedLeft : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_TopEdgeAlignedLeft
-    }
-    public static var topEdgeAlignedRight : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_TopEdgeAlignedRight
-    }
-    public static var bottomEdgeAlignedLeft : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_BottomEdgeAlignedLeft
-    }
-    public static var bottomEdgeAlignedRight : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_BottomEdgeAlignedRight
-    }
-    public static var leftEdgeAlignedTop : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_LeftEdgeAlignedTop
-    }
-    public static var leftEdgeAlignedBottom : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_LeftEdgeAlignedBottom
-    }
-    public static var rightEdgeAlignedTop : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_RightEdgeAlignedTop
-    }
-    public static var rightEdgeAlignedBottom : WinUI.PopupPlacementMode {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_RightEdgeAlignedBottom
-    }
-}
-extension WinUI.PopupPlacementMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.PlacementMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ScrollSnapPointsAlignment {
     public static var near : WinUI.ScrollSnapPointsAlignment {
@@ -3056,7 +2504,7 @@ extension WinUI.ScrollSnapPointsAlignment {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CScrollSnapPointsAlignment_Far
     }
 }
-extension WinUI.ScrollSnapPointsAlignment: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ScrollSnapPointsAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.SliderSnapsTo {
     public static var stepValues : WinUI.SliderSnapsTo {
@@ -3066,7 +2514,7 @@ extension WinUI.SliderSnapsTo {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CSliderSnapsTo_Ticks
     }
 }
-extension WinUI.SliderSnapsTo: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.SliderSnapsTo: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.SnapPointsAlignment {
     public static var near : WinUI.SnapPointsAlignment {
@@ -3079,7 +2527,7 @@ extension WinUI.SnapPointsAlignment {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CSnapPointsAlignment_Far
     }
 }
-extension WinUI.SnapPointsAlignment: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.SnapPointsAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.TickPlacement {
     public static var none : WinUI.TickPlacement {
@@ -3098,5 +2546,5 @@ extension WinUI.TickPlacement {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CTickPlacement_Inline
     }
 }
-extension WinUI.TickPlacement: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.TickPlacement: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

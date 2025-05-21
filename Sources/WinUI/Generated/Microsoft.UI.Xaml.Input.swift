@@ -40,18 +40,13 @@ public final class AccessKeyDisplayDismissedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayDismissedEventArgs>?) -> AccessKeyDisplayDismissedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {
@@ -73,23 +68,18 @@ public final class AccessKeyDisplayRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayRequestedEventArgs>?) -> AccessKeyDisplayRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.accesskeydisplayrequestedeventargs.pressedkeys)
     public var pressedKeys : String {
-        get { try! _default.get_PressedKeysImpl() }
+        get { try! _default.get_PressedKeys() }
     }
 
     deinit {
@@ -111,24 +101,19 @@ public final class AccessKeyInvokedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyInvokedEventArgs>?) -> AccessKeyInvokedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.AccessKeyInvokedEventArgs")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.AccessKeyInvokedEventArgs")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.accesskeyinvokedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     deinit {
@@ -150,30 +135,24 @@ public final class CharacterReceivedRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs>?) -> CharacterReceivedRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.characterreceivedroutedeventargs.character)
     public var character : Character {
-        get { try! _default.get_CharacterImpl() }
+        get { try! _default.get_Character() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.characterreceivedroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.characterreceivedroutedeventargs.keystatus)
     public var keyStatus : UWP.CorePhysicalKeyStatus {
-        get { try! _default.get_KeyStatusImpl() }
+        get { try! _default.get_KeyStatus() }
     }
 
     deinit {
@@ -195,29 +174,24 @@ public final class ContextRequestedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs>?) -> ContextRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ContextRequestedEventArgs")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.ContextRequestedEventArgs")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.contextrequestedeventargs.trygetposition)
     public func tryGetPosition(_ relativeTo: WinUI.UIElement!, _ point: inout WindowsFoundation.Point) throws -> Bool {
-        try _default.TryGetPositionImpl(relativeTo, &point)
+        try _default.TryGetPosition(relativeTo, &point)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.contextrequestedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     deinit {
@@ -239,34 +213,29 @@ public final class DoubleTappedRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs>?) -> DoubleTappedRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.DoubleTappedRoutedEventArgs")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.DoubleTappedRoutedEventArgs")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.doubletappedroutedeventargs.getposition)
     public func getPosition(_ relativeTo: WinUI.UIElement!) throws -> WindowsFoundation.Point {
-        try _default.GetPositionImpl(relativeTo)
+        try _default.GetPosition(relativeTo)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.doubletappedroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.doubletappedroutedeventargs.pointerdevicetype)
     public var pointerDeviceType : WinAppSDK.PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     deinit {
@@ -288,42 +257,37 @@ public final class FindNextElementOptions : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions>?) -> FindNextElementOptions? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.FindNextElementOptions")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.FindNextElementOptions")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions.exclusionrect)
     public var exclusionRect : WindowsFoundation.Rect {
-        get { try! _default.get_ExclusionRectImpl() }
-        set { try! _default.put_ExclusionRectImpl(newValue) }
+        get { try! _default.get_ExclusionRect() }
+        set { try! _default.put_ExclusionRect(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions.hintrect)
     public var hintRect : WindowsFoundation.Rect {
-        get { try! _default.get_HintRectImpl() }
-        set { try! _default.put_HintRectImpl(newValue) }
+        get { try! _default.get_HintRect() }
+        set { try! _default.put_HintRect(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions.searchroot)
     public var searchRoot : WinUI.DependencyObject! {
-        get { try! _default.get_SearchRootImpl() }
-        set { try! _default.put_SearchRootImpl(newValue) }
+        get { try! _default.get_SearchRoot() }
+        set { try! _default.put_SearchRoot(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions.xyfocusnavigationstrategyoverride)
     public var xyFocusNavigationStrategyOverride : XYFocusNavigationStrategyOverride {
-        get { try! _default.get_XYFocusNavigationStrategyOverrideImpl() }
-        set { try! _default.put_XYFocusNavigationStrategyOverrideImpl(newValue) }
+        get { try! _default.get_XYFocusNavigationStrategyOverride() }
+        set { try! _default.put_XYFocusNavigationStrategyOverride(newValue) }
     }
 
     deinit {
@@ -345,111 +309,105 @@ public final class FocusManager : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManager>?) -> FocusManager? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IFocusManagerStatics: __ABI_Microsoft_UI_Xaml_Input.IFocusManagerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Input.FocusManager"))
+    private static let _IFocusManagerStatics: __ABI_Microsoft_UI_Xaml_Input.IFocusManagerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.FocusManager")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.tryfocusasync)
-    public static func tryFocusAsync(_ element: WinUI.DependencyObject!, _ value: WinUI.FocusState) -> WindowsFoundation.AnyIAsyncOperation<FocusMovementResult?>! {
-        return try! _IFocusManagerStatics.TryFocusAsyncImpl(element, value)
+    public static func tryFocusAsync(_ element: WinUI.DependencyObject!, _ value: WinUI.FocusState) throws -> WindowsFoundation.AnyIAsyncOperation<FocusMovementResult?>! {
+        return try _IFocusManagerStatics.TryFocusAsync(element, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.trymovefocusasync)
-    public static func tryMoveFocusAsync(_ focusNavigationDirection: FocusNavigationDirection) -> WindowsFoundation.AnyIAsyncOperation<FocusMovementResult?>! {
-        return try! _IFocusManagerStatics.TryMoveFocusAsyncImpl(focusNavigationDirection)
+    public static func tryMoveFocusAsync(_ focusNavigationDirection: FocusNavigationDirection) throws -> WindowsFoundation.AnyIAsyncOperation<FocusMovementResult?>! {
+        return try _IFocusManagerStatics.TryMoveFocusAsync(focusNavigationDirection)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.trymovefocusasync)
-    public static func tryMoveFocusAsync(_ focusNavigationDirection: FocusNavigationDirection, _ focusNavigationOptions: FindNextElementOptions!) -> WindowsFoundation.AnyIAsyncOperation<FocusMovementResult?>! {
-        return try! _IFocusManagerStatics.TryMoveFocusWithOptionsAsyncImpl(focusNavigationDirection, focusNavigationOptions)
+    public static func tryMoveFocusAsync(_ focusNavigationDirection: FocusNavigationDirection, _ focusNavigationOptions: FindNextElementOptions!) throws -> WindowsFoundation.AnyIAsyncOperation<FocusMovementResult?>! {
+        return try _IFocusManagerStatics.TryMoveFocusWithOptionsAsync(focusNavigationDirection, focusNavigationOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.trymovefocus)
-    public static func tryMoveFocus(_ focusNavigationDirection: FocusNavigationDirection, _ focusNavigationOptions: FindNextElementOptions!) -> Bool {
-        return try! _IFocusManagerStatics.TryMoveFocusWithOptionsImpl(focusNavigationDirection, focusNavigationOptions)
+    public static func tryMoveFocus(_ focusNavigationDirection: FocusNavigationDirection, _ focusNavigationOptions: FindNextElementOptions!) throws -> Bool {
+        return try _IFocusManagerStatics.TryMoveFocusWithOptions(focusNavigationDirection, focusNavigationOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.findnextelement)
-    public static func findNextElement(_ focusNavigationDirection: FocusNavigationDirection) -> WinUI.DependencyObject! {
-        return try! _IFocusManagerStatics.FindNextElementImpl(focusNavigationDirection)
+    public static func findNextElement(_ focusNavigationDirection: FocusNavigationDirection) throws -> WinUI.DependencyObject! {
+        return try _IFocusManagerStatics.FindNextElement(focusNavigationDirection)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.findfirstfocusableelement)
-    public static func findFirstFocusableElement(_ searchScope: WinUI.DependencyObject!) -> WinUI.DependencyObject! {
-        return try! _IFocusManagerStatics.FindFirstFocusableElementImpl(searchScope)
+    public static func findFirstFocusableElement(_ searchScope: WinUI.DependencyObject!) throws -> WinUI.DependencyObject! {
+        return try _IFocusManagerStatics.FindFirstFocusableElement(searchScope)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.findlastfocusableelement)
-    public static func findLastFocusableElement(_ searchScope: WinUI.DependencyObject!) -> WinUI.DependencyObject! {
-        return try! _IFocusManagerStatics.FindLastFocusableElementImpl(searchScope)
+    public static func findLastFocusableElement(_ searchScope: WinUI.DependencyObject!) throws -> WinUI.DependencyObject! {
+        return try _IFocusManagerStatics.FindLastFocusableElement(searchScope)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.findnextelement)
-    public static func findNextElement(_ focusNavigationDirection: FocusNavigationDirection, _ focusNavigationOptions: FindNextElementOptions!) -> WinUI.DependencyObject! {
-        return try! _IFocusManagerStatics.FindNextElementWithOptionsImpl(focusNavigationDirection, focusNavigationOptions)
+    public static func findNextElement(_ focusNavigationDirection: FocusNavigationDirection, _ focusNavigationOptions: FindNextElementOptions!) throws -> WinUI.DependencyObject! {
+        return try _IFocusManagerStatics.FindNextElementWithOptions(focusNavigationDirection, focusNavigationOptions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.findnextfocusableelement)
-    public static func findNextFocusableElement(_ focusNavigationDirection: FocusNavigationDirection) -> WinUI.UIElement! {
-        return try! _IFocusManagerStatics.FindNextFocusableElementImpl(focusNavigationDirection)
+    public static func findNextFocusableElement(_ focusNavigationDirection: FocusNavigationDirection) throws -> WinUI.UIElement! {
+        return try _IFocusManagerStatics.FindNextFocusableElement(focusNavigationDirection)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.findnextfocusableelement)
-    public static func findNextFocusableElement(_ focusNavigationDirection: FocusNavigationDirection, _ hintRect: WindowsFoundation.Rect) -> WinUI.UIElement! {
-        return try! _IFocusManagerStatics.FindNextFocusableElementWithHintImpl(focusNavigationDirection, hintRect)
+    public static func findNextFocusableElement(_ focusNavigationDirection: FocusNavigationDirection, _ hintRect: WindowsFoundation.Rect) throws -> WinUI.UIElement! {
+        return try _IFocusManagerStatics.FindNextFocusableElementWithHint(focusNavigationDirection, hintRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.trymovefocus)
-    public static func tryMoveFocus(_ focusNavigationDirection: FocusNavigationDirection) -> Bool {
-        return try! _IFocusManagerStatics.TryMoveFocusImpl(focusNavigationDirection)
+    public static func tryMoveFocus(_ focusNavigationDirection: FocusNavigationDirection) throws -> Bool {
+        return try _IFocusManagerStatics.TryMoveFocus(focusNavigationDirection)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.getfocusedelement)
-    public static func getFocusedElement() -> Any! {
-        return try! _IFocusManagerStatics.GetFocusedElementImpl()
+    public static func getFocusedElement() throws -> Any! {
+        return try _IFocusManagerStatics.GetFocusedElement()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.getfocusedelement)
-    public static func getFocusedElement(_ xamlRoot: WinUI.XamlRoot!) -> Any! {
-        return try! _IFocusManagerStatics.GetFocusedElementWithRootImpl(xamlRoot)
+    public static func getFocusedElement(_ xamlRoot: WinUI.XamlRoot!) throws -> Any! {
+        return try _IFocusManagerStatics.GetFocusedElementWithRoot(xamlRoot)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.gettingfocus)
     public static var gettingFocus : Event<EventHandler<GettingFocusEventArgs?>> = {
       .init(
-        add: { try! _IFocusManagerStatics.add_GettingFocusImpl($0) },
-        remove: { try? _IFocusManagerStatics.remove_GettingFocusImpl($0) }
+        add: { try! _IFocusManagerStatics.add_GettingFocus($0) },
+        remove: { try? _IFocusManagerStatics.remove_GettingFocus($0) }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.gotfocus)
     public static var gotFocus : Event<EventHandler<FocusManagerGotFocusEventArgs?>> = {
       .init(
-        add: { try! _IFocusManagerStatics.add_GotFocusImpl($0) },
-        remove: { try? _IFocusManagerStatics.remove_GotFocusImpl($0) }
+        add: { try! _IFocusManagerStatics.add_GotFocus($0) },
+        remove: { try? _IFocusManagerStatics.remove_GotFocus($0) }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.losingfocus)
     public static var losingFocus : Event<EventHandler<LosingFocusEventArgs?>> = {
       .init(
-        add: { try! _IFocusManagerStatics.add_LosingFocusImpl($0) },
-        remove: { try? _IFocusManagerStatics.remove_LosingFocusImpl($0) }
+        add: { try! _IFocusManagerStatics.add_LosingFocus($0) },
+        remove: { try? _IFocusManagerStatics.remove_LosingFocus($0) }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.lostfocus)
     public static var lostFocus : Event<EventHandler<FocusManagerLostFocusEventArgs?>> = {
       .init(
-        add: { try! _IFocusManagerStatics.add_LostFocusImpl($0) },
-        remove: { try? _IFocusManagerStatics.remove_LostFocusImpl($0) }
+        add: { try! _IFocusManagerStatics.add_LostFocus($0) },
+        remove: { try? _IFocusManagerStatics.remove_LostFocus($0) }
       )
     }()
 
@@ -472,24 +430,18 @@ public final class FocusManagerGotFocusEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerGotFocusEventArgs>?) -> FocusManagerGotFocusEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanagergotfocuseventargs.correlationid)
     public var correlationId : Foundation.UUID {
-        get { try! _default.get_CorrelationIdImpl() }
+        get { try! _default.get_CorrelationId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanagergotfocuseventargs.newfocusedelement)
     public var newFocusedElement : WinUI.DependencyObject! {
-        get { try! _default.get_NewFocusedElementImpl() }
+        get { try! _default.get_NewFocusedElement() }
     }
 
     deinit {
@@ -511,24 +463,18 @@ public final class FocusManagerLostFocusEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerLostFocusEventArgs>?) -> FocusManagerLostFocusEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanagerlostfocuseventargs.correlationid)
     public var correlationId : Foundation.UUID {
-        get { try! _default.get_CorrelationIdImpl() }
+        get { try! _default.get_CorrelationId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanagerlostfocuseventargs.oldfocusedelement)
     public var oldFocusedElement : WinUI.DependencyObject! {
-        get { try! _default.get_OldFocusedElementImpl() }
+        get { try! _default.get_OldFocusedElement() }
     }
 
     deinit {
@@ -550,19 +496,13 @@ public final class FocusMovementResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusMovementResult>?) -> FocusMovementResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmovementresult.succeeded)
     public var succeeded : Bool {
-        get { try! _default.get_SucceededImpl() }
+        get { try! _default.get_Succeeded() }
     }
 
     deinit {
@@ -584,67 +524,61 @@ public final class GettingFocusEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs>?) -> GettingFocusEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.trycancel)
     public func tryCancel() throws -> Bool {
-        try _default.TryCancelImpl()
+        try _default.TryCancel()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.trysetnewfocusedelement)
     public func trySetNewFocusedElement(_ element: WinUI.DependencyObject!) throws -> Bool {
-        try _default.TrySetNewFocusedElementImpl(element)
+        try _default.TrySetNewFocusedElement(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.cancel)
     public var cancel : Bool {
-        get { try! _default.get_CancelImpl() }
-        set { try! _default.put_CancelImpl(newValue) }
+        get { try! _default.get_Cancel() }
+        set { try! _default.put_Cancel(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.correlationid)
     public var correlationId : Foundation.UUID {
-        get { try! _default.get_CorrelationIdImpl() }
+        get { try! _default.get_CorrelationId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.direction)
     public var direction : FocusNavigationDirection {
-        get { try! _default.get_DirectionImpl() }
+        get { try! _default.get_Direction() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.focusstate)
     public var focusState : WinUI.FocusState {
-        get { try! _default.get_FocusStateImpl() }
+        get { try! _default.get_FocusState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.inputdevice)
     public var inputDevice : FocusInputDeviceKind {
-        get { try! _default.get_InputDeviceImpl() }
+        get { try! _default.get_InputDevice() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.newfocusedelement)
     public var newFocusedElement : WinUI.DependencyObject! {
-        get { try! _default.get_NewFocusedElementImpl() }
-        set { try! _default.put_NewFocusedElementImpl(newValue) }
+        get { try! _default.get_NewFocusedElement() }
+        set { try! _default.put_NewFocusedElement(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs.oldfocusedelement)
     public var oldFocusedElement : WinUI.DependencyObject! {
-        get { try! _default.get_OldFocusedElementImpl() }
+        get { try! _default.get_OldFocusedElement() }
     }
 
     deinit {
@@ -666,39 +600,34 @@ public final class HoldingRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs>?) -> HoldingRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.HoldingRoutedEventArgs")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.HoldingRoutedEventArgs")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.holdingroutedeventargs.getposition)
     public func getPosition(_ relativeTo: WinUI.UIElement!) throws -> WindowsFoundation.Point {
-        try _default.GetPositionImpl(relativeTo)
+        try _default.GetPosition(relativeTo)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.holdingroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.holdingroutedeventargs.holdingstate)
     public var holdingState : WinAppSDK.HoldingState {
-        get { try! _default.get_HoldingStateImpl() }
+        get { try! _default.get_HoldingState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.holdingroutedeventargs.pointerdevicetype)
     public var pointerDeviceType : WinAppSDK.PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     deinit {
@@ -720,26 +649,20 @@ public final class InertiaExpansionBehavior : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior>?) -> InertiaExpansionBehavior? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiaexpansionbehavior.desireddeceleration)
     public var desiredDeceleration : Double {
-        get { try! _default.get_DesiredDecelerationImpl() }
-        set { try! _default.put_DesiredDecelerationImpl(newValue) }
+        get { try! _default.get_DesiredDeceleration() }
+        set { try! _default.put_DesiredDeceleration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiaexpansionbehavior.desiredexpansion)
     public var desiredExpansion : Double {
-        get { try! _default.get_DesiredExpansionImpl() }
-        set { try! _default.put_DesiredExpansionImpl(newValue) }
+        get { try! _default.get_DesiredExpansion() }
+        set { try! _default.put_DesiredExpansion(newValue) }
     }
 
     deinit {
@@ -761,26 +684,20 @@ public final class InertiaRotationBehavior : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior>?) -> InertiaRotationBehavior? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiarotationbehavior.desireddeceleration)
     public var desiredDeceleration : Double {
-        get { try! _default.get_DesiredDecelerationImpl() }
-        set { try! _default.put_DesiredDecelerationImpl(newValue) }
+        get { try! _default.get_DesiredDeceleration() }
+        set { try! _default.put_DesiredDeceleration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiarotationbehavior.desiredrotation)
     public var desiredRotation : Double {
-        get { try! _default.get_DesiredRotationImpl() }
-        set { try! _default.put_DesiredRotationImpl(newValue) }
+        get { try! _default.get_DesiredRotation() }
+        set { try! _default.put_DesiredRotation(newValue) }
     }
 
     deinit {
@@ -802,26 +719,20 @@ public final class InertiaTranslationBehavior : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior>?) -> InertiaTranslationBehavior? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiatranslationbehavior.desireddeceleration)
     public var desiredDeceleration : Double {
-        get { try! _default.get_DesiredDecelerationImpl() }
-        set { try! _default.put_DesiredDecelerationImpl(newValue) }
+        get { try! _default.get_DesiredDeceleration() }
+        set { try! _default.put_DesiredDeceleration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiatranslationbehavior.desireddisplacement)
     public var desiredDisplacement : Double {
-        get { try! _default.get_DesiredDisplacementImpl() }
-        set { try! _default.put_DesiredDisplacementImpl(newValue) }
+        get { try! _default.get_DesiredDisplacement() }
+        set { try! _default.put_DesiredDisplacement(newValue) }
     }
 
     deinit {
@@ -843,23 +754,18 @@ public final class InputScope : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScope>?) -> InputScope? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.InputScope")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.InputScope")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inputscope.names)
     public var names : WindowsFoundation.AnyIVector<InputScopeName?>! {
-        get { try! _default.get_NamesImpl() }
+        get { try! _default.get_Names() }
     }
 
     deinit {
@@ -881,29 +787,24 @@ public final class InputScopeName : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeName>?) -> InputScopeName? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.InputScopeName")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.InputScopeName")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IInputScopeNameFactory: __ABI_Microsoft_UI_Xaml_Input.IInputScopeNameFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Input.InputScopeName"))
+    private static let _IInputScopeNameFactory: __ABI_Microsoft_UI_Xaml_Input.IInputScopeNameFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.InputScopeName")
     public init(_ nameValue: InputScopeNameValue) {
-        super.init(fromAbi: try! Self._IInputScopeNameFactory.CreateInstanceImpl(nameValue))
+        super.init(fromAbi: try! Self._IInputScopeNameFactory.CreateInstance(nameValue))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inputscopename.namevalue)
     public var nameValue : InputScopeNameValue {
-        get { try! _default.get_NameValueImpl() }
-        set { try! _default.put_NameValueImpl(newValue) }
+        get { try! _default.get_NameValue() }
+        set { try! _default.put_NameValue(newValue) }
     }
 
     deinit {
@@ -925,40 +826,34 @@ public final class KeyRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs>?) -> KeyRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs.deviceid)
     public var deviceId : String {
-        get { try! _default.get_DeviceIdImpl() }
+        get { try! _default.get_DeviceId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs.key)
     public var key : UWP.VirtualKey {
-        get { try! _default.get_KeyImpl() }
+        get { try! _default.get_Key() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs.keystatus)
     public var keyStatus : UWP.CorePhysicalKeyStatus {
-        get { try! _default.get_KeyStatusImpl() }
+        get { try! _default.get_KeyStatus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs.originalkey)
     public var originalKey : UWP.VirtualKey {
-        get { try! _default.get_OriginalKeyImpl() }
+        get { try! _default.get_OriginalKey() }
     }
 
     deinit {
@@ -980,12 +875,6 @@ open class KeyboardAccelerator : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator>?) -> KeyboardAccelerator? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1000,57 +889,57 @@ open class KeyboardAccelerator : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IKeyboardAcceleratorFactory : __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Input.KeyboardAccelerator"))
+    private static var _IKeyboardAcceleratorFactory : __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.KeyboardAccelerator")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IKeyboardAcceleratorFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Input.KeyboardAcceleratorBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IKeyboardAcceleratorFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IKeyboardAcceleratorStatics: __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Input.KeyboardAccelerator"))
+    private static let _IKeyboardAcceleratorStatics: __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.KeyboardAccelerator")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.isenabledproperty)
     public class var isEnabledProperty : WinUI.DependencyProperty! {
-        get { try! _IKeyboardAcceleratorStatics.get_IsEnabledPropertyImpl() }
+        get { try! _IKeyboardAcceleratorStatics.get_IsEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.keyproperty)
     public class var keyProperty : WinUI.DependencyProperty! {
-        get { try! _IKeyboardAcceleratorStatics.get_KeyPropertyImpl() }
+        get { try! _IKeyboardAcceleratorStatics.get_KeyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.modifiersproperty)
     public class var modifiersProperty : WinUI.DependencyProperty! {
-        get { try! _IKeyboardAcceleratorStatics.get_ModifiersPropertyImpl() }
+        get { try! _IKeyboardAcceleratorStatics.get_ModifiersProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.scopeownerproperty)
     public class var scopeOwnerProperty : WinUI.DependencyProperty! {
-        get { try! _IKeyboardAcceleratorStatics.get_ScopeOwnerPropertyImpl() }
+        get { try! _IKeyboardAcceleratorStatics.get_ScopeOwnerProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.isenabled)
     public var isEnabled : Bool {
-        get { try! _default.get_IsEnabledImpl() }
-        set { try! _default.put_IsEnabledImpl(newValue) }
+        get { try! _default.get_IsEnabled() }
+        set { try! _default.put_IsEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.key)
     public var key : UWP.VirtualKey {
-        get { try! _default.get_KeyImpl() }
-        set { try! _default.put_KeyImpl(newValue) }
+        get { try! _default.get_Key() }
+        set { try! _default.put_Key(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.modifiers)
     public var modifiers : UWP.VirtualKeyModifiers {
-        get { try! _default.get_ModifiersImpl() }
-        set { try! _default.put_ModifiersImpl(newValue) }
+        get { try! _default.get_Modifiers() }
+        set { try! _default.put_Modifiers(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.scopeowner)
     public var scopeOwner : WinUI.DependencyObject! {
-        get { try! _default.get_ScopeOwnerImpl() }
-        set { try! _default.put_ScopeOwnerImpl(newValue) }
+        get { try! _default.get_ScopeOwner() }
+        set { try! _default.put_ScopeOwner(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.invoked)
@@ -1058,25 +947,14 @@ open class KeyboardAccelerator : WinUI.DependencyObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_InvokedImpl($0)
+          return try! this.add_Invoked($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_InvokedImpl($0)
+         try? self?._default.remove_Invoked($0)
        }
       )
     }()
 
-    internal enum IKeyboardAccelerator : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = KeyboardAccelerator
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IKeyboardAccelerator
-        }
-    }
-    internal typealias Composable = IKeyboardAccelerator
     deinit {
         _default = nil
     }
@@ -1096,30 +974,24 @@ public final class KeyboardAcceleratorInvokedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs>?) -> KeyboardAcceleratorInvokedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardacceleratorinvokedeventargs.element)
     public var element : WinUI.DependencyObject! {
-        get { try! _default.get_ElementImpl() }
+        get { try! _default.get_Element() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardacceleratorinvokedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardacceleratorinvokedeventargs.keyboardaccelerator)
     public var keyboardAccelerator : KeyboardAccelerator! {
-        get { try! _default.get_KeyboardAcceleratorImpl() }
+        get { try! _default.get_KeyboardAccelerator() }
     }
 
     deinit {
@@ -1141,67 +1013,61 @@ public final class LosingFocusEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs>?) -> LosingFocusEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.trycancel)
     public func tryCancel() throws -> Bool {
-        try _default.TryCancelImpl()
+        try _default.TryCancel()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.trysetnewfocusedelement)
     public func trySetNewFocusedElement(_ element: WinUI.DependencyObject!) throws -> Bool {
-        try _default.TrySetNewFocusedElementImpl(element)
+        try _default.TrySetNewFocusedElement(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.cancel)
     public var cancel : Bool {
-        get { try! _default.get_CancelImpl() }
-        set { try! _default.put_CancelImpl(newValue) }
+        get { try! _default.get_Cancel() }
+        set { try! _default.put_Cancel(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.correlationid)
     public var correlationId : Foundation.UUID {
-        get { try! _default.get_CorrelationIdImpl() }
+        get { try! _default.get_CorrelationId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.direction)
     public var direction : FocusNavigationDirection {
-        get { try! _default.get_DirectionImpl() }
+        get { try! _default.get_Direction() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.focusstate)
     public var focusState : WinUI.FocusState {
-        get { try! _default.get_FocusStateImpl() }
+        get { try! _default.get_FocusState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.inputdevice)
     public var inputDevice : FocusInputDeviceKind {
-        get { try! _default.get_InputDeviceImpl() }
+        get { try! _default.get_InputDevice() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.newfocusedelement)
     public var newFocusedElement : WinUI.DependencyObject! {
-        get { try! _default.get_NewFocusedElementImpl() }
-        set { try! _default.put_NewFocusedElementImpl(newValue) }
+        get { try! _default.get_NewFocusedElement() }
+        set { try! _default.put_NewFocusedElement(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs.oldfocusedelement)
     public var oldFocusedElement : WinUI.DependencyObject! {
-        get { try! _default.get_OldFocusedElementImpl() }
+        get { try! _default.get_OldFocusedElement() }
     }
 
     deinit {
@@ -1223,54 +1089,49 @@ public final class ManipulationCompletedRoutedEventArgs : WinUI.RoutedEventArgs 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs>?) -> ManipulationCompletedRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationcompletedroutedeventargs.container)
     public var container : WinUI.UIElement! {
-        get { try! _default.get_ContainerImpl() }
+        get { try! _default.get_Container() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationcompletedroutedeventargs.cumulative)
     public var cumulative : WinAppSDK.ManipulationDelta {
-        get { try! _default.get_CumulativeImpl() }
+        get { try! _default.get_Cumulative() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationcompletedroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationcompletedroutedeventargs.isinertial)
     public var isInertial : Bool {
-        get { try! _default.get_IsInertialImpl() }
+        get { try! _default.get_IsInertial() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationcompletedroutedeventargs.pointerdevicetype)
     public var pointerDeviceType : WinAppSDK.PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationcompletedroutedeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationcompletedroutedeventargs.velocities)
     public var velocities : WinAppSDK.ManipulationVelocities {
-        get { try! _default.get_VelocitiesImpl() }
+        get { try! _default.get_Velocities() }
     }
 
     deinit {
@@ -1292,64 +1153,59 @@ public final class ManipulationDeltaRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs>?) -> ManipulationDeltaRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs.complete)
     public func complete() throws {
-        try _default.CompleteImpl()
+        try _default.Complete()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs.container)
     public var container : WinUI.UIElement! {
-        get { try! _default.get_ContainerImpl() }
+        get { try! _default.get_Container() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs.cumulative)
     public var cumulative : WinAppSDK.ManipulationDelta {
-        get { try! _default.get_CumulativeImpl() }
+        get { try! _default.get_Cumulative() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs.delta)
     public var delta : WinAppSDK.ManipulationDelta {
-        get { try! _default.get_DeltaImpl() }
+        get { try! _default.get_Delta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs.isinertial)
     public var isInertial : Bool {
-        get { try! _default.get_IsInertialImpl() }
+        get { try! _default.get_IsInertial() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs.pointerdevicetype)
     public var pointerDeviceType : WinAppSDK.PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs.velocities)
     public var velocities : WinAppSDK.ManipulationVelocities {
-        get { try! _default.get_VelocitiesImpl() }
+        get { try! _default.get_Velocities() }
     }
 
     deinit {
@@ -1371,67 +1227,62 @@ public final class ManipulationInertiaStartingRoutedEventArgs : WinUI.RoutedEven
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs>?) -> ManipulationInertiaStartingRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs.container)
     public var container : WinUI.UIElement! {
-        get { try! _default.get_ContainerImpl() }
+        get { try! _default.get_Container() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs.cumulative)
     public var cumulative : WinAppSDK.ManipulationDelta {
-        get { try! _default.get_CumulativeImpl() }
+        get { try! _default.get_Cumulative() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs.delta)
     public var delta : WinAppSDK.ManipulationDelta {
-        get { try! _default.get_DeltaImpl() }
+        get { try! _default.get_Delta() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs.expansionbehavior)
     public var expansionBehavior : InertiaExpansionBehavior! {
-        get { try! _default.get_ExpansionBehaviorImpl() }
-        set { try! _default.put_ExpansionBehaviorImpl(newValue) }
+        get { try! _default.get_ExpansionBehavior() }
+        set { try! _default.put_ExpansionBehavior(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs.pointerdevicetype)
     public var pointerDeviceType : WinAppSDK.PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs.rotationbehavior)
     public var rotationBehavior : InertiaRotationBehavior! {
-        get { try! _default.get_RotationBehaviorImpl() }
-        set { try! _default.put_RotationBehaviorImpl(newValue) }
+        get { try! _default.get_RotationBehavior() }
+        set { try! _default.put_RotationBehavior(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs.translationbehavior)
     public var translationBehavior : InertiaTranslationBehavior! {
-        get { try! _default.get_TranslationBehaviorImpl() }
-        set { try! _default.put_TranslationBehaviorImpl(newValue) }
+        get { try! _default.get_TranslationBehavior() }
+        set { try! _default.put_TranslationBehavior(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs.velocities)
     public var velocities : WinAppSDK.ManipulationVelocities {
-        get { try! _default.get_VelocitiesImpl() }
+        get { try! _default.get_Velocities() }
     }
 
     deinit {
@@ -1453,35 +1304,30 @@ public final class ManipulationPivot : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot>?) -> ManipulationPivot? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationPivot")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.ManipulationPivot")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IManipulationPivotFactory: __ABI_Microsoft_UI_Xaml_Input.IManipulationPivotFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Input.ManipulationPivot"))
+    private static let _IManipulationPivotFactory: __ABI_Microsoft_UI_Xaml_Input.IManipulationPivotFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationPivot")
     public init(_ center: WindowsFoundation.Point, _ radius: Double) {
-        super.init(try! Self._IManipulationPivotFactory.CreateInstanceWithCenterAndRadiusImpl(center, radius))
+        super.init(try! Self._IManipulationPivotFactory.CreateInstanceWithCenterAndRadius(center, radius))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationpivot.center)
     public var center : WindowsFoundation.Point {
-        get { try! _default.get_CenterImpl() }
-        set { try! _default.put_CenterImpl(newValue) }
+        get { try! _default.get_Center() }
+        set { try! _default.put_Center(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationpivot.radius)
     public var radius : Double {
-        get { try! _default.get_RadiusImpl() }
-        set { try! _default.put_RadiusImpl(newValue) }
+        get { try! _default.get_Radius() }
+        set { try! _default.put_Radius(newValue) }
     }
 
     deinit {
@@ -1503,12 +1349,6 @@ open class ManipulationStartedRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs>?) -> ManipulationStartedRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1523,56 +1363,45 @@ open class ManipulationStartedRoutedEventArgs : WinUI.RoutedEventArgs {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IManipulationStartedRoutedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Input.IManipulationStartedRoutedEventArgsFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Input.ManipulationStartedRoutedEventArgs"))
+    private static var _IManipulationStartedRoutedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Input.IManipulationStartedRoutedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationStartedRoutedEventArgs")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IManipulationStartedRoutedEventArgsFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Input.ManipulationStartedRoutedEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IManipulationStartedRoutedEventArgsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartedroutedeventargs.complete)
     public func complete() throws {
-        try _default.CompleteImpl()
+        try _default.Complete()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartedroutedeventargs.container)
     public var container : WinUI.UIElement! {
-        get { try! _default.get_ContainerImpl() }
+        get { try! _default.get_Container() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartedroutedeventargs.cumulative)
     public var cumulative : WinAppSDK.ManipulationDelta {
-        get { try! _default.get_CumulativeImpl() }
+        get { try! _default.get_Cumulative() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartedroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartedroutedeventargs.pointerdevicetype)
     public var pointerDeviceType : WinAppSDK.PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartedroutedeventargs.position)
     public var position : WindowsFoundation.Point {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
-    internal enum IManipulationStartedRoutedEventArgs : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ManipulationStartedRoutedEventArgs
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationStartedRoutedEventArgs
-        }
-    }
-    internal typealias Composable = IManipulationStartedRoutedEventArgs
     deinit {
         _default = nil
     }
@@ -1592,42 +1421,37 @@ public final class ManipulationStartingRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs>?) -> ManipulationStartingRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationStartingRoutedEventArgs")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.ManipulationStartingRoutedEventArgs")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartingroutedeventargs.container)
     public var container : WinUI.UIElement! {
-        get { try! _default.get_ContainerImpl() }
-        set { try! _default.put_ContainerImpl(newValue) }
+        get { try! _default.get_Container() }
+        set { try! _default.put_Container(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartingroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartingroutedeventargs.mode)
     public var mode : ManipulationModes {
-        get { try! _default.get_ModeImpl() }
-        set { try! _default.put_ModeImpl(newValue) }
+        get { try! _default.get_Mode() }
+        set { try! _default.put_Mode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartingroutedeventargs.pivot)
     public var pivot : ManipulationPivot! {
-        get { try! _default.get_PivotImpl() }
-        set { try! _default.put_PivotImpl(newValue) }
+        get { try! _default.get_Pivot() }
+        set { try! _default.put_Pivot(newValue) }
     }
 
     deinit {
@@ -1649,30 +1473,24 @@ public final class NoFocusCandidateFoundEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs>?) -> NoFocusCandidateFoundEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.nofocuscandidatefoundeventargs.direction)
     public var direction : FocusNavigationDirection {
-        get { try! _default.get_DirectionImpl() }
+        get { try! _default.get_Direction() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.nofocuscandidatefoundeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.nofocuscandidatefoundeventargs.inputdevice)
     public var inputDevice : FocusInputDeviceKind {
-        get { try! _default.get_InputDeviceImpl() }
+        get { try! _default.get_InputDevice() }
     }
 
     deinit {
@@ -1694,34 +1512,28 @@ public final class Pointer : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer>?) -> Pointer? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointer.isincontact)
     public var isInContact : Bool {
-        get { try! _default.get_IsInContactImpl() }
+        get { try! _default.get_IsInContact() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointer.isinrange)
     public var isInRange : Bool {
-        get { try! _default.get_IsInRangeImpl() }
+        get { try! _default.get_IsInRange() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointer.pointerdevicetype)
     public var pointerDeviceType : WinAppSDK.PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointer.pointerid)
     public var pointerId : UInt32 {
-        get { try! _default.get_PointerIdImpl() }
+        get { try! _default.get_PointerId() }
     }
 
     deinit {
@@ -1743,45 +1555,39 @@ public final class PointerRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs>?) -> PointerRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getcurrentpoint)
     public func getCurrentPoint(_ relativeTo: WinUI.UIElement!) throws -> WinAppSDK.PointerPoint! {
-        try _default.GetCurrentPointImpl(relativeTo)
+        try _default.GetCurrentPoint(relativeTo)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getintermediatepoints)
     public func getIntermediatePoints(_ relativeTo: WinUI.UIElement!) throws -> WindowsFoundation.AnyIVector<WinAppSDK.PointerPoint?>! {
-        try _default.GetIntermediatePointsImpl(relativeTo)
+        try _default.GetIntermediatePoints(relativeTo)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.isgenerated)
     public var isGenerated : Bool {
-        get { try! _default.get_IsGeneratedImpl() }
+        get { try! _default.get_IsGenerated() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.keymodifiers)
     public var keyModifiers : UWP.VirtualKeyModifiers {
-        get { try! _default.get_KeyModifiersImpl() }
+        get { try! _default.get_KeyModifiers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.pointer)
     public var pointer : Pointer! {
-        get { try! _default.get_PointerImpl() }
+        get { try! _default.get_Pointer() }
     }
 
     deinit {
@@ -1803,30 +1609,24 @@ public final class ProcessKeyboardAcceleratorEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs>?) -> ProcessKeyboardAcceleratorEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.processkeyboardacceleratoreventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.processkeyboardacceleratoreventargs.key)
     public var key : UWP.VirtualKey {
-        get { try! _default.get_KeyImpl() }
+        get { try! _default.get_Key() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.processkeyboardacceleratoreventargs.modifiers)
     public var modifiers : UWP.VirtualKeyModifiers {
-        get { try! _default.get_ModifiersImpl() }
+        get { try! _default.get_Modifiers() }
     }
 
     deinit {
@@ -1848,34 +1648,29 @@ public final class RightTappedRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs>?) -> RightTappedRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.RightTappedRoutedEventArgs")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.RightTappedRoutedEventArgs")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.righttappedroutedeventargs.getposition)
     public func getPosition(_ relativeTo: WinUI.UIElement!) throws -> WindowsFoundation.Point {
-        try _default.GetPositionImpl(relativeTo)
+        try _default.GetPosition(relativeTo)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.righttappedroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.righttappedroutedeventargs.pointerdevicetype)
     public var pointerDeviceType : WinAppSDK.PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     deinit {
@@ -1897,34 +1692,29 @@ public final class TappedRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs>?) -> TappedRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.TappedRoutedEventArgs")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Input.TappedRoutedEventArgs")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.tappedroutedeventargs.getposition)
     public func getPosition(_ relativeTo: WinUI.UIElement!) throws -> WindowsFoundation.Point {
-        try _default.GetPositionImpl(relativeTo)
+        try _default.GetPosition(relativeTo)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.tappedroutedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.tappedroutedeventargs.pointerdevicetype)
     public var pointerDeviceType : WinAppSDK.PointerDeviceType {
-        get { try! _default.get_PointerDeviceTypeImpl() }
+        get { try! _default.get_PointerDeviceType() }
     }
 
     deinit {
@@ -1932,17 +1722,17 @@ public final class TappedRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 }
 
-public typealias DoubleTappedEventHandler = (Any?, DoubleTappedRoutedEventArgs?) -> ()
-public typealias HoldingEventHandler = (Any?, HoldingRoutedEventArgs?) -> ()
-public typealias KeyEventHandler = (Any?, KeyRoutedEventArgs?) -> ()
-public typealias ManipulationCompletedEventHandler = (Any?, ManipulationCompletedRoutedEventArgs?) -> ()
-public typealias ManipulationDeltaEventHandler = (Any?, ManipulationDeltaRoutedEventArgs?) -> ()
-public typealias ManipulationInertiaStartingEventHandler = (Any?, ManipulationInertiaStartingRoutedEventArgs?) -> ()
-public typealias ManipulationStartedEventHandler = (Any?, ManipulationStartedRoutedEventArgs?) -> ()
-public typealias ManipulationStartingEventHandler = (Any?, ManipulationStartingRoutedEventArgs?) -> ()
-public typealias PointerEventHandler = (Any?, PointerRoutedEventArgs?) -> ()
-public typealias RightTappedEventHandler = (Any?, RightTappedRoutedEventArgs?) -> ()
-public typealias TappedEventHandler = (Any?, TappedRoutedEventArgs?) -> ()
+public typealias DoubleTappedEventHandler = (Any?, DoubleTappedRoutedEventArgs?) throws -> ()
+public typealias HoldingEventHandler = (Any?, HoldingRoutedEventArgs?) throws -> ()
+public typealias KeyEventHandler = (Any?, KeyRoutedEventArgs?) throws -> ()
+public typealias ManipulationCompletedEventHandler = (Any?, ManipulationCompletedRoutedEventArgs?) throws -> ()
+public typealias ManipulationDeltaEventHandler = (Any?, ManipulationDeltaRoutedEventArgs?) throws -> ()
+public typealias ManipulationInertiaStartingEventHandler = (Any?, ManipulationInertiaStartingRoutedEventArgs?) throws -> ()
+public typealias ManipulationStartedEventHandler = (Any?, ManipulationStartedRoutedEventArgs?) throws -> ()
+public typealias ManipulationStartingEventHandler = (Any?, ManipulationStartingRoutedEventArgs?) throws -> ()
+public typealias PointerEventHandler = (Any?, PointerRoutedEventArgs?) throws -> ()
+public typealias RightTappedEventHandler = (Any?, RightTappedRoutedEventArgs?) throws -> ()
+public typealias TappedEventHandler = (Any?, TappedRoutedEventArgs?) throws -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand)
 public protocol ICommand : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand.canexecute)
@@ -1985,7 +1775,7 @@ extension WinUI.FocusInputDeviceKind {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CFocusInputDeviceKind_GameController
     }
 }
-extension WinUI.FocusInputDeviceKind: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.FocusInputDeviceKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.FocusNavigationDirection {
     public static var next : WinUI.FocusNavigationDirection {
@@ -2010,7 +1800,7 @@ extension WinUI.FocusNavigationDirection {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CFocusNavigationDirection_None
     }
 }
-extension WinUI.FocusNavigationDirection: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.FocusNavigationDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.InputScopeNameValue {
     public static var `default` : WinUI.InputScopeNameValue {
@@ -2143,7 +1933,7 @@ extension WinUI.InputScopeNameValue {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CInputScopeNameValue_ChatWithoutEmoji
     }
 }
-extension WinUI.InputScopeNameValue: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.InputScopeNameValue: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.KeyTipPlacementMode {
     public static var auto : WinUI.KeyTipPlacementMode {
@@ -2168,7 +1958,7 @@ extension WinUI.KeyTipPlacementMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CKeyTipPlacementMode_Hidden
     }
 }
-extension WinUI.KeyTipPlacementMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.KeyTipPlacementMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.KeyboardAcceleratorPlacementMode {
     public static var auto : WinUI.KeyboardAcceleratorPlacementMode {
@@ -2178,7 +1968,7 @@ extension WinUI.KeyboardAcceleratorPlacementMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CKeyboardAcceleratorPlacementMode_Hidden
     }
 }
-extension WinUI.KeyboardAcceleratorPlacementMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.KeyboardAcceleratorPlacementMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.KeyboardNavigationMode {
     public static var local : WinUI.KeyboardNavigationMode {
@@ -2191,7 +1981,7 @@ extension WinUI.KeyboardNavigationMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CKeyboardNavigationMode_Once
     }
 }
-extension WinUI.KeyboardNavigationMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.KeyboardNavigationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ManipulationModes {
     public static var none : WinUI.ManipulationModes {
@@ -2231,7 +2021,7 @@ extension WinUI.ManipulationModes {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CManipulationModes_System
     }
 }
-extension WinUI.ManipulationModes: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ManipulationModes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.XYFocusKeyboardNavigationMode {
     public static var auto : WinUI.XYFocusKeyboardNavigationMode {
@@ -2244,7 +2034,7 @@ extension WinUI.XYFocusKeyboardNavigationMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CXYFocusKeyboardNavigationMode_Disabled
     }
 }
-extension WinUI.XYFocusKeyboardNavigationMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.XYFocusKeyboardNavigationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.XYFocusNavigationStrategy {
     public static var auto : WinUI.XYFocusNavigationStrategy {
@@ -2260,7 +2050,7 @@ extension WinUI.XYFocusNavigationStrategy {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CXYFocusNavigationStrategy_RectilinearDistance
     }
 }
-extension WinUI.XYFocusNavigationStrategy: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.XYFocusNavigationStrategy: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.XYFocusNavigationStrategyOverride {
     public static var none : WinUI.XYFocusNavigationStrategyOverride {
@@ -2279,5 +2069,5 @@ extension WinUI.XYFocusNavigationStrategyOverride {
         __x_ABI_CMicrosoft_CUI_CXaml_CInput_CXYFocusNavigationStrategyOverride_RectilinearDistance
     }
 }
-extension WinUI.XYFocusNavigationStrategyOverride: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.XYFocusNavigationStrategyOverride: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -12,6 +12,7 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMet
     .init(Data1: 0x2D7EB3FD, Data2: 0xECDB, Data3: 0x5084, Data4: ( 0xB7,0xE0,0x12,0xF9,0x59,0x83,0x81,0xEF ))// 2D7EB3FD-ECDB-5084-B7E0-12F9598381EF
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_XamlTypeInfo {
     public class IXamlControlsXamlMetaDataProvider: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProvider }
@@ -21,7 +22,7 @@ public enum __ABI_Microsoft_UI_Xaml_XamlTypeInfo {
     public class IXamlControlsXamlMetaDataProviderStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProviderStatics }
 
-        internal func InitializeImpl() throws {
+        public func Initialize() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProviderStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Initialize(pThis))
             }

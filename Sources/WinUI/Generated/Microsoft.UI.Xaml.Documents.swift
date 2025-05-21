@@ -23,177 +23,172 @@ public final class Hyperlink : WinUI.Span {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink>?) -> Hyperlink? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Hyperlink")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Documents.Hyperlink")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IHyperlinkStatics: __ABI_Microsoft_UI_Xaml_Documents.IHyperlinkStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Documents.Hyperlink"))
+    private static let _IHyperlinkStatics: __ABI_Microsoft_UI_Xaml_Documents.IHyperlinkStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Hyperlink")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.elementsoundmodeproperty)
     public static var elementSoundModeProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_ElementSoundModePropertyImpl() }
+        get { try! _IHyperlinkStatics.get_ElementSoundModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.focusstateproperty)
     public static var focusStateProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_FocusStatePropertyImpl() }
+        get { try! _IHyperlinkStatics.get_FocusStateProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.istabstopproperty)
     public static var isTabStopProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_IsTabStopPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_IsTabStopProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.navigateuriproperty)
     public static var navigateUriProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_NavigateUriPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_NavigateUriProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.tabindexproperty)
     public static var tabIndexProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_TabIndexPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_TabIndexProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.underlinestyleproperty)
     public static var underlineStyleProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_UnderlineStylePropertyImpl() }
+        get { try! _IHyperlinkStatics.get_UnderlineStyleProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusdownnavigationstrategyproperty)
     public static var xyFocusDownNavigationStrategyProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_XYFocusDownNavigationStrategyPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_XYFocusDownNavigationStrategyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusdownproperty)
     public static var xyFocusDownProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_XYFocusDownPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_XYFocusDownProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusleftnavigationstrategyproperty)
     public static var xyFocusLeftNavigationStrategyProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_XYFocusLeftNavigationStrategyPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_XYFocusLeftNavigationStrategyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusleftproperty)
     public static var xyFocusLeftProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_XYFocusLeftPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_XYFocusLeftProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusrightnavigationstrategyproperty)
     public static var xyFocusRightNavigationStrategyProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_XYFocusRightNavigationStrategyPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_XYFocusRightNavigationStrategyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusrightproperty)
     public static var xyFocusRightProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_XYFocusRightPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_XYFocusRightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusupnavigationstrategyproperty)
     public static var xyFocusUpNavigationStrategyProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_XYFocusUpNavigationStrategyPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_XYFocusUpNavigationStrategyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusupproperty)
     public static var xyFocusUpProperty : WinUI.DependencyProperty! {
-        get { try! _IHyperlinkStatics.get_XYFocusUpPropertyImpl() }
+        get { try! _IHyperlinkStatics.get_XYFocusUpProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.focus)
     public func focus(_ value: WinUI.FocusState) throws -> Bool {
-        try _default.FocusImpl(value)
+        try _default.Focus(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.elementsoundmode)
     public var elementSoundMode : WinUI.ElementSoundMode {
-        get { try! _default.get_ElementSoundModeImpl() }
-        set { try! _default.put_ElementSoundModeImpl(newValue) }
+        get { try! _default.get_ElementSoundMode() }
+        set { try! _default.put_ElementSoundMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.focusstate)
     public var focusState : WinUI.FocusState {
-        get { try! _default.get_FocusStateImpl() }
+        get { try! _default.get_FocusState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.istabstop)
     public var isTabStop : Bool {
-        get { try! _default.get_IsTabStopImpl() }
-        set { try! _default.put_IsTabStopImpl(newValue) }
+        get { try! _default.get_IsTabStop() }
+        set { try! _default.put_IsTabStop(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.navigateuri)
     public var navigateUri : WindowsFoundation.Uri! {
-        get { try! _default.get_NavigateUriImpl() }
-        set { try! _default.put_NavigateUriImpl(newValue) }
+        get { try! _default.get_NavigateUri() }
+        set { try! _default.put_NavigateUri(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.tabindex)
     public var tabIndex : Int32 {
-        get { try! _default.get_TabIndexImpl() }
-        set { try! _default.put_TabIndexImpl(newValue) }
+        get { try! _default.get_TabIndex() }
+        set { try! _default.put_TabIndex(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.underlinestyle)
     public var underlineStyle : UnderlineStyle {
-        get { try! _default.get_UnderlineStyleImpl() }
-        set { try! _default.put_UnderlineStyleImpl(newValue) }
+        get { try! _default.get_UnderlineStyle() }
+        set { try! _default.put_UnderlineStyle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusdown)
     public var xyFocusDown : WinUI.DependencyObject! {
-        get { try! _default.get_XYFocusDownImpl() }
-        set { try! _default.put_XYFocusDownImpl(newValue) }
+        get { try! _default.get_XYFocusDown() }
+        set { try! _default.put_XYFocusDown(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusdownnavigationstrategy)
     public var xyFocusDownNavigationStrategy : WinUI.XYFocusNavigationStrategy {
-        get { try! _default.get_XYFocusDownNavigationStrategyImpl() }
-        set { try! _default.put_XYFocusDownNavigationStrategyImpl(newValue) }
+        get { try! _default.get_XYFocusDownNavigationStrategy() }
+        set { try! _default.put_XYFocusDownNavigationStrategy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusleft)
     public var xyFocusLeft : WinUI.DependencyObject! {
-        get { try! _default.get_XYFocusLeftImpl() }
-        set { try! _default.put_XYFocusLeftImpl(newValue) }
+        get { try! _default.get_XYFocusLeft() }
+        set { try! _default.put_XYFocusLeft(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusleftnavigationstrategy)
     public var xyFocusLeftNavigationStrategy : WinUI.XYFocusNavigationStrategy {
-        get { try! _default.get_XYFocusLeftNavigationStrategyImpl() }
-        set { try! _default.put_XYFocusLeftNavigationStrategyImpl(newValue) }
+        get { try! _default.get_XYFocusLeftNavigationStrategy() }
+        set { try! _default.put_XYFocusLeftNavigationStrategy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusright)
     public var xyFocusRight : WinUI.DependencyObject! {
-        get { try! _default.get_XYFocusRightImpl() }
-        set { try! _default.put_XYFocusRightImpl(newValue) }
+        get { try! _default.get_XYFocusRight() }
+        set { try! _default.put_XYFocusRight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusrightnavigationstrategy)
     public var xyFocusRightNavigationStrategy : WinUI.XYFocusNavigationStrategy {
-        get { try! _default.get_XYFocusRightNavigationStrategyImpl() }
-        set { try! _default.put_XYFocusRightNavigationStrategyImpl(newValue) }
+        get { try! _default.get_XYFocusRightNavigationStrategy() }
+        set { try! _default.put_XYFocusRightNavigationStrategy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusup)
     public var xyFocusUp : WinUI.DependencyObject! {
-        get { try! _default.get_XYFocusUpImpl() }
-        set { try! _default.put_XYFocusUpImpl(newValue) }
+        get { try! _default.get_XYFocusUp() }
+        set { try! _default.put_XYFocusUp(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.xyfocusupnavigationstrategy)
     public var xyFocusUpNavigationStrategy : WinUI.XYFocusNavigationStrategy {
-        get { try! _default.get_XYFocusUpNavigationStrategyImpl() }
-        set { try! _default.put_XYFocusUpNavigationStrategyImpl(newValue) }
+        get { try! _default.get_XYFocusUpNavigationStrategy() }
+        set { try! _default.put_XYFocusUpNavigationStrategy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.click)
@@ -201,10 +196,10 @@ public final class Hyperlink : WinUI.Span {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ClickImpl($0)
+          return try! this.add_Click($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ClickImpl($0)
+         try? self?._default.remove_Click($0)
        }
       )
     }()
@@ -214,10 +209,10 @@ public final class Hyperlink : WinUI.Span {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_GotFocusImpl($0)
+          return try! this.add_GotFocus($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_GotFocusImpl($0)
+         try? self?._default.remove_GotFocus($0)
        }
       )
     }()
@@ -227,25 +222,14 @@ public final class Hyperlink : WinUI.Span {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_LostFocusImpl($0)
+          return try! this.add_LostFocus($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_LostFocusImpl($0)
+         try? self?._default.remove_LostFocus($0)
        }
       )
     }()
 
-    internal enum ITextElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
-        internal typealias Class = Hyperlink
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IHyperlink
-        }
-    }
-    internal typealias Composable = ITextElementOverrides
     deinit {
         _default = nil
     }
@@ -262,12 +246,6 @@ public final class HyperlinkClickEventArgs : WinUI.RoutedEventArgs {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs>?) -> HyperlinkClickEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -294,12 +272,6 @@ open class Inline : WinUI.TextElement {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline>?) -> Inline? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -314,25 +286,14 @@ open class Inline : WinUI.TextElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInlineFactory : __ABI_Microsoft_UI_Xaml_Documents.IInlineFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Documents.Inline"))
+    private static var _IInlineFactory : __ABI_Microsoft_UI_Xaml_Documents.IInlineFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Inline")
 
     public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IInlineFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Documents.InlineBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IInlineFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    internal enum ITextElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
-        internal typealias Class = Inline
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IInline
-        }
-    }
-    internal typealias Composable = ITextElementOverrides
     deinit {
         _default = nil
     }
@@ -350,12 +311,6 @@ public final class InlineCollection : WinRTClass, IVector, IIterable {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CInline>?) -> InlineCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -399,58 +354,68 @@ public final class InlineCollection : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.getat)
     public func getAt(_ index: UInt32) -> Inline? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<Inline?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.indexof)
     public func indexOf(_ value: Inline?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.setat)
     public func setAt(_ index: UInt32, _ value: Inline?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: Inline?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.append)
     public func append(_ value: Inline?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [Inline?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.replaceall)
+    public func replaceAll(_ items: [Inline?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableInline! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<Inline?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -473,49 +438,33 @@ public final class Run : WinUI.Inline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun>?) -> Run? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Run")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Documents.Run")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRunStatics: __ABI_Microsoft_UI_Xaml_Documents.IRunStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Documents.Run"))
+    private static let _IRunStatics: __ABI_Microsoft_UI_Xaml_Documents.IRunStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Run")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.run.flowdirectionproperty)
     public static var flowDirectionProperty : WinUI.DependencyProperty! {
-        get { try! _IRunStatics.get_FlowDirectionPropertyImpl() }
+        get { try! _IRunStatics.get_FlowDirectionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.run.flowdirection)
     public var flowDirection : WinUI.FlowDirection {
-        get { try! _default.get_FlowDirectionImpl() }
-        set { try! _default.put_FlowDirectionImpl(newValue) }
+        get { try! _default.get_FlowDirection() }
+        set { try! _default.put_FlowDirection(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.run.text)
     public var text : String {
-        get { try! _default.get_TextImpl() }
-        set { try! _default.put_TextImpl(newValue) }
+        get { try! _default.get_Text() }
+        set { try! _default.put_Text(newValue) }
     }
 
-    internal enum ITextElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
-        internal typealias Class = Run
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IRun
-        }
-    }
-    internal typealias Composable = ITextElementOverrides
     deinit {
         _default = nil
     }
@@ -535,12 +484,6 @@ open class Span : WinUI.Inline {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan>?) -> Span? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -555,31 +498,20 @@ open class Span : WinUI.Inline {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISpanFactory : __ABI_Microsoft_UI_Xaml_Documents.ISpanFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Documents.Span"))
+    private static var _ISpanFactory : __ABI_Microsoft_UI_Xaml_Documents.ISpanFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Span")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._ISpanFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Documents.SpanBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ISpanFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.span.inlines)
     public var inlines : InlineCollection! {
-        get { try! _default.get_InlinesImpl() }
-        set { try! _default.put_InlinesImpl(newValue) }
+        get { try! _default.get_Inlines() }
+        set { try! _default.put_Inlines(newValue) }
     }
 
-    internal enum ITextElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
-        internal typealias Class = Span
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ISpan
-        }
-    }
-    internal typealias Composable = ITextElementOverrides
     deinit {
         _default = nil
     }
@@ -596,12 +528,6 @@ open class TextElement : WinUI.DependencyObject {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement>?) -> TextElement? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
     }
 
     @_spi(WinRTInternal)
@@ -624,241 +550,241 @@ open class TextElement : WinUI.DependencyObject {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _ITextElementFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextElementFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Documents.TextElement"))
+    private static var _ITextElementFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextElement")
 
-    private static let _ITextElementStatics: __ABI_Microsoft_UI_Xaml_Documents.ITextElementStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Documents.TextElement"))
+    private static let _ITextElementStatics: __ABI_Microsoft_UI_Xaml_Documents.ITextElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextElement")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskeyproperty)
     public class var accessKeyProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_AccessKeyPropertyImpl() }
+        get { try! _ITextElementStatics.get_AccessKeyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskeyscopeownerproperty)
     public class var accessKeyScopeOwnerProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_AccessKeyScopeOwnerPropertyImpl() }
+        get { try! _ITextElementStatics.get_AccessKeyScopeOwnerProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.allowfocusoninteractionproperty)
     public class var allowFocusOnInteractionProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_AllowFocusOnInteractionPropertyImpl() }
+        get { try! _ITextElementStatics.get_AllowFocusOnInteractionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.characterspacingproperty)
     public class var characterSpacingProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_CharacterSpacingPropertyImpl() }
+        get { try! _ITextElementStatics.get_CharacterSpacingProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.exitdisplaymodeonaccesskeyinvokedproperty)
     public class var exitDisplayModeOnAccessKeyInvokedProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_ExitDisplayModeOnAccessKeyInvokedPropertyImpl() }
+        get { try! _ITextElementStatics.get_ExitDisplayModeOnAccessKeyInvokedProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontfamilyproperty)
     public class var fontFamilyProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_FontFamilyPropertyImpl() }
+        get { try! _ITextElementStatics.get_FontFamilyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontsizeproperty)
     public class var fontSizeProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_FontSizePropertyImpl() }
+        get { try! _ITextElementStatics.get_FontSizeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontstretchproperty)
     public class var fontStretchProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_FontStretchPropertyImpl() }
+        get { try! _ITextElementStatics.get_FontStretchProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontstyleproperty)
     public class var fontStyleProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_FontStylePropertyImpl() }
+        get { try! _ITextElementStatics.get_FontStyleProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontweightproperty)
     public class var fontWeightProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_FontWeightPropertyImpl() }
+        get { try! _ITextElementStatics.get_FontWeightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.foregroundproperty)
     public class var foregroundProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_ForegroundPropertyImpl() }
+        get { try! _ITextElementStatics.get_ForegroundProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.isaccesskeyscopeproperty)
     public class var isAccessKeyScopeProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_IsAccessKeyScopePropertyImpl() }
+        get { try! _ITextElementStatics.get_IsAccessKeyScopeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.istextscalefactorenabledproperty)
     public class var isTextScaleFactorEnabledProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_IsTextScaleFactorEnabledPropertyImpl() }
+        get { try! _ITextElementStatics.get_IsTextScaleFactorEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.keytiphorizontaloffsetproperty)
     public class var keyTipHorizontalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_KeyTipHorizontalOffsetPropertyImpl() }
+        get { try! _ITextElementStatics.get_KeyTipHorizontalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.keytipplacementmodeproperty)
     public class var keyTipPlacementModeProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_KeyTipPlacementModePropertyImpl() }
+        get { try! _ITextElementStatics.get_KeyTipPlacementModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.keytipverticaloffsetproperty)
     public class var keyTipVerticalOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_KeyTipVerticalOffsetPropertyImpl() }
+        get { try! _ITextElementStatics.get_KeyTipVerticalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.languageproperty)
     public class var languageProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_LanguagePropertyImpl() }
+        get { try! _ITextElementStatics.get_LanguageProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.textdecorationsproperty)
     public class var textDecorationsProperty : WinUI.DependencyProperty! {
-        get { try! _ITextElementStatics.get_TextDecorationsPropertyImpl() }
+        get { try! _ITextElementStatics.get_TextDecorationsProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.findname)
     public func findName(_ name: String) throws -> Any! {
-        try _default.FindNameImpl(name)
+        try _default.FindName(name)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskey)
     public var accessKey : String {
-        get { try! _default.get_AccessKeyImpl() }
-        set { try! _default.put_AccessKeyImpl(newValue) }
+        get { try! _default.get_AccessKey() }
+        set { try! _default.put_AccessKey(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskeyscopeowner)
     public var accessKeyScopeOwner : WinUI.DependencyObject! {
-        get { try! _default.get_AccessKeyScopeOwnerImpl() }
-        set { try! _default.put_AccessKeyScopeOwnerImpl(newValue) }
+        get { try! _default.get_AccessKeyScopeOwner() }
+        set { try! _default.put_AccessKeyScopeOwner(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.allowfocusoninteraction)
     public var allowFocusOnInteraction : Bool {
-        get { try! _default.get_AllowFocusOnInteractionImpl() }
-        set { try! _default.put_AllowFocusOnInteractionImpl(newValue) }
+        get { try! _default.get_AllowFocusOnInteraction() }
+        set { try! _default.put_AllowFocusOnInteraction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.characterspacing)
     public var characterSpacing : Int32 {
-        get { try! _default.get_CharacterSpacingImpl() }
-        set { try! _default.put_CharacterSpacingImpl(newValue) }
+        get { try! _default.get_CharacterSpacing() }
+        set { try! _default.put_CharacterSpacing(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.contentend)
     public var contentEnd : TextPointer! {
-        get { try! _default.get_ContentEndImpl() }
+        get { try! _default.get_ContentEnd() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.contentstart)
     public var contentStart : TextPointer! {
-        get { try! _default.get_ContentStartImpl() }
+        get { try! _default.get_ContentStart() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.elementend)
     public var elementEnd : TextPointer! {
-        get { try! _default.get_ElementEndImpl() }
+        get { try! _default.get_ElementEnd() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.elementstart)
     public var elementStart : TextPointer! {
-        get { try! _default.get_ElementStartImpl() }
+        get { try! _default.get_ElementStart() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.exitdisplaymodeonaccesskeyinvoked)
     public var exitDisplayModeOnAccessKeyInvoked : Bool {
-        get { try! _default.get_ExitDisplayModeOnAccessKeyInvokedImpl() }
-        set { try! _default.put_ExitDisplayModeOnAccessKeyInvokedImpl(newValue) }
+        get { try! _default.get_ExitDisplayModeOnAccessKeyInvoked() }
+        set { try! _default.put_ExitDisplayModeOnAccessKeyInvoked(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontfamily)
     public var fontFamily : WinUI.FontFamily! {
-        get { try! _default.get_FontFamilyImpl() }
-        set { try! _default.put_FontFamilyImpl(newValue) }
+        get { try! _default.get_FontFamily() }
+        set { try! _default.put_FontFamily(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontsize)
     public var fontSize : Double {
-        get { try! _default.get_FontSizeImpl() }
-        set { try! _default.put_FontSizeImpl(newValue) }
+        get { try! _default.get_FontSize() }
+        set { try! _default.put_FontSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontstretch)
     public var fontStretch : UWP.FontStretch {
-        get { try! _default.get_FontStretchImpl() }
-        set { try! _default.put_FontStretchImpl(newValue) }
+        get { try! _default.get_FontStretch() }
+        set { try! _default.put_FontStretch(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontstyle)
     public var fontStyle : UWP.FontStyle {
-        get { try! _default.get_FontStyleImpl() }
-        set { try! _default.put_FontStyleImpl(newValue) }
+        get { try! _default.get_FontStyle() }
+        set { try! _default.put_FontStyle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.fontweight)
     public var fontWeight : UWP.FontWeight {
-        get { try! _default.get_FontWeightImpl() }
-        set { try! _default.put_FontWeightImpl(newValue) }
+        get { try! _default.get_FontWeight() }
+        set { try! _default.put_FontWeight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.foreground)
     public var foreground : WinUI.Brush! {
-        get { try! _default.get_ForegroundImpl() }
-        set { try! _default.put_ForegroundImpl(newValue) }
+        get { try! _default.get_Foreground() }
+        set { try! _default.put_Foreground(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.isaccesskeyscope)
     public var isAccessKeyScope : Bool {
-        get { try! _default.get_IsAccessKeyScopeImpl() }
-        set { try! _default.put_IsAccessKeyScopeImpl(newValue) }
+        get { try! _default.get_IsAccessKeyScope() }
+        set { try! _default.put_IsAccessKeyScope(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.istextscalefactorenabled)
     public var isTextScaleFactorEnabled : Bool {
-        get { try! _default.get_IsTextScaleFactorEnabledImpl() }
-        set { try! _default.put_IsTextScaleFactorEnabledImpl(newValue) }
+        get { try! _default.get_IsTextScaleFactorEnabled() }
+        set { try! _default.put_IsTextScaleFactorEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.keytiphorizontaloffset)
     public var keyTipHorizontalOffset : Double {
-        get { try! _default.get_KeyTipHorizontalOffsetImpl() }
-        set { try! _default.put_KeyTipHorizontalOffsetImpl(newValue) }
+        get { try! _default.get_KeyTipHorizontalOffset() }
+        set { try! _default.put_KeyTipHorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.keytipplacementmode)
     public var keyTipPlacementMode : WinUI.KeyTipPlacementMode {
-        get { try! _default.get_KeyTipPlacementModeImpl() }
-        set { try! _default.put_KeyTipPlacementModeImpl(newValue) }
+        get { try! _default.get_KeyTipPlacementMode() }
+        set { try! _default.put_KeyTipPlacementMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.keytipverticaloffset)
     public var keyTipVerticalOffset : Double {
-        get { try! _default.get_KeyTipVerticalOffsetImpl() }
-        set { try! _default.put_KeyTipVerticalOffsetImpl(newValue) }
+        get { try! _default.get_KeyTipVerticalOffset() }
+        set { try! _default.put_KeyTipVerticalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.language)
     public var language : String {
-        get { try! _default.get_LanguageImpl() }
-        set { try! _default.put_LanguageImpl(newValue) }
+        get { try! _default.get_Language() }
+        set { try! _default.put_Language(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
+        get { try! _default.get_Name() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.textdecorations)
     public var textDecorations : UWP.TextDecorations {
-        get { try! _default.get_TextDecorationsImpl() }
-        set { try! _default.put_TextDecorationsImpl(newValue) }
+        get { try! _default.get_TextDecorations() }
+        set { try! _default.put_TextDecorations(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.xamlroot)
     public var xamlRoot : WinUI.XamlRoot! {
-        get { try! _default.get_XamlRootImpl() }
-        set { try! _default.put_XamlRootImpl(newValue) }
+        get { try! _default.get_XamlRoot() }
+        set { try! _default.put_XamlRoot(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskeydisplaydismissed)
@@ -866,10 +792,10 @@ open class TextElement : WinUI.DependencyObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AccessKeyDisplayDismissedImpl($0)
+          return try! this.add_AccessKeyDisplayDismissed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AccessKeyDisplayDismissedImpl($0)
+         try? self?._default.remove_AccessKeyDisplayDismissed($0)
        }
       )
     }()
@@ -879,10 +805,10 @@ open class TextElement : WinUI.DependencyObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AccessKeyDisplayRequestedImpl($0)
+          return try! this.add_AccessKeyDisplayRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AccessKeyDisplayRequestedImpl($0)
+         try? self?._default.remove_AccessKeyDisplayRequested($0)
        }
       )
     }()
@@ -892,10 +818,10 @@ open class TextElement : WinUI.DependencyObject {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AccessKeyInvokedImpl($0)
+          return try! this.add_AccessKeyInvoked($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AccessKeyInvokedImpl($0)
+         try? self?._default.remove_AccessKeyInvoked($0)
        }
       )
     }()
@@ -903,20 +829,9 @@ open class TextElement : WinUI.DependencyObject {
     private lazy var _ITextElementOverrides: __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.ondisconnectvisualchildren)
     open func onDisconnectVisualChildren() throws {
-        try _ITextElementOverrides.OnDisconnectVisualChildrenImpl()
+        try _ITextElementOverrides.OnDisconnectVisualChildren()
     }
 
-    internal enum ITextElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
-        internal typealias Class = TextElement
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElement
-        }
-    }
-    internal typealias Composable = ITextElementOverrides
     deinit {
         _default = nil
         _ITextElementOverrides = nil
@@ -937,12 +852,6 @@ open class TextHighlighter : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter>?) -> TextHighlighter? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -958,54 +867,43 @@ open class TextHighlighter : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITextHighlighterFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighterFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Documents.TextHighlighter"))
+    private static var _ITextHighlighterFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextHighlighter")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._ITextHighlighterFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Documents.TextHighlighterBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._ITextHighlighterFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITextHighlighterStatics: __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighterStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Documents.TextHighlighter"))
+    private static let _ITextHighlighterStatics: __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextHighlighter")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.texthighlighter.backgroundproperty)
     public class var backgroundProperty : WinUI.DependencyProperty! {
-        get { try! _ITextHighlighterStatics.get_BackgroundPropertyImpl() }
+        get { try! _ITextHighlighterStatics.get_BackgroundProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.texthighlighter.foregroundproperty)
     public class var foregroundProperty : WinUI.DependencyProperty! {
-        get { try! _ITextHighlighterStatics.get_ForegroundPropertyImpl() }
+        get { try! _ITextHighlighterStatics.get_ForegroundProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.texthighlighter.background)
     public var background : WinUI.Brush! {
-        get { try! _default.get_BackgroundImpl() }
-        set { try! _default.put_BackgroundImpl(newValue) }
+        get { try! _default.get_Background() }
+        set { try! _default.put_Background(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.texthighlighter.foreground)
     public var foreground : WinUI.Brush! {
-        get { try! _default.get_ForegroundImpl() }
-        set { try! _default.put_ForegroundImpl(newValue) }
+        get { try! _default.get_Foreground() }
+        set { try! _default.put_Foreground(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.texthighlighter.ranges)
     public var ranges : WindowsFoundation.AnyIVector<TextRange>! {
-        get { try! _default.get_RangesImpl() }
+        get { try! _default.get_Ranges() }
     }
 
-    internal enum ITextHighlighter : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = TextHighlighter
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighter
-        }
-    }
-    internal typealias Composable = ITextHighlighter
     deinit {
         _default = nil
     }
@@ -1025,44 +923,38 @@ public final class TextPointer : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer>?) -> TextPointer? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer.getcharacterrect)
     public func getCharacterRect(_ direction: LogicalDirection) throws -> WindowsFoundation.Rect {
-        try _default.GetCharacterRectImpl(direction)
+        try _default.GetCharacterRect(direction)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer.getpositionatoffset)
     public func getPositionAtOffset(_ offset: Int32, _ direction: LogicalDirection) throws -> TextPointer! {
-        try _default.GetPositionAtOffsetImpl(offset, direction)
+        try _default.GetPositionAtOffset(offset, direction)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer.logicaldirection)
     public var logicalDirection : LogicalDirection {
-        get { try! _default.get_LogicalDirectionImpl() }
+        get { try! _default.get_LogicalDirection() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer.offset)
     public var offset : Int32 {
-        get { try! _default.get_OffsetImpl() }
+        get { try! _default.get_Offset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer.parent)
     public var parent : WinUI.DependencyObject! {
-        get { try! _default.get_ParentImpl() }
+        get { try! _default.get_Parent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer.visualparent)
     public var visualParent : WinUI.FrameworkElement! {
-        get { try! _default.get_VisualParentImpl() }
+        get { try! _default.get_VisualParent() }
     }
 
     deinit {
@@ -1071,7 +963,7 @@ public final class TextPointer : WinRTClass {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textrange)
-public struct TextRange: Hashable, Codable {
+public struct TextRange: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textrange.startindex)
     public var startIndex: Int32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textrange.length)
@@ -1080,9 +972,6 @@ public struct TextRange: Hashable, Codable {
     public init(startIndex: Int32, length: Int32) {
         self.startIndex = startIndex
         self.length = length
-    }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CTextRange) -> TextRange {
-        .init(startIndex: abi.StartIndex, length: abi.Length)
     }
 }
 
@@ -1094,7 +983,7 @@ extension WinUI.LogicalDirection {
         __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CLogicalDirection_Forward
     }
 }
-extension WinUI.LogicalDirection: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.LogicalDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.UnderlineStyle {
     public static var none : WinUI.UnderlineStyle {
@@ -1104,5 +993,5 @@ extension WinUI.UnderlineStyle {
         __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CUnderlineStyle_Single
     }
 }
-extension WinUI.UnderlineStyle: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.UnderlineStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

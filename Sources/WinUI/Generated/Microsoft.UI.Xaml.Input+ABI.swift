@@ -214,6 +214,7 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedEventHandler: Window
     .init(Data1: 0xB60074F3, Data2: 0x125B, Data3: 0x534E, Data4: ( 0x8F,0x9C,0x97,0x69,0xBD,0x3F,0x0F,0x64 ))// B60074F3-125B-534E-8F9C-9769BD3F0F64
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IAccessKeyDisplayDismissedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayDismissedEventArgs }
@@ -223,7 +224,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IAccessKeyDisplayRequestedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayRequestedEventArgs }
 
-        internal func get_PressedKeysImpl() throws -> String {
+        public func get_PressedKeys() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PressedKeys(pThis, &value))
@@ -236,7 +237,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IAccessKeyInvokedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyInvokedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyInvokedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -244,7 +245,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyInvokedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
@@ -255,7 +256,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class ICharacterReceivedRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs }
 
-        internal func get_CharacterImpl() throws -> Character {
+        public func get_Character() throws -> Character {
             var value: WCHAR = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Character(pThis, &value))
@@ -263,7 +264,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func get_KeyStatusImpl() throws -> UWP.CorePhysicalKeyStatus {
+        public func get_KeyStatus() throws -> UWP.CorePhysicalKeyStatus {
             var value: __x_ABI_CWindows_CUI_CCore_CCorePhysicalKeyStatus = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyStatus(pThis, &value))
@@ -271,7 +272,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -279,7 +280,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
@@ -290,7 +291,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class ICommand: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CICommand }
 
-        open func add_CanExecuteChangedImpl(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+        open func add_CanExecuteChanged(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -300,13 +301,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return token
         }
 
-        open func remove_CanExecuteChangedImpl(_ token: EventRegistrationToken) throws {
+        open func remove_CanExecuteChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICommand.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CanExecuteChanged(pThis, token))
             }
         }
 
-        open func CanExecuteImpl(_ parameter: Any?) throws -> Bool {
+        open func CanExecute(_ parameter: Any?) throws -> Bool {
             var result: boolean = 0
             let parameterWrapper = __ABI_.AnyWrapper(parameter)
             let _parameter = try! parameterWrapper?.toABI { $0 }
@@ -316,7 +317,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: result)
         }
 
-        open func ExecuteImpl(_ parameter: Any?) throws {
+        open func Execute(_ parameter: Any?) throws {
             let parameterWrapper = __ABI_.AnyWrapper(parameter)
             let _parameter = try! parameterWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICommand.self) { pThis in
@@ -376,7 +377,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
                 let result = try __unwrapped__instance.canExecute(parameter)
                 $2?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Execute: {
@@ -385,7 +386,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
                 let parameter: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 try __unwrapped__instance.execute(parameter)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -393,7 +394,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IContextRequestedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -401,13 +402,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func TryGetPositionImpl(_ relativeTo: WinUI.UIElement?, _ point: inout WindowsFoundation.Point) throws -> Bool {
+        public func TryGetPosition(_ relativeTo: WinUI.UIElement?, _ point: inout WindowsFoundation.Point) throws -> Bool {
             var returnValue: boolean = 0
             var _point: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs.self) { pThis in
@@ -422,7 +423,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IDoubleTappedRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -430,7 +431,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -438,13 +439,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetPositionImpl(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.Point {
+        public func GetPosition(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.Point {
             var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPosition(pThis, RawPointer(relativeTo), &result))
@@ -457,22 +458,22 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IFindNextElementOptions: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions }
 
-        internal func get_SearchRootImpl() throws -> WinUI.DependencyObject? {
+        public func get_SearchRoot() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SearchRoot(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_SearchRootImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_SearchRoot(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SearchRoot(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ExclusionRectImpl() throws -> WindowsFoundation.Rect {
+        public func get_ExclusionRect() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExclusionRect(pThis, &value))
@@ -480,13 +481,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func put_ExclusionRectImpl(_ value: WindowsFoundation.Rect) throws {
+        public func put_ExclusionRect(_ value: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExclusionRect(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_HintRectImpl() throws -> WindowsFoundation.Rect {
+        public func get_HintRect() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HintRect(pThis, &value))
@@ -494,13 +495,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func put_HintRectImpl(_ value: WindowsFoundation.Rect) throws {
+        public func put_HintRect(_ value: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_HintRect(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_XYFocusNavigationStrategyOverrideImpl() throws -> WinUI.XYFocusNavigationStrategyOverride {
+        public func get_XYFocusNavigationStrategyOverride() throws -> WinUI.XYFocusNavigationStrategyOverride {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CXYFocusNavigationStrategyOverride = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusNavigationStrategyOverride(pThis, &value))
@@ -508,7 +509,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_XYFocusNavigationStrategyOverrideImpl(_ value: WinUI.XYFocusNavigationStrategyOverride) throws {
+        public func put_XYFocusNavigationStrategyOverride(_ value: WinUI.XYFocusNavigationStrategyOverride) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_XYFocusNavigationStrategyOverride(pThis, value))
             }
@@ -524,16 +525,16 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IFocusManagerGotFocusEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerGotFocusEventArgs }
 
-        internal func get_NewFocusedElementImpl() throws -> WinUI.DependencyObject? {
+        public func get_NewFocusedElement() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerGotFocusEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewFocusedElement(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func get_CorrelationIdImpl() throws -> Foundation.UUID {
+        public func get_CorrelationId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerGotFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CorrelationId(pThis, &value))
@@ -546,16 +547,16 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IFocusManagerLostFocusEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerLostFocusEventArgs }
 
-        internal func get_OldFocusedElementImpl() throws -> WinUI.DependencyObject? {
+        public func get_OldFocusedElement() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerLostFocusEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldFocusedElement(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func get_CorrelationIdImpl() throws -> Foundation.UUID {
+        public func get_CorrelationId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerLostFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CorrelationId(pThis, &value))
@@ -568,7 +569,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IFocusManagerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics }
 
-        internal func add_GotFocusImpl(_ handler: EventHandler<WinUI.FocusManagerGotFocusEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_GotFocus(_ handler: EventHandler<WinUI.FocusManagerGotFocusEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusManagerGotFocusEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -578,13 +579,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return token
         }
 
-        internal func remove_GotFocusImpl(_ token: EventRegistrationToken) throws {
+        public func remove_GotFocus(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_GotFocus(pThis, token))
             }
         }
 
-        internal func add_LostFocusImpl(_ handler: EventHandler<WinUI.FocusManagerLostFocusEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_LostFocus(_ handler: EventHandler<WinUI.FocusManagerLostFocusEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusManagerLostFocusEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -594,13 +595,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return token
         }
 
-        internal func remove_LostFocusImpl(_ token: EventRegistrationToken) throws {
+        public func remove_LostFocus(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_LostFocus(pThis, token))
             }
         }
 
-        internal func add_GettingFocusImpl(_ handler: EventHandler<WinUI.GettingFocusEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_GettingFocus(_ handler: EventHandler<WinUI.GettingFocusEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CGettingFocusEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -610,13 +611,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return token
         }
 
-        internal func remove_GettingFocusImpl(_ token: EventRegistrationToken) throws {
+        public func remove_GettingFocus(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_GettingFocus(pThis, token))
             }
         }
 
-        internal func add_LosingFocusImpl(_ handler: EventHandler<WinUI.LosingFocusEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_LosingFocus(_ handler: EventHandler<WinUI.LosingFocusEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CLosingFocusEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -626,13 +627,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return token
         }
 
-        internal func remove_LosingFocusImpl(_ token: EventRegistrationToken) throws {
+        public func remove_LosingFocus(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_LosingFocus(pThis, token))
             }
         }
 
-        internal func TryFocusAsyncImpl(_ element: WinUI.DependencyObject?, _ value: WinUI.FocusState) throws -> WindowsFoundation.AnyIAsyncOperation<WinUI.FocusMovementResult?>? {
+        public func TryFocusAsync(_ element: WinUI.DependencyObject?, _ value: WinUI.FocusState) throws -> WindowsFoundation.AnyIAsyncOperation<WinUI.FocusMovementResult?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryFocusAsync(pThis, RawPointer(element), value, &operationAbi))
@@ -641,7 +642,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return WinUI.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusMovementResultWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func TryMoveFocusAsyncImpl(_ focusNavigationDirection: WinUI.FocusNavigationDirection) throws -> WindowsFoundation.AnyIAsyncOperation<WinUI.FocusMovementResult?>? {
+        public func TryMoveFocusAsync(_ focusNavigationDirection: WinUI.FocusNavigationDirection) throws -> WindowsFoundation.AnyIAsyncOperation<WinUI.FocusMovementResult?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryMoveFocusAsync(pThis, focusNavigationDirection, &operationAbi))
@@ -650,7 +651,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return WinUI.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusMovementResultWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func TryMoveFocusWithOptionsAsyncImpl(_ focusNavigationDirection: WinUI.FocusNavigationDirection, _ focusNavigationOptions: WinUI.FindNextElementOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<WinUI.FocusMovementResult?>? {
+        public func TryMoveFocusWithOptionsAsync(_ focusNavigationDirection: WinUI.FocusNavigationDirection, _ focusNavigationOptions: WinUI.FindNextElementOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<WinUI.FocusMovementResult?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryMoveFocusWithOptionsAsync(pThis, focusNavigationDirection, RawPointer(focusNavigationOptions), &operationAbi))
@@ -659,7 +660,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return WinUI.__x_ABI_C__FIAsyncOperation_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusMovementResultWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func TryMoveFocusWithOptionsImpl(_ focusNavigationDirection: WinUI.FocusNavigationDirection, _ focusNavigationOptions: WinUI.FindNextElementOptions?) throws -> Bool {
+        public func TryMoveFocusWithOptions(_ focusNavigationDirection: WinUI.FocusNavigationDirection, _ focusNavigationOptions: WinUI.FindNextElementOptions?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryMoveFocusWithOptions(pThis, focusNavigationDirection, RawPointer(focusNavigationOptions), &result))
@@ -667,61 +668,61 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: result)
         }
 
-        internal func FindNextElementImpl(_ focusNavigationDirection: WinUI.FocusNavigationDirection) throws -> WinUI.DependencyObject? {
+        public func FindNextElement(_ focusNavigationDirection: WinUI.FocusNavigationDirection) throws -> WinUI.DependencyObject? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindNextElement(pThis, focusNavigationDirection, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: result)
         }
 
-        internal func FindFirstFocusableElementImpl(_ searchScope: WinUI.DependencyObject?) throws -> WinUI.DependencyObject? {
+        public func FindFirstFocusableElement(_ searchScope: WinUI.DependencyObject?) throws -> WinUI.DependencyObject? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindFirstFocusableElement(pThis, RawPointer(searchScope), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: result)
         }
 
-        internal func FindLastFocusableElementImpl(_ searchScope: WinUI.DependencyObject?) throws -> WinUI.DependencyObject? {
+        public func FindLastFocusableElement(_ searchScope: WinUI.DependencyObject?) throws -> WinUI.DependencyObject? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindLastFocusableElement(pThis, RawPointer(searchScope), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: result)
         }
 
-        internal func FindNextElementWithOptionsImpl(_ focusNavigationDirection: WinUI.FocusNavigationDirection, _ focusNavigationOptions: WinUI.FindNextElementOptions?) throws -> WinUI.DependencyObject? {
+        public func FindNextElementWithOptions(_ focusNavigationDirection: WinUI.FocusNavigationDirection, _ focusNavigationOptions: WinUI.FindNextElementOptions?) throws -> WinUI.DependencyObject? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindNextElementWithOptions(pThis, focusNavigationDirection, RawPointer(focusNavigationOptions), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: result)
         }
 
-        internal func FindNextFocusableElementImpl(_ focusNavigationDirection: WinUI.FocusNavigationDirection) throws -> WinUI.UIElement? {
+        public func FindNextFocusableElement(_ focusNavigationDirection: WinUI.FocusNavigationDirection) throws -> WinUI.UIElement? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindNextFocusableElement(pThis, focusNavigationDirection, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: result)
         }
 
-        internal func FindNextFocusableElementWithHintImpl(_ focusNavigationDirection: WinUI.FocusNavigationDirection, _ hintRect: WindowsFoundation.Rect) throws -> WinUI.UIElement? {
+        public func FindNextFocusableElementWithHint(_ focusNavigationDirection: WinUI.FocusNavigationDirection, _ hintRect: WindowsFoundation.Rect) throws -> WinUI.UIElement? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindNextFocusableElementWithHint(pThis, focusNavigationDirection, .from(swift: hintRect), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: result)
         }
 
-        internal func TryMoveFocusImpl(_ focusNavigationDirection: WinUI.FocusNavigationDirection) throws -> Bool {
+        public func TryMoveFocus(_ focusNavigationDirection: WinUI.FocusNavigationDirection) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryMoveFocus(pThis, focusNavigationDirection, &result))
@@ -729,7 +730,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: result)
         }
 
-        internal func GetFocusedElementImpl() throws -> Any? {
+        public func GetFocusedElement() throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetFocusedElement(pThis, &resultAbi))
@@ -738,7 +739,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        internal func GetFocusedElementWithRootImpl(_ xamlRoot: WinUI.XamlRoot?) throws -> Any? {
+        public func GetFocusedElementWithRoot(_ xamlRoot: WinUI.XamlRoot?) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetFocusedElementWithRoot(pThis, RawPointer(xamlRoot), &resultAbi))
@@ -752,7 +753,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IFocusMovementResult: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusMovementResult }
 
-        internal func get_SucceededImpl() throws -> Bool {
+        public func get_Succeeded() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusMovementResult.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Succeeded(pThis, &value))
@@ -765,31 +766,31 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IGettingFocusEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs }
 
-        internal func get_OldFocusedElementImpl() throws -> WinUI.DependencyObject? {
+        public func get_OldFocusedElement() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldFocusedElement(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func get_NewFocusedElementImpl() throws -> WinUI.DependencyObject? {
+        public func get_NewFocusedElement() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewFocusedElement(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_NewFocusedElementImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_NewFocusedElement(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NewFocusedElement(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_FocusStateImpl() throws -> WinUI.FocusState {
+        public func get_FocusState() throws -> WinUI.FocusState {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CFocusState = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FocusState(pThis, &value))
@@ -797,7 +798,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_DirectionImpl() throws -> WinUI.FocusNavigationDirection {
+        public func get_Direction() throws -> WinUI.FocusNavigationDirection {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CFocusNavigationDirection = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
@@ -805,7 +806,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -813,13 +814,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_InputDeviceImpl() throws -> WinUI.FocusInputDeviceKind {
+        public func get_InputDevice() throws -> WinUI.FocusInputDeviceKind {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CFocusInputDeviceKind = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InputDevice(pThis, &value))
@@ -827,7 +828,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_CancelImpl() throws -> Bool {
+        public func get_Cancel() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cancel(pThis, &value))
@@ -835,13 +836,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_CancelImpl(_ value: Bool) throws {
+        public func put_Cancel(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Cancel(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CorrelationIdImpl() throws -> Foundation.UUID {
+        public func get_CorrelationId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CorrelationId(pThis, &value))
@@ -849,7 +850,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func TryCancelImpl() throws -> Bool {
+        public func TryCancel() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryCancel(pThis, &result))
@@ -857,7 +858,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: result)
         }
 
-        internal func TrySetNewFocusedElementImpl(_ element: WinUI.DependencyObject?) throws -> Bool {
+        public func TrySetNewFocusedElement(_ element: WinUI.DependencyObject?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TrySetNewFocusedElement(pThis, RawPointer(element), &result))
@@ -870,7 +871,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IHoldingRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -878,7 +879,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HoldingStateImpl() throws -> WinAppSDK.HoldingState {
+        public func get_HoldingState() throws -> WinAppSDK.HoldingState {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CHoldingState = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HoldingState(pThis, &value))
@@ -886,7 +887,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -894,13 +895,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetPositionImpl(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.Point {
+        public func GetPosition(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.Point {
             var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPosition(pThis, RawPointer(relativeTo), &result))
@@ -913,7 +914,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IInertiaExpansionBehavior: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior }
 
-        internal func get_DesiredDecelerationImpl() throws -> Double {
+        public func get_DesiredDeceleration() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredDeceleration(pThis, &value))
@@ -921,13 +922,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_DesiredDecelerationImpl(_ value: Double) throws {
+        public func put_DesiredDeceleration(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredDeceleration(pThis, value))
             }
         }
 
-        internal func get_DesiredExpansionImpl() throws -> Double {
+        public func get_DesiredExpansion() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredExpansion(pThis, &value))
@@ -935,7 +936,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_DesiredExpansionImpl(_ value: Double) throws {
+        public func put_DesiredExpansion(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredExpansion(pThis, value))
             }
@@ -946,7 +947,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IInertiaRotationBehavior: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior }
 
-        internal func get_DesiredDecelerationImpl() throws -> Double {
+        public func get_DesiredDeceleration() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredDeceleration(pThis, &value))
@@ -954,13 +955,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_DesiredDecelerationImpl(_ value: Double) throws {
+        public func put_DesiredDeceleration(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredDeceleration(pThis, value))
             }
         }
 
-        internal func get_DesiredRotationImpl() throws -> Double {
+        public func get_DesiredRotation() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredRotation(pThis, &value))
@@ -968,7 +969,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_DesiredRotationImpl(_ value: Double) throws {
+        public func put_DesiredRotation(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredRotation(pThis, value))
             }
@@ -979,7 +980,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IInertiaTranslationBehavior: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior }
 
-        internal func get_DesiredDecelerationImpl() throws -> Double {
+        public func get_DesiredDeceleration() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredDeceleration(pThis, &value))
@@ -987,13 +988,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_DesiredDecelerationImpl(_ value: Double) throws {
+        public func put_DesiredDeceleration(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredDeceleration(pThis, value))
             }
         }
 
-        internal func get_DesiredDisplacementImpl() throws -> Double {
+        public func get_DesiredDisplacement() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredDisplacement(pThis, &value))
@@ -1001,7 +1002,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_DesiredDisplacementImpl(_ value: Double) throws {
+        public func put_DesiredDisplacement(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredDisplacement(pThis, value))
             }
@@ -1012,7 +1013,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IInputScope: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScope }
 
-        internal func get_NamesImpl() throws -> WindowsFoundation.AnyIVector<WinUI.InputScopeName?>? {
+        public func get_Names() throws -> WindowsFoundation.AnyIVector<WinUI.InputScopeName?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScope.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Names(pThis, &valueAbi))
@@ -1026,7 +1027,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IInputScopeName: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeName }
 
-        internal func get_NameValueImpl() throws -> WinUI.InputScopeNameValue {
+        public func get_NameValue() throws -> WinUI.InputScopeNameValue {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CInputScopeNameValue = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NameValue(pThis, &value))
@@ -1034,7 +1035,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_NameValueImpl(_ value: WinUI.InputScopeNameValue) throws {
+        public func put_NameValue(_ value: WinUI.InputScopeNameValue) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NameValue(pThis, value))
             }
@@ -1045,7 +1046,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IInputScopeNameFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeNameFactory }
 
-        internal func CreateInstanceImpl(_ nameValue: WinUI.InputScopeNameValue) throws -> IInputScopeName {
+        public func CreateInstance(_ nameValue: WinUI.InputScopeNameValue) throws -> IInputScopeName {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeNameFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, nameValue, &valueAbi))
@@ -1059,7 +1060,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IKeyRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs }
 
-        internal func get_KeyImpl() throws -> UWP.VirtualKey {
+        public func get_Key() throws -> UWP.VirtualKey {
             var value: __x_ABI_CWindows_CSystem_CVirtualKey = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Key(pThis, &value))
@@ -1067,7 +1068,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_KeyStatusImpl() throws -> UWP.CorePhysicalKeyStatus {
+        public func get_KeyStatus() throws -> UWP.CorePhysicalKeyStatus {
             var value: __x_ABI_CWindows_CUI_CCore_CCorePhysicalKeyStatus = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyStatus(pThis, &value))
@@ -1075,7 +1076,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1083,13 +1084,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_OriginalKeyImpl() throws -> UWP.VirtualKey {
+        public func get_OriginalKey() throws -> UWP.VirtualKey {
             var value: __x_ABI_CWindows_CSystem_CVirtualKey = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OriginalKey(pThis, &value))
@@ -1097,7 +1098,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_DeviceIdImpl() throws -> String {
+        public func get_DeviceId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceId(pThis, &value))
@@ -1110,7 +1111,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IKeyboardAccelerator: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator }
 
-        internal func get_KeyImpl() throws -> UWP.VirtualKey {
+        public func get_Key() throws -> UWP.VirtualKey {
             var value: __x_ABI_CWindows_CSystem_CVirtualKey = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Key(pThis, &value))
@@ -1118,13 +1119,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_KeyImpl(_ value: UWP.VirtualKey) throws {
+        public func put_Key(_ value: UWP.VirtualKey) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Key(pThis, value))
             }
         }
 
-        internal func get_ModifiersImpl() throws -> UWP.VirtualKeyModifiers {
+        public func get_Modifiers() throws -> UWP.VirtualKeyModifiers {
             var value: __x_ABI_CWindows_CSystem_CVirtualKeyModifiers = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Modifiers(pThis, &value))
@@ -1132,13 +1133,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_ModifiersImpl(_ value: UWP.VirtualKeyModifiers) throws {
+        public func put_Modifiers(_ value: UWP.VirtualKeyModifiers) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Modifiers(pThis, value))
             }
         }
 
-        internal func get_IsEnabledImpl() throws -> Bool {
+        public func get_IsEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnabled(pThis, &value))
@@ -1146,28 +1147,28 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_IsEnabledImpl(_ value: Bool) throws {
+        public func put_IsEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ScopeOwnerImpl() throws -> WinUI.DependencyObject? {
+        public func get_ScopeOwner() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScopeOwner(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_ScopeOwnerImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_ScopeOwner(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ScopeOwner(pThis, RawPointer(value)))
             }
         }
 
-        internal func add_InvokedImpl(_ handler: TypedEventHandler<WinUI.KeyboardAccelerator?, WinUI.KeyboardAcceleratorInvokedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Invoked(_ handler: TypedEventHandler<WinUI.KeyboardAccelerator?, WinUI.KeyboardAcceleratorInvokedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CInput__CKeyboardAccelerator___x_ABI_CMicrosoft__CUI__CXaml__CInput__CKeyboardAcceleratorInvokedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1177,7 +1178,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return token
         }
 
-        internal func remove_InvokedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Invoked(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Invoked(pThis, token))
             }
@@ -1188,7 +1189,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IKeyboardAcceleratorFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.KeyboardAccelerator.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IKeyboardAccelerator {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Input.KeyboardAcceleratorBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IKeyboardAccelerator {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -1206,7 +1207,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IKeyboardAcceleratorInvokedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1214,28 +1215,28 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ElementImpl() throws -> WinUI.DependencyObject? {
+        public func get_Element() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Element(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func get_KeyboardAcceleratorImpl() throws -> WinUI.KeyboardAccelerator? {
+        public func get_KeyboardAccelerator() throws -> WinUI.KeyboardAccelerator? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAccelerator(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Input.KeyboardAcceleratorBridge.from(abi: value)
         }
 
     }
@@ -1243,40 +1244,40 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IKeyboardAcceleratorStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorStatics }
 
-        internal func get_KeyPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_KeyProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ModifiersPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ModifiersProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ModifiersProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_IsEnabledPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsEnabledProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnabledProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_ScopeOwnerPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_ScopeOwnerProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScopeOwnerProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -1284,31 +1285,31 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class ILosingFocusEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs }
 
-        internal func get_OldFocusedElementImpl() throws -> WinUI.DependencyObject? {
+        public func get_OldFocusedElement() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldFocusedElement(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func get_NewFocusedElementImpl() throws -> WinUI.DependencyObject? {
+        public func get_NewFocusedElement() throws -> WinUI.DependencyObject? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewFocusedElement(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
         }
 
-        internal func put_NewFocusedElementImpl(_ value: WinUI.DependencyObject?) throws {
+        public func put_NewFocusedElement(_ value: WinUI.DependencyObject?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NewFocusedElement(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_FocusStateImpl() throws -> WinUI.FocusState {
+        public func get_FocusState() throws -> WinUI.FocusState {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CFocusState = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FocusState(pThis, &value))
@@ -1316,7 +1317,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_DirectionImpl() throws -> WinUI.FocusNavigationDirection {
+        public func get_Direction() throws -> WinUI.FocusNavigationDirection {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CFocusNavigationDirection = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
@@ -1324,7 +1325,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1332,13 +1333,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_InputDeviceImpl() throws -> WinUI.FocusInputDeviceKind {
+        public func get_InputDevice() throws -> WinUI.FocusInputDeviceKind {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CFocusInputDeviceKind = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InputDevice(pThis, &value))
@@ -1346,7 +1347,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_CancelImpl() throws -> Bool {
+        public func get_Cancel() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cancel(pThis, &value))
@@ -1354,13 +1355,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_CancelImpl(_ value: Bool) throws {
+        public func put_Cancel(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Cancel(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CorrelationIdImpl() throws -> Foundation.UUID {
+        public func get_CorrelationId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CorrelationId(pThis, &value))
@@ -1368,7 +1369,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func TryCancelImpl() throws -> Bool {
+        public func TryCancel() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryCancel(pThis, &result))
@@ -1376,7 +1377,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: result)
         }
 
-        internal func TrySetNewFocusedElementImpl(_ element: WinUI.DependencyObject?) throws -> Bool {
+        public func TrySetNewFocusedElement(_ element: WinUI.DependencyObject?) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TrySetNewFocusedElement(pThis, RawPointer(element), &result))
@@ -1389,16 +1390,16 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IManipulationCompletedRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs }
 
-        internal func get_ContainerImpl() throws -> WinUI.UIElement? {
+        public func get_Container() throws -> WinUI.UIElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Container(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -1406,7 +1407,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_IsInertialImpl() throws -> Bool {
+        public func get_IsInertial() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInertial(pThis, &value))
@@ -1414,7 +1415,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func get_CumulativeImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Cumulative() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cumulative(pThis, &value))
@@ -1422,7 +1423,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_VelocitiesImpl() throws -> WinAppSDK.ManipulationVelocities {
+        public func get_Velocities() throws -> WinAppSDK.ManipulationVelocities {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationVelocities = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Velocities(pThis, &value))
@@ -1430,7 +1431,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1438,13 +1439,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -1457,16 +1458,16 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IManipulationDeltaRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs }
 
-        internal func get_ContainerImpl() throws -> WinUI.UIElement? {
+        public func get_Container() throws -> WinUI.UIElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Container(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -1474,7 +1475,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_IsInertialImpl() throws -> Bool {
+        public func get_IsInertial() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInertial(pThis, &value))
@@ -1482,7 +1483,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func get_DeltaImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Delta() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Delta(pThis, &value))
@@ -1490,7 +1491,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_CumulativeImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Cumulative() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cumulative(pThis, &value))
@@ -1498,7 +1499,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_VelocitiesImpl() throws -> WinAppSDK.ManipulationVelocities {
+        public func get_Velocities() throws -> WinAppSDK.ManipulationVelocities {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationVelocities = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Velocities(pThis, &value))
@@ -1506,7 +1507,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1514,13 +1515,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -1528,7 +1529,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func CompleteImpl() throws {
+        public func Complete() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
             }
@@ -1539,61 +1540,61 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IManipulationInertiaStartingRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs }
 
-        internal func get_ContainerImpl() throws -> WinUI.UIElement? {
+        public func get_Container() throws -> WinUI.UIElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Container(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
         }
 
-        internal func get_ExpansionBehaviorImpl() throws -> WinUI.InertiaExpansionBehavior? {
+        public func get_ExpansionBehavior() throws -> WinUI.InertiaExpansionBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExpansionBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Input.InertiaExpansionBehaviorBridge.from(abi: value)
         }
 
-        internal func put_ExpansionBehaviorImpl(_ value: WinUI.InertiaExpansionBehavior?) throws {
+        public func put_ExpansionBehavior(_ value: WinUI.InertiaExpansionBehavior?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExpansionBehavior(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_RotationBehaviorImpl() throws -> WinUI.InertiaRotationBehavior? {
+        public func get_RotationBehavior() throws -> WinUI.InertiaRotationBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Input.InertiaRotationBehaviorBridge.from(abi: value)
         }
 
-        internal func put_RotationBehaviorImpl(_ value: WinUI.InertiaRotationBehavior?) throws {
+        public func put_RotationBehavior(_ value: WinUI.InertiaRotationBehavior?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RotationBehavior(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_TranslationBehaviorImpl() throws -> WinUI.InertiaTranslationBehavior? {
+        public func get_TranslationBehavior() throws -> WinUI.InertiaTranslationBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TranslationBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Input.InertiaTranslationBehaviorBridge.from(abi: value)
         }
 
-        internal func put_TranslationBehaviorImpl(_ value: WinUI.InertiaTranslationBehavior?) throws {
+        public func put_TranslationBehavior(_ value: WinUI.InertiaTranslationBehavior?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TranslationBehavior(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1601,13 +1602,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -1615,7 +1616,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_DeltaImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Delta() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Delta(pThis, &value))
@@ -1623,7 +1624,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_CumulativeImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Cumulative() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cumulative(pThis, &value))
@@ -1631,7 +1632,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_VelocitiesImpl() throws -> WinAppSDK.ManipulationVelocities {
+        public func get_Velocities() throws -> WinAppSDK.ManipulationVelocities {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationVelocities = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Velocities(pThis, &value))
@@ -1644,7 +1645,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IManipulationPivot: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot }
 
-        internal func get_CenterImpl() throws -> WindowsFoundation.Point {
+        public func get_Center() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Center(pThis, &value))
@@ -1652,13 +1653,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func put_CenterImpl(_ value: WindowsFoundation.Point) throws {
+        public func put_Center(_ value: WindowsFoundation.Point) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Center(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_RadiusImpl() throws -> Double {
+        public func get_Radius() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Radius(pThis, &value))
@@ -1666,7 +1667,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_RadiusImpl(_ value: Double) throws {
+        public func put_Radius(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Radius(pThis, value))
             }
@@ -1677,7 +1678,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IManipulationPivotFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivotFactory }
 
-        internal func CreateInstanceWithCenterAndRadiusImpl(_ center: WindowsFoundation.Point, _ radius: Double) throws -> IManipulationPivot {
+        public func CreateInstanceWithCenterAndRadius(_ center: WindowsFoundation.Point, _ radius: Double) throws -> IManipulationPivot {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivotFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithCenterAndRadius(pThis, .from(swift: center), radius, &valueAbi))
@@ -1691,16 +1692,16 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IManipulationStartedRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs }
 
-        internal func get_ContainerImpl() throws -> WinUI.UIElement? {
+        public func get_Container() throws -> WinUI.UIElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Container(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.Point {
+        public func get_Position() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -1708,7 +1709,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1716,13 +1717,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -1730,7 +1731,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_CumulativeImpl() throws -> WinAppSDK.ManipulationDelta {
+        public func get_Cumulative() throws -> WinAppSDK.ManipulationDelta {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CManipulationDelta = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cumulative(pThis, &value))
@@ -1738,7 +1739,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .from(abi: value)
         }
 
-        internal func CompleteImpl() throws {
+        public func Complete() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
             }
@@ -1749,7 +1750,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IManipulationStartedRoutedEventArgsFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgsFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.ManipulationStartedRoutedEventArgs.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IManipulationStartedRoutedEventArgs {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Input.ManipulationStartedRoutedEventArgsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IManipulationStartedRoutedEventArgs {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -1767,7 +1768,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IManipulationStartingRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs }
 
-        internal func get_ModeImpl() throws -> WinUI.ManipulationModes {
+        public func get_Mode() throws -> WinUI.ManipulationModes {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CManipulationModes = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -1775,43 +1776,43 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func put_ModeImpl(_ value: WinUI.ManipulationModes) throws {
+        public func put_Mode(_ value: WinUI.ManipulationModes) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Mode(pThis, value))
             }
         }
 
-        internal func get_ContainerImpl() throws -> WinUI.UIElement? {
+        public func get_Container() throws -> WinUI.UIElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Container(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
         }
 
-        internal func put_ContainerImpl(_ value: WinUI.UIElement?) throws {
+        public func put_Container(_ value: WinUI.UIElement?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Container(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_PivotImpl() throws -> WinUI.ManipulationPivot? {
+        public func get_Pivot() throws -> WinUI.ManipulationPivot? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Pivot(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Input.ManipulationPivotBridge.from(abi: value)
         }
 
-        internal func put_PivotImpl(_ value: WinUI.ManipulationPivot?) throws {
+        public func put_Pivot(_ value: WinUI.ManipulationPivot?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Pivot(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1819,7 +1820,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
@@ -1830,7 +1831,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class INoFocusCandidateFoundEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs }
 
-        internal func get_DirectionImpl() throws -> WinUI.FocusNavigationDirection {
+        public func get_Direction() throws -> WinUI.FocusNavigationDirection {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CFocusNavigationDirection = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
@@ -1838,7 +1839,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1846,13 +1847,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_InputDeviceImpl() throws -> WinUI.FocusInputDeviceKind {
+        public func get_InputDevice() throws -> WinUI.FocusInputDeviceKind {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CFocusInputDeviceKind = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InputDevice(pThis, &value))
@@ -1865,7 +1866,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IPointer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer }
 
-        internal func get_PointerIdImpl() throws -> UInt32 {
+        public func get_PointerId() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerId(pThis, &value))
@@ -1873,7 +1874,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -1881,7 +1882,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_IsInContactImpl() throws -> Bool {
+        public func get_IsInContact() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInContact(pThis, &value))
@@ -1889,7 +1890,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func get_IsInRangeImpl() throws -> Bool {
+        public func get_IsInRange() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsInRange(pThis, &value))
@@ -1902,16 +1903,16 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IPointerRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs }
 
-        internal func get_PointerImpl() throws -> WinUI.Pointer? {
+        public func get_Pointer() throws -> WinUI.Pointer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Pointer(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Input.PointerBridge.from(abi: value)
         }
 
-        internal func get_KeyModifiersImpl() throws -> UWP.VirtualKeyModifiers {
+        public func get_KeyModifiers() throws -> UWP.VirtualKeyModifiers {
             var value: __x_ABI_CWindows_CSystem_CVirtualKeyModifiers = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyModifiers(pThis, &value))
@@ -1919,7 +1920,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1927,13 +1928,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_IsGeneratedImpl() throws -> Bool {
+        public func get_IsGenerated() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsGenerated(pThis, &value))
@@ -1941,16 +1942,16 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func GetCurrentPointImpl(_ relativeTo: WinUI.UIElement?) throws -> WinAppSDK.PointerPoint? {
+        public func GetCurrentPoint(_ relativeTo: WinUI.UIElement?) throws -> WinAppSDK.PointerPoint? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentPoint(pThis, RawPointer(relativeTo), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Input.PointerPointBridge.from(abi: result)
         }
 
-        internal func GetIntermediatePointsImpl(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.AnyIVector<WinAppSDK.PointerPoint?>? {
+        public func GetIntermediatePoints(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.AnyIVector<WinAppSDK.PointerPoint?>? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetIntermediatePoints(pThis, RawPointer(relativeTo), &resultAbi))
@@ -1964,7 +1965,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IProcessKeyboardAcceleratorEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs }
 
-        internal func get_KeyImpl() throws -> UWP.VirtualKey {
+        public func get_Key() throws -> UWP.VirtualKey {
             var value: __x_ABI_CWindows_CSystem_CVirtualKey = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Key(pThis, &value))
@@ -1972,7 +1973,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_ModifiersImpl() throws -> UWP.VirtualKeyModifiers {
+        public func get_Modifiers() throws -> UWP.VirtualKeyModifiers {
             var value: __x_ABI_CWindows_CSystem_CVirtualKeyModifiers = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Modifiers(pThis, &value))
@@ -1980,7 +1981,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1988,7 +1989,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
@@ -1999,7 +2000,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class IRightTappedRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -2007,7 +2008,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -2015,13 +2016,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetPositionImpl(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.Point {
+        public func GetPosition(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.Point {
             var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPosition(pThis, RawPointer(relativeTo), &result))
@@ -2034,7 +2035,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
     public class ITappedRoutedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs }
 
-        internal func get_PointerDeviceTypeImpl() throws -> WinAppSDK.PointerDeviceType {
+        public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
             var value: __x_ABI_CMicrosoft_CUI_CInput_CPointerDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
@@ -2042,7 +2043,7 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return value
         }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -2050,13 +2051,13 @@ public enum __ABI_Microsoft_UI_Xaml_Input {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetPositionImpl(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.Point {
+        public func GetPosition(_ relativeTo: WinUI.UIElement?) throws -> WindowsFoundation.Point {
             var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPosition(pThis, RawPointer(relativeTo), &result))
@@ -2072,7 +2073,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class DoubleTappedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.DoubleTappedRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.DoubleTappedRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedEventHandler.self) { pThis in
@@ -2089,11 +2090,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { DoubleTappedEventHandlerWrapper.addRef($0) },
         Release: { DoubleTappedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = DoubleTappedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.DoubleTappedRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = DoubleTappedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.DoubleTappedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.DoubleTappedRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2109,7 +2112,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class HoldingEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.HoldingRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.HoldingRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingEventHandler.self) { pThis in
@@ -2126,11 +2129,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { HoldingEventHandlerWrapper.addRef($0) },
         Release: { HoldingEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = HoldingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.HoldingRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = HoldingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.HoldingRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.HoldingRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2146,7 +2151,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class KeyEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.KeyRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.KeyRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyEventHandler.self) { pThis in
@@ -2163,11 +2168,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { KeyEventHandlerWrapper.addRef($0) },
         Release: { KeyEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = KeyEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.KeyRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = KeyEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.KeyRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.KeyRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2183,7 +2190,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class ManipulationCompletedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.ManipulationCompletedRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationCompletedRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedEventHandler.self) { pThis in
@@ -2200,11 +2207,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { ManipulationCompletedEventHandlerWrapper.addRef($0) },
         Release: { ManipulationCompletedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = ManipulationCompletedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.ManipulationCompletedRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = ManipulationCompletedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.ManipulationCompletedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationCompletedRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2220,7 +2229,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class ManipulationDeltaEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.ManipulationDeltaRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationDeltaRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaEventHandler.self) { pThis in
@@ -2237,11 +2246,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { ManipulationDeltaEventHandlerWrapper.addRef($0) },
         Release: { ManipulationDeltaEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = ManipulationDeltaEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.ManipulationDeltaRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = ManipulationDeltaEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.ManipulationDeltaRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationDeltaRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2257,7 +2268,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class ManipulationInertiaStartingEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.ManipulationInertiaStartingRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationInertiaStartingRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingEventHandler.self) { pThis in
@@ -2274,11 +2285,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { ManipulationInertiaStartingEventHandlerWrapper.addRef($0) },
         Release: { ManipulationInertiaStartingEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = ManipulationInertiaStartingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.ManipulationInertiaStartingRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = ManipulationInertiaStartingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.ManipulationInertiaStartingRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationInertiaStartingRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2294,7 +2307,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class ManipulationStartedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.ManipulationStartedRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationStartedRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedEventHandler.self) { pThis in
@@ -2311,11 +2324,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { ManipulationStartedEventHandlerWrapper.addRef($0) },
         Release: { ManipulationStartedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = ManipulationStartedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.ManipulationStartedRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = ManipulationStartedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.ManipulationStartedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationStartedRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2331,7 +2346,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class ManipulationStartingEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.ManipulationStartingRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationStartingRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingEventHandler.self) { pThis in
@@ -2348,11 +2363,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { ManipulationStartingEventHandlerWrapper.addRef($0) },
         Release: { ManipulationStartingEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = ManipulationStartingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.ManipulationStartingRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = ManipulationStartingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.ManipulationStartingRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationStartingRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2368,7 +2385,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class PointerEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.PointerRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.PointerRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerEventHandler.self) { pThis in
@@ -2385,11 +2402,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { PointerEventHandlerWrapper.addRef($0) },
         Release: { PointerEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = PointerEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.PointerRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = PointerEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2405,7 +2424,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class RightTappedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.RightTappedRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.RightTappedRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedEventHandler.self) { pThis in
@@ -2422,11 +2441,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { RightTappedEventHandlerWrapper.addRef($0) },
         Release: { RightTappedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = RightTappedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.RightTappedRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = RightTappedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.RightTappedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.RightTappedRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -2442,7 +2463,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
     public class TappedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.TappedRoutedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.TappedRoutedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedEventHandler.self) { pThis in
@@ -2459,11 +2480,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         AddRef: { TappedEventHandlerWrapper.addRef($0) },
         Release: { TappedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = TappedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.TappedRoutedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = TappedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.TappedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.TappedRoutedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

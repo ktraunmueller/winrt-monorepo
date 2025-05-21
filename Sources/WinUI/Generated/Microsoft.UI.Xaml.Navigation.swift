@@ -22,12 +22,6 @@ open class FrameNavigationOptions : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions>?) -> FrameNavigationOptions? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -43,38 +37,27 @@ open class FrameNavigationOptions : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFrameNavigationOptionsFactory : __ABI_Microsoft_UI_Xaml_Navigation.IFrameNavigationOptionsFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Navigation.FrameNavigationOptions"))
+    private static var _IFrameNavigationOptionsFactory : __ABI_Microsoft_UI_Xaml_Navigation.IFrameNavigationOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.FrameNavigationOptions")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IFrameNavigationOptionsFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Navigation.FrameNavigationOptionsBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IFrameNavigationOptionsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.framenavigationoptions.isnavigationstackenabled)
     public var isNavigationStackEnabled : Bool {
-        get { try! _default.get_IsNavigationStackEnabledImpl() }
-        set { try! _default.put_IsNavigationStackEnabledImpl(newValue) }
+        get { try! _default.get_IsNavigationStackEnabled() }
+        set { try! _default.put_IsNavigationStackEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.framenavigationoptions.transitioninfooverride)
     public var transitionInfoOverride : WinUI.NavigationTransitionInfo! {
-        get { try! _default.get_TransitionInfoOverrideImpl() }
-        set { try! _default.put_TransitionInfoOverrideImpl(newValue) }
+        get { try! _default.get_TransitionInfoOverride() }
+        set { try! _default.put_TransitionInfoOverride(newValue) }
     }
 
-    internal enum IFrameNavigationOptions : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = FrameNavigationOptions
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.IFrameNavigationOptions
-        }
-    }
-    internal typealias Composable = IFrameNavigationOptions
     deinit {
         _default = nil
     }
@@ -94,40 +77,34 @@ public final class NavigatingCancelEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs>?) -> NavigatingCancelEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigatingcanceleventargs.cancel)
     public var cancel : Bool {
-        get { try! _default.get_CancelImpl() }
-        set { try! _default.put_CancelImpl(newValue) }
+        get { try! _default.get_Cancel() }
+        set { try! _default.put_Cancel(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigatingcanceleventargs.navigationmode)
     public var navigationMode : NavigationMode {
-        get { try! _default.get_NavigationModeImpl() }
+        get { try! _default.get_NavigationMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigatingcanceleventargs.navigationtransitioninfo)
     public var navigationTransitionInfo : WinUI.NavigationTransitionInfo! {
-        get { try! _default.get_NavigationTransitionInfoImpl() }
+        get { try! _default.get_NavigationTransitionInfo() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigatingcanceleventargs.parameter)
     public var parameter : Any! {
-        get { try! _default.get_ParameterImpl() }
+        get { try! _default.get_Parameter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigatingcanceleventargs.sourcepagetype)
     public var sourcePageType : WinUI.TypeName {
-        get { try! _default.get_SourcePageTypeImpl() }
+        get { try! _default.get_SourcePageType() }
     }
 
     deinit {
@@ -149,45 +126,39 @@ public final class NavigationEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs>?) -> NavigationEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationeventargs.content)
     public var content : Any! {
-        get { try! _default.get_ContentImpl() }
+        get { try! _default.get_Content() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationeventargs.navigationmode)
     public var navigationMode : NavigationMode {
-        get { try! _default.get_NavigationModeImpl() }
+        get { try! _default.get_NavigationMode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationeventargs.navigationtransitioninfo)
     public var navigationTransitionInfo : WinUI.NavigationTransitionInfo! {
-        get { try! _default.get_NavigationTransitionInfoImpl() }
+        get { try! _default.get_NavigationTransitionInfo() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationeventargs.parameter)
     public var parameter : Any! {
-        get { try! _default.get_ParameterImpl() }
+        get { try! _default.get_Parameter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationeventargs.sourcepagetype)
     public var sourcePageType : WinUI.TypeName {
-        get { try! _default.get_SourcePageTypeImpl() }
+        get { try! _default.get_SourcePageType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationeventargs.uri)
     public var uri : WindowsFoundation.Uri! {
-        get { try! _default.get_UriImpl() }
-        set { try! _default.put_UriImpl(newValue) }
+        get { try! _default.get_Uri() }
+        set { try! _default.put_Uri(newValue) }
     }
 
     deinit {
@@ -209,30 +180,24 @@ public final class NavigationFailedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs>?) -> NavigationFailedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationfailedeventargs.exception)
     public var exception : HRESULT {
-        get { try! _default.get_ExceptionImpl() }
+        get { try! _default.get_Exception() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationfailedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationfailedeventargs.sourcepagetype)
     public var sourcePageType : WinUI.TypeName {
-        get { try! _default.get_SourcePageTypeImpl() }
+        get { try! _default.get_SourcePageType() }
     }
 
     deinit {
@@ -254,40 +219,34 @@ public final class PageStackEntry : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry>?) -> PageStackEntry? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IPageStackEntryFactory: __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntryFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Navigation.PageStackEntry"))
+    private static let _IPageStackEntryFactory: __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntryFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.PageStackEntry")
     public init(_ sourcePageType: WinUI.TypeName, _ parameter: Any!, _ navigationTransitionInfo: WinUI.NavigationTransitionInfo!) {
-        super.init(fromAbi: try! Self._IPageStackEntryFactory.CreateInstanceImpl(sourcePageType, parameter, navigationTransitionInfo))
+        super.init(fromAbi: try! Self._IPageStackEntryFactory.CreateInstance(sourcePageType, parameter, navigationTransitionInfo))
     }
 
-    private static let _IPageStackEntryStatics: __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntryStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Navigation.PageStackEntry"))
+    private static let _IPageStackEntryStatics: __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntryStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.PageStackEntry")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.pagestackentry.sourcepagetypeproperty)
     public static var sourcePageTypeProperty : WinUI.DependencyProperty! {
-        get { try! _IPageStackEntryStatics.get_SourcePageTypePropertyImpl() }
+        get { try! _IPageStackEntryStatics.get_SourcePageTypeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.pagestackentry.navigationtransitioninfo)
     public var navigationTransitionInfo : WinUI.NavigationTransitionInfo! {
-        get { try! _default.get_NavigationTransitionInfoImpl() }
+        get { try! _default.get_NavigationTransitionInfo() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.pagestackentry.parameter)
     public var parameter : Any! {
-        get { try! _default.get_ParameterImpl() }
+        get { try! _default.get_Parameter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.pagestackentry.sourcepagetype)
     public var sourcePageType : WinUI.TypeName {
-        get { try! _default.get_SourcePageTypeImpl() }
+        get { try! _default.get_SourcePageType() }
     }
 
     deinit {
@@ -295,10 +254,10 @@ public final class PageStackEntry : WinUI.DependencyObject {
     }
 }
 
-public typealias NavigatedEventHandler = (Any?, NavigationEventArgs?) -> ()
-public typealias NavigatingCancelEventHandler = (Any?, NavigatingCancelEventArgs?) -> ()
-public typealias NavigationFailedEventHandler = (Any?, NavigationFailedEventArgs?) -> ()
-public typealias NavigationStoppedEventHandler = (Any?, NavigationEventArgs?) -> ()
+public typealias NavigatedEventHandler = (Any?, NavigationEventArgs?) throws -> ()
+public typealias NavigatingCancelEventHandler = (Any?, NavigatingCancelEventArgs?) throws -> ()
+public typealias NavigationFailedEventHandler = (Any?, NavigationFailedEventArgs?) throws -> ()
+public typealias NavigationStoppedEventHandler = (Any?, NavigationEventArgs?) throws -> ()
 extension WinUI.NavigationCacheMode {
     public static var disabled : WinUI.NavigationCacheMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CNavigationCacheMode_Disabled
@@ -310,7 +269,7 @@ extension WinUI.NavigationCacheMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CNavigationCacheMode_Enabled
     }
 }
-extension WinUI.NavigationCacheMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.NavigationCacheMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.NavigationMode {
     public static var new : WinUI.NavigationMode {
@@ -326,5 +285,5 @@ extension WinUI.NavigationMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CNavigationMode_Refresh
     }
 }
-extension WinUI.NavigationMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.NavigationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

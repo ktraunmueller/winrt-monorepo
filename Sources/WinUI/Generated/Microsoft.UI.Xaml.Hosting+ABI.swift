@@ -69,26 +69,27 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigatio
     .init(Data1: 0xF533F53B, Data2: 0x5C00, Data3: 0x5C88, Data4: ( 0x9A,0x41,0x38,0x88,0xCB,0x86,0xE4,0x95 ))// F533F53B-5C00-5C88-9A41-3888CB86E495
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IDesktopWindowXamlSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource }
 
-        internal func get_ContentImpl() throws -> WinUI.UIElement? {
+        public func get_Content() throws -> WinUI.UIElement? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Content(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
         }
 
-        internal func put_ContentImpl(_ value: WinUI.UIElement?) throws {
+        public func put_Content(_ value: WinUI.UIElement?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Content(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_HasFocusImpl() throws -> Bool {
+        public func get_HasFocus() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasFocus(pThis, &value))
@@ -96,31 +97,31 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             return .init(from: value)
         }
 
-        internal func get_SystemBackdropImpl() throws -> WinUI.SystemBackdrop? {
+        public func get_SystemBackdrop() throws -> WinUI.SystemBackdrop? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SystemBackdrop(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Media.SystemBackdropBridge.from(abi: value)
         }
 
-        internal func put_SystemBackdropImpl(_ value: WinUI.SystemBackdrop?) throws {
+        public func put_SystemBackdrop(_ value: WinUI.SystemBackdrop?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SystemBackdrop(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_SiteBridgeImpl() throws -> WinAppSDK.DesktopChildSiteBridge? {
+        public func get_SiteBridge() throws -> WinAppSDK.DesktopChildSiteBridge? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SiteBridge(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Content.DesktopChildSiteBridgeBridge.from(abi: value)
         }
 
-        internal func add_TakeFocusRequestedImpl(_ handler: TypedEventHandler<WinUI.DesktopWindowXamlSource?, WinUI.DesktopWindowXamlSourceTakeFocusRequestedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_TakeFocusRequested(_ handler: TypedEventHandler<WinUI.DesktopWindowXamlSource?, WinUI.DesktopWindowXamlSourceTakeFocusRequestedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSource___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSourceTakeFocusRequestedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -130,13 +131,13 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             return token
         }
 
-        internal func remove_TakeFocusRequestedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_TakeFocusRequested(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TakeFocusRequested(pThis, token))
             }
         }
 
-        internal func add_GotFocusImpl(_ handler: TypedEventHandler<WinUI.DesktopWindowXamlSource?, WinUI.DesktopWindowXamlSourceGotFocusEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_GotFocus(_ handler: TypedEventHandler<WinUI.DesktopWindowXamlSource?, WinUI.DesktopWindowXamlSourceGotFocusEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSource___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSourceGotFocusEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -146,22 +147,22 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             return token
         }
 
-        internal func remove_GotFocusImpl(_ token: EventRegistrationToken) throws {
+        public func remove_GotFocus(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_GotFocus(pThis, token))
             }
         }
 
-        internal func NavigateFocusImpl(_ request: WinUI.XamlSourceFocusNavigationRequest?) throws -> WinUI.XamlSourceFocusNavigationResult? {
+        public func NavigateFocus(_ request: WinUI.XamlSourceFocusNavigationRequest?) throws -> WinUI.XamlSourceFocusNavigationResult? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.NavigateFocus(pThis, RawPointer(request), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Hosting.XamlSourceFocusNavigationResultBridge.from(abi: result)
         }
 
-        internal func InitializeImpl(_ parentWindowId: WinAppSDK.WindowId) throws {
+        public func Initialize(_ parentWindowId: WinAppSDK.WindowId) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Initialize(pThis, .from(swift: parentWindowId)))
             }
@@ -172,7 +173,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IDesktopWindowXamlSource2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource2 }
 
-        internal func get_ShouldConstrainPopupsToWorkAreaImpl() throws -> Bool {
+        public func get_ShouldConstrainPopupsToWorkArea() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShouldConstrainPopupsToWorkArea(pThis, &value))
@@ -180,7 +181,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             return .init(from: value)
         }
 
-        internal func put_ShouldConstrainPopupsToWorkAreaImpl(_ value: Bool) throws {
+        public func put_ShouldConstrainPopupsToWorkArea(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ShouldConstrainPopupsToWorkArea(pThis, .init(from: value)))
             }
@@ -191,7 +192,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IDesktopWindowXamlSourceFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.DesktopWindowXamlSource.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDesktopWindowXamlSource {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Hosting.DesktopWindowXamlSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDesktopWindowXamlSource {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -209,13 +210,13 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IDesktopWindowXamlSourceGotFocusEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceGotFocusEventArgs }
 
-        internal func get_RequestImpl() throws -> WinUI.XamlSourceFocusNavigationRequest? {
+        public func get_Request() throws -> WinUI.XamlSourceFocusNavigationRequest? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceGotFocusEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Request(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Hosting.XamlSourceFocusNavigationRequestBridge.from(abi: value)
         }
 
     }
@@ -223,13 +224,13 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IDesktopWindowXamlSourceTakeFocusRequestedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceTakeFocusRequestedEventArgs }
 
-        internal func get_RequestImpl() throws -> WinUI.XamlSourceFocusNavigationRequest? {
+        public func get_Request() throws -> WinUI.XamlSourceFocusNavigationRequest? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceTakeFocusRequestedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Request(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Hosting.XamlSourceFocusNavigationRequestBridge.from(abi: value)
         }
 
     }
@@ -242,40 +243,40 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IElementCompositionPreviewStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics }
 
-        internal func GetElementVisualImpl(_ element: WinUI.UIElement?) throws -> WinAppSDK.Visual? {
+        public func GetElementVisual(_ element: WinUI.UIElement?) throws -> WinAppSDK.Visual? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetElementVisual(pThis, RawPointer(element), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: result)
         }
 
-        internal func GetElementChildVisualImpl(_ element: WinUI.UIElement?) throws -> WinAppSDK.Visual? {
+        public func GetElementChildVisual(_ element: WinUI.UIElement?) throws -> WinAppSDK.Visual? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetElementChildVisual(pThis, RawPointer(element), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.VisualBridge.from(abi: result)
         }
 
-        internal func SetElementChildVisualImpl(_ element: WinUI.UIElement?, _ visual: WinAppSDK.Visual?) throws {
+        public func SetElementChildVisual(_ element: WinUI.UIElement?, _ visual: WinAppSDK.Visual?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetElementChildVisual(pThis, RawPointer(element), RawPointer(visual)))
             }
         }
 
-        internal func GetScrollViewerManipulationPropertySetImpl(_ scrollViewer: WinUI.ScrollViewer?) throws -> WinAppSDK.CompositionPropertySet? {
+        public func GetScrollViewerManipulationPropertySet(_ scrollViewer: WinUI.ScrollViewer?) throws -> WinAppSDK.CompositionPropertySet? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetScrollViewerManipulationPropertySet(pThis, RawPointer(scrollViewer), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionPropertySetBridge.from(abi: result)
         }
 
-        internal func SetImplicitShowAnimationImpl(_ element: WinUI.UIElement?, _ animation: WinAppSDK.AnyICompositionAnimationBase?) throws {
+        public func SetImplicitShowAnimation(_ element: WinUI.UIElement?, _ animation: WinAppSDK.AnyICompositionAnimationBase?) throws {
             let animationWrapper = __ABI_Microsoft_UI_Composition.ICompositionAnimationBaseWrapper(animation)
             let _animation = try! animationWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics.self) { pThis in
@@ -283,7 +284,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             }
         }
 
-        internal func SetImplicitHideAnimationImpl(_ element: WinUI.UIElement?, _ animation: WinAppSDK.AnyICompositionAnimationBase?) throws {
+        public func SetImplicitHideAnimation(_ element: WinUI.UIElement?, _ animation: WinAppSDK.AnyICompositionAnimationBase?) throws {
             let animationWrapper = __ABI_Microsoft_UI_Composition.ICompositionAnimationBaseWrapper(animation)
             let _animation = try! animationWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics.self) { pThis in
@@ -291,19 +292,19 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             }
         }
 
-        internal func SetIsTranslationEnabledImpl(_ element: WinUI.UIElement?, _ value: Bool) throws {
+        public func SetIsTranslationEnabled(_ element: WinUI.UIElement?, _ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetIsTranslationEnabled(pThis, RawPointer(element), .init(from: value)))
             }
         }
 
-        internal func GetPointerPositionPropertySetImpl(_ targetElement: WinUI.UIElement?) throws -> WinAppSDK.CompositionPropertySet? {
+        public func GetPointerPositionPropertySet(_ targetElement: WinUI.UIElement?) throws -> WinAppSDK.CompositionPropertySet? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPointerPositionPropertySet(pThis, RawPointer(targetElement), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Composition.CompositionPropertySetBridge.from(abi: result)
         }
 
     }
@@ -316,7 +317,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IWindowsXamlManager2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManager2 }
 
-        internal func add_XamlShutdownCompletedOnThreadImpl(_ handler: TypedEventHandler<WinUI.WindowsXamlManager?, WinUI.XamlShutdownCompletedOnThreadEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_XamlShutdownCompletedOnThread(_ handler: TypedEventHandler<WinUI.WindowsXamlManager?, WinUI.XamlShutdownCompletedOnThreadEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CWindowsXamlManager___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CXamlShutdownCompletedOnThreadEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -326,7 +327,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             return token
         }
 
-        internal func remove_XamlShutdownCompletedOnThreadImpl(_ token: EventRegistrationToken) throws {
+        public func remove_XamlShutdownCompletedOnThread(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManager2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_XamlShutdownCompletedOnThread(pThis, token))
             }
@@ -337,13 +338,13 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IWindowsXamlManagerStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManagerStatics }
 
-        internal func InitializeForCurrentThreadImpl() throws -> WinUI.WindowsXamlManager? {
+        public func InitializeForCurrentThread() throws -> WinUI.WindowsXamlManager? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManagerStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.InitializeForCurrentThread(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Hosting.WindowsXamlManagerBridge.from(abi: result)
         }
 
     }
@@ -351,13 +352,13 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IWindowsXamlManagerStatics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManagerStatics2 }
 
-        internal func GetForCurrentThreadImpl() throws -> WinUI.WindowsXamlManager? {
+        public func GetForCurrentThread() throws -> WinUI.WindowsXamlManager? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManagerStatics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentThread(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Microsoft_UI_Xaml_Hosting.WindowsXamlManagerBridge.from(abi: result)
         }
 
     }
@@ -365,13 +366,13 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IXamlShutdownCompletedOnThreadEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlShutdownCompletedOnThreadEventArgs }
 
-        internal func GetDispatcherQueueDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDispatcherQueueDeferral() throws -> WindowsFoundation.Deferral? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlShutdownCompletedOnThreadEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDispatcherQueueDeferral(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: result)
         }
 
     }
@@ -379,7 +380,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IXamlSourceFocusNavigationRequest: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequest }
 
-        internal func get_ReasonImpl() throws -> WinUI.XamlSourceFocusNavigationReason {
+        public func get_Reason() throws -> WinUI.XamlSourceFocusNavigationReason {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CXamlSourceFocusNavigationReason = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Reason(pThis, &value))
@@ -387,7 +388,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             return value
         }
 
-        internal func get_HintRectImpl() throws -> WindowsFoundation.Rect {
+        public func get_HintRect() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HintRect(pThis, &value))
@@ -395,7 +396,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             return .from(abi: value)
         }
 
-        internal func get_CorrelationIdImpl() throws -> Foundation.UUID {
+        public func get_CorrelationId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CorrelationId(pThis, &value))
@@ -408,7 +409,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IXamlSourceFocusNavigationRequestFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequestFactory }
 
-        internal func CreateInstanceImpl(_ reason: WinUI.XamlSourceFocusNavigationReason) throws -> IXamlSourceFocusNavigationRequest {
+        public func CreateInstance(_ reason: WinUI.XamlSourceFocusNavigationReason) throws -> IXamlSourceFocusNavigationRequest {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequestFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, reason, &valueAbi))
@@ -417,7 +418,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             return IXamlSourceFocusNavigationRequest(value!)
         }
 
-        internal func CreateInstanceWithHintRectImpl(_ reason: WinUI.XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect) throws -> IXamlSourceFocusNavigationRequest {
+        public func CreateInstanceWithHintRect(_ reason: WinUI.XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect) throws -> IXamlSourceFocusNavigationRequest {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequestFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithHintRect(pThis, reason, .from(swift: hintRect), &valueAbi))
@@ -426,7 +427,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
             return IXamlSourceFocusNavigationRequest(value!)
         }
 
-        internal func CreateInstanceWithHintRectAndCorrelationIdImpl(_ reason: WinUI.XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect, _ correlationId: Foundation.UUID) throws -> IXamlSourceFocusNavigationRequest {
+        public func CreateInstanceWithHintRectAndCorrelationId(_ reason: WinUI.XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect, _ correlationId: Foundation.UUID) throws -> IXamlSourceFocusNavigationRequest {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequestFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithHintRectAndCorrelationId(pThis, reason, .from(swift: hintRect), .init(from: correlationId), &valueAbi))
@@ -440,7 +441,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IXamlSourceFocusNavigationResult: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationResult }
 
-        internal func get_WasFocusMovedImpl() throws -> Bool {
+        public func get_WasFocusMoved() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationResult.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_WasFocusMoved(pThis, &value))
@@ -453,7 +454,7 @@ public enum __ABI_Microsoft_UI_Xaml_Hosting {
     public class IXamlSourceFocusNavigationResultFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationResultFactory }
 
-        internal func CreateInstanceImpl(_ focusMoved: Bool) throws -> IXamlSourceFocusNavigationResult {
+        public func CreateInstance(_ focusMoved: Bool) throws -> IXamlSourceFocusNavigationResult {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationResultFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, .init(from: focusMoved), &valueAbi))

@@ -4,5 +4,34 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Media_Media3D {
+    public enum Transform3DBridge: ComposableBridge {
+        public typealias SwiftProjection = Transform3D
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3D
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3D>?) -> Transform3D? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITransform3D : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = Transform3D
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3D
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Media3D.ITransform3D
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITransform3D
+    }
+
+}
+@_spi(WinRTInternal)
+public class Transform3DMaker: MakeFromAbi {
+    public typealias SwiftType = Transform3D
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Transform3D(fromAbi: abi)
+    }
 }

@@ -72,26 +72,27 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIPropertyChangedEventHandler
     .init(Data1: 0xE3DE52F6, Data2: 0x1E32, Data3: 0x5DA6, Data4: ( 0xBB,0x2D,0xB5,0xB6,0x09,0x6C,0x96,0x2D ))// E3DE52F6-1E32-5DA6-BB2D-B5B6096C962D
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IBinding: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding }
 
-        internal func get_PathImpl() throws -> WinUI.PropertyPath? {
+        public func get_Path() throws -> WinUI.PropertyPath? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Path(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.PropertyPathBridge.from(abi: value)
         }
 
-        internal func put_PathImpl(_ value: WinUI.PropertyPath?) throws {
+        public func put_Path(_ value: WinUI.PropertyPath?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Path(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ModeImpl() throws -> WinUI.BindingMode {
+        public func get_Mode() throws -> WinUI.BindingMode {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CData_CBindingMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -99,13 +100,13 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return value
         }
 
-        internal func put_ModeImpl(_ value: WinUI.BindingMode) throws {
+        public func put_Mode(_ value: WinUI.BindingMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Mode(pThis, value))
             }
         }
 
-        internal func get_SourceImpl() throws -> Any? {
+        public func get_Source() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Source(pThis, &valueAbi))
@@ -114,7 +115,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_SourceImpl(_ value: Any?) throws {
+        public func put_Source(_ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
@@ -122,22 +123,22 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             }
         }
 
-        internal func get_RelativeSourceImpl() throws -> WinUI.RelativeSource? {
+        public func get_RelativeSource() throws -> WinUI.RelativeSource? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RelativeSource(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Data.RelativeSourceBridge.from(abi: value)
         }
 
-        internal func put_RelativeSourceImpl(_ value: WinUI.RelativeSource?) throws {
+        public func put_RelativeSource(_ value: WinUI.RelativeSource?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RelativeSource(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ElementNameImpl() throws -> String {
+        public func get_ElementName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ElementName(pThis, &value))
@@ -145,14 +146,14 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return .init(from: value)
         }
 
-        internal func put_ElementNameImpl(_ value: String) throws {
+        public func put_ElementName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ElementName(pThis, _value.get()))
             }
         }
 
-        internal func get_ConverterImpl() throws -> WinUI.AnyIValueConverter? {
+        public func get_Converter() throws -> WinUI.AnyIValueConverter? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Converter(pThis, &valueAbi))
@@ -161,7 +162,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return __ABI_Microsoft_UI_Xaml_Data.IValueConverterWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ConverterImpl(_ value: WinUI.AnyIValueConverter?) throws {
+        public func put_Converter(_ value: WinUI.AnyIValueConverter?) throws {
             let valueWrapper = __ABI_Microsoft_UI_Xaml_Data.IValueConverterWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
@@ -169,7 +170,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             }
         }
 
-        internal func get_ConverterParameterImpl() throws -> Any? {
+        public func get_ConverterParameter() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConverterParameter(pThis, &valueAbi))
@@ -178,7 +179,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ConverterParameterImpl(_ value: Any?) throws {
+        public func put_ConverterParameter(_ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
@@ -186,7 +187,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             }
         }
 
-        internal func get_ConverterLanguageImpl() throws -> String {
+        public func get_ConverterLanguage() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConverterLanguage(pThis, &value))
@@ -194,14 +195,14 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return .init(from: value)
         }
 
-        internal func put_ConverterLanguageImpl(_ value: String) throws {
+        public func put_ConverterLanguage(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ConverterLanguage(pThis, _value.get()))
             }
         }
 
-        internal func get_FallbackValueImpl() throws -> Any? {
+        public func get_FallbackValue() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FallbackValue(pThis, &valueAbi))
@@ -210,7 +211,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_FallbackValueImpl(_ value: Any?) throws {
+        public func put_FallbackValue(_ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
@@ -218,7 +219,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             }
         }
 
-        internal func get_TargetNullValueImpl() throws -> Any? {
+        public func get_TargetNullValue() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetNullValue(pThis, &valueAbi))
@@ -227,7 +228,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_TargetNullValueImpl(_ value: Any?) throws {
+        public func put_TargetNullValue(_ value: Any?) throws {
             let valueWrapper = __ABI_.AnyWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
@@ -235,7 +236,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             }
         }
 
-        internal func get_UpdateSourceTriggerImpl() throws -> WinUI.UpdateSourceTrigger {
+        public func get_UpdateSourceTrigger() throws -> WinUI.UpdateSourceTrigger {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CData_CUpdateSourceTrigger = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UpdateSourceTrigger(pThis, &value))
@@ -243,7 +244,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return value
         }
 
-        internal func put_UpdateSourceTriggerImpl(_ value: WinUI.UpdateSourceTrigger) throws {
+        public func put_UpdateSourceTrigger(_ value: WinUI.UpdateSourceTrigger) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_UpdateSourceTrigger(pThis, value))
             }
@@ -259,7 +260,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IBindingBaseFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIBindingBaseFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.BindingBase.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBindingBase {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Data.BindingBaseBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBindingBase {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -277,7 +278,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IBindingExpression: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIBindingExpression }
 
-        internal func get_DataItemImpl() throws -> Any? {
+        public func get_DataItem() throws -> Any? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBindingExpression.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DataItem(pThis, &valueAbi))
@@ -286,16 +287,16 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return __ABI_.AnyWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ParentBindingImpl() throws -> WinUI.Binding? {
+        public func get_ParentBinding() throws -> WinUI.Binding? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBindingExpression.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ParentBinding(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml_Data.BindingBridge.from(abi: value)
         }
 
-        internal func UpdateSourceImpl() throws {
+        public func UpdateSource() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBindingExpression.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.UpdateSource(pThis))
             }
@@ -321,7 +322,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IBindingFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIBindingFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.Binding.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBinding {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Data.BindingBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBinding {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -339,7 +340,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IItemIndexRange: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIItemIndexRange }
 
-        internal func get_FirstIndexImpl() throws -> Int32 {
+        public func get_FirstIndex() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIItemIndexRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstIndex(pThis, &value))
@@ -347,7 +348,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return value
         }
 
-        internal func get_LengthImpl() throws -> UInt32 {
+        public func get_Length() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIItemIndexRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Length(pThis, &value))
@@ -355,7 +356,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return value
         }
 
-        internal func get_LastIndexImpl() throws -> Int32 {
+        public func get_LastIndex() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIItemIndexRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastIndex(pThis, &value))
@@ -368,7 +369,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IItemIndexRangeFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIItemIndexRangeFactory }
 
-        internal func CreateInstanceImpl(_ firstIndex: Int32, _ length: UInt32, _ baseInterface: UnsealedWinRTClassWrapper<WinUI.ItemIndexRange.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemIndexRange {
+        public func CreateInstance(_ firstIndex: Int32, _ length: UInt32, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Data.ItemIndexRangeBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemIndexRange {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -386,7 +387,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class INotifyPropertyChanged: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CINotifyPropertyChanged }
 
-        open func add_PropertyChangedImpl(_ handler: WinUI.PropertyChangedEventHandler?) throws -> EventRegistrationToken {
+        open func add_PropertyChanged(_ handler: WinUI.PropertyChangedEventHandler?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Microsoft_UI_Xaml_Data.PropertyChangedEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -396,7 +397,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return token
         }
 
-        open func remove_PropertyChangedImpl(_ token: EventRegistrationToken) throws {
+        open func remove_PropertyChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CINotifyPropertyChanged.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PropertyChanged(pThis, token))
             }
@@ -452,7 +453,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IPropertyChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIPropertyChangedEventArgs }
 
-        internal func get_PropertyNameImpl() throws -> String {
+        public func get_PropertyName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIPropertyChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PropertyName(pThis, &value))
@@ -465,7 +466,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IPropertyChangedEventArgsFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIPropertyChangedEventArgsFactory }
 
-        internal func CreateInstanceImpl(_ name: String, _ baseInterface: UnsealedWinRTClassWrapper<WinUI.PropertyChangedEventArgs.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPropertyChangedEventArgs {
+        public func CreateInstance(_ name: String, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Data.PropertyChangedEventArgsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPropertyChangedEventArgs {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _name = try! HString(name)
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
@@ -484,7 +485,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IRelativeSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIRelativeSource }
 
-        internal func get_ModeImpl() throws -> WinUI.RelativeSourceMode {
+        public func get_Mode() throws -> WinUI.RelativeSourceMode {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CData_CRelativeSourceMode = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIRelativeSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -492,7 +493,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return value
         }
 
-        internal func put_ModeImpl(_ value: WinUI.RelativeSourceMode) throws {
+        public func put_Mode(_ value: WinUI.RelativeSourceMode) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIRelativeSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Mode(pThis, value))
             }
@@ -503,7 +504,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IRelativeSourceFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIRelativeSourceFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.RelativeSource.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRelativeSource {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Data.RelativeSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRelativeSource {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -521,7 +522,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
     public class IValueConverter: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIValueConverter }
 
-        open func ConvertImpl(_ value: Any?, _ targetType: WinUI.TypeName, _ parameter: Any?, _ language: String) throws -> Any? {
+        open func Convert(_ value: Any?, _ targetType: WinUI.TypeName, _ parameter: Any?, _ language: String) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let valueWrapper = __ABI_.AnyWrapper(value)
                 let _value = try! valueWrapper?.toABI { $0 }
@@ -536,7 +537,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
             return __ABI_.AnyWrapper.unwrapFrom(abi: result)
         }
 
-        open func ConvertBackImpl(_ value: Any?, _ targetType: WinUI.TypeName, _ parameter: Any?, _ language: String) throws -> Any? {
+        open func ConvertBack(_ value: Any?, _ targetType: WinUI.TypeName, _ parameter: Any?, _ language: String) throws -> Any? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let valueWrapper = __ABI_.AnyWrapper(value)
                 let _value = try! valueWrapper?.toABI { $0 }
@@ -592,7 +593,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($5)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ConvertBack: {
@@ -606,7 +607,7 @@ public enum __ABI_Microsoft_UI_Xaml_Data {
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($5)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -622,7 +623,7 @@ extension __ABI_Microsoft_UI_Xaml_Data {
     public class PropertyChangedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CData_CIPropertyChangedEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.PropertyChangedEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.PropertyChangedEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CData_CIPropertyChangedEventHandler.self) { pThis in
@@ -639,11 +640,13 @@ extension __ABI_Microsoft_UI_Xaml_Data {
         AddRef: { PropertyChangedEventHandlerWrapper.addRef($0) },
         Release: { PropertyChangedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = PropertyChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.PropertyChangedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = PropertyChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.PropertyChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Data.PropertyChangedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

@@ -70,12 +70,6 @@ open class Application : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIApplication>?) -> Application? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -96,68 +90,68 @@ open class Application : WinRTClass {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IApplicationFactory : __ABI_Microsoft_UI_Xaml.IApplicationFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Application"))
+    private static var _IApplicationFactory : __ABI_Microsoft_UI_Xaml.IApplicationFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Application")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IApplicationFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.ApplicationBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IApplicationFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IApplicationStatics: __ABI_Microsoft_UI_Xaml.IApplicationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Application"))
+    private static let _IApplicationStatics: __ABI_Microsoft_UI_Xaml.IApplicationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Application")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.start)
-    public class func start(_ callback: ApplicationInitializationCallback!) {
-        try! _IApplicationStatics.StartImpl(callback)
+    public class func start(_ callback: ApplicationInitializationCallback!) throws {
+        try _IApplicationStatics.Start(callback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.loadcomponent)
-    public class func loadComponent(_ component: Any!, _ resourceLocator: WindowsFoundation.Uri!) {
-        try! _IApplicationStatics.LoadComponentImpl(component, resourceLocator)
+    public class func loadComponent(_ component: Any!, _ resourceLocator: WindowsFoundation.Uri!) throws {
+        try _IApplicationStatics.LoadComponent(component, resourceLocator)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.loadcomponent)
-    public class func loadComponent(_ component: Any!, _ resourceLocator: WindowsFoundation.Uri!, _ componentResourceLocation: WinUI.ComponentResourceLocation) {
-        try! _IApplicationStatics.LoadComponentWithResourceLocationImpl(component, resourceLocator, componentResourceLocation)
+    public class func loadComponent(_ component: Any!, _ resourceLocator: WindowsFoundation.Uri!, _ componentResourceLocation: WinUI.ComponentResourceLocation) throws {
+        try _IApplicationStatics.LoadComponentWithResourceLocation(component, resourceLocator, componentResourceLocation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.current)
     public class var current : Application! {
-        get { try! _IApplicationStatics.get_CurrentImpl() }
+        get { try! _IApplicationStatics.get_Current() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.exit)
     public func exit() throws {
-        try _default.ExitImpl()
+        try _default.Exit()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.debugsettings)
     public var debugSettings : DebugSettings! {
-        get { try! _default.get_DebugSettingsImpl() }
+        get { try! _default.get_DebugSettings() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.focusvisualkind)
     public var focusVisualKind : FocusVisualKind {
-        get { try! _default.get_FocusVisualKindImpl() }
-        set { try! _default.put_FocusVisualKindImpl(newValue) }
+        get { try! _default.get_FocusVisualKind() }
+        set { try! _default.put_FocusVisualKind(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.highcontrastadjustment)
     public var highContrastAdjustment : ApplicationHighContrastAdjustment {
-        get { try! _default.get_HighContrastAdjustmentImpl() }
-        set { try! _default.put_HighContrastAdjustmentImpl(newValue) }
+        get { try! _default.get_HighContrastAdjustment() }
+        set { try! _default.put_HighContrastAdjustment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.requestedtheme)
     public var requestedTheme : ApplicationTheme {
-        get { try! _default.get_RequestedThemeImpl() }
-        set { try! _default.put_RequestedThemeImpl(newValue) }
+        get { try! _default.get_RequestedTheme() }
+        set { try! _default.put_RequestedTheme(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.resources)
     public var resources : ResourceDictionary! {
-        get { try! _default.get_ResourcesImpl() }
-        set { try! _default.put_ResourcesImpl(newValue) }
+        get { try! _default.get_Resources() }
+        set { try! _default.put_Resources(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception)
@@ -165,10 +159,10 @@ open class Application : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_UnhandledExceptionImpl($0)
+          return try! this.add_UnhandledException($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_UnhandledExceptionImpl($0)
+         try? self?._default.remove_UnhandledException($0)
        }
       )
     }()
@@ -179,10 +173,10 @@ open class Application : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IApplication2 else { return .init() }
-          return try! this.add_ResourceManagerRequestedImpl($0)
+          return try! this.add_ResourceManagerRequested($0)
         },
         remove: { [weak self] in
-         try? self?._IApplication2.remove_ResourceManagerRequestedImpl($0)
+         try? self?._IApplication2.remove_ResourceManagerRequested($0)
        }
       )
     }()
@@ -190,27 +184,16 @@ open class Application : WinRTClass {
     private lazy var _IApplication3: __ABI_Microsoft_UI_Xaml.IApplication3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.dispatchershutdownmode)
     public var dispatcherShutdownMode : DispatcherShutdownMode {
-        get { try! _IApplication3.get_DispatcherShutdownModeImpl() }
-        set { try! _IApplication3.put_DispatcherShutdownModeImpl(newValue) }
+        get { try! _IApplication3.get_DispatcherShutdownMode() }
+        set { try! _IApplication3.put_DispatcherShutdownMode(newValue) }
     }
 
     private lazy var _IApplicationOverrides: __ABI_Microsoft_UI_Xaml.IApplicationOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.onlaunched)
     open func onLaunched(_ args: LaunchActivatedEventArgs!) throws {
-        try _IApplicationOverrides.OnLaunchedImpl(args)
+        try _IApplicationOverrides.OnLaunched(args)
     }
 
-    internal enum IApplicationOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIApplicationOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IApplicationOverrides
-        internal typealias Class = Application
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIApplication
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IApplication
-        }
-    }
-    internal typealias Composable = IApplicationOverrides
     deinit {
         _default = nil
         _IApplication2 = nil
@@ -230,12 +213,6 @@ public final class ApplicationInitializationCallbackParams : WinRTClass {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIApplicationInitializationCallbackParams>?) -> ApplicationInitializationCallbackParams? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -262,19 +239,13 @@ public final class BindingFailedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIBindingFailedEventArgs>?) -> BindingFailedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bindingfailedeventargs.message)
     public var message : String {
-        get { try! _default.get_MessageImpl() }
+        get { try! _default.get_Message() }
     }
 
     deinit {
@@ -296,54 +267,49 @@ public final class BringIntoViewOptions : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIBringIntoViewOptions>?) -> BringIntoViewOptions? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.BringIntoViewOptions")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.BringIntoViewOptions")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewoptions.animationdesired)
     public var animationDesired : Bool {
-        get { try! _default.get_AnimationDesiredImpl() }
-        set { try! _default.put_AnimationDesiredImpl(newValue) }
+        get { try! _default.get_AnimationDesired() }
+        set { try! _default.put_AnimationDesired(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewoptions.horizontalalignmentratio)
     public var horizontalAlignmentRatio : Double {
-        get { try! _default.get_HorizontalAlignmentRatioImpl() }
-        set { try! _default.put_HorizontalAlignmentRatioImpl(newValue) }
+        get { try! _default.get_HorizontalAlignmentRatio() }
+        set { try! _default.put_HorizontalAlignmentRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewoptions.horizontaloffset)
     public var horizontalOffset : Double {
-        get { try! _default.get_HorizontalOffsetImpl() }
-        set { try! _default.put_HorizontalOffsetImpl(newValue) }
+        get { try! _default.get_HorizontalOffset() }
+        set { try! _default.put_HorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewoptions.targetrect)
     public var targetRect : WindowsFoundation.Rect? {
-        get { try! _default.get_TargetRectImpl() }
-        set { try! _default.put_TargetRectImpl(newValue) }
+        get { try! _default.get_TargetRect() }
+        set { try! _default.put_TargetRect(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewoptions.verticalalignmentratio)
     public var verticalAlignmentRatio : Double {
-        get { try! _default.get_VerticalAlignmentRatioImpl() }
-        set { try! _default.put_VerticalAlignmentRatioImpl(newValue) }
+        get { try! _default.get_VerticalAlignmentRatio() }
+        set { try! _default.put_VerticalAlignmentRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewoptions.verticaloffset)
     public var verticalOffset : Double {
-        get { try! _default.get_VerticalOffsetImpl() }
-        set { try! _default.put_VerticalOffsetImpl(newValue) }
+        get { try! _default.get_VerticalOffset() }
+        set { try! _default.put_VerticalOffset(newValue) }
     }
 
     deinit {
@@ -365,60 +331,54 @@ public final class BringIntoViewRequestedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIBringIntoViewRequestedEventArgs>?) -> BringIntoViewRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewrequestedeventargs.animationdesired)
     public var animationDesired : Bool {
-        get { try! _default.get_AnimationDesiredImpl() }
-        set { try! _default.put_AnimationDesiredImpl(newValue) }
+        get { try! _default.get_AnimationDesired() }
+        set { try! _default.put_AnimationDesired(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewrequestedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewrequestedeventargs.horizontalalignmentratio)
     public var horizontalAlignmentRatio : Double {
-        get { try! _default.get_HorizontalAlignmentRatioImpl() }
+        get { try! _default.get_HorizontalAlignmentRatio() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewrequestedeventargs.horizontaloffset)
     public var horizontalOffset : Double {
-        get { try! _default.get_HorizontalOffsetImpl() }
-        set { try! _default.put_HorizontalOffsetImpl(newValue) }
+        get { try! _default.get_HorizontalOffset() }
+        set { try! _default.put_HorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewrequestedeventargs.targetelement)
     public var targetElement : UIElement! {
-        get { try! _default.get_TargetElementImpl() }
-        set { try! _default.put_TargetElementImpl(newValue) }
+        get { try! _default.get_TargetElement() }
+        set { try! _default.put_TargetElement(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewrequestedeventargs.targetrect)
     public var targetRect : WindowsFoundation.Rect {
-        get { try! _default.get_TargetRectImpl() }
-        set { try! _default.put_TargetRectImpl(newValue) }
+        get { try! _default.get_TargetRect() }
+        set { try! _default.put_TargetRect(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewrequestedeventargs.verticalalignmentratio)
     public var verticalAlignmentRatio : Double {
-        get { try! _default.get_VerticalAlignmentRatioImpl() }
+        get { try! _default.get_VerticalAlignmentRatio() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.bringintoviewrequestedeventargs.verticaloffset)
     public var verticalOffset : Double {
-        get { try! _default.get_VerticalOffsetImpl() }
-        set { try! _default.put_VerticalOffsetImpl(newValue) }
+        get { try! _default.get_VerticalOffset() }
+        set { try! _default.put_VerticalOffset(newValue) }
     }
 
     deinit {
@@ -440,12 +400,6 @@ open class BrushTransition : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIBrushTransition>?) -> BrushTransition? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -461,32 +415,21 @@ open class BrushTransition : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IBrushTransitionFactory : __ABI_Microsoft_UI_Xaml.IBrushTransitionFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.BrushTransition"))
+    private static var _IBrushTransitionFactory : __ABI_Microsoft_UI_Xaml.IBrushTransitionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.BrushTransition")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IBrushTransitionFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.BrushTransitionBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IBrushTransitionFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.brushtransition.duration)
     public var duration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DurationImpl() }
-        set { try! _default.put_DurationImpl(newValue) }
+        get { try! _default.get_Duration() }
+        set { try! _default.put_Duration(newValue) }
     }
 
-    internal enum IBrushTransition : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = BrushTransition
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIBrushTransition
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IBrushTransition
-        }
-    }
-    internal typealias Composable = IBrushTransition
     deinit {
         _default = nil
     }
@@ -506,25 +449,19 @@ public final class DataContextChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDataContextChangedEventArgs>?) -> DataContextChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.datacontextchangedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.datacontextchangedeventargs.newvalue)
     public var newValue : Any! {
-        get { try! _default.get_NewValueImpl() }
+        get { try! _default.get_NewValue() }
     }
 
     deinit {
@@ -546,12 +483,6 @@ open class DataTemplate : WinUI.FrameworkTemplate, IElementFactory {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDataTemplate>?) -> DataTemplate? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -566,57 +497,46 @@ open class DataTemplate : WinUI.FrameworkTemplate, IElementFactory {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IDataTemplateFactory : __ABI_Microsoft_UI_Xaml.IDataTemplateFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.DataTemplate"))
+    private static var _IDataTemplateFactory : __ABI_Microsoft_UI_Xaml.IDataTemplateFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.DataTemplate")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IDataTemplateFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDataTemplateFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IDataTemplateStatics: __ABI_Microsoft_UI_Xaml.IDataTemplateStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.DataTemplate"))
+    private static let _IDataTemplateStatics: __ABI_Microsoft_UI_Xaml.IDataTemplateStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.DataTemplate")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.datatemplate.getextensioninstance)
-    public class func getExtensionInstance(_ element: FrameworkElement!) -> AnyIDataTemplateExtension! {
-        return try! _IDataTemplateStatics.GetExtensionInstanceImpl(element)
+    public class func getExtensionInstance(_ element: FrameworkElement!) throws -> AnyIDataTemplateExtension! {
+        return try _IDataTemplateStatics.GetExtensionInstance(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.datatemplate.setextensioninstance)
-    public class func setExtensionInstance(_ element: FrameworkElement!, _ value: AnyIDataTemplateExtension!) {
-        try! _IDataTemplateStatics.SetExtensionInstanceImpl(element, value)
+    public class func setExtensionInstance(_ element: FrameworkElement!, _ value: AnyIDataTemplateExtension!) throws {
+        try _IDataTemplateStatics.SetExtensionInstance(element, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.datatemplate.extensioninstanceproperty)
     public class var extensionInstanceProperty : DependencyProperty! {
-        get { try! _IDataTemplateStatics.get_ExtensionInstancePropertyImpl() }
+        get { try! _IDataTemplateStatics.get_ExtensionInstanceProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.datatemplate.loadcontent)
     public func loadContent() throws -> DependencyObject! {
-        try _default.LoadContentImpl()
+        try _default.LoadContent()
     }
 
     private lazy var _IElementFactory: __ABI_Microsoft_UI_Xaml.IElementFactory! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.datatemplate.getelement)
     public func getElement(_ args: ElementFactoryGetArgs!) throws -> UIElement! {
-        try _IElementFactory.GetElementImpl(args)
+        try _IElementFactory.GetElement(args)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.datatemplate.recycleelement)
     public func recycleElement(_ args: ElementFactoryRecycleArgs!) throws {
-        try _IElementFactory.RecycleElementImpl(args)
+        try _IElementFactory.RecycleElement(args)
     }
 
-    internal enum IDataTemplate : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = DataTemplate
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIDataTemplate
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IDataTemplate
-        }
-    }
-    internal typealias Composable = IDataTemplate
     deinit {
         _default = nil
         _IElementFactory = nil
@@ -637,38 +557,32 @@ public final class DebugSettings : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDebugSettings>?) -> DebugSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.debugsettings.enableframeratecounter)
     public var enableFrameRateCounter : Bool {
-        get { try! _default.get_EnableFrameRateCounterImpl() }
-        set { try! _default.put_EnableFrameRateCounterImpl(newValue) }
+        get { try! _default.get_EnableFrameRateCounter() }
+        set { try! _default.put_EnableFrameRateCounter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.debugsettings.failfastonerrors)
     public var failFastOnErrors : Bool {
-        get { try! _default.get_FailFastOnErrorsImpl() }
-        set { try! _default.put_FailFastOnErrorsImpl(newValue) }
+        get { try! _default.get_FailFastOnErrors() }
+        set { try! _default.put_FailFastOnErrors(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.debugsettings.isbindingtracingenabled)
     public var isBindingTracingEnabled : Bool {
-        get { try! _default.get_IsBindingTracingEnabledImpl() }
-        set { try! _default.put_IsBindingTracingEnabledImpl(newValue) }
+        get { try! _default.get_IsBindingTracingEnabled() }
+        set { try! _default.put_IsBindingTracingEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.debugsettings.istextperformancevisualizationenabled)
     public var isTextPerformanceVisualizationEnabled : Bool {
-        get { try! _default.get_IsTextPerformanceVisualizationEnabledImpl() }
-        set { try! _default.put_IsTextPerformanceVisualizationEnabledImpl(newValue) }
+        get { try! _default.get_IsTextPerformanceVisualizationEnabled() }
+        set { try! _default.put_IsTextPerformanceVisualizationEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.debugsettings.bindingfailed)
@@ -676,10 +590,10 @@ public final class DebugSettings : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_BindingFailedImpl($0)
+          return try! this.add_BindingFailed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_BindingFailedImpl($0)
+         try? self?._default.remove_BindingFailed($0)
        }
       )
     }()
@@ -687,8 +601,8 @@ public final class DebugSettings : WinRTClass {
     private lazy var _IDebugSettings2: __ABI_Microsoft_UI_Xaml.IDebugSettings2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.debugsettings.isxamlresourcereferencetracingenabled)
     public var isXamlResourceReferenceTracingEnabled : Bool {
-        get { try! _IDebugSettings2.get_IsXamlResourceReferenceTracingEnabledImpl() }
-        set { try! _IDebugSettings2.put_IsXamlResourceReferenceTracingEnabledImpl(newValue) }
+        get { try! _IDebugSettings2.get_IsXamlResourceReferenceTracingEnabled() }
+        set { try! _IDebugSettings2.put_IsXamlResourceReferenceTracingEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.debugsettings.xamlresourcereferencefailed)
@@ -696,10 +610,10 @@ public final class DebugSettings : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IDebugSettings2 else { return .init() }
-          return try! this.add_XamlResourceReferenceFailedImpl($0)
+          return try! this.add_XamlResourceReferenceFailed($0)
         },
         remove: { [weak self] in
-         try? self?._IDebugSettings2.remove_XamlResourceReferenceFailedImpl($0)
+         try? self?._IDebugSettings2.remove_XamlResourceReferenceFailed($0)
        }
       )
     }()
@@ -707,14 +621,14 @@ public final class DebugSettings : WinRTClass {
     private lazy var _IDebugSettings3: __ABI_Microsoft_UI_Xaml.IDebugSettings3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.debugsettings.layoutcycledebugbreaklevel)
     public var layoutCycleDebugBreakLevel : LayoutCycleDebugBreakLevel {
-        get { try! _IDebugSettings3.get_LayoutCycleDebugBreakLevelImpl() }
-        set { try! _IDebugSettings3.put_LayoutCycleDebugBreakLevelImpl(newValue) }
+        get { try! _IDebugSettings3.get_LayoutCycleDebugBreakLevel() }
+        set { try! _IDebugSettings3.put_LayoutCycleDebugBreakLevel(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.debugsettings.layoutcycletracinglevel)
     public var layoutCycleTracingLevel : LayoutCycleTracingLevel {
-        get { try! _IDebugSettings3.get_LayoutCycleTracingLevelImpl() }
-        set { try! _IDebugSettings3.put_LayoutCycleTracingLevelImpl(newValue) }
+        get { try! _IDebugSettings3.get_LayoutCycleTracingLevel() }
+        set { try! _IDebugSettings3.put_LayoutCycleTracingLevel(newValue) }
     }
 
     deinit {
@@ -738,12 +652,6 @@ open class DependencyObject : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDependencyObject>?) -> DependencyObject? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -759,71 +667,60 @@ open class DependencyObject : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IDependencyObjectFactory : __ABI_Microsoft_UI_Xaml.IDependencyObjectFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.DependencyObject"))
+    private static var _IDependencyObjectFactory : __ABI_Microsoft_UI_Xaml.IDependencyObjectFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.DependencyObject")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IDependencyObjectFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IDependencyObjectFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.getvalue)
     public func getValue(_ dp: DependencyProperty!) throws -> Any! {
-        try _default.GetValueImpl(dp)
+        try _default.GetValue(dp)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.setvalue)
     public func setValue(_ dp: DependencyProperty!, _ value: Any!) throws {
-        try _default.SetValueImpl(dp, value)
+        try _default.SetValue(dp, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.clearvalue)
     public func clearValue(_ dp: DependencyProperty!) throws {
-        try _default.ClearValueImpl(dp)
+        try _default.ClearValue(dp)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.readlocalvalue)
     public func readLocalValue(_ dp: DependencyProperty!) throws -> Any! {
-        try _default.ReadLocalValueImpl(dp)
+        try _default.ReadLocalValue(dp)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.getanimationbasevalue)
     public func getAnimationBaseValue(_ dp: DependencyProperty!) throws -> Any! {
-        try _default.GetAnimationBaseValueImpl(dp)
+        try _default.GetAnimationBaseValue(dp)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.registerpropertychangedcallback)
     public func registerPropertyChangedCallback(_ dp: DependencyProperty!, _ callback: DependencyPropertyChangedCallback!) throws -> Int64 {
-        try _default.RegisterPropertyChangedCallbackImpl(dp, callback)
+        try _default.RegisterPropertyChangedCallback(dp, callback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.unregisterpropertychangedcallback)
     public func unregisterPropertyChangedCallback(_ dp: DependencyProperty!, _ token: Int64) throws {
-        try _default.UnregisterPropertyChangedCallbackImpl(dp, token)
+        try _default.UnregisterPropertyChangedCallback(dp, token)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.dispatcher)
     public var dispatcher : UWP.CoreDispatcher! {
-        get { try! _default.get_DispatcherImpl() }
+        get { try! _default.get_Dispatcher() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.dispatcherqueue)
     public var dispatcherQueue : WinAppSDK.DispatcherQueue! {
-        get { try! _default.get_DispatcherQueueImpl() }
+        get { try! _default.get_DispatcherQueue() }
     }
 
-    internal enum IDependencyObject : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = DependencyObject
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyObject
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IDependencyObject
-        }
-    }
-    internal typealias Composable = IDependencyObject
     deinit {
         _default = nil
     }
@@ -843,35 +740,29 @@ public final class DependencyProperty : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty>?) -> DependencyProperty? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IDependencyPropertyStatics: __ABI_Microsoft_UI_Xaml.IDependencyPropertyStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.DependencyProperty"))
+    private static let _IDependencyPropertyStatics: __ABI_Microsoft_UI_Xaml.IDependencyPropertyStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.DependencyProperty")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyproperty.register)
-    public static func register(_ name: String, _ propertyType: WinUI.TypeName, _ ownerType: WinUI.TypeName, _ typeMetadata: PropertyMetadata!) -> DependencyProperty! {
-        return try! _IDependencyPropertyStatics.RegisterImpl(name, propertyType, ownerType, typeMetadata)
+    public static func register(_ name: String, _ propertyType: WinUI.TypeName, _ ownerType: WinUI.TypeName, _ typeMetadata: PropertyMetadata!) throws -> DependencyProperty! {
+        return try _IDependencyPropertyStatics.Register(name, propertyType, ownerType, typeMetadata)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyproperty.registerattached)
-    public static func registerAttached(_ name: String, _ propertyType: WinUI.TypeName, _ ownerType: WinUI.TypeName, _ defaultMetadata: PropertyMetadata!) -> DependencyProperty! {
-        return try! _IDependencyPropertyStatics.RegisterAttachedImpl(name, propertyType, ownerType, defaultMetadata)
+    public static func registerAttached(_ name: String, _ propertyType: WinUI.TypeName, _ ownerType: WinUI.TypeName, _ defaultMetadata: PropertyMetadata!) throws -> DependencyProperty! {
+        return try _IDependencyPropertyStatics.RegisterAttached(name, propertyType, ownerType, defaultMetadata)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyproperty.unsetvalue)
     public static var unsetValue : Any! {
-        get { try! _IDependencyPropertyStatics.get_UnsetValueImpl() }
+        get { try! _IDependencyPropertyStatics.get_UnsetValue() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyproperty.getmetadata)
     public func getMetadata(_ forType: WinUI.TypeName) throws -> PropertyMetadata! {
-        try _default.GetMetadataImpl(forType)
+        try _default.GetMetadata(forType)
     }
 
     deinit {
@@ -893,29 +784,23 @@ public final class DependencyPropertyChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDependencyPropertyChangedEventArgs>?) -> DependencyPropertyChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencypropertychangedeventargs.newvalue)
     public var newValue : Any! {
-        get { try! _default.get_NewValueImpl() }
+        get { try! _default.get_NewValue() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencypropertychangedeventargs.oldvalue)
     public var oldValue : Any! {
-        get { try! _default.get_OldValueImpl() }
+        get { try! _default.get_OldValue() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencypropertychangedeventargs.property)
     public var property : DependencyProperty! {
-        get { try! _default.get_PropertyImpl() }
+        get { try! _default.get_Property() }
     }
 
     deinit {
@@ -937,62 +822,56 @@ public final class DragEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDragEventArgs>?) -> DragEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.drageventargs.getdeferral)
     public func getDeferral() throws -> DragOperationDeferral! {
-        try _default.GetDeferralImpl()
+        try _default.GetDeferral()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.drageventargs.getposition)
     public func getPosition(_ relativeTo: UIElement!) throws -> WindowsFoundation.Point {
-        try _default.GetPositionImpl(relativeTo)
+        try _default.GetPosition(relativeTo)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.drageventargs.acceptedoperation)
     public var acceptedOperation : UWP.DataPackageOperation {
-        get { try! _default.get_AcceptedOperationImpl() }
-        set { try! _default.put_AcceptedOperationImpl(newValue) }
+        get { try! _default.get_AcceptedOperation() }
+        set { try! _default.put_AcceptedOperation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.drageventargs.allowedoperations)
     public var allowedOperations : UWP.DataPackageOperation {
-        get { try! _default.get_AllowedOperationsImpl() }
+        get { try! _default.get_AllowedOperations() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.drageventargs.data)
     public var data : UWP.DataPackage! {
-        get { try! _default.get_DataImpl() }
-        set { try! _default.put_DataImpl(newValue) }
+        get { try! _default.get_Data() }
+        set { try! _default.put_Data(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.drageventargs.dataview)
     public var dataView : UWP.DataPackageView! {
-        get { try! _default.get_DataViewImpl() }
+        get { try! _default.get_DataView() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.drageventargs.draguioverride)
     public var dragUIOverride : DragUIOverride! {
-        get { try! _default.get_DragUIOverrideImpl() }
+        get { try! _default.get_DragUIOverride() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.drageventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.drageventargs.modifiers)
     public var modifiers : UWP.DragDropModifiers {
-        get { try! _default.get_ModifiersImpl() }
+        get { try! _default.get_Modifiers() }
     }
 
     deinit {
@@ -1014,19 +893,13 @@ public final class DragOperationDeferral : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDragOperationDeferral>?) -> DragOperationDeferral? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragoperationdeferral.complete)
     public func complete() throws {
-        try _default.CompleteImpl()
+        try _default.Complete()
     }
 
     deinit {
@@ -1048,46 +921,40 @@ public final class DragStartingEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDragStartingEventArgs>?) -> DragStartingEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragstartingeventargs.getdeferral)
     public func getDeferral() throws -> DragOperationDeferral! {
-        try _default.GetDeferralImpl()
+        try _default.GetDeferral()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragstartingeventargs.getposition)
     public func getPosition(_ relativeTo: UIElement!) throws -> WindowsFoundation.Point {
-        try _default.GetPositionImpl(relativeTo)
+        try _default.GetPosition(relativeTo)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragstartingeventargs.allowedoperations)
     public var allowedOperations : UWP.DataPackageOperation {
-        get { try! _default.get_AllowedOperationsImpl() }
-        set { try! _default.put_AllowedOperationsImpl(newValue) }
+        get { try! _default.get_AllowedOperations() }
+        set { try! _default.put_AllowedOperations(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragstartingeventargs.cancel)
     public var cancel : Bool {
-        get { try! _default.get_CancelImpl() }
-        set { try! _default.put_CancelImpl(newValue) }
+        get { try! _default.get_Cancel() }
+        set { try! _default.put_Cancel(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragstartingeventargs.data)
     public var data : UWP.DataPackage! {
-        get { try! _default.get_DataImpl() }
+        get { try! _default.get_Data() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragstartingeventargs.dragui)
     public var dragUI : DragUI! {
-        get { try! _default.get_DragUIImpl() }
+        get { try! _default.get_DragUI() }
     }
 
     deinit {
@@ -1109,39 +976,33 @@ public final class DragUI : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDragUI>?) -> DragUI? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragui.setcontentfrombitmapimage)
     public func setContentFromBitmapImage(_ bitmapImage: WinUI.BitmapImage!) throws {
-        try _default.SetContentFromBitmapImageImpl(bitmapImage)
+        try _default.SetContentFromBitmapImage(bitmapImage)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragui.setcontentfrombitmapimage)
     public func setContentFromBitmapImage(_ bitmapImage: WinUI.BitmapImage!, _ anchorPoint: WindowsFoundation.Point) throws {
-        try _default.SetContentFromBitmapImageWithAnchorPointImpl(bitmapImage, anchorPoint)
+        try _default.SetContentFromBitmapImageWithAnchorPoint(bitmapImage, anchorPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragui.setcontentfromsoftwarebitmap)
     public func setContentFromSoftwareBitmap(_ softwareBitmap: UWP.SoftwareBitmap!) throws {
-        try _default.SetContentFromSoftwareBitmapImpl(softwareBitmap)
+        try _default.SetContentFromSoftwareBitmap(softwareBitmap)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragui.setcontentfromsoftwarebitmap)
     public func setContentFromSoftwareBitmap(_ softwareBitmap: UWP.SoftwareBitmap!, _ anchorPoint: WindowsFoundation.Point) throws {
-        try _default.SetContentFromSoftwareBitmapWithAnchorPointImpl(softwareBitmap, anchorPoint)
+        try _default.SetContentFromSoftwareBitmapWithAnchorPoint(softwareBitmap, anchorPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dragui.setcontentfromdatapackage)
     public func setContentFromDataPackage() throws {
-        try _default.SetContentFromDataPackageImpl()
+        try _default.SetContentFromDataPackage()
     }
 
     deinit {
@@ -1163,63 +1024,57 @@ public final class DragUIOverride : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDragUIOverride>?) -> DragUIOverride? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.draguioverride.clear)
     public func clear() throws {
-        try _default.ClearImpl()
+        try _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.draguioverride.setcontentfrombitmapimage)
     public func setContentFromBitmapImage(_ bitmapImage: WinUI.BitmapImage!) throws {
-        try _default.SetContentFromBitmapImageImpl(bitmapImage)
+        try _default.SetContentFromBitmapImage(bitmapImage)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.draguioverride.setcontentfrombitmapimage)
     public func setContentFromBitmapImage(_ bitmapImage: WinUI.BitmapImage!, _ anchorPoint: WindowsFoundation.Point) throws {
-        try _default.SetContentFromBitmapImageWithAnchorPointImpl(bitmapImage, anchorPoint)
+        try _default.SetContentFromBitmapImageWithAnchorPoint(bitmapImage, anchorPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.draguioverride.setcontentfromsoftwarebitmap)
     public func setContentFromSoftwareBitmap(_ softwareBitmap: UWP.SoftwareBitmap!) throws {
-        try _default.SetContentFromSoftwareBitmapImpl(softwareBitmap)
+        try _default.SetContentFromSoftwareBitmap(softwareBitmap)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.draguioverride.setcontentfromsoftwarebitmap)
     public func setContentFromSoftwareBitmap(_ softwareBitmap: UWP.SoftwareBitmap!, _ anchorPoint: WindowsFoundation.Point) throws {
-        try _default.SetContentFromSoftwareBitmapWithAnchorPointImpl(softwareBitmap, anchorPoint)
+        try _default.SetContentFromSoftwareBitmapWithAnchorPoint(softwareBitmap, anchorPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.draguioverride.caption)
     public var caption : String {
-        get { try! _default.get_CaptionImpl() }
-        set { try! _default.put_CaptionImpl(newValue) }
+        get { try! _default.get_Caption() }
+        set { try! _default.put_Caption(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.draguioverride.iscaptionvisible)
     public var isCaptionVisible : Bool {
-        get { try! _default.get_IsCaptionVisibleImpl() }
-        set { try! _default.put_IsCaptionVisibleImpl(newValue) }
+        get { try! _default.get_IsCaptionVisible() }
+        set { try! _default.put_IsCaptionVisible(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.draguioverride.iscontentvisible)
     public var isContentVisible : Bool {
-        get { try! _default.get_IsContentVisibleImpl() }
-        set { try! _default.put_IsContentVisibleImpl(newValue) }
+        get { try! _default.get_IsContentVisible() }
+        set { try! _default.put_IsContentVisible(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.draguioverride.isglyphvisible)
     public var isGlyphVisible : Bool {
-        get { try! _default.get_IsGlyphVisibleImpl() }
-        set { try! _default.put_IsGlyphVisibleImpl(newValue) }
+        get { try! _default.get_IsGlyphVisible() }
+        set { try! _default.put_IsGlyphVisible(newValue) }
     }
 
     deinit {
@@ -1241,19 +1096,13 @@ public final class DropCompletedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIDropCompletedEventArgs>?) -> DropCompletedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dropcompletedeventargs.dropresult)
     public var dropResult : UWP.DataPackageOperation {
-        get { try! _default.get_DropResultImpl() }
+        get { try! _default.get_DropResult() }
     }
 
     deinit {
@@ -1275,34 +1124,28 @@ public final class EffectiveViewportChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIEffectiveViewportChangedEventArgs>?) -> EffectiveViewportChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.effectiveviewportchangedeventargs.bringintoviewdistancex)
     public var bringIntoViewDistanceX : Double {
-        get { try! _default.get_BringIntoViewDistanceXImpl() }
+        get { try! _default.get_BringIntoViewDistanceX() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.effectiveviewportchangedeventargs.bringintoviewdistancey)
     public var bringIntoViewDistanceY : Double {
-        get { try! _default.get_BringIntoViewDistanceYImpl() }
+        get { try! _default.get_BringIntoViewDistanceY() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.effectiveviewportchangedeventargs.effectiveviewport)
     public var effectiveViewport : WindowsFoundation.Rect {
-        get { try! _default.get_EffectiveViewportImpl() }
+        get { try! _default.get_EffectiveViewport() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.effectiveviewportchangedeventargs.maxviewport)
     public var maxViewport : WindowsFoundation.Rect {
-        get { try! _default.get_MaxViewportImpl() }
+        get { try! _default.get_MaxViewport() }
     }
 
     deinit {
@@ -1324,12 +1167,6 @@ open class ElementFactoryGetArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIElementFactoryGetArgs>?) -> ElementFactoryGetArgs? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1345,38 +1182,27 @@ open class ElementFactoryGetArgs : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IElementFactoryGetArgsFactory : __ABI_Microsoft_UI_Xaml.IElementFactoryGetArgsFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.ElementFactoryGetArgs"))
+    private static var _IElementFactoryGetArgsFactory : __ABI_Microsoft_UI_Xaml.IElementFactoryGetArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.ElementFactoryGetArgs")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IElementFactoryGetArgsFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.ElementFactoryGetArgsBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IElementFactoryGetArgsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.elementfactorygetargs.data)
     public var data : Any! {
-        get { try! _default.get_DataImpl() }
-        set { try! _default.put_DataImpl(newValue) }
+        get { try! _default.get_Data() }
+        set { try! _default.put_Data(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.elementfactorygetargs.parent)
     public var parent : UIElement! {
-        get { try! _default.get_ParentImpl() }
-        set { try! _default.put_ParentImpl(newValue) }
+        get { try! _default.get_Parent() }
+        set { try! _default.put_Parent(newValue) }
     }
 
-    internal enum IElementFactoryGetArgs : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ElementFactoryGetArgs
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIElementFactoryGetArgs
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IElementFactoryGetArgs
-        }
-    }
-    internal typealias Composable = IElementFactoryGetArgs
     deinit {
         _default = nil
     }
@@ -1396,12 +1222,6 @@ open class ElementFactoryRecycleArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIElementFactoryRecycleArgs>?) -> ElementFactoryRecycleArgs? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1417,38 +1237,27 @@ open class ElementFactoryRecycleArgs : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IElementFactoryRecycleArgsFactory : __ABI_Microsoft_UI_Xaml.IElementFactoryRecycleArgsFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.ElementFactoryRecycleArgs"))
+    private static var _IElementFactoryRecycleArgsFactory : __ABI_Microsoft_UI_Xaml.IElementFactoryRecycleArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.ElementFactoryRecycleArgs")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IElementFactoryRecycleArgsFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.ElementFactoryRecycleArgsBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IElementFactoryRecycleArgsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.elementfactoryrecycleargs.element)
     public var element : UIElement! {
-        get { try! _default.get_ElementImpl() }
-        set { try! _default.put_ElementImpl(newValue) }
+        get { try! _default.get_Element() }
+        set { try! _default.put_Element(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.elementfactoryrecycleargs.parent)
     public var parent : UIElement! {
-        get { try! _default.get_ParentImpl() }
-        set { try! _default.put_ParentImpl(newValue) }
+        get { try! _default.get_Parent() }
+        set { try! _default.put_Parent(newValue) }
     }
 
-    internal enum IElementFactoryRecycleArgs : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ElementFactoryRecycleArgs
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIElementFactoryRecycleArgs
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IElementFactoryRecycleArgs
-        }
-    }
-    internal typealias Composable = IElementFactoryRecycleArgs
     deinit {
         _default = nil
     }
@@ -1468,12 +1277,6 @@ open class ExceptionRoutedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIExceptionRoutedEventArgs>?) -> ExceptionRoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -1488,24 +1291,13 @@ open class ExceptionRoutedEventArgs : WinUI.RoutedEventArgs {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IExceptionRoutedEventArgsFactory : __ABI_Microsoft_UI_Xaml.IExceptionRoutedEventArgsFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.ExceptionRoutedEventArgs"))
+    private static var _IExceptionRoutedEventArgsFactory : __ABI_Microsoft_UI_Xaml.IExceptionRoutedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.ExceptionRoutedEventArgs")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.exceptionroutedeventargs.errormessage)
     public var errorMessage : String {
-        get { try! _default.get_ErrorMessageImpl() }
+        get { try! _default.get_ErrorMessage() }
     }
 
-    internal enum IExceptionRoutedEventArgs : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ExceptionRoutedEventArgs
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIExceptionRoutedEventArgs
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IExceptionRoutedEventArgs
-        }
-    }
-    internal typealias Composable = IExceptionRoutedEventArgs
     deinit {
         _default = nil
     }
@@ -1522,12 +1314,6 @@ open class FrameworkElement : WinUI.UIElement {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElement>?) -> FrameworkElement? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
     }
 
     @_spi(WinRTInternal)
@@ -1550,342 +1336,342 @@ open class FrameworkElement : WinUI.UIElement {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IFrameworkElementFactory : __ABI_Microsoft_UI_Xaml.IFrameworkElementFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.FrameworkElement"))
+    private static var _IFrameworkElementFactory : __ABI_Microsoft_UI_Xaml.IFrameworkElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.FrameworkElement")
 
     public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IFrameworkElementFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml.FrameworkElementBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IFrameworkElementFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFrameworkElementStatics: __ABI_Microsoft_UI_Xaml.IFrameworkElementStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.FrameworkElement"))
+    private static let _IFrameworkElementStatics: __ABI_Microsoft_UI_Xaml.IFrameworkElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.FrameworkElement")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.defertree)
-    public class func deferTree(_ element: DependencyObject!) {
-        try! _IFrameworkElementStatics.DeferTreeImpl(element)
+    public class func deferTree(_ element: DependencyObject!) throws {
+        try _IFrameworkElementStatics.DeferTree(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.actualheightproperty)
     public class var actualHeightProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_ActualHeightPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_ActualHeightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.actualthemeproperty)
     public class var actualThemeProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_ActualThemePropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_ActualThemeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.actualwidthproperty)
     public class var actualWidthProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_ActualWidthPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_ActualWidthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.allowfocusoninteractionproperty)
     public class var allowFocusOnInteractionProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_AllowFocusOnInteractionPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_AllowFocusOnInteractionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.allowfocuswhendisabledproperty)
     public class var allowFocusWhenDisabledProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_AllowFocusWhenDisabledPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_AllowFocusWhenDisabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.datacontextproperty)
     public class var dataContextProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_DataContextPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_DataContextProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.flowdirectionproperty)
     public class var flowDirectionProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_FlowDirectionPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_FlowDirectionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualmarginproperty)
     public class var focusVisualMarginProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_FocusVisualMarginPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_FocusVisualMarginProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualprimarybrushproperty)
     public class var focusVisualPrimaryBrushProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_FocusVisualPrimaryBrushPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_FocusVisualPrimaryBrushProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualprimarythicknessproperty)
     public class var focusVisualPrimaryThicknessProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_FocusVisualPrimaryThicknessPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_FocusVisualPrimaryThicknessProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualsecondarybrushproperty)
     public class var focusVisualSecondaryBrushProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_FocusVisualSecondaryBrushPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_FocusVisualSecondaryBrushProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualsecondarythicknessproperty)
     public class var focusVisualSecondaryThicknessProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_FocusVisualSecondaryThicknessPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_FocusVisualSecondaryThicknessProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.heightproperty)
     public class var heightProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_HeightPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_HeightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.horizontalalignmentproperty)
     public class var horizontalAlignmentProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_HorizontalAlignmentPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_HorizontalAlignmentProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.languageproperty)
     public class var languageProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_LanguagePropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_LanguageProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.marginproperty)
     public class var marginProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_MarginPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_MarginProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.maxheightproperty)
     public class var maxHeightProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_MaxHeightPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_MaxHeightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.maxwidthproperty)
     public class var maxWidthProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_MaxWidthPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_MaxWidthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.minheightproperty)
     public class var minHeightProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_MinHeightPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_MinHeightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.minwidthproperty)
     public class var minWidthProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_MinWidthPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_MinWidthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.nameproperty)
     public class var nameProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_NamePropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_NameProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.requestedthemeproperty)
     public class var requestedThemeProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_RequestedThemePropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_RequestedThemeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.styleproperty)
     public class var styleProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_StylePropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_StyleProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.tagproperty)
     public class var tagProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_TagPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_TagProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.verticalalignmentproperty)
     public class var verticalAlignmentProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_VerticalAlignmentPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_VerticalAlignmentProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.widthproperty)
     public class var widthProperty : DependencyProperty! {
-        get { try! _IFrameworkElementStatics.get_WidthPropertyImpl() }
+        get { try! _IFrameworkElementStatics.get_WidthProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.findname)
     public func findName(_ name: String) throws -> Any! {
-        try _default.FindNameImpl(name)
+        try _default.FindName(name)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.setbinding)
     public func setBinding(_ dp: DependencyProperty!, _ binding: WinUI.BindingBase!) throws {
-        try _default.SetBindingImpl(dp, binding)
+        try _default.SetBinding(dp, binding)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.getbindingexpression)
     public func getBindingExpression(_ dp: DependencyProperty!) throws -> WinUI.BindingExpression! {
-        try _default.GetBindingExpressionImpl(dp)
+        try _default.GetBindingExpression(dp)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.actualheight)
     public var actualHeight : Double {
-        get { try! _default.get_ActualHeightImpl() }
+        get { try! _default.get_ActualHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.actualtheme)
     public var actualTheme : ElementTheme {
-        get { try! _default.get_ActualThemeImpl() }
+        get { try! _default.get_ActualTheme() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.actualwidth)
     public var actualWidth : Double {
-        get { try! _default.get_ActualWidthImpl() }
+        get { try! _default.get_ActualWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.allowfocusoninteraction)
     public var allowFocusOnInteraction : Bool {
-        get { try! _default.get_AllowFocusOnInteractionImpl() }
-        set { try! _default.put_AllowFocusOnInteractionImpl(newValue) }
+        get { try! _default.get_AllowFocusOnInteraction() }
+        set { try! _default.put_AllowFocusOnInteraction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.allowfocuswhendisabled)
     public var allowFocusWhenDisabled : Bool {
-        get { try! _default.get_AllowFocusWhenDisabledImpl() }
-        set { try! _default.put_AllowFocusWhenDisabledImpl(newValue) }
+        get { try! _default.get_AllowFocusWhenDisabled() }
+        set { try! _default.put_AllowFocusWhenDisabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.baseuri)
     public var baseUri : WindowsFoundation.Uri! {
-        get { try! _default.get_BaseUriImpl() }
+        get { try! _default.get_BaseUri() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.datacontext)
     public var dataContext : Any! {
-        get { try! _default.get_DataContextImpl() }
-        set { try! _default.put_DataContextImpl(newValue) }
+        get { try! _default.get_DataContext() }
+        set { try! _default.put_DataContext(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.flowdirection)
     public var flowDirection : FlowDirection {
-        get { try! _default.get_FlowDirectionImpl() }
-        set { try! _default.put_FlowDirectionImpl(newValue) }
+        get { try! _default.get_FlowDirection() }
+        set { try! _default.put_FlowDirection(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualmargin)
     public var focusVisualMargin : Thickness {
-        get { try! _default.get_FocusVisualMarginImpl() }
-        set { try! _default.put_FocusVisualMarginImpl(newValue) }
+        get { try! _default.get_FocusVisualMargin() }
+        set { try! _default.put_FocusVisualMargin(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualprimarybrush)
     public var focusVisualPrimaryBrush : WinUI.Brush! {
-        get { try! _default.get_FocusVisualPrimaryBrushImpl() }
-        set { try! _default.put_FocusVisualPrimaryBrushImpl(newValue) }
+        get { try! _default.get_FocusVisualPrimaryBrush() }
+        set { try! _default.put_FocusVisualPrimaryBrush(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualprimarythickness)
     public var focusVisualPrimaryThickness : Thickness {
-        get { try! _default.get_FocusVisualPrimaryThicknessImpl() }
-        set { try! _default.put_FocusVisualPrimaryThicknessImpl(newValue) }
+        get { try! _default.get_FocusVisualPrimaryThickness() }
+        set { try! _default.put_FocusVisualPrimaryThickness(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualsecondarybrush)
     public var focusVisualSecondaryBrush : WinUI.Brush! {
-        get { try! _default.get_FocusVisualSecondaryBrushImpl() }
-        set { try! _default.put_FocusVisualSecondaryBrushImpl(newValue) }
+        get { try! _default.get_FocusVisualSecondaryBrush() }
+        set { try! _default.put_FocusVisualSecondaryBrush(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.focusvisualsecondarythickness)
     public var focusVisualSecondaryThickness : Thickness {
-        get { try! _default.get_FocusVisualSecondaryThicknessImpl() }
-        set { try! _default.put_FocusVisualSecondaryThicknessImpl(newValue) }
+        get { try! _default.get_FocusVisualSecondaryThickness() }
+        set { try! _default.put_FocusVisualSecondaryThickness(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.height)
     public var height : Double {
-        get { try! _default.get_HeightImpl() }
-        set { try! _default.put_HeightImpl(newValue) }
+        get { try! _default.get_Height() }
+        set { try! _default.put_Height(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.horizontalalignment)
     public var horizontalAlignment : HorizontalAlignment {
-        get { try! _default.get_HorizontalAlignmentImpl() }
-        set { try! _default.put_HorizontalAlignmentImpl(newValue) }
+        get { try! _default.get_HorizontalAlignment() }
+        set { try! _default.put_HorizontalAlignment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.isloaded)
     public var isLoaded : Bool {
-        get { try! _default.get_IsLoadedImpl() }
+        get { try! _default.get_IsLoaded() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.language)
     public var language : String {
-        get { try! _default.get_LanguageImpl() }
-        set { try! _default.put_LanguageImpl(newValue) }
+        get { try! _default.get_Language() }
+        set { try! _default.put_Language(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.margin)
     public var margin : Thickness {
-        get { try! _default.get_MarginImpl() }
-        set { try! _default.put_MarginImpl(newValue) }
+        get { try! _default.get_Margin() }
+        set { try! _default.put_Margin(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.maxheight)
     public var maxHeight : Double {
-        get { try! _default.get_MaxHeightImpl() }
-        set { try! _default.put_MaxHeightImpl(newValue) }
+        get { try! _default.get_MaxHeight() }
+        set { try! _default.put_MaxHeight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.maxwidth)
     public var maxWidth : Double {
-        get { try! _default.get_MaxWidthImpl() }
-        set { try! _default.put_MaxWidthImpl(newValue) }
+        get { try! _default.get_MaxWidth() }
+        set { try! _default.put_MaxWidth(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.minheight)
     public var minHeight : Double {
-        get { try! _default.get_MinHeightImpl() }
-        set { try! _default.put_MinHeightImpl(newValue) }
+        get { try! _default.get_MinHeight() }
+        set { try! _default.put_MinHeight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.minwidth)
     public var minWidth : Double {
-        get { try! _default.get_MinWidthImpl() }
-        set { try! _default.put_MinWidthImpl(newValue) }
+        get { try! _default.get_MinWidth() }
+        set { try! _default.put_MinWidth(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
-        set { try! _default.put_NameImpl(newValue) }
+        get { try! _default.get_Name() }
+        set { try! _default.put_Name(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.parent)
     public var parent : DependencyObject! {
-        get { try! _default.get_ParentImpl() }
+        get { try! _default.get_Parent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.requestedtheme)
     public var requestedTheme : ElementTheme {
-        get { try! _default.get_RequestedThemeImpl() }
-        set { try! _default.put_RequestedThemeImpl(newValue) }
+        get { try! _default.get_RequestedTheme() }
+        set { try! _default.put_RequestedTheme(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.resources)
     public var resources : ResourceDictionary! {
-        get { try! _default.get_ResourcesImpl() }
-        set { try! _default.put_ResourcesImpl(newValue) }
+        get { try! _default.get_Resources() }
+        set { try! _default.put_Resources(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.style)
     public var style : Style! {
-        get { try! _default.get_StyleImpl() }
-        set { try! _default.put_StyleImpl(newValue) }
+        get { try! _default.get_Style() }
+        set { try! _default.put_Style(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.tag)
     public var tag : Any! {
-        get { try! _default.get_TagImpl() }
-        set { try! _default.put_TagImpl(newValue) }
+        get { try! _default.get_Tag() }
+        set { try! _default.put_Tag(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.triggers)
     public var triggers : TriggerCollection! {
-        get { try! _default.get_TriggersImpl() }
+        get { try! _default.get_Triggers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.verticalalignment)
     public var verticalAlignment : VerticalAlignment {
-        get { try! _default.get_VerticalAlignmentImpl() }
-        set { try! _default.put_VerticalAlignmentImpl(newValue) }
+        get { try! _default.get_VerticalAlignment() }
+        set { try! _default.put_VerticalAlignment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.width)
     public var width : Double {
-        get { try! _default.get_WidthImpl() }
-        set { try! _default.put_WidthImpl(newValue) }
+        get { try! _default.get_Width() }
+        set { try! _default.put_Width(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.actualthemechanged)
@@ -1893,10 +1679,10 @@ open class FrameworkElement : WinUI.UIElement {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ActualThemeChangedImpl($0)
+          return try! this.add_ActualThemeChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ActualThemeChangedImpl($0)
+         try? self?._default.remove_ActualThemeChanged($0)
        }
       )
     }()
@@ -1906,10 +1692,10 @@ open class FrameworkElement : WinUI.UIElement {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DataContextChangedImpl($0)
+          return try! this.add_DataContextChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DataContextChangedImpl($0)
+         try? self?._default.remove_DataContextChanged($0)
        }
       )
     }()
@@ -1919,10 +1705,10 @@ open class FrameworkElement : WinUI.UIElement {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_EffectiveViewportChangedImpl($0)
+          return try! this.add_EffectiveViewportChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_EffectiveViewportChangedImpl($0)
+         try? self?._default.remove_EffectiveViewportChanged($0)
        }
       )
     }()
@@ -1932,10 +1718,10 @@ open class FrameworkElement : WinUI.UIElement {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_LayoutUpdatedImpl($0)
+          return try! this.add_LayoutUpdated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_LayoutUpdatedImpl($0)
+         try? self?._default.remove_LayoutUpdated($0)
        }
       )
     }()
@@ -1945,10 +1731,10 @@ open class FrameworkElement : WinUI.UIElement {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_LoadedImpl($0)
+          return try! this.add_Loaded($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_LoadedImpl($0)
+         try? self?._default.remove_Loaded($0)
        }
       )
     }()
@@ -1958,10 +1744,10 @@ open class FrameworkElement : WinUI.UIElement {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_LoadingImpl($0)
+          return try! this.add_Loading($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_LoadingImpl($0)
+         try? self?._default.remove_Loading($0)
        }
       )
     }()
@@ -1971,10 +1757,10 @@ open class FrameworkElement : WinUI.UIElement {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_SizeChangedImpl($0)
+          return try! this.add_SizeChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_SizeChangedImpl($0)
+         try? self?._default.remove_SizeChanged($0)
        }
       )
     }()
@@ -1984,10 +1770,10 @@ open class FrameworkElement : WinUI.UIElement {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_UnloadedImpl($0)
+          return try! this.add_Unloaded($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_UnloadedImpl($0)
+         try? self?._default.remove_Unloaded($0)
        }
       )
     }()
@@ -1995,41 +1781,30 @@ open class FrameworkElement : WinUI.UIElement {
     private lazy var _IFrameworkElementProtected: __ABI_Microsoft_UI_Xaml.IFrameworkElementProtected! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.invalidateviewport)
     public func invalidateViewport() throws {
-        try _IFrameworkElementProtected.InvalidateViewportImpl()
+        try _IFrameworkElementProtected.InvalidateViewport()
     }
 
     private lazy var _IFrameworkElementOverrides: __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.measureoverride)
     open func measureOverride(_ availableSize: WindowsFoundation.Size) throws -> WindowsFoundation.Size {
-        try _IFrameworkElementOverrides.MeasureOverrideImpl(availableSize)
+        try _IFrameworkElementOverrides.MeasureOverride(availableSize)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.arrangeoverride)
     open func arrangeOverride(_ finalSize: WindowsFoundation.Size) throws -> WindowsFoundation.Size {
-        try _IFrameworkElementOverrides.ArrangeOverrideImpl(finalSize)
+        try _IFrameworkElementOverrides.ArrangeOverride(finalSize)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.onapplytemplate)
     open func onApplyTemplate() throws {
-        try _IFrameworkElementOverrides.OnApplyTemplateImpl()
+        try _IFrameworkElementOverrides.OnApplyTemplate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.gotoelementstatecore)
     open func goToElementStateCore(_ stateName: String, _ useTransitions: Bool) throws -> Bool {
-        try _IFrameworkElementOverrides.GoToElementStateCoreImpl(stateName, useTransitions)
+        try _IFrameworkElementOverrides.GoToElementStateCore(stateName, useTransitions)
     }
 
-    internal enum IFrameworkElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
-        internal typealias Class = FrameworkElement
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElement
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElement
-        }
-    }
-    internal typealias Composable = IFrameworkElementOverrides
     deinit {
         _default = nil
         _IFrameworkElementProtected = nil
@@ -2051,12 +1826,6 @@ open class FrameworkTemplate : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkTemplate>?) -> FrameworkTemplate? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2071,25 +1840,14 @@ open class FrameworkTemplate : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFrameworkTemplateFactory : __ABI_Microsoft_UI_Xaml.IFrameworkTemplateFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.FrameworkTemplate"))
+    private static var _IFrameworkTemplateFactory : __ABI_Microsoft_UI_Xaml.IFrameworkTemplateFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.FrameworkTemplate")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IFrameworkTemplateFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml.FrameworkTemplateBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IFrameworkTemplateFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    internal enum IFrameworkTemplate : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = FrameworkTemplate
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkTemplate
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkTemplate
-        }
-    }
-    internal typealias Composable = IFrameworkTemplate
     deinit {
         _default = nil
     }
@@ -2109,50 +1867,44 @@ public final class GridLengthHelper : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelper>?) -> GridLengthHelper? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IGridLengthHelperStatics: __ABI_Microsoft_UI_Xaml.IGridLengthHelperStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.GridLengthHelper"))
+    private static let _IGridLengthHelperStatics: __ABI_Microsoft_UI_Xaml.IGridLengthHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.GridLengthHelper")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.frompixels)
-    public static func fromPixels(_ pixels: Double) -> GridLength {
-        return try! _IGridLengthHelperStatics.FromPixelsImpl(pixels)
+    public static func fromPixels(_ pixels: Double) throws -> GridLength {
+        return try _IGridLengthHelperStatics.FromPixels(pixels)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.fromvalueandtype)
-    public static func fromValueAndType(_ value: Double, _ type: GridUnitType) -> GridLength {
-        return try! _IGridLengthHelperStatics.FromValueAndTypeImpl(value, type)
+    public static func fromValueAndType(_ value: Double, _ type: GridUnitType) throws -> GridLength {
+        return try _IGridLengthHelperStatics.FromValueAndType(value, type)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.getisabsolute)
-    public static func getIsAbsolute(_ target: GridLength) -> Bool {
-        return try! _IGridLengthHelperStatics.GetIsAbsoluteImpl(target)
+    public static func getIsAbsolute(_ target: GridLength) throws -> Bool {
+        return try _IGridLengthHelperStatics.GetIsAbsolute(target)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.getisauto)
-    public static func getIsAuto(_ target: GridLength) -> Bool {
-        return try! _IGridLengthHelperStatics.GetIsAutoImpl(target)
+    public static func getIsAuto(_ target: GridLength) throws -> Bool {
+        return try _IGridLengthHelperStatics.GetIsAuto(target)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.getisstar)
-    public static func getIsStar(_ target: GridLength) -> Bool {
-        return try! _IGridLengthHelperStatics.GetIsStarImpl(target)
+    public static func getIsStar(_ target: GridLength) throws -> Bool {
+        return try _IGridLengthHelperStatics.GetIsStar(target)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.equals)
-    public static func equals(_ target: GridLength, _ value: GridLength) -> Bool {
-        return try! _IGridLengthHelperStatics.EqualsImpl(target, value)
+    public static func equals(_ target: GridLength, _ value: GridLength) throws -> Bool {
+        return try _IGridLengthHelperStatics.Equals(target, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.auto)
     public static var auto : GridLength {
-        get { try! _IGridLengthHelperStatics.get_AutoImpl() }
+        get { try! _IGridLengthHelperStatics.get_Auto() }
     }
 
     deinit {
@@ -2174,24 +1926,18 @@ public final class LaunchActivatedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CILaunchActivatedEventArgs>?) -> LaunchActivatedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.launchactivatedeventargs.arguments)
     public var arguments : String {
-        get { try! _default.get_ArgumentsImpl() }
+        get { try! _default.get_Arguments() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.launchactivatedeventargs.uwplaunchactivatedeventargs)
     public var uwpLaunchActivatedEventArgs : UWP.LaunchActivatedEventArgs! {
-        get { try! _default.get_UWPLaunchActivatedEventArgsImpl() }
+        get { try! _default.get_UWPLaunchActivatedEventArgs() }
     }
 
     deinit {
@@ -2213,12 +1959,6 @@ open class PropertyMetadata : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIPropertyMetadata>?) -> PropertyMetadata? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2234,64 +1974,53 @@ open class PropertyMetadata : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IPropertyMetadataFactory : __ABI_Microsoft_UI_Xaml.IPropertyMetadataFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.PropertyMetadata"))
+    private static var _IPropertyMetadataFactory : __ABI_Microsoft_UI_Xaml.IPropertyMetadataFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.PropertyMetadata")
 
     public init(_ defaultValue: Any!) {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IPropertyMetadataFactory.CreateInstanceWithDefaultValueImpl(defaultValue, baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.PropertyMetadataBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IPropertyMetadataFactory.CreateInstanceWithDefaultValue(defaultValue, baseInterface, &innerInterface)
         }
     }
 
     public init(_ defaultValue: Any!, _ propertyChangedCallback: PropertyChangedCallback!) {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IPropertyMetadataFactory.CreateInstanceWithDefaultValueAndCallbackImpl(defaultValue, propertyChangedCallback, baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.PropertyMetadataBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IPropertyMetadataFactory.CreateInstanceWithDefaultValueAndCallback(defaultValue, propertyChangedCallback, baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPropertyMetadataStatics: __ABI_Microsoft_UI_Xaml.IPropertyMetadataStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.PropertyMetadata"))
+    private static let _IPropertyMetadataStatics: __ABI_Microsoft_UI_Xaml.IPropertyMetadataStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.PropertyMetadata")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.propertymetadata.create)
-    public class func create(_ defaultValue: Any!) -> PropertyMetadata! {
-        return try! _IPropertyMetadataStatics.CreateWithDefaultValueImpl(defaultValue)
+    public class func create(_ defaultValue: Any!) throws -> PropertyMetadata! {
+        return try _IPropertyMetadataStatics.CreateWithDefaultValue(defaultValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.propertymetadata.create)
-    public class func create(_ defaultValue: Any!, _ propertyChangedCallback: PropertyChangedCallback!) -> PropertyMetadata! {
-        return try! _IPropertyMetadataStatics.CreateWithDefaultValueAndCallbackImpl(defaultValue, propertyChangedCallback)
+    public class func create(_ defaultValue: Any!, _ propertyChangedCallback: PropertyChangedCallback!) throws -> PropertyMetadata! {
+        return try _IPropertyMetadataStatics.CreateWithDefaultValueAndCallback(defaultValue, propertyChangedCallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.propertymetadata.create)
-    public class func create(_ createDefaultValueCallback: CreateDefaultValueCallback!) -> PropertyMetadata! {
-        return try! _IPropertyMetadataStatics.CreateWithFactoryImpl(createDefaultValueCallback)
+    public class func create(_ createDefaultValueCallback: CreateDefaultValueCallback!) throws -> PropertyMetadata! {
+        return try _IPropertyMetadataStatics.CreateWithFactory(createDefaultValueCallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.propertymetadata.create)
-    public class func create(_ createDefaultValueCallback: CreateDefaultValueCallback!, _ propertyChangedCallback: PropertyChangedCallback!) -> PropertyMetadata! {
-        return try! _IPropertyMetadataStatics.CreateWithFactoryAndCallbackImpl(createDefaultValueCallback, propertyChangedCallback)
+    public class func create(_ createDefaultValueCallback: CreateDefaultValueCallback!, _ propertyChangedCallback: PropertyChangedCallback!) throws -> PropertyMetadata! {
+        return try _IPropertyMetadataStatics.CreateWithFactoryAndCallback(createDefaultValueCallback, propertyChangedCallback)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.propertymetadata.createdefaultvaluecallback)
     public var createDefaultValueCallback : CreateDefaultValueCallback! {
-        get { try! _default.get_CreateDefaultValueCallbackImpl() }
+        get { try! _default.get_CreateDefaultValueCallback() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.propertymetadata.defaultvalue)
     public var defaultValue : Any! {
-        get { try! _default.get_DefaultValueImpl() }
+        get { try! _default.get_DefaultValue() }
     }
 
-    internal enum IPropertyMetadata : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = PropertyMetadata
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIPropertyMetadata
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IPropertyMetadata
-        }
-    }
-    internal typealias Composable = IPropertyMetadata
     deinit {
         _default = nil
     }
@@ -2311,24 +2040,18 @@ public final class PropertyPath : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIPropertyPath>?) -> PropertyPath? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IPropertyPathFactory: __ABI_Microsoft_UI_Xaml.IPropertyPathFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.PropertyPath"))
+    private static let _IPropertyPathFactory: __ABI_Microsoft_UI_Xaml.IPropertyPathFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.PropertyPath")
     public init(_ path: String) {
-        super.init(fromAbi: try! Self._IPropertyPathFactory.CreateInstanceImpl(path))
+        super.init(fromAbi: try! Self._IPropertyPathFactory.CreateInstance(path))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.propertypath.path)
     public var path : String {
-        get { try! _default.get_PathImpl() }
+        get { try! _default.get_Path() }
     }
 
     deinit {
@@ -2353,12 +2076,6 @@ open class ResourceDictionary : WinUI.DependencyObject, IMap, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIResourceDictionary>?) -> ResourceDictionary? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2373,83 +2090,72 @@ open class ResourceDictionary : WinUI.DependencyObject, IMap, IIterable {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IResourceDictionaryFactory : __ABI_Microsoft_UI_Xaml.IResourceDictionaryFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.ResourceDictionary"))
+    private static var _IResourceDictionaryFactory : __ABI_Microsoft_UI_Xaml.IResourceDictionaryFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.ResourceDictionary")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IResourceDictionaryFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml.ResourceDictionaryBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IResourceDictionaryFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.mergeddictionaries)
     public var mergedDictionaries : WindowsFoundation.AnyIVector<ResourceDictionary?>! {
-        get { try! _default.get_MergedDictionariesImpl() }
+        get { try! _default.get_MergedDictionaries() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.source)
     public var source : WindowsFoundation.Uri! {
-        get { try! _default.get_SourceImpl() }
-        set { try! _default.put_SourceImpl(newValue) }
+        get { try! _default.get_Source() }
+        set { try! _default.put_Source(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.themedictionaries)
     public var themeDictionaries : WindowsFoundation.AnyIMap<Any?, Any?>! {
-        get { try! _default.get_ThemeDictionariesImpl() }
+        get { try! _default.get_ThemeDictionaries() }
     }
 
     private lazy var _IMap: IMapAny_Any! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.lookup)
     public func lookup(_ key: Any?) -> Any? {
-        try! _IMap.LookupImpl(key)
+        try! _IMap.Lookup(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.haskey)
     public func hasKey(_ key: Any?) -> Bool {
-        try! _IMap.HasKeyImpl(key)
+        try! _IMap.HasKey(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.getview)
     public func getView() -> WindowsFoundation.AnyIMapView<Any?, Any?>? {
-        try! _IMap.GetViewImpl()
+        try! _IMap.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.insert)
     public func insert(_ key: Any?, _ value: Any?) -> Bool {
-        try! _IMap.InsertImpl(key, value)
+        try! _IMap.Insert(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.remove)
     public func remove(_ key: Any?) {
-        try! _IMap.RemoveImpl(key)
+        try! _IMap.Remove(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.clear)
     public func clear() {
-        try! _IMap.ClearImpl()
+        try! _IMap.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.size)
     public var size : UInt32 {
-        get { try! _IMap.get_SizeImpl() }
+        get { try! _IMap.get_Size() }
     }
 
     private lazy var _IIterable: IIterableIKeyValuePairAny_Any! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcedictionary.first)
     public func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<Any?, Any?>?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
-    internal enum IResourceDictionary : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ResourceDictionary
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIResourceDictionary
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IResourceDictionary
-        }
-    }
-    internal typealias Composable = IResourceDictionary
     deinit {
         _default = nil
         _IMap = nil
@@ -2471,20 +2177,14 @@ public final class ResourceManagerRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIResourceManagerRequestedEventArgs>?) -> ResourceManagerRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.resourcemanagerrequestedeventargs.customresourcemanager)
     public var customResourceManager : WinAppSDK.AnyIResourceManager! {
-        get { try! _default.get_CustomResourceManagerImpl() }
-        set { try! _default.put_CustomResourceManagerImpl(newValue) }
+        get { try! _default.get_CustomResourceManager() }
+        set { try! _default.put_CustomResourceManager(newValue) }
     }
 
     deinit {
@@ -2503,12 +2203,6 @@ public final class RoutedEvent : WinRTClass {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIRoutedEvent>?) -> RoutedEvent? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -2535,12 +2229,6 @@ open class RoutedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIRoutedEventArgs>?) -> RoutedEventArgs? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2556,31 +2244,20 @@ open class RoutedEventArgs : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IRoutedEventArgsFactory : __ABI_Microsoft_UI_Xaml.IRoutedEventArgsFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.RoutedEventArgs"))
+    private static var _IRoutedEventArgsFactory : __ABI_Microsoft_UI_Xaml.IRoutedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.RoutedEventArgs")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IRoutedEventArgsFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.RoutedEventArgsBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IRoutedEventArgsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.routedeventargs.originalsource)
     public var originalSource : Any! {
-        get { try! _default.get_OriginalSourceImpl() }
+        get { try! _default.get_OriginalSource() }
     }
 
-    internal enum IRoutedEventArgs : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = RoutedEventArgs
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIRoutedEventArgs
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IRoutedEventArgs
-        }
-    }
-    internal typealias Composable = IRoutedEventArgs
     deinit {
         _default = nil
     }
@@ -2600,12 +2277,6 @@ open class ScalarTransition : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIScalarTransition>?) -> ScalarTransition? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2621,32 +2292,21 @@ open class ScalarTransition : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IScalarTransitionFactory : __ABI_Microsoft_UI_Xaml.IScalarTransitionFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.ScalarTransition"))
+    private static var _IScalarTransitionFactory : __ABI_Microsoft_UI_Xaml.IScalarTransitionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.ScalarTransition")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IScalarTransitionFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.ScalarTransitionBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IScalarTransitionFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.scalartransition.duration)
     public var duration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DurationImpl() }
-        set { try! _default.put_DurationImpl(newValue) }
+        get { try! _default.get_Duration() }
+        set { try! _default.put_Duration(newValue) }
     }
 
-    internal enum IScalarTransition : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = ScalarTransition
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIScalarTransition
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IScalarTransition
-        }
-    }
-    internal typealias Composable = IScalarTransition
     deinit {
         _default = nil
     }
@@ -2666,41 +2326,36 @@ public final class Setter : WinUI.SetterBase {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CISetter>?) -> Setter? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Setter")
     public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Setter")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISetterFactory: __ABI_Microsoft_UI_Xaml.ISetterFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Setter"))
+    private static let _ISetterFactory: __ABI_Microsoft_UI_Xaml.ISetterFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Setter")
     public init(_ targetProperty: DependencyProperty!, _ value: Any!) {
-        super.init(fromAbi: try! Self._ISetterFactory.CreateInstanceImpl(targetProperty, value))
+        super.init(fromAbi: try! Self._ISetterFactory.CreateInstance(targetProperty, value))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setter.property)
     public var property : DependencyProperty! {
-        get { try! _default.get_PropertyImpl() }
-        set { try! _default.put_PropertyImpl(newValue) }
+        get { try! _default.get_Property() }
+        set { try! _default.put_Property(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setter.target)
     public var target : TargetPropertyPath! {
-        get { try! _default.get_TargetImpl() }
-        set { try! _default.put_TargetImpl(newValue) }
+        get { try! _default.get_Target() }
+        set { try! _default.put_Target(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setter.value)
     public var value : Any! {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     deinit {
@@ -2722,12 +2377,6 @@ open class SetterBase : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CISetterBase>?) -> SetterBase? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -2742,24 +2391,13 @@ open class SetterBase : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISetterBaseFactory : __ABI_Microsoft_UI_Xaml.ISetterBaseFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.SetterBase"))
+    private static var _ISetterBaseFactory : __ABI_Microsoft_UI_Xaml.ISetterBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.SetterBase")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbase.issealed)
     public var isSealed : Bool {
-        get { try! _default.get_IsSealedImpl() }
+        get { try! _default.get_IsSealed() }
     }
 
-    internal enum ISetterBase : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = SetterBase
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CISetterBase
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.ISetterBase
-        }
-    }
-    internal typealias Composable = ISetterBase
     deinit {
         _default = nil
     }
@@ -2780,12 +2418,6 @@ public final class SetterBaseCollection : WinRTClass, IVector, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CISetterBaseCollection>?) -> SetterBaseCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2793,13 +2425,14 @@ public final class SetterBaseCollection : WinRTClass, IVector, IIterable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.SetterBaseCollection")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.SetterBaseCollection")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.issealed)
     public var isSealed : Bool {
-        get { try! _default.get_IsSealedImpl() }
+        get { try! _default.get_IsSealed() }
     }
 
     // MARK: Collection
@@ -2836,58 +2469,68 @@ public final class SetterBaseCollection : WinRTClass, IVector, IIterable {
     private lazy var _IVector: IVectorSetterBase! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.getat)
     public func getAt(_ index: UInt32) -> SetterBase? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<SetterBase?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.indexof)
     public func indexOf(_ value: SetterBase?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.setat)
     public func setAt(_ index: UInt32, _ value: SetterBase?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: SetterBase?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.append)
     public func append(_ value: SetterBase?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [SetterBase?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.replaceall)
+    public func replaceAll(_ items: [SetterBase?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableSetterBase! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.setterbasecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<SetterBase?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -2911,24 +2554,18 @@ public final class SizeChangedEventArgs : WinUI.RoutedEventArgs {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CISizeChangedEventArgs>?) -> SizeChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.sizechangedeventargs.newsize)
     public var newSize : WindowsFoundation.Size {
-        get { try! _default.get_NewSizeImpl() }
+        get { try! _default.get_NewSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.sizechangedeventargs.previoussize)
     public var previousSize : WindowsFoundation.Size {
-        get { try! _default.get_PreviousSizeImpl() }
+        get { try! _default.get_PreviousSize() }
     }
 
     deinit {
@@ -2950,50 +2587,45 @@ public final class Style : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIStyle>?) -> Style? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Style")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Style")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IStyleFactory: __ABI_Microsoft_UI_Xaml.IStyleFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Style"))
+    private static let _IStyleFactory: __ABI_Microsoft_UI_Xaml.IStyleFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Style")
     public init(_ targetType: WinUI.TypeName) {
-        super.init(fromAbi: try! Self._IStyleFactory.CreateInstanceImpl(targetType))
+        super.init(fromAbi: try! Self._IStyleFactory.CreateInstance(targetType))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.style.seal)
     public func seal() throws {
-        try _default.SealImpl()
+        try _default.Seal()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.style.basedon)
     public var basedOn : Style! {
-        get { try! _default.get_BasedOnImpl() }
-        set { try! _default.put_BasedOnImpl(newValue) }
+        get { try! _default.get_BasedOn() }
+        set { try! _default.put_BasedOn(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.style.issealed)
     public var isSealed : Bool {
-        get { try! _default.get_IsSealedImpl() }
+        get { try! _default.get_IsSealed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.style.setters)
     public var setters : SetterBaseCollection! {
-        get { try! _default.get_SettersImpl() }
+        get { try! _default.get_Setters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.style.targettype)
     public var targetType : WinUI.TypeName {
-        get { try! _default.get_TargetTypeImpl() }
-        set { try! _default.put_TargetTypeImpl(newValue) }
+        get { try! _default.get_TargetType() }
+        set { try! _default.put_TargetType(newValue) }
     }
 
     deinit {
@@ -3015,35 +2647,30 @@ public final class TargetPropertyPath : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CITargetPropertyPath>?) -> TargetPropertyPath? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.TargetPropertyPath")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Microsoft.UI.Xaml.TargetPropertyPath")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ITargetPropertyPathFactory: __ABI_Microsoft_UI_Xaml.ITargetPropertyPathFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.TargetPropertyPath"))
+    private static let _ITargetPropertyPathFactory: __ABI_Microsoft_UI_Xaml.ITargetPropertyPathFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.TargetPropertyPath")
     public init(_ targetProperty: DependencyProperty!) {
-        super.init(try! Self._ITargetPropertyPathFactory.CreateInstanceImpl(targetProperty))
+        super.init(try! Self._ITargetPropertyPathFactory.CreateInstance(targetProperty))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.targetpropertypath.path)
     public var path : PropertyPath! {
-        get { try! _default.get_PathImpl() }
-        set { try! _default.put_PathImpl(newValue) }
+        get { try! _default.get_Path() }
+        set { try! _default.put_Path(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.targetpropertypath.target)
     public var target : Any! {
-        get { try! _default.get_TargetImpl() }
-        set { try! _default.put_TargetImpl(newValue) }
+        get { try! _default.get_Target() }
+        set { try! _default.put_Target(newValue) }
     }
 
     deinit {
@@ -3065,12 +2692,6 @@ open class TriggerAction : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CITriggerAction>?) -> TriggerAction? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -3085,19 +2706,8 @@ open class TriggerAction : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITriggerActionFactory : __ABI_Microsoft_UI_Xaml.ITriggerActionFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.TriggerAction"))
+    private static var _ITriggerActionFactory : __ABI_Microsoft_UI_Xaml.ITriggerActionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.TriggerAction")
 
-    internal enum ITriggerAction : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = TriggerAction
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CITriggerAction
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.ITriggerAction
-        }
-    }
-    internal typealias Composable = ITriggerAction
     deinit {
         _default = nil
     }
@@ -3117,12 +2727,6 @@ open class TriggerBase : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CITriggerBase>?) -> TriggerBase? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -3137,19 +2741,8 @@ open class TriggerBase : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITriggerBaseFactory : __ABI_Microsoft_UI_Xaml.ITriggerBaseFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.TriggerBase"))
+    private static var _ITriggerBaseFactory : __ABI_Microsoft_UI_Xaml.ITriggerBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.TriggerBase")
 
-    internal enum ITriggerBase : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = TriggerBase
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CITriggerBase
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.ITriggerBase
-        }
-    }
-    internal typealias Composable = ITriggerBase
     deinit {
         _default = nil
     }
@@ -3167,12 +2760,6 @@ public final class TriggerCollection : WinRTClass, IVector, IIterable {
             return RawPointer(_default)
         }
         return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CTriggerBase>?) -> TriggerCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
     }
 
     @_spi(WinRTInternal)
@@ -3216,58 +2803,68 @@ public final class TriggerCollection : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.getat)
     public func getAt(_ index: UInt32) -> TriggerBase? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<TriggerBase?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.indexof)
     public func indexOf(_ value: TriggerBase?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.setat)
     public func setAt(_ index: UInt32, _ value: TriggerBase?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.insertat)
     public func insertAt(_ index: UInt32, _ value: TriggerBase?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.append)
     public func append(_ value: TriggerBase?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [TriggerBase?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.replaceall)
+    public func replaceAll(_ items: [TriggerBase?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableTriggerBase! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggercollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<TriggerBase?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     deinit {
@@ -3290,12 +2887,6 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIUIElement>?) -> UIElement? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -3315,900 +2906,900 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IUIElementFactory : __ABI_Microsoft_UI_Xaml.IUIElementFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.UIElement"))
+    private static var _IUIElementFactory : __ABI_Microsoft_UI_Xaml.IUIElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.UIElement")
 
-    private static let _IUIElementStatics: __ABI_Microsoft_UI_Xaml.IUIElementStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.UIElement"))
+    private static let _IUIElementStatics: __ABI_Microsoft_UI_Xaml.IUIElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.UIElement")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.trystartdirectmanipulation)
-    public class func tryStartDirectManipulation(_ value: WinUI.Pointer!) -> Bool {
-        return try! _IUIElementStatics.TryStartDirectManipulationImpl(value)
+    public class func tryStartDirectManipulation(_ value: WinUI.Pointer!) throws -> Bool {
+        return try _IUIElementStatics.TryStartDirectManipulation(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.registerasscrollport)
-    public class func registerAsScrollPort(_ element: UIElement!) {
-        try! _IUIElementStatics.RegisterAsScrollPortImpl(element)
+    public class func registerAsScrollPort(_ element: UIElement!) throws {
+        try _IUIElementStatics.RegisterAsScrollPort(element)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.accesskeyproperty)
     public class var accessKeyProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_AccessKeyPropertyImpl() }
+        get { try! _IUIElementStatics.get_AccessKeyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.accesskeyscopeownerproperty)
     public class var accessKeyScopeOwnerProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_AccessKeyScopeOwnerPropertyImpl() }
+        get { try! _IUIElementStatics.get_AccessKeyScopeOwnerProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.allowdropproperty)
     public class var allowDropProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_AllowDropPropertyImpl() }
+        get { try! _IUIElementStatics.get_AllowDropProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.bringintoviewrequestedevent)
     public class var bringIntoViewRequestedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_BringIntoViewRequestedEventImpl() }
+        get { try! _IUIElementStatics.get_BringIntoViewRequestedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.cachemodeproperty)
     public class var cacheModeProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_CacheModePropertyImpl() }
+        get { try! _IUIElementStatics.get_CacheModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.canbescrollanchorproperty)
     public class var canBeScrollAnchorProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_CanBeScrollAnchorPropertyImpl() }
+        get { try! _IUIElementStatics.get_CanBeScrollAnchorProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.candragproperty)
     public class var canDragProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_CanDragPropertyImpl() }
+        get { try! _IUIElementStatics.get_CanDragProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.characterreceivedevent)
     public class var characterReceivedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_CharacterReceivedEventImpl() }
+        get { try! _IUIElementStatics.get_CharacterReceivedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.clipproperty)
     public class var clipProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_ClipPropertyImpl() }
+        get { try! _IUIElementStatics.get_ClipProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.compositemodeproperty)
     public class var compositeModeProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_CompositeModePropertyImpl() }
+        get { try! _IUIElementStatics.get_CompositeModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyoutproperty)
     public class var contextFlyoutProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_ContextFlyoutPropertyImpl() }
+        get { try! _IUIElementStatics.get_ContextFlyoutProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextrequestedevent)
     public class var contextRequestedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_ContextRequestedEventImpl() }
+        get { try! _IUIElementStatics.get_ContextRequestedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.doubletappedevent)
     public class var doubleTappedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_DoubleTappedEventImpl() }
+        get { try! _IUIElementStatics.get_DoubleTappedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.dragenterevent)
     public class var dragEnterEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_DragEnterEventImpl() }
+        get { try! _IUIElementStatics.get_DragEnterEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.dragleaveevent)
     public class var dragLeaveEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_DragLeaveEventImpl() }
+        get { try! _IUIElementStatics.get_DragLeaveEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.dragoverevent)
     public class var dragOverEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_DragOverEventImpl() }
+        get { try! _IUIElementStatics.get_DragOverEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.dropevent)
     public class var dropEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_DropEventImpl() }
+        get { try! _IUIElementStatics.get_DropEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.exitdisplaymodeonaccesskeyinvokedproperty)
     public class var exitDisplayModeOnAccessKeyInvokedProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_ExitDisplayModeOnAccessKeyInvokedPropertyImpl() }
+        get { try! _IUIElementStatics.get_ExitDisplayModeOnAccessKeyInvokedProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.focusstateproperty)
     public class var focusStateProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_FocusStatePropertyImpl() }
+        get { try! _IUIElementStatics.get_FocusStateProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.gettingfocusevent)
     public class var gettingFocusEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_GettingFocusEventImpl() }
+        get { try! _IUIElementStatics.get_GettingFocusEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.highcontrastadjustmentproperty)
     public class var highContrastAdjustmentProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_HighContrastAdjustmentPropertyImpl() }
+        get { try! _IUIElementStatics.get_HighContrastAdjustmentProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.holdingevent)
     public class var holdingEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_HoldingEventImpl() }
+        get { try! _IUIElementStatics.get_HoldingEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.isaccesskeyscopeproperty)
     public class var isAccessKeyScopeProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_IsAccessKeyScopePropertyImpl() }
+        get { try! _IUIElementStatics.get_IsAccessKeyScopeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.isdoubletapenabledproperty)
     public class var isDoubleTapEnabledProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_IsDoubleTapEnabledPropertyImpl() }
+        get { try! _IUIElementStatics.get_IsDoubleTapEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.ishittestvisibleproperty)
     public class var isHitTestVisibleProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_IsHitTestVisiblePropertyImpl() }
+        get { try! _IUIElementStatics.get_IsHitTestVisibleProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.isholdingenabledproperty)
     public class var isHoldingEnabledProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_IsHoldingEnabledPropertyImpl() }
+        get { try! _IUIElementStatics.get_IsHoldingEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.isrighttapenabledproperty)
     public class var isRightTapEnabledProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_IsRightTapEnabledPropertyImpl() }
+        get { try! _IUIElementStatics.get_IsRightTapEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.istabstopproperty)
     public class var isTabStopProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_IsTabStopPropertyImpl() }
+        get { try! _IUIElementStatics.get_IsTabStopProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.istapenabledproperty)
     public class var isTapEnabledProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_IsTapEnabledPropertyImpl() }
+        get { try! _IUIElementStatics.get_IsTapEnabledProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydownevent)
     public class var keyDownEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_KeyDownEventImpl() }
+        get { try! _IUIElementStatics.get_KeyDownEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keytiphorizontaloffsetproperty)
     public class var keyTipHorizontalOffsetProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_KeyTipHorizontalOffsetPropertyImpl() }
+        get { try! _IUIElementStatics.get_KeyTipHorizontalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keytipplacementmodeproperty)
     public class var keyTipPlacementModeProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_KeyTipPlacementModePropertyImpl() }
+        get { try! _IUIElementStatics.get_KeyTipPlacementModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keytiptargetproperty)
     public class var keyTipTargetProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_KeyTipTargetPropertyImpl() }
+        get { try! _IUIElementStatics.get_KeyTipTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keytipverticaloffsetproperty)
     public class var keyTipVerticalOffsetProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_KeyTipVerticalOffsetPropertyImpl() }
+        get { try! _IUIElementStatics.get_KeyTipVerticalOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyupevent)
     public class var keyUpEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_KeyUpEventImpl() }
+        get { try! _IUIElementStatics.get_KeyUpEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyboardacceleratorplacementmodeproperty)
     public class var keyboardAcceleratorPlacementModeProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_KeyboardAcceleratorPlacementModePropertyImpl() }
+        get { try! _IUIElementStatics.get_KeyboardAcceleratorPlacementModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyboardacceleratorplacementtargetproperty)
     public class var keyboardAcceleratorPlacementTargetProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_KeyboardAcceleratorPlacementTargetPropertyImpl() }
+        get { try! _IUIElementStatics.get_KeyboardAcceleratorPlacementTargetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.lightsproperty)
     public class var lightsProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_LightsPropertyImpl() }
+        get { try! _IUIElementStatics.get_LightsProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.losingfocusevent)
     public class var losingFocusEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_LosingFocusEventImpl() }
+        get { try! _IUIElementStatics.get_LosingFocusEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.manipulationcompletedevent)
     public class var manipulationCompletedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_ManipulationCompletedEventImpl() }
+        get { try! _IUIElementStatics.get_ManipulationCompletedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.manipulationdeltaevent)
     public class var manipulationDeltaEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_ManipulationDeltaEventImpl() }
+        get { try! _IUIElementStatics.get_ManipulationDeltaEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.manipulationinertiastartingevent)
     public class var manipulationInertiaStartingEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_ManipulationInertiaStartingEventImpl() }
+        get { try! _IUIElementStatics.get_ManipulationInertiaStartingEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.manipulationmodeproperty)
     public class var manipulationModeProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_ManipulationModePropertyImpl() }
+        get { try! _IUIElementStatics.get_ManipulationModeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.manipulationstartedevent)
     public class var manipulationStartedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_ManipulationStartedEventImpl() }
+        get { try! _IUIElementStatics.get_ManipulationStartedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.manipulationstartingevent)
     public class var manipulationStartingEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_ManipulationStartingEventImpl() }
+        get { try! _IUIElementStatics.get_ManipulationStartingEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.nofocuscandidatefoundevent)
     public class var noFocusCandidateFoundEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_NoFocusCandidateFoundEventImpl() }
+        get { try! _IUIElementStatics.get_NoFocusCandidateFoundEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.opacityproperty)
     public class var opacityProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_OpacityPropertyImpl() }
+        get { try! _IUIElementStatics.get_OpacityProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointercanceledevent)
     public class var pointerCanceledEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PointerCanceledEventImpl() }
+        get { try! _IUIElementStatics.get_PointerCanceledEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointercapturelostevent)
     public class var pointerCaptureLostEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PointerCaptureLostEventImpl() }
+        get { try! _IUIElementStatics.get_PointerCaptureLostEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointercapturesproperty)
     public class var pointerCapturesProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_PointerCapturesPropertyImpl() }
+        get { try! _IUIElementStatics.get_PointerCapturesProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerenteredevent)
     public class var pointerEnteredEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PointerEnteredEventImpl() }
+        get { try! _IUIElementStatics.get_PointerEnteredEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerexitedevent)
     public class var pointerExitedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PointerExitedEventImpl() }
+        get { try! _IUIElementStatics.get_PointerExitedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointermovedevent)
     public class var pointerMovedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PointerMovedEventImpl() }
+        get { try! _IUIElementStatics.get_PointerMovedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerpressedevent)
     public class var pointerPressedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PointerPressedEventImpl() }
+        get { try! _IUIElementStatics.get_PointerPressedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerreleasedevent)
     public class var pointerReleasedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PointerReleasedEventImpl() }
+        get { try! _IUIElementStatics.get_PointerReleasedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerwheelchangedevent)
     public class var pointerWheelChangedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PointerWheelChangedEventImpl() }
+        get { try! _IUIElementStatics.get_PointerWheelChangedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.previewkeydownevent)
     public class var previewKeyDownEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PreviewKeyDownEventImpl() }
+        get { try! _IUIElementStatics.get_PreviewKeyDownEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.previewkeyupevent)
     public class var previewKeyUpEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_PreviewKeyUpEventImpl() }
+        get { try! _IUIElementStatics.get_PreviewKeyUpEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.projectionproperty)
     public class var projectionProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_ProjectionPropertyImpl() }
+        get { try! _IUIElementStatics.get_ProjectionProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.rendertransformoriginproperty)
     public class var renderTransformOriginProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_RenderTransformOriginPropertyImpl() }
+        get { try! _IUIElementStatics.get_RenderTransformOriginProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.rendertransformproperty)
     public class var renderTransformProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_RenderTransformPropertyImpl() }
+        get { try! _IUIElementStatics.get_RenderTransformProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.righttappedevent)
     public class var rightTappedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_RightTappedEventImpl() }
+        get { try! _IUIElementStatics.get_RightTappedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.shadowproperty)
     public class var shadowProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_ShadowPropertyImpl() }
+        get { try! _IUIElementStatics.get_ShadowProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.tabfocusnavigationproperty)
     public class var tabFocusNavigationProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_TabFocusNavigationPropertyImpl() }
+        get { try! _IUIElementStatics.get_TabFocusNavigationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.tabindexproperty)
     public class var tabIndexProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_TabIndexPropertyImpl() }
+        get { try! _IUIElementStatics.get_TabIndexProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.tappedevent)
     public class var tappedEvent : RoutedEvent! {
-        get { try! _IUIElementStatics.get_TappedEventImpl() }
+        get { try! _IUIElementStatics.get_TappedEvent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.transform3dproperty)
     public class var transform3DProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_Transform3DPropertyImpl() }
+        get { try! _IUIElementStatics.get_Transform3DProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.transitionsproperty)
     public class var transitionsProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_TransitionsPropertyImpl() }
+        get { try! _IUIElementStatics.get_TransitionsProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.uselayoutroundingproperty)
     public class var useLayoutRoundingProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_UseLayoutRoundingPropertyImpl() }
+        get { try! _IUIElementStatics.get_UseLayoutRoundingProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.usesystemfocusvisualsproperty)
     public class var useSystemFocusVisualsProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_UseSystemFocusVisualsPropertyImpl() }
+        get { try! _IUIElementStatics.get_UseSystemFocusVisualsProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.visibilityproperty)
     public class var visibilityProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_VisibilityPropertyImpl() }
+        get { try! _IUIElementStatics.get_VisibilityProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusdownnavigationstrategyproperty)
     public class var xyFocusDownNavigationStrategyProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_XYFocusDownNavigationStrategyPropertyImpl() }
+        get { try! _IUIElementStatics.get_XYFocusDownNavigationStrategyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusdownproperty)
     public class var xyFocusDownProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_XYFocusDownPropertyImpl() }
+        get { try! _IUIElementStatics.get_XYFocusDownProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocuskeyboardnavigationproperty)
     public class var xyFocusKeyboardNavigationProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_XYFocusKeyboardNavigationPropertyImpl() }
+        get { try! _IUIElementStatics.get_XYFocusKeyboardNavigationProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusleftnavigationstrategyproperty)
     public class var xyFocusLeftNavigationStrategyProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_XYFocusLeftNavigationStrategyPropertyImpl() }
+        get { try! _IUIElementStatics.get_XYFocusLeftNavigationStrategyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusleftproperty)
     public class var xyFocusLeftProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_XYFocusLeftPropertyImpl() }
+        get { try! _IUIElementStatics.get_XYFocusLeftProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusrightnavigationstrategyproperty)
     public class var xyFocusRightNavigationStrategyProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_XYFocusRightNavigationStrategyPropertyImpl() }
+        get { try! _IUIElementStatics.get_XYFocusRightNavigationStrategyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusrightproperty)
     public class var xyFocusRightProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_XYFocusRightPropertyImpl() }
+        get { try! _IUIElementStatics.get_XYFocusRightProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusupnavigationstrategyproperty)
     public class var xyFocusUpNavigationStrategyProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_XYFocusUpNavigationStrategyPropertyImpl() }
+        get { try! _IUIElementStatics.get_XYFocusUpNavigationStrategyProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusupproperty)
     public class var xyFocusUpProperty : DependencyProperty! {
-        get { try! _IUIElementStatics.get_XYFocusUpPropertyImpl() }
+        get { try! _IUIElementStatics.get_XYFocusUpProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.measure)
     public func measure(_ availableSize: WindowsFoundation.Size) throws {
-        try _default.MeasureImpl(availableSize)
+        try _default.Measure(availableSize)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.arrange)
     public func arrange(_ finalRect: WindowsFoundation.Rect) throws {
-        try _default.ArrangeImpl(finalRect)
+        try _default.Arrange(finalRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.capturepointer)
     public func capturePointer(_ value: WinUI.Pointer!) throws -> Bool {
-        try _default.CapturePointerImpl(value)
+        try _default.CapturePointer(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.releasepointercapture)
     public func releasePointerCapture(_ value: WinUI.Pointer!) throws {
-        try _default.ReleasePointerCaptureImpl(value)
+        try _default.ReleasePointerCapture(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.releasepointercaptures)
     public func releasePointerCaptures() throws {
-        try _default.ReleasePointerCapturesImpl()
+        try _default.ReleasePointerCaptures()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.addhandler)
     public func addHandler(_ routedEvent: RoutedEvent!, _ handler: Any!, _ handledEventsToo: Bool) throws {
-        try _default.AddHandlerImpl(routedEvent, handler, handledEventsToo)
+        try _default.AddHandler(routedEvent, handler, handledEventsToo)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.removehandler)
     public func removeHandler(_ routedEvent: RoutedEvent!, _ handler: Any!) throws {
-        try _default.RemoveHandlerImpl(routedEvent, handler)
+        try _default.RemoveHandler(routedEvent, handler)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.transformtovisual)
     public func transformToVisual(_ visual: UIElement!) throws -> WinUI.GeneralTransform! {
-        try _default.TransformToVisualImpl(visual)
+        try _default.TransformToVisual(visual)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.invalidatemeasure)
     public func invalidateMeasure() throws {
-        try _default.InvalidateMeasureImpl()
+        try _default.InvalidateMeasure()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.invalidatearrange)
     public func invalidateArrange() throws {
-        try _default.InvalidateArrangeImpl()
+        try _default.InvalidateArrange()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.updatelayout)
     public func updateLayout() throws {
-        try _default.UpdateLayoutImpl()
+        try _default.UpdateLayout()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.canceldirectmanipulations)
     public func cancelDirectManipulations() throws -> Bool {
-        try _default.CancelDirectManipulationsImpl()
+        try _default.CancelDirectManipulations()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.startdragasync)
     public func startDragAsync(_ pointerPoint: WinAppSDK.PointerPoint!) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DataPackageOperation>! {
-        try _default.StartDragAsyncImpl(pointerPoint)
+        try _default.StartDragAsync(pointerPoint)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.startbringintoview)
     public func startBringIntoView() throws {
-        try _default.StartBringIntoViewImpl()
+        try _default.StartBringIntoView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.startbringintoview)
     public func startBringIntoView(_ options: BringIntoViewOptions!) throws {
-        try _default.StartBringIntoViewWithOptionsImpl(options)
+        try _default.StartBringIntoViewWithOptions(options)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.tryinvokekeyboardaccelerator)
     public func tryInvokeKeyboardAccelerator(_ args: WinUI.ProcessKeyboardAcceleratorEventArgs!) throws {
-        try _default.TryInvokeKeyboardAcceleratorImpl(args)
+        try _default.TryInvokeKeyboardAccelerator(args)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.focus)
     public func focus(_ value: FocusState) throws -> Bool {
-        try _default.FocusImpl(value)
+        try _default.Focus(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.startanimation)
     public func startAnimation(_ animation: WinAppSDK.AnyICompositionAnimationBase!) throws {
-        try _default.StartAnimationImpl(animation)
+        try _default.StartAnimation(animation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.stopanimation)
     public func stopAnimation(_ animation: WinAppSDK.AnyICompositionAnimationBase!) throws {
-        try _default.StopAnimationImpl(animation)
+        try _default.StopAnimation(animation)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.accesskey)
     public var accessKey : String {
-        get { try! _default.get_AccessKeyImpl() }
-        set { try! _default.put_AccessKeyImpl(newValue) }
+        get { try! _default.get_AccessKey() }
+        set { try! _default.put_AccessKey(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.accesskeyscopeowner)
     public var accessKeyScopeOwner : DependencyObject! {
-        get { try! _default.get_AccessKeyScopeOwnerImpl() }
-        set { try! _default.put_AccessKeyScopeOwnerImpl(newValue) }
+        get { try! _default.get_AccessKeyScopeOwner() }
+        set { try! _default.put_AccessKeyScopeOwner(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.actualoffset)
     public var actualOffset : WindowsFoundation.Vector3 {
-        get { try! _default.get_ActualOffsetImpl() }
+        get { try! _default.get_ActualOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.actualsize)
     public var actualSize : WindowsFoundation.Vector2 {
-        get { try! _default.get_ActualSizeImpl() }
+        get { try! _default.get_ActualSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.allowdrop)
     public var allowDrop : Bool {
-        get { try! _default.get_AllowDropImpl() }
-        set { try! _default.put_AllowDropImpl(newValue) }
+        get { try! _default.get_AllowDrop() }
+        set { try! _default.put_AllowDrop(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.cachemode)
     public var cacheMode : WinUI.CacheMode! {
-        get { try! _default.get_CacheModeImpl() }
-        set { try! _default.put_CacheModeImpl(newValue) }
+        get { try! _default.get_CacheMode() }
+        set { try! _default.put_CacheMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.canbescrollanchor)
     public var canBeScrollAnchor : Bool {
-        get { try! _default.get_CanBeScrollAnchorImpl() }
-        set { try! _default.put_CanBeScrollAnchorImpl(newValue) }
+        get { try! _default.get_CanBeScrollAnchor() }
+        set { try! _default.put_CanBeScrollAnchor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.candrag)
     public var canDrag : Bool {
-        get { try! _default.get_CanDragImpl() }
-        set { try! _default.put_CanDragImpl(newValue) }
+        get { try! _default.get_CanDrag() }
+        set { try! _default.put_CanDrag(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.centerpoint)
     public var centerPoint : WindowsFoundation.Vector3 {
-        get { try! _default.get_CenterPointImpl() }
-        set { try! _default.put_CenterPointImpl(newValue) }
+        get { try! _default.get_CenterPoint() }
+        set { try! _default.put_CenterPoint(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.clip)
     public var clip : WinUI.RectangleGeometry! {
-        get { try! _default.get_ClipImpl() }
-        set { try! _default.put_ClipImpl(newValue) }
+        get { try! _default.get_Clip() }
+        set { try! _default.put_Clip(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.compositemode)
     public var compositeMode : WinUI.ElementCompositeMode {
-        get { try! _default.get_CompositeModeImpl() }
-        set { try! _default.put_CompositeModeImpl(newValue) }
+        get { try! _default.get_CompositeMode() }
+        set { try! _default.put_CompositeMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyout)
     public var contextFlyout : WinUI.FlyoutBase! {
-        get { try! _default.get_ContextFlyoutImpl() }
-        set { try! _default.put_ContextFlyoutImpl(newValue) }
+        get { try! _default.get_ContextFlyout() }
+        set { try! _default.put_ContextFlyout(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.desiredsize)
     public var desiredSize : WindowsFoundation.Size {
-        get { try! _default.get_DesiredSizeImpl() }
+        get { try! _default.get_DesiredSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.exitdisplaymodeonaccesskeyinvoked)
     public var exitDisplayModeOnAccessKeyInvoked : Bool {
-        get { try! _default.get_ExitDisplayModeOnAccessKeyInvokedImpl() }
-        set { try! _default.put_ExitDisplayModeOnAccessKeyInvokedImpl(newValue) }
+        get { try! _default.get_ExitDisplayModeOnAccessKeyInvoked() }
+        set { try! _default.put_ExitDisplayModeOnAccessKeyInvoked(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.focusstate)
     public var focusState : FocusState {
-        get { try! _default.get_FocusStateImpl() }
+        get { try! _default.get_FocusState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.highcontrastadjustment)
     public var highContrastAdjustment : ElementHighContrastAdjustment {
-        get { try! _default.get_HighContrastAdjustmentImpl() }
-        set { try! _default.put_HighContrastAdjustmentImpl(newValue) }
+        get { try! _default.get_HighContrastAdjustment() }
+        set { try! _default.put_HighContrastAdjustment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.isaccesskeyscope)
     public var isAccessKeyScope : Bool {
-        get { try! _default.get_IsAccessKeyScopeImpl() }
-        set { try! _default.put_IsAccessKeyScopeImpl(newValue) }
+        get { try! _default.get_IsAccessKeyScope() }
+        set { try! _default.put_IsAccessKeyScope(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.isdoubletapenabled)
     public var isDoubleTapEnabled : Bool {
-        get { try! _default.get_IsDoubleTapEnabledImpl() }
-        set { try! _default.put_IsDoubleTapEnabledImpl(newValue) }
+        get { try! _default.get_IsDoubleTapEnabled() }
+        set { try! _default.put_IsDoubleTapEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.ishittestvisible)
     public var isHitTestVisible : Bool {
-        get { try! _default.get_IsHitTestVisibleImpl() }
-        set { try! _default.put_IsHitTestVisibleImpl(newValue) }
+        get { try! _default.get_IsHitTestVisible() }
+        set { try! _default.put_IsHitTestVisible(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.isholdingenabled)
     public var isHoldingEnabled : Bool {
-        get { try! _default.get_IsHoldingEnabledImpl() }
-        set { try! _default.put_IsHoldingEnabledImpl(newValue) }
+        get { try! _default.get_IsHoldingEnabled() }
+        set { try! _default.put_IsHoldingEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.isrighttapenabled)
     public var isRightTapEnabled : Bool {
-        get { try! _default.get_IsRightTapEnabledImpl() }
-        set { try! _default.put_IsRightTapEnabledImpl(newValue) }
+        get { try! _default.get_IsRightTapEnabled() }
+        set { try! _default.put_IsRightTapEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.istabstop)
     public var isTabStop : Bool {
-        get { try! _default.get_IsTabStopImpl() }
-        set { try! _default.put_IsTabStopImpl(newValue) }
+        get { try! _default.get_IsTabStop() }
+        set { try! _default.put_IsTabStop(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.istapenabled)
     public var isTapEnabled : Bool {
-        get { try! _default.get_IsTapEnabledImpl() }
-        set { try! _default.put_IsTapEnabledImpl(newValue) }
+        get { try! _default.get_IsTapEnabled() }
+        set { try! _default.put_IsTapEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keytiphorizontaloffset)
     public var keyTipHorizontalOffset : Double {
-        get { try! _default.get_KeyTipHorizontalOffsetImpl() }
-        set { try! _default.put_KeyTipHorizontalOffsetImpl(newValue) }
+        get { try! _default.get_KeyTipHorizontalOffset() }
+        set { try! _default.put_KeyTipHorizontalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keytipplacementmode)
     public var keyTipPlacementMode : WinUI.KeyTipPlacementMode {
-        get { try! _default.get_KeyTipPlacementModeImpl() }
-        set { try! _default.put_KeyTipPlacementModeImpl(newValue) }
+        get { try! _default.get_KeyTipPlacementMode() }
+        set { try! _default.put_KeyTipPlacementMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keytiptarget)
     public var keyTipTarget : DependencyObject! {
-        get { try! _default.get_KeyTipTargetImpl() }
-        set { try! _default.put_KeyTipTargetImpl(newValue) }
+        get { try! _default.get_KeyTipTarget() }
+        set { try! _default.put_KeyTipTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keytipverticaloffset)
     public var keyTipVerticalOffset : Double {
-        get { try! _default.get_KeyTipVerticalOffsetImpl() }
-        set { try! _default.put_KeyTipVerticalOffsetImpl(newValue) }
+        get { try! _default.get_KeyTipVerticalOffset() }
+        set { try! _default.put_KeyTipVerticalOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyboardacceleratorplacementmode)
     public var keyboardAcceleratorPlacementMode : WinUI.KeyboardAcceleratorPlacementMode {
-        get { try! _default.get_KeyboardAcceleratorPlacementModeImpl() }
-        set { try! _default.put_KeyboardAcceleratorPlacementModeImpl(newValue) }
+        get { try! _default.get_KeyboardAcceleratorPlacementMode() }
+        set { try! _default.put_KeyboardAcceleratorPlacementMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyboardacceleratorplacementtarget)
     public var keyboardAcceleratorPlacementTarget : DependencyObject! {
-        get { try! _default.get_KeyboardAcceleratorPlacementTargetImpl() }
-        set { try! _default.put_KeyboardAcceleratorPlacementTargetImpl(newValue) }
+        get { try! _default.get_KeyboardAcceleratorPlacementTarget() }
+        set { try! _default.put_KeyboardAcceleratorPlacementTarget(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyboardaccelerators)
     public var keyboardAccelerators : WindowsFoundation.AnyIVector<WinUI.KeyboardAccelerator?>! {
-        get { try! _default.get_KeyboardAcceleratorsImpl() }
+        get { try! _default.get_KeyboardAccelerators() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.lights)
     public var lights : WindowsFoundation.AnyIVector<WinUI.XamlLight?>! {
-        get { try! _default.get_LightsImpl() }
+        get { try! _default.get_Lights() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.manipulationmode)
     public var manipulationMode : WinUI.ManipulationModes {
-        get { try! _default.get_ManipulationModeImpl() }
-        set { try! _default.put_ManipulationModeImpl(newValue) }
+        get { try! _default.get_ManipulationMode() }
+        set { try! _default.put_ManipulationMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.opacity)
     public var opacity : Double {
-        get { try! _default.get_OpacityImpl() }
-        set { try! _default.put_OpacityImpl(newValue) }
+        get { try! _default.get_Opacity() }
+        set { try! _default.put_Opacity(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.opacitytransition)
     public var opacityTransition : ScalarTransition! {
-        get { try! _default.get_OpacityTransitionImpl() }
-        set { try! _default.put_OpacityTransitionImpl(newValue) }
+        get { try! _default.get_OpacityTransition() }
+        set { try! _default.put_OpacityTransition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointercaptures)
     public var pointerCaptures : WindowsFoundation.AnyIVectorView<WinUI.Pointer?>! {
-        get { try! _default.get_PointerCapturesImpl() }
+        get { try! _default.get_PointerCaptures() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.projection)
     public var projection : WinUI.Projection! {
-        get { try! _default.get_ProjectionImpl() }
-        set { try! _default.put_ProjectionImpl(newValue) }
+        get { try! _default.get_Projection() }
+        set { try! _default.put_Projection(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.rasterizationscale)
     public var rasterizationScale : Double {
-        get { try! _default.get_RasterizationScaleImpl() }
-        set { try! _default.put_RasterizationScaleImpl(newValue) }
+        get { try! _default.get_RasterizationScale() }
+        set { try! _default.put_RasterizationScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.rendersize)
     public var renderSize : WindowsFoundation.Size {
-        get { try! _default.get_RenderSizeImpl() }
+        get { try! _default.get_RenderSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.rendertransform)
     public var renderTransform : WinUI.Transform! {
-        get { try! _default.get_RenderTransformImpl() }
-        set { try! _default.put_RenderTransformImpl(newValue) }
+        get { try! _default.get_RenderTransform() }
+        set { try! _default.put_RenderTransform(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.rendertransformorigin)
     public var renderTransformOrigin : WindowsFoundation.Point {
-        get { try! _default.get_RenderTransformOriginImpl() }
-        set { try! _default.put_RenderTransformOriginImpl(newValue) }
+        get { try! _default.get_RenderTransformOrigin() }
+        set { try! _default.put_RenderTransformOrigin(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.rotation)
     public var rotation : Float {
-        get { try! _default.get_RotationImpl() }
-        set { try! _default.put_RotationImpl(newValue) }
+        get { try! _default.get_Rotation() }
+        set { try! _default.put_Rotation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.rotationaxis)
     public var rotationAxis : WindowsFoundation.Vector3 {
-        get { try! _default.get_RotationAxisImpl() }
-        set { try! _default.put_RotationAxisImpl(newValue) }
+        get { try! _default.get_RotationAxis() }
+        set { try! _default.put_RotationAxis(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.rotationtransition)
     public var rotationTransition : ScalarTransition! {
-        get { try! _default.get_RotationTransitionImpl() }
-        set { try! _default.put_RotationTransitionImpl(newValue) }
+        get { try! _default.get_RotationTransition() }
+        set { try! _default.put_RotationTransition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.scale)
     public var scale : WindowsFoundation.Vector3 {
-        get { try! _default.get_ScaleImpl() }
-        set { try! _default.put_ScaleImpl(newValue) }
+        get { try! _default.get_Scale() }
+        set { try! _default.put_Scale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.scaletransition)
     public var scaleTransition : Vector3Transition! {
-        get { try! _default.get_ScaleTransitionImpl() }
-        set { try! _default.put_ScaleTransitionImpl(newValue) }
+        get { try! _default.get_ScaleTransition() }
+        set { try! _default.put_ScaleTransition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.shadow)
     public var shadow : WinUI.Shadow! {
-        get { try! _default.get_ShadowImpl() }
-        set { try! _default.put_ShadowImpl(newValue) }
+        get { try! _default.get_Shadow() }
+        set { try! _default.put_Shadow(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.tabfocusnavigation)
     public var tabFocusNavigation : WinUI.KeyboardNavigationMode {
-        get { try! _default.get_TabFocusNavigationImpl() }
-        set { try! _default.put_TabFocusNavigationImpl(newValue) }
+        get { try! _default.get_TabFocusNavigation() }
+        set { try! _default.put_TabFocusNavigation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.tabindex)
     public var tabIndex : Int32 {
-        get { try! _default.get_TabIndexImpl() }
-        set { try! _default.put_TabIndexImpl(newValue) }
+        get { try! _default.get_TabIndex() }
+        set { try! _default.put_TabIndex(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.transform3d)
     public var transform3D : WinUI.Transform3D! {
-        get { try! _default.get_Transform3DImpl() }
-        set { try! _default.put_Transform3DImpl(newValue) }
+        get { try! _default.get_Transform3D() }
+        set { try! _default.put_Transform3D(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.transformmatrix)
     public var transformMatrix : WindowsFoundation.Matrix4x4 {
-        get { try! _default.get_TransformMatrixImpl() }
-        set { try! _default.put_TransformMatrixImpl(newValue) }
+        get { try! _default.get_TransformMatrix() }
+        set { try! _default.put_TransformMatrix(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.transitions)
     public var transitions : WinUI.TransitionCollection! {
-        get { try! _default.get_TransitionsImpl() }
-        set { try! _default.put_TransitionsImpl(newValue) }
+        get { try! _default.get_Transitions() }
+        set { try! _default.put_Transitions(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.translation)
     public var translation : WindowsFoundation.Vector3 {
-        get { try! _default.get_TranslationImpl() }
-        set { try! _default.put_TranslationImpl(newValue) }
+        get { try! _default.get_Translation() }
+        set { try! _default.put_Translation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.translationtransition)
     public var translationTransition : Vector3Transition! {
-        get { try! _default.get_TranslationTransitionImpl() }
-        set { try! _default.put_TranslationTransitionImpl(newValue) }
+        get { try! _default.get_TranslationTransition() }
+        set { try! _default.put_TranslationTransition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.uselayoutrounding)
     public var useLayoutRounding : Bool {
-        get { try! _default.get_UseLayoutRoundingImpl() }
-        set { try! _default.put_UseLayoutRoundingImpl(newValue) }
+        get { try! _default.get_UseLayoutRounding() }
+        set { try! _default.put_UseLayoutRounding(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.usesystemfocusvisuals)
     public var useSystemFocusVisuals : Bool {
-        get { try! _default.get_UseSystemFocusVisualsImpl() }
-        set { try! _default.put_UseSystemFocusVisualsImpl(newValue) }
+        get { try! _default.get_UseSystemFocusVisuals() }
+        set { try! _default.put_UseSystemFocusVisuals(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.visibility)
     public var visibility : Visibility {
-        get { try! _default.get_VisibilityImpl() }
-        set { try! _default.put_VisibilityImpl(newValue) }
+        get { try! _default.get_Visibility() }
+        set { try! _default.put_Visibility(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusdown)
     public var xyFocusDown : DependencyObject! {
-        get { try! _default.get_XYFocusDownImpl() }
-        set { try! _default.put_XYFocusDownImpl(newValue) }
+        get { try! _default.get_XYFocusDown() }
+        set { try! _default.put_XYFocusDown(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusdownnavigationstrategy)
     public var xyFocusDownNavigationStrategy : WinUI.XYFocusNavigationStrategy {
-        get { try! _default.get_XYFocusDownNavigationStrategyImpl() }
-        set { try! _default.put_XYFocusDownNavigationStrategyImpl(newValue) }
+        get { try! _default.get_XYFocusDownNavigationStrategy() }
+        set { try! _default.put_XYFocusDownNavigationStrategy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocuskeyboardnavigation)
     public var xyFocusKeyboardNavigation : WinUI.XYFocusKeyboardNavigationMode {
-        get { try! _default.get_XYFocusKeyboardNavigationImpl() }
-        set { try! _default.put_XYFocusKeyboardNavigationImpl(newValue) }
+        get { try! _default.get_XYFocusKeyboardNavigation() }
+        set { try! _default.put_XYFocusKeyboardNavigation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusleft)
     public var xyFocusLeft : DependencyObject! {
-        get { try! _default.get_XYFocusLeftImpl() }
-        set { try! _default.put_XYFocusLeftImpl(newValue) }
+        get { try! _default.get_XYFocusLeft() }
+        set { try! _default.put_XYFocusLeft(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusleftnavigationstrategy)
     public var xyFocusLeftNavigationStrategy : WinUI.XYFocusNavigationStrategy {
-        get { try! _default.get_XYFocusLeftNavigationStrategyImpl() }
-        set { try! _default.put_XYFocusLeftNavigationStrategyImpl(newValue) }
+        get { try! _default.get_XYFocusLeftNavigationStrategy() }
+        set { try! _default.put_XYFocusLeftNavigationStrategy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusright)
     public var xyFocusRight : DependencyObject! {
-        get { try! _default.get_XYFocusRightImpl() }
-        set { try! _default.put_XYFocusRightImpl(newValue) }
+        get { try! _default.get_XYFocusRight() }
+        set { try! _default.put_XYFocusRight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusrightnavigationstrategy)
     public var xyFocusRightNavigationStrategy : WinUI.XYFocusNavigationStrategy {
-        get { try! _default.get_XYFocusRightNavigationStrategyImpl() }
-        set { try! _default.put_XYFocusRightNavigationStrategyImpl(newValue) }
+        get { try! _default.get_XYFocusRightNavigationStrategy() }
+        set { try! _default.put_XYFocusRightNavigationStrategy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusup)
     public var xyFocusUp : DependencyObject! {
-        get { try! _default.get_XYFocusUpImpl() }
-        set { try! _default.put_XYFocusUpImpl(newValue) }
+        get { try! _default.get_XYFocusUp() }
+        set { try! _default.put_XYFocusUp(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xyfocusupnavigationstrategy)
     public var xyFocusUpNavigationStrategy : WinUI.XYFocusNavigationStrategy {
-        get { try! _default.get_XYFocusUpNavigationStrategyImpl() }
-        set { try! _default.put_XYFocusUpNavigationStrategyImpl(newValue) }
+        get { try! _default.get_XYFocusUpNavigationStrategy() }
+        set { try! _default.put_XYFocusUpNavigationStrategy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.xamlroot)
     public var xamlRoot : XamlRoot! {
-        get { try! _default.get_XamlRootImpl() }
-        set { try! _default.put_XamlRootImpl(newValue) }
+        get { try! _default.get_XamlRoot() }
+        set { try! _default.put_XamlRoot(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.accesskeydisplaydismissed)
@@ -4216,10 +3807,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AccessKeyDisplayDismissedImpl($0)
+          return try! this.add_AccessKeyDisplayDismissed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AccessKeyDisplayDismissedImpl($0)
+         try? self?._default.remove_AccessKeyDisplayDismissed($0)
        }
       )
     }()
@@ -4229,10 +3820,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AccessKeyDisplayRequestedImpl($0)
+          return try! this.add_AccessKeyDisplayRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AccessKeyDisplayRequestedImpl($0)
+         try? self?._default.remove_AccessKeyDisplayRequested($0)
        }
       )
     }()
@@ -4242,10 +3833,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AccessKeyInvokedImpl($0)
+          return try! this.add_AccessKeyInvoked($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AccessKeyInvokedImpl($0)
+         try? self?._default.remove_AccessKeyInvoked($0)
        }
       )
     }()
@@ -4255,10 +3846,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_BringIntoViewRequestedImpl($0)
+          return try! this.add_BringIntoViewRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_BringIntoViewRequestedImpl($0)
+         try? self?._default.remove_BringIntoViewRequested($0)
        }
       )
     }()
@@ -4268,10 +3859,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CharacterReceivedImpl($0)
+          return try! this.add_CharacterReceived($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CharacterReceivedImpl($0)
+         try? self?._default.remove_CharacterReceived($0)
        }
       )
     }()
@@ -4281,10 +3872,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ContextCanceledImpl($0)
+          return try! this.add_ContextCanceled($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ContextCanceledImpl($0)
+         try? self?._default.remove_ContextCanceled($0)
        }
       )
     }()
@@ -4294,10 +3885,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ContextRequestedImpl($0)
+          return try! this.add_ContextRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ContextRequestedImpl($0)
+         try? self?._default.remove_ContextRequested($0)
        }
       )
     }()
@@ -4307,10 +3898,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DoubleTappedImpl($0)
+          return try! this.add_DoubleTapped($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DoubleTappedImpl($0)
+         try? self?._default.remove_DoubleTapped($0)
        }
       )
     }()
@@ -4320,10 +3911,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DragEnterImpl($0)
+          return try! this.add_DragEnter($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DragEnterImpl($0)
+         try? self?._default.remove_DragEnter($0)
        }
       )
     }()
@@ -4333,10 +3924,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DragLeaveImpl($0)
+          return try! this.add_DragLeave($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DragLeaveImpl($0)
+         try? self?._default.remove_DragLeave($0)
        }
       )
     }()
@@ -4346,10 +3937,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DragOverImpl($0)
+          return try! this.add_DragOver($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DragOverImpl($0)
+         try? self?._default.remove_DragOver($0)
        }
       )
     }()
@@ -4359,10 +3950,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DragStartingImpl($0)
+          return try! this.add_DragStarting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DragStartingImpl($0)
+         try? self?._default.remove_DragStarting($0)
        }
       )
     }()
@@ -4372,10 +3963,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DropImpl($0)
+          return try! this.add_Drop($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DropImpl($0)
+         try? self?._default.remove_Drop($0)
        }
       )
     }()
@@ -4385,10 +3976,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DropCompletedImpl($0)
+          return try! this.add_DropCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DropCompletedImpl($0)
+         try? self?._default.remove_DropCompleted($0)
        }
       )
     }()
@@ -4398,10 +3989,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_GettingFocusImpl($0)
+          return try! this.add_GettingFocus($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_GettingFocusImpl($0)
+         try? self?._default.remove_GettingFocus($0)
        }
       )
     }()
@@ -4411,10 +4002,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_GotFocusImpl($0)
+          return try! this.add_GotFocus($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_GotFocusImpl($0)
+         try? self?._default.remove_GotFocus($0)
        }
       )
     }()
@@ -4424,10 +4015,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_HoldingImpl($0)
+          return try! this.add_Holding($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_HoldingImpl($0)
+         try? self?._default.remove_Holding($0)
        }
       )
     }()
@@ -4437,10 +4028,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_KeyDownImpl($0)
+          return try! this.add_KeyDown($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_KeyDownImpl($0)
+         try? self?._default.remove_KeyDown($0)
        }
       )
     }()
@@ -4450,10 +4041,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_KeyUpImpl($0)
+          return try! this.add_KeyUp($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_KeyUpImpl($0)
+         try? self?._default.remove_KeyUp($0)
        }
       )
     }()
@@ -4463,10 +4054,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_LosingFocusImpl($0)
+          return try! this.add_LosingFocus($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_LosingFocusImpl($0)
+         try? self?._default.remove_LosingFocus($0)
        }
       )
     }()
@@ -4476,10 +4067,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_LostFocusImpl($0)
+          return try! this.add_LostFocus($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_LostFocusImpl($0)
+         try? self?._default.remove_LostFocus($0)
        }
       )
     }()
@@ -4489,10 +4080,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ManipulationCompletedImpl($0)
+          return try! this.add_ManipulationCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ManipulationCompletedImpl($0)
+         try? self?._default.remove_ManipulationCompleted($0)
        }
       )
     }()
@@ -4502,10 +4093,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ManipulationDeltaImpl($0)
+          return try! this.add_ManipulationDelta($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ManipulationDeltaImpl($0)
+         try? self?._default.remove_ManipulationDelta($0)
        }
       )
     }()
@@ -4515,10 +4106,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ManipulationInertiaStartingImpl($0)
+          return try! this.add_ManipulationInertiaStarting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ManipulationInertiaStartingImpl($0)
+         try? self?._default.remove_ManipulationInertiaStarting($0)
        }
       )
     }()
@@ -4528,10 +4119,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ManipulationStartedImpl($0)
+          return try! this.add_ManipulationStarted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ManipulationStartedImpl($0)
+         try? self?._default.remove_ManipulationStarted($0)
        }
       )
     }()
@@ -4541,10 +4132,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ManipulationStartingImpl($0)
+          return try! this.add_ManipulationStarting($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ManipulationStartingImpl($0)
+         try? self?._default.remove_ManipulationStarting($0)
        }
       )
     }()
@@ -4554,10 +4145,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_NoFocusCandidateFoundImpl($0)
+          return try! this.add_NoFocusCandidateFound($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_NoFocusCandidateFoundImpl($0)
+         try? self?._default.remove_NoFocusCandidateFound($0)
        }
       )
     }()
@@ -4567,10 +4158,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerCanceledImpl($0)
+          return try! this.add_PointerCanceled($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerCanceledImpl($0)
+         try? self?._default.remove_PointerCanceled($0)
        }
       )
     }()
@@ -4580,10 +4171,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerCaptureLostImpl($0)
+          return try! this.add_PointerCaptureLost($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerCaptureLostImpl($0)
+         try? self?._default.remove_PointerCaptureLost($0)
        }
       )
     }()
@@ -4593,10 +4184,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerEnteredImpl($0)
+          return try! this.add_PointerEntered($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerEnteredImpl($0)
+         try? self?._default.remove_PointerEntered($0)
        }
       )
     }()
@@ -4606,10 +4197,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerExitedImpl($0)
+          return try! this.add_PointerExited($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerExitedImpl($0)
+         try? self?._default.remove_PointerExited($0)
        }
       )
     }()
@@ -4619,10 +4210,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerMovedImpl($0)
+          return try! this.add_PointerMoved($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerMovedImpl($0)
+         try? self?._default.remove_PointerMoved($0)
        }
       )
     }()
@@ -4632,10 +4223,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerPressedImpl($0)
+          return try! this.add_PointerPressed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerPressedImpl($0)
+         try? self?._default.remove_PointerPressed($0)
        }
       )
     }()
@@ -4645,10 +4236,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerReleasedImpl($0)
+          return try! this.add_PointerReleased($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerReleasedImpl($0)
+         try? self?._default.remove_PointerReleased($0)
        }
       )
     }()
@@ -4658,10 +4249,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PointerWheelChangedImpl($0)
+          return try! this.add_PointerWheelChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PointerWheelChangedImpl($0)
+         try? self?._default.remove_PointerWheelChanged($0)
        }
       )
     }()
@@ -4671,10 +4262,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PreviewKeyDownImpl($0)
+          return try! this.add_PreviewKeyDown($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PreviewKeyDownImpl($0)
+         try? self?._default.remove_PreviewKeyDown($0)
        }
       )
     }()
@@ -4684,10 +4275,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PreviewKeyUpImpl($0)
+          return try! this.add_PreviewKeyUp($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PreviewKeyUpImpl($0)
+         try? self?._default.remove_PreviewKeyUp($0)
        }
       )
     }()
@@ -4697,10 +4288,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ProcessKeyboardAcceleratorsImpl($0)
+          return try! this.add_ProcessKeyboardAccelerators($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ProcessKeyboardAcceleratorsImpl($0)
+         try? self?._default.remove_ProcessKeyboardAccelerators($0)
        }
       )
     }()
@@ -4710,10 +4301,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_RightTappedImpl($0)
+          return try! this.add_RightTapped($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_RightTappedImpl($0)
+         try? self?._default.remove_RightTapped($0)
        }
       )
     }()
@@ -4723,10 +4314,10 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_TappedImpl($0)
+          return try! this.add_Tapped($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_TappedImpl($0)
+         try? self?._default.remove_Tapped($0)
        }
       )
     }()
@@ -4734,73 +4325,62 @@ open class UIElement : WinUI.DependencyObject, WinAppSDK.IAnimationObject, WinAp
     private lazy var _IUIElementProtected: __ABI_Microsoft_UI_Xaml.IUIElementProtected! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.protectedcursor)
     public var protectedCursor : WinAppSDK.InputCursor! {
-        get { try! _IUIElementProtected.get_ProtectedCursorImpl() }
-        set { try! _IUIElementProtected.put_ProtectedCursorImpl(newValue) }
+        get { try! _IUIElementProtected.get_ProtectedCursor() }
+        set { try! _IUIElementProtected.put_ProtectedCursor(newValue) }
     }
 
     private lazy var _IUIElementOverrides: __ABI_Microsoft_UI_Xaml.IUIElementOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.oncreateautomationpeer)
     open func onCreateAutomationPeer() throws -> WinUI.AutomationPeer! {
-        try _IUIElementOverrides.OnCreateAutomationPeerImpl()
+        try _IUIElementOverrides.OnCreateAutomationPeer()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.ondisconnectvisualchildren)
     open func onDisconnectVisualChildren() throws {
-        try _IUIElementOverrides.OnDisconnectVisualChildrenImpl()
+        try _IUIElementOverrides.OnDisconnectVisualChildren()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.findsubelementsfortouchtargeting)
     open func findSubElementsForTouchTargeting(_ point: WindowsFoundation.Point, _ boundingRect: WindowsFoundation.Rect) throws -> WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIIterable<WindowsFoundation.Point>?>! {
-        try _IUIElementOverrides.FindSubElementsForTouchTargetingImpl(point, boundingRect)
+        try _IUIElementOverrides.FindSubElementsForTouchTargeting(point, boundingRect)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.getchildrenintabfocusorder)
     open func getChildrenInTabFocusOrder() throws -> WindowsFoundation.AnyIIterable<DependencyObject?>! {
-        try _IUIElementOverrides.GetChildrenInTabFocusOrderImpl()
+        try _IUIElementOverrides.GetChildrenInTabFocusOrder()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.onkeyboardacceleratorinvoked)
     open func onKeyboardAcceleratorInvoked(_ args: WinUI.KeyboardAcceleratorInvokedEventArgs!) throws {
-        try _IUIElementOverrides.OnKeyboardAcceleratorInvokedImpl(args)
+        try _IUIElementOverrides.OnKeyboardAcceleratorInvoked(args)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.onprocesskeyboardaccelerators)
     open func onProcessKeyboardAccelerators(_ args: WinUI.ProcessKeyboardAcceleratorEventArgs!) throws {
-        try _IUIElementOverrides.OnProcessKeyboardAcceleratorsImpl(args)
+        try _IUIElementOverrides.OnProcessKeyboardAccelerators(args)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.onbringintoviewrequested)
     open func onBringIntoViewRequested(_ e: BringIntoViewRequestedEventArgs!) throws {
-        try _IUIElementOverrides.OnBringIntoViewRequestedImpl(e)
+        try _IUIElementOverrides.OnBringIntoViewRequested(e)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.populatepropertyinfooverride)
     open func populatePropertyInfoOverride(_ propertyName: String, _ animationPropertyInfo: WinAppSDK.AnimationPropertyInfo!) throws {
-        try _IUIElementOverrides.PopulatePropertyInfoOverrideImpl(propertyName, animationPropertyInfo)
+        try _IUIElementOverrides.PopulatePropertyInfoOverride(propertyName, animationPropertyInfo)
     }
 
-    internal enum IUIElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIUIElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IUIElementOverrides
-        internal typealias Class = UIElement
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIUIElement
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IUIElement
-        }
-    }
-    internal typealias Composable = IUIElementOverrides
     private lazy var _IAnimationObject: __ABI_Microsoft_UI_Composition.IAnimationObject! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.populatepropertyinfo)
     public func populatePropertyInfo(_ propertyName: String, _ propertyInfo: WinAppSDK.AnimationPropertyInfo!) throws {
-        try _IAnimationObject.PopulatePropertyInfoImpl(propertyName, propertyInfo)
+        try _IAnimationObject.PopulatePropertyInfo(propertyName, propertyInfo)
     }
 
     private lazy var _IVisualElement: __ABI_Microsoft_UI_Composition.IVisualElement! = getInterfaceForCaching()
     private lazy var _IVisualElement2: __ABI_Microsoft_UI_Composition.IVisualElement2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.getvisualinternal)
     public func getVisualInternal() throws -> WinAppSDK.Visual! {
-        try _IVisualElement2.GetVisualInternalImpl()
+        try _IVisualElement2.GetVisualInternal()
     }
 
     deinit {
@@ -4828,12 +4408,6 @@ open class UIElementWeakCollection : WinRTClass, IVector, IIterable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CUIElement>?) -> UIElementWeakCollection? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -4849,12 +4423,12 @@ open class UIElementWeakCollection : WinRTClass, IVector, IIterable {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IUIElementWeakCollectionFactory : __ABI_Microsoft_UI_Xaml.IUIElementWeakCollectionFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.UIElementWeakCollection"))
+    private static var _IUIElementWeakCollectionFactory : __ABI_Microsoft_UI_Xaml.IUIElementWeakCollectionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.UIElementWeakCollection")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IUIElementWeakCollectionFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.UIElementWeakCollectionBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IUIElementWeakCollectionFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
@@ -4891,71 +4465,70 @@ open class UIElementWeakCollection : WinRTClass, IVector, IIterable {
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.getat)
     public func getAt(_ index: UInt32) -> UIElement? {
-        try! _default.GetAtImpl(index)
+        try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<UIElement?>? {
-        try! _default.GetViewImpl()
+        try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.indexof)
     public func indexOf(_ value: UIElement?, _ index: inout UInt32) -> Bool {
-        try! _default.IndexOfImpl(value, &index)
+        try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.setat)
     public func setAt(_ index: UInt32, _ value: UIElement?) {
-        try! _default.SetAtImpl(index, value)
+        try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.insertat)
     public func insertAt(_ index: UInt32, _ value: UIElement?) {
-        try! _default.InsertAtImpl(index, value)
+        try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _default.RemoveAtImpl(index)
+        try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.append)
     public func append(_ value: UIElement?) {
-        try! _default.AppendImpl(value)
+        try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.removeatend)
     public func removeAtEnd() {
-        try! _default.RemoveAtEndImpl()
+        try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.clear)
     public func clear() {
-        try! _default.ClearImpl()
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [UIElement?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.replaceall)
+    public func replaceAll(_ items: [UIElement?]) {
+        try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.size)
     public var size : UInt32 {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     private lazy var _IIterable: IIterableUIElement! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielementweakcollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<UIElement?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
-    internal enum IVectorUIElement : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = UIElementWeakCollection
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CUIElement
-            internal typealias SwiftABI = WinUI.IVectorUIElement
-        }
-    }
-    internal typealias Composable = IVectorUIElement
     deinit {
         _default = nil
         _IIterable = nil
@@ -4976,30 +4549,24 @@ public final class UnhandledExceptionEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIUnhandledExceptionEventArgs>?) -> UnhandledExceptionEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.unhandledexceptioneventargs.exception)
     public var exception : HRESULT {
-        get { try! _default.get_ExceptionImpl() }
+        get { try! _default.get_Exception() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.unhandledexceptioneventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.unhandledexceptioneventargs.message)
     public var message : String {
-        get { try! _default.get_MessageImpl() }
+        get { try! _default.get_Message() }
     }
 
     deinit {
@@ -5021,12 +4588,6 @@ open class Vector3Transition : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIVector3Transition>?) -> Vector3Transition? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -5042,38 +4603,27 @@ open class Vector3Transition : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IVector3TransitionFactory : __ABI_Microsoft_UI_Xaml.IVector3TransitionFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Vector3Transition"))
+    private static var _IVector3TransitionFactory : __ABI_Microsoft_UI_Xaml.IVector3TransitionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Vector3Transition")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IVector3TransitionFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.Vector3TransitionBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IVector3TransitionFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.vector3transition.components)
     public var components : Vector3TransitionComponents {
-        get { try! _default.get_ComponentsImpl() }
-        set { try! _default.put_ComponentsImpl(newValue) }
+        get { try! _default.get_Components() }
+        set { try! _default.put_Components(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.vector3transition.duration)
     public var duration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DurationImpl() }
-        set { try! _default.put_DurationImpl(newValue) }
+        get { try! _default.get_Duration() }
+        set { try! _default.put_Duration(newValue) }
     }
 
-    internal enum IVector3Transition : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = Vector3Transition
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVector3Transition
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IVector3Transition
-        }
-    }
-    internal typealias Composable = IVector3Transition
     deinit {
         _default = nil
     }
@@ -5093,12 +4643,6 @@ open class Window : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIWindow>?) -> Window? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -5114,82 +4658,82 @@ open class Window : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IWindowFactory : __ABI_Microsoft_UI_Xaml.IWindowFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Window"))
+    private static var _IWindowFactory : __ABI_Microsoft_UI_Xaml.IWindowFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Window")
 
     override public init() {
         super.init()
-        MakeComposed(composing: Self.Composable.self, self) { baseInterface, innerInterface in 
-            try! Self._IWindowFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        MakeComposed(composing: __IMPL_Microsoft_UI_Xaml.WindowBridge.Composable.self, self) { baseInterface, innerInterface in 
+            try! Self._IWindowFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IWindowStatics: __ABI_Microsoft_UI_Xaml.IWindowStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Window"))
+    private static let _IWindowStatics: __ABI_Microsoft_UI_Xaml.IWindowStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Window")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.current)
     public class var current : Window! {
-        get { try! _IWindowStatics.get_CurrentImpl() }
+        get { try! _IWindowStatics.get_Current() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.activate)
     public func activate() throws {
-        try _default.ActivateImpl()
+        try _default.Activate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.close)
     public func close() throws {
-        try _default.CloseImpl()
+        try _default.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.settitlebar)
     public func setTitleBar(_ titleBar: UIElement!) throws {
-        try _default.SetTitleBarImpl(titleBar)
+        try _default.SetTitleBar(titleBar)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.bounds)
     public var bounds : WindowsFoundation.Rect {
-        get { try! _default.get_BoundsImpl() }
+        get { try! _default.get_Bounds() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.compositor)
     public var compositor : WinAppSDK.Compositor! {
-        get { try! _default.get_CompositorImpl() }
+        get { try! _default.get_Compositor() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.content)
     public var content : UIElement! {
-        get { try! _default.get_ContentImpl() }
-        set { try! _default.put_ContentImpl(newValue) }
+        get { try! _default.get_Content() }
+        set { try! _default.put_Content(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.corewindow)
     public var coreWindow : UWP.CoreWindow! {
-        get { try! _default.get_CoreWindowImpl() }
+        get { try! _default.get_CoreWindow() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.dispatcher)
     public var dispatcher : UWP.CoreDispatcher! {
-        get { try! _default.get_DispatcherImpl() }
+        get { try! _default.get_Dispatcher() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.dispatcherqueue)
     public var dispatcherQueue : WinAppSDK.DispatcherQueue! {
-        get { try! _default.get_DispatcherQueueImpl() }
+        get { try! _default.get_DispatcherQueue() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.extendscontentintotitlebar)
     public var extendsContentIntoTitleBar : Bool {
-        get { try! _default.get_ExtendsContentIntoTitleBarImpl() }
-        set { try! _default.put_ExtendsContentIntoTitleBarImpl(newValue) }
+        get { try! _default.get_ExtendsContentIntoTitleBar() }
+        set { try! _default.put_ExtendsContentIntoTitleBar(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.title)
     public var title : String {
-        get { try! _default.get_TitleImpl() }
-        set { try! _default.put_TitleImpl(newValue) }
+        get { try! _default.get_Title() }
+        set { try! _default.put_Title(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.visible)
     public var visible : Bool {
-        get { try! _default.get_VisibleImpl() }
+        get { try! _default.get_Visible() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.activated)
@@ -5197,10 +4741,10 @@ open class Window : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ActivatedImpl($0)
+          return try! this.add_Activated($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ActivatedImpl($0)
+         try? self?._default.remove_Activated($0)
        }
       )
     }()
@@ -5210,10 +4754,10 @@ open class Window : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ClosedImpl($0)
+          return try! this.add_Closed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ClosedImpl($0)
+         try? self?._default.remove_Closed($0)
        }
       )
     }()
@@ -5223,10 +4767,10 @@ open class Window : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_SizeChangedImpl($0)
+          return try! this.add_SizeChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_SizeChangedImpl($0)
+         try? self?._default.remove_SizeChanged($0)
        }
       )
     }()
@@ -5236,10 +4780,10 @@ open class Window : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_VisibilityChangedImpl($0)
+          return try! this.add_VisibilityChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_VisibilityChangedImpl($0)
+         try? self?._default.remove_VisibilityChanged($0)
        }
       )
     }()
@@ -5247,26 +4791,15 @@ open class Window : WinRTClass {
     private lazy var _IWindow2: __ABI_Microsoft_UI_Xaml.IWindow2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.appwindow)
     public var appWindow : WinAppSDK.AppWindow! {
-        get { try! _IWindow2.get_AppWindowImpl() }
+        get { try! _IWindow2.get_AppWindow() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.systembackdrop)
     public var systemBackdrop : WinUI.SystemBackdrop! {
-        get { try! _IWindow2.get_SystemBackdropImpl() }
-        set { try! _IWindow2.put_SystemBackdropImpl(newValue) }
+        get { try! _IWindow2.get_SystemBackdrop() }
+        set { try! _IWindow2.put_SystemBackdrop(newValue) }
     }
 
-    internal enum IWindow : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = Window
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIWindow
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IWindow
-        }
-    }
-    internal typealias Composable = IWindow
     deinit {
         _default = nil
         _IWindow2 = nil
@@ -5287,25 +4820,19 @@ public final class WindowActivatedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIWindowActivatedEventArgs>?) -> WindowActivatedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.windowactivatedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.windowactivatedeventargs.windowactivationstate)
     public var windowActivationState : WindowActivationState {
-        get { try! _default.get_WindowActivationStateImpl() }
+        get { try! _default.get_WindowActivationState() }
     }
 
     deinit {
@@ -5327,20 +4854,14 @@ public final class WindowEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIWindowEventArgs>?) -> WindowEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.windoweventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     deinit {
@@ -5362,25 +4883,19 @@ public final class WindowSizeChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIWindowSizeChangedEventArgs>?) -> WindowSizeChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.windowsizechangedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.windowsizechangedeventargs.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     deinit {
@@ -5402,25 +4917,19 @@ public final class WindowVisibilityChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIWindowVisibilityChangedEventArgs>?) -> WindowVisibilityChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.windowvisibilitychangedeventargs.handled)
     public var handled : Bool {
-        get { try! _default.get_HandledImpl() }
-        set { try! _default.put_HandledImpl(newValue) }
+        get { try! _default.get_Handled() }
+        set { try! _default.put_Handled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.windowvisibilitychangedeventargs.visible)
     public var visible : Bool {
-        get { try! _default.get_VisibleImpl() }
+        get { try! _default.get_Visible() }
     }
 
     deinit {
@@ -5442,19 +4951,13 @@ public final class XamlResourceReferenceFailedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIXamlResourceReferenceFailedEventArgs>?) -> XamlResourceReferenceFailedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamlresourcereferencefailedeventargs.message)
     public var message : String {
-        get { try! _default.get_MessageImpl() }
+        get { try! _default.get_Message() }
     }
 
     deinit {
@@ -5476,34 +4979,28 @@ public final class XamlRoot : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot>?) -> XamlRoot? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamlroot.content)
     public var content : UIElement! {
-        get { try! _default.get_ContentImpl() }
+        get { try! _default.get_Content() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamlroot.ishostvisible)
     public var isHostVisible : Bool {
-        get { try! _default.get_IsHostVisibleImpl() }
+        get { try! _default.get_IsHostVisible() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamlroot.rasterizationscale)
     public var rasterizationScale : Double {
-        get { try! _default.get_RasterizationScaleImpl() }
+        get { try! _default.get_RasterizationScale() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamlroot.size)
     public var size : WindowsFoundation.Size {
-        get { try! _default.get_SizeImpl() }
+        get { try! _default.get_Size() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamlroot.changed)
@@ -5511,10 +5008,10 @@ public final class XamlRoot : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ChangedImpl($0)
+          return try! this.add_Changed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ChangedImpl($0)
+         try? self?._default.remove_Changed($0)
        }
       )
     }()
@@ -5522,7 +5019,7 @@ public final class XamlRoot : WinRTClass {
     private lazy var _IXamlRoot2: __ABI_Microsoft_UI_Xaml.IXamlRoot2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamlroot.contentislandenvironment)
     public var contentIslandEnvironment : WinAppSDK.ContentIslandEnvironment! {
-        get { try! _IXamlRoot2.get_ContentIslandEnvironmentImpl() }
+        get { try! _IXamlRoot2.get_ContentIslandEnvironment() }
     }
 
     deinit {
@@ -5545,12 +5042,6 @@ public final class XamlRootChangedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs>?) -> XamlRootChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -5560,19 +5051,19 @@ public final class XamlRootChangedEventArgs : WinRTClass {
     }
 }
 
-public typealias ApplicationInitializationCallback = (ApplicationInitializationCallbackParams?) -> ()
-public typealias BindingFailedEventHandler = (Any?, BindingFailedEventArgs?) -> ()
-public typealias CreateDefaultValueCallback = () -> Any?
-public typealias DependencyPropertyChangedCallback = (DependencyObject?, DependencyProperty?) -> ()
-public typealias DependencyPropertyChangedEventHandler = (Any?, DependencyPropertyChangedEventArgs?) -> ()
-public typealias DragEventHandler = (Any?, DragEventArgs?) -> ()
-public typealias ExceptionRoutedEventHandler = (Any?, ExceptionRoutedEventArgs?) -> ()
-public typealias PropertyChangedCallback = (DependencyObject?, DependencyPropertyChangedEventArgs?) -> ()
-public typealias RoutedEventHandler = (Any?, RoutedEventArgs?) -> ()
-public typealias SizeChangedEventHandler = (Any?, SizeChangedEventArgs?) -> ()
-public typealias UnhandledExceptionEventHandler = (Any?, UnhandledExceptionEventArgs?) -> ()
+public typealias ApplicationInitializationCallback = (ApplicationInitializationCallbackParams?) throws -> ()
+public typealias BindingFailedEventHandler = (Any?, BindingFailedEventArgs?) throws -> ()
+public typealias CreateDefaultValueCallback = () throws -> Any?
+public typealias DependencyPropertyChangedCallback = (DependencyObject?, DependencyProperty?) throws -> ()
+public typealias DependencyPropertyChangedEventHandler = (Any?, DependencyPropertyChangedEventArgs?) throws -> ()
+public typealias DragEventHandler = (Any?, DragEventArgs?) throws -> ()
+public typealias ExceptionRoutedEventHandler = (Any?, ExceptionRoutedEventArgs?) throws -> ()
+public typealias PropertyChangedCallback = (DependencyObject?, DependencyPropertyChangedEventArgs?) throws -> ()
+public typealias RoutedEventHandler = (Any?, RoutedEventArgs?) throws -> ()
+public typealias SizeChangedEventHandler = (Any?, SizeChangedEventArgs?) throws -> ()
+public typealias UnhandledExceptionEventHandler = (Any?, UnhandledExceptionEventArgs?) throws -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.cornerradius)
-public struct CornerRadius: Hashable, Codable {
+public struct CornerRadius: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.cornerradius.topleft)
     public var topLeft: Double = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.cornerradius.topright)
@@ -5588,13 +5079,10 @@ public struct CornerRadius: Hashable, Codable {
         self.bottomRight = bottomRight
         self.bottomLeft = bottomLeft
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CCornerRadius) -> CornerRadius {
-        .init(topLeft: abi.TopLeft, topRight: abi.TopRight, bottomRight: abi.BottomRight, bottomLeft: abi.BottomLeft)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.duration)
-public struct Duration: Hashable, Codable {
+public struct Duration: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.duration.timespan)
     public var timeSpan: WindowsFoundation.TimeSpan = .init()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.duration.type)
@@ -5604,13 +5092,10 @@ public struct Duration: Hashable, Codable {
         self.timeSpan = timeSpan
         self.type = type
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CDuration) -> Duration {
-        .init(timeSpan: .from(abi: abi.TimeSpan), type: abi.Type)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlength)
-public struct GridLength: Hashable, Codable {
+public struct GridLength: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlength.value)
     public var value: Double = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlength.gridunittype)
@@ -5620,13 +5105,10 @@ public struct GridLength: Hashable, Codable {
         self.value = value
         self.gridUnitType = gridUnitType
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CGridLength) -> GridLength {
-        .init(value: abi.Value, gridUnitType: abi.GridUnitType)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.thickness)
-public struct Thickness: Hashable, Codable {
+public struct Thickness: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.thickness.left)
     public var left: Double = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.thickness.top)
@@ -5641,9 +5123,6 @@ public struct Thickness: Hashable, Codable {
         self.top = top
         self.right = right
         self.bottom = bottom
-    }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CThickness) -> Thickness {
-        .init(left: abi.Left, top: abi.Top, right: abi.Right, bottom: abi.Bottom)
     }
 }
 
@@ -5697,7 +5176,7 @@ extension WinUI.ApplicationHighContrastAdjustment {
         __x_ABI_CMicrosoft_CUI_CXaml_CApplicationHighContrastAdjustment_Auto
     }
 }
-extension WinUI.ApplicationHighContrastAdjustment: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ApplicationHighContrastAdjustment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ApplicationTheme {
     public static var light : WinUI.ApplicationTheme {
@@ -5707,7 +5186,7 @@ extension WinUI.ApplicationTheme {
         __x_ABI_CMicrosoft_CUI_CXaml_CApplicationTheme_Dark
     }
 }
-extension WinUI.ApplicationTheme: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ApplicationTheme: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.DispatcherShutdownMode {
     public static var onLastWindowClose : WinUI.DispatcherShutdownMode {
@@ -5717,7 +5196,7 @@ extension WinUI.DispatcherShutdownMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CDispatcherShutdownMode_OnExplicitShutdown
     }
 }
-extension WinUI.DispatcherShutdownMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.DispatcherShutdownMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.DurationType {
     public static var automatic : WinUI.DurationType {
@@ -5730,7 +5209,7 @@ extension WinUI.DurationType {
         __x_ABI_CMicrosoft_CUI_CXaml_CDurationType_Forever
     }
 }
-extension WinUI.DurationType: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.DurationType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ElementHighContrastAdjustment {
     public static var none : WinUI.ElementHighContrastAdjustment {
@@ -5743,7 +5222,7 @@ extension WinUI.ElementHighContrastAdjustment {
         __x_ABI_CMicrosoft_CUI_CXaml_CElementHighContrastAdjustment_Auto
     }
 }
-extension WinUI.ElementHighContrastAdjustment: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ElementHighContrastAdjustment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ElementSoundMode {
     public static var `default` : WinUI.ElementSoundMode {
@@ -5756,7 +5235,7 @@ extension WinUI.ElementSoundMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CElementSoundMode_Off
     }
 }
-extension WinUI.ElementSoundMode: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ElementSoundMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ElementTheme {
     public static var `default` : WinUI.ElementTheme {
@@ -5769,7 +5248,7 @@ extension WinUI.ElementTheme {
         __x_ABI_CMicrosoft_CUI_CXaml_CElementTheme_Dark
     }
 }
-extension WinUI.ElementTheme: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.ElementTheme: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.FlowDirection {
     public static var leftToRight : WinUI.FlowDirection {
@@ -5779,7 +5258,7 @@ extension WinUI.FlowDirection {
         __x_ABI_CMicrosoft_CUI_CXaml_CFlowDirection_RightToLeft
     }
 }
-extension WinUI.FlowDirection: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.FlowDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.FocusState {
     public static var unfocused : WinUI.FocusState {
@@ -5795,7 +5274,7 @@ extension WinUI.FocusState {
         __x_ABI_CMicrosoft_CUI_CXaml_CFocusState_Programmatic
     }
 }
-extension WinUI.FocusState: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.FocusState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.FocusVisualKind {
     public static var dottedLine : WinUI.FocusVisualKind {
@@ -5808,7 +5287,7 @@ extension WinUI.FocusVisualKind {
         __x_ABI_CMicrosoft_CUI_CXaml_CFocusVisualKind_Reveal
     }
 }
-extension WinUI.FocusVisualKind: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.FocusVisualKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.GridUnitType {
     public static var auto : WinUI.GridUnitType {
@@ -5821,7 +5300,7 @@ extension WinUI.GridUnitType {
         __x_ABI_CMicrosoft_CUI_CXaml_CGridUnitType_Star
     }
 }
-extension WinUI.GridUnitType: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.GridUnitType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.HorizontalAlignment {
     public static var left : WinUI.HorizontalAlignment {
@@ -5837,7 +5316,7 @@ extension WinUI.HorizontalAlignment {
         __x_ABI_CMicrosoft_CUI_CXaml_CHorizontalAlignment_Stretch
     }
 }
-extension WinUI.HorizontalAlignment: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.HorizontalAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.LayoutCycleDebugBreakLevel {
     public static var none : WinUI.LayoutCycleDebugBreakLevel {
@@ -5850,7 +5329,7 @@ extension WinUI.LayoutCycleDebugBreakLevel {
         __x_ABI_CMicrosoft_CUI_CXaml_CLayoutCycleDebugBreakLevel_High
     }
 }
-extension WinUI.LayoutCycleDebugBreakLevel: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.LayoutCycleDebugBreakLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.LayoutCycleTracingLevel {
     public static var none : WinUI.LayoutCycleTracingLevel {
@@ -5863,7 +5342,7 @@ extension WinUI.LayoutCycleTracingLevel {
         __x_ABI_CMicrosoft_CUI_CXaml_CLayoutCycleTracingLevel_High
     }
 }
-extension WinUI.LayoutCycleTracingLevel: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.LayoutCycleTracingLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.LineStackingStrategy {
     public static var maxHeight : WinUI.LineStackingStrategy {
@@ -5876,7 +5355,7 @@ extension WinUI.LineStackingStrategy {
         __x_ABI_CMicrosoft_CUI_CXaml_CLineStackingStrategy_BaselineToBaseline
     }
 }
-extension WinUI.LineStackingStrategy: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.LineStackingStrategy: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.OpticalMarginAlignment {
     public static var none : WinUI.OpticalMarginAlignment {
@@ -5886,7 +5365,7 @@ extension WinUI.OpticalMarginAlignment {
         __x_ABI_CMicrosoft_CUI_CXaml_COpticalMarginAlignment_TrimSideBearings
     }
 }
-extension WinUI.OpticalMarginAlignment: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.OpticalMarginAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.TextAlignment {
     public static var center : WinUI.TextAlignment {
@@ -5911,7 +5390,7 @@ extension WinUI.TextAlignment {
         __x_ABI_CMicrosoft_CUI_CXaml_CTextAlignment_DetectFromContent
     }
 }
-extension WinUI.TextAlignment: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.TextAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.TextLineBounds {
     public static var full : WinUI.TextLineBounds {
@@ -5927,7 +5406,7 @@ extension WinUI.TextLineBounds {
         __x_ABI_CMicrosoft_CUI_CXaml_CTextLineBounds_Tight
     }
 }
-extension WinUI.TextLineBounds: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.TextLineBounds: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.TextReadingOrder {
     public static var `default` : WinUI.TextReadingOrder {
@@ -5940,7 +5419,7 @@ extension WinUI.TextReadingOrder {
         __x_ABI_CMicrosoft_CUI_CXaml_CTextReadingOrder_DetectFromContent
     }
 }
-extension WinUI.TextReadingOrder: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.TextReadingOrder: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.TextTrimming {
     public static var none : WinUI.TextTrimming {
@@ -5956,7 +5435,7 @@ extension WinUI.TextTrimming {
         __x_ABI_CMicrosoft_CUI_CXaml_CTextTrimming_Clip
     }
 }
-extension WinUI.TextTrimming: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.TextTrimming: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.TextWrapping {
     public static var noWrap : WinUI.TextWrapping {
@@ -5969,7 +5448,7 @@ extension WinUI.TextWrapping {
         __x_ABI_CMicrosoft_CUI_CXaml_CTextWrapping_WrapWholeWords
     }
 }
-extension WinUI.TextWrapping: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.TextWrapping: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.Vector3TransitionComponents {
     public static var x : WinUI.Vector3TransitionComponents {
@@ -5982,7 +5461,7 @@ extension WinUI.Vector3TransitionComponents {
         __x_ABI_CMicrosoft_CUI_CXaml_CVector3TransitionComponents_Z
     }
 }
-extension WinUI.Vector3TransitionComponents: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.Vector3TransitionComponents: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.VerticalAlignment {
     public static var top : WinUI.VerticalAlignment {
@@ -5998,7 +5477,7 @@ extension WinUI.VerticalAlignment {
         __x_ABI_CMicrosoft_CUI_CXaml_CVerticalAlignment_Stretch
     }
 }
-extension WinUI.VerticalAlignment: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.VerticalAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.Visibility {
     public static var visible : WinUI.Visibility {
@@ -6008,7 +5487,7 @@ extension WinUI.Visibility {
         __x_ABI_CMicrosoft_CUI_CXaml_CVisibility_Collapsed
     }
 }
-extension WinUI.Visibility: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.Visibility: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.WindowActivationState {
     public static var codeActivated : WinUI.WindowActivationState {
@@ -6021,5 +5500,5 @@ extension WinUI.WindowActivationState {
         __x_ABI_CMicrosoft_CUI_CXaml_CWindowActivationState_PointerActivated
     }
 }
-extension WinUI.WindowActivationState: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.WindowActivationState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

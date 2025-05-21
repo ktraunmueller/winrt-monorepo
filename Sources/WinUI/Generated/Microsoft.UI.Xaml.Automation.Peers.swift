@@ -4,8 +4,6 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.accessibilityview)
-public typealias AccessibilityView = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationcontroltype)
 public typealias AutomationControlType = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationevents)
@@ -42,12 +40,6 @@ open class AutomationPeer : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer>?) -> AutomationPeer? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -67,549 +59,538 @@ open class AutomationPeer : WinUI.DependencyObject {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IAutomationPeerFactory : __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Automation.Peers.AutomationPeer"))
+    private static var _IAutomationPeerFactory : __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeer")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IAutomationPeerFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IAutomationPeerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IAutomationPeerStatics: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Automation.Peers.AutomationPeer"))
+    private static let _IAutomationPeerStatics: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeer")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.listenerexists)
-    public class func listenerExists(_ eventId: AutomationEvents) -> Bool {
-        return try! _IAutomationPeerStatics.ListenerExistsImpl(eventId)
+    public class func listenerExists(_ eventId: AutomationEvents) throws -> Bool {
+        return try _IAutomationPeerStatics.ListenerExists(eventId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.generaterawelementproviderruntimeid)
-    public class func generateRawElementProviderRuntimeId() -> RawElementProviderRuntimeId {
-        return try! _IAutomationPeerStatics.GenerateRawElementProviderRuntimeIdImpl()
+    public class func generateRawElementProviderRuntimeId() throws -> RawElementProviderRuntimeId {
+        return try _IAutomationPeerStatics.GenerateRawElementProviderRuntimeId()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getpattern)
     public func getPattern(_ patternInterface: PatternInterface) throws -> Any! {
-        try _default.GetPatternImpl(patternInterface)
+        try _default.GetPattern(patternInterface)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.raiseautomationevent)
     public func raiseAutomationEvent(_ eventId: AutomationEvents) throws {
-        try _default.RaiseAutomationEventImpl(eventId)
+        try _default.RaiseAutomationEvent(eventId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.raisepropertychangedevent)
     public func raisePropertyChangedEvent(_ automationProperty: WinUI.AutomationProperty!, _ oldValue: Any!, _ newValue: Any!) throws {
-        try _default.RaisePropertyChangedEventImpl(automationProperty, oldValue, newValue)
+        try _default.RaisePropertyChangedEvent(automationProperty, oldValue, newValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getacceleratorkey)
     public func getAcceleratorKey() throws -> String {
-        try _default.GetAcceleratorKeyImpl()
+        try _default.GetAcceleratorKey()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getaccesskey)
     public func getAccessKey() throws -> String {
-        try _default.GetAccessKeyImpl()
+        try _default.GetAccessKey()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getautomationcontroltype)
     public func getAutomationControlType() throws -> AutomationControlType {
-        try _default.GetAutomationControlTypeImpl()
+        try _default.GetAutomationControlType()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getautomationid)
     public func getAutomationId() throws -> String {
-        try _default.GetAutomationIdImpl()
+        try _default.GetAutomationId()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getboundingrectangle)
     public func getBoundingRectangle() throws -> WindowsFoundation.Rect {
-        try _default.GetBoundingRectangleImpl()
+        try _default.GetBoundingRectangle()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getchildren)
     public func getChildren() throws -> WindowsFoundation.AnyIVector<AutomationPeer?>! {
-        try _default.GetChildrenImpl()
+        try _default.GetChildren()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.navigate)
     public func navigate(_ direction: AutomationNavigationDirection) throws -> Any! {
-        try _default.NavigateImpl(direction)
+        try _default.Navigate(direction)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getclassname)
     public func getClassName() throws -> String {
-        try _default.GetClassNameImpl()
+        try _default.GetClassName()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getclickablepoint)
     public func getClickablePoint() throws -> WindowsFoundation.Point {
-        try _default.GetClickablePointImpl()
+        try _default.GetClickablePoint()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.gethelptext)
     public func getHelpText() throws -> String {
-        try _default.GetHelpTextImpl()
+        try _default.GetHelpText()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getitemstatus)
     public func getItemStatus() throws -> String {
-        try _default.GetItemStatusImpl()
+        try _default.GetItemStatus()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getitemtype)
     public func getItemType() throws -> String {
-        try _default.GetItemTypeImpl()
+        try _default.GetItemType()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlabeledby)
     public func getLabeledBy() throws -> AutomationPeer! {
-        try _default.GetLabeledByImpl()
+        try _default.GetLabeledBy()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlocalizedcontroltype)
     public func getLocalizedControlType() throws -> String {
-        try _default.GetLocalizedControlTypeImpl()
+        try _default.GetLocalizedControlType()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getname)
     public func getName() throws -> String {
-        try _default.GetNameImpl()
+        try _default.GetName()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getorientation)
     public func getOrientation() throws -> AutomationOrientation {
-        try _default.GetOrientationImpl()
+        try _default.GetOrientation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.haskeyboardfocus)
     public func hasKeyboardFocus() throws -> Bool {
-        try _default.HasKeyboardFocusImpl()
+        try _default.HasKeyboardFocus()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.iscontentelement)
     public func isContentElement() throws -> Bool {
-        try _default.IsContentElementImpl()
+        try _default.IsContentElement()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.iscontrolelement)
     public func isControlElement() throws -> Bool {
-        try _default.IsControlElementImpl()
+        try _default.IsControlElement()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isenabled)
     public func isEnabled() throws -> Bool {
-        try _default.IsEnabledImpl()
+        try _default.IsEnabled()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.iskeyboardfocusable)
     public func isKeyboardFocusable() throws -> Bool {
-        try _default.IsKeyboardFocusableImpl()
+        try _default.IsKeyboardFocusable()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isoffscreen)
     public func isOffscreen() throws -> Bool {
-        try _default.IsOffscreenImpl()
+        try _default.IsOffscreen()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.ispassword)
     public func isPassword() throws -> Bool {
-        try _default.IsPasswordImpl()
+        try _default.IsPassword()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isrequiredforform)
     public func isRequiredForForm() throws -> Bool {
-        try _default.IsRequiredForFormImpl()
+        try _default.IsRequiredForForm()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.setfocus)
     public func setFocus() throws {
-        try _default.SetFocusImpl()
+        try _default.SetFocus()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getparent)
     public func getParent() throws -> AutomationPeer! {
-        try _default.GetParentImpl()
+        try _default.GetParent()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.invalidatepeer)
     public func invalidatePeer() throws {
-        try _default.InvalidatePeerImpl()
+        try _default.InvalidatePeer()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getpeerfrompoint)
     public func getPeerFromPoint(_ point: WindowsFoundation.Point) throws -> AutomationPeer! {
-        try _default.GetPeerFromPointImpl(point)
+        try _default.GetPeerFromPoint(point)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getelementfrompoint)
     public func getElementFromPoint(_ pointInWindowCoordinates: WindowsFoundation.Point) throws -> Any! {
-        try _default.GetElementFromPointImpl(pointInWindowCoordinates)
+        try _default.GetElementFromPoint(pointInWindowCoordinates)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getfocusedelement)
     public func getFocusedElement() throws -> Any! {
-        try _default.GetFocusedElementImpl()
+        try _default.GetFocusedElement()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlivesetting)
     public func getLiveSetting() throws -> AutomationLiveSetting {
-        try _default.GetLiveSettingImpl()
+        try _default.GetLiveSetting()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.showcontextmenu)
     public func showContextMenu() throws {
-        try _default.ShowContextMenuImpl()
+        try _default.ShowContextMenu()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getcontrolledpeers)
     public func getControlledPeers() throws -> WindowsFoundation.AnyIVectorView<AutomationPeer?>! {
-        try _default.GetControlledPeersImpl()
+        try _default.GetControlledPeers()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getannotations)
     public func getAnnotations() throws -> WindowsFoundation.AnyIVector<AutomationPeerAnnotation?>! {
-        try _default.GetAnnotationsImpl()
+        try _default.GetAnnotations()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.setparent)
     public func setParent(_ peer: AutomationPeer!) throws {
-        try _default.SetParentImpl(peer)
+        try _default.SetParent(peer)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.raisetextedittextchangedevent)
     public func raiseTextEditTextChangedEvent(_ automationTextEditChangeType: WinUI.AutomationTextEditChangeType, _ changedData: WindowsFoundation.AnyIVectorView<String>!) throws {
-        try _default.RaiseTextEditTextChangedEventImpl(automationTextEditChangeType, changedData)
+        try _default.RaiseTextEditTextChangedEvent(automationTextEditChangeType, changedData)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getpositioninset)
     public func getPositionInSet() throws -> Int32 {
-        try _default.GetPositionInSetImpl()
+        try _default.GetPositionInSet()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getsizeofset)
     public func getSizeOfSet() throws -> Int32 {
-        try _default.GetSizeOfSetImpl()
+        try _default.GetSizeOfSet()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlevel)
     public func getLevel() throws -> Int32 {
-        try _default.GetLevelImpl()
+        try _default.GetLevel()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.raisestructurechangedevent)
     public func raiseStructureChangedEvent(_ structureChangeType: AutomationStructureChangeType, _ child: AutomationPeer!) throws {
-        try _default.RaiseStructureChangedEventImpl(structureChangeType, child)
+        try _default.RaiseStructureChangedEvent(structureChangeType, child)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlandmarktype)
     public func getLandmarkType() throws -> AutomationLandmarkType {
-        try _default.GetLandmarkTypeImpl()
+        try _default.GetLandmarkType()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlocalizedlandmarktype)
     public func getLocalizedLandmarkType() throws -> String {
-        try _default.GetLocalizedLandmarkTypeImpl()
+        try _default.GetLocalizedLandmarkType()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isperipheral)
     public func isPeripheral() throws -> Bool {
-        try _default.IsPeripheralImpl()
+        try _default.IsPeripheral()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isdatavalidforform)
     public func isDataValidForForm() throws -> Bool {
-        try _default.IsDataValidForFormImpl()
+        try _default.IsDataValidForForm()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getfulldescription)
     public func getFullDescription() throws -> String {
-        try _default.GetFullDescriptionImpl()
+        try _default.GetFullDescription()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getculture)
     public func getCulture() throws -> Int32 {
-        try _default.GetCultureImpl()
+        try _default.GetCulture()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.raisenotificationevent)
     public func raiseNotificationEvent(_ notificationKind: AutomationNotificationKind, _ notificationProcessing: AutomationNotificationProcessing, _ displayString: String, _ activityId: String) throws {
-        try _default.RaiseNotificationEventImpl(notificationKind, notificationProcessing, displayString, activityId)
+        try _default.RaiseNotificationEvent(notificationKind, notificationProcessing, displayString, activityId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getheadinglevel)
     public func getHeadingLevel() throws -> AutomationHeadingLevel {
-        try _default.GetHeadingLevelImpl()
+        try _default.GetHeadingLevel()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isdialog)
     public func isDialog() throws -> Bool {
-        try _default.IsDialogImpl()
+        try _default.IsDialog()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.eventssource)
     public var eventsSource : AutomationPeer! {
-        get { try! _default.get_EventsSourceImpl() }
-        set { try! _default.put_EventsSourceImpl(newValue) }
+        get { try! _default.get_EventsSource() }
+        set { try! _default.put_EventsSource(newValue) }
     }
 
     private lazy var _IAutomationPeerProtected: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerProtected! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.peerfromprovider)
     public func peerFromProvider(_ provider: WinUI.IRawElementProviderSimple!) throws -> AutomationPeer! {
-        try _IAutomationPeerProtected.PeerFromProviderImpl(provider)
+        try _IAutomationPeerProtected.PeerFromProvider(provider)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.providerfrompeer)
     public func providerFromPeer(_ peer: AutomationPeer!) throws -> WinUI.IRawElementProviderSimple! {
-        try _IAutomationPeerProtected.ProviderFromPeerImpl(peer)
+        try _IAutomationPeerProtected.ProviderFromPeer(peer)
     }
 
     private lazy var _IAutomationPeerOverrides: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getpatterncore)
     open func getPatternCore(_ patternInterface: PatternInterface) throws -> Any! {
-        try _IAutomationPeerOverrides.GetPatternCoreImpl(patternInterface)
+        try _IAutomationPeerOverrides.GetPatternCore(patternInterface)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getacceleratorkeycore)
     open func getAcceleratorKeyCore() throws -> String {
-        try _IAutomationPeerOverrides.GetAcceleratorKeyCoreImpl()
+        try _IAutomationPeerOverrides.GetAcceleratorKeyCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getaccesskeycore)
     open func getAccessKeyCore() throws -> String {
-        try _IAutomationPeerOverrides.GetAccessKeyCoreImpl()
+        try _IAutomationPeerOverrides.GetAccessKeyCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getautomationcontroltypecore)
     open func getAutomationControlTypeCore() throws -> AutomationControlType {
-        try _IAutomationPeerOverrides.GetAutomationControlTypeCoreImpl()
+        try _IAutomationPeerOverrides.GetAutomationControlTypeCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getautomationidcore)
     open func getAutomationIdCore() throws -> String {
-        try _IAutomationPeerOverrides.GetAutomationIdCoreImpl()
+        try _IAutomationPeerOverrides.GetAutomationIdCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getboundingrectanglecore)
     open func getBoundingRectangleCore() throws -> WindowsFoundation.Rect {
-        try _IAutomationPeerOverrides.GetBoundingRectangleCoreImpl()
+        try _IAutomationPeerOverrides.GetBoundingRectangleCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getchildrencore)
     open func getChildrenCore() throws -> WindowsFoundation.AnyIVector<AutomationPeer?>! {
-        try _IAutomationPeerOverrides.GetChildrenCoreImpl()
+        try _IAutomationPeerOverrides.GetChildrenCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.navigatecore)
     open func navigateCore(_ direction: AutomationNavigationDirection) throws -> Any! {
-        try _IAutomationPeerOverrides.NavigateCoreImpl(direction)
+        try _IAutomationPeerOverrides.NavigateCore(direction)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getclassnamecore)
     open func getClassNameCore() throws -> String {
-        try _IAutomationPeerOverrides.GetClassNameCoreImpl()
+        try _IAutomationPeerOverrides.GetClassNameCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getclickablepointcore)
     open func getClickablePointCore() throws -> WindowsFoundation.Point {
-        try _IAutomationPeerOverrides.GetClickablePointCoreImpl()
+        try _IAutomationPeerOverrides.GetClickablePointCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.gethelptextcore)
     open func getHelpTextCore() throws -> String {
-        try _IAutomationPeerOverrides.GetHelpTextCoreImpl()
+        try _IAutomationPeerOverrides.GetHelpTextCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getitemstatuscore)
     open func getItemStatusCore() throws -> String {
-        try _IAutomationPeerOverrides.GetItemStatusCoreImpl()
+        try _IAutomationPeerOverrides.GetItemStatusCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getitemtypecore)
     open func getItemTypeCore() throws -> String {
-        try _IAutomationPeerOverrides.GetItemTypeCoreImpl()
+        try _IAutomationPeerOverrides.GetItemTypeCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlabeledbycore)
     open func getLabeledByCore() throws -> AutomationPeer! {
-        try _IAutomationPeerOverrides.GetLabeledByCoreImpl()
+        try _IAutomationPeerOverrides.GetLabeledByCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlocalizedcontroltypecore)
     open func getLocalizedControlTypeCore() throws -> String {
-        try _IAutomationPeerOverrides.GetLocalizedControlTypeCoreImpl()
+        try _IAutomationPeerOverrides.GetLocalizedControlTypeCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getnamecore)
     open func getNameCore() throws -> String {
-        try _IAutomationPeerOverrides.GetNameCoreImpl()
+        try _IAutomationPeerOverrides.GetNameCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getorientationcore)
     open func getOrientationCore() throws -> AutomationOrientation {
-        try _IAutomationPeerOverrides.GetOrientationCoreImpl()
+        try _IAutomationPeerOverrides.GetOrientationCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.haskeyboardfocuscore)
     open func hasKeyboardFocusCore() throws -> Bool {
-        try _IAutomationPeerOverrides.HasKeyboardFocusCoreImpl()
+        try _IAutomationPeerOverrides.HasKeyboardFocusCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.iscontentelementcore)
     open func isContentElementCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsContentElementCoreImpl()
+        try _IAutomationPeerOverrides.IsContentElementCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.iscontrolelementcore)
     open func isControlElementCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsControlElementCoreImpl()
+        try _IAutomationPeerOverrides.IsControlElementCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isenabledcore)
     open func isEnabledCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsEnabledCoreImpl()
+        try _IAutomationPeerOverrides.IsEnabledCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.iskeyboardfocusablecore)
     open func isKeyboardFocusableCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsKeyboardFocusableCoreImpl()
+        try _IAutomationPeerOverrides.IsKeyboardFocusableCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isoffscreencore)
     open func isOffscreenCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsOffscreenCoreImpl()
+        try _IAutomationPeerOverrides.IsOffscreenCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.ispasswordcore)
     open func isPasswordCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsPasswordCoreImpl()
+        try _IAutomationPeerOverrides.IsPasswordCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isrequiredforformcore)
     open func isRequiredForFormCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsRequiredForFormCoreImpl()
+        try _IAutomationPeerOverrides.IsRequiredForFormCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.setfocuscore)
     open func setFocusCore() throws {
-        try _IAutomationPeerOverrides.SetFocusCoreImpl()
+        try _IAutomationPeerOverrides.SetFocusCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getpeerfrompointcore)
     open func getPeerFromPointCore(_ point: WindowsFoundation.Point) throws -> AutomationPeer! {
-        try _IAutomationPeerOverrides.GetPeerFromPointCoreImpl(point)
+        try _IAutomationPeerOverrides.GetPeerFromPointCore(point)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getelementfrompointcore)
     open func getElementFromPointCore(_ pointInWindowCoordinates: WindowsFoundation.Point) throws -> Any! {
-        try _IAutomationPeerOverrides.GetElementFromPointCoreImpl(pointInWindowCoordinates)
+        try _IAutomationPeerOverrides.GetElementFromPointCore(pointInWindowCoordinates)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getfocusedelementcore)
     open func getFocusedElementCore() throws -> Any! {
-        try _IAutomationPeerOverrides.GetFocusedElementCoreImpl()
+        try _IAutomationPeerOverrides.GetFocusedElementCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlivesettingcore)
     open func getLiveSettingCore() throws -> AutomationLiveSetting {
-        try _IAutomationPeerOverrides.GetLiveSettingCoreImpl()
+        try _IAutomationPeerOverrides.GetLiveSettingCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.showcontextmenucore)
     open func showContextMenuCore() throws {
-        try _IAutomationPeerOverrides.ShowContextMenuCoreImpl()
+        try _IAutomationPeerOverrides.ShowContextMenuCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getcontrolledpeerscore)
     open func getControlledPeersCore() throws -> WindowsFoundation.AnyIVectorView<AutomationPeer?>! {
-        try _IAutomationPeerOverrides.GetControlledPeersCoreImpl()
+        try _IAutomationPeerOverrides.GetControlledPeersCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getannotationscore)
     open func getAnnotationsCore() throws -> WindowsFoundation.AnyIVector<AutomationPeerAnnotation?>! {
-        try _IAutomationPeerOverrides.GetAnnotationsCoreImpl()
+        try _IAutomationPeerOverrides.GetAnnotationsCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getpositioninsetcore)
     open func getPositionInSetCore() throws -> Int32 {
-        try _IAutomationPeerOverrides.GetPositionInSetCoreImpl()
+        try _IAutomationPeerOverrides.GetPositionInSetCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getsizeofsetcore)
     open func getSizeOfSetCore() throws -> Int32 {
-        try _IAutomationPeerOverrides.GetSizeOfSetCoreImpl()
+        try _IAutomationPeerOverrides.GetSizeOfSetCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlevelcore)
     open func getLevelCore() throws -> Int32 {
-        try _IAutomationPeerOverrides.GetLevelCoreImpl()
+        try _IAutomationPeerOverrides.GetLevelCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlandmarktypecore)
     open func getLandmarkTypeCore() throws -> AutomationLandmarkType {
-        try _IAutomationPeerOverrides.GetLandmarkTypeCoreImpl()
+        try _IAutomationPeerOverrides.GetLandmarkTypeCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getlocalizedlandmarktypecore)
     open func getLocalizedLandmarkTypeCore() throws -> String {
-        try _IAutomationPeerOverrides.GetLocalizedLandmarkTypeCoreImpl()
+        try _IAutomationPeerOverrides.GetLocalizedLandmarkTypeCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isperipheralcore)
     open func isPeripheralCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsPeripheralCoreImpl()
+        try _IAutomationPeerOverrides.IsPeripheralCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isdatavalidforformcore)
     open func isDataValidForFormCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsDataValidForFormCoreImpl()
+        try _IAutomationPeerOverrides.IsDataValidForFormCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getfulldescriptioncore)
     open func getFullDescriptionCore() throws -> String {
-        try _IAutomationPeerOverrides.GetFullDescriptionCoreImpl()
+        try _IAutomationPeerOverrides.GetFullDescriptionCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getdescribedbycore)
     open func getDescribedByCore() throws -> WindowsFoundation.AnyIIterable<AutomationPeer?>! {
-        try _IAutomationPeerOverrides.GetDescribedByCoreImpl()
+        try _IAutomationPeerOverrides.GetDescribedByCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getflowstocore)
     open func getFlowsToCore() throws -> WindowsFoundation.AnyIIterable<AutomationPeer?>! {
-        try _IAutomationPeerOverrides.GetFlowsToCoreImpl()
+        try _IAutomationPeerOverrides.GetFlowsToCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getflowsfromcore)
     open func getFlowsFromCore() throws -> WindowsFoundation.AnyIIterable<AutomationPeer?>! {
-        try _IAutomationPeerOverrides.GetFlowsFromCoreImpl()
+        try _IAutomationPeerOverrides.GetFlowsFromCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getculturecore)
     open func getCultureCore() throws -> Int32 {
-        try _IAutomationPeerOverrides.GetCultureCoreImpl()
+        try _IAutomationPeerOverrides.GetCultureCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getheadinglevelcore)
     open func getHeadingLevelCore() throws -> AutomationHeadingLevel {
-        try _IAutomationPeerOverrides.GetHeadingLevelCoreImpl()
+        try _IAutomationPeerOverrides.GetHeadingLevelCore()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.isdialogcore)
     open func isDialogCore() throws -> Bool {
-        try _IAutomationPeerOverrides.IsDialogCoreImpl()
+        try _IAutomationPeerOverrides.IsDialogCore()
     }
 
-    internal enum IAutomationPeerOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerOverrides
-        internal typealias Class = AutomationPeer
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeer
-        }
-    }
-    internal typealias Composable = IAutomationPeerOverrides
     deinit {
         _default = nil
         _IAutomationPeerProtected = nil
@@ -631,50 +612,45 @@ public final class AutomationPeerAnnotation : WinUI.DependencyObject {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation>?) -> AutomationPeerAnnotation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IAutomationPeerAnnotationFactory: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotationFactory = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation"))
+    private static let _IAutomationPeerAnnotationFactory: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")
     public init(_ type: WinUI.AnnotationType) {
-        super.init(fromAbi: try! Self._IAutomationPeerAnnotationFactory.CreateInstanceImpl(type))
+        super.init(fromAbi: try! Self._IAutomationPeerAnnotationFactory.CreateInstance(type))
     }
 
     public init(_ type: WinUI.AnnotationType, _ peer: AutomationPeer!) {
-        super.init(fromAbi: try! Self._IAutomationPeerAnnotationFactory.CreateWithPeerParameterImpl(type, peer))
+        super.init(fromAbi: try! Self._IAutomationPeerAnnotationFactory.CreateWithPeerParameter(type, peer))
     }
 
-    private static let _IAutomationPeerAnnotationStatics: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotationStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation"))
+    private static let _IAutomationPeerAnnotationStatics: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeerannotation.peerproperty)
     public static var peerProperty : WinUI.DependencyProperty! {
-        get { try! _IAutomationPeerAnnotationStatics.get_PeerPropertyImpl() }
+        get { try! _IAutomationPeerAnnotationStatics.get_PeerProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeerannotation.typeproperty)
     public static var typeProperty : WinUI.DependencyProperty! {
-        get { try! _IAutomationPeerAnnotationStatics.get_TypePropertyImpl() }
+        get { try! _IAutomationPeerAnnotationStatics.get_TypeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeerannotation.peer)
     public var peer : AutomationPeer! {
-        get { try! _default.get_PeerImpl() }
-        set { try! _default.put_PeerImpl(newValue) }
+        get { try! _default.get_Peer() }
+        set { try! _default.put_Peer(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeerannotation.type)
     public var type : WinUI.AnnotationType {
-        get { try! _default.get_TypeImpl() }
-        set { try! _default.put_TypeImpl(newValue) }
+        get { try! _default.get_Type() }
+        set { try! _default.put_Type(newValue) }
     }
 
     deinit {
@@ -683,7 +659,7 @@ public final class AutomationPeerAnnotation : WinUI.DependencyObject {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.rawelementproviderruntimeid)
-public struct RawElementProviderRuntimeId: Hashable, Codable {
+public struct RawElementProviderRuntimeId: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.rawelementproviderruntimeid.part1)
     public var part1: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.rawelementproviderruntimeid.part2)
@@ -693,23 +669,7 @@ public struct RawElementProviderRuntimeId: Hashable, Codable {
         self.part1 = part1
         self.part2 = part2
     }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CRawElementProviderRuntimeId) -> RawElementProviderRuntimeId {
-        .init(part1: abi.Part1, part2: abi.Part2)
-    }
 }
-
-extension WinUI.AccessibilityView {
-    public static var raw : WinUI.AccessibilityView {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView_Raw
-    }
-    public static var control : WinUI.AccessibilityView {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView_Control
-    }
-    public static var content : WinUI.AccessibilityView {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView_Content
-    }
-}
-extension WinUI.AccessibilityView: @retroactive Hashable, @retroactive Codable {}
 
 extension WinUI.AutomationControlType {
     public static var button : WinUI.AutomationControlType {
@@ -839,7 +799,7 @@ extension WinUI.AutomationControlType {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_FlipView
     }
 }
-extension WinUI.AutomationControlType: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationControlType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.AutomationEvents {
     public static var toolTipOpened : WinUI.AutomationEvents {
@@ -933,7 +893,7 @@ extension WinUI.AutomationEvents {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_LayoutInvalidated
     }
 }
-extension WinUI.AutomationEvents: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationEvents: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.AutomationHeadingLevel {
     public static var none : WinUI.AutomationHeadingLevel {
@@ -967,7 +927,7 @@ extension WinUI.AutomationHeadingLevel {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level9
     }
 }
-extension WinUI.AutomationHeadingLevel: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationHeadingLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.AutomationLandmarkType {
     public static var none : WinUI.AutomationLandmarkType {
@@ -989,7 +949,7 @@ extension WinUI.AutomationLandmarkType {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Search
     }
 }
-extension WinUI.AutomationLandmarkType: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationLandmarkType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.AutomationLiveSetting {
     public static var off : WinUI.AutomationLiveSetting {
@@ -1002,7 +962,7 @@ extension WinUI.AutomationLiveSetting {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting_Assertive
     }
 }
-extension WinUI.AutomationLiveSetting: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationLiveSetting: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.AutomationNavigationDirection {
     public static var parent : WinUI.AutomationNavigationDirection {
@@ -1021,7 +981,7 @@ extension WinUI.AutomationNavigationDirection {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_LastChild
     }
 }
-extension WinUI.AutomationNavigationDirection: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationNavigationDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.AutomationNotificationKind {
     public static var itemAdded : WinUI.AutomationNotificationKind {
@@ -1040,7 +1000,7 @@ extension WinUI.AutomationNotificationKind {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_Other
     }
 }
-extension WinUI.AutomationNotificationKind: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationNotificationKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.AutomationNotificationProcessing {
     public static var importantAll : WinUI.AutomationNotificationProcessing {
@@ -1059,7 +1019,7 @@ extension WinUI.AutomationNotificationProcessing {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_CurrentThenMostRecent
     }
 }
-extension WinUI.AutomationNotificationProcessing: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationNotificationProcessing: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.AutomationOrientation {
     public static var none : WinUI.AutomationOrientation {
@@ -1072,7 +1032,7 @@ extension WinUI.AutomationOrientation {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation_Vertical
     }
 }
-extension WinUI.AutomationOrientation: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationOrientation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.AutomationStructureChangeType {
     public static var childAdded : WinUI.AutomationStructureChangeType {
@@ -1094,7 +1054,7 @@ extension WinUI.AutomationStructureChangeType {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildrenReordered
     }
 }
-extension WinUI.AutomationStructureChangeType: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.AutomationStructureChangeType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.PatternInterface {
     public static var invoke : WinUI.PatternInterface {
@@ -1200,5 +1160,5 @@ extension WinUI.PatternInterface {
         __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_CustomNavigation
     }
 }
-extension WinUI.PatternInterface: @retroactive Hashable, @retroactive Codable {}
+extension WinUI.PatternInterface: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

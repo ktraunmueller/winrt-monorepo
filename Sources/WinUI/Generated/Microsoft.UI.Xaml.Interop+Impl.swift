@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Interop {
     public enum IBindableIterableBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterable
@@ -30,7 +31,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Interop {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterable.first)
         fileprivate func first() throws -> AnyIBindableIterator! {
-            try _default.FirstImpl()
+            try _default.First()
         }
 
     }
@@ -60,17 +61,17 @@ public enum __IMPL_Microsoft_UI_Xaml_Interop {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterator.movenext)
         fileprivate func moveNext() throws -> Bool {
-            try _default.MoveNextImpl()
+            try _default.MoveNext()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterator.current)
         fileprivate var current : Any! {
-            get { try! _default.get_CurrentImpl() }
+            get { try! _default.get_Current() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterator.hascurrent)
         fileprivate var hasCurrent : Bool {
-            get { try! _default.get_HasCurrentImpl() }
+            get { try! _default.get_HasCurrent() }
         }
 
     }
@@ -100,58 +101,58 @@ public enum __IMPL_Microsoft_UI_Xaml_Interop {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.getat)
         fileprivate func getAt(_ index: UInt32) throws -> Any! {
-            try _default.GetAtImpl(index)
+            try _default.GetAt(index)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.getview)
         fileprivate func getView() throws -> AnyIBindableVectorView! {
-            try _default.GetViewImpl()
+            try _default.GetView()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.indexof)
         fileprivate func indexOf(_ value: Any!, _ index: inout UInt32) throws -> Bool {
-            try _default.IndexOfImpl(value, &index)
+            try _default.IndexOf(value, &index)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.setat)
         fileprivate func setAt(_ index: UInt32, _ value: Any!) throws {
-            try _default.SetAtImpl(index, value)
+            try _default.SetAt(index, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.insertat)
         fileprivate func insertAt(_ index: UInt32, _ value: Any!) throws {
-            try _default.InsertAtImpl(index, value)
+            try _default.InsertAt(index, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.removeat)
         fileprivate func removeAt(_ index: UInt32) throws {
-            try _default.RemoveAtImpl(index)
+            try _default.RemoveAt(index)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.append)
         fileprivate func append(_ value: Any!) throws {
-            try _default.AppendImpl(value)
+            try _default.Append(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.removeatend)
         fileprivate func removeAtEnd() throws {
-            try _default.RemoveAtEndImpl()
+            try _default.RemoveAtEnd()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.clear)
         fileprivate func clear() throws {
-            try _default.ClearImpl()
+            try _default.Clear()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.size)
         fileprivate var size : UInt32 {
-            get { try! _default.get_SizeImpl() }
+            get { try! _default.get_Size() }
         }
 
         private lazy var _IBindableIterable: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.first)
         fileprivate func first() throws -> AnyIBindableIterator! {
-            try _IBindableIterable.FirstImpl()
+            try _IBindableIterable.First()
         }
 
     }
@@ -181,23 +182,23 @@ public enum __IMPL_Microsoft_UI_Xaml_Interop {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevectorview.getat)
         fileprivate func getAt(_ index: UInt32) throws -> Any! {
-            try _default.GetAtImpl(index)
+            try _default.GetAt(index)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevectorview.indexof)
         fileprivate func indexOf(_ value: Any!, _ index: inout UInt32) throws -> Bool {
-            try _default.IndexOfImpl(value, &index)
+            try _default.IndexOf(value, &index)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevectorview.size)
         fileprivate var size : UInt32 {
-            get { try! _default.get_SizeImpl() }
+            get { try! _default.get_Size() }
         }
 
         private lazy var _IBindableIterable: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevectorview.first)
         fileprivate func first() throws -> AnyIBindableIterator! {
-            try _IBindableIterable.FirstImpl()
+            try _IBindableIterable.First()
         }
 
     }
@@ -230,10 +231,10 @@ public enum __IMPL_Microsoft_UI_Xaml_Interop {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_CollectionChangedImpl($0)
+              return try! this.add_CollectionChanged($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_CollectionChangedImpl($0)
+             try? self?._default.remove_CollectionChanged($0)
            }
           )
         }()
@@ -249,9 +250,77 @@ public enum __IMPL_Microsoft_UI_Xaml_Interop {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
+    }
+    public enum NotifyCollectionChangedEventArgsBridge: ComposableBridge {
+        public typealias SwiftProjection = NotifyCollectionChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs>?) -> NotifyCollectionChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum INotifyCollectionChangedEventArgs : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = NotifyCollectionChangedEventArgs
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedEventArgs
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = INotifyCollectionChangedEventArgs
+    }
+
+}
+@_spi(WinRTInternal)
+public class IBindableIterableMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBindableIterable
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Interop.IBindableIterableBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IBindableIteratorMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBindableIterator
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterator = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Interop.IBindableIteratorBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IBindableVectorMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBindableVector
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Interop.IBindableVector = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Interop.IBindableVectorBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IBindableVectorViewMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBindableVectorView
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorView = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Interop.IBindableVectorViewBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class INotifyCollectionChangedMaker: MakeFromAbi {
+    public typealias SwiftType = AnyINotifyCollectionChanged
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChanged = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class NotifyCollectionChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NotifyCollectionChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NotifyCollectionChangedEventArgs(fromAbi: abi)
     }
 }

@@ -19,31 +19,15 @@ public final class Ellipse : WinUI.Shape {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIEllipse>?) -> Ellipse? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Ellipse")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Shapes.Ellipse")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    internal enum IFrameworkElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
-        internal typealias Class = Ellipse
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIEllipse
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IEllipse
-        }
-    }
-    internal typealias Composable = IFrameworkElementOverrides
     deinit {
         _default = nil
     }
@@ -63,12 +47,6 @@ open class Path : WinUI.Shape {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath>?) -> Path? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -83,37 +61,26 @@ open class Path : WinUI.Shape {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IPathFactory : __ABI_Microsoft_UI_Xaml_Shapes.IPathFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Shapes.Path"))
+    private static var _IPathFactory : __ABI_Microsoft_UI_Xaml_Shapes.IPathFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Path")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IPathFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Shapes.PathBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IPathFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPathStatics: __ABI_Microsoft_UI_Xaml_Shapes.IPathStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Shapes.Path"))
+    private static let _IPathStatics: __ABI_Microsoft_UI_Xaml_Shapes.IPathStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Path")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.path.dataproperty)
     public class var dataProperty : WinUI.DependencyProperty! {
-        get { try! _IPathStatics.get_DataPropertyImpl() }
+        get { try! _IPathStatics.get_DataProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.path.data)
     public var data : WinUI.Geometry! {
-        get { try! _default.get_DataImpl() }
-        set { try! _default.put_DataImpl(newValue) }
+        get { try! _default.get_Data() }
+        set { try! _default.put_Data(newValue) }
     }
 
-    internal enum IFrameworkElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
-        internal typealias Class = Path
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IPath
-        }
-    }
-    internal typealias Composable = IFrameworkElementOverrides
     deinit {
         _default = nil
     }
@@ -133,54 +100,38 @@ public final class Rectangle : WinUI.Shape {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle>?) -> Rectangle? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Rectangle")
     override public init() {
-        super.init(fromAbi: try! RoActivateInstance(HString("Microsoft.UI.Xaml.Shapes.Rectangle")))
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRectangleStatics: __ABI_Microsoft_UI_Xaml_Shapes.IRectangleStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Shapes.Rectangle"))
+    private static let _IRectangleStatics: __ABI_Microsoft_UI_Xaml_Shapes.IRectangleStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Rectangle")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle.radiusxproperty)
     public static var radiusXProperty : WinUI.DependencyProperty! {
-        get { try! _IRectangleStatics.get_RadiusXPropertyImpl() }
+        get { try! _IRectangleStatics.get_RadiusXProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle.radiusyproperty)
     public static var radiusYProperty : WinUI.DependencyProperty! {
-        get { try! _IRectangleStatics.get_RadiusYPropertyImpl() }
+        get { try! _IRectangleStatics.get_RadiusYProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle.radiusx)
     public var radiusX : Double {
-        get { try! _default.get_RadiusXImpl() }
-        set { try! _default.put_RadiusXImpl(newValue) }
+        get { try! _default.get_RadiusX() }
+        set { try! _default.put_RadiusX(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle.radiusy)
     public var radiusY : Double {
-        get { try! _default.get_RadiusYImpl() }
-        set { try! _default.put_RadiusYImpl(newValue) }
+        get { try! _default.get_RadiusY() }
+        set { try! _default.put_RadiusY(newValue) }
     }
 
-    internal enum IFrameworkElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
-        internal typealias Class = Rectangle
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IRectangle
-        }
-    }
-    internal typealias Composable = IFrameworkElementOverrides
     deinit {
         _default = nil
     }
@@ -200,12 +151,6 @@ open class Shape : WinUI.FrameworkElement {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape>?) -> Shape? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
     override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
@@ -220,157 +165,146 @@ open class Shape : WinUI.FrameworkElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IShapeFactory : __ABI_Microsoft_UI_Xaml_Shapes.IShapeFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Shapes.Shape"))
+    private static var _IShapeFactory : __ABI_Microsoft_UI_Xaml_Shapes.IShapeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Shape")
 
     override public init() {
-        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
-            try! Self._IShapeFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Shapes.ShapeBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IShapeFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IShapeStatics: __ABI_Microsoft_UI_Xaml_Shapes.IShapeStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Shapes.Shape"))
+    private static let _IShapeStatics: __ABI_Microsoft_UI_Xaml_Shapes.IShapeStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Shape")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.fillproperty)
     public class var fillProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_FillPropertyImpl() }
+        get { try! _IShapeStatics.get_FillProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.stretchproperty)
     public class var stretchProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StretchPropertyImpl() }
+        get { try! _IShapeStatics.get_StretchProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokedasharrayproperty)
     public class var strokeDashArrayProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StrokeDashArrayPropertyImpl() }
+        get { try! _IShapeStatics.get_StrokeDashArrayProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokedashcapproperty)
     public class var strokeDashCapProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StrokeDashCapPropertyImpl() }
+        get { try! _IShapeStatics.get_StrokeDashCapProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokedashoffsetproperty)
     public class var strokeDashOffsetProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StrokeDashOffsetPropertyImpl() }
+        get { try! _IShapeStatics.get_StrokeDashOffsetProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokeendlinecapproperty)
     public class var strokeEndLineCapProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StrokeEndLineCapPropertyImpl() }
+        get { try! _IShapeStatics.get_StrokeEndLineCapProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokelinejoinproperty)
     public class var strokeLineJoinProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StrokeLineJoinPropertyImpl() }
+        get { try! _IShapeStatics.get_StrokeLineJoinProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokemiterlimitproperty)
     public class var strokeMiterLimitProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StrokeMiterLimitPropertyImpl() }
+        get { try! _IShapeStatics.get_StrokeMiterLimitProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokeproperty)
     public class var strokeProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StrokePropertyImpl() }
+        get { try! _IShapeStatics.get_StrokeProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokestartlinecapproperty)
     public class var strokeStartLineCapProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StrokeStartLineCapPropertyImpl() }
+        get { try! _IShapeStatics.get_StrokeStartLineCapProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokethicknessproperty)
     public class var strokeThicknessProperty : WinUI.DependencyProperty! {
-        get { try! _IShapeStatics.get_StrokeThicknessPropertyImpl() }
+        get { try! _IShapeStatics.get_StrokeThicknessProperty() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.getalphamask)
     public func getAlphaMask() throws -> WinAppSDK.CompositionBrush! {
-        try _default.GetAlphaMaskImpl()
+        try _default.GetAlphaMask()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.fill)
     public var fill : WinUI.Brush! {
-        get { try! _default.get_FillImpl() }
-        set { try! _default.put_FillImpl(newValue) }
+        get { try! _default.get_Fill() }
+        set { try! _default.put_Fill(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.geometrytransform)
     public var geometryTransform : WinUI.Transform! {
-        get { try! _default.get_GeometryTransformImpl() }
+        get { try! _default.get_GeometryTransform() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.stretch)
     public var stretch : WinUI.Stretch {
-        get { try! _default.get_StretchImpl() }
-        set { try! _default.put_StretchImpl(newValue) }
+        get { try! _default.get_Stretch() }
+        set { try! _default.put_Stretch(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.stroke)
     public var stroke : WinUI.Brush! {
-        get { try! _default.get_StrokeImpl() }
-        set { try! _default.put_StrokeImpl(newValue) }
+        get { try! _default.get_Stroke() }
+        set { try! _default.put_Stroke(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokedasharray)
     public var strokeDashArray : WinUI.DoubleCollection! {
-        get { try! _default.get_StrokeDashArrayImpl() }
-        set { try! _default.put_StrokeDashArrayImpl(newValue) }
+        get { try! _default.get_StrokeDashArray() }
+        set { try! _default.put_StrokeDashArray(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokedashcap)
     public var strokeDashCap : WinUI.PenLineCap {
-        get { try! _default.get_StrokeDashCapImpl() }
-        set { try! _default.put_StrokeDashCapImpl(newValue) }
+        get { try! _default.get_StrokeDashCap() }
+        set { try! _default.put_StrokeDashCap(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokedashoffset)
     public var strokeDashOffset : Double {
-        get { try! _default.get_StrokeDashOffsetImpl() }
-        set { try! _default.put_StrokeDashOffsetImpl(newValue) }
+        get { try! _default.get_StrokeDashOffset() }
+        set { try! _default.put_StrokeDashOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokeendlinecap)
     public var strokeEndLineCap : WinUI.PenLineCap {
-        get { try! _default.get_StrokeEndLineCapImpl() }
-        set { try! _default.put_StrokeEndLineCapImpl(newValue) }
+        get { try! _default.get_StrokeEndLineCap() }
+        set { try! _default.put_StrokeEndLineCap(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokelinejoin)
     public var strokeLineJoin : WinUI.PenLineJoin {
-        get { try! _default.get_StrokeLineJoinImpl() }
-        set { try! _default.put_StrokeLineJoinImpl(newValue) }
+        get { try! _default.get_StrokeLineJoin() }
+        set { try! _default.put_StrokeLineJoin(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokemiterlimit)
     public var strokeMiterLimit : Double {
-        get { try! _default.get_StrokeMiterLimitImpl() }
-        set { try! _default.put_StrokeMiterLimitImpl(newValue) }
+        get { try! _default.get_StrokeMiterLimit() }
+        set { try! _default.put_StrokeMiterLimit(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokestartlinecap)
     public var strokeStartLineCap : WinUI.PenLineCap {
-        get { try! _default.get_StrokeStartLineCapImpl() }
-        set { try! _default.put_StrokeStartLineCapImpl(newValue) }
+        get { try! _default.get_StrokeStartLineCap() }
+        set { try! _default.put_StrokeStartLineCap(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.strokethickness)
     public var strokeThickness : Double {
-        get { try! _default.get_StrokeThicknessImpl() }
-        set { try! _default.put_StrokeThicknessImpl(newValue) }
+        get { try! _default.get_StrokeThickness() }
+        set { try! _default.put_StrokeThickness(newValue) }
     }
 
-    internal enum IFrameworkElementOverrides : ComposableImpl {
-        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
-        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
-        internal typealias Class = Shape
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IShape
-        }
-    }
-    internal typealias Composable = IFrameworkElementOverrides
     deinit {
         _default = nil
     }

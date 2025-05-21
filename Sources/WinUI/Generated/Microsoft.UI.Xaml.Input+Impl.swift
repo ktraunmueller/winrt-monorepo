@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Input {
     public enum ICommandBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICommand
@@ -30,12 +31,12 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand.canexecute)
         fileprivate func canExecute(_ parameter: Any!) throws -> Bool {
-            try _default.CanExecuteImpl(parameter)
+            try _default.CanExecute(parameter)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand.execute)
         fileprivate func execute(_ parameter: Any!) throws {
-            try _default.ExecuteImpl(parameter)
+            try _default.Execute(parameter)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand.canexecutechanged)
@@ -43,10 +44,10 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
           .init(
             add: { [weak self] in
               guard let this = self?._default else { return .init() }
-              return try! this.add_CanExecuteChangedImpl($0)
+              return try! this.add_CanExecuteChanged($0)
             },
             remove: { [weak self] in
-             try? self?._default.remove_CanExecuteChangedImpl($0)
+             try? self?._default.remove_CanExecuteChanged($0)
            }
           )
         }()
@@ -62,7 +63,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -76,7 +77,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -90,7 +91,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -104,7 +105,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -118,7 +119,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -132,7 +133,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -146,7 +147,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -160,7 +161,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -174,7 +175,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -188,7 +189,7 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -202,9 +203,585 @@ public enum __IMPL_Microsoft_UI_Xaml_Input {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
+    }
+    public enum AccessKeyDisplayDismissedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AccessKeyDisplayDismissedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayDismissedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayDismissedEventArgs>?) -> AccessKeyDisplayDismissedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AccessKeyDisplayRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AccessKeyDisplayRequestedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayRequestedEventArgs>?) -> AccessKeyDisplayRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AccessKeyInvokedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AccessKeyInvokedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyInvokedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyInvokedEventArgs>?) -> AccessKeyInvokedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CharacterReceivedRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CharacterReceivedRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs>?) -> CharacterReceivedRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ContextRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ContextRequestedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs>?) -> ContextRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DoubleTappedRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = DoubleTappedRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs>?) -> DoubleTappedRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FindNextElementOptionsBridge: AbiBridge {
+        public typealias SwiftProjection = FindNextElementOptions
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions>?) -> FindNextElementOptions? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FocusManagerBridge: AbiBridge {
+        public typealias SwiftProjection = FocusManager
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManager
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManager>?) -> FocusManager? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FocusManagerGotFocusEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = FocusManagerGotFocusEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerGotFocusEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerGotFocusEventArgs>?) -> FocusManagerGotFocusEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FocusManagerLostFocusEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = FocusManagerLostFocusEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerLostFocusEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerLostFocusEventArgs>?) -> FocusManagerLostFocusEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FocusMovementResultBridge: AbiBridge {
+        public typealias SwiftProjection = FocusMovementResult
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusMovementResult
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusMovementResult>?) -> FocusMovementResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum GettingFocusEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = GettingFocusEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs>?) -> GettingFocusEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HoldingRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = HoldingRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs>?) -> HoldingRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InertiaExpansionBehaviorBridge: AbiBridge {
+        public typealias SwiftProjection = InertiaExpansionBehavior
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior>?) -> InertiaExpansionBehavior? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InertiaRotationBehaviorBridge: AbiBridge {
+        public typealias SwiftProjection = InertiaRotationBehavior
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior>?) -> InertiaRotationBehavior? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InertiaTranslationBehaviorBridge: AbiBridge {
+        public typealias SwiftProjection = InertiaTranslationBehavior
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior>?) -> InertiaTranslationBehavior? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputScopeBridge: AbiBridge {
+        public typealias SwiftProjection = InputScope
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScope
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScope>?) -> InputScope? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InputScopeNameBridge: AbiBridge {
+        public typealias SwiftProjection = InputScopeName
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeName
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeName>?) -> InputScopeName? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum KeyRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = KeyRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs>?) -> KeyRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum KeyboardAcceleratorBridge: ComposableBridge {
+        public typealias SwiftProjection = KeyboardAccelerator
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator>?) -> KeyboardAccelerator? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IKeyboardAccelerator : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = KeyboardAccelerator
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IKeyboardAccelerator
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IKeyboardAccelerator
+    }
+
+    public enum KeyboardAcceleratorInvokedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = KeyboardAcceleratorInvokedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs>?) -> KeyboardAcceleratorInvokedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LosingFocusEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = LosingFocusEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs>?) -> LosingFocusEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ManipulationCompletedRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ManipulationCompletedRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs>?) -> ManipulationCompletedRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ManipulationDeltaRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ManipulationDeltaRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs>?) -> ManipulationDeltaRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ManipulationInertiaStartingRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ManipulationInertiaStartingRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs>?) -> ManipulationInertiaStartingRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ManipulationPivotBridge: AbiBridge {
+        public typealias SwiftProjection = ManipulationPivot
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot>?) -> ManipulationPivot? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ManipulationStartedRoutedEventArgsBridge: ComposableBridge {
+        public typealias SwiftProjection = ManipulationStartedRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs>?) -> ManipulationStartedRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IManipulationStartedRoutedEventArgs : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = ManipulationStartedRoutedEventArgs
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationStartedRoutedEventArgs
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IManipulationStartedRoutedEventArgs
+    }
+
+    public enum ManipulationStartingRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ManipulationStartingRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs>?) -> ManipulationStartingRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NoFocusCandidateFoundEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = NoFocusCandidateFoundEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs>?) -> NoFocusCandidateFoundEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointerBridge: AbiBridge {
+        public typealias SwiftProjection = Pointer
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer>?) -> Pointer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PointerRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = PointerRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs>?) -> PointerRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ProcessKeyboardAcceleratorEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ProcessKeyboardAcceleratorEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs>?) -> ProcessKeyboardAcceleratorEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RightTappedRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = RightTappedRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs>?) -> RightTappedRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TappedRoutedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = TappedRoutedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs>?) -> TappedRoutedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ICommandMaker: MakeFromAbi {
+    public typealias SwiftType = AnyICommand
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Xaml_Input.ICommand = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Xaml_Input.ICommandBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class AccessKeyDisplayDismissedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AccessKeyDisplayDismissedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AccessKeyDisplayDismissedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AccessKeyDisplayRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AccessKeyDisplayRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AccessKeyDisplayRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AccessKeyInvokedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AccessKeyInvokedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AccessKeyInvokedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CharacterReceivedRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CharacterReceivedRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CharacterReceivedRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ContextRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ContextRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ContextRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DoubleTappedRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DoubleTappedRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DoubleTappedRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FindNextElementOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = FindNextElementOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FindNextElementOptions(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FocusManagerMaker: MakeFromAbi {
+    public typealias SwiftType = FocusManager
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FocusManager(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FocusManagerGotFocusEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = FocusManagerGotFocusEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FocusManagerGotFocusEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FocusManagerLostFocusEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = FocusManagerLostFocusEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FocusManagerLostFocusEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FocusMovementResultMaker: MakeFromAbi {
+    public typealias SwiftType = FocusMovementResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FocusMovementResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class GettingFocusEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = GettingFocusEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return GettingFocusEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HoldingRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = HoldingRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HoldingRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InertiaExpansionBehaviorMaker: MakeFromAbi {
+    public typealias SwiftType = InertiaExpansionBehavior
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InertiaExpansionBehavior(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InertiaRotationBehaviorMaker: MakeFromAbi {
+    public typealias SwiftType = InertiaRotationBehavior
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InertiaRotationBehavior(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InertiaTranslationBehaviorMaker: MakeFromAbi {
+    public typealias SwiftType = InertiaTranslationBehavior
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InertiaTranslationBehavior(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputScopeMaker: MakeFromAbi {
+    public typealias SwiftType = InputScope
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputScope(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InputScopeNameMaker: MakeFromAbi {
+    public typealias SwiftType = InputScopeName
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InputScopeName(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class KeyRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = KeyRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return KeyRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class KeyboardAcceleratorMaker: MakeFromAbi {
+    public typealias SwiftType = KeyboardAccelerator
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return KeyboardAccelerator(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class KeyboardAcceleratorInvokedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = KeyboardAcceleratorInvokedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return KeyboardAcceleratorInvokedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LosingFocusEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = LosingFocusEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LosingFocusEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationCompletedRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationCompletedRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationCompletedRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationDeltaRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationDeltaRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationDeltaRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationInertiaStartingRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationInertiaStartingRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationInertiaStartingRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationPivotMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationPivot
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationPivot(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationStartedRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationStartedRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationStartedRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ManipulationStartingRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ManipulationStartingRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ManipulationStartingRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NoFocusCandidateFoundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NoFocusCandidateFoundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NoFocusCandidateFoundEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointerMaker: MakeFromAbi {
+    public typealias SwiftType = Pointer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Pointer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PointerRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = PointerRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ProcessKeyboardAcceleratorEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ProcessKeyboardAcceleratorEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ProcessKeyboardAcceleratorEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RightTappedRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = RightTappedRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RightTappedRoutedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TappedRoutedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = TappedRoutedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TappedRoutedEventArgs(fromAbi: abi)
     }
 }

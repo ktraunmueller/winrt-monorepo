@@ -105,11 +105,12 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressE
     .init(Data1: 0x9A8E4AF5, Data2: 0xB124, Data3: 0x5205, Data4: ( 0x8A,0xE9,0x34,0x96,0xE0,0x63,0xC5,0x69 ))// 9A8E4AF5-B124-5205-8AE9-3496E063C569
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IBitmapImage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage }
 
-        internal func get_CreateOptionsImpl() throws -> WinUI.BitmapCreateOptions {
+        public func get_CreateOptions() throws -> WinUI.BitmapCreateOptions {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CBitmapCreateOptions = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CreateOptions(pThis, &value))
@@ -117,28 +118,28 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func put_CreateOptionsImpl(_ value: WinUI.BitmapCreateOptions) throws {
+        public func put_CreateOptions(_ value: WinUI.BitmapCreateOptions) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CreateOptions(pThis, value))
             }
         }
 
-        internal func get_UriSourceImpl() throws -> WindowsFoundation.Uri? {
+        public func get_UriSource() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_UriSource(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_UriSourceImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_UriSource(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_UriSource(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_DecodePixelWidthImpl() throws -> Int32 {
+        public func get_DecodePixelWidth() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DecodePixelWidth(pThis, &value))
@@ -146,13 +147,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func put_DecodePixelWidthImpl(_ value: Int32) throws {
+        public func put_DecodePixelWidth(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DecodePixelWidth(pThis, value))
             }
         }
 
-        internal func get_DecodePixelHeightImpl() throws -> Int32 {
+        public func get_DecodePixelHeight() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DecodePixelHeight(pThis, &value))
@@ -160,13 +161,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func put_DecodePixelHeightImpl(_ value: Int32) throws {
+        public func put_DecodePixelHeight(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DecodePixelHeight(pThis, value))
             }
         }
 
-        internal func get_DecodePixelTypeImpl() throws -> WinUI.DecodePixelType {
+        public func get_DecodePixelType() throws -> WinUI.DecodePixelType {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CDecodePixelType = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DecodePixelType(pThis, &value))
@@ -174,13 +175,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func put_DecodePixelTypeImpl(_ value: WinUI.DecodePixelType) throws {
+        public func put_DecodePixelType(_ value: WinUI.DecodePixelType) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DecodePixelType(pThis, value))
             }
         }
 
-        internal func get_IsAnimatedBitmapImpl() throws -> Bool {
+        public func get_IsAnimatedBitmap() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAnimatedBitmap(pThis, &value))
@@ -188,7 +189,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return .init(from: value)
         }
 
-        internal func get_IsPlayingImpl() throws -> Bool {
+        public func get_IsPlaying() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPlaying(pThis, &value))
@@ -196,7 +197,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return .init(from: value)
         }
 
-        internal func get_AutoPlayImpl() throws -> Bool {
+        public func get_AutoPlay() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoPlay(pThis, &value))
@@ -204,13 +205,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return .init(from: value)
         }
 
-        internal func put_AutoPlayImpl(_ value: Bool) throws {
+        public func put_AutoPlay(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AutoPlay(pThis, .init(from: value)))
             }
         }
 
-        internal func add_DownloadProgressImpl(_ handler: WinUI.DownloadProgressEventHandler?) throws -> EventRegistrationToken {
+        public func add_DownloadProgress(_ handler: WinUI.DownloadProgressEventHandler?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Microsoft_UI_Xaml_Media_Imaging.DownloadProgressEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -220,13 +221,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return token
         }
 
-        internal func remove_DownloadProgressImpl(_ token: EventRegistrationToken) throws {
+        public func remove_DownloadProgress(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DownloadProgress(pThis, token))
             }
         }
 
-        internal func add_ImageOpenedImpl(_ handler: WinUI.RoutedEventHandler?) throws -> EventRegistrationToken {
+        public func add_ImageOpened(_ handler: WinUI.RoutedEventHandler?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Microsoft_UI_Xaml.RoutedEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -236,13 +237,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return token
         }
 
-        internal func remove_ImageOpenedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ImageOpened(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ImageOpened(pThis, token))
             }
         }
 
-        internal func add_ImageFailedImpl(_ handler: WinUI.ExceptionRoutedEventHandler?) throws -> EventRegistrationToken {
+        public func add_ImageFailed(_ handler: WinUI.ExceptionRoutedEventHandler?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Microsoft_UI_Xaml.ExceptionRoutedEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -252,19 +253,19 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return token
         }
 
-        internal func remove_ImageFailedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ImageFailed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ImageFailed(pThis, token))
             }
         }
 
-        internal func PlayImpl() throws {
+        public func Play() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Play(pThis))
             }
         }
 
-        internal func StopImpl() throws {
+        public func Stop() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Stop(pThis))
             }
@@ -275,7 +276,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IBitmapImageFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageFactory }
 
-        internal func CreateInstanceWithUriSourceImpl(_ uriSource: WindowsFoundation.Uri?) throws -> IBitmapImage {
+        public func CreateInstanceWithUriSource(_ uriSource: WindowsFoundation.Uri?) throws -> IBitmapImage {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithUriSource(pThis, RawPointer(uriSource), &valueAbi))
@@ -289,76 +290,76 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IBitmapImageStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics }
 
-        internal func get_CreateOptionsPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_CreateOptionsProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CreateOptionsProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_UriSourcePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_UriSourceProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_UriSourceProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_DecodePixelWidthPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_DecodePixelWidthProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DecodePixelWidthProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_DecodePixelHeightPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_DecodePixelHeightProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DecodePixelHeightProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_DecodePixelTypePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_DecodePixelTypeProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DecodePixelTypeProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_IsAnimatedBitmapPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsAnimatedBitmapProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAnimatedBitmapProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_IsPlayingPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_IsPlayingProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPlayingProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_AutoPlayPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_AutoPlayProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoPlayProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -366,7 +367,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IBitmapSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource }
 
-        internal func get_PixelWidthImpl() throws -> Int32 {
+        public func get_PixelWidth() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelWidth(pThis, &value))
@@ -374,7 +375,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func get_PixelHeightImpl() throws -> Int32 {
+        public func get_PixelHeight() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelHeight(pThis, &value))
@@ -382,7 +383,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func SetSourceImpl(_ streamSource: UWP.AnyIRandomAccessStream?) throws {
+        public func SetSource(_ streamSource: UWP.AnyIRandomAccessStream?) throws {
             let streamSourceWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(streamSource)
             let _streamSource = try! streamSourceWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource.self) { pThis in
@@ -390,7 +391,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             }
         }
 
-        internal func SetSourceAsyncImpl(_ streamSource: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SetSourceAsync(_ streamSource: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let streamSourceWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(streamSource)
                 let _streamSource = try! streamSourceWrapper?.toABI { $0 }
@@ -406,7 +407,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IBitmapSourceFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSourceFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.BitmapSource.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBitmapSource {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.BitmapSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBitmapSource {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -424,22 +425,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IBitmapSourceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSourceStatics }
 
-        internal func get_PixelWidthPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_PixelWidthProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSourceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelWidthProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_PixelHeightPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_PixelHeightProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSourceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelHeightProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -447,7 +448,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IDownloadProgressEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventArgs }
 
-        internal func get_ProgressImpl() throws -> Int32 {
+        public func get_Progress() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Progress(pThis, &value))
@@ -455,7 +456,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func put_ProgressImpl(_ value: Int32) throws {
+        public func put_Progress(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Progress(pThis, value))
             }
@@ -466,7 +467,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IRenderTargetBitmap: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap }
 
-        internal func get_PixelWidthImpl() throws -> Int32 {
+        public func get_PixelWidth() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelWidth(pThis, &value))
@@ -474,7 +475,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func get_PixelHeightImpl() throws -> Int32 {
+        public func get_PixelHeight() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelHeight(pThis, &value))
@@ -482,7 +483,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func RenderAsyncImpl(_ element: WinUI.UIElement?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func RenderAsync(_ element: WinUI.UIElement?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.RenderAsync(pThis, RawPointer(element), &operationAbi))
@@ -491,7 +492,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func RenderToSizeAsyncImpl(_ element: WinUI.UIElement?, _ scaledWidth: Int32, _ scaledHeight: Int32) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func RenderToSizeAsync(_ element: WinUI.UIElement?, _ scaledWidth: Int32, _ scaledHeight: Int32) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.RenderToSizeAsync(pThis, RawPointer(element), scaledWidth, scaledHeight, &operationAbi))
@@ -500,7 +501,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func GetPixelsAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIBuffer?>? {
+        public func GetPixelsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIBuffer?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPixelsAsync(pThis, &operationAbi))
@@ -514,22 +515,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IRenderTargetBitmapStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmapStatics }
 
-        internal func get_PixelWidthPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_PixelWidthProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmapStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelWidthProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_PixelHeightPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_PixelHeightProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmapStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelHeightProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -537,7 +538,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class ISoftwareBitmapSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISoftwareBitmapSource }
 
-        internal func SetBitmapAsyncImpl(_ softwareBitmap: UWP.SoftwareBitmap?) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func SetBitmapAsync(_ softwareBitmap: UWP.SoftwareBitmap?) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISoftwareBitmapSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.SetBitmapAsync(pThis, RawPointer(softwareBitmap), &operationAbi))
@@ -556,7 +557,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class ISurfaceImageSourceFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSourceFactory }
 
-        internal func CreateInstanceWithDimensionsImpl(_ pixelWidth: Int32, _ pixelHeight: Int32, _ baseInterface: UnsealedWinRTClassWrapper<WinUI.SurfaceImageSource.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISurfaceImageSource {
+        public func CreateInstanceWithDimensions(_ pixelWidth: Int32, _ pixelHeight: Int32, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.SurfaceImageSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISurfaceImageSource {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -569,7 +570,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return ISurfaceImageSource(value!)
         }
 
-        internal func CreateInstanceWithDimensionsAndOpacityImpl(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool, _ baseInterface: UnsealedWinRTClassWrapper<WinUI.SurfaceImageSource.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISurfaceImageSource {
+        public func CreateInstanceWithDimensionsAndOpacity(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.SurfaceImageSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISurfaceImageSource {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -587,22 +588,22 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class ISvgImageSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource }
 
-        internal func get_UriSourceImpl() throws -> WindowsFoundation.Uri? {
+        public func get_UriSource() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_UriSource(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_UriSourceImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_UriSource(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_UriSource(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_RasterizePixelWidthImpl() throws -> Double {
+        public func get_RasterizePixelWidth() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RasterizePixelWidth(pThis, &value))
@@ -610,13 +611,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func put_RasterizePixelWidthImpl(_ value: Double) throws {
+        public func put_RasterizePixelWidth(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RasterizePixelWidth(pThis, value))
             }
         }
 
-        internal func get_RasterizePixelHeightImpl() throws -> Double {
+        public func get_RasterizePixelHeight() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RasterizePixelHeight(pThis, &value))
@@ -624,13 +625,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return value
         }
 
-        internal func put_RasterizePixelHeightImpl(_ value: Double) throws {
+        public func put_RasterizePixelHeight(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RasterizePixelHeight(pThis, value))
             }
         }
 
-        internal func add_OpenedImpl(_ handler: TypedEventHandler<WinUI.SvgImageSource?, WinUI.SvgImageSourceOpenedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_Opened(_ handler: TypedEventHandler<WinUI.SvgImageSource?, WinUI.SvgImageSourceOpenedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSource___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSourceOpenedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -640,13 +641,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return token
         }
 
-        internal func remove_OpenedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_Opened(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Opened(pThis, token))
             }
         }
 
-        internal func add_OpenFailedImpl(_ handler: TypedEventHandler<WinUI.SvgImageSource?, WinUI.SvgImageSourceFailedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_OpenFailed(_ handler: TypedEventHandler<WinUI.SvgImageSource?, WinUI.SvgImageSourceFailedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSource___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSourceFailedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -656,13 +657,13 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return token
         }
 
-        internal func remove_OpenFailedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_OpenFailed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_OpenFailed(pThis, token))
             }
         }
 
-        internal func SetSourceAsyncImpl(_ streamSource: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<WinUI.SvgImageSourceLoadStatus>? {
+        public func SetSourceAsync(_ streamSource: UWP.AnyIRandomAccessStream?) throws -> WindowsFoundation.AnyIAsyncOperation<WinUI.SvgImageSourceLoadStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 let streamSourceWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(streamSource)
                 let _streamSource = try! streamSourceWrapper?.toABI { $0 }
@@ -678,7 +679,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class ISvgImageSourceFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.SvgImageSource.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISvgImageSource {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISvgImageSource {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -691,7 +692,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return ISvgImageSource(value!)
         }
 
-        internal func CreateInstanceWithUriSourceImpl(_ uriSource: WindowsFoundation.Uri?, _ baseInterface: UnsealedWinRTClassWrapper<WinUI.SvgImageSource.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISvgImageSource {
+        public func CreateInstanceWithUriSource(_ uriSource: WindowsFoundation.Uri?, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISvgImageSource {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -709,7 +710,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class ISvgImageSourceFailedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFailedEventArgs }
 
-        internal func get_StatusImpl() throws -> WinUI.SvgImageSourceLoadStatus {
+        public func get_Status() throws -> WinUI.SvgImageSourceLoadStatus {
             var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CSvgImageSourceLoadStatus = .init(0)
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
@@ -727,31 +728,31 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class ISvgImageSourceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceStatics }
 
-        internal func get_UriSourcePropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_UriSourceProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_UriSourceProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_RasterizePixelWidthPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_RasterizePixelWidthProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RasterizePixelWidthProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
-        internal func get_RasterizePixelHeightPropertyImpl() throws -> WinUI.DependencyProperty? {
+        public func get_RasterizePixelHeightProperty() throws -> WinUI.DependencyProperty? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RasterizePixelHeightProperty(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -764,7 +765,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IVirtualSurfaceImageSourceFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSourceFactory }
 
-        internal func CreateInstanceWithDimensionsImpl(_ pixelWidth: Int32, _ pixelHeight: Int32) throws -> IVirtualSurfaceImageSource {
+        public func CreateInstanceWithDimensions(_ pixelWidth: Int32, _ pixelHeight: Int32) throws -> IVirtualSurfaceImageSource {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSourceFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithDimensions(pThis, pixelWidth, pixelHeight, &valueAbi))
@@ -773,7 +774,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return IVirtualSurfaceImageSource(value!)
         }
 
-        internal func CreateInstanceWithDimensionsAndOpacityImpl(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool) throws -> IVirtualSurfaceImageSource {
+        public func CreateInstanceWithDimensionsAndOpacity(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool) throws -> IVirtualSurfaceImageSource {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSourceFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithDimensionsAndOpacity(pThis, pixelWidth, pixelHeight, .init(from: isOpaque), &valueAbi))
@@ -787,7 +788,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IWriteableBitmap: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmap }
 
-        internal func get_PixelBufferImpl() throws -> UWP.AnyIBuffer? {
+        public func get_PixelBuffer() throws -> UWP.AnyIBuffer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmap.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PixelBuffer(pThis, &valueAbi))
@@ -796,7 +797,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
             return __ABI_Windows_Storage_Streams.IBufferWrapper.unwrapFrom(abi: value)
         }
 
-        internal func InvalidateImpl() throws {
+        public func Invalidate() throws {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmap.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invalidate(pThis))
             }
@@ -807,7 +808,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IWriteableBitmapFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmapFactory }
 
-        internal func CreateInstanceWithDimensionsImpl(_ pixelWidth: Int32, _ pixelHeight: Int32) throws -> IWriteableBitmap {
+        public func CreateInstanceWithDimensions(_ pixelWidth: Int32, _ pixelHeight: Int32) throws -> IWriteableBitmap {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmapFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithDimensions(pThis, pixelWidth, pixelHeight, &valueAbi))
@@ -826,7 +827,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IXamlRenderingBackgroundTaskFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.XamlRenderingBackgroundTask.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IXamlRenderingBackgroundTask {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.XamlRenderingBackgroundTaskBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IXamlRenderingBackgroundTask {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
@@ -844,7 +845,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class IXamlRenderingBackgroundTaskOverrides: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskOverrides }
 
-        internal func OnRunImpl(_ taskInstance: UWP.AnyIBackgroundTaskInstance?) throws {
+        public func OnRun(_ taskInstance: UWP.AnyIBackgroundTaskInstance?) throws {
             let taskInstanceWrapper = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskInstanceWrapper(taskInstance)
             let _taskInstance = try! taskInstanceWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskOverrides.self) { pThis in
@@ -854,7 +855,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
 
     }
 
-    internal typealias IXamlRenderingBackgroundTaskOverridesWrapper = UnsealedWinRTClassWrapper<WinUI.XamlRenderingBackgroundTask.IXamlRenderingBackgroundTaskOverrides>
+    internal typealias IXamlRenderingBackgroundTaskOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.XamlRenderingBackgroundTaskBridge.IXamlRenderingBackgroundTaskOverrides>
     internal static var IXamlRenderingBackgroundTaskOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskOverridesVtbl = .init(
         QueryInterface: { IXamlRenderingBackgroundTaskOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IXamlRenderingBackgroundTaskOverridesWrapper.addRef($0) },
@@ -889,7 +890,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Imaging {
                 let taskInstance: UWP.AnyIBackgroundTaskInstance? = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskInstanceWrapper.unwrapFrom(abi: ComPtr($1))
                 try __unwrapped__instance.onRun(taskInstance)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -904,7 +905,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
     public class DownloadProgressEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventHandler }
 
-        open func InvokeImpl(_ sender: Any?, _ e: WinUI.DownloadProgressEventArgs?) throws {
+        open func Invoke(_ sender: Any?, _ e: WinUI.DownloadProgressEventArgs?) throws {
             let senderWrapper = __ABI_.AnyWrapper(sender)
             let _sender = try! senderWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventHandler.self) { pThis in
@@ -921,11 +922,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         AddRef: { DownloadProgressEventHandlerWrapper.addRef($0) },
         Release: { DownloadProgressEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = DownloadProgressEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let e: WinUI.DownloadProgressEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = DownloadProgressEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.DownloadProgressEventArgs? = __IMPL_Microsoft_UI_Xaml_Media_Imaging.DownloadProgressEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

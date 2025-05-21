@@ -12,6 +12,7 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3DFactor
     .init(Data1: 0x9BCCE0A1, Data2: 0x10AC, Data3: 0x5319, Data4: ( 0xBD,0xF1,0x54,0x8D,0x2E,0x5A,0xE5,0x04 ))// 9BCCE0A1-10AC-5319-BDF1-548D2E5AE504
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Media_Media3D {
     public class ITransform3D: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3D }
@@ -21,7 +22,7 @@ public enum __ABI_Microsoft_UI_Xaml_Media_Media3D {
     public class ITransform3DFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3DFactory }
 
-        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.Transform3D.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITransform3D {
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Media3D.Transform3DBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITransform3D {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _baseInterface = baseInterface?.toIInspectableABI { $0 }
                 let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in

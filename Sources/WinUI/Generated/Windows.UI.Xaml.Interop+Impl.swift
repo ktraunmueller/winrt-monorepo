@@ -4,5 +4,17 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_UI_Xaml_Interop {
 }
+@_spi(WinRTInternal)
+extension TypeName: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName
+    public static func from(abi: ABI) -> Self {
+        .init(name: .init(from: abi.Name), kind: abi.Kind)
+    }
+    public func toABI() -> ABI {
+        __ABI_Windows_UI_Xaml_Interop._ABI_TypeName(from: self).detach()
+    }
+}
+
