@@ -1,5 +1,11 @@
 -output E:\sandbox\ktraunmueller\winrt\swift-cwinrt\.generated
 -include Microsoft.Graphics.Canvas
+-include Microsoft.Graphics.Canvas.Brushes
+-include Microsoft.Graphics.Canvas.Effects
+-include Microsoft.Graphics.Canvas.Geometry
+-include Microsoft.Graphics.Canvas.Text
+-include Microsoft.Graphics.Canvas.UI
+-include Microsoft.Graphics.Canvas.UI.Composition
 -include Microsoft.Graphics.Canvas.UI.Xaml
 -include Microsoft.UI
 -include Microsoft.UI.Colors
@@ -54,11 +60,7 @@
 -include Windows.UI
 -include Windows.UI.Composition
 -include Windows.UI.Core
--include Windows.UI.Core
 -include Windows.UI.Notifications
--include Windows.UI.Text
--include Windows.UI.Text
--include Windows.UI.Text
 -include Windows.UI.Text
 -include Windows.UI.ViewManagement
 -input E:\sandbox\ktraunmueller\winrt\swift-cwinrt\.packages\Microsoft.Graphics.Win2D.1.1.1\lib\net45\Microsoft.Graphics.Canvas.winmd

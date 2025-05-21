@@ -5,6 +5,7 @@
 #include <minwindef.h>
 #include <winnt.h>
 #include <combaseapi.h> // IUnknown, CoCreateInstance
+#include <inspectable.h> // IInspectable
 #include <oleauto.h> // BSTR, Sys***String***
 #include <roapi.h> // Ro***
 #include "RestrictedErrorInfo.h" // IRestrictedErrorInfo (C definition)
@@ -16,6 +17,7 @@
 #undef FindText
 #undef GetClassName
 #undef GetObject
+#undef GetGlyphIndices
 
 #define ENABLE_WINRT_EXPERIMENTAL_TYPES
 
@@ -24,6 +26,7 @@
 
 #include "CppInteropWorkaround.h" // TODO(WIN-860): Remove workaround once C++ interop issues with WinSDK.GUID are fixed.
 #include "MemoryBuffer.h" // IMemoryBufferByteAccess (C definition)
+#include "WeakReference.h" // IWeakReference[Source] (C definition)
 #include "robuffer.h" // IBufferByteAccess (C definition)
 #include "Microsoft.Graphics.Canvas.h"
 #include "Microsoft.Graphics.Canvas.Brushes.h"

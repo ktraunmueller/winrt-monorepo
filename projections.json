@@ -1,5 +1,5 @@
 {
-  "swift-winrt": "0.5.0",
+  "swift-winrt": "0.6.0",
   "project": "CWinRT",
   "dependencies": [
     {
@@ -17,6 +17,12 @@
   ],
   "include": [
     "Microsoft.Graphics.Canvas",
+    "Microsoft.Graphics.Canvas.Brushes",
+    "Microsoft.Graphics.Canvas.Effects",
+    "Microsoft.Graphics.Canvas.Geometry",
+    "Microsoft.Graphics.Canvas.Text",
+    "Microsoft.Graphics.Canvas.UI",
+    "Microsoft.Graphics.Canvas.UI.Composition",
     "Microsoft.Graphics.Canvas.UI.Xaml",
     "Microsoft.UI",
     "Microsoft.UI.Colors",
@@ -71,11 +77,7 @@
     "Windows.UI",
     "Windows.UI.Composition",
     "Windows.UI.Core",
-    "Windows.UI.Core",
     "Windows.UI.Notifications",
-    "Windows.UI.Text",
-    "Windows.UI.Text",
-    "Windows.UI.Text",
     "Windows.UI.Text",
     "Windows.UI.ViewManagement"
   ],
