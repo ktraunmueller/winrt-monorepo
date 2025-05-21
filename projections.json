@@ -1,5 +1,5 @@
 {
-  "swift-winrt": "0.5.0",
+  "swift-winrt": "0.6.0",
   "project": "WindowsFoundation",
   "package": {
     "id": "Microsoft.WindowsAppSDK",
@@ -17,6 +17,7 @@
     "Windows.Foundation"
   ],
   "exclude": [
+    "Windows.Foundation.GuidHelper",
     "Windows.Foundation.PropertyValue"
   ]
 }

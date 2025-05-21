@@ -3,5 +3,94 @@
 import Foundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Foundation_Numerics {
 }
+@_spi(WinRTInternal)
+extension Matrix3x2: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2
+    public static func from(abi: ABI) -> Self {
+        .init(m11: abi.M11, m12: abi.M12, m21: abi.M21, m22: abi.M22, m31: abi.M31, m32: abi.M32)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension Matrix4x4: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4
+    public static func from(abi: ABI) -> Self {
+        .init(m11: abi.M11, m12: abi.M12, m13: abi.M13, m14: abi.M14, m21: abi.M21, m22: abi.M22, m23: abi.M23, m24: abi.M24, m31: abi.M31, m32: abi.M32, m33: abi.M33, m34: abi.M34, m41: abi.M41, m42: abi.M42, m43: abi.M43, m44: abi.M44)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension Vector3: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CFoundation_CNumerics_CVector3
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y, z: abi.Z)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension Plane: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CFoundation_CNumerics_CPlane
+    public static func from(abi: ABI) -> Self {
+        .init(normal: .from(abi: abi.Normal), d: abi.D)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension Quaternion: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CFoundation_CNumerics_CQuaternion
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y, z: abi.Z, w: abi.W)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension Rational: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CFoundation_CNumerics_CRational
+    public static func from(abi: ABI) -> Self {
+        .init(numerator: abi.Numerator, denominator: abi.Denominator)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension Vector2: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CFoundation_CNumerics_CVector2
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+extension Vector4: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CFoundation_CNumerics_CVector4
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y, z: abi.Z, w: abi.W)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+

@@ -59,6 +59,7 @@ private var IID___x_ABI_C__FVectorChangedEventHandler_1_T: WindowsFoundation.IID
     .init(Data1: 0x0C051752, Data2: 0x9FBF, Data3: 0x4C70, Data4: ( 0xAA,0x0C,0x0E,0x4C,0x82,0xD9,0xA7,0x61 ))// 0C051752-9FBF-4C70-AA0C-0E4C82D9A761
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Foundation_Collections {
     public class IPropertySet: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CCollections_CIPropertySet }
@@ -101,7 +102,7 @@ public enum __ABI_Windows_Foundation_Collections {
     public class IVectorChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgs }
 
-        open func get_CollectionChangeImpl() throws -> WindowsFoundation.CollectionChange {
+        open func get_CollectionChange() throws -> WindowsFoundation.CollectionChange {
             var value: __x_ABI_CWindows_CFoundation_CCollections_CCollectionChange = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CollectionChange(pThis, &value))
@@ -109,7 +110,7 @@ public enum __ABI_Windows_Foundation_Collections {
             return value
         }
 
-        open func get_IndexImpl() throws -> UInt32 {
+        open func get_Index() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Index(pThis, &value))

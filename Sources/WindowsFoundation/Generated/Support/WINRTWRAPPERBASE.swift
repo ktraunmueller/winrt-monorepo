@@ -21,14 +21,17 @@ public protocol AbiInterface {
 public protocol AbiBridge {
     associatedtype CABI
     associatedtype SwiftProjection
-    static func makeAbi() -> CABI
     static func from(abi: ComPtr<CABI>?) -> SwiftProjection?
 }
 
-public protocol ReferenceBridge : AbiBridge, HasIID {
+public protocol SwiftImplementableBridge : AbiBridge {
+    static func makeAbi() -> CABI
 }
 
-public protocol AbiInterfaceBridge : AbiBridge & AbiInterface {
+public protocol ReferenceBridge : SwiftImplementableBridge, HasIID {
+}
+
+public protocol AbiInterfaceBridge : SwiftImplementableBridge & AbiInterface {
 }
 
 public protocol AbiInterfaceImpl<Bridge> {
@@ -155,11 +158,12 @@ open class WinRTWrapperBase<CInterface, Prototype> {
 
     fileprivate static func queryInterfaceBase(_ pUnk: UnsafeMutablePointer<CInterface>, _ riid: UnsafePointer<WindowsFoundation.IID>, _ result: UnsafeMutablePointer<UnsafeMutableRawPointer?>) -> HRESULT {
         guard let instance = tryUnwrapFromBase(raw: pUnk) else { return E_FAIL }
-        do
-        {
+        do {
             switch riid.pointee {
                 case IID_IMarshal:
                     try makeMarshaler(IUnknownRef(ComPtr(pUnk)), result)
+                case IID_IWeakReferenceSource:
+                    try makeWeakReferenceSource(instance as AnyObject, result)
                 default:
                     guard let customQI = instance as? CustomQueryInterface,
                           let iUnknownRef = customQI.queryInterface(riid.pointee) else { return E_NOINTERFACE }

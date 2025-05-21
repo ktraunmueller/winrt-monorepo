@@ -4,7 +4,7 @@ import Foundation
 import CWinRT
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.matrix3x2)
-public struct Matrix3x2: Hashable, Codable {
+public struct Matrix3x2: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.matrix3x2.m11)
     public var m11: Float = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.matrix3x2.m12)
@@ -26,13 +26,10 @@ public struct Matrix3x2: Hashable, Codable {
         self.m31 = m31
         self.m32 = m32
     }
-    public static func from(abi: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2) -> Matrix3x2 {
-        .init(m11: abi.M11, m12: abi.M12, m21: abi.M21, m22: abi.M22, m31: abi.M31, m32: abi.M32)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.matrix4x4)
-public struct Matrix4x4: Hashable, Codable {
+public struct Matrix4x4: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.matrix4x4.m11)
     public var m11: Float = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.matrix4x4.m12)
@@ -84,13 +81,10 @@ public struct Matrix4x4: Hashable, Codable {
         self.m43 = m43
         self.m44 = m44
     }
-    public static func from(abi: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4) -> Matrix4x4 {
-        .init(m11: abi.M11, m12: abi.M12, m13: abi.M13, m14: abi.M14, m21: abi.M21, m22: abi.M22, m23: abi.M23, m24: abi.M24, m31: abi.M31, m32: abi.M32, m33: abi.M33, m34: abi.M34, m41: abi.M41, m42: abi.M42, m43: abi.M43, m44: abi.M44)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.vector3)
-public struct Vector3: Hashable, Codable {
+public struct Vector3: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.vector3.x)
     public var x: Float = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.vector3.y)
@@ -103,13 +97,10 @@ public struct Vector3: Hashable, Codable {
         self.y = y
         self.z = z
     }
-    public static func from(abi: __x_ABI_CWindows_CFoundation_CNumerics_CVector3) -> Vector3 {
-        .init(x: abi.X, y: abi.Y, z: abi.Z)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.plane)
-public struct Plane: Hashable, Codable {
+public struct Plane: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.plane.normal)
     public var normal: Vector3 = .init()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.plane.d)
@@ -119,13 +110,10 @@ public struct Plane: Hashable, Codable {
         self.normal = normal
         self.d = d
     }
-    public static func from(abi: __x_ABI_CWindows_CFoundation_CNumerics_CPlane) -> Plane {
-        .init(normal: .from(abi: abi.Normal), d: abi.D)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.quaternion)
-public struct Quaternion: Hashable, Codable {
+public struct Quaternion: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.quaternion.x)
     public var x: Float = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.quaternion.y)
@@ -141,13 +129,10 @@ public struct Quaternion: Hashable, Codable {
         self.z = z
         self.w = w
     }
-    public static func from(abi: __x_ABI_CWindows_CFoundation_CNumerics_CQuaternion) -> Quaternion {
-        .init(x: abi.X, y: abi.Y, z: abi.Z, w: abi.W)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.rational)
-public struct Rational: Hashable, Codable {
+public struct Rational: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.rational.numerator)
     public var numerator: UInt32 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.rational.denominator)
@@ -157,13 +142,10 @@ public struct Rational: Hashable, Codable {
         self.numerator = numerator
         self.denominator = denominator
     }
-    public static func from(abi: __x_ABI_CWindows_CFoundation_CNumerics_CRational) -> Rational {
-        .init(numerator: abi.Numerator, denominator: abi.Denominator)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.vector2)
-public struct Vector2: Hashable, Codable {
+public struct Vector2: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.vector2.x)
     public var x: Float = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.vector2.y)
@@ -173,13 +155,10 @@ public struct Vector2: Hashable, Codable {
         self.x = x
         self.y = y
     }
-    public static func from(abi: __x_ABI_CWindows_CFoundation_CNumerics_CVector2) -> Vector2 {
-        .init(x: abi.X, y: abi.Y)
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.vector4)
-public struct Vector4: Hashable, Codable {
+public struct Vector4: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.vector4.x)
     public var x: Float = 0.0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.numerics.vector4.y)
@@ -194,9 +173,6 @@ public struct Vector4: Hashable, Codable {
         self.y = y
         self.z = z
         self.w = w
-    }
-    public static func from(abi: __x_ABI_CWindows_CFoundation_CNumerics_CVector4) -> Vector4 {
-        .init(x: abi.X, y: abi.Y, z: abi.Z, w: abi.W)
     }
 }
 

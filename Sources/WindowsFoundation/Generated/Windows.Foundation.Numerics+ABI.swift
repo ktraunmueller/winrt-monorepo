@@ -3,6 +3,7 @@
 import Foundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Foundation_Numerics {
 }
 extension __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 {

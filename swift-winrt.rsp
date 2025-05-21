@@ -2,6 +2,7 @@
 -include Windows.Foundation.Collections
 -include Windows.Foundation.Numerics
 -include Windows.Foundation
+-exclude Windows.Foundation.GuidHelper
 -exclude Windows.Foundation.PropertyValue
 -input E:\sandbox\ktraunmueller\winrt\swift-windowsfoundation\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.MachineLearningContract.winmd
 -input E:\sandbox\ktraunmueller\winrt\swift-windowsfoundation\.packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\ref\netstandard2.0\Windows.AI.MachineLearning.Preview.MachineLearningPreviewContract.winmd

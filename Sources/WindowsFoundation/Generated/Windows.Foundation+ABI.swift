@@ -139,11 +139,12 @@ private var IID___x_ABI_C__FITypedEventHandler_2_TSender_TResult: WindowsFoundat
     .init(Data1: 0x9DE1C534, Data2: 0x6AE1, Data3: 0x11E0, Data4: ( 0x84,0xE1,0x18,0xA9,0x05,0xBC,0xC5,0x3F ))// 9DE1C534-6AE1-11E0-84E1-18A905BCC53F
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Foundation {
     public class IAsyncAction: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIAsyncAction }
 
-        open func put_CompletedImpl(_ handler: WindowsFoundation.AsyncActionCompletedHandler?) throws {
+        open func put_Completed(_ handler: WindowsFoundation.AsyncActionCompletedHandler?) throws {
             let handlerWrapper = __ABI_Windows_Foundation.AsyncActionCompletedHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIAsyncAction.self) { pThis in
@@ -151,7 +152,7 @@ public enum __ABI_Windows_Foundation {
             }
         }
 
-        open func get_CompletedImpl() throws -> WindowsFoundation.AsyncActionCompletedHandler? {
+        open func get_Completed() throws -> WindowsFoundation.AsyncActionCompletedHandler? {
             let (handler) = try ComPtrs.initialize { handlerAbi in
                 _ = try perform(as: __x_ABI_CWindows_CFoundation_CIAsyncAction.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Completed(pThis, &handlerAbi))
@@ -160,7 +161,7 @@ public enum __ABI_Windows_Foundation {
             return __ABI_Windows_Foundation.AsyncActionCompletedHandlerWrapper.unwrapFrom(abi: handler)
         }
 
-        open func GetResultsImpl() throws {
+        open func GetResults() throws {
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIAsyncAction.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetResults(pThis))
             }
@@ -217,7 +218,7 @@ public enum __ABI_Windows_Foundation {
                 guard let __unwrapped__instance = IAsyncActionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.getResults()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -225,7 +226,7 @@ public enum __ABI_Windows_Foundation {
     public class IAsyncInfo: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIAsyncInfo }
 
-        open func get_IdImpl() throws -> UInt32 {
+        open func get_Id() throws -> UInt32 {
             var result: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &result))
@@ -233,7 +234,7 @@ public enum __ABI_Windows_Foundation {
             return result
         }
 
-        open func get_StatusImpl() throws -> WindowsFoundation.AsyncStatus {
+        open func get_Status() throws -> WindowsFoundation.AsyncStatus {
             var result: __x_ABI_CWindows_CFoundation_CAsyncStatus = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &result))
@@ -241,7 +242,7 @@ public enum __ABI_Windows_Foundation {
             return result
         }
 
-        open func get_ErrorCodeImpl() throws -> HRESULT {
+        open func get_ErrorCode() throws -> HRESULT {
             var result: HRESULT = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ErrorCode(pThis, &result))
@@ -249,13 +250,13 @@ public enum __ABI_Windows_Foundation {
             return result
         }
 
-        open func CancelImpl() throws {
+        open func Cancel() throws {
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Cancel(pThis))
             }
         }
 
-        open func CloseImpl() throws {
+        open func Close() throws {
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Close(pThis))
             }
@@ -317,7 +318,7 @@ public enum __ABI_Windows_Foundation {
                 guard let __unwrapped__instance = IAsyncInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.cancel()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Close: {
@@ -325,7 +326,7 @@ public enum __ABI_Windows_Foundation {
                 guard let __unwrapped__instance = IAsyncInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.close()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -333,7 +334,7 @@ public enum __ABI_Windows_Foundation {
     public class IClosable: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIClosable }
 
-        open func CloseImpl() throws {
+        open func Close() throws {
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIClosable.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Close(pThis))
             }
@@ -374,7 +375,7 @@ public enum __ABI_Windows_Foundation {
                 guard let __unwrapped__instance = IClosableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.close()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -382,7 +383,7 @@ public enum __ABI_Windows_Foundation {
     public class IDeferral: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIDeferral }
 
-        internal func CompleteImpl() throws {
+        public func Complete() throws {
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIDeferral.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
             }
@@ -393,7 +394,7 @@ public enum __ABI_Windows_Foundation {
     public class IDeferralFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIDeferralFactory }
 
-        internal func CreateImpl(_ handler: WindowsFoundation.DeferralCompletedHandler?) throws -> IDeferral {
+        public func Create(_ handler: WindowsFoundation.DeferralCompletedHandler?) throws -> IDeferral {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let handlerWrapper = __ABI_Windows_Foundation.DeferralCompletedHandlerWrapper(handler)
                 let _handler = try! handlerWrapper?.toABI { $0 }
@@ -409,7 +410,7 @@ public enum __ABI_Windows_Foundation {
     public class IGetActivationFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIGetActivationFactory }
 
-        open func GetActivationFactoryImpl(_ activatableClassId: String) throws -> Any? {
+        open func GetActivationFactory(_ activatableClassId: String) throws -> Any? {
             let (factory) = try ComPtrs.initialize { factoryAbi in
                 let _activatableClassId = try! HString(activatableClassId)
                 _ = try perform(as: __x_ABI_CWindows_CFoundation_CIGetActivationFactory.self) { pThis in
@@ -457,36 +458,15 @@ public enum __ABI_Windows_Foundation {
                 let factoryWrapper = __ABI_.AnyWrapper(factory)
                 factoryWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
     public typealias IGetActivationFactoryWrapper = InterfaceWrapperBase<__IMPL_Windows_Foundation.IGetActivationFactoryBridge>
-    public class IGuidHelperStatics: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIGuidHelperStatics }
-
-        internal func CreateNewGuidImpl() throws -> Foundation.UUID {
-            var result: WindowsFoundation.GUID = .init()
-            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIGuidHelperStatics.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.CreateNewGuid(pThis, &result))
-            }
-            return .init(from: result)
-        }
-
-        internal func get_EmptyImpl() throws -> Foundation.UUID {
-            var value: WindowsFoundation.GUID = .init()
-            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIGuidHelperStatics.self) { pThis in
-                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Empty(pThis, &value))
-            }
-            return .init(from: value)
-        }
-
-    }
-
     public class IMemoryBuffer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIMemoryBuffer }
 
-        open func CreateReferenceImpl() throws -> WindowsFoundation.AnyIMemoryBufferReference? {
+        open func CreateReference() throws -> WindowsFoundation.AnyIMemoryBufferReference? {
             let (reference) = try ComPtrs.initialize { referenceAbi in
                 _ = try perform(as: __x_ABI_CWindows_CFoundation_CIMemoryBuffer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateReference(pThis, &referenceAbi))
@@ -533,7 +513,7 @@ public enum __ABI_Windows_Foundation {
                 let referenceWrapper = __ABI_Windows_Foundation.IMemoryBufferReferenceWrapper(reference)
                 referenceWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -541,7 +521,7 @@ public enum __ABI_Windows_Foundation {
     public class IMemoryBufferFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIMemoryBufferFactory }
 
-        internal func CreateImpl(_ capacity: UInt32) throws -> IMemoryBuffer {
+        public func Create(_ capacity: UInt32) throws -> IMemoryBuffer {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CFoundation_CIMemoryBufferFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, capacity, &valueAbi))
@@ -555,7 +535,7 @@ public enum __ABI_Windows_Foundation {
     public class IMemoryBufferReference: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIMemoryBufferReference }
 
-        open func get_CapacityImpl() throws -> UInt32 {
+        open func get_Capacity() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIMemoryBufferReference.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Capacity(pThis, &value))
@@ -563,7 +543,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func add_ClosedImpl(_ handler: TypedEventHandler<WindowsFoundation.AnyIMemoryBufferReference?, Any?>?) throws -> EventRegistrationToken {
+        open func add_Closed(_ handler: TypedEventHandler<WindowsFoundation.AnyIMemoryBufferReference?, Any?>?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = WindowsFoundation.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CFoundation__CIMemoryBufferReference_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -573,7 +553,7 @@ public enum __ABI_Windows_Foundation {
             return cookie
         }
 
-        open func remove_ClosedImpl(_ cookie: EventRegistrationToken) throws {
+        open func remove_Closed(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIMemoryBufferReference.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Closed(pThis, cookie))
             }
@@ -638,7 +618,7 @@ public enum __ABI_Windows_Foundation {
     public class IPropertyValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIPropertyValue }
 
-        open func get_TypeImpl() throws -> WindowsFoundation.PropertyType {
+        open func get_Type() throws -> WindowsFoundation.PropertyType {
             var value: __x_ABI_CWindows_CFoundation_CPropertyType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
@@ -646,7 +626,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func get_IsNumericScalarImpl() throws -> Bool {
+        open func get_IsNumericScalar() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsNumericScalar(pThis, &value))
@@ -654,7 +634,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        open func GetUInt8Impl() throws -> UInt8 {
+        open func GetUInt8() throws -> UInt8 {
             var value: UINT8 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetUInt8(pThis, &value))
@@ -662,7 +642,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func GetInt16Impl() throws -> Int16 {
+        open func GetInt16() throws -> Int16 {
             var value: INT16 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetInt16(pThis, &value))
@@ -670,7 +650,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func GetUInt16Impl() throws -> UInt16 {
+        open func GetUInt16() throws -> UInt16 {
             var value: UINT16 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetUInt16(pThis, &value))
@@ -678,7 +658,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func GetInt32Impl() throws -> Int32 {
+        open func GetInt32() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetInt32(pThis, &value))
@@ -686,7 +666,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func GetUInt32Impl() throws -> UInt32 {
+        open func GetUInt32() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetUInt32(pThis, &value))
@@ -694,7 +674,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func GetInt64Impl() throws -> Int64 {
+        open func GetInt64() throws -> Int64 {
             var value: INT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetInt64(pThis, &value))
@@ -702,7 +682,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func GetUInt64Impl() throws -> UInt64 {
+        open func GetUInt64() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetUInt64(pThis, &value))
@@ -710,7 +690,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func GetSingleImpl() throws -> Float {
+        open func GetSingle() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetSingle(pThis, &value))
@@ -718,7 +698,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func GetDoubleImpl() throws -> Double {
+        open func GetDouble() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetDouble(pThis, &value))
@@ -726,7 +706,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        open func GetChar16Impl() throws -> Character {
+        open func GetChar16() throws -> Character {
             var value: WCHAR = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetChar16(pThis, &value))
@@ -734,7 +714,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        open func GetBooleanImpl() throws -> Bool {
+        open func GetBoolean() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetBoolean(pThis, &value))
@@ -742,7 +722,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        open func GetStringImpl() throws -> String {
+        open func GetString() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetString(pThis, &value))
@@ -750,7 +730,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        open func GetGuidImpl() throws -> Foundation.UUID {
+        open func GetGuid() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetGuid(pThis, &value))
@@ -758,7 +738,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        open func GetDateTimeImpl() throws -> WindowsFoundation.DateTime {
+        open func GetDateTime() throws -> WindowsFoundation.DateTime {
             var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetDateTime(pThis, &value))
@@ -766,7 +746,7 @@ public enum __ABI_Windows_Foundation {
             return .from(abi: value)
         }
 
-        open func GetTimeSpanImpl() throws -> WindowsFoundation.TimeSpan {
+        open func GetTimeSpan() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetTimeSpan(pThis, &value))
@@ -774,7 +754,7 @@ public enum __ABI_Windows_Foundation {
             return .from(abi: value)
         }
 
-        open func GetPointImpl() throws -> WindowsFoundation.Point {
+        open func GetPoint() throws -> WindowsFoundation.Point {
             var value: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPoint(pThis, &value))
@@ -782,7 +762,7 @@ public enum __ABI_Windows_Foundation {
             return .from(abi: value)
         }
 
-        open func GetSizeImpl() throws -> WindowsFoundation.Size {
+        open func GetSize() throws -> WindowsFoundation.Size {
             var value: __x_ABI_CWindows_CFoundation_CSize = .init()
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetSize(pThis, &value))
@@ -790,12 +770,183 @@ public enum __ABI_Windows_Foundation {
             return .from(abi: value)
         }
 
-        open func GetRectImpl() throws -> WindowsFoundation.Rect {
+        open func GetRect() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetRect(pThis, &value))
             }
             return .from(abi: value)
+        }
+
+        open func GetUInt8Array(_ value: inout [UInt8]) throws {
+            var _value: WinRTArrayAbi<UINT8> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetUInt8Array(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetInt16Array(_ value: inout [Int16]) throws {
+            var _value: WinRTArrayAbi<INT16> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetInt16Array(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetUInt16Array(_ value: inout [UInt16]) throws {
+            var _value: WinRTArrayAbi<UINT16> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetUInt16Array(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetInt32Array(_ value: inout [Int32]) throws {
+            var _value: WinRTArrayAbi<INT32> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetInt32Array(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetUInt32Array(_ value: inout [UInt32]) throws {
+            var _value: WinRTArrayAbi<UINT32> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetUInt32Array(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetInt64Array(_ value: inout [Int64]) throws {
+            var _value: WinRTArrayAbi<INT64> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetInt64Array(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetUInt64Array(_ value: inout [UInt64]) throws {
+            var _value: WinRTArrayAbi<UINT64> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetUInt64Array(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetSingleArray(_ value: inout [Float]) throws {
+            var _value: WinRTArrayAbi<FLOAT> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSingleArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetDoubleArray(_ value: inout [Double]) throws {
+            var _value: WinRTArrayAbi<DOUBLE> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetDoubleArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetChar16Array(_ value: inout [Character]) throws {
+            var _value: WinRTArrayAbi<WCHAR> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetChar16Array(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetBooleanArray(_ value: inout [Bool]) throws {
+            var _value: WinRTArrayAbi<boolean> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetBooleanArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetStringArray(_ value: inout [String]) throws {
+            var _value: WinRTArrayAbi<HSTRING?> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetStringArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetInspectableArray(_ value: inout [Any?]) throws {
+            var _value: WinRTArrayAbi<UnsafeMutablePointer<C_IInspectable>?> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetInspectableArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abiBridge: __IMPL_.AnyBridge.self, abi: _value)
+        }
+
+        open func GetGuidArray(_ value: inout [Foundation.UUID]) throws {
+            var _value: WinRTArrayAbi<WindowsFoundation.GUID> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetGuidArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetDateTimeArray(_ value: inout [WindowsFoundation.DateTime]) throws {
+            var _value: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CDateTime> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetDateTimeArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetTimeSpanArray(_ value: inout [WindowsFoundation.TimeSpan]) throws {
+            var _value: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CTimeSpan> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetTimeSpanArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetPointArray(_ value: inout [WindowsFoundation.Point]) throws {
+            var _value: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CPoint> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPointArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetSizeArray(_ value: inout [WindowsFoundation.Size]) throws {
+            var _value: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CSize> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSizeArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
+        }
+
+        open func GetRectArray(_ value: inout [WindowsFoundation.Rect]) throws {
+            var _value: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CRect> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CFoundation_CIPropertyValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetRectArray(pThis, &_value.count, &_value.start))
+            }
+            defer { CoTaskMemFree(_value.start) }
+            value = .from(abi: _value)
         }
 
     }
@@ -848,7 +999,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getUInt8()
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetInt16: {
@@ -857,7 +1008,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getInt16()
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetUInt16: {
@@ -866,7 +1017,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getUInt16()
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetInt32: {
@@ -875,7 +1026,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getInt32()
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetUInt32: {
@@ -884,7 +1035,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getUInt32()
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetInt64: {
@@ -893,7 +1044,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getInt64()
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetUInt64: {
@@ -902,7 +1053,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getUInt64()
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetSingle: {
@@ -911,7 +1062,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getSingle()
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetDouble: {
@@ -920,7 +1071,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getDouble()
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetChar16: {
@@ -929,7 +1080,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getChar16()
                 $1?.initialize(to: .init(from: value))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetBoolean: {
@@ -938,7 +1089,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getBoolean()
                 $1?.initialize(to: .init(from: value))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetString: {
@@ -947,7 +1098,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getString()
                 $1?.initialize(to: try! HString(value).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetGuid: {
@@ -956,7 +1107,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getGuid()
                 $1?.initialize(to: .init(from: value))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetDateTime: {
@@ -965,7 +1116,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getDateTime()
                 $1?.initialize(to: .from(swift: value))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetTimeSpan: {
@@ -974,7 +1125,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getTimeSpan()
                 $1?.initialize(to: .from(swift: value))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetPoint: {
@@ -983,7 +1134,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getPoint()
                 $1?.initialize(to: .from(swift: value))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetSize: {
@@ -992,7 +1143,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getSize()
                 $1?.initialize(to: .from(swift: value))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetRect: {
@@ -1001,53 +1152,242 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.getRect()
                 $1?.initialize(to: .from(swift: value))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
-        GetUInt8Array: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetUInt8Array: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [UInt8]()
+                try __unwrapped__instance.getUInt8Array(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetInt16Array: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetInt16Array: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [Int16]()
+                try __unwrapped__instance.getInt16Array(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetUInt16Array: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetUInt16Array: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [UInt16]()
+                try __unwrapped__instance.getUInt16Array(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetInt32Array: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetInt32Array: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [Int32]()
+                try __unwrapped__instance.getInt32Array(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetUInt32Array: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetUInt32Array: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [UInt32]()
+                try __unwrapped__instance.getUInt32Array(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetInt64Array: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetInt64Array: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [Int64]()
+                try __unwrapped__instance.getInt64Array(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetUInt64Array: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetUInt64Array: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [UInt64]()
+                try __unwrapped__instance.getUInt64Array(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetSingleArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetSingleArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [Float]()
+                try __unwrapped__instance.getSingleArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetDoubleArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetDoubleArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [Double]()
+                try __unwrapped__instance.getDoubleArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetChar16Array: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetChar16Array: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [Character]()
+                try __unwrapped__instance.getChar16Array(&value)
+                $1?.initialize(to: UInt32(value.count))
+                do {
+                    try value.fill(abi: $2)
+                } catch { return failWith(error: error) }
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetBooleanArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetBooleanArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [Bool]()
+                try __unwrapped__instance.getBooleanArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                do {
+                    try value.fill(abi: $2)
+                } catch { return failWith(error: error) }
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetStringArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetStringArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [String]()
+                try __unwrapped__instance.getStringArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                do {
+                    try value.fill(abi: $2)
+                } catch { return failWith(error: error) }
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetInspectableArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetInspectableArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [Any?]()
+                try __unwrapped__instance.getInspectableArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                value.fill(abi: $2, abiBridge: __IMPL_.AnyBridge.self)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetGuidArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetGuidArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [Foundation.UUID]()
+                try __unwrapped__instance.getGuidArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                do {
+                    try value.fill(abi: $2)
+                } catch { return failWith(error: error) }
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetDateTimeArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetDateTimeArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [WindowsFoundation.DateTime]()
+                try __unwrapped__instance.getDateTimeArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                do {
+                    try value.fill(abi: $2)
+                } catch { return failWith(error: error) }
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetTimeSpanArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetTimeSpanArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [WindowsFoundation.TimeSpan]()
+                try __unwrapped__instance.getTimeSpanArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                do {
+                    try value.fill(abi: $2)
+                } catch { return failWith(error: error) }
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetPointArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetPointArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [WindowsFoundation.Point]()
+                try __unwrapped__instance.getPointArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                do {
+                    try value.fill(abi: $2)
+                } catch { return failWith(error: error) }
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetSizeArray: { _, _, _ in return failWith(err: E_NOTIMPL) },
+        GetSizeArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [WindowsFoundation.Size]()
+                try __unwrapped__instance.getSizeArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                do {
+                    try value.fill(abi: $2)
+                } catch { return failWith(error: error) }
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
 
-        GetRectArray: { _, _, _ in return failWith(err: E_NOTIMPL) }
+        GetRectArray: {
+            do {
+                guard let __unwrapped__instance = IPropertyValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value = [WindowsFoundation.Rect]()
+                try __unwrapped__instance.getRectArray(&value)
+                $1?.initialize(to: UInt32(value.count))
+                do {
+                    try value.fill(abi: $2)
+                } catch { return failWith(error: error) }
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
     )
 
     public typealias IPropertyValueWrapper = InterfaceWrapperBase<__IMPL_Windows_Foundation.IPropertyValueBridge>
     public class IStringable: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIStringable }
 
-        open func ToStringImpl() throws -> String {
+        open func ToString() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIStringable.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ToString(pThis, &value))
@@ -1091,7 +1431,7 @@ public enum __ABI_Windows_Foundation {
                 let value = try __unwrapped__instance.toString()
                 $1?.initialize(to: try! HString(value).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -1099,7 +1439,7 @@ public enum __ABI_Windows_Foundation {
     public class IUriEscapeStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIUriEscapeStatics }
 
-        internal func UnescapeComponentImpl(_ toUnescape: String) throws -> String {
+        public func UnescapeComponent(_ toUnescape: String) throws -> String {
             var value: HSTRING?
             let _toUnescape = try! HString(toUnescape)
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriEscapeStatics.self) { pThis in
@@ -1108,7 +1448,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func EscapeComponentImpl(_ toEscape: String) throws -> String {
+        public func EscapeComponent(_ toEscape: String) throws -> String {
             var value: HSTRING?
             let _toEscape = try! HString(toEscape)
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriEscapeStatics.self) { pThis in
@@ -1122,7 +1462,7 @@ public enum __ABI_Windows_Foundation {
     public class IUriRuntimeClass: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIUriRuntimeClass }
 
-        internal func get_AbsoluteUriImpl() throws -> String {
+        public func get_AbsoluteUri() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AbsoluteUri(pThis, &value))
@@ -1130,7 +1470,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_DisplayUriImpl() throws -> String {
+        public func get_DisplayUri() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayUri(pThis, &value))
@@ -1138,7 +1478,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_DomainImpl() throws -> String {
+        public func get_Domain() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Domain(pThis, &value))
@@ -1146,7 +1486,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_ExtensionImpl() throws -> String {
+        public func get_Extension() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Extension(pThis, &value))
@@ -1154,7 +1494,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_FragmentImpl() throws -> String {
+        public func get_Fragment() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Fragment(pThis, &value))
@@ -1162,7 +1502,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_HostImpl() throws -> String {
+        public func get_Host() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Host(pThis, &value))
@@ -1170,7 +1510,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_PasswordImpl() throws -> String {
+        public func get_Password() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Password(pThis, &value))
@@ -1178,7 +1518,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_PathImpl() throws -> String {
+        public func get_Path() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Path(pThis, &value))
@@ -1186,7 +1526,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_QueryImpl() throws -> String {
+        public func get_Query() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Query(pThis, &value))
@@ -1194,16 +1534,16 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_QueryParsedImpl() throws -> WindowsFoundation.WwwFormUrlDecoder? {
+        public func get_QueryParsed() throws -> WindowsFoundation.WwwFormUrlDecoder? {
             let (ppWwwFormUrlDecoder) = try ComPtrs.initialize { ppWwwFormUrlDecoderAbi in
                 _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_QueryParsed(pThis, &ppWwwFormUrlDecoderAbi))
                 }
             }
-            return .from(abi: ppWwwFormUrlDecoder)
+            return __IMPL_Windows_Foundation.WwwFormUrlDecoderBridge.from(abi: ppWwwFormUrlDecoder)
         }
 
-        internal func get_RawUriImpl() throws -> String {
+        public func get_RawUri() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RawUri(pThis, &value))
@@ -1211,7 +1551,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_SchemeNameImpl() throws -> String {
+        public func get_SchemeName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SchemeName(pThis, &value))
@@ -1219,7 +1559,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_UserNameImpl() throws -> String {
+        public func get_UserName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserName(pThis, &value))
@@ -1227,7 +1567,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_PortImpl() throws -> Int32 {
+        public func get_Port() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Port(pThis, &value))
@@ -1235,7 +1575,7 @@ public enum __ABI_Windows_Foundation {
             return value
         }
 
-        internal func get_SuspiciousImpl() throws -> Bool {
+        public func get_Suspicious() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Suspicious(pThis, &value))
@@ -1243,7 +1583,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func EqualsImpl(_ pUri: WindowsFoundation.Uri?) throws -> Bool {
+        public func Equals(_ pUri: WindowsFoundation.Uri?) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Equals(pThis, RawPointer(pUri), &value))
@@ -1251,14 +1591,14 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func CombineUriImpl(_ relativeUri: String) throws -> WindowsFoundation.Uri? {
+        public func CombineUri(_ relativeUri: String) throws -> WindowsFoundation.Uri? {
             let (instance) = try ComPtrs.initialize { instanceAbi in
                 let _relativeUri = try! HString(relativeUri)
                 _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClass.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CombineUri(pThis, _relativeUri.get(), &instanceAbi))
                 }
             }
-            return .from(abi: instance)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: instance)
         }
 
     }
@@ -1266,7 +1606,7 @@ public enum __ABI_Windows_Foundation {
     public class IUriRuntimeClassFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory }
 
-        internal func CreateUriImpl(_ uri: String) throws -> IUriRuntimeClass {
+        public func CreateUri(_ uri: String) throws -> IUriRuntimeClass {
             let (instance) = try ComPtrs.initialize { instanceAbi in
                 let _uri = try! HString(uri)
                 _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory.self) { pThis in
@@ -1276,7 +1616,7 @@ public enum __ABI_Windows_Foundation {
             return IUriRuntimeClass(instance!)
         }
 
-        internal func CreateWithRelativeUriImpl(_ baseUri: String, _ relativeUri: String) throws -> IUriRuntimeClass {
+        public func CreateWithRelativeUri(_ baseUri: String, _ relativeUri: String) throws -> IUriRuntimeClass {
             let (instance) = try ComPtrs.initialize { instanceAbi in
                 let _baseUri = try! HString(baseUri)
                 let _relativeUri = try! HString(relativeUri)
@@ -1292,7 +1632,7 @@ public enum __ABI_Windows_Foundation {
     public class IUriRuntimeClassWithAbsoluteCanonicalUri: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri }
 
-        internal func get_AbsoluteCanonicalUriImpl() throws -> String {
+        public func get_AbsoluteCanonicalUri() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AbsoluteCanonicalUri(pThis, &value))
@@ -1300,7 +1640,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        internal func get_DisplayIriImpl() throws -> String {
+        public func get_DisplayIri() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayIri(pThis, &value))
@@ -1313,7 +1653,7 @@ public enum __ABI_Windows_Foundation {
     public class IWwwFormUrlDecoderEntry: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry }
 
-        open func get_NameImpl() throws -> String {
+        open func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -1321,7 +1661,7 @@ public enum __ABI_Windows_Foundation {
             return .init(from: value)
         }
 
-        open func get_ValueImpl() throws -> String {
+        open func get_Value() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
@@ -1378,7 +1718,7 @@ public enum __ABI_Windows_Foundation {
     public class IWwwFormUrlDecoderRuntimeClass: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass }
 
-        internal func GetFirstValueByNameImpl(_ name: String) throws -> String {
+        public func GetFirstValueByName(_ name: String) throws -> String {
             var phstrValue: HSTRING?
             let _name = try! HString(name)
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass.self) { pThis in
@@ -1392,7 +1732,7 @@ public enum __ABI_Windows_Foundation {
     public class IWwwFormUrlDecoderRuntimeClassFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory }
 
-        internal func CreateWwwFormUrlDecoderImpl(_ query: String) throws -> IWwwFormUrlDecoderRuntimeClass {
+        public func CreateWwwFormUrlDecoder(_ query: String) throws -> IWwwFormUrlDecoderRuntimeClass {
             let (instance) = try ComPtrs.initialize { instanceAbi in
                 let _query = try! HString(query)
                 _ = try perform(as: __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory.self) { pThis in
@@ -1435,7 +1775,7 @@ extension __ABI_Windows_Foundation {
     public class AsyncActionCompletedHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandler }
 
-        open func InvokeImpl(_ asyncInfo: WindowsFoundation.AnyIAsyncAction?, _ asyncStatus: WindowsFoundation.AsyncStatus) throws {
+        open func Invoke(_ asyncInfo: WindowsFoundation.AnyIAsyncAction?, _ asyncStatus: WindowsFoundation.AsyncStatus) throws {
             let asyncInfoWrapper = __ABI_Windows_Foundation.IAsyncActionWrapper(asyncInfo)
             let _asyncInfo = try! asyncInfoWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandler.self) { pThis in
@@ -1452,11 +1792,13 @@ extension __ABI_Windows_Foundation {
         AddRef: { AsyncActionCompletedHandlerWrapper.addRef($0) },
         Release: { AsyncActionCompletedHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = AsyncActionCompletedHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let asyncInfo: WindowsFoundation.AnyIAsyncAction? = __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: ComPtr($1))
-            let asyncStatus: WindowsFoundation.AsyncStatus = $2
-            __unwrapped__instance(asyncInfo, asyncStatus)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = AsyncActionCompletedHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let asyncInfo: WindowsFoundation.AnyIAsyncAction? = __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: ComPtr($1))
+                let asyncStatus: WindowsFoundation.AsyncStatus = $2
+                try __unwrapped__instance(asyncInfo, asyncStatus)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -1472,7 +1814,7 @@ extension __ABI_Windows_Foundation {
     public class DeferralCompletedHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler }
 
-        open func InvokeImpl() throws {
+        open func Invoke() throws {
             _ = try perform(as: __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis))
             }
@@ -1487,9 +1829,11 @@ extension __ABI_Windows_Foundation {
         AddRef: { DeferralCompletedHandlerWrapper.addRef($0) },
         Release: { DeferralCompletedHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = DeferralCompletedHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            __unwrapped__instance()
-            return S_OK
+            do {
+                guard let __unwrapped__instance = DeferralCompletedHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance()
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

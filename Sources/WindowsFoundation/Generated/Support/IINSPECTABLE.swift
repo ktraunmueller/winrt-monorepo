@@ -77,30 +77,33 @@ public enum __ABI_ {
         return makeFrom(abi: ref) ?? ref
       }
       public static func tryUnwrapFrom(raw pUnk: UnsafeMutableRawPointer?) -> AnyObject? {
-        tryUnwrapFromBase(raw: pUnk)
+        guard let pUnk else { return nil }
+        return tryUnwrapFromBase(raw: pUnk)
+      }
+
+      internal static func queryInterface(_ pUnk: UnsafeMutablePointer<C_IInspectable>?, _ riid: UnsafePointer<WindowsFoundation.IID>?, _ ppvObject: UnsafeMutablePointer<UnsafeMutableRawPointer?>?) -> HRESULT {
+        guard let pUnk, let riid, let ppvObject else { return E_INVALIDARG }
+        ppvObject.pointee = nil
+        if riid.pointee == IUnknown.IID ||
+            riid.pointee == IInspectable.IID ||
+            riid.pointee == ISwiftImplemented.IID ||
+            riid.pointee == IAgileObject.IID {
+          _ = pUnk.pointee.lpVtbl.pointee.AddRef(pUnk)
+          ppvObject.pointee = UnsafeMutableRawPointer(pUnk)
+          return S_OK
+        }
+        let swiftObj = AnyWrapper.tryUnwrapFrom(raw: pUnk)
+        if let customQueryInterface = swiftObj as? CustomQueryInterface,
+            let result = customQueryInterface.queryInterface(riid.pointee) {
+          ppvObject.pointee = result.detach()
+          return S_OK
+        }
+        return E_NOINTERFACE
       }
     }
 
     internal static var IInspectableVTable: C_IInspectableVtbl = .init(
-        QueryInterface: {
-            guard let pUnk = $0, let riid = $1, let ppvObject = $2 else { return E_INVALIDARG }
-            ppvObject.pointee = nil
-            if riid.pointee == IUnknown.IID ||
-                  riid.pointee == IInspectable.IID ||
-                  riid.pointee == ISwiftImplemented.IID ||
-                  riid.pointee == IAgileObject.IID {
-              _ = pUnk.pointee.lpVtbl.pointee.AddRef(pUnk)
-              ppvObject.pointee = UnsafeMutableRawPointer(pUnk)
-              return S_OK
-            }
-            let swiftObj = AnyWrapper.tryUnwrapFrom(raw: pUnk)
-            if let customQueryInterface = swiftObj as? CustomQueryInterface,
-               let result = customQueryInterface.queryInterface(riid.pointee) {
-                ppvObject.pointee = result.detach()
-                return S_OK
-            }
-            return E_NOINTERFACE
-        },
+        QueryInterface: { AnyWrapper.queryInterface($0, $1, $2) },
         AddRef: { AnyWrapper.addRef($0) },
         Release: { AnyWrapper.release($0) },
         GetIids: {
@@ -138,4 +141,24 @@ extension ComposableImpl where CABI == C_IInspectable {
     let vtblPtr = withUnsafeMutablePointer(to: &__ABI_.IInspectableVTable) { $0 }
     return .init(lpVtbl: vtblPtr)
   }
+}
+
+@_spi(WinRTInternal)
+public enum __IMPL_ {
+    public enum AnyBridge: AbiInterfaceBridge {
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_.IInspectableVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi else { return nil }
+            let ref = IInspectable(abi)
+            return makeFrom(abi: ref) ?? ref
+        }
+
+        public typealias SwiftProjection = Any
+        public typealias CABI = C_IInspectable
+        public typealias SwiftABI = WindowsFoundation.IInspectable
+    }
 }
