@@ -146,14 +146,15 @@ function Copy-NativeBinaries {
 
     $PackageDir = Join-Path $PackagesDir "$Package.$PackageVersion"
     # $PackagesRuntimeDir = Join-Path $PackageDir "runtimes\win-x64\native"
-    $PackagesRuntimeDir = Join-Path $PackageDir "runtimes\win-arm64\native"
+    # $PackagesRuntimeDir = Join-Path $PackageDir "runtimes\win-arm64\native"
+    $PackagesRuntimeDir = Join-Path $PackageDir "runtimes"
 
     if (-not (Test-Path $PackagesRuntimeDir)) {
         Write-Output "$PackagesRuntimeDir not found!"
         return
     }
 
-    $PackagesBinaries = Get-ChildItem -Path $PackagesRuntimeDir -Filter *.dll -Recurse
+    # $PackagesBinaries = Get-ChildItem -Path $PackagesRuntimeDir -Filter *.dll -Recurse
 
     $ProjectName = $Projections.Project
     $ProjectDir = Join-Path $PSScriptRoot "Sources\${ProjectName}"
@@ -163,9 +164,10 @@ function Copy-NativeBinaries {
         New-Item -Path $ProjectBinaryDir -ItemType Directory -Force | Out-Null
     }
 
-    $PackagesBinaries | ForEach-Object {
-        Copy-Item -Path $_.FullName -Destination $ProjectBinaryDir -Force
-    }
+    # $PackagesBinaries | ForEach-Object {
+    #     Copy-Item -Path $_.FullName -Destination $ProjectBinaryDir -Force
+    # }
+    Copy-Item -Path $PackagesRuntimeDir -Destination $ProjectBinaryDir -Recurse -Force
 }
 
 $PackagesDir = Join-Path $PSScriptRoot ".packages"
