@@ -11,6 +11,7 @@
 #include "Microsoft.Graphics.Canvas.Geometry.h"
 #include "Microsoft.Graphics.Canvas.Svg.h"
 #include "Microsoft.Graphics.Canvas.Text.h"
+#include "Microsoft.UI.h"
 #include "Windows.Foundation.Numerics.h"
 #include "Windows.Graphics.DirectX.h"
 #include "Windows.Graphics.DirectX.Direct3D11.h"
@@ -466,6 +467,8 @@ typedef enum __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CCanvasTextMeasuringMode
     typedef interface __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderingParameters __x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderingParameters;
 
 #endif // ____x_ABI_CMicrosoft_CGraphics_CCanvas_CText_CICanvasTextRenderingParameters_FWD_DEFINED__
+
+typedef struct __x_ABI_CMicrosoft_CUI_CWindowId __x_ABI_CMicrosoft_CUI_CWindowId;
 
 typedef enum __x_ABI_CWindows_CFoundation_CAsyncStatus __x_ABI_CWindows_CFoundation_CAsyncStatus;
 
@@ -2936,6 +2939,22 @@ enum __x_ABI_CMicrosoft_CGraphics_CCanvas_CCanvasVirtualBitmapOptions
     HRESULT (STDMETHODCALLTYPE* CreateForCoreWindowWithAllOptions)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChainStatics* This,
         __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreator* resourceCreator,
         __x_ABI_CWindows_CUI_CCore_CICoreWindow* coreWindow,
+        FLOAT width,
+        FLOAT height,
+        FLOAT dpi,
+        enum __x_ABI_CWindows_CGraphics_CDirectX_CDirectXPixelFormat format,
+        INT32 bufferCount,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain** swapChain);
+    HRESULT (STDMETHODCALLTYPE* CreateForWindowIdWithDpi)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChainStatics* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreator* resourceCreator,
+        struct __x_ABI_CMicrosoft_CUI_CWindowId windowId,
+        FLOAT width,
+        FLOAT height,
+        FLOAT dpi,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChain** swapChain);
+    HRESULT (STDMETHODCALLTYPE* CreateForWindowIdWithAllOptions)(__x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChainStatics* This,
+        __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasResourceCreator* resourceCreator,
+        struct __x_ABI_CMicrosoft_CUI_CWindowId windowId,
         FLOAT width,
         FLOAT height,
         FLOAT dpi,

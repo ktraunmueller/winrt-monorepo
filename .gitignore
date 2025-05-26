@@ -1,12 +1,6 @@
 build
-/.build
-/.generated
-/.packages
-.DS_Store
-/Packages
-xcuserdata/
-DerivedData/
-.swiftpm/configuration/registries.json
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
-.netrc
+.build
+.generated
+.packages
 swift-winrt.rsp
+.DS_Store

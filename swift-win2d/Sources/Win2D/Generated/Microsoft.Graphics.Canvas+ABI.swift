@@ -2,6 +2,7 @@
 // swiftlint:disable all
 import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import UWP
+@_spi(WinRTInternal) @_spi(WinRTImplements) import WinAppSDK
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
@@ -2949,6 +2950,28 @@ public enum __ABI_Microsoft_Graphics_Canvas {
                 let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
                 _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChainStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForCoreWindowWithAllOptions(pThis, _resourceCreator, RawPointer(coreWindow), width, height, dpi, format, bufferCount, &swapChainAbi))
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasSwapChainBridge.from(abi: swapChain)
+        }
+
+        public func CreateForWindowIdWithDpi(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ windowId: WinAppSDK.WindowId, _ width: Float, _ height: Float, _ dpi: Float) throws -> Win2D.CanvasSwapChain? {
+            let (swapChain) = try ComPtrs.initialize { swapChainAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChainStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForWindowIdWithDpi(pThis, _resourceCreator, .from(swift: windowId), width, height, dpi, &swapChainAbi))
+                }
+            }
+            return __IMPL_Microsoft_Graphics_Canvas.CanvasSwapChainBridge.from(abi: swapChain)
+        }
+
+        public func CreateForWindowIdWithAllOptions(_ resourceCreator: Win2D.AnyICanvasResourceCreator?, _ windowId: WinAppSDK.WindowId, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32) throws -> Win2D.CanvasSwapChain? {
+            let (swapChain) = try ComPtrs.initialize { swapChainAbi in
+                let resourceCreatorWrapper = __ABI_Microsoft_Graphics_Canvas.ICanvasResourceCreatorWrapper(resourceCreator)
+                let _resourceCreator = try! resourceCreatorWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CMicrosoft_CGraphics_CCanvas_CICanvasSwapChainStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForWindowIdWithAllOptions(pThis, _resourceCreator, .from(swift: windowId), width, height, dpi, format, bufferCount, &swapChainAbi))
                 }
             }
             return __IMPL_Microsoft_Graphics_Canvas.CanvasSwapChainBridge.from(abi: swapChain)

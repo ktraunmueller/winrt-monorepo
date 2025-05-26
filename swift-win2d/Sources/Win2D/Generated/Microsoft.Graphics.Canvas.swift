@@ -2,6 +2,7 @@
 // swiftlint:disable all
 import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import UWP
+@_spi(WinRTInternal) @_spi(WinRTImplements) import WinAppSDK
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
@@ -1883,6 +1884,16 @@ public final class CanvasSwapChain : WinRTClass, WindowsFoundation.IClosable, IC
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.createforcorewindow)
     public static func createForCoreWindow(_ resourceCreator: AnyICanvasResourceCreator!, _ coreWindow: UWP.CoreWindow!, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32) throws -> CanvasSwapChain! {
         return try _ICanvasSwapChainStatics.CreateForCoreWindowWithAllOptions(resourceCreator, coreWindow, width, height, dpi, format, bufferCount)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.createforwindowid)
+    public static func createForWindowId(_ resourceCreator: AnyICanvasResourceCreator!, _ windowId: WinAppSDK.WindowId, _ width: Float, _ height: Float, _ dpi: Float) throws -> CanvasSwapChain! {
+        return try _ICanvasSwapChainStatics.CreateForWindowIdWithDpi(resourceCreator, windowId, width, height, dpi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.graphics.canvas.canvasswapchain.createforwindowid)
+    public static func createForWindowId(_ resourceCreator: AnyICanvasResourceCreator!, _ windowId: WinAppSDK.WindowId, _ width: Float, _ height: Float, _ dpi: Float, _ format: UWP.DirectXPixelFormat, _ bufferCount: Int32) throws -> CanvasSwapChain! {
+        return try _ICanvasSwapChainStatics.CreateForWindowIdWithAllOptions(resourceCreator, windowId, width, height, dpi, format, bufferCount)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
