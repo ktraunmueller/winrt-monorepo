@@ -11,6 +11,7 @@ add_library(WinUI STATIC ${WINUI_SRC})
 
 set_target_properties(WinUI PROPERTIES
     Swift_MODULE_NAME WinUI
+    OUTPUT_NAME "libWinUI"
 )
 
 target_compile_options(WinUI PRIVATE 

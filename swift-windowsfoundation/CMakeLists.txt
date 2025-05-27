@@ -10,6 +10,7 @@ add_library(WindowsFoundation STATIC ${WINDOWSFOUNDATION_SRC})
 
 set_target_properties(WindowsFoundation PROPERTIES
     Swift_MODULE_NAME WindowsFoundation
+    OUTPUT_NAME "libWindowsFoundation"
 )
 
 target_compile_options(WindowsFoundation PRIVATE 

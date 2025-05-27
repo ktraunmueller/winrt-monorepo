@@ -9,6 +9,11 @@ add_library(CWinAppSDK STATIC
     Sources/CWinAppSDK/delayloadhelper.c
 )
 
+set_target_properties(CWinAppSDK PROPERTIES
+    Swift_MODULE_NAME CWinAppSDK
+    OUTPUT_NAME "libCWinAppSDK"
+)
+
 # Include headers for C target
 target_include_directories(CWinAppSDK PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/CWinAppSDK/include
@@ -60,6 +65,7 @@ add_library(WinAppSDK STATIC ${WINAPPSDK_SRC})
 
 set_target_properties(WinAppSDK PROPERTIES
     Swift_MODULE_NAME WinAppSDK
+    OUTPUT_NAME "libWinAppSDK"
 )
 
 target_compile_options(WinAppSDK PRIVATE 
