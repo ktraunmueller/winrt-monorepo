@@ -40,6 +40,24 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs __x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs;
@@ -232,6 +250,12 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2 __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics;
@@ -387,6 +411,18 @@
     typedef interface __x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs __x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs_FWD_DEFINED__
 
 // Parameterized interface forward declarations (C)
 
@@ -1177,6 +1213,102 @@ typedef struct __x_ABI_CWindows_CFoundation_CRect __x_ABI_CWindows_CFoundation_C
     
     #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputLightDismissAction___x_ABI_CMicrosoft__CUI__CInput__CInputLightDismissEventArgs_INTERFACE_DEFINED__
     
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs* This,
+        __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource* sender,
+        __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs* This,
+        __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource* sender,
+        __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs* This,
+        __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource* sender,
+        __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs_INTERFACE_DEFINED__
+    
 #if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientCaptionTappedEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientCaptionTappedEventArgs_INTERFACE_DEFINED__
 
@@ -1273,6 +1405,70 @@ typedef struct __x_ABI_CWindows_CFoundation_CRect __x_ABI_CWindows_CFoundation_C
     
     #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientRegionsChangedEventArgs_INTERFACE_DEFINED__
     
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs* This,
+        __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource* sender,
+        __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs* This,
+        __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource* sender,
+        __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs_INTERFACE_DEFINED__
+    
 #if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputPointerSource___x_ABI_CMicrosoft__CUI__CInput__CPointerEventArgs_INTERFACE_DEFINED__
 
@@ -1341,6 +1537,8 @@ typedef struct __x_ABI_CWindows_CFoundation_CPoint __x_ABI_CWindows_CFoundation_
 
 typedef struct __x_ABI_CWindows_CFoundation_CTimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan;
 
+typedef struct __x_ABI_CWindows_CGraphics_CPointInt32 __x_ABI_CWindows_CGraphics_CPointInt32;
+
 typedef struct __x_ABI_CWindows_CGraphics_CRectInt32 __x_ABI_CWindows_CGraphics_CRectInt32;
 
 typedef enum __x_ABI_CWindows_CSystem_CVirtualKey __x_ABI_CWindows_CSystem_CVirtualKey;
@@ -1372,6 +1570,8 @@ typedef enum __x_ABI_CMicrosoft_CUI_CInput_CInputActivationState __x_ABI_CMicros
 typedef enum __x_ABI_CMicrosoft_CUI_CInput_CInputPointerSourceDeviceKinds __x_ABI_CMicrosoft_CUI_CInput_CInputPointerSourceDeviceKinds;
 
 typedef enum __x_ABI_CMicrosoft_CUI_CInput_CInputSystemCursorShape __x_ABI_CMicrosoft_CUI_CInput_CInputSystemCursorShape;
+
+typedef enum __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation;
 
 typedef enum __x_ABI_CMicrosoft_CUI_CInput_CNonClientRegionKind __x_ABI_CMicrosoft_CUI_CInput_CNonClientRegionKind;
 
@@ -1488,6 +1688,19 @@ enum __x_ABI_CMicrosoft_CUI_CInput_CInputSystemCursorShape
     __x_ABI_CMicrosoft_CUI_CInput_CInputSystemCursorShape_Pin = 14,
     __x_ABI_CMicrosoft_CUI_CInput_CInputSystemCursorShape_Person = 15,
     __x_ABI_CMicrosoft_CUI_CInput_CInputSystemCursorShape_AppStarting = 16,
+};
+
+enum __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation
+    {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_Move = 0,
+    __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeBottom = 1,
+    __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeBottomLeft = 2,
+    __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeBottomRight = 3,
+    __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeLeft = 4,
+    __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeRight = 5,
+    __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeTop = 6,
+    __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeTopLeft = 7,
+    __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeTopRight = 8,
 };
 
 enum __x_ABI_CMicrosoft_CUI_CInput_CNonClientRegionKind
@@ -1714,6 +1927,115 @@ struct __x_ABI_CMicrosoft_CUI_CInput_CPhysicalKeyStatus
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_PointerScreenPoint)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CPointInt32* value);
+    HRESULT (STDMETHODCALLTYPE* get_MoveSizeOperation)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs* This,
+        enum __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_PointerScreenPoint)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CPointInt32* value);
+    HRESULT (STDMETHODCALLTYPE* get_MoveSizeOperation)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This,
+        enum __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation* value);
+    HRESULT (STDMETHODCALLTYPE* get_MoveSizeWindowId)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This,
+        struct __x_ABI_CMicrosoft_CUI_CWindowId* value);
+    HRESULT (STDMETHODCALLTYPE* put_MoveSizeWindowId)(__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs* This,
+        struct __x_ABI_CMicrosoft_CUI_CWindowId value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_PointerScreenPoint)(__x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CPointInt32* value);
+    HRESULT (STDMETHODCALLTYPE* get_MoveSizeOperation)(__x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs* This,
+        enum __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs_INTERFACE_DEFINED__
@@ -3041,6 +3363,62 @@ struct __x_ABI_CMicrosoft_CUI_CInput_CPhysicalKeyStatus
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* add_EnteringMoveSize)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_EnteringMoveSize)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_EnteredMoveSize)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_EnteredMoveSize)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_WindowRectChanging)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_WindowRectChanging)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_WindowRectChanged)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_WindowRectChanged)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_ExitedMoveSize)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_ExitedMoveSize)(__x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2* This,
+        EventRegistrationToken token);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStaticsVtbl
@@ -4096,4 +4474,92 @@ struct __x_ABI_CMicrosoft_CUI_CInput_CPhysicalKeyStatus
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_PointerScreenPoint)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CPointInt32* value);
+    HRESULT (STDMETHODCALLTYPE* get_MoveSizeOperation)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This,
+        enum __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation* value);
+    HRESULT (STDMETHODCALLTYPE* get_OldWindowRect)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CRectInt32* value);
+    HRESULT (STDMETHODCALLTYPE* get_NewWindowRect)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CRectInt32* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_PointerScreenPoint)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CPointInt32* value);
+    HRESULT (STDMETHODCALLTYPE* get_MoveSizeOperation)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+        enum __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation* value);
+    HRESULT (STDMETHODCALLTYPE* get_OldWindowRect)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CRectInt32* value);
+    HRESULT (STDMETHODCALLTYPE* get_NewWindowRect)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CRectInt32* value);
+    HRESULT (STDMETHODCALLTYPE* put_NewWindowRect)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CRectInt32 value);
+    HRESULT (STDMETHODCALLTYPE* get_AllowRectChange)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_AllowRectChange)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_ShowWindow)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_ShowWindow)(__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs* This,
+        boolean value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs_INTERFACE_DEFINED__) */
     

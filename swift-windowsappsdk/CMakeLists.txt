@@ -46,7 +46,7 @@ target_link_libraries(CWinAppSDK
 # Optional: delay load Bootstrap.dll
 # target_link_options(CWinAppSDK PRIVATE "/DELAYLOAD:Microsoft.WindowsAppRuntime.Bootstrap.dll")
 
-# Copy DLL to output directory (Windows-only)
+# Copy DLL to output directory
 add_custom_command(TARGET CWinAppSDK POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         ${APP_SDK_BIN_DIR}/Microsoft.WindowsAppRuntime.Bootstrap.dll

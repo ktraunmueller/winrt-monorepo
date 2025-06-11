@@ -24,17 +24,35 @@
 
 #endif // ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2 __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2;
+
+#endif // ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager;
 
 #endif // ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2 __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2;
+
+#endif // ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics;
 
 #endif // ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2 __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2;
+
+#endif // ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentResult_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentResult_FWD_DEFINED__
@@ -1497,11 +1515,25 @@ typedef enum __x_ABI_CWindows_CFoundation_CAsyncStatus __x_ABI_CWindows_CFoundat
 
 #endif // ____x_ABI_CWindows_CFoundation_CIAsyncInfo_FWD_DEFINED__
 
+typedef enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature;
+
 typedef enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentProgressStatus __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentProgressStatus;
 
 typedef enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentStatus __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentStatus;
 
+typedef enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageReadyOrNewerAvailableStatus __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageReadyOrNewerAvailableStatus;
+
 typedef enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CStubPackageOption __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CStubPackageOption;
+
+enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature
+    {
+        __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature_PackageUriScheme_ms_uup = 1,
+    __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature_IsPackageReadyOrNewerAvailable = 2,
+    __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature_RemovePackageByUri = 3,
+    __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature_ResetPackage = 4,
+    __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature_RepairPackage = 5,
+    __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature_ProvisionPackage_Framework = 6,
+};
 
 enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentProgressStatus
     {
@@ -1516,6 +1548,13 @@ enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentStatu
         __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentStatus_InProgress = 0,
     __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentStatus_CompletedSuccess = 1,
     __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentStatus_CompletedFailure = 2,
+};
+
+enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageReadyOrNewerAvailableStatus
+    {
+        __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageReadyOrNewerAvailableStatus_NotReady = 0,
+    __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageReadyOrNewerAvailableStatus_Ready = 1,
+    __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageReadyOrNewerAvailableStatus_NewerAvailable = 2,
 };
 
 enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CStubPackageOption
@@ -1665,6 +1704,41 @@ struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentPro
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions;
 #endif /* !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_RegisterNewerIfAvailable)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_RegisterNewerIfAvailable)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2* This,
+        boolean value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2;
+#endif /* !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIEnsureReadyOptions2_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager_INTERFACE_DEFINED__
@@ -1820,6 +1894,55 @@ struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentPro
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager;
 #endif /* !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* IsPackageReadyOrNewerAvailable)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+        HSTRING package,
+        enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageReadyOrNewerAvailableStatus* result);
+    HRESULT (STDMETHODCALLTYPE* IsPackageReadyOrNewerAvailableByUri)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* packageUri,
+        enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageReadyOrNewerAvailableStatus* result);
+    HRESULT (STDMETHODCALLTYPE* IsPackageSetReadyOrNewerAvailable)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+        __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageSet* packageSet,
+        enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageReadyOrNewerAvailableStatus* result);
+    HRESULT (STDMETHODCALLTYPE* IsPackageProvisioned)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+        HSTRING package,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* IsPackageProvisionedByUri)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* packageUri,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* IsPackageSetProvisioned)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2* This,
+        __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageSet* packageSet,
+        boolean* result);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2;
+#endif /* !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManager2_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStaticsVtbl
@@ -1852,6 +1975,40 @@ struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentPro
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics;
 #endif /* !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* IsPackageDeploymentFeatureSupported)(__x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2* This,
+        enum __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CPackageDeploymentFeature feature,
+        boolean* result);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2;
+#endif /* !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentManagerStatics2_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentResult_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CWindows_CManagement_CDeployment_CIPackageDeploymentResult_INTERFACE_DEFINED__

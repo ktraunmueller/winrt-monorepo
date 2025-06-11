@@ -666,7 +666,7 @@ enum DWRITE_FACTORY_TYPE
 #define DWRITE_MAKE_OPENTYPE_TAG(a,b,c,d) ( \
     (static_cast<UINT32>(static_cast<UINT8>(d)) << 24) | \
     (static_cast<UINT32>(static_cast<UINT8>(c)) << 16) | \
-    (static_cast<UINT32>(static_cast<UINT8>(b)) << 8) | \
+    (static_cast<UINT32>(static_cast<UINT8>(b)) << 8)  | \
      static_cast<UINT32>(static_cast<UINT8>(a)))
 
 /// <summary>

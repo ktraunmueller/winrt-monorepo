@@ -10012,6 +10012,159 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput_
         return handler
     }
 }
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xf46d6637, Data2: 0x1715, Data3: 0x546a, Data4: ( 0x80,0x91,0xcf,0x1f,0xe9,0xd1,0x13,0x67 ))// f46d6637-1715-546a-8091-cf1fe9d11367
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinAppSDK.InputNonClientPointerSource? = __IMPL_Microsoft_UI_Input.InputNonClientPointerSourceBridge.from(abi: ComPtr($1))
+            let args: WinAppSDK.EnteredMoveSizeEventArgs? = __IMPL_Microsoft_UI_Input.EnteredMoveSizeEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsWrapper = InterfaceWrapperBase<WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsBridge>
+public class TypedEventHandlerInputNonClientPointerSource_EnteredMoveSizeEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs }
+
+    open func Invoke(_ sender: WinAppSDK.InputNonClientPointerSource?, _ args: WinAppSDK.EnteredMoveSizeEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.EnteredMoveSizeEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgs
+    internal typealias SwiftABI = WinAppSDK.TypedEventHandlerInputNonClientPointerSource_EnteredMoveSizeEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xaf397537, Data2: 0x27bd, Data3: 0x57d2, Data4: ( 0xab,0x2b,0x6b,0x80,0xbd,0x65,0x12,0x53 ))// af397537-27bd-57d2-ab2b-6b80bd651253
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinAppSDK.InputNonClientPointerSource? = __IMPL_Microsoft_UI_Input.InputNonClientPointerSourceBridge.from(abi: ComPtr($1))
+            let args: WinAppSDK.EnteringMoveSizeEventArgs? = __IMPL_Microsoft_UI_Input.EnteringMoveSizeEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsWrapper = InterfaceWrapperBase<WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsBridge>
+public class TypedEventHandlerInputNonClientPointerSource_EnteringMoveSizeEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs }
+
+    open func Invoke(_ sender: WinAppSDK.InputNonClientPointerSource?, _ args: WinAppSDK.EnteringMoveSizeEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.EnteringMoveSizeEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgs
+    internal typealias SwiftABI = WinAppSDK.TypedEventHandlerInputNonClientPointerSource_EnteringMoveSizeEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x32c3d5e0, Data2: 0x0955, Data3: 0x5e32, Data4: ( 0xb5,0xc3,0x6b,0x39,0xf5,0x57,0xaf,0x9b ))// 32c3d5e0-0955-5e32-b5c3-6b39f557af9b
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinAppSDK.InputNonClientPointerSource? = __IMPL_Microsoft_UI_Input.InputNonClientPointerSourceBridge.from(abi: ComPtr($1))
+            let args: WinAppSDK.ExitedMoveSizeEventArgs? = __IMPL_Microsoft_UI_Input.ExitedMoveSizeEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsWrapper = InterfaceWrapperBase<WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsBridge>
+public class TypedEventHandlerInputNonClientPointerSource_ExitedMoveSizeEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs }
+
+    open func Invoke(_ sender: WinAppSDK.InputNonClientPointerSource?, _ args: WinAppSDK.ExitedMoveSizeEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.ExitedMoveSizeEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgs
+    internal typealias SwiftABI = WinAppSDK.TypedEventHandlerInputNonClientPointerSource_ExitedMoveSizeEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
 private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientCaptionTappedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xb0ae5c41, Data2: 0x7993, Data3: 0x5fc3, Data4: ( 0x93,0x59,0xbf,0xdc,0xe9,0x84,0xc7,0x90 ))// b0ae5c41-7993-5fc3-9359-bfdce984c790
 }
@@ -10155,6 +10308,108 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput_
     internal typealias Handler = WindowsFoundation.TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.NonClientRegionsChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CNonClientRegionsChangedEventArgs
     internal typealias SwiftABI = WinAppSDK.TypedEventHandlerInputNonClientPointerSource_NonClientRegionsChangedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x01de9da7, Data2: 0x5921, Data3: 0x5965, Data4: ( 0x95,0xac,0x74,0x73,0xbe,0x9f,0x18,0xaa ))// 01de9da7-5921-5965-95ac-7473be9f18aa
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinAppSDK.InputNonClientPointerSource? = __IMPL_Microsoft_UI_Input.InputNonClientPointerSourceBridge.from(abi: ComPtr($1))
+            let args: WinAppSDK.WindowRectChangedEventArgs? = __IMPL_Microsoft_UI_Input.WindowRectChangedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsWrapper = InterfaceWrapperBase<WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsBridge>
+public class TypedEventHandlerInputNonClientPointerSource_WindowRectChangedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs }
+
+    open func Invoke(_ sender: WinAppSDK.InputNonClientPointerSource?, _ args: WinAppSDK.WindowRectChangedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.WindowRectChangedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgs
+    internal typealias SwiftABI = WinAppSDK.TypedEventHandlerInputNonClientPointerSource_WindowRectChangedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x35d18e49, Data2: 0xdb94, Data3: 0x5987, Data4: ( 0x80,0xbc,0xb3,0x93,0xe4,0x47,0xc6,0x1a ))// 35d18e49-db94-5987-80bc-b393e447c61a
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinAppSDK.InputNonClientPointerSource? = __IMPL_Microsoft_UI_Input.InputNonClientPointerSourceBridge.from(abi: ComPtr($1))
+            let args: WinAppSDK.WindowRectChangingEventArgs? = __IMPL_Microsoft_UI_Input.WindowRectChangingEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsWrapper = InterfaceWrapperBase<WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsBridge>
+public class TypedEventHandlerInputNonClientPointerSource_WindowRectChangingEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs }
+
+    open func Invoke(_ sender: WinAppSDK.InputNonClientPointerSource?, _ args: WinAppSDK.WindowRectChangingEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.WindowRectChangingEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgs
+    internal typealias SwiftABI = WinAppSDK.TypedEventHandlerInputNonClientPointerSource_WindowRectChangingEventArgs
 
     internal static func from(abi: ComPtr<CABI>?) -> Handler? {
         guard let abi = abi else { return nil }

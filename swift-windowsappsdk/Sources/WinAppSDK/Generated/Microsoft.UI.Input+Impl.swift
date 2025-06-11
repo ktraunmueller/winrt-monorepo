@@ -82,6 +82,33 @@ public enum __IMPL_Microsoft_UI_Input {
         }
     }
 
+    public enum EnteredMoveSizeEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = EnteredMoveSizeEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs>?) -> EnteredMoveSizeEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum EnteringMoveSizeEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = EnteringMoveSizeEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs>?) -> EnteringMoveSizeEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ExitedMoveSizeEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ExitedMoveSizeEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs>?) -> ExitedMoveSizeEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum FocusChangedEventArgsBridge: AbiBridge {
         public typealias SwiftProjection = FocusChangedEventArgs
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs
@@ -442,6 +469,24 @@ public enum __IMPL_Microsoft_UI_Input {
         }
     }
 
+    public enum WindowRectChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = WindowRectChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs>?) -> WindowRectChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum WindowRectChangingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = WindowRectChangingEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs>?) -> WindowRectChangingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
 }
 @_spi(WinRTInternal)
 extension CrossSlideThresholds: WinRTBridgeable {
@@ -521,6 +566,27 @@ public class DraggingEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = DraggingEventArgs
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return DraggingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class EnteredMoveSizeEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = EnteredMoveSizeEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return EnteredMoveSizeEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class EnteringMoveSizeEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = EnteringMoveSizeEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return EnteringMoveSizeEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ExitedMoveSizeEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ExitedMoveSizeEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ExitedMoveSizeEventArgs(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
@@ -773,5 +839,19 @@ public class TappedEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = TappedEventArgs
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return TappedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class WindowRectChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = WindowRectChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WindowRectChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class WindowRectChangingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = WindowRectChangingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WindowRectChangingEventArgs(fromAbi: abi)
     }
 }

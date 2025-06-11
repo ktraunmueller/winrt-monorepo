@@ -33,6 +33,12 @@ typedef interface __x_ABI_CMicrosoft_CUI_CIClosableNotifierHandler __x_ABI_CMicr
 
 #endif // ____x_ABI_CMicrosoft_CUI_CIColorHelperStatics_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CIColorHelperStatics2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CIColorHelperStatics2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CIColorHelperStatics2 __x_ABI_CMicrosoft_CUI_CIColorHelperStatics2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CIColorHelperStatics2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CIColors_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CIColors_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CIColors __x_ABI_CMicrosoft_CUI_CIColors;
@@ -201,6 +207,40 @@ struct __x_ABI_CMicrosoft_CUI_CWindowId
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CIColorHelperStatics;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CIColorHelperStatics_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CIColorHelperStatics2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CIColorHelperStatics2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CIColorHelperStatics2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CIColorHelperStatics2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CIColorHelperStatics2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CIColorHelperStatics2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CIColorHelperStatics2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CIColorHelperStatics2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CIColorHelperStatics2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* ToDisplayName)(__x_ABI_CMicrosoft_CUI_CIColorHelperStatics2* This,
+        struct __x_ABI_CWindows_CUI_CColor color,
+        HSTRING* result);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CIColorHelperStatics2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CIColorHelperStatics2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CIColorHelperStatics2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CIColorHelperStatics2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CIColorHelperStatics2_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CIColors_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CIColors_INTERFACE_DEFINED__

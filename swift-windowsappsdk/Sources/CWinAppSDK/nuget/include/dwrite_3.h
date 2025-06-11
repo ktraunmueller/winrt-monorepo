@@ -1913,6 +1913,11 @@ DWRITE_BEGIN_INTERFACE(IDWriteFontFace4, "27F2A904-4EB8-441D-9678-0563F53E3E2F")
     /// <summary>
     /// Gets all the glyph image formats supported by the entire font (SVG, PNG, JPEG, ...).
     /// </summary>
+    /// <remarks>
+    /// If the font has an SBIX table, this method reports all of the supported SBIX formats
+    /// (PNG, JPEG, and TIFF) as potentially present. This is for performance reasons, to avoid
+    /// having to scan the entire SBIX table to determine what formats are actually used.
+    /// </remarks>
     STDMETHOD_(DWRITE_GLYPH_IMAGE_FORMATS, GetGlyphImageFormats)() PURE;
 
     /// <summary>

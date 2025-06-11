@@ -23,6 +23,8 @@ public typealias InputActivationState = __x_ABI_CMicrosoft_CUI_CInput_CInputActi
 public typealias InputPointerSourceDeviceKinds = __x_ABI_CMicrosoft_CUI_CInput_CInputPointerSourceDeviceKinds
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputsystemcursorshape)
 public typealias InputSystemCursorShape = __x_ABI_CMicrosoft_CUI_CInput_CInputSystemCursorShape
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.movesizeoperation)
+public typealias MoveSizeOperation = __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.nonclientregionkind)
 public typealias NonClientRegionKind = __x_ABI_CMicrosoft_CUI_CInput_CNonClientRegionKind
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerdevicetype)
@@ -168,6 +170,111 @@ public final class DraggingEventArgs : WinRTClass {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.draggingeventargs.position)
     public var position : WindowsFoundation.Point {
         get { try! _default.get_Position() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.enteredmovesizeeventargs)
+public final class EnteredMoveSizeEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Input.IEnteredMoveSizeEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.enteredmovesizeeventargs.movesizeoperation)
+    public var moveSizeOperation : MoveSizeOperation {
+        get { try! _default.get_MoveSizeOperation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.enteredmovesizeeventargs.pointerscreenpoint)
+    public var pointerScreenPoint : UWP.PointInt32 {
+        get { try! _default.get_PointerScreenPoint() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.enteringmovesizeeventargs)
+public final class EnteringMoveSizeEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Input.IEnteringMoveSizeEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.enteringmovesizeeventargs.movesizeoperation)
+    public var moveSizeOperation : MoveSizeOperation {
+        get { try! _default.get_MoveSizeOperation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.enteringmovesizeeventargs.movesizewindowid)
+    public var moveSizeWindowId : WinAppSDK.WindowId {
+        get { try! _default.get_MoveSizeWindowId() }
+        set { try! _default.put_MoveSizeWindowId(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.enteringmovesizeeventargs.pointerscreenpoint)
+    public var pointerScreenPoint : UWP.PointInt32 {
+        get { try! _default.get_PointerScreenPoint() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.exitedmovesizeeventargs)
+public final class ExitedMoveSizeEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Input.IExitedMoveSizeEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.exitedmovesizeeventargs.movesizeoperation)
+    public var moveSizeOperation : MoveSizeOperation {
+        get { try! _default.get_MoveSizeOperation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.exitedmovesizeeventargs.pointerscreenpoint)
+    public var pointerScreenPoint : UWP.PointInt32 {
+        get { try! _default.get_PointerScreenPoint() }
     }
 
     deinit {
@@ -2342,6 +2449,105 @@ public final class TappedEventArgs : WinRTClass {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangedeventargs)
+public final class WindowRectChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Input.IWindowRectChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangedeventargs.movesizeoperation)
+    public var moveSizeOperation : MoveSizeOperation {
+        get { try! _default.get_MoveSizeOperation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangedeventargs.newwindowrect)
+    public var newWindowRect : UWP.RectInt32 {
+        get { try! _default.get_NewWindowRect() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangedeventargs.oldwindowrect)
+    public var oldWindowRect : UWP.RectInt32 {
+        get { try! _default.get_OldWindowRect() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangedeventargs.pointerscreenpoint)
+    public var pointerScreenPoint : UWP.PointInt32 {
+        get { try! _default.get_PointerScreenPoint() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangingeventargs)
+public final class WindowRectChangingEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Input.IWindowRectChangingEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangingeventargs.allowrectchange)
+    public var allowRectChange : Bool {
+        get { try! _default.get_AllowRectChange() }
+        set { try! _default.put_AllowRectChange(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangingeventargs.movesizeoperation)
+    public var moveSizeOperation : MoveSizeOperation {
+        get { try! _default.get_MoveSizeOperation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangingeventargs.newwindowrect)
+    public var newWindowRect : UWP.RectInt32 {
+        get { try! _default.get_NewWindowRect() }
+        set { try! _default.put_NewWindowRect(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangingeventargs.oldwindowrect)
+    public var oldWindowRect : UWP.RectInt32 {
+        get { try! _default.get_OldWindowRect() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangingeventargs.pointerscreenpoint)
+    public var pointerScreenPoint : UWP.PointInt32 {
+        get { try! _default.get_PointerScreenPoint() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.windowrectchangingeventargs.showwindow)
+    public var showWindow : Bool {
+        get { try! _default.get_ShowWindow() }
+        set { try! _default.put_ShowWindow(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.crossslidethresholds)
 public struct CrossSlideThresholds: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.input.crossslidethresholds.selectionstart)
@@ -2673,6 +2879,37 @@ extension WinAppSDK.InputSystemCursorShape {
     }
 }
 extension WinAppSDK.InputSystemCursorShape: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinAppSDK.MoveSizeOperation {
+    public static var move : WinAppSDK.MoveSizeOperation {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_Move
+    }
+    public static var sizeBottom : WinAppSDK.MoveSizeOperation {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeBottom
+    }
+    public static var sizeBottomLeft : WinAppSDK.MoveSizeOperation {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeBottomLeft
+    }
+    public static var sizeBottomRight : WinAppSDK.MoveSizeOperation {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeBottomRight
+    }
+    public static var sizeLeft : WinAppSDK.MoveSizeOperation {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeLeft
+    }
+    public static var sizeRight : WinAppSDK.MoveSizeOperation {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeRight
+    }
+    public static var sizeTop : WinAppSDK.MoveSizeOperation {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeTop
+    }
+    public static var sizeTopLeft : WinAppSDK.MoveSizeOperation {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeTopLeft
+    }
+    public static var sizeTopRight : WinAppSDK.MoveSizeOperation {
+        __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation_SizeTopRight
+    }
+}
+extension WinAppSDK.MoveSizeOperation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinAppSDK.NonClientRegionKind {
     public static var close : WinAppSDK.NonClientRegionKind {

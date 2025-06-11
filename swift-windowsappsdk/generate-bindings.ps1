@@ -47,6 +47,27 @@ function Restore-Nuget {
         Write-Host "Nuget restore failed!" -ForegroundColor Red
         exit 1
     }
+
+    # Copy include/lib/bin folders
+    $SourcesDir = Join-Path $PSScriptRoot "Sources"
+    $CWinAppSDKDir = Join-Path $SourcesDir "CWinAppSDK"
+    $NugetDir = Join-Path $CWinAppSDKDir "nuget"
+
+    $VersionedPackageFolder = "$($Projections.Package.Id).$($Projections.Package.Version)"
+    Write-Host "VersionedPackageFolder: $VersionedPackageFolder"
+
+    $HeadersPath = Join-Path $PackagesDir $VersionedPackageFolder "include"
+    Copy-Folder $HeadersPath "*.h" (Join-Path $NugetDir "include")
+
+    $LibPath = Join-Path $PackagesDir $VersionedPackageFolder "lib"
+    foreach ($Arch in @("x64", "arm64")) {
+        Copy-Folder $(Join-Path $LibPath "win10-$Arch") "*.lib" $(Join-Path $NugetDir "lib" $Arch)
+    }
+
+    $RuntimesPath = Join-Path $PackagesDir $VersionedPackageFolder "runtimes"
+    foreach ($Arch in @("x64", "arm64")) {
+        Copy-Folder $(Join-Path $RuntimesPath "win-$Arch" "native") "*.dll" $(Join-Path $NugetDir "bin" $Arch)
+    }
 }
 
 function Get-WinMDInputs() {
@@ -75,6 +96,24 @@ function Copy-Project {
     }
 }
 
+function Copy-Folder {
+    param(
+        [string]$SourceFolder,
+        [string]$FileExtension,          # *.*, *.h, etc (must not be null)
+        [string]$DestinationFolder
+    )
+
+    # Remove destination folder if it exists
+    if (Test-Path $DestinationFolder) {
+        Remove-Item -Path $DestinationFolder -Recurse -Force
+    }
+    # Recreate destination folder
+    New-Item -ItemType Directory -Path $DestinationFolder | Out-Null
+
+    # Copy contents of source folder to destination
+    Write-Host "Copying $SourceFolder ($FileExtension) -> $DestinationFolder" -ForegroundColor Yellow
+    Copy-Item -Path (Join-Path $SourceFolder "*") -Include $FileExtension -Destination $DestinationFolder -Recurse -Force
+}
 
 function Invoke-SwiftWinRT() {
     param(

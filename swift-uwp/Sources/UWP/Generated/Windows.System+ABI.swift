@@ -1230,7 +1230,7 @@ extension __ABI_Windows_System {
     }
 
 
-    public typealias DispatcherQueueHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_System.DispatcherQueueHandlerBridge>
+    typealias DispatcherQueueHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_System.DispatcherQueueHandlerBridge>
     internal static var DispatcherQueueHandlerVTable: __x_ABI_CWindows_CSystem_CIDispatcherQueueHandlerVtbl = .init(
         QueryInterface: { DispatcherQueueHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { DispatcherQueueHandlerWrapper.addRef($0) },

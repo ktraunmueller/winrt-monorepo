@@ -21,6 +21,18 @@ private var IID___x_ABI_CMicrosoft_CUI_CInput_CIDraggingEventArgs: WindowsFounda
     .init(Data1: 0x3EFB1B75, Data2: 0x3D3B, Data3: 0x550E, Data4: ( 0x96,0x3D,0x08,0x28,0xCA,0x76,0x12,0x8A ))// 3EFB1B75-3D3B-550E-963D-0828CA76128A
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x698D28FE, Data2: 0xD325, Data3: 0x59E0, Data4: ( 0x98,0x34,0xB1,0x0F,0xC2,0xF7,0xBA,0x67 ))// 698D28FE-D325-59E0-9834-B10FC2F7BA67
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x47C083B2, Data2: 0x402B, Data3: 0x51EC, Data4: ( 0x88,0x36,0xD4,0x86,0x79,0xFE,0xA6,0x95 ))// 47C083B2-402B-51EC-8836-D48679FEA695
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xDF12A46E, Data2: 0xDAEE, Data3: 0x5DAC, Data4: ( 0xA6,0x78,0xD7,0xD5,0xE4,0xD0,0x89,0x3A ))// DF12A46E-DAEE-5DAC-A678-D7D5E4D0893A
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CInput_CIFocusChangedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xA039B115, Data2: 0xDBDF, Data3: 0x594C, Data4: ( 0x9B,0x86,0xDA,0x6A,0xA0,0x5C,0x9F,0xA2 ))// A039B115-DBDF-594C-9B86-DA6AA05C9FA2
 }
@@ -149,6 +161,10 @@ private var IID___x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource: Win
     .init(Data1: 0x471732B4, Data2: 0x3D07, Data3: 0x5104, Data4: ( 0xB1,0x92,0xEB,0xAC,0xF7,0x1E,0x86,0xDF ))// 471732B4-3D07-5104-B192-EBACF71E86DF
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2: WindowsFoundation.IID {
+    .init(Data1: 0xDD2B10C4, Data2: 0x7DE6, Data3: 0x5C1D, Data4: ( 0xB4,0x38,0x06,0xDD,0xC9,0x94,0x05,0x8F ))// DD2B10C4-7DE6-5C1D-B438-06DDC994058F
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics: WindowsFoundation.IID {
     .init(Data1: 0x7D0B775C, Data2: 0x1903, Data3: 0x5DC7, Data4: ( 0xBD,0x2F,0x7A,0x4B,0x31,0xF0,0xCF,0xF2 ))// 7D0B775C-1903-5DC7-BD2F-7A4B31F0CFF2
 }
@@ -251,6 +267,14 @@ private var IID___x_ABI_CMicrosoft_CUI_CInput_CIRightTappedEventArgs: WindowsFou
 
 private var IID___x_ABI_CMicrosoft_CUI_CInput_CITappedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xC3A01BB5, Data2: 0x6076, Data3: 0x5E0F, Data4: ( 0x87,0x1A,0x9D,0x94,0xA6,0xA8,0xF8,0x2B ))// C3A01BB5-6076-5E0F-871A-9D94A6A8F82B
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x8A885D28, Data2: 0xD2D9, Data3: 0x5DDA, Data4: ( 0x98,0x48,0xCD,0xF2,0x47,0x77,0x10,0x37 ))// 8A885D28-D2D9-5DDA-9848-CDF247771037
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xDB13ED3C, Data2: 0xDEBC, Data3: 0x5855, Data4: ( 0x8D,0x70,0x59,0x36,0xFD,0x81,0x34,0x57 ))// DB13ED3C-DEBC-5855-8D70-5936FD813457
 }
 
 @_spi(WinRTInternal)
@@ -363,6 +387,83 @@ public enum __ABI_Microsoft_UI_Input {
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
             }
             return .from(abi: value)
+        }
+
+    }
+
+    public class IEnteredMoveSizeEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs }
+
+        public func get_PointerScreenPoint() throws -> UWP.PointInt32 {
+            var value: __x_ABI_CWindows_CGraphics_CPointInt32 = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerScreenPoint(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_MoveSizeOperation() throws -> WinAppSDK.MoveSizeOperation {
+            var value: __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIEnteredMoveSizeEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MoveSizeOperation(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    public class IEnteringMoveSizeEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs }
+
+        public func get_PointerScreenPoint() throws -> UWP.PointInt32 {
+            var value: __x_ABI_CWindows_CGraphics_CPointInt32 = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerScreenPoint(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_MoveSizeOperation() throws -> WinAppSDK.MoveSizeOperation {
+            var value: __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MoveSizeOperation(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_MoveSizeWindowId() throws -> WinAppSDK.WindowId {
+            var value: __x_ABI_CMicrosoft_CUI_CWindowId = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MoveSizeWindowId(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MoveSizeWindowId(_ value: WinAppSDK.WindowId) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIEnteringMoveSizeEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MoveSizeWindowId(pThis, .from(swift: value)))
+            }
+        }
+
+    }
+
+    public class IExitedMoveSizeEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs }
+
+        public func get_PointerScreenPoint() throws -> UWP.PointInt32 {
+            var value: __x_ABI_CWindows_CGraphics_CPointInt32 = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerScreenPoint(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_MoveSizeOperation() throws -> WinAppSDK.MoveSizeOperation {
+            var value: __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIExitedMoveSizeEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MoveSizeOperation(pThis, &value))
+            }
+            return value
         }
 
     }
@@ -1617,6 +1718,91 @@ public enum __ABI_Microsoft_UI_Input {
 
     }
 
+    public class IInputNonClientPointerSource2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2 }
+
+        public func add_EnteringMoveSize(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.EnteringMoveSizeEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteringMoveSizeEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_EnteringMoveSize(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_EnteringMoveSize(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_EnteringMoveSize(pThis, token))
+            }
+        }
+
+        public func add_EnteredMoveSize(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.EnteredMoveSizeEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CEnteredMoveSizeEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_EnteredMoveSize(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_EnteredMoveSize(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_EnteredMoveSize(pThis, token))
+            }
+        }
+
+        public func add_WindowRectChanging(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.WindowRectChangingEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangingEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_WindowRectChanging(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_WindowRectChanging(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_WindowRectChanging(pThis, token))
+            }
+        }
+
+        public func add_WindowRectChanged(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.WindowRectChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CWindowRectChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_WindowRectChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_WindowRectChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_WindowRectChanged(pThis, token))
+            }
+        }
+
+        public func add_ExitedMoveSize(_ handler: TypedEventHandler<WinAppSDK.InputNonClientPointerSource?, WinAppSDK.ExitedMoveSizeEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinAppSDK.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CInput__CInputNonClientPointerSource___x_ABI_CMicrosoft__CUI__CInput__CExitedMoveSizeEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ExitedMoveSize(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ExitedMoveSize(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSource2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ExitedMoveSize(pThis, token))
+            }
+        }
+
+    }
+
     public class IInputNonClientPointerSourceStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputNonClientPointerSourceStatics }
 
@@ -2718,6 +2904,114 @@ public enum __ABI_Microsoft_UI_Input {
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TapCount(pThis, &value))
             }
             return value
+        }
+
+    }
+
+    public class IWindowRectChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs }
+
+        public func get_PointerScreenPoint() throws -> UWP.PointInt32 {
+            var value: __x_ABI_CWindows_CGraphics_CPointInt32 = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerScreenPoint(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_MoveSizeOperation() throws -> WinAppSDK.MoveSizeOperation {
+            var value: __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MoveSizeOperation(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OldWindowRect() throws -> UWP.RectInt32 {
+            var value: __x_ABI_CWindows_CGraphics_CRectInt32 = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldWindowRect(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_NewWindowRect() throws -> UWP.RectInt32 {
+            var value: __x_ABI_CWindows_CGraphics_CRectInt32 = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewWindowRect(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class IWindowRectChangingEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs }
+
+        public func get_PointerScreenPoint() throws -> UWP.PointInt32 {
+            var value: __x_ABI_CWindows_CGraphics_CPointInt32 = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerScreenPoint(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_MoveSizeOperation() throws -> WinAppSDK.MoveSizeOperation {
+            var value: __x_ABI_CMicrosoft_CUI_CInput_CMoveSizeOperation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MoveSizeOperation(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OldWindowRect() throws -> UWP.RectInt32 {
+            var value: __x_ABI_CWindows_CGraphics_CRectInt32 = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldWindowRect(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_NewWindowRect() throws -> UWP.RectInt32 {
+            var value: __x_ABI_CWindows_CGraphics_CRectInt32 = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewWindowRect(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_NewWindowRect(_ value: UWP.RectInt32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NewWindowRect(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_AllowRectChange() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllowRectChange(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_AllowRectChange(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AllowRectChange(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_ShowWindow() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShowWindow(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_ShowWindow(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIWindowRectChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ShowWindow(pThis, .init(from: value)))
+            }
         }
 
     }

@@ -959,6 +959,12 @@ typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventHandler 
 
 #endif // ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot2_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3 __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs;
@@ -5025,6 +5031,12 @@ typedef struct __x_ABI_CWindows_CUI_CColor __x_ABI_CWindows_CUI_CColor;
     typedef interface __x_ABI_CMicrosoft_CUI_CComposition_CIVisualElement2 __x_ABI_CMicrosoft_CUI_CComposition_CIVisualElement2;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter __x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment_FWD_DEFINED__
@@ -12604,6 +12616,39 @@ struct __x_ABI_CMicrosoft_CUI_CXaml_CThickness
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot2;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot2_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_CoordinateConverter)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs_INTERFACE_DEFINED__

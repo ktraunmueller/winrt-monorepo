@@ -987,6 +987,18 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollBarAutomationPeerFactory_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollViewerAutomationPeer_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollViewerAutomationPeer_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollViewerAutomationPeer __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollViewerAutomationPeer;
@@ -2232,6 +2244,12 @@ typedef enum __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeT
     typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollBar __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollBar;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollBar_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollPresenter_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollPresenter_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollPresenter __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollPresenter;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollPresenter_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISelector_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISelector_FWD_DEFINED__
@@ -8308,6 +8326,73 @@ struct __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CRawElementProviderRuntim
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollBarAutomationPeerFactory;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollBarAutomationPeerFactory_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer* This,
+            TrustLevel* trustLevel);
+    
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactoryVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* CreateInstance)(__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollPresenter* owner,
+        IInspectable* baseInterface,
+        IInspectable** innerInterface,
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeer** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactoryVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactoryVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollPresenterAutomationPeerFactory_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollViewerAutomationPeer_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIScrollViewerAutomationPeer_INTERFACE_DEFINED__
