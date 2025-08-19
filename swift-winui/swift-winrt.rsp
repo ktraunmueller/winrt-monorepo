@@ -89,6 +89,7 @@
 -include Microsoft.UI.Xaml.Media.ThemeShadow
 -include Microsoft.UI.Xaml.Media.Transform
 -include Microsoft.UI.Xaml.Media.TranslateTransform
+-include Microsoft.UI.Xaml.Media.ScaleTransform
 -include Microsoft.UI.Xaml.Setter
 -include Microsoft.UI.Xaml.Shapes.Ellipse
 -include Microsoft.UI.Xaml.Shapes.Path

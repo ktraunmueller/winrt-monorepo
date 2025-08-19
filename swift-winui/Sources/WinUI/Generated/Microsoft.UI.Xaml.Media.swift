@@ -1916,6 +1916,79 @@ public final class RenderedEventArgs : WinRTClass {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.scaletransform)
+public final class ScaleTransform : WinUI.Transform {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IScaleTransform
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.ScaleTransform")
+    public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IScaleTransformStatics: __ABI_Microsoft_UI_Xaml_Media.IScaleTransformStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.ScaleTransform")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.scaletransform.centerxproperty)
+    public static var centerXProperty : WinUI.DependencyProperty! {
+        get { try! _IScaleTransformStatics.get_CenterXProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.scaletransform.centeryproperty)
+    public static var centerYProperty : WinUI.DependencyProperty! {
+        get { try! _IScaleTransformStatics.get_CenterYProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.scaletransform.scalexproperty)
+    public static var scaleXProperty : WinUI.DependencyProperty! {
+        get { try! _IScaleTransformStatics.get_ScaleXProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.scaletransform.scaleyproperty)
+    public static var scaleYProperty : WinUI.DependencyProperty! {
+        get { try! _IScaleTransformStatics.get_ScaleYProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.scaletransform.centerx)
+    public var centerX : Double {
+        get { try! _default.get_CenterX() }
+        set { try! _default.put_CenterX(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.scaletransform.centery)
+    public var centerY : Double {
+        get { try! _default.get_CenterY() }
+        set { try! _default.put_CenterY(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.scaletransform.scalex)
+    public var scaleX : Double {
+        get { try! _default.get_ScaleX() }
+        set { try! _default.put_ScaleX(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.scaletransform.scaley)
+    public var scaleY : Double {
+        get { try! _default.get_ScaleY() }
+        set { try! _default.put_ScaleY(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.shadow)
 open class Shadow : WinUI.DependencyObject {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IShadow

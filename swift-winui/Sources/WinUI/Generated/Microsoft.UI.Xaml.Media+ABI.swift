@@ -214,6 +214,14 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIRenderedEventArgs: Windows
     .init(Data1: 0xB268B885, Data2: 0x118D, Data3: 0x5B66, Data4: ( 0x80,0x99,0x3B,0x6B,0xB8,0x64,0x47,0x26 ))// B268B885-118D-5B66-8099-3B6BB8644726
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform: WindowsFoundation.IID {
+    .init(Data1: 0x94B064A4, Data2: 0x34F0, Data3: 0x5EF9, Data4: ( 0x8B,0x67,0x44,0x4F,0x56,0x99,0xF5,0x2A ))// 94B064A4-34F0-5EF9-8B67-444F5699F52A
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransformStatics: WindowsFoundation.IID {
+    .init(Data1: 0x76485BD5, Data2: 0xA5BF, Data3: 0x5790, Data4: ( 0xA8,0x37,0x81,0x93,0xC8,0x4D,0xF3,0x53 ))// 76485BD5-A5BF-5790-A837-8193C84DF353
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIShadow: WindowsFoundation.IID {
     .init(Data1: 0xCC12FD6A, Data2: 0x50AA, Data3: 0x5EB3, Data4: ( 0x9A,0x0E,0xB9,0x38,0xB4,0x54,0xC4,0x39 ))// CC12FD6A-50AA-5EB3-9A0E-B938B454C439
 }
@@ -1696,6 +1704,108 @@ public enum __ABI_Microsoft_UI_Xaml_Media {
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FrameDuration(pThis, &value))
             }
             return .from(abi: value)
+        }
+
+    }
+
+    public class IScaleTransform: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform }
+
+        public func get_CenterX() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CenterX(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_CenterX(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CenterX(pThis, value))
+            }
+        }
+
+        public func get_CenterY() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CenterY(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_CenterY(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CenterY(pThis, value))
+            }
+        }
+
+        public func get_ScaleX() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleX(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ScaleX(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ScaleX(pThis, value))
+            }
+        }
+
+        public func get_ScaleY() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleY(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ScaleY(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ScaleY(pThis, value))
+            }
+        }
+
+    }
+
+    public class IScaleTransformStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransformStatics }
+
+        public func get_CenterXProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransformStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CenterXProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CenterYProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransformStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CenterYProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ScaleXProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransformStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleXProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ScaleYProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransformStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScaleYProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }

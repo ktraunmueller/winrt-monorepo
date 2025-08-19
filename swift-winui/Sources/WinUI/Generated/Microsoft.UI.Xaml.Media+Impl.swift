@@ -372,6 +372,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Media {
         }
     }
 
+    public enum ScaleTransformBridge: AbiBridge {
+        public typealias SwiftProjection = ScaleTransform
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIScaleTransform>?) -> ScaleTransform? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum ShadowBridge: ComposableBridge {
         public typealias SwiftProjection = Shadow
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIShadow
@@ -697,6 +706,13 @@ public class RenderedEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = RenderedEventArgs
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return RenderedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ScaleTransformMaker: MakeFromAbi {
+    public typealias SwiftType = ScaleTransform
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ScaleTransform(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
