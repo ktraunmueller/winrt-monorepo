@@ -16,6 +16,8 @@
     "Microsoft.UI.Colors",
     "Microsoft.UI.Xaml.Application",
     "Microsoft.UI.Xaml.Controls.AppBar",
+    "Microsoft.UI.Xaml.Controls.AppBarButton",
+    "Microsoft.UI.Xaml.Controls.AppBarSeparator",
     "Microsoft.UI.Xaml.Controls.AppBarToggleButton",
     "Microsoft.UI.Xaml.Controls.BitmapIcon",
     "Microsoft.UI.Xaml.Controls.Border",

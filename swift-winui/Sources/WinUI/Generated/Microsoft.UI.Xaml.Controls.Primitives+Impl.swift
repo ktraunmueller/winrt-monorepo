@@ -302,6 +302,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
             return handler
         }
     }
+    public enum AppBarButtonTemplateSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = AppBarButtonTemplateSettings
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings>?) -> AppBarButtonTemplateSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum AppBarTemplateSettingsBridge: AbiBridge {
         public typealias SwiftProjection = AppBarTemplateSettings
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarTemplateSettings
@@ -711,6 +720,13 @@ public class IScrollSnapPointsInfoMaker: MakeFromAbi {
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         let swiftAbi: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointsInfo = try! abi.QueryInterface()
         return __IMPL_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointsInfoBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class AppBarButtonTemplateSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = AppBarButtonTemplateSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppBarButtonTemplateSettings(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)

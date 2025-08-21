@@ -434,6 +434,48 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         public typealias Composable = IAppBarOverrides
     }
 
+    public enum AppBarButtonBridge: ComposableBridge {
+        public typealias SwiftProjection = AppBarButton
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButton
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButton>?) -> AppBarButton? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IContentControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides
+            public typealias Class = AppBarButton
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButton
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarButton
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IContentControlOverrides
+    }
+
+    public enum AppBarSeparatorBridge: ComposableBridge {
+        public typealias SwiftProjection = AppBarSeparator
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarSeparator
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarSeparator>?) -> AppBarSeparator? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = AppBarSeparator
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarSeparator
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarSeparator
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
     public enum AppBarToggleButtonBridge: ComposableBridge {
         public typealias SwiftProjection = AppBarToggleButton
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton
@@ -3141,6 +3183,20 @@ public class AppBarMaker: MakeFromAbi {
     public typealias SwiftType = AppBar
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return AppBar(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AppBarButtonMaker: MakeFromAbi {
+    public typealias SwiftType = AppBarButton
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppBarButton(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AppBarSeparatorMaker: MakeFromAbi {
+    public typealias SwiftType = AppBarSeparator
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppBarSeparator(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)

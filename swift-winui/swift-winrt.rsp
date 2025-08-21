@@ -3,6 +3,8 @@
 -include Microsoft.UI.Colors
 -include Microsoft.UI.Xaml.Application
 -include Microsoft.UI.Xaml.Controls.AppBar
+-include Microsoft.UI.Xaml.Controls.AppBarButton
+-include Microsoft.UI.Xaml.Controls.AppBarSeparator
 -include Microsoft.UI.Xaml.Controls.AppBarToggleButton
 -include Microsoft.UI.Xaml.Controls.BitmapIcon
 -include Microsoft.UI.Xaml.Controls.Border

@@ -5,6 +5,10 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings: WindowsFoundation.IID {
+    .init(Data1: 0x6FC13525, Data2: 0xBF03, Data3: 0x5190, Data4: ( 0xA1,0xD5,0xEB,0xD6,0xA1,0xBC,0xB6,0xB4 ))// 6FC13525-BF03-5190-A1D5-EBD6A1BCB6B4
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarTemplateSettings: WindowsFoundation.IID {
     .init(Data1: 0xFE60E73F, Data2: 0x9A52, Data3: 0x5E0A, Data4: ( 0xB7,0x38,0x42,0x6F,0x97,0xD0,0x97,0x68 ))// FE60E73F-9A52-5E0A-B738-426F97D09768
 }
@@ -243,6 +247,19 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRangeBaseVa
 
 @_spi(WinRTInternal)
 public enum __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    public class IAppBarButtonTemplateSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings }
+
+        public func get_KeyboardAcceleratorTextMinWidth() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAcceleratorTextMinWidth(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
     public class IAppBarTemplateSettings: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarTemplateSettings }
 

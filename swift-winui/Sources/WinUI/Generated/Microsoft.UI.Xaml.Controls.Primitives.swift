@@ -27,6 +27,34 @@ public typealias SliderSnapsTo = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimiti
 public typealias SnapPointsAlignment = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CSnapPointsAlignment
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.tickplacement)
 public typealias TickPlacement = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CTickPlacement
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbarbuttontemplatesettings)
+public final class AppBarButtonTemplateSettings : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IAppBarButtonTemplateSettings
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbarbuttontemplatesettings.keyboardacceleratortextminwidth)
+    public var keyboardAcceleratorTextMinWidth : Double {
+        get { try! _default.get_KeyboardAcceleratorTextMinWidth() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings)
 public final class AppBarTemplateSettings : WinUI.DependencyObject {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IAppBarTemplateSettings
