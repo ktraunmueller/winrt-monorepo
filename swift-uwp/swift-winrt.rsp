@@ -21,10 +21,11 @@
 -include Windows.UI.Composition
 -include Windows.UI.Core.CoreCursor
 -include Windows.UI.Core.CoreWindow
--include Windows.UI.Text.TextDecorations
+-include Windows.UI.Text.Core
 -include Windows.UI.Text.FontWeights
 -include Windows.UI.Text.FontStyle
 -include Windows.UI.Text.FontStretch
+-include Windows.UI.Text.TextDecorations
 -include Windows.UI.ViewManagement.UISettings
 -exclude Windows.Devices.Enumeration.Panel
 -exclude Windows.Management.Deployment.PackageStatus

@@ -79,6 +79,7 @@
     "Windows.UI.Core",
     "Windows.UI.Notifications",
     "Windows.UI.Text",
+    "Windows.UI.Text.Core",
     "Windows.UI.ViewManagement"
   ],
   "exclude": [

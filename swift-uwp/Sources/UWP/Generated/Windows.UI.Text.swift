@@ -10,6 +10,8 @@ public typealias FontStretch = __x_ABI_CWindows_CUI_CText_CFontStretch
 public typealias FontStyle = __x_ABI_CWindows_CUI_CText_CFontStyle
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.textdecorations)
 public typealias TextDecorations = __x_ABI_CWindows_CUI_CText_CTextDecorations
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.underlinetype)
+public typealias UnderlineType = __x_ABI_CWindows_CUI_CText_CUnderlineType
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights)
 public final class FontWeights : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_UI_Text.IFontWeights
@@ -158,4 +160,68 @@ extension UWP.TextDecorations {
     }
 }
 extension UWP.TextDecorations: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension UWP.UnderlineType {
+    public static var undefined : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Undefined
+    }
+    public static var none : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_None
+    }
+    public static var single : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Single
+    }
+    public static var words : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Words
+    }
+    public static var double : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Double
+    }
+    public static var dotted : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Dotted
+    }
+    public static var dash : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Dash
+    }
+    public static var dashDot : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_DashDot
+    }
+    public static var dashDotDot : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_DashDotDot
+    }
+    public static var wave : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Wave
+    }
+    public static var thick : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Thick
+    }
+    public static var thin : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Thin
+    }
+    public static var doubleWave : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_DoubleWave
+    }
+    public static var heavyWave : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_HeavyWave
+    }
+    public static var longDash : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_LongDash
+    }
+    public static var thickDash : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDash
+    }
+    public static var thickDashDot : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDashDot
+    }
+    public static var thickDashDotDot : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDashDotDot
+    }
+    public static var thickDotted : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDotted
+    }
+    public static var thickLongDash : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickLongDash
+    }
+}
+extension UWP.UnderlineType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

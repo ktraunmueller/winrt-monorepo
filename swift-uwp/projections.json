@@ -34,10 +34,11 @@
     "Windows.UI.Composition",
     "Windows.UI.Core.CoreCursor",
     "Windows.UI.Core.CoreWindow",
-    "Windows.UI.Text.TextDecorations",
+    "Windows.UI.Text.Core",
     "Windows.UI.Text.FontWeights",
     "Windows.UI.Text.FontStyle",
     "Windows.UI.Text.FontStretch",
+    "Windows.UI.Text.TextDecorations",
     "Windows.UI.ViewManagement.UISettings"
   ],
   "exclude": [

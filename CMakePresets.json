@@ -1,0 +1,29 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 29,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "debug",
+      "displayName": "CMake Configure (Debug)",
+      "description": "Debug build using Ninja and Swift with LLD",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "SWIFT_TOOLCHAIN_PATH": "E:/Swift/Toolchains/0.0.0+Asserts/usr",
+        "CMAKE_Swift_COMPILER": "E:/Swift/Toolchains/0.0.0+Asserts/usr/bin/swiftc.exe"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug",
+      "description": "CMake Build (Debug)"
+    }
+  ]
+}

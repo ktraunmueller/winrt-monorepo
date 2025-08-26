@@ -5700,6 +5700,93 @@ fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CNotifications_
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment: WindowsFoundation.IID {
+    .init(Data1: 0x38372bd2, Data2: 0xd3fe, Data3: 0x5ad2, Data4: ( 0x9d,0x39,0xd1,0x66,0xb6,0x8e,0x78,0xe7 ))// 38372bd2-d3fe-5ad2-9d39-d166b68e78e7
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentVTable: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Windows.UI.Text.Core.CoreTextCompositionSegment>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentBridge>
+public class IIterableCoreTextCompositionSegment: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<UWP.CoreTextCompositionSegment?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment
+    internal typealias SwiftABI = IIterableCoreTextCompositionSegment
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<UWP.CoreTextCompositionSegment?>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentImpl : IIterable, AbiInterfaceImpl {
+    typealias T = UWP.CoreTextCompositionSegment?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.CoreTextCompositionSegment?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIIterator_1_float: WindowsFoundation.IID {
     .init(Data1: 0x42614e61, Data2: 0xb0aa, Data3: 0x5e72, Data4: ( 0x93,0x54,0x27,0x71,0xdb,0x20,0xb7,0xa8 ))// 42614e61-b0aa-5e72-9354-2771db20b7a8
 }
@@ -10989,6 +11076,157 @@ fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CNotifications_
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
     fileprivate var current : UWP.ShownTileNotification? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment: WindowsFoundation.IID {
+    .init(Data1: 0x39b4528d, Data2: 0x2370, Data3: 0x57fa, Data4: ( 0xb5,0xd4,0xb5,0xa2,0x07,0x9a,0x7c,0xea ))// 39b4528d-2370-57fa-b5d4-b5a2079a7cea
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentVTable: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Windows.UI.Text.Core.CoreTextCompositionSegment>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [UWP.CoreTextCompositionSegment?] = .from(abiBridge: __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentBridge>
+public class IIteratorCoreTextCompositionSegment: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment }
+
+    open func get_Current() throws -> UWP.CoreTextCompositionSegment? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [UWP.CoreTextCompositionSegment?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment
+    internal typealias SwiftABI = IIteratorCoreTextCompositionSegment
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<UWP.CoreTextCompositionSegment?>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentImpl : IIterator, AbiInterfaceImpl {
+    typealias T = UWP.CoreTextCompositionSegment?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [UWP.CoreTextCompositionSegment?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : UWP.CoreTextCompositionSegment? {
         get { try! _default.get_Current() }
     }
 
@@ -19501,6 +19739,190 @@ fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CNotification
     private lazy var _IIterable: IIterableShownTileNotification! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.ShownTileNotification?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment: WindowsFoundation.IID {
+    .init(Data1: 0x214b64ff, Data2: 0xcf4d, Data3: 0x5dd4, Data4: ( 0x93,0x2a,0x7b,0xc6,0x6e,0x69,0x03,0x6e ))// 214b64ff-cf4d-5dd4-932a-7bc66e69036e
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentVTable: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Text.Core.CoreTextCompositionSegment>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.CoreTextCompositionSegment? = __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [UWP.CoreTextCompositionSegment?] = .from(abiBridge: __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentBridge>
+public class IVectorViewCoreTextCompositionSegment: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment }
+
+    open func GetAt(_ index: UInt32) throws -> UWP.CoreTextCompositionSegment? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: UWP.CoreTextCompositionSegment?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [UWP.CoreTextCompositionSegment?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_UI_Text_Core.CoreTextCompositionSegmentBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegment
+    internal typealias SwiftABI = IVectorViewCoreTextCompositionSegment
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<UWP.CoreTextCompositionSegment?>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = UWP.CoreTextCompositionSegment?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionSegmentBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> UWP.CoreTextCompositionSegment? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: UWP.CoreTextCompositionSegment?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [UWP.CoreTextCompositionSegment?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableCoreTextCompositionSegment! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.CoreTextCompositionSegment?>? {
         try! _IIterable.First()
     }
 
@@ -30359,6 +30781,122 @@ internal var __x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectVTable
     }
 )
 typealias __x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectWrapper = ReferenceWrapperBase<UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectBridge>
+private var IID___x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineType: WindowsFoundation.IID {
+    .init(Data1: 0x1b63ec17, Data2: 0x7b2b, Data3: 0x59fe, Data4: ( 0xab,0x9d,0xb6,0x0e,0xa4,0xf9,0xc9,0xb8 ))// 1b63ec17-7b2b-59fe-ab9d-b60ea4f9c9b8
+}
+
+internal enum __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeBridge: ReferenceBridge {
+    typealias CABI = __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineType
+    typealias SwiftProjection = UWP.UnderlineType
+    static var IID: WindowsFoundation.IID { IID___x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineType }
+
+    static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let val = abi else { return nil }
+        var result: __x_ABI_CWindows_CUI_CText_CUnderlineType = .init(0)
+        try! CHECKED(val.get().pointee.lpVtbl.pointee.get_Value(val.get(), &result))
+        return result
+    }
+
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+internal var __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeVTable: __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeWrapper.IID
+        iids[3] = __ABI_Windows_Foundation.IPropertyValueWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.IReference`1<Windows.UI.Text.UnderlineType>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Value: {
+        guard let __unwrapped__instance = __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance
+        $1?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeWrapper = ReferenceWrapperBase<UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CText__CUnderlineTypeBridge>
+private var IID___x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementType: WindowsFoundation.IID {
+    .init(Data1: 0xe17e08c9, Data2: 0x7deb, Data3: 0x51d1, Data4: ( 0x84,0x87,0x33,0x4e,0xb3,0xfe,0x46,0x91 ))// e17e08c9-7deb-51d1-8487-334eb3fe4691
+}
+
+internal enum __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeBridge: ReferenceBridge {
+    typealias CABI = __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementType
+    typealias SwiftProjection = UWP.UIElementType
+    static var IID: WindowsFoundation.IID { IID___x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementType }
+
+    static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let val = abi else { return nil }
+        var result: __x_ABI_CWindows_CUI_CViewManagement_CUIElementType = .init(0)
+        try! CHECKED(val.get().pointee.lpVtbl.pointee.get_Value(val.get(), &result))
+        return result
+    }
+
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+internal var __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeVTable: __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeWrapper.IID
+        iids[3] = __ABI_Windows_Foundation.IPropertyValueWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.IReference`1<Windows.UI.ViewManagement.UIElementType>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Value: {
+        guard let __unwrapped__instance = __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance
+        $1?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeWrapper = ReferenceWrapperBase<UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CViewManagement__CUIElementTypeBridge>
 private var IID___x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CWindows__CUI__CComposition__CCompositionBatchCompletedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0x9df03456, Data2: 0x3383, Data3: 0x508b, Data4: ( 0x9c,0x75,0xee,0x84,0x0a,0x7e,0x1a,0x39 ))// 9df03456-3383-508b-9c75-ee840a7e1a39
 }
@@ -32264,6 +32802,520 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CI
     internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.AnyICorePointerRedirector?, UWP.PointerEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CICorePointerRedirector___x_ABI_CWindows__CUI__CCore__CPointerEventArgs
     internal typealias SwiftABI = UWP.TypedEventHandlerICorePointerRedirector_PointerEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectable: WindowsFoundation.IID {
+    .init(Data1: 0xef53b467, Data2: 0xc472, Data3: 0x5b59, Data4: ( 0xa8,0x27,0x38,0xad,0xc3,0xa9,0xd3,0x26 ))// ef53b467-c472-5b59-a827-38adc3a9d326
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectable {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextEditContext? = __IMPL_Windows_UI_Text_Core.CoreTextEditContextBridge.from(abi: ComPtr($1))
+            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableBridge>
+public class TypedEventHandlerCoreTextEditContext_Any: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectable }
+
+    open func Invoke(_ sender: UWP.CoreTextEditContext?, _ args: Any?) throws {
+        let argsWrapper = __ABI_.AnyWrapper(args)
+        let _args = try! argsWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectable.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), _args))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectableBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextEditContext?, Any?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext_IInspectable
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextEditContext_Any
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xa2d7059e, Data2: 0x68ed, Data3: 0x5260, Data4: ( 0x8d,0x8e,0x1d,0xcf,0x3d,0x25,0xd6,0x63 ))// a2d7059e-68ed-5260-8d8e-1dcf3d25d663
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextEditContext? = __IMPL_Windows_UI_Text_Core.CoreTextEditContextBridge.from(abi: ComPtr($1))
+            let args: UWP.CoreTextCompositionCompletedEventArgs? = __IMPL_Windows_UI_Text_Core.CoreTextCompositionCompletedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsBridge>
+public class TypedEventHandlerCoreTextEditContext_CoreTextCompositionCompletedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgs }
+
+    open func Invoke(_ sender: UWP.CoreTextEditContext?, _ args: UWP.CoreTextCompositionCompletedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextEditContext?, UWP.CoreTextCompositionCompletedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionCompletedEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextEditContext_CoreTextCompositionCompletedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xe671d625, Data2: 0x5b59, Data3: 0x57e6, Data4: ( 0xa9,0x2e,0x40,0x00,0x95,0x07,0x85,0x3a ))// e671d625-5b59-57e6-a92e-40009507853a
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextEditContext? = __IMPL_Windows_UI_Text_Core.CoreTextEditContextBridge.from(abi: ComPtr($1))
+            let args: UWP.CoreTextCompositionStartedEventArgs? = __IMPL_Windows_UI_Text_Core.CoreTextCompositionStartedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsBridge>
+public class TypedEventHandlerCoreTextEditContext_CoreTextCompositionStartedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgs }
+
+    open func Invoke(_ sender: UWP.CoreTextEditContext?, _ args: UWP.CoreTextCompositionStartedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextEditContext?, UWP.CoreTextCompositionStartedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextCompositionStartedEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextEditContext_CoreTextCompositionStartedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x3e4ef599, Data2: 0x4cc2, Data3: 0x5248, Data4: ( 0xbf,0x2d,0x13,0xf1,0x76,0x13,0xb0,0xa6 ))// 3e4ef599-4cc2-5248-bf2d-13f17613b0a6
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextEditContext? = __IMPL_Windows_UI_Text_Core.CoreTextEditContextBridge.from(abi: ComPtr($1))
+            let args: UWP.CoreTextFormatUpdatingEventArgs? = __IMPL_Windows_UI_Text_Core.CoreTextFormatUpdatingEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsBridge>
+public class TypedEventHandlerCoreTextEditContext_CoreTextFormatUpdatingEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgs }
+
+    open func Invoke(_ sender: UWP.CoreTextEditContext?, _ args: UWP.CoreTextFormatUpdatingEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextEditContext?, UWP.CoreTextFormatUpdatingEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextFormatUpdatingEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextEditContext_CoreTextFormatUpdatingEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x1a5f5596, Data2: 0x561c, Data3: 0x57f6, Data4: ( 0xa4,0xff,0xcb,0x85,0x01,0x3c,0x65,0x44 ))// 1a5f5596-561c-57f6-a4ff-cb85013c6544
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextEditContext? = __IMPL_Windows_UI_Text_Core.CoreTextEditContextBridge.from(abi: ComPtr($1))
+            let args: UWP.CoreTextLayoutRequestedEventArgs? = __IMPL_Windows_UI_Text_Core.CoreTextLayoutRequestedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsBridge>
+public class TypedEventHandlerCoreTextEditContext_CoreTextLayoutRequestedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgs }
+
+    open func Invoke(_ sender: UWP.CoreTextEditContext?, _ args: UWP.CoreTextLayoutRequestedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextEditContext?, UWP.CoreTextLayoutRequestedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextLayoutRequestedEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextEditContext_CoreTextLayoutRequestedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x882e51e1, Data2: 0xf4a3, Data3: 0x57e5, Data4: ( 0x93,0x92,0x6a,0x8c,0x38,0x57,0x91,0x81 ))// 882e51e1-f4a3-57e5-9392-6a8c38579181
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextEditContext? = __IMPL_Windows_UI_Text_Core.CoreTextEditContextBridge.from(abi: ComPtr($1))
+            let args: UWP.CoreTextSelectionRequestedEventArgs? = __IMPL_Windows_UI_Text_Core.CoreTextSelectionRequestedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsBridge>
+public class TypedEventHandlerCoreTextEditContext_CoreTextSelectionRequestedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgs }
+
+    open func Invoke(_ sender: UWP.CoreTextEditContext?, _ args: UWP.CoreTextSelectionRequestedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextEditContext?, UWP.CoreTextSelectionRequestedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionRequestedEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextEditContext_CoreTextSelectionRequestedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x6b140a40, Data2: 0xd461, Data3: 0x555a, Data4: ( 0xb6,0xeb,0x5d,0xbb,0x8e,0x21,0x01,0xe5 ))// 6b140a40-d461-555a-b6eb-5dbb8e2101e5
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextEditContext? = __IMPL_Windows_UI_Text_Core.CoreTextEditContextBridge.from(abi: ComPtr($1))
+            let args: UWP.CoreTextSelectionUpdatingEventArgs? = __IMPL_Windows_UI_Text_Core.CoreTextSelectionUpdatingEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsBridge>
+public class TypedEventHandlerCoreTextEditContext_CoreTextSelectionUpdatingEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgs }
+
+    open func Invoke(_ sender: UWP.CoreTextEditContext?, _ args: UWP.CoreTextSelectionUpdatingEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextEditContext?, UWP.CoreTextSelectionUpdatingEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextSelectionUpdatingEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextEditContext_CoreTextSelectionUpdatingEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xc7e08176, Data2: 0x4134, Data3: 0x50b7, Data4: ( 0xbc,0x73,0x72,0x9e,0x9f,0x9a,0xd2,0x2a ))// c7e08176-4134-50b7-bc73-729e9f9ad22a
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextEditContext? = __IMPL_Windows_UI_Text_Core.CoreTextEditContextBridge.from(abi: ComPtr($1))
+            let args: UWP.CoreTextTextRequestedEventArgs? = __IMPL_Windows_UI_Text_Core.CoreTextTextRequestedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsBridge>
+public class TypedEventHandlerCoreTextEditContext_CoreTextTextRequestedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgs }
+
+    open func Invoke(_ sender: UWP.CoreTextEditContext?, _ args: UWP.CoreTextTextRequestedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextEditContext?, UWP.CoreTextTextRequestedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextRequestedEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextEditContext_CoreTextTextRequestedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xfd896a84, Data2: 0xdf7c, Data3: 0x50d5, Data4: ( 0x91,0x67,0x58,0xf6,0x16,0xbd,0xdb,0x6e ))// fd896a84-df7c-50d5-9167-58f616bddb6e
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextEditContext? = __IMPL_Windows_UI_Text_Core.CoreTextEditContextBridge.from(abi: ComPtr($1))
+            let args: UWP.CoreTextTextUpdatingEventArgs? = __IMPL_Windows_UI_Text_Core.CoreTextTextUpdatingEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsBridge>
+public class TypedEventHandlerCoreTextEditContext_CoreTextTextUpdatingEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgs }
+
+    open func Invoke(_ sender: UWP.CoreTextEditContext?, _ args: UWP.CoreTextTextUpdatingEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextEditContext?, UWP.CoreTextTextUpdatingEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextEditContext___x_ABI_CWindows__CUI__CText__CCore__CCoreTextTextUpdatingEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextEditContext_CoreTextTextUpdatingEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectable: WindowsFoundation.IID {
+    .init(Data1: 0x112fb01d, Data2: 0x260a, Data3: 0x51c6, Data4: ( 0x91,0x98,0x5d,0xb3,0xe6,0xe9,0xef,0x3d ))// 112fb01d-260a-51c6-9198-5db3e6e9ef3d
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectable {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreTextServicesManager? = __IMPL_Windows_UI_Text_Core.CoreTextServicesManagerBridge.from(abi: ComPtr($1))
+            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableBridge>
+public class TypedEventHandlerCoreTextServicesManager_Any: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectable }
+
+    open func Invoke(_ sender: UWP.CoreTextServicesManager?, _ args: Any?) throws {
+        let argsWrapper = __ABI_.AnyWrapper(args)
+        let _args = try! argsWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectable.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), _args))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectableBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreTextServicesManager?, Any?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CText__CCore__CCoreTextServicesManager_IInspectable
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreTextServicesManager_Any
 
     internal static func from(abi: ComPtr<CABI>?) -> Handler? {
         guard let abi = abi else { return nil }
