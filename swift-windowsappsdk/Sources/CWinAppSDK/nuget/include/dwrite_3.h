@@ -61,7 +61,7 @@ interface IDWriteFontDownloadQueue;
 /// <summary>
 /// The font property enumeration identifies a string in a font.
 /// </summary>
-enum DWRITE_FONT_PROPERTY_ID
+enum DWRITE_FONT_PROPERTY_ID: INT32
 {
     /// <summary>
     /// Unspecified font property identifier.
@@ -264,7 +264,7 @@ struct DWRITE_FONT_PROPERTY
 /// <summary>
 /// Specifies the locality of a resource.
 /// </summary>
-enum DWRITE_LOCALITY
+enum DWRITE_LOCALITY: INT32
 {
     /// <summary>
     /// The resource is remote, and information is unknown yet, including the file size and date.
@@ -290,7 +290,7 @@ enum DWRITE_LOCALITY
 /// <summary>
 /// Represents a method of rendering glyphs.
 /// </summary>
-enum DWRITE_RENDERING_MODE1
+enum DWRITE_RENDERING_MODE1: INT32
 {
     /// <summary>
     /// Specifies that the rendering mode is determined automatically based on the font and size.
@@ -1651,7 +1651,7 @@ struct DWRITE_LINE_METRICS1 : DWRITE_LINE_METRICS
 /// <summary>
 /// Specify whether DWRITE_FONT_METRICS::lineGap value should be part of the line metrics. 
 /// </summary>
-enum DWRITE_FONT_LINE_GAP_USAGE
+enum DWRITE_FONT_LINE_GAP_USAGE: INT32
 {
     /// <summary>
     /// The usage of the font line gap depends on the method used for text layout.
@@ -2197,7 +2197,7 @@ DWRITE_BEGIN_INTERFACE(IDWriteRemoteFontFileStream, "4DB3757A-2C72-4ED9-B2B6-1AB
 /// a font file format (DWRITE_FONT_FILE_TYPE) because the container describes the container
 /// in which the underlying font file is packaged.
 /// </summary>
-enum DWRITE_CONTAINER_TYPE
+enum DWRITE_CONTAINER_TYPE: INT32
 {
     DWRITE_CONTAINER_TYPE_UNKNOWN,
     DWRITE_CONTAINER_TYPE_WOFF,
@@ -2440,7 +2440,7 @@ interface IDWriteFontSetBuilder2;
 /// <remarks>
 /// Use DWRITE_MAKE_FONT_AXIS_TAG() to create a custom one.
 /// <remarks>
-enum DWRITE_FONT_AXIS_TAG : UINT32
+enum DWRITE_FONT_AXIS_TAG: UINT32
 {
     DWRITE_FONT_AXIS_TAG_WEIGHT         = DWRITE_MAKE_FONT_AXIS_TAG('w','g','h','t'),
     DWRITE_FONT_AXIS_TAG_WIDTH          = DWRITE_MAKE_FONT_AXIS_TAG('w','d','t','h'),
@@ -2495,7 +2495,7 @@ struct DWRITE_FONT_AXIS_RANGE
 /// <summary>
 /// How font families are grouped together, used by IDWriteFontCollection.
 /// </summary>
-enum DWRITE_FONT_FAMILY_MODEL
+enum DWRITE_FONT_FAMILY_MODEL: INT32
 {
     /// <summary>
     /// Families are grouped by the typographic family name preferred by the font author. The family can contain as
@@ -2517,7 +2517,7 @@ enum DWRITE_FONT_FAMILY_MODEL
 /// <summary>
 /// Apply certain axes automatically in layout during font selection.
 /// </summary>
-enum DWRITE_AUTOMATIC_FONT_AXES
+enum DWRITE_AUTOMATIC_FONT_AXES: INT32
 {
     /// <summary>
     /// No axes are automatically applied.
@@ -2540,7 +2540,7 @@ DEFINE_ENUM_FLAG_OPERATORS(DWRITE_AUTOMATIC_FONT_AXES)
 /// <summary>
 /// Attributes for a font axis.
 /// </summary>
-enum DWRITE_FONT_AXIS_ATTRIBUTES
+enum DWRITE_FONT_AXIS_ATTRIBUTES: INT32
 {
     /// <summary>
     /// No attributes.
@@ -3588,7 +3588,7 @@ DWRITE_BEGIN_INTERFACE(IDWriteFactory7, "35D0E0B3-9076-4D2E-A016-A91B568A06B4") 
 /// <summary>
 /// The font source type identifies the mechanism by which a font came to be included in a font set.
 /// </summary>
-enum DWRITE_FONT_SOURCE_TYPE
+enum DWRITE_FONT_SOURCE_TYPE: INT32
 {
     /// <summary>
     /// The font source is unknown or is not any of the other defined font source types.
@@ -3796,7 +3796,7 @@ DWRITE_BEGIN_INTERFACE(IDWriteBitmapRenderTarget2, "C553A742-FC01-44DA-A66E-B8B9
 /// See the DWRITE_PAINT_TYPE enumeration for which paint types are required for each
 /// feature level.
 /// </remarks>
-enum DWRITE_PAINT_FEATURE_LEVEL
+enum DWRITE_PAINT_FEATURE_LEVEL: INT32
 {
     /// <summary>
     /// No paint API support.
@@ -3818,7 +3818,7 @@ enum DWRITE_PAINT_FEATURE_LEVEL
 /// Combination of flags specifying attributes of a color glyph or of specific color values in
 /// a color glyph.
 /// </summary>
-enum DWRITE_PAINT_ATTRIBUTES
+enum DWRITE_PAINT_ATTRIBUTES: INT32
 {
     DWRITE_PAINT_ATTRIBUTES_NONE = 0,
 
@@ -3882,7 +3882,7 @@ struct DWRITE_PAINT_COLOR
 /// Specifies a composite mode for combining source and destination paint elements in a
 /// color glyph. These are taken from the W3C Compositing and Blending Level 1 specification.
 /// </summary>
-enum DWRITE_COLOR_COMPOSITE_MODE
+enum DWRITE_COLOR_COMPOSITE_MODE: INT32
 {
     // Porter-Duff modes.
     DWRITE_COLOR_COMPOSITE_CLEAR,
@@ -3927,7 +3927,7 @@ enum DWRITE_COLOR_COMPOSITE_MODE
 /// <remarks>
 /// For more information about each paint type, see DWRITE_PAINT_ELEMENT. 
 /// </remarks>
-enum DWRITE_PAINT_TYPE
+enum DWRITE_PAINT_TYPE: INT32
 {
     // The following paint types may be returned for color feature levels greater than
     // or equal to DWRITE_PAINT_FEATURE_LEVEL_COLR_V0.
@@ -4584,7 +4584,7 @@ DWRITE_BEGIN_INTERFACE(IDWriteBitmapRenderTarget3, "AEEC37DB-C337-40F1-8E2A-9A41
 /// Specifies the data type of a parameter passed to
 /// IDWriteEventSink::LogEvent.
 /// </summary>
-enum DWRITE_EVENT_PARAM_TYPE : UINT32
+enum DWRITE_EVENT_PARAM_TYPE: INT32
 {
     /// <summary>
     /// An event tag, which is a UINT64 value encoding up to eight ASCII characters

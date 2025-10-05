@@ -11,6 +11,7 @@
 #include "Microsoft.UI.Input.h"
 #include "Microsoft.UI.Text.h"
 #include "Microsoft.UI.Xaml.h"
+#include "Microsoft.UI.Xaml.Automation.Peers.h"
 #include "Microsoft.UI.Xaml.Controls.Primitives.h"
 #include "Microsoft.UI.Xaml.Data.h"
 #include "Microsoft.UI.Xaml.Documents.h"
@@ -4006,6 +4007,54 @@ typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEvent
     typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleMenuFlyoutItem_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleMenuFlyoutItem_FWD_DEFINED__
@@ -14438,6 +14487,38 @@ typedef struct __x_ABI_CWindows_CFoundation_CRect __x_ABI_CWindows_CFoundation_C
     
     #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickerFlyout___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickedEventArgs_INTERFACE_DEFINED__
     
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectableVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* sender,
+        IInspectable* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectableVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectableVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable_INTERFACE_DEFINED__
+    
 #if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgs_INTERFACE_DEFINED__
 
@@ -14947,6 +15028,30 @@ typedef enum __x_ABI_CMicrosoft_CUI_CInput_CInputPointerSourceDeviceKinds __x_AB
 #endif // ____x_ABI_CMicrosoft_CUI_CText_CITextDocument_FWD_DEFINED__
 
 typedef struct __x_ABI_CMicrosoft_CUI_CWindowId __x_ABI_CMicrosoft_CUI_CWindowId;
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIFrameworkElementAutomationPeer_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIFrameworkElementAutomationPeer_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIFrameworkElementAutomationPeer __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIFrameworkElementAutomationPeer;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIFrameworkElementAutomationPeer_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CIBringIntoViewOptions_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CXaml_CIBringIntoViewOptions_FWD_DEFINED__
@@ -47046,6 +47151,341 @@ enum __x_ABI_CMicrosoft_CUI_CXaml_CControls_CZoomMode
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Title)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        HSTRING* value);
+    HRESULT (STDMETHODCALLTYPE* put_Title)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        HSTRING value);
+    HRESULT (STDMETHODCALLTYPE* get_Subtitle)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        HSTRING* value);
+    HRESULT (STDMETHODCALLTYPE* put_Subtitle)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        HSTRING value);
+    HRESULT (STDMETHODCALLTYPE* get_IconSource)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSource** value);
+    HRESULT (STDMETHODCALLTYPE* put_IconSource)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSource* value);
+    HRESULT (STDMETHODCALLTYPE* get_LeftHeader)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIUIElement** value);
+    HRESULT (STDMETHODCALLTYPE* put_LeftHeader)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIUIElement* value);
+    HRESULT (STDMETHODCALLTYPE* get_Content)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIUIElement** value);
+    HRESULT (STDMETHODCALLTYPE* put_Content)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIUIElement* value);
+    HRESULT (STDMETHODCALLTYPE* get_RightHeader)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIUIElement** value);
+    HRESULT (STDMETHODCALLTYPE* put_RightHeader)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIUIElement* value);
+    HRESULT (STDMETHODCALLTYPE* get_IsBackButtonVisible)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_IsBackButtonVisible)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_IsBackButtonEnabled)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_IsBackButtonEnabled)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_IsPaneToggleButtonVisible)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_IsPaneToggleButtonVisible)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_TemplateSettings)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings** value);
+    HRESULT (STDMETHODCALLTYPE* add_BackRequested)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_BackRequested)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_PaneToggleRequested)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_PaneToggleRequested)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* This,
+        EventRegistrationToken token);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer* This,
+            TrustLevel* trustLevel);
+    
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactoryVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* CreateInstance)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar* owner,
+        IInspectable* baseInterface,
+        IInspectable** innerInterface,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeer** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactoryVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactoryVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarAutomationPeerFactory_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactoryVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* CreateInstance)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory* This,
+        IInspectable* baseInterface,
+        IInspectable** innerInterface,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactoryVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactoryVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStaticsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_TitleProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+    HRESULT (STDMETHODCALLTYPE* get_SubtitleProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+    HRESULT (STDMETHODCALLTYPE* get_IconSourceProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+    HRESULT (STDMETHODCALLTYPE* get_LeftHeaderProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+    HRESULT (STDMETHODCALLTYPE* get_ContentProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+    HRESULT (STDMETHODCALLTYPE* get_RightHeaderProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+    HRESULT (STDMETHODCALLTYPE* get_IsBackButtonVisibleProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+    HRESULT (STDMETHODCALLTYPE* get_IsBackButtonEnabledProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+    HRESULT (STDMETHODCALLTYPE* get_IsPaneToggleButtonVisibleProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+    HRESULT (STDMETHODCALLTYPE* get_TemplateSettingsProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStaticsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStaticsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_IconElement)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconElement** value);
+    HRESULT (STDMETHODCALLTYPE* put_IconElement)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconElement* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactoryVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* CreateInstance)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory* This,
+        IInspectable* baseInterface,
+        IInspectable** innerInterface,
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactoryVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactoryVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStaticsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_IconElementProperty)(__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIDependencyProperty** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStaticsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStaticsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleMenuFlyoutItem_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleMenuFlyoutItem_INTERFACE_DEFINED__

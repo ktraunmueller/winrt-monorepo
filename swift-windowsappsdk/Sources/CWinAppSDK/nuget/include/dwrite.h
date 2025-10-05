@@ -37,7 +37,7 @@
 /// Font formats that consist of multiple files, e.g. Type 1 .PFM and .PFB, have
 /// separate enum values for each of the file type.
 /// </summary>
-enum DWRITE_FONT_FILE_TYPE
+enum DWRITE_FONT_FILE_TYPE: INT32
 {
     /// <summary>
     /// Font type is not recognized by the DirectWrite font system.
@@ -88,7 +88,7 @@ enum DWRITE_FONT_FILE_TYPE
 /// Font formats that consist of multiple files, e.g. Type 1 .PFM and .PFB, have
 /// a single enum entry.
 /// </summary>
-enum DWRITE_FONT_FACE_TYPE
+enum DWRITE_FONT_FACE_TYPE: INT32
 {
     /// <summary>
     /// OpenType font face with CFF outlines.
@@ -141,7 +141,7 @@ enum DWRITE_FONT_FACE_TYPE
 /// Specifies algorithmic style simulations to be applied to the font face.
 /// Bold and oblique simulations can be combined via bitwise OR operation.
 /// </summary>
-enum DWRITE_FONT_SIMULATIONS
+enum DWRITE_FONT_SIMULATIONS: INT32
 {
     /// <summary>
     /// No simulations are performed.
@@ -167,7 +167,7 @@ DEFINE_ENUM_FLAG_OPERATORS(DWRITE_FONT_SIMULATIONS)
 /// The font weight enumeration describes common values for degree of blackness or thickness of strokes of characters in a font.
 /// Font weight values less than 1 or greater than 999 are considered to be invalid, and they are rejected by font API functions.
 /// </summary>
-enum DWRITE_FONT_WEIGHT
+enum DWRITE_FONT_WEIGHT: INT32
 {
     /// <summary>
     /// Predefined font weight : Thin (100).
@@ -260,7 +260,7 @@ enum DWRITE_FONT_WEIGHT
 /// as specified by a font designer for the glyphs in a font.
 /// Values less than 1 or greater than 9 are considered to be invalid, and they are rejected by font API functions.
 /// </summary>
-enum DWRITE_FONT_STRETCH
+enum DWRITE_FONT_STRETCH: INT32
 {
     /// <summary>
     /// Predefined font stretch : Not known (0).
@@ -322,7 +322,7 @@ enum DWRITE_FONT_STRETCH
 /// The font style enumeration describes the slope style of a font face, such as Normal, Italic or Oblique.
 /// Values other than the ones defined in the enumeration are considered to be invalid, and they are rejected by font API functions.
 /// </summary>
-enum DWRITE_FONT_STYLE
+enum DWRITE_FONT_STYLE: INT32
 {
     /// <summary>
     /// Font slope style : Normal.
@@ -344,7 +344,7 @@ enum DWRITE_FONT_STYLE
 /// <summary>
 /// The informational string enumeration identifies a string in a font.
 /// </summary>
-enum DWRITE_INFORMATIONAL_STRING_ID
+enum DWRITE_INFORMATIONAL_STRING_ID: INT32
 {
     /// <summary>
     /// Unspecified name ID.
@@ -625,7 +625,7 @@ struct DWRITE_GLYPH_OFFSET
 /// from the rest of the process components. In such cases, it is recommended to use an isolated factory for the sandboxed
 /// component.
 /// </summary>
-enum DWRITE_FACTORY_TYPE
+enum DWRITE_FACTORY_TYPE: INT32
 {
     /// <summary>
     /// This is the recommended value in most cases. The shared factory is a singleton, so mulitiple
@@ -891,7 +891,7 @@ DWRITE_BEGIN_INTERFACE(IDWriteFontFile, "739d886a-cef5-47dc-8769-1a8b41bebbb0") 
 /// green, and blue color components) that is assumed for purposes of rendering text.
 /// </summary>
 #ifndef DWRITE_PIXEL_GEOMETRY_DEFINED
-enum DWRITE_PIXEL_GEOMETRY
+enum DWRITE_PIXEL_GEOMETRY: INT32
 {
     /// <summary>
     /// The red, green, and blue color components of each pixel are assumed to occupy the same point.
@@ -916,7 +916,7 @@ enum DWRITE_PIXEL_GEOMETRY
 /// <summary>
 /// Represents a method of rendering glyphs.
 /// </summary>
-enum DWRITE_RENDERING_MODE
+enum DWRITE_RENDERING_MODE: INT32
 {
     /// <summary>
     /// Specifies that the rendering mode is determined automatically based on the font and size.
@@ -1710,7 +1710,7 @@ DWRITE_BEGIN_INTERFACE(IDWriteFont, "acd16696-8c14-4f5d-877e-fe3fc1d32737") : IU
 /// <summary>
 /// Direction for how reading progresses.
 /// </summary>
-enum DWRITE_READING_DIRECTION
+enum DWRITE_READING_DIRECTION: INT32
 {
     /// <summary>
     /// Reading progresses from left to right.
@@ -1736,7 +1736,7 @@ enum DWRITE_READING_DIRECTION
 /// <summary>
 /// Direction for how lines of text are placed relative to one another.
 /// </summary>
-enum DWRITE_FLOW_DIRECTION
+enum DWRITE_FLOW_DIRECTION: INT32
 {
     /// <summary>
     /// Text lines are placed from top to bottom.
@@ -1763,7 +1763,7 @@ enum DWRITE_FLOW_DIRECTION
 /// Alignment of paragraph text along the reading direction axis relative to 
 /// the leading and trailing edge of the layout box.
 /// </summary>
-enum DWRITE_TEXT_ALIGNMENT
+enum DWRITE_TEXT_ALIGNMENT: INT32
 {
     /// <summary>
     /// The leading edge of the paragraph text is aligned to the layout box's leading edge.
@@ -1790,7 +1790,7 @@ enum DWRITE_TEXT_ALIGNMENT
 /// Alignment of paragraph text along the flow direction axis relative to the
 /// flow's beginning and ending edge of the layout box.
 /// </summary>
-enum DWRITE_PARAGRAPH_ALIGNMENT
+enum DWRITE_PARAGRAPH_ALIGNMENT: INT32
 {
     /// <summary>
     /// The first line of paragraph is aligned to the flow's beginning edge of the layout box.
@@ -1811,7 +1811,7 @@ enum DWRITE_PARAGRAPH_ALIGNMENT
 /// <summary>
 /// Word wrapping in multiline paragraph.
 /// </summary>
-enum DWRITE_WORD_WRAPPING
+enum DWRITE_WORD_WRAPPING: INT32
 {
     /// <summary>
     /// Words are broken across lines to avoid text overflowing the layout box.
@@ -1845,7 +1845,7 @@ enum DWRITE_WORD_WRAPPING
 /// <summary>
 /// The method used for line spacing in layout.
 /// </summary>
-enum DWRITE_LINE_SPACING_METHOD
+enum DWRITE_LINE_SPACING_METHOD: INT32
 {
     /// <summary>
     /// Line spacing depends solely on the content, growing to accommodate the size of fonts and inline objects.
@@ -1867,7 +1867,7 @@ enum DWRITE_LINE_SPACING_METHOD
 /// <summary>
 /// Text granularity used to trim text overflowing the layout box.
 /// </summary>
-enum DWRITE_TRIMMING_GRANULARITY
+enum DWRITE_TRIMMING_GRANULARITY: INT32
 {
     /// <summary>
     /// No trimming occurs. Text flows beyond the layout width.
@@ -1891,7 +1891,7 @@ enum DWRITE_TRIMMING_GRANULARITY
 /// <remarks>
 /// Use DWRITE_MAKE_FONT_FEATURE_TAG() to create a custom one.
 /// <remarks>
-enum DWRITE_FONT_FEATURE_TAG
+enum DWRITE_FONT_FEATURE_TAG: UINT32
 {
     DWRITE_FONT_FEATURE_TAG_ALTERNATIVE_FRACTIONS               = DWRITE_MAKE_OPENTYPE_TAG('a','f','r','c'),
     DWRITE_FONT_FEATURE_TAG_PETITE_CAPITALS_FROM_CAPITALS       = DWRITE_MAKE_OPENTYPE_TAG('c','2','p','c'),
@@ -2341,7 +2341,7 @@ DWRITE_BEGIN_INTERFACE(IDWriteTypography, "55f1112b-1dc2-4b3c-9541-f46894ed85b6"
         ) PURE;
 };
 
-enum DWRITE_SCRIPT_SHAPES
+enum DWRITE_SCRIPT_SHAPES: INT32
 {
     /// <summary>
     /// No additional shaping requirement. Text is shaped with the writing system default behavior.
@@ -2378,7 +2378,7 @@ struct DWRITE_SCRIPT_ANALYSIS
 /// Condition at the edges of inline object or text used to determine
 /// line-breaking behavior.
 /// </summary>
-enum DWRITE_BREAK_CONDITION
+enum DWRITE_BREAK_CONDITION: INT32
 {
     /// <summary>
     /// Whether a break is allowed is determined by the condition of the
@@ -2439,7 +2439,7 @@ struct DWRITE_LINE_BREAKPOINT
 /// <summary>
 /// How to apply number substitution on digits and related punctuation.
 /// </summary>
-enum DWRITE_NUMBER_SUBSTITUTION_METHOD
+enum DWRITE_NUMBER_SUBSTITUTION_METHOD: INT32
 {
     /// <summary>
     /// Specifies that the substitution method should be determined based
@@ -4633,7 +4633,7 @@ DWRITE_BEGIN_INTERFACE(IDWriteGdiInterop, "1edd9491-9853-4299-898f-6432983b6f3a"
 /// The DWRITE_TEXTURE_TYPE enumeration identifies a type of alpha texture. An alpha texture is a bitmap of alpha values, each
 /// representing the darkness (i.e., opacity) of a pixel or subpixel.
 /// </summary>
-enum DWRITE_TEXTURE_TYPE
+enum DWRITE_TEXTURE_TYPE: INT32
 {
     /// <summary>
     /// Specifies an alpha texture for aliased text rendering (i.e., bi-level, where each pixel is either fully opaque or fully transparent),

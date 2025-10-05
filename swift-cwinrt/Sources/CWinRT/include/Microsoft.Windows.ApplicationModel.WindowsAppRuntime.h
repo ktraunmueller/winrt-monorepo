@@ -6,6 +6,9 @@
 #include <EventToken.h>
 #include <windowscontracts.h>
 #include "Windows.Foundation.h"
+#include "Windows.ApplicationModel.h"
+// Importing Collections header
+#include "Windows.Foundation.Collections.h"
 
 /* Forward Declarations */
 #ifndef ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIDeploymentInitializeOptions_FWD_DEFINED__
@@ -44,11 +47,236 @@
 
 #endif // ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIDeploymentResultFactory_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics;
+
+#endif // ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions;
+
+#endif // ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics;
+
+#endif // ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics_FWD_DEFINED__
+
 // Parameterized interface forward declarations (C)
 
 // Collection interface definitions
 
+typedef enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange;
+
+#if !defined(____x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange;
+
+    typedef struct __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Current)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange* result);
+    HRESULT (STDMETHODCALLTYPE* get_HasCurrent)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* MoveNext)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32 itemsLength,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange* items,
+        UINT32* result);
+
+        END_INTERFACE
+    } __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl;
+
+    interface __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange
+    {
+        CONST_VTBL struct __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange;
+
+    typedef struct __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* First)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange** result);
+
+        END_INTERFACE
+    } __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl;
+
+    interface __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange
+    {
+        CONST_VTBL struct __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange;
+
+    typedef struct __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* GetAt)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32 index,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange* result);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* IndexOf)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange value,
+        UINT32* index,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32 startIndex,
+        UINT32 itemsLength,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange* items,
+        UINT32* result);
+
+        END_INTERFACE
+    } __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl;
+
+    interface __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange
+    {
+        CONST_VTBL struct __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange;
+
+    typedef struct __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* GetAt)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32 index,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange* result);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* GetView)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange** result);
+    HRESULT (STDMETHODCALLTYPE* IndexOf)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange value,
+        UINT32* index,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* SetAt)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32 index,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange value);
+    HRESULT (STDMETHODCALLTYPE* InsertAt)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32 index,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange value);
+    HRESULT (STDMETHODCALLTYPE* RemoveAt)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32 index);
+    HRESULT (STDMETHODCALLTYPE* Append)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange value);
+    HRESULT (STDMETHODCALLTYPE* RemoveAtEnd)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+    HRESULT (STDMETHODCALLTYPE* Clear)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32 startIndex,
+        UINT32 itemsLength,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange* items,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* ReplaceAll)(__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange* This,
+        UINT32 itemsLength,
+        enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange* items);
+
+        END_INTERFACE
+    } __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl;
+
+    interface __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange
+    {
+        CONST_VTBL struct __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChangeVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange_INTERFACE_DEFINED__
+    
+typedef struct __x_ABI_CWindows_CApplicationModel_CPackageVersion __x_ABI_CWindows_CApplicationModel_CPackageVersion;
+
 typedef enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CDeploymentStatus __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CDeploymentStatus;
+
+typedef struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CWindowsAppRuntimeVersion __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CWindowsAppRuntimeVersion;
 
 enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CDeploymentStatus
     {
@@ -56,6 +284,32 @@ enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CDeploymen
     __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CDeploymentStatus_Ok = 1,
     __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CDeploymentStatus_PackageInstallRequired = 2,
     __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CDeploymentStatus_PackageInstallFailed = 3,
+};
+
+enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange
+    {
+        __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_None = 0,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_EnsurePackageReadyVersionSupercedence = 56439870,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_FixPopupClosingReentrancyCrash = 56870998,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_FixPopupUnloadingCrash = 56686624,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_FixRandomUIFreezeInDispatcher = 56545444,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_FixSetProgressBarIndicatorWidthCrash = 56779522,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_FixStuckPointerInputQueue = 56620717,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_FixWebViewVisibilityReentrancyCrash = 56852985,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_FixWindowCloseFocusCrash = 56873234,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_ActivateDirectManipulationManager_CheckCanInit = 56997009,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_DwmCoreI_OptimizeFirstFrameLatency = 57345278,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_InputStateManager_PenInputCrashX86 = 57003641,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_ApplicationDataProvider_ReentrancyProtection = 57688028,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_InputPointerSource_FlushReentrancyCrash = 57705537,
+    __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CRuntimeCompatibilityChange_WindowChrome_SetTitleBarCrash = 57693465,
+};
+
+struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CWindowsAppRuntimeVersion
+    {
+        UINT32 Major;
+    UINT32 Minor;
+    UINT32 Patch;
 };
 
 #if !defined(____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIDeploymentInitializeOptions_INTERFACE_DEFINED__)
@@ -266,4 +520,122 @@ enum __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CDeploymen
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIDeploymentResultFactory;
 #endif /* !defined(____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIDeploymentResultFactory_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStaticsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Major)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This,
+        UINT16* value);
+    HRESULT (STDMETHODCALLTYPE* get_Minor)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This,
+        UINT16* value);
+    HRESULT (STDMETHODCALLTYPE* get_Patch)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This,
+        UINT16* value);
+    HRESULT (STDMETHODCALLTYPE* get_VersionTag)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This,
+        HSTRING* value);
+    HRESULT (STDMETHODCALLTYPE* get_AsString)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics* This,
+        HSTRING* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStaticsVtbl;
+
+    interface __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStaticsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics;
+#endif /* !defined(____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIReleaseInfoStatics_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptionsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_PatchLevel1)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This,
+        struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CWindowsAppRuntimeVersion* value);
+    HRESULT (STDMETHODCALLTYPE* put_PatchLevel1)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This,
+        struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CWindowsAppRuntimeVersion value);
+    HRESULT (STDMETHODCALLTYPE* get_PatchLevel2)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This,
+        struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CWindowsAppRuntimeVersion* value);
+    HRESULT (STDMETHODCALLTYPE* put_PatchLevel2)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This,
+        struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CWindowsAppRuntimeVersion value);
+    HRESULT (STDMETHODCALLTYPE* get_DisabledChanges)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This,
+        __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CWindows__CApplicationModel__CWindowsAppRuntime__CRuntimeCompatibilityChange** value);
+    HRESULT (STDMETHODCALLTYPE* Apply)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions* This);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptionsVtbl;
+
+    interface __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptionsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions;
+#endif /* !defined(____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeCompatibilityOptions_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStaticsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Version)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics* This,
+        struct __x_ABI_CWindows_CApplicationModel_CPackageVersion* value);
+    HRESULT (STDMETHODCALLTYPE* get_AsString)(__x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics* This,
+        HSTRING* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStaticsVtbl;
+
+    interface __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStaticsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics;
+#endif /* !defined(____x_ABI_CMicrosoft_CWindows_CApplicationModel_CWindowsAppRuntime_CIRuntimeInfoStatics_INTERFACE_DEFINED__) */
     

@@ -69,6 +69,10 @@ private var IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentViewFact
     .init(Data1: 0xC901EDF2, Data2: 0xF184, Data3: 0x5A64, Data4: ( 0x8D,0x58,0x8C,0xF8,0xEF,0xA8,0xB6,0x78 ))// C901EDF2-F184-5A64-8D58-8CF8EFA8B678
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink: WindowsFoundation.IID {
+    .init(Data1: 0xD9247341, Data2: 0xF5D0, Data3: 0x5084, Data4: ( 0xAF,0x66,0xF5,0xDF,0x5F,0x31,0x4F,0xC0 ))// D9247341-F5D0-5084-AF66-F5DF5F314FC0
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView: WindowsFoundation.IID {
     .init(Data1: 0x2D5D8DD5, Data2: 0x358E, Data3: 0x5B05, Data4: ( 0x99,0x3B,0xB2,0x66,0x6D,0x17,0x86,0xB3 ))// 2D5D8DD5-358E-5B05-993B-B2666D1786B3
 }
@@ -782,6 +786,57 @@ public enum __ABI_Microsoft_UI_Content {
 
     }
 
+    public class IContentSiteLink: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink }
+
+        open func get_Parent() throws -> WinAppSDK.ContentIsland? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parent(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Content.ContentIslandBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var IContentSiteLinkVTable: __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLinkVtbl = .init(
+        QueryInterface: { IContentSiteLinkWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IContentSiteLinkWrapper.addRef($0) },
+        Release: { IContentSiteLinkWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Microsoft_UI_Content.IContentSiteLinkWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Microsoft.UI.Content.IContentSiteLink").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Parent: {
+            guard let __unwrapped__instance = IContentSiteLinkWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.parent
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IContentSiteLinkWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Content.IContentSiteLinkBridge>
     public class IContentSiteView: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView }
 

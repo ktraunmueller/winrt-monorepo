@@ -32,6 +32,12 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow3_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4 __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowChangedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowChangedEventArgs_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowChangedEventArgs __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowChangedEventArgs;
@@ -85,6 +91,12 @@
     typedef interface __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar2 __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar2;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3 __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBarStatics_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBarStatics_FWD_DEFINED__
@@ -151,6 +163,12 @@
     typedef interface __x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter2 __x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter2;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3 __x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenterStatics_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenterStatics_FWD_DEFINED__
@@ -301,6 +319,44 @@
 
     
     #endif // ____x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CWindowing__CDisplayArea_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FIReference_1_int_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FIReference_1_int_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FIReference_1_int __x_ABI_C__FIReference_1_int;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FIReference_1_int;
+
+    typedef struct __x_ABI_C__FIReference_1_intVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FIReference_1_int* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FIReference_1_int* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FIReference_1_int* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_C__FIReference_1_int* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_C__FIReference_1_int* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_C__FIReference_1_int* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Value)(__x_ABI_C__FIReference_1_int* This,
+        INT32* result);
+
+        END_INTERFACE
+    } __x_ABI_C__FIReference_1_intVtbl;
+
+    interface __x_ABI_C__FIReference_1_int
+    {
+        CONST_VTBL struct __x_ABI_C__FIReference_1_intVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FIReference_1_int_INTERFACE_DEFINED__
     
 typedef struct __x_ABI_CWindows_CUI_CColor __x_ABI_CWindows_CUI_CColor;
 
@@ -540,6 +596,8 @@ typedef enum __x_ABI_CMicrosoft_CUI_CWindowing_COverlappedPresenterState __x_ABI
 
 typedef enum __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption;
 
+typedef enum __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarTheme __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarTheme;
+
 enum __x_ABI_CMicrosoft_CUI_CWindowing_CAppWindowPresenterKind
     {
         __x_ABI_CMicrosoft_CUI_CWindowing_CAppWindowPresenterKind_Default = 0,
@@ -590,6 +648,14 @@ enum __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption
         __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption_Standard = 0,
     __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption_Tall = 1,
     __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption_Collapsed = 2,
+};
+
+enum __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarTheme
+    {
+        __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarTheme_Legacy = 0,
+    __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarTheme_UseDefaultAppMode = 1,
+    __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarTheme_Light = 2,
+    __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarTheme_Dark = 3,
 };
 
 #if !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow_INTERFACE_DEFINED__)
@@ -756,6 +822,45 @@ enum __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow3;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow3_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* SetTaskbarIcon)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This,
+        HSTRING iconPath);
+    HRESULT (STDMETHODCALLTYPE* SetTaskbarIconWithIconId)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This,
+        struct __x_ABI_CMicrosoft_CUI_CIconId iconId);
+    HRESULT (STDMETHODCALLTYPE* SetTitleBarIcon)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This,
+        HSTRING iconPath);
+    HRESULT (STDMETHODCALLTYPE* SetTitleBarIconWithIconId)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4* This,
+        struct __x_ABI_CMicrosoft_CUI_CIconId iconId);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindow4_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowChangedEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowChangedEventArgs_INTERFACE_DEFINED__
@@ -1144,6 +1249,41 @@ enum __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar2;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar2_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_PreferredTheme)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3* This,
+        enum __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarTheme* value);
+    HRESULT (STDMETHODCALLTYPE* put_PreferredTheme)(__x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3* This,
+        enum __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarTheme value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBar3_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBarStatics_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CWindowing_CIAppWindowTitleBarStatics_INTERFACE_DEFINED__
@@ -1589,6 +1729,53 @@ enum __x_ABI_CMicrosoft_CUI_CWindowing_CTitleBarHeightOption
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter2;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter2_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_PreferredMinimumHeight)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+        __x_ABI_C__FIReference_1_int** value);
+    HRESULT (STDMETHODCALLTYPE* put_PreferredMinimumHeight)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+        __x_ABI_C__FIReference_1_int* value);
+    HRESULT (STDMETHODCALLTYPE* get_PreferredMinimumWidth)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+        __x_ABI_C__FIReference_1_int** value);
+    HRESULT (STDMETHODCALLTYPE* put_PreferredMinimumWidth)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+        __x_ABI_C__FIReference_1_int* value);
+    HRESULT (STDMETHODCALLTYPE* get_PreferredMaximumWidth)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+        __x_ABI_C__FIReference_1_int** value);
+    HRESULT (STDMETHODCALLTYPE* put_PreferredMaximumWidth)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+        __x_ABI_C__FIReference_1_int* value);
+    HRESULT (STDMETHODCALLTYPE* get_PreferredMaximumHeight)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+        __x_ABI_C__FIReference_1_int** value);
+    HRESULT (STDMETHODCALLTYPE* put_PreferredMaximumHeight)(__x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3* This,
+        __x_ABI_C__FIReference_1_int* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenter3_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenterStatics_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CWindowing_CIOverlappedPresenterStatics_INTERFACE_DEFINED__

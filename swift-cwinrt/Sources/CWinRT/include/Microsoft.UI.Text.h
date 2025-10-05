@@ -41,6 +41,12 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CText_CITextDocument_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CText_CITextDocument2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CText_CITextDocument2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CText_CITextDocument2 __x_ABI_CMicrosoft_CUI_CText_CITextDocument2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CText_CITextDocument2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CText_CITextParagraphFormat_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CText_CITextParagraphFormat_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CText_CITextParagraphFormat __x_ABI_CMicrosoft_CUI_CText_CITextParagraphFormat;
@@ -108,6 +114,8 @@ typedef enum __x_ABI_CMicrosoft_CUI_CText_CParagraphStyle __x_ABI_CMicrosoft_CUI
 typedef enum __x_ABI_CMicrosoft_CUI_CText_CPointOptions __x_ABI_CMicrosoft_CUI_CText_CPointOptions;
 
 typedef enum __x_ABI_CMicrosoft_CUI_CText_CRangeGravity __x_ABI_CMicrosoft_CUI_CText_CRangeGravity;
+
+typedef enum __x_ABI_CMicrosoft_CUI_CText_CRichEditMathMode __x_ABI_CMicrosoft_CUI_CText_CRichEditMathMode;
 
 typedef enum __x_ABI_CMicrosoft_CUI_CText_CSelectionOptions __x_ABI_CMicrosoft_CUI_CText_CSelectionOptions;
 
@@ -845,6 +853,45 @@ enum __x_ABI_CMicrosoft_CUI_CText_CVerticalCharacterAlignment
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CText_CITextDocument;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CText_CITextDocument_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CText_CITextDocument2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CText_CITextDocument2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CText_CITextDocument2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* GetMathMode)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This,
+        enum __x_ABI_CMicrosoft_CUI_CText_CRichEditMathMode* result);
+    HRESULT (STDMETHODCALLTYPE* SetMathMode)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This,
+        enum __x_ABI_CMicrosoft_CUI_CText_CRichEditMathMode mode);
+    HRESULT (STDMETHODCALLTYPE* GetMathML)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This,
+        HSTRING* value);
+    HRESULT (STDMETHODCALLTYPE* SetMathML)(__x_ABI_CMicrosoft_CUI_CText_CITextDocument2* This,
+        HSTRING value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CText_CITextDocument2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CText_CITextDocument2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CText_CITextDocument2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CText_CITextDocument2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CText_CITextDocument2_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CText_CITextParagraphFormat_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CText_CITextParagraphFormat_INTERFACE_DEFINED__

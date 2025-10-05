@@ -17,7 +17,7 @@
 /// <summary>
 /// The overall kind of family.
 /// </summary>
-enum DWRITE_PANOSE_FAMILY
+enum DWRITE_PANOSE_FAMILY: INT32
 {
     DWRITE_PANOSE_FAMILY_ANY = 0,
     DWRITE_PANOSE_FAMILY_NO_FIT = 1,
@@ -32,7 +32,7 @@ enum DWRITE_PANOSE_FAMILY
 /// Appearance of the serifs.
 /// Present for families: 2-text
 /// </summary>
-enum DWRITE_PANOSE_SERIF_STYLE
+enum DWRITE_PANOSE_SERIF_STYLE: INT32
 {
     DWRITE_PANOSE_SERIF_STYLE_ANY = 0,
     DWRITE_PANOSE_SERIF_STYLE_NO_FIT = 1,
@@ -60,7 +60,7 @@ enum DWRITE_PANOSE_SERIF_STYLE
 /// using (panose_weight - 2) * 100.
 /// Present for families: 2-text, 3-script, 4-decorative, 5-symbol
 /// </summary>
-enum DWRITE_PANOSE_WEIGHT
+enum DWRITE_PANOSE_WEIGHT: INT32
 {
     DWRITE_PANOSE_WEIGHT_ANY = 0,
     DWRITE_PANOSE_WEIGHT_NO_FIT = 1,
@@ -82,7 +82,7 @@ enum DWRITE_PANOSE_WEIGHT
 /// characters.
 /// Present for families: 2-text
 /// </summary>
-enum DWRITE_PANOSE_PROPORTION
+enum DWRITE_PANOSE_PROPORTION: INT32
 {
     DWRITE_PANOSE_PROPORTION_ANY = 0,
     DWRITE_PANOSE_PROPORTION_NO_FIT = 1,
@@ -101,7 +101,7 @@ enum DWRITE_PANOSE_PROPORTION
 /// as uppercase 'O'.
 /// Present for families: 2-text, 3-script, 4-decorative
 /// </summary>
-enum DWRITE_PANOSE_CONTRAST
+enum DWRITE_PANOSE_CONTRAST: INT32
 {
     DWRITE_PANOSE_CONTRAST_ANY = 0,
     DWRITE_PANOSE_CONTRAST_NO_FIT = 1,
@@ -123,7 +123,7 @@ enum DWRITE_PANOSE_CONTRAST
 /// Relationship between thin and thick stems.
 /// Present for families: 2-text
 /// </summary>
-enum DWRITE_PANOSE_STROKE_VARIATION
+enum DWRITE_PANOSE_STROKE_VARIATION: INT32
 {
     DWRITE_PANOSE_STROKE_VARIATION_ANY = 0,
     DWRITE_PANOSE_STROKE_VARIATION_NO_FIT = 1,
@@ -142,7 +142,7 @@ enum DWRITE_PANOSE_STROKE_VARIATION
 /// Style of termination of stems and rounded letterforms.
 /// Present for families: 2-text
 /// </summary>
-enum DWRITE_PANOSE_ARM_STYLE
+enum DWRITE_PANOSE_ARM_STYLE: INT32
 {
     DWRITE_PANOSE_ARM_STYLE_ANY = 0,
     DWRITE_PANOSE_ARM_STYLE_NO_FIT = 1,
@@ -169,7 +169,7 @@ enum DWRITE_PANOSE_ARM_STYLE
 /// Roundness of letterform.
 /// Present for families: 2-text
 /// </summary>
-enum DWRITE_PANOSE_LETTERFORM
+enum DWRITE_PANOSE_LETTERFORM: INT32
 {
     DWRITE_PANOSE_LETTERFORM_ANY = 0,
     DWRITE_PANOSE_LETTERFORM_NO_FIT = 1,
@@ -194,7 +194,7 @@ enum DWRITE_PANOSE_LETTERFORM
 /// stem apexes.
 /// Present for families: 2-text
 /// </summary>
-enum DWRITE_PANOSE_MIDLINE
+enum DWRITE_PANOSE_MIDLINE: INT32
 {
     DWRITE_PANOSE_MIDLINE_ANY = 0,
     DWRITE_PANOSE_MIDLINE_NO_FIT = 1,
@@ -217,7 +217,7 @@ enum DWRITE_PANOSE_MIDLINE
 /// and uppercase glyphs.
 /// Present for families: 2-text
 /// </summary>
-enum DWRITE_PANOSE_XHEIGHT
+enum DWRITE_PANOSE_XHEIGHT: INT32
 {
     DWRITE_PANOSE_XHEIGHT_ANY = 0,
     DWRITE_PANOSE_XHEIGHT_NO_FIT = 1,
@@ -235,7 +235,7 @@ enum DWRITE_PANOSE_XHEIGHT
 /// Kind of tool used to create character forms.
 /// Present for families: 3-script
 /// </summary>
-enum DWRITE_PANOSE_TOOL_KIND
+enum DWRITE_PANOSE_TOOL_KIND: INT32
 {
     DWRITE_PANOSE_TOOL_KIND_ANY = 0,
     DWRITE_PANOSE_TOOL_KIND_NO_FIT = 1,
@@ -253,7 +253,7 @@ enum DWRITE_PANOSE_TOOL_KIND
 /// Monospace vs proportional.
 /// Present for families: 3-script, 5-symbol
 /// </summary>
-enum DWRITE_PANOSE_SPACING
+enum DWRITE_PANOSE_SPACING: INT32
 {
     DWRITE_PANOSE_SPACING_ANY = 0,
     DWRITE_PANOSE_SPACING_NO_FIT = 1,
@@ -265,7 +265,7 @@ enum DWRITE_PANOSE_SPACING
 /// Ratio between width and height of the face.
 /// Present for families: 3-script
 /// </summary>
-enum DWRITE_PANOSE_ASPECT_RATIO
+enum DWRITE_PANOSE_ASPECT_RATIO: INT32
 {
     DWRITE_PANOSE_ASPECT_RATIO_ANY = 0,
     DWRITE_PANOSE_ASPECT_RATIO_NO_FIT = 1,
@@ -280,7 +280,7 @@ enum DWRITE_PANOSE_ASPECT_RATIO
 /// Topology of letterforms.
 /// Present for families: 3-script
 /// </summary>
-enum DWRITE_PANOSE_SCRIPT_TOPOLOGY
+enum DWRITE_PANOSE_SCRIPT_TOPOLOGY: INT32
 {
     DWRITE_PANOSE_SCRIPT_TOPOLOGY_ANY = 0,
     DWRITE_PANOSE_SCRIPT_TOPOLOGY_NO_FIT = 1,
@@ -299,7 +299,7 @@ enum DWRITE_PANOSE_SCRIPT_TOPOLOGY
 /// General look of the face, considering slope and tails.
 /// Present for families: 3-script
 /// </summary>
-enum DWRITE_PANOSE_SCRIPT_FORM
+enum DWRITE_PANOSE_SCRIPT_FORM: INT32
 {
     DWRITE_PANOSE_SCRIPT_FORM_ANY = 0,
     DWRITE_PANOSE_SCRIPT_FORM_NO_FIT = 1,
@@ -321,7 +321,7 @@ enum DWRITE_PANOSE_SCRIPT_FORM
 /// How character ends and miniscule ascenders are treated.
 /// Present for families: 3-script
 /// </summary>
-enum DWRITE_PANOSE_FINIALS
+enum DWRITE_PANOSE_FINIALS: INT32
 {
     DWRITE_PANOSE_FINIALS_ANY = 0,
     DWRITE_PANOSE_FINIALS_NO_FIT = 1,
@@ -343,7 +343,7 @@ enum DWRITE_PANOSE_FINIALS
 /// Relative size of the lowercase letters.
 /// Present for families: 3-script
 /// </summary>
-enum DWRITE_PANOSE_XASCENT
+enum DWRITE_PANOSE_XASCENT: INT32
 {
     DWRITE_PANOSE_XASCENT_ANY = 0,
     DWRITE_PANOSE_XASCENT_NO_FIT = 1,
@@ -358,7 +358,7 @@ enum DWRITE_PANOSE_XASCENT
 /// General look of the face.
 /// Present for families: 4-decorative
 /// </summary>
-enum DWRITE_PANOSE_DECORATIVE_CLASS
+enum DWRITE_PANOSE_DECORATIVE_CLASS: INT32
 {
     DWRITE_PANOSE_DECORATIVE_CLASS_ANY = 0,
     DWRITE_PANOSE_DECORATIVE_CLASS_NO_FIT = 1,
@@ -379,7 +379,7 @@ enum DWRITE_PANOSE_DECORATIVE_CLASS
 /// Ratio between the width and height of the face.
 /// Present for families: 4-decorative
 /// </summary>
-enum DWRITE_PANOSE_ASPECT
+enum DWRITE_PANOSE_ASPECT: INT32
 {
     DWRITE_PANOSE_ASPECT_ANY = 0,
     DWRITE_PANOSE_ASPECT_NO_FIT = 1,
@@ -397,7 +397,7 @@ enum DWRITE_PANOSE_ASPECT
 /// Type of fill/line (treatment).
 /// Present for families: 4-decorative
 /// </summary>
-enum DWRITE_PANOSE_FILL
+enum DWRITE_PANOSE_FILL: INT32
 {
     DWRITE_PANOSE_FILL_ANY = 0,
     DWRITE_PANOSE_FILL_NO_FIT = 1,
@@ -413,7 +413,7 @@ enum DWRITE_PANOSE_FILL
 /// Outline handling.
 /// Present for families: 4-decorative
 /// </summary>
-enum DWRITE_PANOSE_LINING
+enum DWRITE_PANOSE_LINING: INT32
 {
     DWRITE_PANOSE_LINING_ANY = 0,
     DWRITE_PANOSE_LINING_NO_FIT = 1,
@@ -430,7 +430,7 @@ enum DWRITE_PANOSE_LINING
 /// Overall shape characteristics of the font.
 /// Present for families: 4-decorative
 /// </summary>
-enum DWRITE_PANOSE_DECORATIVE_TOPOLOGY
+enum DWRITE_PANOSE_DECORATIVE_TOPOLOGY: INT32
 {
     DWRITE_PANOSE_DECORATIVE_TOPOLOGY_ANY = 0,
     DWRITE_PANOSE_DECORATIVE_TOPOLOGY_NO_FIT = 1,
@@ -454,7 +454,7 @@ enum DWRITE_PANOSE_DECORATIVE_TOPOLOGY
 /// Type of characters available in the font.
 /// Present for families: 4-decorative
 /// </summary>
-enum DWRITE_PANOSE_CHARACTER_RANGES
+enum DWRITE_PANOSE_CHARACTER_RANGES: INT32
 {
     DWRITE_PANOSE_CHARACTER_RANGES_ANY = 0,
     DWRITE_PANOSE_CHARACTER_RANGES_NO_FIT = 1,
@@ -468,7 +468,7 @@ enum DWRITE_PANOSE_CHARACTER_RANGES
 /// Kind of symbol set.
 /// Present for families: 5-symbol
 /// </summary>
-enum DWRITE_PANOSE_SYMBOL_KIND
+enum DWRITE_PANOSE_SYMBOL_KIND: INT32
 {
     DWRITE_PANOSE_SYMBOL_KIND_ANY = 0,
     DWRITE_PANOSE_SYMBOL_KIND_NO_FIT = 1,
@@ -489,7 +489,7 @@ enum DWRITE_PANOSE_SYMBOL_KIND
 /// Aspect ratio of symbolic characters.
 /// Present for families: 5-symbol
 /// </summary>
-enum DWRITE_PANOSE_SYMBOL_ASPECT_RATIO
+enum DWRITE_PANOSE_SYMBOL_ASPECT_RATIO: INT32
 {
     DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_ANY = 0,
     DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_NO_FIT = 1,
@@ -511,7 +511,7 @@ enum DWRITE_PANOSE_SYMBOL_ASPECT_RATIO
 /// aliased outlines then a relatively low threshold is used, but if the graphics
 /// system renders aliased outlines then a much higher threshold is used.
 /// </summary>
-enum DWRITE_OUTLINE_THRESHOLD
+enum DWRITE_OUTLINE_THRESHOLD: INT32
 {
     DWRITE_OUTLINE_THRESHOLD_ANTIALIASED,
     DWRITE_OUTLINE_THRESHOLD_ALIASED
@@ -520,7 +520,7 @@ enum DWRITE_OUTLINE_THRESHOLD
 /// <summary>
 /// Baseline for text alignment.
 /// </summary>
-enum DWRITE_BASELINE
+enum DWRITE_BASELINE: INT32
 {
     /// <summary>
     /// The Roman baseline for horizontal, Central baseline for vertical.
@@ -574,7 +574,7 @@ enum DWRITE_BASELINE
 /// client preference, and the constraints of the script will determine the
 /// final presentation.
 /// </summary>
-enum DWRITE_VERTICAL_GLYPH_ORIENTATION
+enum DWRITE_VERTICAL_GLYPH_ORIENTATION: INT32
 {
     /// <summary>
     /// In vertical layout, naturally horizontal scripts (Latin, Thai, Arabic,
@@ -598,7 +598,7 @@ enum DWRITE_VERTICAL_GLYPH_ORIENTATION
 /// analyzer, dependent on the desired orientation, bidi level, and character
 /// properties.
 /// </summary>
-enum DWRITE_GLYPH_ORIENTATION_ANGLE
+enum DWRITE_GLYPH_ORIENTATION_ANGLE: INT32
 {
     /// <summary>
     /// Glyph orientation is upright.
@@ -1872,7 +1872,7 @@ DWRITE_BEGIN_INTERFACE(IDWriteTextLayout1, "9064D822-80A7-465C-A986-DF65F78B8FEB
 /// Represents the type of antialiasing to use for text when the rendering mode calls for
 /// antialiasing.
 /// </summary>
-enum DWRITE_TEXT_ANTIALIAS_MODE
+enum DWRITE_TEXT_ANTIALIAS_MODE: INT32
 {
     /// <summary>
     /// ClearType antialiasing computes coverage independently for the red, green, and blue

@@ -202,6 +202,12 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2 __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource __x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource;
@@ -1512,6 +1518,12 @@ typedef struct __x_ABI_CWindows_CFoundation_CRect __x_ABI_CWindows_CFoundation_C
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteBridge __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteBridge;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteBridge_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue_FWD_DEFINED__
@@ -3016,6 +3028,40 @@ struct __x_ABI_CMicrosoft_CUI_CInput_CPhysicalKeyStatus
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* GetForSiteLink)(__x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink* contentSiteLink,
+        __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHost** result);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource_INTERFACE_DEFINED__

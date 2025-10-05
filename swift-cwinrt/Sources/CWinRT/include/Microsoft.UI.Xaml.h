@@ -941,6 +941,18 @@ typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventHandler 
 
 #endif // ____x_ABI_CMicrosoft_CUI_CXaml_CIWindowVisibilityChangedEventArgs_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlResourceReferenceFailedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlResourceReferenceFailedEventArgs_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlResourceReferenceFailedEventArgs __x_ABI_CMicrosoft_CUI_CXaml_CIXamlResourceReferenceFailedEventArgs;
@@ -964,6 +976,12 @@ typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventHandler 
     typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3 __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4 __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs_FWD_DEFINED__
@@ -5038,6 +5056,12 @@ typedef struct __x_ABI_CWindows_CUI_CColor __x_ABI_CWindows_CUI_CColor;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment;
@@ -5534,6 +5558,12 @@ typedef enum __x_ABI_CWindows_CFoundation_CAsyncStatus __x_ABI_CWindows_CFoundat
     typedef interface __x_ABI_CWindows_CFoundation_CIAsyncInfo __x_ABI_CWindows_CFoundation_CIAsyncInfo;
 
 #endif // ____x_ABI_CWindows_CFoundation_CIAsyncInfo_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIClosable_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIClosable_FWD_DEFINED__
+    typedef interface __x_ABI_CWindows_CFoundation_CIClosable __x_ABI_CWindows_CFoundation_CIClosable;
+
+#endif // ____x_ABI_CWindows_CFoundation_CIClosable_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
@@ -12507,6 +12537,82 @@ struct __x_ABI_CMicrosoft_CUI_CXaml_CThickness
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CIWindowVisibilityChangedEventArgs;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIWindowVisibilityChangedEventArgs_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Content)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIUIElement** value);
+    HRESULT (STDMETHODCALLTYPE* put_Content)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIUIElement* value);
+    HRESULT (STDMETHODCALLTYPE* get_ContentIsland)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland** value);
+    HRESULT (STDMETHODCALLTYPE* get_SystemBackdrop)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CISystemBackdrop** value);
+    HRESULT (STDMETHODCALLTYPE* put_SystemBackdrop)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland* This,
+        __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CISystemBackdrop* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactoryVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* CreateInstance)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory* This,
+        IInspectable* baseInterface,
+        IInspectable** innerInterface,
+        __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIsland** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactoryVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactoryVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlIslandFactory_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlResourceReferenceFailedEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlResourceReferenceFailedEventArgs_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CIXamlResourceReferenceFailedEventArgsVtbl
@@ -12649,6 +12755,39 @@ struct __x_ABI_CMicrosoft_CUI_CXaml_CThickness
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot3_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_ContentIsland)(__x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRoot4_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CXaml_CIXamlRootChangedEventArgs_INTERFACE_DEFINED__

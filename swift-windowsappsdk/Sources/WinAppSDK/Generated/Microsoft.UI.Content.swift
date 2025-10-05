@@ -940,6 +940,24 @@ extension IContentSiteBridge {
 }
 public typealias AnyIContentSiteBridge = any IContentSiteBridge
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.content.icontentsitelink)
+public protocol IContentSiteLink : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.content.icontentsitelink.parent)
+    var parent: WinAppSDK.ContentIsland! { get }
+}
+
+extension IContentSiteLink {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Microsoft_UI_Content.IContentSiteLinkWrapper.IID:
+                let wrapper = __ABI_Microsoft_UI_Content.IContentSiteLinkWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIContentSiteLink = any IContentSiteLink
+
 extension WinAppSDK.ContentCoordinateRoundingMode {
     public static var auto : WinAppSDK.ContentCoordinateRoundingMode {
         __x_ABI_CMicrosoft_CUI_CContent_CContentCoordinateRoundingMode_Auto

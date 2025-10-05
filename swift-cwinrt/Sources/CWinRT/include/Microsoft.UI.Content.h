@@ -11,10 +11,23 @@
 #include "Microsoft.UI.Dispatching.h"
 #include "Windows.Foundation.Numerics.h"
 #include "Windows.Graphics.h"
+#include "Windows.UI.Composition.h"
 // Importing Collections header
 #include "Windows.Foundation.Collections.h"
 
 /* Forward Declarations */
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter __x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter;
@@ -51,11 +64,29 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2 __x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2 __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomationProviderRequestedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomationProviderRequestedEventArgs_FWD_DEFINED__
@@ -68,6 +99,12 @@
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2 __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironmentFactory_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironmentFactory_FWD_DEFINED__
@@ -87,17 +124,47 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2 __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2 __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSite_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSite_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSite __x_ABI_CMicrosoft_CUI_CContent_CIContentSite;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSite_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSite2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSite2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSite2 __x_ABI_CMicrosoft_CUI_CContent_CIContentSite2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSite2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteBridge_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteBridge_FWD_DEFINED__
@@ -111,6 +178,12 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2 __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentFactory_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentFactory_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentFactory __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentFactory;
@@ -122,6 +195,12 @@
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2 __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentViewFactory_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentViewFactory_FWD_DEFINED__
@@ -135,6 +214,18 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteFactory_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteRequestedStateChangedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteRequestedStateChangedEventArgs_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteRequestedStateChangedEventArgs __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteRequestedStateChangedEventArgs;
@@ -147,11 +238,35 @@
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView_FWD_DEFINED__
 
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2 __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation_FWD_DEFINED__
+
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactory_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactory_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactory __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactory;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactory_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridge_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridge_FWD_DEFINED__
@@ -164,6 +279,24 @@
     typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics __x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2 __x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopSiteBridge_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopSiteBridge_FWD_DEFINED__
@@ -187,6 +320,174 @@
 
 // Collection interface definitions
 
+#if !defined(____x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink;
+
+    typedef struct __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLinkVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Current)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink** result);
+    HRESULT (STDMETHODCALLTYPE* get_HasCurrent)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* MoveNext)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+        UINT32 itemsLength,
+        __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink** items,
+        UINT32* result);
+
+        END_INTERFACE
+    } __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLinkVtbl;
+
+    interface __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink
+    {
+        CONST_VTBL struct __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLinkVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink;
+
+    typedef struct __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLinkVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* First)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink* This,
+        __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink** result);
+
+        END_INTERFACE
+    } __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLinkVtbl;
+
+    interface __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink
+    {
+        CONST_VTBL struct __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLinkVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge;
+
+    typedef struct __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridgeVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Current)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge** result);
+    HRESULT (STDMETHODCALLTYPE* get_HasCurrent)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* MoveNext)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+        UINT32 itemsLength,
+        __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge** items,
+        UINT32* result);
+
+        END_INTERFACE
+    } __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridgeVtbl;
+
+    interface __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge
+    {
+        CONST_VTBL struct __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridgeVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge_INTERFACE_DEFINED__
+    
+#if !defined(____x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge;
+
+    typedef struct __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridgeVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* First)(__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge* This,
+        __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge** result);
+
+        END_INTERFACE
+    } __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridgeVtbl;
+
+    interface __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge
+    {
+        CONST_VTBL struct __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridgeVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge_INTERFACE_DEFINED__
+    
 typedef enum __x_ABI_CMicrosoft_CUI_CContent_CContentLayoutDirection __x_ABI_CMicrosoft_CUI_CContent_CContentLayoutDirection;
 
 #if !defined(____x_ABI_C__FIReference_1___x_ABI_CMicrosoft__CUI__CContent__CContentLayoutDirection_INTERFACE_DEFINED__)
@@ -387,11 +688,49 @@ typedef enum __x_ABI_CMicrosoft_CUI_CContent_CContentLayoutDirection __x_ABI_CMi
     
     #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CContentSite___x_ABI_CMicrosoft__CUI__CContent__CContentSiteRequestedStateChangedEventArgs_INTERFACE_DEFINED__
     
+#if !defined(____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs_INTERFACE_DEFINED__
+
+    typedef interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs;
+
+    //  Declare the parameterized interface IID.
+    EXTERN_C const IID IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs;
+
+    typedef struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* sender,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* args);
+
+        END_INTERFACE
+    } __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgsVtbl;
+
+    interface __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs
+    {
+        CONST_VTBL struct __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgsVtbl* lpVtbl;
+    };
+
+    
+    #endif // ____x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs_INTERFACE_DEFINED__
+    
 #ifndef ____x_ABI_CMicrosoft_CUI_CComposition_CICompositor_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CComposition_CICompositor_FWD_DEFINED__
     typedef interface __x_ABI_CMicrosoft_CUI_CComposition_CICompositor __x_ABI_CMicrosoft_CUI_CComposition_CICompositor;
 
 #endif // ____x_ABI_CMicrosoft_CUI_CComposition_CICompositor_FWD_DEFINED__
+
+#ifndef ____x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual_FWD_DEFINED__
+#define ____x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual_FWD_DEFINED__
+    typedef interface __x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual __x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual;
+
+#endif // ____x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual_FWD_DEFINED__
 
 #ifndef ____x_ABI_CMicrosoft_CUI_CComposition_CICompositionSupportsSystemBackdrop_FWD_DEFINED__
 #define ____x_ABI_CMicrosoft_CUI_CComposition_CICompositionSupportsSystemBackdrop_FWD_DEFINED__
@@ -439,6 +778,8 @@ typedef struct __x_ABI_CMicrosoft_CUI_CWindowId __x_ABI_CMicrosoft_CUI_CWindowId
 
 #endif // ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
 
+typedef struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4 __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4;
+
 typedef struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 __x_ABI_CWindows_CFoundation_CNumerics_CVector2;
 
 typedef struct __x_ABI_CWindows_CFoundation_CPoint __x_ABI_CWindows_CFoundation_CPoint;
@@ -451,9 +792,36 @@ typedef struct __x_ABI_CWindows_CGraphics_CRectInt32 __x_ABI_CWindows_CGraphics_
 
 typedef struct __x_ABI_CWindows_CGraphics_CSizeInt32 __x_ABI_CWindows_CGraphics_CSizeInt32;
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositor_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositor_FWD_DEFINED__
+    typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositor __x_ABI_CWindows_CUI_CComposition_CICompositor;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIContainerVisual_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIContainerVisual_FWD_DEFINED__
+    typedef interface __x_ABI_CWindows_CUI_CComposition_CIContainerVisual __x_ABI_CWindows_CUI_CComposition_CIContainerVisual;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIContainerVisual_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisual_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIVisual_FWD_DEFINED__
+    typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisual __x_ABI_CWindows_CUI_CComposition_CIVisual;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual_FWD_DEFINED__
+
+typedef enum __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions;
+
 typedef enum __x_ABI_CMicrosoft_CUI_CContent_CContentCoordinateRoundingMode __x_ABI_CMicrosoft_CUI_CContent_CContentCoordinateRoundingMode;
 
 typedef enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy;
+
+enum __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions
+    {
+        __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions_None = 0,
+    __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions_FrameworkBased = 1,
+    __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions_FragmentBased = 2,
+};
 
 enum __x_ABI_CMicrosoft_CUI_CContent_CContentCoordinateRoundingMode
     {
@@ -476,6 +844,90 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy_ResizeParentWindowToContent = 2,
 };
 
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_ActualSize)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2* value);
+    HRESULT (STDMETHODCALLTYPE* put_ActualSize)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 value);
+    HRESULT (STDMETHODCALLTYPE* get_DispatcherQueue)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+        __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue** value);
+    HRESULT (STDMETHODCALLTYPE* get_LocalToParentTransformMatrix)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4* value);
+    HRESULT (STDMETHODCALLTYPE* put_LocalToParentTransformMatrix)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4 value);
+    HRESULT (STDMETHODCALLTYPE* get_SiteView)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView** value);
+    HRESULT (STDMETHODCALLTYPE* Connect)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland* content);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStaticsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* Create)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland* parent,
+        __x_ABI_CMicrosoft_CUI_CComposition_CIContainerVisual* placementVisual,
+        __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink** result);
+    HRESULT (STDMETHODCALLTYPE* CreateForSystemVisual)(__x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland* parent,
+        __x_ABI_CWindows_CUI_CComposition_CIContainerVisual* placementVisual,
+        __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLink** result);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStaticsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStaticsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIChildSiteLinkStatics_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverterVtbl
@@ -700,6 +1152,39 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_DidDisplayScaleChange)(__x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2* This,
+        boolean* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentEnvironmentStateChangedEventArgs2_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandVtbl
@@ -785,6 +1270,90 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentIsland;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Children)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+        __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CChildSiteLink** value);
+    HRESULT (STDMETHODCALLTYPE* get_LocalToClientTransformMatrix)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4* value);
+    HRESULT (STDMETHODCALLTYPE* get_LocalToParentTransformMatrix)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4* value);
+    HRESULT (STDMETHODCALLTYPE* get_Popups)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+        __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CContent__CDesktopPopupSiteBridge** value);
+    HRESULT (STDMETHODCALLTYPE* get_ProcessesKeyboardInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* get_ProcessesPointerInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2* This,
+        boolean* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIsland2_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomationVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_AutomationOption)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This,
+        enum __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions* value);
+    HRESULT (STDMETHODCALLTYPE* get_FragmentRootAutomationProvider)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This,
+        IInspectable** value);
+    HRESULT (STDMETHODCALLTYPE* get_NextSiblingAutomationProvider)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This,
+        IInspectable** value);
+    HRESULT (STDMETHODCALLTYPE* get_ParentAutomationProvider)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This,
+        IInspectable** value);
+    HRESULT (STDMETHODCALLTYPE* get_PreviousSiblingAutomationProvider)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation* This,
+        IInspectable** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomationVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomationVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomation_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomationProviderRequestedEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomationProviderRequestedEventArgs_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandAutomationProviderRequestedEventArgsVtbl
@@ -868,6 +1437,39 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_DisplayScale)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2* This,
+        FLOAT* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironment2_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironmentFactory_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandEnvironmentFactory_INTERFACE_DEFINED__
@@ -972,6 +1574,41 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_DidLocalToClientTransformMatrixChange)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* get_DidLocalToParentTransformMatrixChange)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2* This,
+        boolean* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStateChangedEventArgs2_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStaticsVtbl
@@ -1018,6 +1655,48 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* CreateForSystemVisual)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2* This,
+        __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue* queue,
+        __x_ABI_CWindows_CUI_CComposition_CIVisual* root,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland** result);
+    HRESULT (STDMETHODCALLTYPE* FindAllForSystemCompositor)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* compositor,
+        UINT32* resultLength,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland*** result);
+    HRESULT (STDMETHODCALLTYPE* GetBySystemVisual)(__x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2* This,
+        __x_ABI_CWindows_CUI_CComposition_CIVisual* child,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland** result);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentIslandStatics2_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSite_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSite_INTERFACE_DEFINED__
@@ -1103,6 +1782,147 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSite;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSite_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSite2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSite2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSite2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_LocalToClientTransformMatrix)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4* value);
+    HRESULT (STDMETHODCALLTYPE* get_LocalToParentTransformMatrix)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4* value);
+    HRESULT (STDMETHODCALLTYPE* put_LocalToParentTransformMatrix)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4 value);
+    HRESULT (STDMETHODCALLTYPE* get_ProcessesKeyboardInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_ProcessesKeyboardInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_ProcessesPointerInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_ProcessesPointerInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSite2* This,
+        boolean value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentSite2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSite2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSite2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSite2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSite2_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_AutomationOption)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        enum __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions* value);
+    HRESULT (STDMETHODCALLTYPE* put_AutomationOption)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        enum __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions value);
+    HRESULT (STDMETHODCALLTYPE* get_AutomationProvider)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        IInspectable** value);
+    HRESULT (STDMETHODCALLTYPE* add_FragmentRootAutomationProviderRequested)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_FragmentRootAutomationProviderRequested)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_NextSiblingAutomationProviderRequested)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_NextSiblingAutomationProviderRequested)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_ParentAutomationProviderRequested)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_ParentAutomationProviderRequested)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        EventRegistrationToken token);
+    HRESULT (STDMETHODCALLTYPE* add_PreviousSiblingAutomationProviderRequested)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CContent__CIContentSiteAutomation___x_ABI_CMicrosoft__CUI__CContent__CContentSiteAutomationProviderRequestedEventArgs* handler,
+        EventRegistrationToken* token);
+    HRESULT (STDMETHODCALLTYPE* remove_PreviousSiblingAutomationProviderRequested)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation* This,
+        EventRegistrationToken token);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomation_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_AutomationProvider)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This,
+        IInspectable** value);
+    HRESULT (STDMETHODCALLTYPE* put_AutomationProvider)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This,
+        IInspectable* value);
+    HRESULT (STDMETHODCALLTYPE* get_Handled)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_Handled)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs* This,
+        boolean value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteAutomationProviderRequestedEventArgs_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteBridge_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteBridge_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteBridgeVtbl
@@ -1187,6 +2007,41 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_DisplayScale)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2* This,
+        FLOAT* value);
+    HRESULT (STDMETHODCALLTYPE* put_DisplayScale)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2* This,
+        FLOAT value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironment2_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentFactory_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentFactory_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentFactoryVtbl
@@ -1253,6 +2108,39 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_DisplayScale)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2* This,
+        FLOAT* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentView2_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentViewFactory_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentViewFactory_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteEnvironmentViewFactoryVtbl
@@ -1314,6 +2202,78 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteFactory;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteFactory_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInputVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_ProcessesKeyboardInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_ProcessesKeyboardInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This,
+        boolean value);
+    HRESULT (STDMETHODCALLTYPE* get_ProcessesPointerInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_ProcessesPointerInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput* This,
+        boolean value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInputVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInputVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteInput_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLinkVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_Parent)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland** value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLinkVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLinkVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteRequestedStateChangedEventArgs_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteRequestedStateChangedEventArgs_INTERFACE_DEFINED__
@@ -1407,6 +2367,78 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView_INTERFACE_DEFINED__) */
     
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_LocalToClientTransformMatrix)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4* value);
+    HRESULT (STDMETHODCALLTYPE* get_LocalToParentTransformMatrix)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4* value);
+    HRESULT (STDMETHODCALLTYPE* get_ProcessesKeyboardInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* get_ProcessesPointerInput)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2* This,
+        boolean* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView2_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomationVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_AutomationOption)(__x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation* This,
+        enum __x_ABI_CMicrosoft_CUI_CContent_CContentAutomationOptions* value);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomationVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomationVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewAutomation_INTERFACE_DEFINED__) */
+    
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactory_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactory_INTERFACE_DEFINED__
     typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactoryVtbl
@@ -1437,6 +2469,78 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactory;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIContentSiteViewFactory_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_SiteView)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView** value);
+    HRESULT (STDMETHODCALLTYPE* get_WindowId)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge* This,
+        struct __x_ABI_CMicrosoft_CUI_CWindowId* value);
+    HRESULT (STDMETHODCALLTYPE* Connect)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland* content);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStaticsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* CreateFromWindowId)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics* This,
+        __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue* queue,
+        struct __x_ABI_CMicrosoft_CUI_CWindowId windowId,
+        __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridge** result);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStaticsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStaticsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopAttachedSiteBridgeStatics_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridge_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridge_INTERFACE_DEFINED__
@@ -1509,6 +2613,126 @@ enum __x_ABI_CMicrosoft_CUI_CContent_CContentSizePolicy
     
     EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics;
 #endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2Vtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* CreateWithDispatcherQueue)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2* This,
+        __x_ABI_CMicrosoft_CUI_CDispatching_CIDispatcherQueue* queue,
+        struct __x_ABI_CMicrosoft_CUI_CWindowId parentWindowId,
+        __x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridge** result);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2Vtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2Vtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopChildSiteBridgeStatics2_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* get_IsEnabled)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* get_IsVisible)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* get_SiteView)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteView** value);
+    HRESULT (STDMETHODCALLTYPE* get_WindowId)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+        struct __x_ABI_CMicrosoft_CUI_CWindowId* value);
+    HRESULT (STDMETHODCALLTYPE* Connect)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland* content);
+    HRESULT (STDMETHODCALLTYPE* Disable)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This);
+    HRESULT (STDMETHODCALLTYPE* Enable)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This);
+    HRESULT (STDMETHODCALLTYPE* Hide)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This);
+    HRESULT (STDMETHODCALLTYPE* MoveAndResize)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+        struct __x_ABI_CWindows_CGraphics_CRectInt32 rect);
+    HRESULT (STDMETHODCALLTYPE* MoveInZOrderAtBottom)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This);
+    HRESULT (STDMETHODCALLTYPE* MoveInZOrderAtTop)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This);
+    HRESULT (STDMETHODCALLTYPE* MoveInZOrderBelow)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This,
+        struct __x_ABI_CMicrosoft_CUI_CWindowId windowId);
+    HRESULT (STDMETHODCALLTYPE* Show)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge* This);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge_INTERFACE_DEFINED__) */
+    
+#if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics_INTERFACE_DEFINED__)
+    #define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics_INTERFACE_DEFINED__
+    typedef struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStaticsVtbl
+    {
+        BEGIN_INTERFACE
+
+        HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics* This,
+            REFIID riid,
+            void** ppvObject);
+        ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics* This);
+        ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics* This);
+        HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics* This,
+            ULONG* iidCount,
+            IID** iids);
+        HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics* This,
+            HSTRING* className);
+        HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics* This,
+            TrustLevel* trustLevel);
+        HRESULT (STDMETHODCALLTYPE* Create)(__x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics* This,
+        __x_ABI_CMicrosoft_CUI_CContent_CIContentIsland* parent,
+        __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridge** result);
+
+        END_INTERFACE
+    } __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStaticsVtbl;
+
+    interface __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics
+    {
+        CONST_VTBL struct __x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStaticsVtbl* lpVtbl;
+    };
+
+    
+    EXTERN_C const IID IID___x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics;
+#endif /* !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopPopupSiteBridgeStatics_INTERFACE_DEFINED__) */
     
 #if !defined(____x_ABI_CMicrosoft_CUI_CContent_CIDesktopSiteBridge_INTERFACE_DEFINED__)
     #define ____x_ABI_CMicrosoft_CUI_CContent_CIDesktopSiteBridge_INTERFACE_DEFINED__

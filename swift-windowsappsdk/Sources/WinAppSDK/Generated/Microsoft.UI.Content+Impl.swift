@@ -54,6 +54,36 @@ public enum __IMPL_Microsoft_UI_Content {
 
     }
 
+    public enum IContentSiteLinkBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CContent_CIContentSiteLink
+        public typealias SwiftABI = __ABI_Microsoft_UI_Content.IContentSiteLink
+        public typealias SwiftProjection = AnyIContentSiteLink
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IContentSiteLinkImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Content.IContentSiteLinkVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IContentSiteLinkImpl: IContentSiteLink, WinRTAbiImpl {
+        fileprivate typealias Bridge = IContentSiteLinkBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.content.icontentsitelink.parent)
+        fileprivate var parent : ContentIsland! {
+            get { try! _default.get_Parent() }
+        }
+
+    }
+
     public enum ContentCoordinateConverterBridge: ComposableBridge {
         public typealias SwiftProjection = ContentCoordinateConverter
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CContent_CIContentCoordinateConverter
@@ -241,6 +271,14 @@ public class IContentSiteBridgeMaker: MakeFromAbi {
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         let swiftAbi: __ABI_Microsoft_UI_Content.IContentSiteBridge = try! abi.QueryInterface()
         return __IMPL_Microsoft_UI_Content.IContentSiteBridgeBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IContentSiteLinkMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIContentSiteLink
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Microsoft_UI_Content.IContentSiteLink = try! abi.QueryInterface()
+        return __IMPL_Microsoft_UI_Content.IContentSiteLinkBridge.from(abi: RawPointer(swiftAbi))!
     }
 }
 @_spi(WinRTInternal)

@@ -129,6 +129,10 @@ private var IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics:
     .init(Data1: 0xC9C62CD1, Data2: 0x73DB, Data3: 0x5AA9, Data4: ( 0xB8,0x9D,0x14,0x35,0x09,0xDB,0x8F,0x37 ))// C9C62CD1-73DB-5AA9-B89D-143509DB8F37
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2: WindowsFoundation.IID {
+    .init(Data1: 0x82505F60, Data2: 0xEF7B, Data3: 0x55D8, Data4: ( 0x83,0x62,0x8C,0xC2,0x84,0x02,0x66,0xA1 ))// 82505F60-EF7B-55D8-8362-8CC2840266A1
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CInput_CIInputKeyboardSource: WindowsFoundation.IID {
     .init(Data1: 0xED61B906, Data2: 0x16AD, Data3: 0x5DF7, Data4: ( 0xA5,0x50,0x5E,0x6F,0x7D,0x22,0x29,0xF7 ))// ED61B906-16AD-5DF7-A550-5E6F7D2229F7
 }
@@ -1366,6 +1370,22 @@ public enum __ABI_Microsoft_UI_Input {
                 let _site = try! siteWrapper?.toABI { $0 }
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForSiteBridge(pThis, _site, &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Input.InputFocusNavigationHostBridge.from(abi: result)
+        }
+
+    }
+
+    public class IInputFocusNavigationHostStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2 }
+
+        public func GetForSiteLink(_ contentSiteLink: WinAppSDK.AnyIContentSiteLink?) throws -> WinAppSDK.InputFocusNavigationHost? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let contentSiteLinkWrapper = __ABI_Microsoft_UI_Content.IContentSiteLinkWrapper(contentSiteLink)
+                let _contentSiteLink = try! contentSiteLinkWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CInput_CIInputFocusNavigationHostStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetForSiteLink(pThis, _contentSiteLink, &resultAbi))
                 }
             }
             return __IMPL_Microsoft_UI_Input.InputFocusNavigationHostBridge.from(abi: result)

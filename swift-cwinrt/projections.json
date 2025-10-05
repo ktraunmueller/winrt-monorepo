@@ -8,11 +8,11 @@
     },
     {
       "id": "Microsoft.WindowsAppSDK",
-      "version": "1.6.250430001"
+      "version": "1.7.250606001"
     },
     {
       "id": "Microsoft.Graphics.Win2D",
-      "version": "1.3.0"
+      "version": "1.3.2"
     }
   ],
   "include": [

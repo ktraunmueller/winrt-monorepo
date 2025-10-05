@@ -21,7 +21,7 @@ interface IDWriteFontFallback;
 /// <summary>
 /// How to align glyphs to the margin.
 /// </summary>
-enum DWRITE_OPTICAL_ALIGNMENT
+enum DWRITE_OPTICAL_ALIGNMENT: INT32
 {
     /// <summary>
     /// Align to the default metrics of the glyph.
@@ -41,7 +41,7 @@ enum DWRITE_OPTICAL_ALIGNMENT
 /// <summary>
 /// Whether to enable grid-fitting of glyph outlines (a.k.a. hinting).
 /// </summary>
-enum DWRITE_GRID_FIT_MODE
+enum DWRITE_GRID_FIT_MODE: INT32
 {
     /// <summary>
     /// Choose grid fitting base on the font's gasp table information.
