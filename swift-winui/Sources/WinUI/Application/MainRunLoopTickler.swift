@@ -4,21 +4,26 @@ import WinSDK
 /// Ensures that RunLoop.main gets drained in the context of a traditional Win32
 /// message loop running on the main thread.
 final class MainRunLoopTickler {
-    private var timerID: UINT_PTR = 0
+
+    static let instance: MainRunLoopTickler = .init()
+    static let spinRunLoopMessage = UINT(WM_USER + 0xbc0)
+
+    var logger: ((_ msg: String) -> Void)?
 
     private var readyToProcessMessages = false
-    private var doWorkRecursionGuard = false
+    private var spinRunLoopRecursionGuard = false
+    private var timerID: UINT_PTR = 0
 
     fileprivate static let minIdleDelay: TimeInterval = 0.05
     fileprivate static let maxIdleDelay: TimeInterval = 1
-    private static let doWorkMessage = UINT(WM_USER + 0xbc0)
 
-    /// At any point in time `nextIdleDelay` describes the delay we'll schedule between the next runloop service and the one after that. Each time we have to wait for this delay,
-    /// we will wait slightly longer on the next go-around (up to a max delay of `maxIdleDelay`).
+    /// At any point in time `nextIdleDelay` describes the delay we'll schedule between the next runloop 
+    /// service and the one after that. Each time we have to wait for this delay, we will wait slightly 
+    /// longer on the next go-around (up to a max delay of `maxIdleDelay`).
     ///
-    /// It is possible that the runloop will be serviced in the meantime (due to the `WH_CALLWNDPROCRET` hook), in which case we will reset this delay back to its minimum value.
+    /// It is possible that the runloop will be serviced in the meantime (due to the `WH_CALLWNDPROCRET` hook), 
+    /// in which case we will reset this delay back to its minimum value.
     private var nextIdleDelay: TimeInterval = MainRunLoopTickler.minIdleDelay
-    fileprivate static let instance: MainRunLoopTickler = .init()
 
     static func setup() {
         instance.start()
@@ -30,14 +35,18 @@ final class MainRunLoopTickler {
 
     private var hook: HHOOK?
     private func start() {
-        // Hook all window message processing on the current thread. Use this as a
-        // trigger to process RunLoop events, in case some are pending.
-        hook = SetWindowsHookExW(WH_CALLWNDPROCRET, runLoopTicklerWindowHook, nil, GetCurrentThreadId())
+        let threadId = GetCurrentThreadId()
+        // print("MainRunLoopTickler.start on thread \(threadId)")
+
+        // Hook all window message processing on the current thread. 
+        // Use this as a trigger to process RunLoop events, in case some are pending.
+        hook = SetWindowsHookExW(WH_CALLWNDPROCRET, runLoopTicklerWindowHook, nil, threadId)
         scheduleImmediateWork()
     }
 
     fileprivate func scheduleDelayedWork(after delay: TimeInterval) {
-        // If requested to delay longer than 'nextIdleDelay', cap the delay at 'nextIdleDelay' and bump up 'nextIdleDelay' for the next time.
+        // If requested to delay longer than 'nextIdleDelay', cap the delay at 'nextIdleDelay' and 
+        // bump up 'nextIdleDelay' for the next time.
         let cappedDelay: TimeInterval
         if delay >= nextIdleDelay {
             cappedDelay = nextIdleDelay
@@ -46,16 +55,19 @@ final class MainRunLoopTickler {
             cappedDelay = max(delay, 0)
         }
         let delayMilliseconds = UInt32(cappedDelay * 1000)
+        // logger?("MainRunLoopTickler.scheduleDelayedWork after: \(delayMilliseconds)ms")
         timerID = SetTimer(nil, timerID, delayMilliseconds, runLoopTicklerTimerProc)
     }
 
     fileprivate func scheduleImmediateWork() {
-        // Whenever an immediate event comes in, reset our delay so that we will slowly decay in responsiveness when
-        // interaction ceases.
+        // logger?("MainRunLoopTickler.scheduleImmediateWork")
+
+        // Whenever an immediate event comes in, reset our delay so that we will slowly decay in 
+        // responsiveness when interaction ceases.
         MainRunLoopTickler.instance.nextIdleDelay = MainRunLoopTickler.minIdleDelay
 
         if readyToProcessMessages {
-            guard PostMessageW(nil, MainRunLoopTickler.doWorkMessage, 0, 0) else {
+            guard PostMessageW(nil, MainRunLoopTickler.spinRunLoopMessage, 0, 0) else {
                 print("Failed to post message to message window. Win32 Error Code: \(GetLastError())")
                 return
             }
@@ -69,14 +81,19 @@ final class MainRunLoopTickler {
         KillTimer(nil, timerID)
     }
 
-    fileprivate func doWork() {
-        guard doWorkRecursionGuard == false else { return }
-        doWorkRecursionGuard = true
-        defer { doWorkRecursionGuard = false }
+    fileprivate func spinRunLoopOnce() {
+        // logger?("MainRunLoopTickler.spinRunLoopOnce")
 
+        guard spinRunLoopRecursionGuard == false else { return }
+        spinRunLoopRecursionGuard = true
+        defer { spinRunLoopRecursionGuard = false }
+
+        // Performs one pass through the run loop in the specified mode and returns the date at which 
+        // the next timer is scheduled to fire.
         let nextDate = RunLoop.main.limitDate(forMode: .default)
         // A nil result is unexpected, but if it happens, we'll just try again promptly.
         let nextDelay = nextDate?.timeIntervalSinceNow ?? 0
+
         // Messages created via PostMessageW have scheduling priority over UI messages. To invert the priority,
         // scheduling immediate work is delayed if the thread has other pending messages. PostMessageW will
         // ultimately be called after all queued messages have been flushed thanks to the WH_CALLWNDPROCRET hook.
@@ -91,12 +108,13 @@ private let runLoopTicklerWindowHook: HOOKPROC = { (nCode: Int32, wParam: WPARAM
             // Give higher priority to input events.
             if (msgInfo.message >= WM_KEYFIRST && msgInfo.message < WM_KEYLAST)
                 || (msgInfo.message >= WM_MOUSEFIRST && msgInfo.message < WM_MOUSELAST) {
-                // Instead of calling doWork here, schedule immediate work to be done. That way we avoid dispatching
-                // RunLoop events from this call stack, which might crash code that is not safe for re-entry.
+                // Instead of calling spinRunLoop here, schedule immediate work to be done. That way we 
+                // avoid dispatching RunLoop events from this call stack, which might crash code that is 
+                // not safe for re-entry.
                 MainRunLoopTickler.instance.scheduleImmediateWork()
             } else if msgInfo.message != WM_GETICON {
-                // Windows may deliver periodic WM_GETICON messages without any user input, don't pay attention to
-                // these.
+                // Windows may deliver periodic WM_GETICON messages without any user input, 
+                // don't pay attention to these.
                 MainRunLoopTickler.instance.scheduleDelayedWork(after: 0)
             }
         }
@@ -105,5 +123,6 @@ private let runLoopTicklerWindowHook: HOOKPROC = { (nCode: Int32, wParam: WPARAM
 }
 
 private let runLoopTicklerTimerProc: TIMERPROC = { (_: HWND?, _: UINT, _: UINT_PTR, _: DWORD) in
-    MainRunLoopTickler.instance.doWork()
+    // MainRunLoopTickler.instance.logger?("runLoopTicklerTimerProc")
+    MainRunLoopTickler.instance.spinRunLoopOnce()
 }

@@ -1,6 +1,7 @@
-import Foundation
 import WinAppSDK
 @_spi(WinRTImplements) import WindowsFoundation
+
+import Foundation
 
 /// You should derive from SwiftApplication and mark this class as your @main entry point. This class
 /// will ensure that the Windows Runtime is properly initialized and that your WinUI Application
@@ -22,7 +23,11 @@ import WinAppSDK
 ///    window.activate()
 ///   }
 /// ```
-open class SwiftApplication: Application, IXamlMetadataProvider {
+open class SwiftApplication: /*Microsoft.UI.Xaml.*/Application, IXamlMetadataProvider {
+
+    public var applicationLogger: ((_ msg: String) -> Void)?
+
+    public private(set) var mainDispatcherQueue: DispatcherQueue?
 
     public required override init() {
         super.init()
@@ -53,6 +58,8 @@ open class SwiftApplication: Application, IXamlMetadataProvider {
                 try Application.start { _ in
                     MainRunLoopTickler.setup()
                     application = (instance as! SwiftApplication.Type).init()
+                    MainRunLoopTickler.instance.logger = application.applicationLogger 
+                    application.mainDispatcherQueue = try? DispatcherQueue.getForCurrentThread()
                 }
                 application.onShutdown()
                 MainRunLoopTickler.shutdown()
