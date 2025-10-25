@@ -55,6 +55,7 @@
     "Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem",
     "Microsoft.UI.Xaml.Controls.Page",
     "Microsoft.UI.Xaml.Controls.PipsPager",
+    "Microsoft.UI.Xaml.Controls.Primitives.Popup",
     "Microsoft.UI.Xaml.Controls.ProgressBar",
     "Microsoft.UI.Xaml.Controls.ProgressRing",
     "Microsoft.UI.Xaml.Controls.RadioButton",

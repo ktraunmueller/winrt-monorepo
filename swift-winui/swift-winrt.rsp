@@ -42,6 +42,7 @@
 -include Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem
 -include Microsoft.UI.Xaml.Controls.Page
 -include Microsoft.UI.Xaml.Controls.PipsPager
+-include Microsoft.UI.Xaml.Controls.Primitives.Popup
 -include Microsoft.UI.Xaml.Controls.ProgressBar
 -include Microsoft.UI.Xaml.Controls.ProgressRing
 -include Microsoft.UI.Xaml.Controls.RadioButton

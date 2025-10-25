@@ -85,6 +85,30 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIMenuFlyoutI
     .init(Data1: 0xFA7B8B1F, Data2: 0x020D, Data3: 0x58EC, Data4: ( 0x86,0x58,0xF2,0xCE,0x97,0x31,0x00,0x51 ))// FA7B8B1F-020D-58EC-8658-F2CE97310051
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup: WindowsFoundation.IID {
+    .init(Data1: 0x4E3AB19D, Data2: 0x2F95, Data3: 0x579C, Data4: ( 0x95,0x35,0x90,0x6C,0x58,0x62,0x94,0x37 ))// 4E3AB19D-2F95-579C-9535-906C58629437
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup2: WindowsFoundation.IID {
+    .init(Data1: 0xEA9C4F43, Data2: 0xA937, Data3: 0x53D5, Data4: ( 0xB6,0x65,0x66,0x40,0xAD,0x7E,0xC2,0xF4 ))// EA9C4F43-A937-53D5-B665-6640AD7EC2F4
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup3: WindowsFoundation.IID {
+    .init(Data1: 0x03736C25, Data2: 0xDD36, Data3: 0x5344, Data4: ( 0x9A,0x8D,0x3F,0x4E,0x8E,0x61,0x6C,0xBA ))// 03736C25-DD36-5344-9A8D-3F4E8E616CBA
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics: WindowsFoundation.IID {
+    .init(Data1: 0xC1ACFAA4, Data2: 0x209A, Data3: 0x5FB8, Data4: ( 0x89,0x34,0x88,0x25,0x97,0x67,0x69,0xB8 ))// C1ACFAA4-209A-5FB8-8934-8825976769B8
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics2: WindowsFoundation.IID {
+    .init(Data1: 0x79B3285A, Data2: 0x1330, Data3: 0x5CFD, Data4: ( 0xAF,0x2F,0x88,0xEF,0xA0,0x07,0x70,0xA9 ))// 79B3285A-1330-5CFD-AF2F-88EFA00770A9
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics3: WindowsFoundation.IID {
+    .init(Data1: 0x2409656D, Data2: 0x84F9, Data3: 0x5979, Data4: ( 0x8A,0xDF,0xF3,0xDB,0x71,0x53,0x0B,0x22 ))// 2409656D-84F9-5979-8ADF-F3DB71530B22
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRangeBase: WindowsFoundation.IID {
     .init(Data1: 0x540D6D61, Data2: 0x8FAC, Data3: 0x5D5C, Data4: ( 0xB5,0xB0,0xE1,0x72,0xA7,0xDD,0xE1,0x03 ))// 540D6D61-8FAC-5D5C-B5B0-E172A7DDE103
 }
@@ -1311,6 +1335,357 @@ public enum __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAcceleratorTextMinWidth(pThis, &value))
             }
             return value
+        }
+
+    }
+
+    public class IPopup: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup }
+
+        public func get_Child() throws -> WinUI.UIElement? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Child(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
+        }
+
+        public func put_Child(_ value: WinUI.UIElement?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Child(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_IsOpen() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsOpen(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsOpen(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsOpen(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_HorizontalOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_HorizontalOffset(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalOffset(pThis, value))
+            }
+        }
+
+        public func get_VerticalOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_VerticalOffset(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalOffset(pThis, value))
+            }
+        }
+
+        public func get_ChildTransitions() throws -> WinUI.TransitionCollection? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ChildTransitions(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.TransitionCollectionBridge.from(abi: value)
+        }
+
+        public func put_ChildTransitions(_ value: WinUI.TransitionCollection?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ChildTransitions(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_IsLightDismissEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsLightDismissEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsLightDismissEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsLightDismissEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_LightDismissOverlayMode() throws -> WinUI.LightDismissOverlayMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CLightDismissOverlayMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightDismissOverlayMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LightDismissOverlayMode(_ value: WinUI.LightDismissOverlayMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LightDismissOverlayMode(pThis, value))
+            }
+        }
+
+        public func get_ShouldConstrainToRootBounds() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShouldConstrainToRootBounds(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_ShouldConstrainToRootBounds(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ShouldConstrainToRootBounds(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsConstrainedToRootBounds() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsConstrainedToRootBounds(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func add_Opened(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Opened(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Opened(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Opened(pThis, token))
+            }
+        }
+
+        public func add_Closed(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Closed(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Closed(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Closed(pThis, token))
+            }
+        }
+
+    }
+
+    public class IPopup2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup2 }
+
+        public func get_PlacementTarget() throws -> WinUI.FrameworkElement? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlacementTarget(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.FrameworkElementBridge.from(abi: value)
+        }
+
+        public func put_PlacementTarget(_ value: WinUI.FrameworkElement?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlacementTarget(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_DesiredPlacement() throws -> WinUI.PopupPlacementMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredPlacement(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DesiredPlacement(_ value: WinUI.PopupPlacementMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredPlacement(pThis, value))
+            }
+        }
+
+        public func get_ActualPlacement() throws -> WinUI.PopupPlacementMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActualPlacement(pThis, &value))
+            }
+            return value
+        }
+
+        public func add_ActualPlacementChanged(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ActualPlacementChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ActualPlacementChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ActualPlacementChanged(pThis, token))
+            }
+        }
+
+    }
+
+    public class IPopup3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup3 }
+
+        public func get_SystemBackdrop() throws -> WinUI.SystemBackdrop? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SystemBackdrop(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.SystemBackdropBridge.from(abi: value)
+        }
+
+        public func put_SystemBackdrop(_ value: WinUI.SystemBackdrop?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SystemBackdrop(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    public class IPopupStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics }
+
+        public func get_ChildProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ChildProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsOpenProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsOpenProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalOffsetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_VerticalOffsetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalOffsetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ChildTransitionsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ChildTransitionsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsLightDismissEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsLightDismissEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LightDismissOverlayModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightDismissOverlayModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ShouldConstrainToRootBoundsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShouldConstrainToRootBoundsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class IPopupStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics2 }
+
+        public func get_PlacementTargetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlacementTargetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DesiredPlacementProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredPlacementProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class IPopupStatics3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics3 }
+
+        public func get_SystemBackdropProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopupStatics3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SystemBackdropProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }

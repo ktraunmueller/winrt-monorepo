@@ -446,6 +446,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
         }
     }
 
+    public enum PopupBridge: AbiBridge {
+        public typealias SwiftProjection = Popup
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup>?) -> Popup? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum RangeBaseBridge: ComposableBridge {
         public typealias SwiftProjection = RangeBase
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRangeBase
@@ -804,6 +813,13 @@ public class MenuFlyoutItemTemplateSettingsMaker: MakeFromAbi {
     public typealias SwiftType = MenuFlyoutItemTemplateSettings
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return MenuFlyoutItemTemplateSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PopupMaker: MakeFromAbi {
+    public typealias SwiftType = Popup
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Popup(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)

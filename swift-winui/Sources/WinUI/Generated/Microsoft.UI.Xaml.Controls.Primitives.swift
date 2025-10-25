@@ -19,6 +19,8 @@ public typealias FlyoutShowMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimit
 public typealias GeneratorDirection = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGeneratorDirection
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.placementmode)
 public typealias PlacementMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPlacementMode
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popupplacementmode)
+public typealias PopupPlacementMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollsnappointsalignment)
 public typealias ScrollSnapPointsAlignment = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CScrollSnapPointsAlignment
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.slidersnapsto)
@@ -897,6 +899,211 @@ public final class MenuFlyoutItemTemplateSettings : WinUI.DependencyObject {
 
     deinit {
         _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup)
+public final class Popup : WinUI.FrameworkElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IPopupStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.childproperty)
+    public static var childProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics.get_ChildProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.childtransitionsproperty)
+    public static var childTransitionsProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics.get_ChildTransitionsProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.horizontaloffsetproperty)
+    public static var horizontalOffsetProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics.get_HorizontalOffsetProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.islightdismissenabledproperty)
+    public static var isLightDismissEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics.get_IsLightDismissEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.isopenproperty)
+    public static var isOpenProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics.get_IsOpenProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.lightdismissoverlaymodeproperty)
+    public static var lightDismissOverlayModeProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics.get_LightDismissOverlayModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.shouldconstraintorootboundsproperty)
+    public static var shouldConstrainToRootBoundsProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics.get_ShouldConstrainToRootBoundsProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.verticaloffsetproperty)
+    public static var verticalOffsetProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics.get_VerticalOffsetProperty() }
+    }
+
+    private static let _IPopupStatics2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.desiredplacementproperty)
+    public static var desiredPlacementProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics2.get_DesiredPlacementProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.placementtargetproperty)
+    public static var placementTargetProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics2.get_PlacementTargetProperty() }
+    }
+
+    private static let _IPopupStatics3: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics3 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.systembackdropproperty)
+    public static var systemBackdropProperty : WinUI.DependencyProperty! {
+        get { try! _IPopupStatics3.get_SystemBackdropProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.child)
+    public var child : WinUI.UIElement! {
+        get { try! _default.get_Child() }
+        set { try! _default.put_Child(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.childtransitions)
+    public var childTransitions : WinUI.TransitionCollection! {
+        get { try! _default.get_ChildTransitions() }
+        set { try! _default.put_ChildTransitions(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.horizontaloffset)
+    public var horizontalOffset : Double {
+        get { try! _default.get_HorizontalOffset() }
+        set { try! _default.put_HorizontalOffset(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.isconstrainedtorootbounds)
+    public var isConstrainedToRootBounds : Bool {
+        get { try! _default.get_IsConstrainedToRootBounds() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.islightdismissenabled)
+    public var isLightDismissEnabled : Bool {
+        get { try! _default.get_IsLightDismissEnabled() }
+        set { try! _default.put_IsLightDismissEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.isopen)
+    public var isOpen : Bool {
+        get { try! _default.get_IsOpen() }
+        set { try! _default.put_IsOpen(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.lightdismissoverlaymode)
+    public var lightDismissOverlayMode : WinUI.LightDismissOverlayMode {
+        get { try! _default.get_LightDismissOverlayMode() }
+        set { try! _default.put_LightDismissOverlayMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.shouldconstraintorootbounds)
+    public var shouldConstrainToRootBounds : Bool {
+        get { try! _default.get_ShouldConstrainToRootBounds() }
+        set { try! _default.put_ShouldConstrainToRootBounds(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.verticaloffset)
+    public var verticalOffset : Double {
+        get { try! _default.get_VerticalOffset() }
+        set { try! _default.put_VerticalOffset(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.closed)
+    public lazy var closed : Event<EventHandler<Any?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_Closed($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_Closed($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.opened)
+    public lazy var opened : Event<EventHandler<Any?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_Opened($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_Opened($0)
+       }
+      )
+    }()
+
+    private lazy var _IPopup2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup2! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.actualplacement)
+    public var actualPlacement : PopupPlacementMode {
+        get { try! _IPopup2.get_ActualPlacement() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.desiredplacement)
+    public var desiredPlacement : PopupPlacementMode {
+        get { try! _IPopup2.get_DesiredPlacement() }
+        set { try! _IPopup2.put_DesiredPlacement(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.placementtarget)
+    public var placementTarget : WinUI.FrameworkElement! {
+        get { try! _IPopup2.get_PlacementTarget() }
+        set { try! _IPopup2.put_PlacementTarget(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.actualplacementchanged)
+    public lazy var actualPlacementChanged : Event<EventHandler<Any?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._IPopup2 else { return .init() }
+          return try! this.add_ActualPlacementChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._IPopup2.remove_ActualPlacementChanged($0)
+       }
+      )
+    }()
+
+    private lazy var _IPopup3: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup3! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.systembackdrop)
+    public var systemBackdrop : WinUI.SystemBackdrop! {
+        get { try! _IPopup3.get_SystemBackdrop() }
+        set { try! _IPopup3.put_SystemBackdrop(newValue) }
+    }
+
+    deinit {
+        _default = nil
+        _IPopup2 = nil
+        _IPopup3 = nil
     }
 }
 
@@ -2520,6 +2727,49 @@ extension WinUI.PlacementMode {
     }
 }
 extension WinUI.PlacementMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.PopupPlacementMode {
+    public static var auto : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Auto
+    }
+    public static var top : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Top
+    }
+    public static var bottom : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Bottom
+    }
+    public static var left : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Left
+    }
+    public static var right : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_Right
+    }
+    public static var topEdgeAlignedLeft : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_TopEdgeAlignedLeft
+    }
+    public static var topEdgeAlignedRight : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_TopEdgeAlignedRight
+    }
+    public static var bottomEdgeAlignedLeft : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_BottomEdgeAlignedLeft
+    }
+    public static var bottomEdgeAlignedRight : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_BottomEdgeAlignedRight
+    }
+    public static var leftEdgeAlignedTop : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_LeftEdgeAlignedTop
+    }
+    public static var leftEdgeAlignedBottom : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_LeftEdgeAlignedBottom
+    }
+    public static var rightEdgeAlignedTop : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_RightEdgeAlignedTop
+    }
+    public static var rightEdgeAlignedBottom : WinUI.PopupPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode_RightEdgeAlignedBottom
+    }
+}
+extension WinUI.PopupPlacementMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ScrollSnapPointsAlignment {
     public static var near : WinUI.ScrollSnapPointsAlignment {
