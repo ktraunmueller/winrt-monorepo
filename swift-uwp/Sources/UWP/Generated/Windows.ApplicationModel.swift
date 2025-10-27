@@ -4,6 +4,12 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroupstate)
+public typealias PackageContentGroupState = __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagesignaturekind)
+public typealias PackageSignatureKind = __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageupdateavailability)
+public typealias PackageUpdateAvailability = __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.appdisplayinfo)
 public final class AppDisplayInfo : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IAppDisplayInfo
@@ -85,6 +91,34 @@ public final class AppInfo : WinRTClass {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.appinstallerinfo)
+public final class AppInstallerInfo : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel.IAppInstallerInfo
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.appinstallerinfo.uri)
+    public var uri : WindowsFoundation.Uri! {
+        get { try! _default.get_Uri() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.enteredbackgroundeventargs)
 public final class EnteredBackgroundEventArgs : WinRTClass, IEnteredBackgroundEventArgs {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgs
@@ -140,6 +174,441 @@ public final class LeavingBackgroundEventArgs : WinRTClass, ILeavingBackgroundEv
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.leavingbackgroundeventargs.getdeferral)
     public func getDeferral() throws -> WindowsFoundation.Deferral! {
         try _default.GetDeferral()
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package)
+public final class Package : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackage
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackage
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _IPackageStatics: __ABI_Windows_ApplicationModel.IPackageStatics = try! RoGetActivationFactory("Windows.ApplicationModel.Package")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.current)
+    public static var current : Package! {
+        get { try! _IPackageStatics.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.dependencies)
+    public var dependencies : WindowsFoundation.AnyIVectorView<Package?>! {
+        get { try! _default.get_Dependencies() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.id)
+    public var id : PackageId! {
+        get { try! _default.get_Id() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.installedlocation)
+    public var installedLocation : UWP.StorageFolder! {
+        get { try! _default.get_InstalledLocation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.isframework)
+    public var isFramework : Bool {
+        get { try! _default.get_IsFramework() }
+    }
+
+    private lazy var _IPackage2: __ABI_Windows_ApplicationModel.IPackage2! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.description)
+    public var description : String {
+        get { try! _IPackage2.get_Description() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.displayname)
+    public var displayName : String {
+        get { try! _IPackage2.get_DisplayName() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.isbundle)
+    public var isBundle : Bool {
+        get { try! _IPackage2.get_IsBundle() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.isdevelopmentmode)
+    public var isDevelopmentMode : Bool {
+        get { try! _IPackage2.get_IsDevelopmentMode() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.isresourcepackage)
+    public var isResourcePackage : Bool {
+        get { try! _IPackage2.get_IsResourcePackage() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.logo)
+    public var logo : WindowsFoundation.Uri! {
+        get { try! _IPackage2.get_Logo() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.publisherdisplayname)
+    public var publisherDisplayName : String {
+        get { try! _IPackage2.get_PublisherDisplayName() }
+    }
+
+    private lazy var _IPackage3: __ABI_Windows_ApplicationModel.IPackage3! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.getapplistentriesasync)
+    public func getAppListEntriesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppListEntry?>?>! {
+        try _IPackage3.GetAppListEntriesAsync()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.installeddate)
+    public var installedDate : WindowsFoundation.DateTime {
+        get { try! _IPackage3.get_InstalledDate() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.status)
+    public var status : PackageStatus! {
+        get { try! _IPackage3.get_Status() }
+    }
+
+    private lazy var _IPackageWithMetadata: __ABI_Windows_ApplicationModel.IPackageWithMetadata! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.getthumbnailtoken)
+    public func getThumbnailToken() throws -> String {
+        try _IPackageWithMetadata.GetThumbnailToken()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.launch)
+    public func launch(_ parameters: String) throws {
+        try _IPackageWithMetadata.Launch(parameters)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.installdate)
+    public var installDate : WindowsFoundation.DateTime {
+        get { try! _IPackageWithMetadata.get_InstallDate() }
+    }
+
+    private lazy var _IPackage4: __ABI_Windows_ApplicationModel.IPackage4! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.verifycontentintegrityasync)
+    public func verifyContentIntegrityAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        try _IPackage4.VerifyContentIntegrityAsync()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.isoptional)
+    public var isOptional : Bool {
+        get { try! _IPackage4.get_IsOptional() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.signaturekind)
+    public var signatureKind : PackageSignatureKind {
+        get { try! _IPackage4.get_SignatureKind() }
+    }
+
+    private lazy var _IPackage5: __ABI_Windows_ApplicationModel.IPackage5! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.getcontentgroupsasync)
+    public func getContentGroupsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVector<PackageContentGroup?>?>! {
+        try _IPackage5.GetContentGroupsAsync()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.getcontentgroupasync)
+    public func getContentGroupAsync(_ name: String) throws -> WindowsFoundation.AnyIAsyncOperation<PackageContentGroup?>! {
+        try _IPackage5.GetContentGroupAsync(name)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.stagecontentgroupsasync)
+    public func stageContentGroupsAsync(_ names: WindowsFoundation.AnyIIterable<String>!) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVector<PackageContentGroup?>?>! {
+        try _IPackage5.StageContentGroupsAsync(names)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.stagecontentgroupsasync)
+    public func stageContentGroupsAsync(_ names: WindowsFoundation.AnyIIterable<String>!, _ moveToHeadOfQueue: Bool) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVector<PackageContentGroup?>?>! {
+        try _IPackage5.StageContentGroupsWithPriorityAsync(names, moveToHeadOfQueue)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.setinuseasync)
+    public func setInUseAsync(_ inUse: Bool) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        try _IPackage5.SetInUseAsync(inUse)
+    }
+
+    private lazy var _IPackage6: __ABI_Windows_ApplicationModel.IPackage6! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.getappinstallerinfo)
+    public func getAppInstallerInfo() throws -> AppInstallerInfo! {
+        try _IPackage6.GetAppInstallerInfo()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.checkupdateavailabilityasync)
+    public func checkUpdateAvailabilityAsync() throws -> WindowsFoundation.AnyIAsyncOperation<PackageUpdateAvailabilityResult?>! {
+        try _IPackage6.CheckUpdateAvailabilityAsync()
+    }
+
+    private lazy var _IPackage7: __ABI_Windows_ApplicationModel.IPackage7! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.effectivelocation)
+    public var effectiveLocation : UWP.StorageFolder! {
+        get { try! _IPackage7.get_EffectiveLocation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package.mutablelocation)
+    public var mutableLocation : UWP.StorageFolder! {
+        get { try! _IPackage7.get_MutableLocation() }
+    }
+
+    deinit {
+        _default = nil
+        _IPackage2 = nil
+        _IPackage3 = nil
+        _IPackageWithMetadata = nil
+        _IPackage4 = nil
+        _IPackage5 = nil
+        _IPackage6 = nil
+        _IPackage7 = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroup)
+public final class PackageContentGroup : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageContentGroup
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageContentGroup
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _IPackageContentGroupStatics: __ABI_Windows_ApplicationModel.IPackageContentGroupStatics = try! RoGetActivationFactory("Windows.ApplicationModel.PackageContentGroup")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroup.requiredgroupname)
+    public static var requiredGroupName : String {
+        get { try! _IPackageContentGroupStatics.get_RequiredGroupName() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroup.isrequired)
+    public var isRequired : Bool {
+        get { try! _default.get_IsRequired() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroup.name)
+    public var name : String {
+        get { try! _default.get_Name() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroup.package)
+    public var package : Package! {
+        get { try! _default.get_Package() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroup.state)
+    public var state : PackageContentGroupState {
+        get { try! _default.get_State() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid)
+public final class PackageId : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageId
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageId
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.architecture)
+    public var architecture : UWP.ProcessorArchitecture {
+        get { try! _default.get_Architecture() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.familyname)
+    public var familyName : String {
+        get { try! _default.get_FamilyName() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.fullname)
+    public var fullName : String {
+        get { try! _default.get_FullName() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.name)
+    public var name : String {
+        get { try! _default.get_Name() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.publisher)
+    public var publisher : String {
+        get { try! _default.get_Publisher() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.publisherid)
+    public var publisherId : String {
+        get { try! _default.get_PublisherId() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.resourceid)
+    public var resourceId : String {
+        get { try! _default.get_ResourceId() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.version)
+    public var version : PackageVersion {
+        get { try! _default.get_Version() }
+    }
+
+    private lazy var _IPackageIdWithMetadata: __ABI_Windows_ApplicationModel.IPackageIdWithMetadata! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.author)
+    public var author : String {
+        get { try! _IPackageIdWithMetadata.get_Author() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid.productid)
+    public var productId : String {
+        get { try! _IPackageIdWithMetadata.get_ProductId() }
+    }
+
+    deinit {
+        _default = nil
+        _IPackageIdWithMetadata = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus)
+public final class PackageStatus : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageStatus
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageStatus
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.verifyisok)
+    public func verifyIsOK() throws -> Bool {
+        try _default.VerifyIsOK()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.dataoffline)
+    public var dataOffline : Bool {
+        get { try! _default.get_DataOffline() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.dependencyissue)
+    public var dependencyIssue : Bool {
+        get { try! _default.get_DependencyIssue() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.deploymentinprogress)
+    public var deploymentInProgress : Bool {
+        get { try! _default.get_DeploymentInProgress() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.disabled)
+    public var disabled : Bool {
+        get { try! _default.get_Disabled() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.licenseissue)
+    public var licenseIssue : Bool {
+        get { try! _default.get_LicenseIssue() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.modified)
+    public var modified : Bool {
+        get { try! _default.get_Modified() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.needsremediation)
+    public var needsRemediation : Bool {
+        get { try! _default.get_NeedsRemediation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.notavailable)
+    public var notAvailable : Bool {
+        get { try! _default.get_NotAvailable() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.packageoffline)
+    public var packageOffline : Bool {
+        get { try! _default.get_PackageOffline() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.servicing)
+    public var servicing : Bool {
+        get { try! _default.get_Servicing() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.tampered)
+    public var tampered : Bool {
+        get { try! _default.get_Tampered() }
+    }
+
+    private lazy var _IPackageStatus2: __ABI_Windows_ApplicationModel.IPackageStatus2! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus.ispartiallystaged)
+    public var isPartiallyStaged : Bool {
+        get { try! _IPackageStatus2.get_IsPartiallyStaged() }
+    }
+
+    deinit {
+        _default = nil
+        _IPackageStatus2 = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageupdateavailabilityresult)
+public final class PackageUpdateAvailabilityResult : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageUpdateAvailabilityResult
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageupdateavailabilityresult.availability)
+    public var availability : PackageUpdateAvailability {
+        get { try! _default.get_Availability() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageupdateavailabilityresult.extendederror)
+    public var extendedError : HRESULT {
+        get { try! _default.get_ExtendedError() }
     }
 
     deinit {
@@ -245,6 +714,25 @@ public final class SuspendingOperation : WinRTClass, ISuspendingOperation {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion)
+public struct PackageVersion: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.major)
+    public var major: UInt16 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.minor)
+    public var minor: UInt16 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.build)
+    public var build: UInt16 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.revision)
+    public var revision: UInt16 = 0
+    public init() {}
+    public init(major: UInt16, minor: UInt16, build: UInt16, revision: UInt16) {
+        self.major = major
+        self.minor = minor
+        self.build = build
+        self.revision = revision
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ienteredbackgroundeventargs)
 public protocol IEnteredBackgroundEventArgs : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ienteredbackgroundeventargs.getdeferral)
@@ -336,4 +824,58 @@ extension ISuspendingOperation {
     }
 }
 public typealias AnyISuspendingOperation = any ISuspendingOperation
+
+extension UWP.PackageContentGroupState {
+    public static var notStaged : UWP.PackageContentGroupState {
+        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_NotStaged
+    }
+    public static var queued : UWP.PackageContentGroupState {
+        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_Queued
+    }
+    public static var staging : UWP.PackageContentGroupState {
+        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_Staging
+    }
+    public static var staged : UWP.PackageContentGroupState {
+        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_Staged
+    }
+}
+extension UWP.PackageContentGroupState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension UWP.PackageSignatureKind {
+    public static var none : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_None
+    }
+    public static var developer : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_Developer
+    }
+    public static var enterprise : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_Enterprise
+    }
+    public static var store : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_Store
+    }
+    public static var system : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_System
+    }
+}
+extension UWP.PackageSignatureKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension UWP.PackageUpdateAvailability {
+    public static var unknown : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Unknown
+    }
+    public static var noUpdates : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_NoUpdates
+    }
+    public static var available : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Available
+    }
+    public static var required : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Required
+    }
+    public static var error : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Error
+    }
+}
+extension UWP.PackageUpdateAvailability: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -36,6 +36,7 @@
 -include Windows.ApplicationModel.Core
 -include Windows.ApplicationModel.DataTransfer
 -include Windows.ApplicationModel.DataTransfer.DragDrop
+-include Windows.ApplicationModel.Package
 -include Windows.Management.Deployment
 -include Windows.Devices.Input
 -include Windows.Foundation

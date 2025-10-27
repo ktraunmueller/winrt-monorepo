@@ -179,6 +179,15 @@ public enum __IMPL_Windows_ApplicationModel {
         }
     }
 
+    public enum AppInstallerInfoBridge: AbiBridge {
+        public typealias SwiftProjection = AppInstallerInfo
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo>?) -> AppInstallerInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum EnteredBackgroundEventArgsBridge: AbiBridge {
         public typealias SwiftProjection = EnteredBackgroundEventArgs
         public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs
@@ -192,6 +201,51 @@ public enum __IMPL_Windows_ApplicationModel {
         public typealias SwiftProjection = LeavingBackgroundEventArgs
         public typealias CABI = __x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs
         public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs>?) -> LeavingBackgroundEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PackageBridge: AbiBridge {
+        public typealias SwiftProjection = Package
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackage
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackage>?) -> Package? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PackageContentGroupBridge: AbiBridge {
+        public typealias SwiftProjection = PackageContentGroup
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageContentGroup
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackageContentGroup>?) -> PackageContentGroup? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PackageIdBridge: AbiBridge {
+        public typealias SwiftProjection = PackageId
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageId
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackageId>?) -> PackageId? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PackageStatusBridge: AbiBridge {
+        public typealias SwiftProjection = PackageStatus
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageStatus
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackageStatus>?) -> PackageStatus? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PackageUpdateAvailabilityResultBridge: AbiBridge {
+        public typealias SwiftProjection = PackageUpdateAvailabilityResult
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult>?) -> PackageUpdateAvailabilityResult? {
             guard let abi = abi else { return nil }
             return .init(fromAbi: WindowsFoundation.IInspectable(abi))
         }
@@ -225,6 +279,17 @@ public enum __IMPL_Windows_ApplicationModel {
     }
 
 }
+@_spi(WinRTInternal)
+extension PackageVersion: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CApplicationModel_CPackageVersion
+    public static func from(abi: ABI) -> Self {
+        .init(major: abi.Major, minor: abi.Minor, build: abi.Build, revision: abi.Revision)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
 @_spi(WinRTInternal)
 public class IEnteredBackgroundEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = AnyIEnteredBackgroundEventArgs
@@ -280,6 +345,13 @@ public class AppInfoMaker: MakeFromAbi {
     }
 }
 @_spi(WinRTInternal)
+public class AppInstallerInfoMaker: MakeFromAbi {
+    public typealias SwiftType = AppInstallerInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppInstallerInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
 public class EnteredBackgroundEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = EnteredBackgroundEventArgs
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
@@ -291,6 +363,41 @@ public class LeavingBackgroundEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = LeavingBackgroundEventArgs
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return LeavingBackgroundEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PackageMaker: MakeFromAbi {
+    public typealias SwiftType = Package
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Package(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PackageContentGroupMaker: MakeFromAbi {
+    public typealias SwiftType = PackageContentGroup
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageContentGroup(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PackageIdMaker: MakeFromAbi {
+    public typealias SwiftType = PackageId
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageId(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PackageStatusMaker: MakeFromAbi {
+    public typealias SwiftType = PackageStatus
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageStatus(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PackageUpdateAvailabilityResultMaker: MakeFromAbi {
+    public typealias SwiftType = PackageUpdateAvailabilityResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageUpdateAvailabilityResult(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)

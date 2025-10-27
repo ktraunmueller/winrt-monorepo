@@ -12,6 +12,8 @@ public typealias LaunchQuerySupportStatus = __x_ABI_CWindows_CSystem_CLaunchQuer
 public typealias LaunchQuerySupportType = __x_ABI_CWindows_CSystem_CLaunchQuerySupportType
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launchuristatus)
 public typealias LaunchUriStatus = __x_ABI_CWindows_CSystem_CLaunchUriStatus
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.processorarchitecture)
+public typealias ProcessorArchitecture = __x_ABI_CWindows_CSystem_CProcessorArchitecture
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userauthenticationstatus)
 public typealias UserAuthenticationStatus = __x_ABI_CWindows_CSystem_CUserAuthenticationStatus
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userpicturesize)
@@ -952,6 +954,31 @@ extension UWP.LaunchUriStatus {
     }
 }
 extension UWP.LaunchUriStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension UWP.ProcessorArchitecture {
+    public static var x86 : UWP.ProcessorArchitecture {
+        __x_ABI_CWindows_CSystem_CProcessorArchitecture_X86
+    }
+    public static var arm : UWP.ProcessorArchitecture {
+        __x_ABI_CWindows_CSystem_CProcessorArchitecture_Arm
+    }
+    public static var x64 : UWP.ProcessorArchitecture {
+        __x_ABI_CWindows_CSystem_CProcessorArchitecture_X64
+    }
+    public static var neutral : UWP.ProcessorArchitecture {
+        __x_ABI_CWindows_CSystem_CProcessorArchitecture_Neutral
+    }
+    public static var arm64 : UWP.ProcessorArchitecture {
+        __x_ABI_CWindows_CSystem_CProcessorArchitecture_Arm64
+    }
+    public static var x86OnArm64 : UWP.ProcessorArchitecture {
+        __x_ABI_CWindows_CSystem_CProcessorArchitecture_X86OnArm64
+    }
+    public static var unknown : UWP.ProcessorArchitecture {
+        __x_ABI_CWindows_CSystem_CProcessorArchitecture_Unknown
+    }
+}
+extension UWP.ProcessorArchitecture: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.UserAuthenticationStatus {
     public static var unauthenticated : UWP.UserAuthenticationStatus {

@@ -1,9 +1,10 @@
 -output E:\sandbox\ktraunmueller\winrt-monorepo\swift-uwp\.generated
 -include Windows.ApplicationModel.Activation.LaunchActivatedEventArgs
+-include Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs
 -include Windows.ApplicationModel.Core
 -include Windows.ApplicationModel.DataTransfer
 -include Windows.ApplicationModel.DataTransfer.DragDrop
--include Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs
+-include Windows.ApplicationModel.Package
 -include Windows.Devices.Input
 -include Windows.Foundation.IMemoryBufferReference
 -include Windows.Foundation.IPropertyValue

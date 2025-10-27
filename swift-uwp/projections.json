@@ -13,10 +13,11 @@
   ],
   "include": [
     "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs",
+    "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs",
     "Windows.ApplicationModel.Core",
     "Windows.ApplicationModel.DataTransfer",
     "Windows.ApplicationModel.DataTransfer.DragDrop",
-    "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs",
+    "Windows.ApplicationModel.Package",
     "Windows.Devices.Input",
     "Windows.Foundation.IMemoryBufferReference",
     "Windows.Foundation.IPropertyValue",

@@ -53,6 +53,7 @@
     "Windows.ApplicationModel.Core",
     "Windows.ApplicationModel.DataTransfer",
     "Windows.ApplicationModel.DataTransfer.DragDrop",
+    "Windows.ApplicationModel.Package",
     "Windows.Management.Deployment",
     "Windows.Devices.Input",
     "Windows.Foundation",
