@@ -1,1 +1,1 @@
-Note: If you get build errors, you may need to install the exact [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads-archive) version referenced in the projections.
+
