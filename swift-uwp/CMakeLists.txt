@@ -7,11 +7,12 @@ file(GLOB_RECURSE UWP_SRC
     Sources/UWP/UWP.swift
 )
 
+set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
+
 add_library(UWP STATIC ${UWP_SRC})
 
 set_target_properties(UWP PROPERTIES
     Swift_MODULE_NAME UWP
-    OUTPUT_NAME "libUWP"
 )
 
 target_compile_options(UWP PRIVATE 

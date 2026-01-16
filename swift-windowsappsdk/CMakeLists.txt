@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.29)
 
 project(WinAppSDK LANGUAGES C Swift)
 
+set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
+
 #
 # C Library: CWinAppSDK
 #
@@ -11,7 +13,6 @@ add_library(CWinAppSDK STATIC
 
 set_target_properties(CWinAppSDK PROPERTIES
     Swift_MODULE_NAME CWinAppSDK
-    OUTPUT_NAME "libCWinAppSDK"
 )
 
 # Include headers for C target
@@ -65,7 +66,6 @@ add_library(WinAppSDK STATIC ${WINAPPSDK_SRC})
 
 set_target_properties(WinAppSDK PROPERTIES
     Swift_MODULE_NAME WinAppSDK
-    OUTPUT_NAME "libWinAppSDK"
 )
 
 target_compile_options(WinAppSDK PRIVATE 

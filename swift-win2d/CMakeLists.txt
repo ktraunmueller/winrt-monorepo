@@ -6,11 +6,12 @@ file(GLOB_RECURSE WIN2D_SRC
     Sources/Win2D/Generated/*.swift
 )
 
+set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
+
 add_library(Win2D STATIC ${WIN2D_SRC})
 
 set_target_properties(Win2D PROPERTIES
     Swift_MODULE_NAME Win2D
-    OUTPUT_NAME "libWin2D"
 )
 
 target_compile_options(Win2D PRIVATE 

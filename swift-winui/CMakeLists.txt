@@ -7,11 +7,12 @@ file(GLOB_RECURSE WINUI_SRC
     Sources/WinUI/Generated/*.swift
 )
 
+set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
+
 add_library(WinUI STATIC ${WINUI_SRC})
 
 set_target_properties(WinUI PROPERTIES
     Swift_MODULE_NAME WinUI
-    OUTPUT_NAME "libWinUI"
 )
 
 target_compile_options(WinUI PRIVATE 
