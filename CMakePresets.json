@@ -14,8 +14,8 @@
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "SWIFT_TOOLCHAIN_PATH": "E:/Swift/Toolchains/0.0.0+Asserts/usr",
-        "CMAKE_Swift_COMPILER": "E:/Swift/Toolchains/0.0.0+Asserts/usr/bin/swiftc.exe"
+        "SWIFT_TOOLCHAIN_PATH": "$env{SWIFT_TOOLCHAIN_PATH}",
+        "CMAKE_Swift_COMPILER": "$env{SWIFT_COMPILER}"
       }
     }
   ],
