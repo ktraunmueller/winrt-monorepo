@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 6,
   "cmakeMinimumRequired": {
     "major": 3,
     "minor": 29,
@@ -7,23 +7,41 @@
   },
   "configurePresets": [
     {
-      "name": "debug",
-      "displayName": "CMake Configure (Debug)",
-      "description": "Debug build using Ninja and Swift with LLD",
+      "name": "base-ninja-clang",
+      "hidden": true,
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "SWIFT_TOOLCHAIN_PATH": "$env{SWIFT_TOOLCHAIN_PATH}",
+        "CMAKE_C_COMPILER": "$env{SWIFT_TOOLCHAIN_PATH}/bin/clang.exe",
+        "CMAKE_CXX_COMPILER": "$env{SWIFT_TOOLCHAIN_PATH}/bin/clang++.exe",
         "CMAKE_Swift_COMPILER": "$env{SWIFT_COMPILER}"
+      }
+    },
+    {
+      "name": "debug",
+      "inherits": "base-ninja-clang",
+      "displayName": "CMake Configure (Debug)",      
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "inherits": "base-ninja-clang",
+      "displayName": "CMake Configure (Release)",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
       }
     }
   ],
   "buildPresets": [
     {
       "name": "debug",
-      "configurePreset": "debug",
-      "description": "CMake Build (Debug)"
+      "configurePreset": "debug"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
     }
   ]
 }
