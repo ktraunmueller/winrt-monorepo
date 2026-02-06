@@ -14,7 +14,8 @@
       "cacheVariables": {
         "CMAKE_C_COMPILER": "$env{SWIFT_TOOLCHAIN_PATH}/bin/clang.exe",
         "CMAKE_CXX_COMPILER": "$env{SWIFT_TOOLCHAIN_PATH}/bin/clang++.exe",
-        "CMAKE_Swift_COMPILER": "$env{SWIFT_COMPILER}"
+        "CMAKE_Swift_COMPILER": "$env{SWIFT_TOOLCHAIN_PATH}/bin/swiftc.exe",
+        "SWIFT_TOOLCHAIN_PATH": "$env{SWIFT_TOOLCHAIN_PATH}"
       }
     },
     {
