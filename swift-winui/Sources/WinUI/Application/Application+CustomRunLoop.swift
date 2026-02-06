@@ -22,9 +22,6 @@ extension Application {
 
             let xamlManager: WindowsXamlManager = try WindowsXamlManager.initializeForCurrentThread()
             application.dispatcherShutdownMode = .onLastWindowClose
-            if let swiftApplication = application as? SwiftApplication {
-                swiftApplication.mainDispatcherQueue = try? DispatcherQueue.getForCurrentThread()
-            }
 
             return try withExtendedLifetime([xamlManager, dispatcherQueueController, application]) {
                 try runLoop(dispatcherQueueController.dispatcherQueue)

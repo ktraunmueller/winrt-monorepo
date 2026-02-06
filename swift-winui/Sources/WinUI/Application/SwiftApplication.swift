@@ -27,8 +27,6 @@ open class SwiftApplication: Application, IXamlMetadataProvider {
 
     public typealias RunLoop = (DispatcherQueue) throws -> Int32
 
-    public var mainDispatcherQueue: DispatcherQueue?
-
     public required override init() {
         super.init()
     }
