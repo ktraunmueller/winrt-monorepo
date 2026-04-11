@@ -66,6 +66,7 @@
 -include Microsoft.UI.Xaml.Controls.TreeViewItem
 -include Microsoft.UI.Xaml.Controls.TreeViewList
 -include Microsoft.UI.Xaml.Controls.UniformGridLayout
+-include Microsoft.UI.Xaml.Controls.Viewbox
 -include Microsoft.UI.Xaml.Controls.XamlControlsResources
 -include Microsoft.UI.Xaml.Documents.Run
 -include Microsoft.UI.Xaml.Documents.Hyperlink

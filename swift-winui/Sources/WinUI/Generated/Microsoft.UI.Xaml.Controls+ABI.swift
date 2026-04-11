@@ -1554,6 +1554,14 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUserControlStatics: Win
     .init(Data1: 0x575E8FA1, Data2: 0x2E2D, Data3: 0x5857, Data4: ( 0x9A,0x93,0x6B,0x11,0xE5,0x43,0x16,0xBA ))// 575E8FA1-2E2D-5857-9A93-6B11E54316BA
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox: WindowsFoundation.IID {
+    .init(Data1: 0x510683E8, Data2: 0xD0FE, Data3: 0x5EF4, Data4: ( 0x85,0xBD,0xE1,0x13,0x10,0x76,0xAC,0x22 ))// 510683E8-D0FE-5EF4-85BD-E1131076AC22
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewboxStatics: WindowsFoundation.IID {
+    .init(Data1: 0x0466C103, Data2: 0x1E17, Data3: 0x5E83, Data4: ( 0xA2,0x62,0x88,0x55,0xF2,0x16,0xB5,0x9F ))// 0466C103-1E17-5E83-A262-8855F216B59F
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayout: WindowsFoundation.IID {
     .init(Data1: 0x54857CE0, Data2: 0xB9E6, Data3: 0x51A3, Data4: ( 0xBF,0xA8,0xDC,0xD8,0xEE,0x30,0x6D,0x5C ))// 54857CE0-B9E6-51A3-BFA8-DCD8EE306D5C
 }
@@ -24383,6 +24391,77 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUserControlStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class IViewbox: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox }
+
+        public func get_Child() throws -> WinUI.UIElement? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Child(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
+        }
+
+        public func put_Child(_ value: WinUI.UIElement?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Child(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Stretch() throws -> WinUI.Stretch {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CStretch = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Stretch(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Stretch(_ value: WinUI.Stretch) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Stretch(pThis, value))
+            }
+        }
+
+        public func get_StretchDirection() throws -> WinUI.StretchDirection {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CStretchDirection = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StretchDirection(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_StretchDirection(_ value: WinUI.StretchDirection) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StretchDirection(pThis, value))
+            }
+        }
+
+    }
+
+    public class IViewboxStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewboxStatics }
+
+        public func get_StretchProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewboxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StretchProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StretchDirectionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewboxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StretchDirectionProperty(pThis, &valueAbi))
                 }
             }
             return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)

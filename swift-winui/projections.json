@@ -79,6 +79,7 @@
     "Microsoft.UI.Xaml.Controls.TreeViewItem",
     "Microsoft.UI.Xaml.Controls.TreeViewList",
     "Microsoft.UI.Xaml.Controls.UniformGridLayout",
+    "Microsoft.UI.Xaml.Controls.Viewbox",
     "Microsoft.UI.Xaml.Controls.XamlControlsResources",
     "Microsoft.UI.Xaml.Documents.Run",
     "Microsoft.UI.Xaml.Documents.Hyperlink",

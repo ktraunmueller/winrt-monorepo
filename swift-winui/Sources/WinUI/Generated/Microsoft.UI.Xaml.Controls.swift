@@ -106,6 +106,8 @@ public typealias SnapPointsType = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSnapPo
 public typealias SplitViewDisplayMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSplitViewDisplayMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitviewpaneplacement)
 public typealias SplitViewPanePlacement = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSplitViewPanePlacement
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stretchdirection)
+public typealias StretchDirection = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CStretchDirection
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbol)
 public typealias Symbol = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtipclosereason)
@@ -16945,6 +16947,63 @@ open class UserControl : WinUI.Control {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.viewbox)
+public final class Viewbox : WinUI.FrameworkElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IViewbox
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Viewbox")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IViewboxStatics: __ABI_Microsoft_UI_Xaml_Controls.IViewboxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Viewbox")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.viewbox.stretchdirectionproperty)
+    public static var stretchDirectionProperty : WinUI.DependencyProperty! {
+        get { try! _IViewboxStatics.get_StretchDirectionProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.viewbox.stretchproperty)
+    public static var stretchProperty : WinUI.DependencyProperty! {
+        get { try! _IViewboxStatics.get_StretchProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.viewbox.child)
+    public var child : WinUI.UIElement! {
+        get { try! _default.get_Child() }
+        set { try! _default.put_Child(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.viewbox.stretch)
+    public var stretch : WinUI.Stretch {
+        get { try! _default.get_Stretch() }
+        set { try! _default.put_Stretch(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.viewbox.stretchdirection)
+    public var stretchDirection : StretchDirection {
+        get { try! _default.get_StretchDirection() }
+        set { try! _default.put_StretchDirection(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayout)
 open class VirtualizingLayout : WinUI.Layout {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayout
@@ -18021,6 +18080,19 @@ extension WinUI.SplitViewPanePlacement {
     }
 }
 extension WinUI.SplitViewPanePlacement: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.StretchDirection {
+    public static var upOnly : WinUI.StretchDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CStretchDirection_UpOnly
+    }
+    public static var downOnly : WinUI.StretchDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CStretchDirection_DownOnly
+    }
+    public static var both : WinUI.StretchDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CStretchDirection_Both
+    }
+}
+extension WinUI.StretchDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.Symbol {
     public static var previous : WinUI.Symbol {

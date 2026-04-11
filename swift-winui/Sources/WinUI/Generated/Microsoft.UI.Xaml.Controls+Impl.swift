@@ -3053,6 +3053,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         public typealias Composable = IControlOverrides
     }
 
+    public enum ViewboxBridge: AbiBridge {
+        public typealias SwiftProjection = Viewbox
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox>?) -> Viewbox? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum VirtualizingLayoutBridge: ComposableBridge {
         public typealias SwiftProjection = VirtualizingLayout
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayout
@@ -4408,6 +4417,13 @@ public class UserControlMaker: MakeFromAbi {
     public typealias SwiftType = UserControl
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return UserControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ViewboxMaker: MakeFromAbi {
+    public typealias SwiftType = Viewbox
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Viewbox(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
