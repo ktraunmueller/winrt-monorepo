@@ -4,6 +4,189 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter)
+public final class DecimalFormatter : WinRTClass, INumberFormatterOptions, INumberFormatter, INumberFormatter2, INumberParser, ISignificantDigitsOption, INumberRounderOption, ISignedZeroOption {
+    private typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberFormatter
+    private typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Globalization.NumberFormatting.DecimalFormatter")
+    override public init() {
+        super.init(try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IDecimalFormatterFactory: __ABI_Windows_Globalization_NumberFormatting.IDecimalFormatterFactory = try! RoGetActivationFactory("Windows.Globalization.NumberFormatting.DecimalFormatter")
+    public init(_ languages: WindowsFoundation.AnyIIterable<String>!, _ geographicRegion: String) {
+        super.init(try! Self._IDecimalFormatterFactory.CreateDecimalFormatter(languages, geographicRegion))
+    }
+
+    private lazy var _INumberFormatterOptions: __ABI_Windows_Globalization_NumberFormatting.INumberFormatterOptions! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.fractiondigits)
+    public var fractionDigits : Int32 {
+        get { try! _INumberFormatterOptions.get_FractionDigits() }
+        set { try! _INumberFormatterOptions.put_FractionDigits(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.geographicregion)
+    public var geographicRegion : String {
+        get { try! _INumberFormatterOptions.get_GeographicRegion() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.integerdigits)
+    public var integerDigits : Int32 {
+        get { try! _INumberFormatterOptions.get_IntegerDigits() }
+        set { try! _INumberFormatterOptions.put_IntegerDigits(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.isdecimalpointalwaysdisplayed)
+    public var isDecimalPointAlwaysDisplayed : Bool {
+        get { try! _INumberFormatterOptions.get_IsDecimalPointAlwaysDisplayed() }
+        set { try! _INumberFormatterOptions.put_IsDecimalPointAlwaysDisplayed(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.isgrouped)
+    public var isGrouped : Bool {
+        get { try! _INumberFormatterOptions.get_IsGrouped() }
+        set { try! _INumberFormatterOptions.put_IsGrouped(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.languages)
+    public var languages : WindowsFoundation.AnyIVectorView<String>! {
+        get { try! _INumberFormatterOptions.get_Languages() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.numeralsystem)
+    public var numeralSystem : String {
+        get { try! _INumberFormatterOptions.get_NumeralSystem() }
+        set { try! _INumberFormatterOptions.put_NumeralSystem(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.resolvedgeographicregion)
+    public var resolvedGeographicRegion : String {
+        get { try! _INumberFormatterOptions.get_ResolvedGeographicRegion() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.resolvedlanguage)
+    public var resolvedLanguage : String {
+        get { try! _INumberFormatterOptions.get_ResolvedLanguage() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.format)
+    public func format(_ value: Int64) throws -> String {
+        try _default.FormatInt(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.format)
+    public func format(_ value: UInt64) throws -> String {
+        try _default.FormatUInt(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.format)
+    public func format(_ value: Double) throws -> String {
+        try _default.FormatDouble(value)
+    }
+
+    private lazy var _INumberFormatter2: __ABI_Windows_Globalization_NumberFormatting.INumberFormatter2! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.formatint)
+    public func formatInt(_ value: Int64) throws -> String {
+        try _INumberFormatter2.FormatInt(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.formatuint)
+    public func formatUInt(_ value: UInt64) throws -> String {
+        try _INumberFormatter2.FormatUInt(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.formatdouble)
+    public func formatDouble(_ value: Double) throws -> String {
+        try _INumberFormatter2.FormatDouble(value)
+    }
+
+    private lazy var _INumberParser: __ABI_Windows_Globalization_NumberFormatting.INumberParser! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.parseint)
+    public func parseInt(_ text: String) throws -> Int64? {
+        try _INumberParser.ParseInt(text)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.parseuint)
+    public func parseUInt(_ text: String) throws -> UInt64? {
+        try _INumberParser.ParseUInt(text)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.parsedouble)
+    public func parseDouble(_ text: String) throws -> Double? {
+        try _INumberParser.ParseDouble(text)
+    }
+
+    private lazy var _ISignificantDigitsOption: __ABI_Windows_Globalization_NumberFormatting.ISignificantDigitsOption! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.significantdigits)
+    public var significantDigits : Int32 {
+        get { try! _ISignificantDigitsOption.get_SignificantDigits() }
+        set { try! _ISignificantDigitsOption.put_SignificantDigits(newValue) }
+    }
+
+    private lazy var _INumberRounderOption: __ABI_Windows_Globalization_NumberFormatting.INumberRounderOption! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.numberrounder)
+    public var numberRounder : AnyINumberRounder! {
+        get { try! _INumberRounderOption.get_NumberRounder() }
+        set { try! _INumberRounderOption.put_NumberRounder(newValue) }
+    }
+
+    private lazy var _ISignedZeroOption: __ABI_Windows_Globalization_NumberFormatting.ISignedZeroOption! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter.iszerosigned)
+    public var isZeroSigned : Bool {
+        get { try! _ISignedZeroOption.get_IsZeroSigned() }
+        set { try! _ISignedZeroOption.put_IsZeroSigned(newValue) }
+    }
+
+    deinit {
+        _INumberFormatterOptions = nil
+        _default = nil
+        _INumberFormatter2 = nil
+        _INumberParser = nil
+        _ISignificantDigitsOption = nil
+        _INumberRounderOption = nil
+        _ISignedZeroOption = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatter)
+public protocol INumberFormatter : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatter.format)
+    func format(_ value: Int64) throws -> String
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatter.format)
+    func format(_ value: UInt64) throws -> String
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatter.format)
+    func format(_ value: Double) throws -> String
+}
+
+extension INumberFormatter {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Globalization_NumberFormatting.INumberFormatterWrapper.IID:
+                let wrapper = __ABI_Windows_Globalization_NumberFormatting.INumberFormatterWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyINumberFormatter = any INumberFormatter
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatter2)
 public protocol INumberFormatter2 : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatter2.formatint)
@@ -25,4 +208,142 @@ extension INumberFormatter2 {
     }
 }
 public typealias AnyINumberFormatter2 = any INumberFormatter2
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions)
+public protocol INumberFormatterOptions : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.fractiondigits)
+    var fractionDigits: Int32 { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.geographicregion)
+    var geographicRegion: String { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.integerdigits)
+    var integerDigits: Int32 { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.isdecimalpointalwaysdisplayed)
+    var isDecimalPointAlwaysDisplayed: Bool { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.isgrouped)
+    var isGrouped: Bool { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.languages)
+    var languages: WindowsFoundation.AnyIVectorView<String>! { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.numeralsystem)
+    var numeralSystem: String { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.resolvedgeographicregion)
+    var resolvedGeographicRegion: String { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.resolvedlanguage)
+    var resolvedLanguage: String { get }
+}
+
+extension INumberFormatterOptions {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Globalization_NumberFormatting.INumberFormatterOptionsWrapper.IID:
+                let wrapper = __ABI_Windows_Globalization_NumberFormatting.INumberFormatterOptionsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyINumberFormatterOptions = any INumberFormatterOptions
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberparser)
+public protocol INumberParser : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberparser.parseint)
+    func parseInt(_ text: String) throws -> Int64?
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberparser.parseuint)
+    func parseUInt(_ text: String) throws -> UInt64?
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberparser.parsedouble)
+    func parseDouble(_ text: String) throws -> Double?
+}
+
+extension INumberParser {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Globalization_NumberFormatting.INumberParserWrapper.IID:
+                let wrapper = __ABI_Windows_Globalization_NumberFormatting.INumberParserWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyINumberParser = any INumberParser
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder)
+public protocol INumberRounder : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.roundint32)
+    func roundInt32(_ value: Int32) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.rounduint32)
+    func roundUInt32(_ value: UInt32) throws -> UInt32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.roundint64)
+    func roundInt64(_ value: Int64) throws -> Int64
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.rounduint64)
+    func roundUInt64(_ value: UInt64) throws -> UInt64
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.roundsingle)
+    func roundSingle(_ value: Float) throws -> Float
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.rounddouble)
+    func roundDouble(_ value: Double) throws -> Double
+}
+
+extension INumberRounder {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Globalization_NumberFormatting.INumberRounderWrapper.IID:
+                let wrapper = __ABI_Windows_Globalization_NumberFormatting.INumberRounderWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyINumberRounder = any INumberRounder
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounderoption)
+public protocol INumberRounderOption : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounderoption.numberrounder)
+    var numberRounder: UWP.AnyINumberRounder! { get set }
+}
+
+extension INumberRounderOption {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Globalization_NumberFormatting.INumberRounderOptionWrapper.IID:
+                let wrapper = __ABI_Windows_Globalization_NumberFormatting.INumberRounderOptionWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyINumberRounderOption = any INumberRounderOption
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.isignedzerooption)
+public protocol ISignedZeroOption : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.isignedzerooption.iszerosigned)
+    var isZeroSigned: Bool { get set }
+}
+
+extension ISignedZeroOption {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Globalization_NumberFormatting.ISignedZeroOptionWrapper.IID:
+                let wrapper = __ABI_Windows_Globalization_NumberFormatting.ISignedZeroOptionWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyISignedZeroOption = any ISignedZeroOption
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.isignificantdigitsoption)
+public protocol ISignificantDigitsOption : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.isignificantdigitsoption.significantdigits)
+    var significantDigits: Int32 { get set }
+}
+
+extension ISignificantDigitsOption {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Globalization_NumberFormatting.ISignificantDigitsOptionWrapper.IID:
+                let wrapper = __ABI_Windows_Globalization_NumberFormatting.ISignificantDigitsOptionWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyISignificantDigitsOption = any ISignificantDigitsOption
 

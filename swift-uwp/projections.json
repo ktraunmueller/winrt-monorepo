@@ -21,6 +21,7 @@
     "Windows.Devices.Input",
     "Windows.Foundation.IMemoryBufferReference",
     "Windows.Foundation.IPropertyValue",
+    "Windows.Globalization.NumberFormatting.DecimalFormatter",
     "Windows.Globalization.NumberFormatting.INumberFormatter2",
     "Windows.Graphics",
     "Windows.Graphics.DirectX.Direct3D11",

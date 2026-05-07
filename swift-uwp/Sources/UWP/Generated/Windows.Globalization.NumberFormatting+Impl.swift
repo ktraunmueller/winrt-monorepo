@@ -6,6 +6,46 @@ import CWinRT
 
 @_spi(WinRTInternal)
 public enum __IMPL_Windows_Globalization_NumberFormatting {
+    public enum INumberFormatterBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter
+        public typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberFormatter
+        public typealias SwiftProjection = AnyINumberFormatter
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return INumberFormatterImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Globalization_NumberFormatting.INumberFormatterVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class INumberFormatterImpl: INumberFormatter, WinRTAbiImpl {
+        fileprivate typealias Bridge = INumberFormatterBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatter.format)
+        fileprivate func format(_ value: Int64) throws -> String {
+            try _default.FormatInt(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatter.format)
+        fileprivate func format(_ value: UInt64) throws -> String {
+            try _default.FormatUInt(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatter.format)
+        fileprivate func format(_ value: Double) throws -> String {
+            try _default.FormatDouble(value)
+        }
+
+    }
+
     public enum INumberFormatter2Bridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter2
         public typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberFormatter2
@@ -46,6 +86,286 @@ public enum __IMPL_Windows_Globalization_NumberFormatting {
 
     }
 
+    public enum INumberFormatterOptionsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions
+        public typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberFormatterOptions
+        public typealias SwiftProjection = AnyINumberFormatterOptions
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return INumberFormatterOptionsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Globalization_NumberFormatting.INumberFormatterOptionsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class INumberFormatterOptionsImpl: INumberFormatterOptions, WinRTAbiImpl {
+        fileprivate typealias Bridge = INumberFormatterOptionsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.fractiondigits)
+        fileprivate var fractionDigits : Int32 {
+            get { try! _default.get_FractionDigits() }
+            set { try! _default.put_FractionDigits(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.geographicregion)
+        fileprivate var geographicRegion : String {
+            get { try! _default.get_GeographicRegion() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.integerdigits)
+        fileprivate var integerDigits : Int32 {
+            get { try! _default.get_IntegerDigits() }
+            set { try! _default.put_IntegerDigits(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.isdecimalpointalwaysdisplayed)
+        fileprivate var isDecimalPointAlwaysDisplayed : Bool {
+            get { try! _default.get_IsDecimalPointAlwaysDisplayed() }
+            set { try! _default.put_IsDecimalPointAlwaysDisplayed(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.isgrouped)
+        fileprivate var isGrouped : Bool {
+            get { try! _default.get_IsGrouped() }
+            set { try! _default.put_IsGrouped(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.languages)
+        fileprivate var languages : WindowsFoundation.AnyIVectorView<String>! {
+            get { try! _default.get_Languages() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.numeralsystem)
+        fileprivate var numeralSystem : String {
+            get { try! _default.get_NumeralSystem() }
+            set { try! _default.put_NumeralSystem(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.resolvedgeographicregion)
+        fileprivate var resolvedGeographicRegion : String {
+            get { try! _default.get_ResolvedGeographicRegion() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberformatteroptions.resolvedlanguage)
+        fileprivate var resolvedLanguage : String {
+            get { try! _default.get_ResolvedLanguage() }
+        }
+
+    }
+
+    public enum INumberParserBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParser
+        public typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberParser
+        public typealias SwiftProjection = AnyINumberParser
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return INumberParserImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Globalization_NumberFormatting.INumberParserVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class INumberParserImpl: INumberParser, WinRTAbiImpl {
+        fileprivate typealias Bridge = INumberParserBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberparser.parseint)
+        fileprivate func parseInt(_ text: String) throws -> Int64? {
+            try _default.ParseInt(text)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberparser.parseuint)
+        fileprivate func parseUInt(_ text: String) throws -> UInt64? {
+            try _default.ParseUInt(text)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberparser.parsedouble)
+        fileprivate func parseDouble(_ text: String) throws -> Double? {
+            try _default.ParseDouble(text)
+        }
+
+    }
+
+    public enum INumberRounderBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder
+        public typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberRounder
+        public typealias SwiftProjection = AnyINumberRounder
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return INumberRounderImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Globalization_NumberFormatting.INumberRounderVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class INumberRounderImpl: INumberRounder, WinRTAbiImpl {
+        fileprivate typealias Bridge = INumberRounderBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.roundint32)
+        fileprivate func roundInt32(_ value: Int32) throws -> Int32 {
+            try _default.RoundInt32(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.rounduint32)
+        fileprivate func roundUInt32(_ value: UInt32) throws -> UInt32 {
+            try _default.RoundUInt32(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.roundint64)
+        fileprivate func roundInt64(_ value: Int64) throws -> Int64 {
+            try _default.RoundInt64(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.rounduint64)
+        fileprivate func roundUInt64(_ value: UInt64) throws -> UInt64 {
+            try _default.RoundUInt64(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.roundsingle)
+        fileprivate func roundSingle(_ value: Float) throws -> Float {
+            try _default.RoundSingle(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounder.rounddouble)
+        fileprivate func roundDouble(_ value: Double) throws -> Double {
+            try _default.RoundDouble(value)
+        }
+
+    }
+
+    public enum INumberRounderOptionBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderOption
+        public typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberRounderOption
+        public typealias SwiftProjection = AnyINumberRounderOption
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return INumberRounderOptionImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Globalization_NumberFormatting.INumberRounderOptionVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class INumberRounderOptionImpl: INumberRounderOption, WinRTAbiImpl {
+        fileprivate typealias Bridge = INumberRounderOptionBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.inumberrounderoption.numberrounder)
+        fileprivate var numberRounder : AnyINumberRounder! {
+            get { try! _default.get_NumberRounder() }
+            set { try! _default.put_NumberRounder(newValue) }
+        }
+
+    }
+
+    public enum ISignedZeroOptionBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignedZeroOption
+        public typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.ISignedZeroOption
+        public typealias SwiftProjection = AnyISignedZeroOption
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ISignedZeroOptionImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Globalization_NumberFormatting.ISignedZeroOptionVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ISignedZeroOptionImpl: ISignedZeroOption, WinRTAbiImpl {
+        fileprivate typealias Bridge = ISignedZeroOptionBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.isignedzerooption.iszerosigned)
+        fileprivate var isZeroSigned : Bool {
+            get { try! _default.get_IsZeroSigned() }
+            set { try! _default.put_IsZeroSigned(newValue) }
+        }
+
+    }
+
+    public enum ISignificantDigitsOptionBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsOption
+        public typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.ISignificantDigitsOption
+        public typealias SwiftProjection = AnyISignificantDigitsOption
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ISignificantDigitsOptionImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Globalization_NumberFormatting.ISignificantDigitsOptionVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ISignificantDigitsOptionImpl: ISignificantDigitsOption, WinRTAbiImpl {
+        fileprivate typealias Bridge = ISignificantDigitsOptionBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.isignificantdigitsoption.significantdigits)
+        fileprivate var significantDigits : Int32 {
+            get { try! _default.get_SignificantDigits() }
+            set { try! _default.put_SignificantDigits(newValue) }
+        }
+
+    }
+
+    public enum DecimalFormatterBridge: AbiBridge {
+        public typealias SwiftProjection = DecimalFormatter
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter>?) -> DecimalFormatter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class INumberFormatterMaker: MakeFromAbi {
+    public typealias SwiftType = AnyINumberFormatter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Globalization_NumberFormatting.INumberFormatter = try! abi.QueryInterface()
+        return __IMPL_Windows_Globalization_NumberFormatting.INumberFormatterBridge.from(abi: RawPointer(swiftAbi))!
+    }
 }
 @_spi(WinRTInternal)
 public class INumberFormatter2Maker: MakeFromAbi {
@@ -53,5 +373,60 @@ public class INumberFormatter2Maker: MakeFromAbi {
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         let swiftAbi: __ABI_Windows_Globalization_NumberFormatting.INumberFormatter2 = try! abi.QueryInterface()
         return __IMPL_Windows_Globalization_NumberFormatting.INumberFormatter2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class INumberFormatterOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyINumberFormatterOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Globalization_NumberFormatting.INumberFormatterOptions = try! abi.QueryInterface()
+        return __IMPL_Windows_Globalization_NumberFormatting.INumberFormatterOptionsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class INumberParserMaker: MakeFromAbi {
+    public typealias SwiftType = AnyINumberParser
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Globalization_NumberFormatting.INumberParser = try! abi.QueryInterface()
+        return __IMPL_Windows_Globalization_NumberFormatting.INumberParserBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class INumberRounderMaker: MakeFromAbi {
+    public typealias SwiftType = AnyINumberRounder
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Globalization_NumberFormatting.INumberRounder = try! abi.QueryInterface()
+        return __IMPL_Windows_Globalization_NumberFormatting.INumberRounderBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class INumberRounderOptionMaker: MakeFromAbi {
+    public typealias SwiftType = AnyINumberRounderOption
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Globalization_NumberFormatting.INumberRounderOption = try! abi.QueryInterface()
+        return __IMPL_Windows_Globalization_NumberFormatting.INumberRounderOptionBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ISignedZeroOptionMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISignedZeroOption
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Globalization_NumberFormatting.ISignedZeroOption = try! abi.QueryInterface()
+        return __IMPL_Windows_Globalization_NumberFormatting.ISignedZeroOptionBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ISignificantDigitsOptionMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISignificantDigitsOption
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Globalization_NumberFormatting.ISignificantDigitsOption = try! abi.QueryInterface()
+        return __IMPL_Windows_Globalization_NumberFormatting.ISignificantDigitsOptionBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class DecimalFormatterMaker: MakeFromAbi {
+    public typealias SwiftType = DecimalFormatter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DecimalFormatter(fromAbi: abi)
     }
 }

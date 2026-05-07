@@ -32984,6 +32984,122 @@ internal var __x_ABI_C__FIReference_1_floatVTable: __x_ABI_C__FIReference_1_floa
     }
 )
 typealias __x_ABI_C__FIReference_1_floatWrapper = ReferenceWrapperBase<UWP.__x_ABI_C__FIReference_1_floatBridge>
+private var IID___x_ABI_C__FIReference_1___z__zint64: WindowsFoundation.IID {
+    .init(Data1: 0x4dda9e24, Data2: 0xe69f, Data3: 0x5c6a, Data4: ( 0xa0,0xa6,0x93,0x42,0x73,0x65,0xaf,0x2a ))// 4dda9e24-e69f-5c6a-a0a6-93427365af2a
+}
+
+internal enum __x_ABI_C__FIReference_1___z__zint64Bridge: ReferenceBridge {
+    typealias CABI = __x_ABI_C__FIReference_1___z__zint64
+    typealias SwiftProjection = Int64
+    static var IID: WindowsFoundation.IID { IID___x_ABI_C__FIReference_1___z__zint64 }
+
+    static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let val = abi else { return nil }
+        var result: INT64 = 0
+        try! CHECKED(val.get().pointee.lpVtbl.pointee.get_Value(val.get(), &result))
+        return result
+    }
+
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIReference_1___z__zint64VTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+internal var __x_ABI_C__FIReference_1___z__zint64VTable: __x_ABI_C__FIReference_1___z__zint64Vtbl = .init(
+    QueryInterface: { __x_ABI_C__FIReference_1___z__zint64Wrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIReference_1___z__zint64Wrapper.addRef($0) },
+    Release: { __x_ABI_C__FIReference_1___z__zint64Wrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIReference_1___z__zint64Wrapper.IID
+        iids[3] = __ABI_Windows_Foundation.IPropertyValueWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.IReference`1<Int64>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Value: {
+        guard let __unwrapped__instance = __x_ABI_C__FIReference_1___z__zint64Wrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance
+        $1?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIReference_1___z__zint64Wrapper = ReferenceWrapperBase<UWP.__x_ABI_C__FIReference_1___z__zint64Bridge>
+private var IID___x_ABI_C__FIReference_1_UINT64: WindowsFoundation.IID {
+    .init(Data1: 0x6755e376, Data2: 0x53bb, Data3: 0x568b, Data4: ( 0xa1,0x1d,0x17,0x23,0x98,0x68,0x30,0x9e ))// 6755e376-53bb-568b-a11d-17239868309e
+}
+
+internal enum __x_ABI_C__FIReference_1_UINT64Bridge: ReferenceBridge {
+    typealias CABI = __x_ABI_C__FIReference_1_UINT64
+    typealias SwiftProjection = UInt64
+    static var IID: WindowsFoundation.IID { IID___x_ABI_C__FIReference_1_UINT64 }
+
+    static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let val = abi else { return nil }
+        var result: UINT64 = 0
+        try! CHECKED(val.get().pointee.lpVtbl.pointee.get_Value(val.get(), &result))
+        return result
+    }
+
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIReference_1_UINT64VTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+internal var __x_ABI_C__FIReference_1_UINT64VTable: __x_ABI_C__FIReference_1_UINT64Vtbl = .init(
+    QueryInterface: { __x_ABI_C__FIReference_1_UINT64Wrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIReference_1_UINT64Wrapper.addRef($0) },
+    Release: { __x_ABI_C__FIReference_1_UINT64Wrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.IID
+        iids[3] = __ABI_Windows_Foundation.IPropertyValueWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.IReference`1<UInt64>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Value: {
+        guard let __unwrapped__instance = __x_ABI_C__FIReference_1_UINT64Wrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance
+        $1?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIReference_1_UINT64Wrapper = ReferenceWrapperBase<UWP.__x_ABI_C__FIReference_1_UINT64Bridge>
 private var IID___x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CVector2: WindowsFoundation.IID {
     .init(Data1: 0x48f6a69e, Data2: 0x8465, Data3: 0x57ae, Data4: ( 0x94,0x00,0x97,0x64,0x08,0x7f,0x65,0xad ))// 48f6a69e-8465-57ae-9400-9764087f65ad
 }

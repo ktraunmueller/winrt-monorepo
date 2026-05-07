@@ -4,12 +4,150 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+private var IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CIDecimalFormatterFactory: WindowsFoundation.IID {
+    .init(Data1: 0x0D018C9A, Data2: 0xE393, Data3: 0x46B8, Data4: ( 0xB8,0x30,0x7A,0x69,0xC8,0xF8,0x9F,0xBB ))// 0D018C9A-E393-46B8-B830-7A69C8F89FBB
+}
+
+private var IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter: WindowsFoundation.IID {
+    .init(Data1: 0xA5007C49, Data2: 0x7676, Data3: 0x4DB7, Data4: ( 0x86,0x31,0x1B,0x6F,0xF2,0x65,0xCA,0xA9 ))// A5007C49-7676-4DB7-8631-1B6FF265CAA9
+}
+
 private var IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter2: WindowsFoundation.IID {
     .init(Data1: 0xD4A8C1F0, Data2: 0x80D0, Data3: 0x4B0D, Data4: ( 0xA8,0x9E,0x88,0x2C,0x1E,0x8F,0x83,0x10 ))// D4A8C1F0-80D0-4B0D-A89E-882C1E8F8310
 }
 
+private var IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions: WindowsFoundation.IID {
+    .init(Data1: 0x80332D21, Data2: 0xAEE1, Data3: 0x4A39, Data4: ( 0xBA,0xA2,0x07,0xED,0x8C,0x96,0xDA,0xF6 ))// 80332D21-AEE1-4A39-BAA2-07ED8C96DAF6
+}
+
+private var IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParser: WindowsFoundation.IID {
+    .init(Data1: 0xE6659412, Data2: 0x4A13, Data3: 0x4A53, Data4: ( 0x83,0xA1,0x39,0x2F,0xBE,0x4C,0xFF,0x9F ))// E6659412-4A13-4A53-83A1-392FBE4CFF9F
+}
+
+private var IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder: WindowsFoundation.IID {
+    .init(Data1: 0x5473C375, Data2: 0x38ED, Data3: 0x4631, Data4: ( 0xB8,0x0C,0xEF,0x34,0xFC,0x48,0xB7,0xF5 ))// 5473C375-38ED-4631-B80C-EF34FC48B7F5
+}
+
+private var IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderOption: WindowsFoundation.IID {
+    .init(Data1: 0x3B088433, Data2: 0x646F, Data3: 0x4EFE, Data4: ( 0x8D,0x48,0x66,0xEB,0x2E,0x49,0xE7,0x36 ))// 3B088433-646F-4EFE-8D48-66EB2E49E736
+}
+
+private var IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignedZeroOption: WindowsFoundation.IID {
+    .init(Data1: 0xFD1CDD31, Data2: 0x0A3C, Data3: 0x49C4, Data4: ( 0xA6,0x42,0x96,0xA1,0x56,0x4F,0x4F,0x30 ))// FD1CDD31-0A3C-49C4-A642-96A1564F4F30
+}
+
+private var IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsOption: WindowsFoundation.IID {
+    .init(Data1: 0x1D4DFCDD, Data2: 0x2D43, Data3: 0x4EE8, Data4: ( 0xBB,0xF1,0xC1,0xB2,0x6A,0x71,0x1A,0x58 ))// 1D4DFCDD-2D43-4EE8-BBF1-C1B26A711A58
+}
+
 @_spi(WinRTInternal)
 public enum __ABI_Windows_Globalization_NumberFormatting {
+    public class IDecimalFormatterFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CIDecimalFormatterFactory }
+
+        public func CreateDecimalFormatter(_ languages: WindowsFoundation.AnyIIterable<String>?, _ geographicRegion: String) throws -> INumberFormatter {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let languagesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(languages)
+                let _languages = try! languagesWrapper?.toABI { $0 }
+                let _geographicRegion = try! HString(geographicRegion)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CIDecimalFormatterFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDecimalFormatter(pThis, _languages, _geographicRegion.get(), &resultAbi))
+                }
+            }
+            return INumberFormatter(result!)
+        }
+
+    }
+
+    public class INumberFormatter: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter }
+
+        open func FormatInt(_ value: Int64) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.FormatInt(pThis, value, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func FormatUInt(_ value: UInt64) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.FormatUInt(pThis, value, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func FormatDouble(_ value: Double) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.FormatDouble(pThis, value, &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+    internal static var INumberFormatterVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterVtbl = .init(
+        QueryInterface: { INumberFormatterWrapper.queryInterface($0, $1, $2) },
+        AddRef: { INumberFormatterWrapper.addRef($0) },
+        Release: { INumberFormatterWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Globalization_NumberFormatting.INumberFormatterWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Globalization.NumberFormatting.INumberFormatter").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        FormatInt: {
+            do {
+                guard let __unwrapped__instance = INumberFormatterWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: Int64 = $1
+                let result = try __unwrapped__instance.format(value)
+                $2?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        FormatUInt: {
+            do {
+                guard let __unwrapped__instance = INumberFormatterWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: UInt64 = $1
+                let result = try __unwrapped__instance.format(value)
+                $2?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        FormatDouble: {
+            do {
+                guard let __unwrapped__instance = INumberFormatterWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: Double = $1
+                let result = try __unwrapped__instance.format(value)
+                $2?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias INumberFormatterWrapper = InterfaceWrapperBase<__IMPL_Windows_Globalization_NumberFormatting.INumberFormatterBridge>
     public class INumberFormatter2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter2 }
 
@@ -99,4 +237,676 @@ public enum __ABI_Windows_Globalization_NumberFormatting {
     )
 
     public typealias INumberFormatter2Wrapper = InterfaceWrapperBase<__IMPL_Windows_Globalization_NumberFormatting.INumberFormatter2Bridge>
+    public class INumberFormatterOptions: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions }
+
+        open func get_Languages() throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Languages(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        open func get_GeographicRegion() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GeographicRegion(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func get_IntegerDigits() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IntegerDigits(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_IntegerDigits(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IntegerDigits(pThis, value))
+            }
+        }
+
+        open func get_FractionDigits() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FractionDigits(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_FractionDigits(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FractionDigits(pThis, value))
+            }
+        }
+
+        open func get_IsGrouped() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsGrouped(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_IsGrouped(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsGrouped(pThis, .init(from: value)))
+            }
+        }
+
+        open func get_IsDecimalPointAlwaysDisplayed() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDecimalPointAlwaysDisplayed(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_IsDecimalPointAlwaysDisplayed(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsDecimalPointAlwaysDisplayed(pThis, .init(from: value)))
+            }
+        }
+
+        open func get_NumeralSystem() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumeralSystem(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_NumeralSystem(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NumeralSystem(pThis, _value.get()))
+            }
+        }
+
+        open func get_ResolvedLanguage() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResolvedLanguage(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func get_ResolvedGeographicRegion() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResolvedGeographicRegion(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    internal static var INumberFormatterOptionsVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptionsVtbl = .init(
+        QueryInterface: { INumberFormatterOptionsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { INumberFormatterOptionsWrapper.addRef($0) },
+        Release: { INumberFormatterOptionsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Globalization_NumberFormatting.INumberFormatterOptionsWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Globalization.NumberFormatting.INumberFormatterOptions").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Languages: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.languages
+            let valueWrapper = UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        get_GeographicRegion: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.geographicRegion
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        get_IntegerDigits: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.integerDigits
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_IntegerDigits: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Int32 = $1
+            __unwrapped__instance.integerDigits = value
+            return S_OK
+        },
+
+        get_FractionDigits: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.fractionDigits
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_FractionDigits: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Int32 = $1
+            __unwrapped__instance.fractionDigits = value
+            return S_OK
+        },
+
+        get_IsGrouped: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.isGrouped
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_IsGrouped: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.isGrouped = value
+            return S_OK
+        },
+
+        get_IsDecimalPointAlwaysDisplayed: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.isDecimalPointAlwaysDisplayed
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_IsDecimalPointAlwaysDisplayed: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.isDecimalPointAlwaysDisplayed = value
+            return S_OK
+        },
+
+        get_NumeralSystem: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.numeralSystem
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        put_NumeralSystem: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: String = .init(from: $1)
+            __unwrapped__instance.numeralSystem = value
+            return S_OK
+        },
+
+        get_ResolvedLanguage: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.resolvedLanguage
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        get_ResolvedGeographicRegion: {
+            guard let __unwrapped__instance = INumberFormatterOptionsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.resolvedGeographicRegion
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        }
+    )
+
+    public typealias INumberFormatterOptionsWrapper = InterfaceWrapperBase<__IMPL_Windows_Globalization_NumberFormatting.INumberFormatterOptionsBridge>
+    public class INumberParser: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParser }
+
+        open func ParseInt(_ text: String) throws -> Int64? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _text = try! HString(text)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParser.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ParseInt(pThis, _text.get(), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___z__zint64Wrapper.unwrapFrom(abi: result)
+        }
+
+        open func ParseUInt(_ text: String) throws -> UInt64? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _text = try! HString(text)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParser.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ParseUInt(pThis, _text.get(), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: result)
+        }
+
+        open func ParseDouble(_ text: String) throws -> Double? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _text = try! HString(text)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParser.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ParseDouble(pThis, _text.get(), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_doubleWrapper.unwrapFrom(abi: result)
+        }
+
+    }
+
+    internal static var INumberParserVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParserVtbl = .init(
+        QueryInterface: { INumberParserWrapper.queryInterface($0, $1, $2) },
+        AddRef: { INumberParserWrapper.addRef($0) },
+        Release: { INumberParserWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Globalization_NumberFormatting.INumberParserWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Globalization.NumberFormatting.INumberParser").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        ParseInt: {
+            do {
+                guard let __unwrapped__instance = INumberParserWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let text: String = .init(from: $1)
+                let result = try __unwrapped__instance.parseInt(text)
+                let resultWrapper = UWP.__x_ABI_C__FIReference_1___z__zint64Wrapper(result)
+                resultWrapper?.copyTo($2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        ParseUInt: {
+            do {
+                guard let __unwrapped__instance = INumberParserWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let text: String = .init(from: $1)
+                let result = try __unwrapped__instance.parseUInt(text)
+                let resultWrapper = UWP.__x_ABI_C__FIReference_1_UINT64Wrapper(result)
+                resultWrapper?.copyTo($2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        ParseDouble: {
+            do {
+                guard let __unwrapped__instance = INumberParserWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let text: String = .init(from: $1)
+                let result = try __unwrapped__instance.parseDouble(text)
+                let resultWrapper = UWP.__x_ABI_C__FIReference_1_doubleWrapper(result)
+                resultWrapper?.copyTo($2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias INumberParserWrapper = InterfaceWrapperBase<__IMPL_Windows_Globalization_NumberFormatting.INumberParserBridge>
+    public class INumberRounder: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder }
+
+        open func RoundInt32(_ value: Int32) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RoundInt32(pThis, value, &result))
+            }
+            return result
+        }
+
+        open func RoundUInt32(_ value: UInt32) throws -> UInt32 {
+            var result: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RoundUInt32(pThis, value, &result))
+            }
+            return result
+        }
+
+        open func RoundInt64(_ value: Int64) throws -> Int64 {
+            var result: INT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RoundInt64(pThis, value, &result))
+            }
+            return result
+        }
+
+        open func RoundUInt64(_ value: UInt64) throws -> UInt64 {
+            var result: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RoundUInt64(pThis, value, &result))
+            }
+            return result
+        }
+
+        open func RoundSingle(_ value: Float) throws -> Float {
+            var result: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RoundSingle(pThis, value, &result))
+            }
+            return result
+        }
+
+        open func RoundDouble(_ value: Double) throws -> Double {
+            var result: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RoundDouble(pThis, value, &result))
+            }
+            return result
+        }
+
+    }
+
+    internal static var INumberRounderVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderVtbl = .init(
+        QueryInterface: { INumberRounderWrapper.queryInterface($0, $1, $2) },
+        AddRef: { INumberRounderWrapper.addRef($0) },
+        Release: { INumberRounderWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Globalization_NumberFormatting.INumberRounderWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Globalization.NumberFormatting.INumberRounder").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        RoundInt32: {
+            do {
+                guard let __unwrapped__instance = INumberRounderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: Int32 = $1
+                let result = try __unwrapped__instance.roundInt32(value)
+                $2?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        RoundUInt32: {
+            do {
+                guard let __unwrapped__instance = INumberRounderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: UInt32 = $1
+                let result = try __unwrapped__instance.roundUInt32(value)
+                $2?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        RoundInt64: {
+            do {
+                guard let __unwrapped__instance = INumberRounderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: Int64 = $1
+                let result = try __unwrapped__instance.roundInt64(value)
+                $2?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        RoundUInt64: {
+            do {
+                guard let __unwrapped__instance = INumberRounderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: UInt64 = $1
+                let result = try __unwrapped__instance.roundUInt64(value)
+                $2?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        RoundSingle: {
+            do {
+                guard let __unwrapped__instance = INumberRounderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: Float = $1
+                let result = try __unwrapped__instance.roundSingle(value)
+                $2?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        RoundDouble: {
+            do {
+                guard let __unwrapped__instance = INumberRounderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: Double = $1
+                let result = try __unwrapped__instance.roundDouble(value)
+                $2?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias INumberRounderWrapper = InterfaceWrapperBase<__IMPL_Windows_Globalization_NumberFormatting.INumberRounderBridge>
+    public class INumberRounderOption: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderOption }
+
+        open func get_NumberRounder() throws -> UWP.AnyINumberRounder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderOption.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberRounder(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Globalization_NumberFormatting.INumberRounderWrapper.unwrapFrom(abi: value)
+        }
+
+        open func put_NumberRounder(_ value: UWP.AnyINumberRounder?) throws {
+            let valueWrapper = __ABI_Windows_Globalization_NumberFormatting.INumberRounderWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderOption.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NumberRounder(pThis, _value))
+            }
+        }
+
+    }
+
+    internal static var INumberRounderOptionVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderOptionVtbl = .init(
+        QueryInterface: { INumberRounderOptionWrapper.queryInterface($0, $1, $2) },
+        AddRef: { INumberRounderOptionWrapper.addRef($0) },
+        Release: { INumberRounderOptionWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Globalization_NumberFormatting.INumberRounderOptionWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Globalization.NumberFormatting.INumberRounderOption").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_NumberRounder: {
+            guard let __unwrapped__instance = INumberRounderOptionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.numberRounder
+            let valueWrapper = __ABI_Windows_Globalization_NumberFormatting.INumberRounderWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        put_NumberRounder: {
+            guard let __unwrapped__instance = INumberRounderOptionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.AnyINumberRounder? = __ABI_Windows_Globalization_NumberFormatting.INumberRounderWrapper.unwrapFrom(abi: ComPtr($1))
+            __unwrapped__instance.numberRounder = value
+            return S_OK
+        }
+    )
+
+    public typealias INumberRounderOptionWrapper = InterfaceWrapperBase<__IMPL_Windows_Globalization_NumberFormatting.INumberRounderOptionBridge>
+    public class ISignedZeroOption: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignedZeroOption }
+
+        open func get_IsZeroSigned() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignedZeroOption.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsZeroSigned(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_IsZeroSigned(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignedZeroOption.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsZeroSigned(pThis, .init(from: value)))
+            }
+        }
+
+    }
+
+    internal static var ISignedZeroOptionVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignedZeroOptionVtbl = .init(
+        QueryInterface: { ISignedZeroOptionWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ISignedZeroOptionWrapper.addRef($0) },
+        Release: { ISignedZeroOptionWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Globalization_NumberFormatting.ISignedZeroOptionWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Globalization.NumberFormatting.ISignedZeroOption").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_IsZeroSigned: {
+            guard let __unwrapped__instance = ISignedZeroOptionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.isZeroSigned
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_IsZeroSigned: {
+            guard let __unwrapped__instance = ISignedZeroOptionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.isZeroSigned = value
+            return S_OK
+        }
+    )
+
+    public typealias ISignedZeroOptionWrapper = InterfaceWrapperBase<__IMPL_Windows_Globalization_NumberFormatting.ISignedZeroOptionBridge>
+    public class ISignificantDigitsOption: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsOption }
+
+        open func get_SignificantDigits() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsOption.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SignificantDigits(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_SignificantDigits(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsOption.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SignificantDigits(pThis, value))
+            }
+        }
+
+    }
+
+    internal static var ISignificantDigitsOptionVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsOptionVtbl = .init(
+        QueryInterface: { ISignificantDigitsOptionWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ISignificantDigitsOptionWrapper.addRef($0) },
+        Release: { ISignificantDigitsOptionWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Globalization_NumberFormatting.ISignificantDigitsOptionWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Globalization.NumberFormatting.ISignificantDigitsOption").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_SignificantDigits: {
+            guard let __unwrapped__instance = ISignificantDigitsOptionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.significantDigits
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_SignificantDigits: {
+            guard let __unwrapped__instance = ISignificantDigitsOptionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Int32 = $1
+            __unwrapped__instance.significantDigits = value
+            return S_OK
+        }
+    )
+
+    public typealias ISignificantDigitsOptionWrapper = InterfaceWrapperBase<__IMPL_Windows_Globalization_NumberFormatting.ISignificantDigitsOptionBridge>
 }
