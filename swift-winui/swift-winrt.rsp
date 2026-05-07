@@ -39,6 +39,7 @@
 -include Microsoft.UI.Xaml.Controls.MenuFlyoutSeparator
 -include Microsoft.UI.Xaml.Controls.MenuFlyoutSubItem
 -include Microsoft.UI.Xaml.Controls.NavigationView
+-include Microsoft.UI.Xaml.Controls.NumberBox
 -include Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem
 -include Microsoft.UI.Xaml.Controls.Page
 -include Microsoft.UI.Xaml.Controls.PipsPager
@@ -78,6 +79,7 @@
 -include Microsoft.UI.Xaml.Interop.INotifyCollectionChanged
 -include Microsoft.UI.Xaml.Markup.IComponentConnector
 -include Microsoft.UI.Xaml.Markup.IDataTemplateComponent
+-include Microsoft.UI.Xaml.Markup.XamlReader
 -include Microsoft.UI.Xaml.Media.Animation
 -include Microsoft.UI.Xaml.Media.AcrylicBrush
 -include Microsoft.UI.Xaml.Media.CompositeTransform

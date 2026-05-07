@@ -8,6 +8,7 @@
 -include Windows.Devices.Input
 -include Windows.Foundation.IMemoryBufferReference
 -include Windows.Foundation.IPropertyValue
+-include Windows.Globalization.NumberFormatting.INumberFormatter2
 -include Windows.Graphics
 -include Windows.Graphics.DirectX.Direct3D11
 -include Windows.Graphics.Effects

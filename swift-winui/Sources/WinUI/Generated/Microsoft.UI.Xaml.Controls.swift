@@ -66,6 +66,10 @@ public typealias NavigationViewPaneDisplayMode = __x_ABI_CMicrosoft_CUI_CXaml_CC
 public typealias NavigationViewSelectionFollowsFocus = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNavigationViewSelectionFollowsFocus
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewshouldernavigationenabled)
 public typealias NavigationViewShoulderNavigationEnabled = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNavigationViewShoulderNavigationEnabled
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxspinbuttonplacementmode)
+public typealias NumberBoxSpinButtonPlacementMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvalidationmode)
+public typealias NumberBoxValidationMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxValidationMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.orientation)
 public typealias Orientation = __x_ABI_CMicrosoft_CUI_CXaml_CControls_COrientation
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspagerbuttonvisibility)
@@ -9383,6 +9387,303 @@ open class NavigationViewTemplateSettings : WinUI.DependencyObject {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox)
+open class NumberBox : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBox
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _INumberBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.INumberBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NumberBox")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NumberBoxBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._INumberBoxFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _INumberBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.INumberBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NumberBox")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.acceptsexpressionproperty)
+    public class var acceptsExpressionProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_AcceptsExpressionProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.descriptionproperty)
+    public class var descriptionProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_DescriptionProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.headerproperty)
+    public class var headerProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_HeaderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.headertemplateproperty)
+    public class var headerTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_HeaderTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.iswrapenabledproperty)
+    public class var isWrapEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_IsWrapEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.largechangeproperty)
+    public class var largeChangeProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_LargeChangeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.maximumproperty)
+    public class var maximumProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_MaximumProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.minimumproperty)
+    public class var minimumProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_MinimumProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.numberformatterproperty)
+    public class var numberFormatterProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_NumberFormatterProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.placeholdertextproperty)
+    public class var placeholderTextProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_PlaceholderTextProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.preventkeyboarddisplayonprogrammaticfocusproperty)
+    public class var preventKeyboardDisplayOnProgrammaticFocusProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_PreventKeyboardDisplayOnProgrammaticFocusProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.selectionflyoutproperty)
+    public class var selectionFlyoutProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_SelectionFlyoutProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.selectionhighlightcolorproperty)
+    public class var selectionHighlightColorProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_SelectionHighlightColorProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.smallchangeproperty)
+    public class var smallChangeProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_SmallChangeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.spinbuttonplacementmodeproperty)
+    public class var spinButtonPlacementModeProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_SpinButtonPlacementModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.textproperty)
+    public class var textProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_TextProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.textreadingorderproperty)
+    public class var textReadingOrderProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_TextReadingOrderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.validationmodeproperty)
+    public class var validationModeProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_ValidationModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.valueproperty)
+    public class var valueProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_ValueProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.acceptsexpression)
+    public var acceptsExpression : Bool {
+        get { try! _default.get_AcceptsExpression() }
+        set { try! _default.put_AcceptsExpression(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.description)
+    public var description : Any! {
+        get { try! _default.get_Description() }
+        set { try! _default.put_Description(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.header)
+    public var header : Any! {
+        get { try! _default.get_Header() }
+        set { try! _default.put_Header(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.headertemplate)
+    public var headerTemplate : WinUI.DataTemplate! {
+        get { try! _default.get_HeaderTemplate() }
+        set { try! _default.put_HeaderTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.iswrapenabled)
+    public var isWrapEnabled : Bool {
+        get { try! _default.get_IsWrapEnabled() }
+        set { try! _default.put_IsWrapEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.largechange)
+    public var largeChange : Double {
+        get { try! _default.get_LargeChange() }
+        set { try! _default.put_LargeChange(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.maximum)
+    public var maximum : Double {
+        get { try! _default.get_Maximum() }
+        set { try! _default.put_Maximum(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.minimum)
+    public var minimum : Double {
+        get { try! _default.get_Minimum() }
+        set { try! _default.put_Minimum(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.numberformatter)
+    public var numberFormatter : UWP.AnyINumberFormatter2! {
+        get { try! _default.get_NumberFormatter() }
+        set { try! _default.put_NumberFormatter(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.placeholdertext)
+    public var placeholderText : String {
+        get { try! _default.get_PlaceholderText() }
+        set { try! _default.put_PlaceholderText(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.preventkeyboarddisplayonprogrammaticfocus)
+    public var preventKeyboardDisplayOnProgrammaticFocus : Bool {
+        get { try! _default.get_PreventKeyboardDisplayOnProgrammaticFocus() }
+        set { try! _default.put_PreventKeyboardDisplayOnProgrammaticFocus(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.selectionflyout)
+    public var selectionFlyout : WinUI.FlyoutBase! {
+        get { try! _default.get_SelectionFlyout() }
+        set { try! _default.put_SelectionFlyout(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.selectionhighlightcolor)
+    public var selectionHighlightColor : WinUI.SolidColorBrush! {
+        get { try! _default.get_SelectionHighlightColor() }
+        set { try! _default.put_SelectionHighlightColor(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.smallchange)
+    public var smallChange : Double {
+        get { try! _default.get_SmallChange() }
+        set { try! _default.put_SmallChange(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.spinbuttonplacementmode)
+    public var spinButtonPlacementMode : NumberBoxSpinButtonPlacementMode {
+        get { try! _default.get_SpinButtonPlacementMode() }
+        set { try! _default.put_SpinButtonPlacementMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.text)
+    public var text : String {
+        get { try! _default.get_Text() }
+        set { try! _default.put_Text(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.textreadingorder)
+    public var textReadingOrder : WinUI.TextReadingOrder {
+        get { try! _default.get_TextReadingOrder() }
+        set { try! _default.put_TextReadingOrder(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.validationmode)
+    public var validationMode : NumberBoxValidationMode {
+        get { try! _default.get_ValidationMode() }
+        set { try! _default.put_ValidationMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.value)
+    public var value : Double {
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.valuechanged)
+    public lazy var valueChanged : Event<TypedEventHandler<NumberBox?, NumberBoxValueChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_ValueChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_ValueChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvaluechangedeventargs)
+public final class NumberBoxValueChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBoxValueChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvaluechangedeventargs.newvalue)
+    public var newValue : Double {
+        get { try! _default.get_NewValue() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvaluechangedeventargs.oldvalue)
+    public var oldValue : Double {
+        get { try! _default.get_OldValue() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.page)
 open class Page : WinUI.UserControl {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPage
@@ -17808,6 +18109,29 @@ extension WinUI.NavigationViewShoulderNavigationEnabled {
     }
 }
 extension WinUI.NavigationViewShoulderNavigationEnabled: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.NumberBoxSpinButtonPlacementMode {
+    public static var hidden : WinUI.NumberBoxSpinButtonPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode_Hidden
+    }
+    public static var compact : WinUI.NumberBoxSpinButtonPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode_Compact
+    }
+    public static var inline : WinUI.NumberBoxSpinButtonPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode_Inline
+    }
+}
+extension WinUI.NumberBoxSpinButtonPlacementMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.NumberBoxValidationMode {
+    public static var invalidInputOverwritten : WinUI.NumberBoxValidationMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxValidationMode_InvalidInputOverwritten
+    }
+    public static var disabled : WinUI.NumberBoxValidationMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxValidationMode_Disabled
+    }
+}
+extension WinUI.NumberBoxValidationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.Orientation {
     public static var vertical : WinUI.Orientation {

@@ -2036,6 +2036,36 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         public typealias Composable = INavigationViewTemplateSettings
     }
 
+    public enum NumberBoxBridge: ComposableBridge {
+        public typealias SwiftProjection = NumberBox
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox>?) -> NumberBox? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = NumberBox
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBox
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum NumberBoxValueChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = NumberBoxValueChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs>?) -> NumberBoxValueChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum PageBridge: ComposableBridge {
         public typealias SwiftProjection = Page
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPage
@@ -3906,6 +3936,20 @@ public class NavigationViewTemplateSettingsMaker: MakeFromAbi {
     public typealias SwiftType = NavigationViewTemplateSettings
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return NavigationViewTemplateSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NumberBoxMaker: MakeFromAbi {
+    public typealias SwiftType = NumberBox
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NumberBox(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NumberBoxValueChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NumberBoxValueChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NumberBoxValueChangedEventArgs(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)

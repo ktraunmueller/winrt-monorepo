@@ -20,6 +20,14 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProvider: Win
     .init(Data1: 0xA96251F0, Data2: 0x2214, Data3: 0x5D53, Data4: ( 0x87,0x46,0xCE,0x99,0xA2,0x59,0x3C,0xD7 ))// A96251F0-2214-5D53-8746-CE99A2593CD7
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReader: WindowsFoundation.IID {
+    .init(Data1: 0x54CE54C8, Data2: 0x38C6, Data3: 0x50D9, Data4: ( 0xAC,0x98,0x4B,0x03,0xED,0xDB,0xDE,0x9F ))// 54CE54C8-38C6-50D9-AC98-4B03EDDBDE9F
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReaderStatics: WindowsFoundation.IID {
+    .init(Data1: 0x82A4CD9E, Data2: 0x435E, Data3: 0x5AEB, Data4: ( 0x8C,0x4F,0x30,0x0C,0xEC,0xE4,0x5C,0xAE ))// 82A4CD9E-435E-5AEB-8C4F-300CECE45CAE
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlType: WindowsFoundation.IID {
     .init(Data1: 0xD24219DF, Data2: 0x7EC9, Data3: 0x57F1, Data4: ( 0xA2,0x7B,0x6A,0xF2,0x51,0xD9,0xC5,0xBC ))// D24219DF-7EC9-57F1-A27B-6AF251D9C5BC
 }
@@ -442,6 +450,36 @@ public enum __ABI_Microsoft_UI_Xaml_Markup {
     )
 
     public typealias IXamlMetadataProviderWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Markup.IXamlMetadataProviderBridge>
+    public class IXamlReader: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReader }
+
+    }
+
+    public class IXamlReaderStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReaderStatics }
+
+        public func Load(_ xaml: String) throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _xaml = try! HString(xaml)
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReaderStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Load(pThis, _xaml.get(), &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+        public func LoadWithInitialTemplateValidation(_ xaml: String) throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _xaml = try! HString(xaml)
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReaderStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.LoadWithInitialTemplateValidation(pThis, _xaml.get(), &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+    }
+
     public class IXamlType: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlType }
 

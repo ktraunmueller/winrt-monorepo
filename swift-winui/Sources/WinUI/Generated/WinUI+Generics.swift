@@ -37169,6 +37169,57 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__
         return handler
     }
 }
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x3afd17ac, Data2: 0x1ac8, Data3: 0x5e8c, Data4: ( 0x9d,0x28,0x35,0x57,0x6e,0xac,0x9a,0x94 ))// 3afd17ac-1ac8-5e8c-9d28-35576eac9a94
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinUI.NumberBox? = __IMPL_Microsoft_UI_Xaml_Controls.NumberBoxBridge.from(abi: ComPtr($1))
+            let args: WinUI.NumberBoxValueChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.NumberBoxValueChangedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsBridge>
+public class TypedEventHandlerNumberBox_NumberBoxValueChangedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgs }
+
+    open func Invoke(_ sender: WinUI.NumberBox?, _ args: WinUI.NumberBoxValueChangedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NumberBox?, WinUI.NumberBoxValueChangedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgs
+    internal typealias SwiftABI = WinUI.TypedEventHandlerNumberBox_NumberBoxValueChangedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
 private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPipsPager___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPipsPagerSelectedIndexChangedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xf33917ad, Data2: 0x6d13, Data3: 0x5f8f, Data4: ( 0xb8,0x39,0x89,0xcb,0x49,0x5b,0xa2,0xbe ))// f33917ad-6d13-5f8f-b839-89cb495ba2be
 }

@@ -962,6 +962,22 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewTemplateS
     .init(Data1: 0xC0C06BE3, Data2: 0x9203, Data3: 0x5EEA, Data4: ( 0x91,0xDC,0x5D,0x81,0x2A,0x97,0x02,0xA6 ))// C0C06BE3-9203-5EEA-91DC-5D812A9702A6
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox: WindowsFoundation.IID {
+    .init(Data1: 0xC18EB0E9, Data2: 0x29FB, Data3: 0x525D, Data4: ( 0xAB,0xBC,0xD6,0xB2,0x11,0x0F,0x54,0x2E ))// C18EB0E9-29FB-525D-ABBC-D6B2110F542E
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxFactory: WindowsFoundation.IID {
+    .init(Data1: 0x6B81F3CB, Data2: 0x45A4, Data3: 0x5D19, Data4: ( 0x9B,0xBB,0xA9,0xFE,0x46,0x56,0xAC,0x4D ))// 6B81F3CB-45A4-5D19-9BBB-A9FE4656AC4D
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics: WindowsFoundation.IID {
+    .init(Data1: 0x251EC05C, Data2: 0xA77C, Data3: 0x5540, Data4: ( 0xBE,0x39,0x60,0x53,0xF7,0x97,0xCD,0xE7 ))// 251EC05C-A77C-5540-BE39-6053F797CDE7
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xC66CF16E, Data2: 0x7C8A, Data3: 0x532E, Data4: ( 0x9D,0x23,0x05,0x8C,0x1C,0x98,0xDD,0x50 ))// C66CF16E-7C8A-532E-9D23-058C1C98DD50
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPage: WindowsFoundation.IID {
     .init(Data1: 0xEB42988E, Data2: 0x6CB5, Data3: 0x5DD6, Data4: ( 0x9E,0x59,0x4C,0x04,0xE5,0xCA,0xEC,0x6D ))// EB42988E-6CB5-5DD6-9E59-4C04E5CAEC6D
 }
@@ -13658,6 +13674,522 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
                 }
             }
             return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class INumberBox: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox }
+
+        public func get_Minimum() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Minimum(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Minimum(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Minimum(pThis, value))
+            }
+        }
+
+        public func get_Maximum() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Maximum(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Maximum(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Maximum(pThis, value))
+            }
+        }
+
+        public func get_Value() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Value(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, value))
+            }
+        }
+
+        public func get_SmallChange() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SmallChange(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SmallChange(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SmallChange(pThis, value))
+            }
+        }
+
+        public func get_LargeChange() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LargeChange(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LargeChange(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LargeChange(pThis, value))
+            }
+        }
+
+        public func get_Text() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_Text(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Text(pThis, _value.get()))
+            }
+        }
+
+        public func get_Header() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Header(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Header(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Header(pThis, _value))
+            }
+        }
+
+        public func get_HeaderTemplate() throws -> WinUI.DataTemplate? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplate(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: value)
+        }
+
+        public func put_HeaderTemplate(_ value: WinUI.DataTemplate?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HeaderTemplate(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_PlaceholderText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_PlaceholderText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaceholderText(pThis, _value.get()))
+            }
+        }
+
+        public func get_SelectionFlyout() throws -> WinUI.FlyoutBase? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionFlyout(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseBridge.from(abi: value)
+        }
+
+        public func put_SelectionFlyout(_ value: WinUI.FlyoutBase?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionFlyout(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectionHighlightColor() throws -> WinUI.SolidColorBrush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColor(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.SolidColorBrushBridge.from(abi: value)
+        }
+
+        public func put_SelectionHighlightColor(_ value: WinUI.SolidColorBrush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionHighlightColor(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TextReadingOrder() throws -> WinUI.TextReadingOrder {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextReadingOrder = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextReadingOrder(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextReadingOrder(_ value: WinUI.TextReadingOrder) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextReadingOrder(pThis, value))
+            }
+        }
+
+        public func get_PreventKeyboardDisplayOnProgrammaticFocus() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreventKeyboardDisplayOnProgrammaticFocus(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_PreventKeyboardDisplayOnProgrammaticFocus(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PreventKeyboardDisplayOnProgrammaticFocus(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_Description() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Description(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Description(pThis, _value))
+            }
+        }
+
+        public func get_ValidationMode() throws -> WinUI.NumberBoxValidationMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxValidationMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValidationMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ValidationMode(_ value: WinUI.NumberBoxValidationMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ValidationMode(pThis, value))
+            }
+        }
+
+        public func get_SpinButtonPlacementMode() throws -> WinUI.NumberBoxSpinButtonPlacementMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpinButtonPlacementMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SpinButtonPlacementMode(_ value: WinUI.NumberBoxSpinButtonPlacementMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SpinButtonPlacementMode(pThis, value))
+            }
+        }
+
+        public func get_IsWrapEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsWrapEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsWrapEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsWrapEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_AcceptsExpression() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptsExpression(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_AcceptsExpression(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AcceptsExpression(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_NumberFormatter() throws -> UWP.AnyINumberFormatter2? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberFormatter(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Globalization_NumberFormatting.INumberFormatter2Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_NumberFormatter(_ value: UWP.AnyINumberFormatter2?) throws {
+            let valueWrapper = __ABI_Windows_Globalization_NumberFormatting.INumberFormatter2Wrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NumberFormatter(pThis, _value))
+            }
+        }
+
+        public func add_ValueChanged(_ handler: TypedEventHandler<WinUI.NumberBox?, WinUI.NumberBoxValueChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ValueChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ValueChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ValueChanged(pThis, token))
+            }
+        }
+
+    }
+
+    public class INumberBoxFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NumberBoxBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INumberBox {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return INumberBox(value!)
+        }
+
+    }
+
+    public class INumberBoxStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics }
+
+        public func get_MinimumProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinimumProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaximumProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaximumProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ValueProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValueProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SmallChangeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SmallChangeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LargeChangeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LargeChangeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PlaceholderTextProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderTextProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionFlyoutProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionFlyoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionHighlightColorProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColorProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextReadingOrderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextReadingOrderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PreventKeyboardDisplayOnProgrammaticFocusProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreventKeyboardDisplayOnProgrammaticFocusProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DescriptionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DescriptionProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ValidationModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValidationModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SpinButtonPlacementModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpinButtonPlacementModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsWrapEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsWrapEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_AcceptsExpressionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptsExpressionProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_NumberFormatterProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberFormatterProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class INumberBoxValueChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs }
+
+        public func get_OldValue() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldValue(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NewValue() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewValue(pThis, &value))
+            }
+            return value
         }
 
     }

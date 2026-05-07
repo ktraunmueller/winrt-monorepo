@@ -301,6 +301,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Markup {
 
     }
 
+    public enum XamlReaderBridge: AbiBridge {
+        public typealias SwiftProjection = XamlReader
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReader
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReader>?) -> XamlReader? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
 }
 @_spi(WinRTInternal)
 extension XmlnsDefinition: WinRTBridgeable {
@@ -351,5 +360,12 @@ public class IXamlTypeMaker: MakeFromAbi {
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         let swiftAbi: __ABI_Microsoft_UI_Xaml_Markup.IXamlType = try! abi.QueryInterface()
         return __IMPL_Microsoft_UI_Xaml_Markup.IXamlTypeBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class XamlReaderMaker: MakeFromAbi {
+    public typealias SwiftType = XamlReader
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return XamlReader(fromAbi: abi)
     }
 }

@@ -4,6 +4,40 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xamlreader)
+public final class XamlReader : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Markup.IXamlReader
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReader
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _IXamlReaderStatics: __ABI_Microsoft_UI_Xaml_Markup.IXamlReaderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Markup.XamlReader")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xamlreader.load)
+    public static func load(_ xaml: String) throws -> Any! {
+        return try _IXamlReaderStatics.Load(xaml)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xamlreader.loadwithinitialtemplatevalidation)
+    public static func loadWithInitialTemplateValidation(_ xaml: String) throws -> Any! {
+        return try _IXamlReaderStatics.LoadWithInitialTemplateValidation(xaml)
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xmlnsdefinition)
 public struct XmlnsDefinition: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xmlnsdefinition.xmlnamespace)
