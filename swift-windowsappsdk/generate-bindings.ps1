@@ -56,17 +56,20 @@ function Restore-Nuget {
     $VersionedPackageFolder = "$($Projections.Package.Id).$($Projections.Package.Version)"
     Write-Host "VersionedPackageFolder: $VersionedPackageFolder"
 
-    $HeadersPath = Join-Path $PackagesDir $VersionedPackageFolder "include"
+    $PackageRoot = Join-Path -Path $PackagesDir -ChildPath $VersionedPackageFolder
+
+    $HeadersPath = Join-Path -Path $PackageRoot -ChildPath "include"
     Copy-Folder $HeadersPath "*.h" (Join-Path $NugetDir "include")
 
-    $LibPath = Join-Path $PackagesDir $VersionedPackageFolder "lib"
+    $LibPath = Join-Path -Path $PackageRoot -ChildPath "lib"
     foreach ($Arch in @("x64", "arm64")) {
-        Copy-Folder $(Join-Path $LibPath "win10-$Arch") "*.lib" $(Join-Path $NugetDir "lib" $Arch)
+        Copy-Folder (Join-Path -Path $LibPath -ChildPath "win10-$Arch") "*.lib" (Join-Path (Join-Path $NugetDir "lib") $Arch)
     }
 
-    $RuntimesPath = Join-Path $PackagesDir $VersionedPackageFolder "runtimes"
+    $RuntimesPath = Join-Path -Path $PackageRoot -ChildPath "runtimes"
     foreach ($Arch in @("x64", "arm64")) {
-        Copy-Folder $(Join-Path $RuntimesPath "win-$Arch" "native") "*.dll" $(Join-Path $NugetDir "bin" $Arch)
+        $RuntimeArchPath = Join-Path -Path (Join-Path -Path $RuntimesPath -ChildPath "win-$Arch") -ChildPath "native"
+        Copy-Folder $RuntimeArchPath "*.dll" (Join-Path (Join-Path $NugetDir "bin") $Arch)
     }
 }
 
