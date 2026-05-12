@@ -1,6 +1,8 @@
 -output E:\sandbox\ktraunmueller\winrt-monorepo\swift-win2d\.generated
 -include Microsoft.Graphics.Canvas
 -include Microsoft.Graphics.Canvas.Brushes
+-include Microsoft.Graphics.Canvas.CanvasBitmap
+-include Microsoft.Graphics.Canvas.CanvasDevice
 -include Microsoft.Graphics.Canvas.Effects
 -include Microsoft.Graphics.Canvas.Geometry
 -include Microsoft.Graphics.Canvas.Text

@@ -18,6 +18,8 @@
   "include": [
     "Microsoft.Graphics.Canvas",
     "Microsoft.Graphics.Canvas.Brushes",
+    "Microsoft.Graphics.Canvas.CanvasBitmap",
+    "Microsoft.Graphics.Canvas.CanvasDevice",
     "Microsoft.Graphics.Canvas.Effects",
     "Microsoft.Graphics.Canvas.Geometry",
     "Microsoft.Graphics.Canvas.Text",
