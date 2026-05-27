@@ -6155,6 +6155,70 @@ open class ItemCollectionTransitionProvider : WinRTClass {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainer)
+open class ItemContainer : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemContainer
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IItemContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemContainer")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemContainerBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IItemContainerFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IItemContainerStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemContainerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemContainer")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainer.childproperty)
+    public class var childProperty : WinUI.DependencyProperty! {
+        get { try! _IItemContainerStatics.get_ChildProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainer.isselectedproperty)
+    public class var isSelectedProperty : WinUI.DependencyProperty! {
+        get { try! _IItemContainerStatics.get_IsSelectedProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainer.child)
+    public var child : WinUI.UIElement! {
+        get { try! _default.get_Child() }
+        set { try! _default.put_Child(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainer.isselected)
+    public var isSelected : Bool {
+        get { try! _default.get_IsSelected() }
+        set { try! _default.put_IsSelected(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainergenerator)
 public final class ItemContainerGenerator : WinRTClass {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemContainerGenerator
@@ -12872,6 +12936,169 @@ open class SelectionChangedEventArgs : WinUI.RoutedEventArgs {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectionchangedeventargs.removeditems)
     public var removedItems : WindowsFoundation.AnyIVector<Any?>! {
         get { try! _default.get_RemovedItems() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar)
+open class SelectorBar : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBar
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _ISelectorBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBar")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SelectorBarBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ISelectorBarFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _ISelectorBarStatics: __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBar")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar.itemsproperty)
+    public class var itemsProperty : WinUI.DependencyProperty! {
+        get { try! _ISelectorBarStatics.get_ItemsProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar.selecteditemproperty)
+    public class var selectedItemProperty : WinUI.DependencyProperty! {
+        get { try! _ISelectorBarStatics.get_SelectedItemProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar.items)
+    public var items : WindowsFoundation.AnyIVector<SelectorBarItem?>! {
+        get { try! _default.get_Items() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar.selecteditem)
+    public var selectedItem : SelectorBarItem! {
+        get { try! _default.get_SelectedItem() }
+        set { try! _default.put_SelectedItem(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar.selectionchanged)
+    public lazy var selectionChanged : Event<TypedEventHandler<SelectorBar?, SelectorBarSelectionChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_SelectionChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_SelectionChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbaritem)
+open class SelectorBarItem : WinUI.ItemContainer {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItem
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _ISelectorBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBarItem")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SelectorBarItemBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ISelectorBarItemFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _ISelectorBarItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBarItem")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbaritem.iconproperty)
+    public class var iconProperty : WinUI.DependencyProperty! {
+        get { try! _ISelectorBarItemStatics.get_IconProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbaritem.textproperty)
+    public class var textProperty : WinUI.DependencyProperty! {
+        get { try! _ISelectorBarItemStatics.get_TextProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbaritem.icon)
+    public var icon : IconElement! {
+        get { try! _default.get_Icon() }
+        set { try! _default.put_Icon(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbaritem.text)
+    public var text : String {
+        get { try! _default.get_Text() }
+        set { try! _default.put_Text(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbarselectionchangedeventargs)
+public final class SelectorBarSelectionChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarSelectionChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarSelectionChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
     }
 
     deinit {

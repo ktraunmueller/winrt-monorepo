@@ -1478,6 +1478,27 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         public typealias Composable = IItemCollectionTransitionProviderOverrides
     }
 
+    public enum ItemContainerBridge: ComposableBridge {
+        public typealias SwiftProjection = ItemContainer
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer>?) -> ItemContainer? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = ItemContainer
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemContainer
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
     public enum ItemContainerGeneratorBridge: AbiBridge {
         public typealias SwiftProjection = ItemContainerGenerator
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerGenerator
@@ -2460,6 +2481,57 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         }
         @_spi(WinRTInternal)
         public typealias Composable = ISelectionChangedEventArgs
+    }
+
+    public enum SelectorBarBridge: ComposableBridge {
+        public typealias SwiftProjection = SelectorBar
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar>?) -> SelectorBar? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = SelectorBar
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBar
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum SelectorBarItemBridge: ComposableBridge {
+        public typealias SwiftProjection = SelectorBarItem
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem>?) -> SelectorBarItem? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = SelectorBarItem
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItem
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum SelectorBarSelectionChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SelectorBarSelectionChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarSelectionChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarSelectionChangedEventArgs>?) -> SelectorBarSelectionChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
 
     public enum SemanticZoomBridge: AbiBridge {
@@ -3701,6 +3773,13 @@ public class ItemCollectionTransitionProviderMaker: MakeFromAbi {
     }
 }
 @_spi(WinRTInternal)
+public class ItemContainerMaker: MakeFromAbi {
+    public typealias SwiftType = ItemContainer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ItemContainer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
 public class ItemContainerGeneratorMaker: MakeFromAbi {
     public typealias SwiftType = ItemContainerGenerator
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
@@ -4146,6 +4225,27 @@ public class SelectionChangedEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = SelectionChangedEventArgs
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return SelectionChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SelectorBarMaker: MakeFromAbi {
+    public typealias SwiftType = SelectorBar
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SelectorBar(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SelectorBarItemMaker: MakeFromAbi {
+    public typealias SwiftType = SelectorBarItem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SelectorBarItem(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SelectorBarSelectionChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SelectorBarSelectionChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SelectorBarSelectionChangedEventArgs(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)

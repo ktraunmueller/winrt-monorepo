@@ -41,6 +41,7 @@
 -include Microsoft.UI.Xaml.Controls.NavigationView
 -include Microsoft.UI.Xaml.Controls.NumberBox
 -include Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem
+-include Microsoft.UI.Xaml.Controls.SelectorBar
 -include Microsoft.UI.Xaml.Controls.Page
 -include Microsoft.UI.Xaml.Controls.PipsPager
 -include Microsoft.UI.Xaml.Controls.Primitives.Popup

@@ -602,12 +602,24 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitio
     .init(Data1: 0x6935222B, Data2: 0xEF83, Data3: 0x5872, Data4: ( 0xA9,0xD4,0x83,0x19,0xBC,0xD6,0x7A,0x67 ))// 6935222B-EF83-5872-A9D4-8319BCD67A67
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer: WindowsFoundation.IID {
+    .init(Data1: 0x6332A67F, Data2: 0x7FD9, Data3: 0x53C7, Data4: ( 0xAF,0xD8,0xCF,0xA1,0x23,0x7C,0xF6,0xD1 ))// 6332A67F-7FD9-53C7-AFD8-CFA1237CF6D1
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerFactory: WindowsFoundation.IID {
+    .init(Data1: 0xEE1CC57C, Data2: 0x6BF2, Data3: 0x5EE9, Data4: ( 0xA9,0x43,0xC9,0x5C,0xA7,0x75,0xED,0xB4 ))// EE1CC57C-6BF2-5EE9-A943-C95CA775EDB4
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerGenerator: WindowsFoundation.IID {
     .init(Data1: 0xC4C5D5AE, Data2: 0xED98, Data3: 0x510F, Data4: ( 0xAF,0xAE,0x8A,0x0A,0xC6,0x06,0x7A,0x3B ))// C4C5D5AE-ED98-510F-AFAE-8A0AC6067A3B
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerMapping: WindowsFoundation.IID {
     .init(Data1: 0xB3E03A32, Data2: 0xEA83, Data3: 0x5626, Data4: ( 0xBF,0xDA,0xD3,0x27,0xA1,0xC7,0x55,0x0C ))// B3E03A32-EA83-5626-BFDA-D327A1C7550C
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerStatics: WindowsFoundation.IID {
+    .init(Data1: 0xE26E121D, Data2: 0xB7BF, Data3: 0x5632, Data4: ( 0x85,0xA2,0xF3,0x60,0x40,0xE6,0x49,0xF8 ))// E26E121D-B7BF-5632-85A2-F36040E649F8
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControl: WindowsFoundation.IID {
@@ -1184,6 +1196,34 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectionChangedEventAr
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectionChangedEventArgsFactory: WindowsFoundation.IID {
     .init(Data1: 0x0FCD041D, Data2: 0x465F, Data3: 0x5745, Data4: ( 0x98,0x82,0x0C,0x83,0x48,0xE4,0x13,0x5D ))// 0FCD041D-465F-5745-9882-0C8348E4135D
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar: WindowsFoundation.IID {
+    .init(Data1: 0x7F4AD191, Data2: 0x55EA, Data3: 0x508E, Data4: ( 0xBF,0x47,0x70,0x47,0xD8,0x67,0x73,0x70 ))// 7F4AD191-55EA-508E-BF47-7047D8677370
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarFactory: WindowsFoundation.IID {
+    .init(Data1: 0x71243DC7, Data2: 0xB46C, Data3: 0x5A04, Data4: ( 0x98,0x94,0xE4,0x20,0xE4,0x62,0x70,0x3F ))// 71243DC7-B46C-5A04-9894-E420E462703F
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem: WindowsFoundation.IID {
+    .init(Data1: 0x3CDBA1F9, Data2: 0xA13A, Data3: 0x56A2, Data4: ( 0xB9,0xA9,0xF9,0x54,0x99,0x8D,0x36,0x58 ))// 3CDBA1F9-A13A-56A2-B9A9-F954998D3658
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItemFactory: WindowsFoundation.IID {
+    .init(Data1: 0xE46B62EA, Data2: 0xE60D, Data3: 0x5989, Data4: ( 0xBE,0xA7,0x54,0x70,0xDA,0x32,0x68,0x16 ))// E46B62EA-E60D-5989-BEA7-5470DA326816
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItemStatics: WindowsFoundation.IID {
+    .init(Data1: 0x08B5BDFC, Data2: 0x54DE, Data3: 0x5D4C, Data4: ( 0xAA,0xE3,0x37,0x63,0xA6,0xB4,0xE7,0x5B ))// 08B5BDFC-54DE-5D4C-AAE3-3763A6B4E75B
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarSelectionChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x73B3F6C5, Data2: 0x5050, Data3: 0x5C5A, Data4: ( 0x89,0x9C,0x4E,0x6E,0x04,0x74,0xCB,0x63 ))// 73B3F6C5-5050-5C5A-899C-4E6E0474CB63
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarStatics: WindowsFoundation.IID {
+    .init(Data1: 0x672B4E72, Data2: 0x728A, Data3: 0x53EA, Data4: ( 0xB6,0x6A,0x96,0x8B,0xC8,0x02,0xDC,0x24 ))// 672B4E72-728A-53EA-B66A-968BC802DC24
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoom: WindowsFoundation.IID {
@@ -9220,6 +9260,58 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
+    public class IItemContainer: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer }
+
+        public func get_Child() throws -> WinUI.UIElement? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Child(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
+        }
+
+        public func put_Child(_ value: WinUI.UIElement?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Child(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_IsSelected() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsSelected(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsSelected(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsSelected(pThis, .init(from: value)))
+            }
+        }
+
+    }
+
+    public class IItemContainerFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemContainerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemContainer {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IItemContainer(value!)
+        }
+
+    }
+
     public class IItemContainerGenerator: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerGenerator }
 
@@ -9463,6 +9555,29 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
     )
 
     public typealias IItemContainerMappingWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.IItemContainerMappingBridge>
+    public class IItemContainerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerStatics }
+
+        public func get_ChildProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ChildProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsSelectedProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsSelectedProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
     public class IItemsControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControl }
 
@@ -18653,6 +18768,173 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
                 innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
             }
             return ISelectionChangedEventArgs(value!)
+        }
+
+    }
+
+    public class ISelectorBar: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar }
+
+        public func get_Items() throws -> WindowsFoundation.AnyIVector<WinUI.SelectorBarItem?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Items(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSelectorBarItemWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_SelectedItem() throws -> WinUI.SelectorBarItem? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedItem(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.SelectorBarItemBridge.from(abi: value)
+        }
+
+        public func put_SelectedItem(_ value: WinUI.SelectorBarItem?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedItem(pThis, RawPointer(value)))
+            }
+        }
+
+        public func add_SelectionChanged(_ handler: TypedEventHandler<WinUI.SelectorBar?, WinUI.SelectorBarSelectionChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSelectorBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSelectorBarSelectionChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SelectionChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SelectionChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SelectionChanged(pThis, token))
+            }
+        }
+
+    }
+
+    public class ISelectorBarFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SelectorBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISelectorBar {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ISelectorBar(value!)
+        }
+
+    }
+
+    public class ISelectorBarItem: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem }
+
+        public func get_Text() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_Text(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Text(pThis, _value.get()))
+            }
+        }
+
+        public func get_Icon() throws -> WinUI.IconElement? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Icon(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.IconElementBridge.from(abi: value)
+        }
+
+        public func put_Icon(_ value: WinUI.IconElement?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Icon(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    public class ISelectorBarItemFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItemFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SelectorBarItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISelectorBarItem {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItemFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ISelectorBarItem(value!)
+        }
+
+    }
+
+    public class ISelectorBarItemStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItemStatics }
+
+        public func get_TextProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItemStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IconProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItemStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IconProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class ISelectorBarSelectionChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarSelectionChangedEventArgs }
+
+    }
+
+    public class ISelectorBarStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarStatics }
+
+        public func get_ItemsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedItemProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedItemProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
