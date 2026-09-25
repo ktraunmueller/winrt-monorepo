@@ -682,6 +682,26 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsSourceViewFactory:
     .init(Data1: 0xAADC6FDD, Data2: 0xEB00, Data3: 0x5E58, Data4: ( 0xB9,0x5D,0x12,0x0F,0x89,0x1D,0x73,0x3F ))// AADC6FDD-EB00-5E58-B95D-120F891D733F
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView: WindowsFoundation.IID {
+    .init(Data1: 0xBBB195D8, Data2: 0x6A7F, Data3: 0x5A42, Data4: ( 0x98,0x66,0x25,0xFD,0x5A,0x44,0x73,0xAB ))// BBB195D8-6A7F-5A42-9866-25FD5A4473AB
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewFactory: WindowsFoundation.IID {
+    .init(Data1: 0xAEEEC7B9, Data2: 0x3CC8, Data3: 0x52DF, Data4: ( 0x8E,0x2E,0x99,0xA2,0x95,0xC2,0x53,0xAA ))// AEEEC7B9-3CC8-52DF-8E2E-99A295C253AA
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x5A2386E8, Data2: 0x15B8, Data3: 0x5F25, Data4: ( 0x87,0x4B,0x79,0x12,0xF6,0x33,0xCE,0x21 ))// 5A2386E8-15B8-5F25-874B-7912F633CE21
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x9CD1690F, Data2: 0x6C9D, Data3: 0x543C, Data4: ( 0x82,0xF2,0x30,0xCD,0x37,0xD7,0x65,0xB3 ))// 9CD1690F-6C9D-543C-82F2-30CD37D765B3
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics: WindowsFoundation.IID {
+    .init(Data1: 0xC64F1948, Data2: 0x77D3, Data3: 0x5DF5, Data4: ( 0x8D,0x33,0xC5,0x86,0x02,0xD4,0xCF,0xB9 ))// C64F1948-77D3-5DF5-8D33-C58602D4CFB9
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIKeyIndexMapping: WindowsFoundation.IID {
     .init(Data1: 0xB1F3BBA0, Data2: 0x108E, Data3: 0x560D, Data4: ( 0x96,0x81,0x26,0x39,0x1B,0x4B,0xC3,0x0D ))// B1F3BBA0-108E-560D-9681-26391B4BC30D
 }
@@ -10417,6 +10437,371 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
                 innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
             }
             return IItemsSourceView(value!)
+        }
+
+    }
+
+    public class IItemsView: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView }
+
+        public func get_ItemsSource() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemsSource(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_ItemsSource(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ItemsSource(pThis, _value))
+            }
+        }
+
+        public func get_ScrollView() throws -> WinUI.ScrollView? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollView(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.from(abi: value)
+        }
+
+        public func get_VerticalScrollController() throws -> WinUI.AnyIScrollController? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalScrollController(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_VerticalScrollController(_ value: WinUI.AnyIScrollController?) throws {
+            let valueWrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalScrollController(pThis, _value))
+            }
+        }
+
+        public func get_ItemTemplate() throws -> WinUI.AnyIElementFactory? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemTemplate(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Microsoft_UI_Xaml.IElementFactoryWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_ItemTemplate(_ value: WinUI.AnyIElementFactory?) throws {
+            let valueWrapper = __ABI_Microsoft_UI_Xaml.IElementFactoryWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ItemTemplate(pThis, _value))
+            }
+        }
+
+        public func get_Layout() throws -> WinUI.Layout? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Layout(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.LayoutBridge.from(abi: value)
+        }
+
+        public func put_Layout(_ value: WinUI.Layout?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Layout(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_IsItemInvokedEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsItemInvokedEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsItemInvokedEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsItemInvokedEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_SelectionMode() throws -> WinUI.ItemsViewSelectionMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SelectionMode(_ value: WinUI.ItemsViewSelectionMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionMode(pThis, value))
+            }
+        }
+
+        public func get_ItemTransitionProvider() throws -> WinUI.ItemCollectionTransitionProvider? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemTransitionProvider(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.ItemCollectionTransitionProviderBridge.from(abi: value)
+        }
+
+        public func put_ItemTransitionProvider(_ value: WinUI.ItemCollectionTransitionProvider?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ItemTransitionProvider(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CurrentItemIndex() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentItemIndex(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_SelectedItem() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedItem(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_SelectedItems() throws -> WindowsFoundation.AnyIVectorView<Any?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedItems(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVectorView_1_IInspectableWrapper.unwrapFrom(abi: value)
+        }
+
+        public func TryGetItemIndex(_ horizontalViewportRatio: Double, _ verticalViewportRatio: Double, _ index: inout Int32) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TryGetItemIndex(pThis, horizontalViewportRatio, verticalViewportRatio, &index, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func StartBringItemIntoView(_ index: Int32, _ options: WinUI.BringIntoViewOptions?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.StartBringItemIntoView(pThis, index, RawPointer(options)))
+            }
+        }
+
+        public func Select(_ itemIndex: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Select(pThis, itemIndex))
+            }
+        }
+
+        public func Deselect(_ itemIndex: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Deselect(pThis, itemIndex))
+            }
+        }
+
+        public func IsSelected(_ itemIndex: Int32) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsSelected(pThis, itemIndex, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SelectAll() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SelectAll(pThis))
+            }
+        }
+
+        public func DeselectAll() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DeselectAll(pThis))
+            }
+        }
+
+        public func InvertSelection() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.InvertSelection(pThis))
+            }
+        }
+
+        public func add_ItemInvoked(_ handler: TypedEventHandler<WinUI.ItemsView?, WinUI.ItemsViewItemInvokedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ItemInvoked(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ItemInvoked(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ItemInvoked(pThis, token))
+            }
+        }
+
+        public func add_SelectionChanged(_ handler: TypedEventHandler<WinUI.ItemsView?, WinUI.ItemsViewSelectionChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SelectionChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SelectionChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SelectionChanged(pThis, token))
+            }
+        }
+
+    }
+
+    public class IItemsViewFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemsView {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IItemsView(value!)
+        }
+
+    }
+
+    public class IItemsViewItemInvokedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs }
+
+        public func get_InvokedItem() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_InvokedItem(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    public class IItemsViewSelectionChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs }
+
+    }
+
+    public class IItemsViewStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics }
+
+        public func get_IsItemInvokedEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsItemInvokedEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ItemsSourceProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemsSourceProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ItemTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LayoutProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LayoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ItemTransitionProviderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemTransitionProviderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CurrentItemIndexProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentItemIndexProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedItemProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedItemProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ScrollViewProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollViewProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_VerticalScrollControllerProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalScrollControllerProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }

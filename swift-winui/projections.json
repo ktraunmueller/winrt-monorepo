@@ -42,6 +42,7 @@
     "Microsoft.UI.Xaml.Controls.ImageIcon",
     "Microsoft.UI.Xaml.Controls.InfoBar",
     "Microsoft.UI.Xaml.Controls.ItemsRepeater",
+    "Microsoft.UI.Xaml.Controls.ItemsView",
     "Microsoft.UI.Xaml.Controls.HyperlinkButton",
     "Microsoft.UI.Xaml.Controls.ListBox",
     "Microsoft.UI.Xaml.Controls.ListBoxItem",

@@ -48,6 +48,8 @@ public typealias InfoBarSeverity = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CInfoB
 public typealias ItemCollectionTransitionOperation = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemCollectionTransitionOperation
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitiontriggers)
 public typealias ItemCollectionTransitionTriggers = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemCollectionTransitionTriggers
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewselectionmode)
+public typealias ItemsViewSelectionMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.lightdismissoverlaymode)
 public typealias LightDismissOverlayMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CLightDismissOverlayMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewreordermode)
@@ -6983,6 +6985,277 @@ open class ItemsSourceView : WinRTClass, WinUI.INotifyCollectionChanged {
     deinit {
         _default = nil
         _INotifyCollectionChanged = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview)
+open class ItemsView : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsView
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IItemsViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsView")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IItemsViewFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IItemsViewStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsView")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.currentitemindexproperty)
+    public class var currentItemIndexProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_CurrentItemIndexProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.isiteminvokedenabledproperty)
+    public class var isItemInvokedEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_IsItemInvokedEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemtemplateproperty)
+    public class var itemTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_ItemTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemtransitionproviderproperty)
+    public class var itemTransitionProviderProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_ItemTransitionProviderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemssourceproperty)
+    public class var itemsSourceProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_ItemsSourceProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.layoutproperty)
+    public class var layoutProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_LayoutProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.scrollviewproperty)
+    public class var scrollViewProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_ScrollViewProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selecteditemproperty)
+    public class var selectedItemProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_SelectedItemProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selectionmodeproperty)
+    public class var selectionModeProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_SelectionModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.verticalscrollcontrollerproperty)
+    public class var verticalScrollControllerProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_VerticalScrollControllerProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.trygetitemindex)
+    public func tryGetItemIndex(_ horizontalViewportRatio: Double, _ verticalViewportRatio: Double, _ index: inout Int32) throws -> Bool {
+        try _default.TryGetItemIndex(horizontalViewportRatio, verticalViewportRatio, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.startbringitemintoview)
+    public func startBringItemIntoView(_ index: Int32, _ options: WinUI.BringIntoViewOptions!) throws {
+        try _default.StartBringItemIntoView(index, options)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.select)
+    public func select(_ itemIndex: Int32) throws {
+        try _default.Select(itemIndex)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.deselect)
+    public func deselect(_ itemIndex: Int32) throws {
+        try _default.Deselect(itemIndex)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.isselected)
+    public func isSelected(_ itemIndex: Int32) throws -> Bool {
+        try _default.IsSelected(itemIndex)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selectall)
+    public func selectAll() throws {
+        try _default.SelectAll()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.deselectall)
+    public func deselectAll() throws {
+        try _default.DeselectAll()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.invertselection)
+    public func invertSelection() throws {
+        try _default.InvertSelection()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.currentitemindex)
+    public var currentItemIndex : Int32 {
+        get { try! _default.get_CurrentItemIndex() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.isiteminvokedenabled)
+    public var isItemInvokedEnabled : Bool {
+        get { try! _default.get_IsItemInvokedEnabled() }
+        set { try! _default.put_IsItemInvokedEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemtemplate)
+    public var itemTemplate : WinUI.AnyIElementFactory! {
+        get { try! _default.get_ItemTemplate() }
+        set { try! _default.put_ItemTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemtransitionprovider)
+    public var itemTransitionProvider : ItemCollectionTransitionProvider! {
+        get { try! _default.get_ItemTransitionProvider() }
+        set { try! _default.put_ItemTransitionProvider(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemssource)
+    public var itemsSource : Any! {
+        get { try! _default.get_ItemsSource() }
+        set { try! _default.put_ItemsSource(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.layout)
+    public var layout : Layout! {
+        get { try! _default.get_Layout() }
+        set { try! _default.put_Layout(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.scrollview)
+    public var scrollView : ScrollView! {
+        get { try! _default.get_ScrollView() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selecteditem)
+    public var selectedItem : Any! {
+        get { try! _default.get_SelectedItem() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selecteditems)
+    public var selectedItems : WindowsFoundation.AnyIVectorView<Any?>! {
+        get { try! _default.get_SelectedItems() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selectionmode)
+    public var selectionMode : ItemsViewSelectionMode {
+        get { try! _default.get_SelectionMode() }
+        set { try! _default.put_SelectionMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.verticalscrollcontroller)
+    public var verticalScrollController : WinUI.AnyIScrollController! {
+        get { try! _default.get_VerticalScrollController() }
+        set { try! _default.put_VerticalScrollController(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.iteminvoked)
+    public lazy var itemInvoked : Event<TypedEventHandler<ItemsView?, ItemsViewItemInvokedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_ItemInvoked($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_ItemInvoked($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selectionchanged)
+    public lazy var selectionChanged : Event<TypedEventHandler<ItemsView?, ItemsViewSelectionChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_SelectionChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_SelectionChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewiteminvokedeventargs)
+public final class ItemsViewItemInvokedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsViewItemInvokedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewiteminvokedeventargs.invokeditem)
+    public var invokedItem : Any! {
+        get { try! _default.get_InvokedItem() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewselectionchangedeventargs)
+public final class ItemsViewSelectionChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsViewSelectionChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    deinit {
+        _default = nil
     }
 }
 
@@ -18219,6 +18492,22 @@ extension WinUI.ItemCollectionTransitionTriggers {
     }
 }
 extension WinUI.ItemCollectionTransitionTriggers: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.ItemsViewSelectionMode {
+    public static var none : WinUI.ItemsViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode_None
+    }
+    public static var single : WinUI.ItemsViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode_Single
+    }
+    public static var multiple : WinUI.ItemsViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode_Multiple
+    }
+    public static var extended : WinUI.ItemsViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode_Extended
+    }
+}
+extension WinUI.ItemsViewSelectionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.LightDismissOverlayMode {
     public static var auto : WinUI.LightDismissOverlayMode {

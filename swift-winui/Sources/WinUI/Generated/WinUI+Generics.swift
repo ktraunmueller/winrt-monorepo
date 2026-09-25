@@ -37267,6 +37267,108 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__
         return handler
     }
 }
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xa4a29267, Data2: 0x104a, Data3: 0x5969, Data4: ( 0x8d,0xf8,0xe3,0x7a,0x3b,0xd1,0x3b,0x3c ))// a4a29267-104a-5969-8df8-e37a3bd13b3c
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinUI.ItemsView? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.from(abi: ComPtr($1))
+            let args: WinUI.ItemsViewItemInvokedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewItemInvokedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsBridge>
+public class TypedEventHandlerItemsView_ItemsViewItemInvokedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgs }
+
+    open func Invoke(_ sender: WinUI.ItemsView?, _ args: WinUI.ItemsViewItemInvokedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ItemsView?, WinUI.ItemsViewItemInvokedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgs
+    internal typealias SwiftABI = WinUI.TypedEventHandlerItemsView_ItemsViewItemInvokedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x1f3f8c10, Data2: 0x41be, Data3: 0x574a, Data4: ( 0x9f,0xdc,0x22,0x10,0xf0,0xd9,0xd0,0xfc ))// 1f3f8c10-41be-574a-9fdc-2210f0d9d0fc
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinUI.ItemsView? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.from(abi: ComPtr($1))
+            let args: WinUI.ItemsViewSelectionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewSelectionChangedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsBridge>
+public class TypedEventHandlerItemsView_ItemsViewSelectionChangedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgs }
+
+    open func Invoke(_ sender: WinUI.ItemsView?, _ args: WinUI.ItemsViewSelectionChangedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ItemsView?, WinUI.ItemsViewSelectionChangedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgs
+    internal typealias SwiftABI = WinUI.TypedEventHandlerItemsView_ItemsViewSelectionChangedEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
 private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CLayout_IInspectable: WindowsFoundation.IID {
     .init(Data1: 0x38efeef8, Data2: 0x0b6d, Data3: 0x5875, Data4: ( 0xab,0x47,0x41,0x0b,0xf7,0x81,0xc6,0x83 ))// 38efeef8-0b6d-5875-ab47-410bf781c683
 }

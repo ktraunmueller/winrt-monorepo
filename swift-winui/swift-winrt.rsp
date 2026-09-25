@@ -29,6 +29,7 @@
 -include Microsoft.UI.Xaml.Controls.ImageIcon
 -include Microsoft.UI.Xaml.Controls.InfoBar
 -include Microsoft.UI.Xaml.Controls.ItemsRepeater
+-include Microsoft.UI.Xaml.Controls.ItemsView
 -include Microsoft.UI.Xaml.Controls.HyperlinkButton
 -include Microsoft.UI.Xaml.Controls.ListBox
 -include Microsoft.UI.Xaml.Controls.ListBoxItem

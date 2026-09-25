@@ -1607,6 +1607,45 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         public typealias Composable = IItemsSourceView
     }
 
+    public enum ItemsViewBridge: ComposableBridge {
+        public typealias SwiftProjection = ItemsView
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView>?) -> ItemsView? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = ItemsView
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsView
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum ItemsViewItemInvokedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ItemsViewItemInvokedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs>?) -> ItemsViewItemInvokedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ItemsViewSelectionChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ItemsViewSelectionChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs>?) -> ItemsViewSelectionChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum LayoutBridge: ComposableBridge {
         public typealias SwiftProjection = Layout
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayout
@@ -3833,6 +3872,27 @@ public class ItemsSourceViewMaker: MakeFromAbi {
     public typealias SwiftType = ItemsSourceView
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return ItemsSourceView(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ItemsViewMaker: MakeFromAbi {
+    public typealias SwiftType = ItemsView
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ItemsView(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ItemsViewItemInvokedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ItemsViewItemInvokedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ItemsViewItemInvokedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ItemsViewSelectionChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ItemsViewSelectionChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ItemsViewSelectionChangedEventArgs(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
