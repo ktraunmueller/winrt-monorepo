@@ -52,6 +52,14 @@ public class WindowsAppRuntimeInitializer {
         return unsafeBitCast(pfn, to: pfnMddBootstrapShutdown.self)
     }()
 
+    private lazy var selfContainedRuntimeDll: HMODULE = {
+        let module = "Microsoft.WindowsAppRuntime.dll".withCString(encodedAs: UTF16.self, LoadLibraryW)
+        guard let module else {
+            preconditionFailure("Failed to load Microsoft.WindowsAppRuntime.dll")
+        }
+        return module
+    }()
+
     private func processHasIdentity() -> Bool {
         var length: UInt32 = 0
         return GetCurrentPackageFullName(&length, nil) != APPMODEL_ERROR_NO_PACKAGE
@@ -74,6 +82,12 @@ public class WindowsAppRuntimeInitializer {
 
         try CHECKED(SetProcessDpiAwareness(PROCESS_PER_MONITOR_DPI_AWARE))
 
+        if selfContained && !processHasIdentity() {
+            // Unpackaged self-contained apps need the runtime loaded before WinRT activation so
+            // Windows App SDK resources and registration-free classes can be resolved.
+            _ = selfContainedRuntimeDll
+        }
+
         guard initWinAppSDK else {
             return
         }
@@ -95,7 +109,7 @@ public class WindowsAppRuntimeInitializer {
         RoUninitialize()    
         if initWinAppSDK {
             Shutdown()
+            FreeLibrary(bootstrapperDll)
         }
-        FreeLibrary(bootstrapperDll)
     }
 }
