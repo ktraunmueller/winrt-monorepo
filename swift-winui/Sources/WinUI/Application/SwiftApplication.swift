@@ -81,17 +81,21 @@ open class SwiftApplication: Application, IXamlMetadataProvider {
             // Dispatch.DispatchQueue.main tasks
             time = Foundation.RunLoop.main.limitDate(forMode: .default)
 
-            // If Foundation.RunLoop doesn't contain any timers or the timers should
-            // not be running right now, we interrupt the current loop or otherwise
-            // continue to the next iteration.
-            } while (time?.timeIntervalSinceNow ?? -1) <= 0
+            // Keep processing timers that are due; no timer means we can wait for messages.
+            } while (time?.timeIntervalSinceNow ?? 1) <= 0
 
+            let timeout: DWORD
+            if let time {
+                // Windows expects milliseconds. Round up to avoid polling before a timer is due,
+                // and reserve INFINITE for the no-timer case.
+                let milliseconds = max(0, time.timeIntervalSinceNow * 1000).rounded(.up)
+                timeout = DWORD(min(milliseconds, Double(INFINITE - 1)))
+            } else {
+                timeout = INFINITE
+            }
             // Yield control to the system until the earlier of a requisite timer
             // expiration or a message is posted to the runloop.
-            _ = MsgWaitForMultipleObjects(0, nil, false,
-                                        DWORD(exactly: time?.timeIntervalSinceNow ?? -1)
-                                            ?? 0,
-                                        QS_ALLINPUT)
+            _ = MsgWaitForMultipleObjects(0, nil, false, timeout, QS_ALLINPUT)
         }
         return 0
     }
