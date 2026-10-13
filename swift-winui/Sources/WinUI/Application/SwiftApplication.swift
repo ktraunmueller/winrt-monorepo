@@ -84,18 +84,19 @@ open class SwiftApplication: Application, IXamlMetadataProvider {
             // Keep processing timers that are due; no timer means we can wait for messages.
             } while (time?.timeIntervalSinceNow ?? 1) <= 0
 
+            // The Windows wait does not observe Foundation or main-dispatch event handles.
+            // Revisit them regularly even when there is no timer or window message.
+            let maximumWaitMilliseconds: DWORD = 10
             let timeout: DWORD
             if let time {
-                // Windows expects milliseconds. Round up to avoid polling before a timer is due,
-                // and reserve INFINITE for the no-timer case.
                 let milliseconds = max(0, time.timeIntervalSinceNow * 1000).rounded(.up)
-                timeout = DWORD(min(milliseconds, Double(INFINITE - 1)))
+                timeout = DWORD(min(milliseconds, Double(maximumWaitMilliseconds)))
             } else {
-                timeout = INFINITE
+                timeout = maximumWaitMilliseconds
             }
-            // Yield control to the system until the earlier of a requisite timer
-            // expiration or a message is posted to the runloop.
-            _ = MsgWaitForMultipleObjects(0, nil, false, timeout, QS_ALLINPUT)
+            // Foundation can check the message queue after our PeekMessage loop.
+            // Include input already seen by that check so it cannot be stranded in the queue.
+            _ = MsgWaitForMultipleObjectsEx(0, nil, timeout, QS_ALLINPUT, DWORD(MWMO_INPUTAVAILABLE))
         }
         return 0
     }
